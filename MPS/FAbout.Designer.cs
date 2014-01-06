@@ -112,7 +112,7 @@ namespace RSMPS
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(260, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Copyright 2006 - 2011 Hunt, Guillot && Associates, LLC";
+            this.label1.Text = "Copyright 2006 - 2014 Hunt, Guillot && Associates, LLC";
             // 
             // label4
             // 
