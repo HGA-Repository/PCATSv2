@@ -1,0 +1,731 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B8ADE3ED-9130-42AE-95A5-E147EB00BF51}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RSMPS</RootNamespace>
+    <AssemblyName>MPS</AssemblyName>
+    <ApplicationIcon>address_book.ico</ApplicationIcon>
+    <ManifestCertificateThumbprint>3B5C89FE254DA382D1AB8E0512076EF894601BBB</ManifestCertificateThumbprint>
+    <ManifestKeyFile>MPS_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>false</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>\\fileserver\corporate\IT Department\Revsol\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>PCATS</ProductName>
+    <PublisherName>HGA</PublisherName>
+    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationVersion>1.0.0.7</ApplicationVersion>
+    <UseApplicationTrust>true</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>false</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>TEST;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\MPS.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ActiveReports.Document, Version=6.2.4238.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveReports.PdfExport, Version=6.2.4238.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveReports.Viewer6, Version=6.2.4238.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveReports.XlsExport, Version=6.2.4238.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveReports6, Version=6.2.4238.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.C1Excel.2, Version=2.1.20121.228, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1Command.2, Version=2.0.20123.19538, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\C1.Win.C1Command.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1FlexGrid.2, Version=2.6.20123.730, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\C1.Win.C1FlexGrid.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1Input.2, Version=2.0.20123.33290, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\C1.Win.C1Input.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1List.2, Version=2.1.20123.220, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\C1.Win.C1List.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1TrueDBGrid.2, Version=2.0.20123.61277, Culture=neutral, PublicKeyToken=75ae3fb0e2b1e0da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\C1.Win.C1TrueDBGrid.2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FPnt_JobStat_Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FPnt_JobStat_Customer.Designer.cs">
+      <DependentUpon>FPnt_JobStat_Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dsReleaseDocs.cs">
+      <DependentUpon>dsReleaseDocs.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dsReleaseDocs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReleaseDocs.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsSendTo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsSendTo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsTranmittalDocs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsTranmittalDocs.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsTypeList.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsTypeList.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FAbout.Designer.cs">
+      <DependentUpon>FAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FBudgetImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FBudgetImport.Designer.cs">
+      <DependentUpon>FBudgetImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FCust_AddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCust_AddEdit.Designer.cs">
+      <DependentUpon>FCust_AddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FCust_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCust_List.Designer.cs">
+      <DependentUpon>FCust_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FDept_AddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDept_AddEdit.Designer.cs">
+      <DependentUpon>FDept_AddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FDept_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDept_List.Designer.cs">
+      <DependentUpon>FDept_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FDLog List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDLog List.Designer.cs">
+      <DependentUpon>FDLog List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FDLog_AddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDLog_AddEdit.Designer.cs">
+      <DependentUpon>FDLog_AddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FDLog_Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDLog_Update.Designer.cs">
+      <DependentUpon>FDLog_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FEmp_AddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FEmp_AddEdit.Designer.cs">
+      <DependentUpon>FEmp_AddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FEmp_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FEmp_List.Designer.cs">
+      <DependentUpon>FEmp_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FEmp_TitleAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FEmp_TitleAddEdit.Designer.cs">
+      <DependentUpon>FEmp_TitleAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FEmp_TitleList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FEmp_TitleList.Designer.cs">
+      <DependentUpon>FEmp_TitleList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FLoc_AddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FLoc_AddEdit.Designer.cs">
+      <DependentUpon>FLoc_AddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FLogin.Designer.cs">
+      <DependentUpon>FLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMain.Designer.cs">
+      <DependentUpon>FMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FPnt_GridPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FPnt_GridPrint.Designer.cs">
+      <DependentUpon>FPnt_GridPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FPnt_JobStat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FPnt_JobStat.Designer.cs">
+      <DependentUpon>FPnt_JobStat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FPnt_Variance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FPnt_Variance.Designer.cs">
+      <DependentUpon>FPnt_Variance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FProj_AddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FProj_AddEdit.Designer.cs">
+      <DependentUpon>FProj_AddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FProj_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FProj_List.Designer.cs">
+      <DependentUpon>FProj_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FScd_AddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FScd_AddEdit.Designer.cs">
+      <DependentUpon>FScd_AddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FScd_AddProjEmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FScd_AddProjEmp.Designer.cs">
+      <DependentUpon>FScd_AddProjEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FScd_AllDepts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FScd_AllDepts.Designer.cs">
+      <DependentUpon>FScd_AllDepts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FScd_EmpSwap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FScd_EmpSwap.Designer.cs">
+      <DependentUpon>FScd_EmpSwap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FScd_ProjSummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FScd_ProjSummary.Designer.cs">
+      <DependentUpon>FScd_ProjSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FSec_UserAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FSec_UserAddEdit.Designer.cs">
+      <DependentUpon>FSec_UserAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FSec_UserList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FSec_UserList.Designer.cs">
+      <DependentUpon>FSec_UserList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FTran_IssueDocs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FTran_IssueDocs.Designer.cs">
+      <DependentUpon>FTran_IssueDocs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FTran_IssueList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FTran_IssueList.Designer.cs">
+      <DependentUpon>FTran_IssueList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FTran_IssueNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FTran_IssueNew.Designer.cs">
+      <DependentUpon>FTran_IssueNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FTran_TranAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FTran_TranAddEdit.Designer.cs">
+      <DependentUpon>FTran_TranAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FWeekCount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FWeekCount.Designer.cs">
+      <DependentUpon>FWeekCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FPnt_JobStat_Customer.resx">
+      <DependentUpon>FPnt_JobStat_Customer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FAbout.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FBudgetImport.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FBudgetImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FCust_AddEdit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FCust_AddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FCust_List.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FCust_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FDept_AddEdit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FDept_AddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FDept_List.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FDept_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FDLog List.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FDLog List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FDLog_AddEdit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FDLog_AddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FDLog_Update.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FDLog_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FEmp_AddEdit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FEmp_AddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FEmp_List.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FEmp_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FEmp_TitleAddEdit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FEmp_TitleAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FEmp_TitleList.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FEmp_TitleList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FLoc_AddEdit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FLoc_AddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FLogin.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FPnt_GridPrint.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FPnt_GridPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FPnt_JobStat.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FPnt_JobStat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FPnt_Variance.resx">
+      <DependentUpon>FPnt_Variance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FProj_AddEdit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FProj_AddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FProj_List.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FProj_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FScd_AddEdit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FScd_AddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FScd_AddProjEmp.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FScd_AddProjEmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FScd_AllDepts.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FScd_AllDepts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FScd_EmpSwap.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FScd_EmpSwap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FScd_ProjSummary.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FScd_ProjSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSec_UserAddEdit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FSec_UserAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSec_UserList.resx">
+      <DependentUpon>FSec_UserList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FTran_IssueDocs.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FTran_IssueDocs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FTran_IssueList.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FTran_IssueList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FTran_IssueNew.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FTran_IssueNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FTran_TranAddEdit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FTran_TranAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FWeekCount.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FWeekCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="dsReleaseDocs.xsc">
+      <DependentUpon>dsReleaseDocs.xsd</DependentUpon>
+    </None>
+    <None Include="dsReleaseDocs.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReleaseDocs.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsReleaseDocs.xss">
+      <DependentUpon>dsReleaseDocs.xsd</DependentUpon>
+    </None>
+    <None Include="dsSendTo.xsc">
+      <DependentUpon>dsSendTo.xsd</DependentUpon>
+    </None>
+    <None Include="dsSendTo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsSendTo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsSendTo.xss">
+      <DependentUpon>dsSendTo.xsd</DependentUpon>
+    </None>
+    <None Include="dsTranmittalDocs.xsc">
+      <DependentUpon>dsTranmittalDocs.xsd</DependentUpon>
+    </None>
+    <None Include="dsTranmittalDocs.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsTranmittalDocs.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsTranmittalDocs.xss">
+      <DependentUpon>dsTranmittalDocs.xsd</DependentUpon>
+    </None>
+    <None Include="dsTypeList.xsc">
+      <DependentUpon>dsTypeList.xsd</DependentUpon>
+    </None>
+    <None Include="dsTypeList.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsTypeList.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsTypeList.xss">
+      <DependentUpon>dsTypeList.xsd</DependentUpon>
+    </None>
+    <None Include="MPS_TemporaryKey.pfx" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MPSBudget\MPSBudget.csproj">
+      <Project>{ED200D7A-E10B-477A-8D5C-9891956AEF26}</Project>
+      <Name>MPSBudget</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MPSBus\MPSBus.csproj">
+      <Project>{12E92C40-6B50-4255-87B2-C9C010B6C284}</Project>
+      <Name>MPSBus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MPSCRprt\MPSCRprt.csproj">
+      <Project>{74CA7DF9-7499-4FB4-9B7A-4B1F437BBDE7}</Project>
+      <Name>MPSCRprt</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MPSLib\MPSLib.csproj">
+      <Project>{442DCC3C-E62D-41E8-BBEF-BD7C38D002EF}</Project>
+      <Name>MPSLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MPSPrnt\MPSPrnt.csproj">
+      <Project>{03CA7A04-6B0B-4F01-A2B3-B7EA29EE4B6E}</Project>
+      <Name>MPSPrnt</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MPSSumry\MPSSumry.csproj">
+      <Project>{9C730E07-134B-4939-AF9D-53B5DEC0B4AB}</Project>
+      <Name>MPSSumry</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MPSTrans\MPSTrans.csproj">
+      <Project>{C683EAD8-4ECD-481B-B8AB-FBDA10D3A2D9}</Project>
+      <Name>MPSTrans</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RevSolLb\RevSolLb.csproj">
+      <Project>{4AAE51B8-8EF7-4794-95B3-F4175F982CBE}</Project>
+      <Name>RevSolLb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RSLib\RSLib.csproj">
+      <Project>{57DB77B5-A4FC-4360-BB87-BDE12BCD73F0}</Project>
+      <Name>RSLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="address_book.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppConfig.xml" />
+    <Content Include="AppState.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Debug\DataConfigCR.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Release\DataConfigCR.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Test\DataConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Debug\DataConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\Release\DataConfig.xml" />
+    <Content Include="Config\Test\DataConfigCR.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DataConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DataConfigCR.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\testing.png" />
+    <None Include="Resources\CheckX.png" />
+    <None Include="Resources\CheckXAlt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="ActiveReports.Chart">
+      <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Config\Debug\DataConfig.xml">
+      <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Config\Release\DataConfig.xml">
+      <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Config\Test\DataConfig.xml">
+      <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="RevSolLb">
+      <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>xcopy "$(ProjectDir)Config\$(ConfigurationName)\*" "$(ProjectDir)" /E /R /Y</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

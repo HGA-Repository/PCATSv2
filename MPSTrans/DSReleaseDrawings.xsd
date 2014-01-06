@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSReleaseDrawings" targetNamespace="http://tempuri.org/DSReleaseDrawings.xsd" xmlns:mstns="http://tempuri.org/DSReleaseDrawings.xsd" xmlns="http://tempuri.org/DSReleaseDrawings.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSReleaseDrawings" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DSReleaseDrawings" msprop:Generator_DataSetName="DSReleaseDrawings" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Releases" msprop:Generator_UserTableName="Releases" msprop:Generator_RowDeletedName="ReleasesRowDeleted" msprop:Generator_RowChangedName="ReleasesRowChanged" msprop:Generator_RowClassName="ReleasesRow" msprop:Generator_RowChangingName="ReleasesRowChanging" msprop:Generator_RowEvArgName="ReleasesRowChangeEvent" msprop:Generator_RowEvHandlerName="ReleasesRowChangeEventHandler" msprop:Generator_TableClassName="ReleasesDataTable" msprop:Generator_TableVarName="tableReleases" msprop:Generator_RowDeletingName="ReleasesRowDeleting" msprop:Generator_TablePropName="Releases">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="DocID" msprop:Generator_UserColumnName="DocID" msprop:Generator_ColumnPropNameInRow="DocID" msprop:Generator_ColumnVarNameInTable="columnDocID" msprop:Generator_ColumnPropNameInTable="DocIDColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="HGANumber" msprop:Generator_UserColumnName="HGANumber" msprop:Generator_ColumnPropNameInRow="HGANumber" msprop:Generator_ColumnVarNameInTable="columnHGANumber" msprop:Generator_ColumnPropNameInTable="HGANumberColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="CADNumber" msprop:Generator_UserColumnName="CADNumber" msprop:Generator_ColumnPropNameInRow="CADNumber" msprop:Generator_ColumnVarNameInTable="columnCADNumber" msprop:Generator_ColumnPropNameInTable="CADNumberColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="TitleDesc" msprop:Generator_UserColumnName="TitleDesc" msprop:Generator_ColumnPropNameInRow="TitleDesc" msprop:Generator_ColumnVarNameInTable="columnTitleDesc" msprop:Generator_ColumnPropNameInTable="TitleDescColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Revision" msprop:Generator_UserColumnName="Revision" msprop:Generator_ColumnPropNameInRow="Revision" msprop:Generator_ColumnVarNameInTable="columnRevision" msprop:Generator_ColumnPropNameInTable="RevisionColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="DateReleased" msprop:Generator_UserColumnName="DateReleased" msprop:Generator_ColumnPropNameInRow="DateReleased" msprop:Generator_ColumnVarNameInTable="columnDateReleased" msprop:Generator_ColumnPropNameInTable="DateReleasedColumn" type="xs:dateTime" default="2001-01-01T00:00:00-06:00" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

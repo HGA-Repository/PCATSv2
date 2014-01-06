@@ -1,0 +1,371 @@
+using System;
+using DataDynamics.ActiveReports;
+using DataDynamics.ActiveReports.Document;
+
+namespace RSMPS
+{
+	public class rprtCostSummary : ActiveReport
+	{
+        private CPCostSummary.HoursInfo msHours = new CPCostSummary.HoursInfo();
+        private CPCostSummary.DollarsInfo msDollars = new CPCostSummary.DollarsInfo();
+        private CPCostSummary.SummaryInfo msSummary = new CPCostSummary.SummaryInfo();
+
+        public CPCostSummary.SummaryInfo SummaryInformation
+        {
+            get { return msSummary; }
+            set { msSummary = value; }
+        }
+
+        public CPCostSummary.HoursInfo HoursInformation
+        {
+            get { return msHours; }
+            set { msHours = value; }
+        }
+
+        public CPCostSummary.DollarsInfo DollarsInformation
+        {
+            get { return msDollars; }
+            set { msDollars = value; }
+        }
+
+		public rprtCostSummary()
+		{
+			InitializeReport();
+		}
+
+		private void PageHeader_Format(object sender, System.EventArgs eArgs)
+		{
+            txtProject.Text = msSummary.project;
+            txtManager.Text = msSummary.manager;
+            txtTitle.Text = msSummary.title;
+            txtWeekEnding.Text = msSummary.weekending;
+            RichTextBox.RTF = msSummary.comments;
+
+
+            // load the hours information
+            txtBud1000.Text = msHours.bud1000;
+            txtBud2000.Text = msHours.bud2000;
+            txtBud3000.Text = msHours.bud3000;
+            txtBud4000.Text = msHours.bud4000;
+            txtBud5000.Text = msHours.bud5000;
+            txtBudTot.Text = msHours.budTot;
+
+            txtSpnt1000.Text = msHours.spnt1000;
+            txtSpnt2000.Text = msHours.spnt2000;
+            txtSpnt3000.Text = msHours.spnt3000;
+            txtSpnt4000.Text = msHours.spnt4000;
+            txtSpnt5000.Text = msHours.spnt5000;
+            txtSpntTot.Text = msHours.spntTot;
+
+            txtFtc1000.Text = msHours.ftc1000;
+            txtFtc2000.Text = msHours.ftc2000;
+            txtFtc3000.Text = msHours.ftc3000;
+            txtFtc4000.Text = msHours.ftc4000;
+            txtFtc5000.Text = msHours.ftc5000;
+            txtFtcTot.Text = msHours.ftcTot;
+
+            txtFore1000.Text = msHours.fore1000;
+            txtFore2000.Text = msHours.fore2000;
+            txtFore3000.Text = msHours.fore3000;
+            txtFore4000.Text = msHours.fore4000;
+            txtFore5000.Text = msHours.fore5000;
+            txtForeTot.Text = msHours.foreTot;
+
+            // load the Dollars information
+            txtDBud1000.Text = msDollars.bud1000;
+            txtDBud2000.Text = msDollars.bud2000;
+            txtDBud3000.Text = msDollars.bud3000;
+            txtDBud4000.Text = msDollars.bud4000;
+            txtDBud5000.Text = msDollars.bud5000;
+            txtDBudExp.Text = msDollars.budExp;
+            txtDBudTot.Text = msDollars.budTot;
+
+            txtDSpnt1000.Text = msDollars.spnt1000;
+            txtDSpnt2000.Text = msDollars.spnt2000;
+            txtDSpnt3000.Text = msDollars.spnt3000;
+            txtDSpnt4000.Text = msDollars.spnt4000;
+            txtDSpnt5000.Text = msDollars.spnt5000;
+            txtDSpntExp.Text = msDollars.spntExp;
+            txtDSpntTot.Text = msDollars.spntTot;
+
+            txtDFtc1000.Text = msDollars.ftc1000;
+            txtDFtc2000.Text = msDollars.ftc2000;
+            txtDFtc3000.Text = msDollars.ftc3000;
+            txtDFtc4000.Text = msDollars.ftc4000;
+            txtDFtc5000.Text = msDollars.ftc5000;
+            txtDFtcExp.Text = msDollars.ftcExp;
+            txtDFtcTot.Text = msDollars.ftcTot;
+
+            txtDFore1000.Text = msDollars.fore1000;
+            txtDFore2000.Text = msDollars.fore2000;
+            txtDFore3000.Text = msDollars.fore3000;
+            txtDFore4000.Text = msDollars.fore4000;
+            txtDFore5000.Text = msDollars.fore5000;
+            txtDForeExp.Text = msDollars.foreExp;
+            txtDForeTot.Text = msDollars.foreTot;
+
+            if (msSummary.showdollars == true)
+                shpCover.Visible = false;
+            else
+                shpCover.Visible = true;
+        }
+
+		private void rprtCostSummary_ReportStart(object sender, System.EventArgs eArgs)
+		{
+            lblPrinted.Text = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
+		}
+
+		#region ActiveReports Designer generated code
+		private DataDynamics.ActiveReports.PageHeader PageHeader = null;
+		private DataDynamics.ActiveReports.Shape Shape = null;
+		private DataDynamics.ActiveReports.Shape Shape1 = null;
+		private DataDynamics.ActiveReports.Picture Picture = null;
+		private DataDynamics.ActiveReports.Label Label = null;
+		private DataDynamics.ActiveReports.Label Label1 = null;
+		private DataDynamics.ActiveReports.Label Label2 = null;
+		private DataDynamics.ActiveReports.Label Label3 = null;
+		private DataDynamics.ActiveReports.Label Label4 = null;
+		private DataDynamics.ActiveReports.TextBox txtProject = null;
+		private DataDynamics.ActiveReports.TextBox txtManager = null;
+		private DataDynamics.ActiveReports.TextBox txtTitle = null;
+		private DataDynamics.ActiveReports.TextBox txtWeekEnding = null;
+		private DataDynamics.ActiveReports.Line Line = null;
+		private DataDynamics.ActiveReports.TextBox txtBud1000 = null;
+		private DataDynamics.ActiveReports.TextBox txtBud2000 = null;
+		private DataDynamics.ActiveReports.TextBox txtBud3000 = null;
+		private DataDynamics.ActiveReports.TextBox txtBud4000 = null;
+		private DataDynamics.ActiveReports.TextBox txtBud5000 = null;
+		private DataDynamics.ActiveReports.TextBox txtBudTot = null;
+		private DataDynamics.ActiveReports.TextBox txtSpnt1000 = null;
+		private DataDynamics.ActiveReports.TextBox txtSpnt2000 = null;
+		private DataDynamics.ActiveReports.TextBox txtSpnt3000 = null;
+		private DataDynamics.ActiveReports.TextBox txtSpnt4000 = null;
+		private DataDynamics.ActiveReports.TextBox txtSpnt5000 = null;
+		private DataDynamics.ActiveReports.TextBox txtSpntTot = null;
+		private DataDynamics.ActiveReports.TextBox txtFtc1000 = null;
+		private DataDynamics.ActiveReports.TextBox txtFtc2000 = null;
+		private DataDynamics.ActiveReports.TextBox txtFtc3000 = null;
+		private DataDynamics.ActiveReports.TextBox txtFtc4000 = null;
+		private DataDynamics.ActiveReports.TextBox txtFtc5000 = null;
+		private DataDynamics.ActiveReports.TextBox txtFtcTot = null;
+		private DataDynamics.ActiveReports.TextBox txtFore1000 = null;
+		private DataDynamics.ActiveReports.TextBox txtFore2000 = null;
+		private DataDynamics.ActiveReports.TextBox txtFore3000 = null;
+		private DataDynamics.ActiveReports.TextBox txtFore4000 = null;
+		private DataDynamics.ActiveReports.TextBox txtFore5000 = null;
+		private DataDynamics.ActiveReports.TextBox txtForeTot = null;
+		private DataDynamics.ActiveReports.Label Label5 = null;
+		private DataDynamics.ActiveReports.Label Label6 = null;
+		private DataDynamics.ActiveReports.Label Label7 = null;
+		private DataDynamics.ActiveReports.Label Label8 = null;
+		private DataDynamics.ActiveReports.Label Label9 = null;
+		private DataDynamics.ActiveReports.Label Label10 = null;
+		private DataDynamics.ActiveReports.Label Label11 = null;
+		private DataDynamics.ActiveReports.Label Label12 = null;
+		private DataDynamics.ActiveReports.TextBox txtDBud1000 = null;
+		private DataDynamics.ActiveReports.TextBox txtDBud2000 = null;
+		private DataDynamics.ActiveReports.TextBox txtDBud3000 = null;
+		private DataDynamics.ActiveReports.TextBox txtDBud4000 = null;
+		private DataDynamics.ActiveReports.TextBox txtDBud5000 = null;
+		private DataDynamics.ActiveReports.TextBox txtDBudTot = null;
+		private DataDynamics.ActiveReports.TextBox txtDSpnt1000 = null;
+		private DataDynamics.ActiveReports.TextBox txtDSpnt2000 = null;
+		private DataDynamics.ActiveReports.TextBox txtDSpnt3000 = null;
+		private DataDynamics.ActiveReports.TextBox txtDSpnt4000 = null;
+		private DataDynamics.ActiveReports.TextBox txtDSpnt5000 = null;
+		private DataDynamics.ActiveReports.TextBox txtDSpntTot = null;
+		private DataDynamics.ActiveReports.TextBox txtDFtc1000 = null;
+		private DataDynamics.ActiveReports.TextBox txtDFtc2000 = null;
+		private DataDynamics.ActiveReports.TextBox txtDFtc3000 = null;
+		private DataDynamics.ActiveReports.TextBox txtDFtc4000 = null;
+		private DataDynamics.ActiveReports.TextBox txtDFtc5000 = null;
+		private DataDynamics.ActiveReports.TextBox txtDFtcTot = null;
+		private DataDynamics.ActiveReports.TextBox txtDFore1000 = null;
+		private DataDynamics.ActiveReports.TextBox txtDFore2000 = null;
+		private DataDynamics.ActiveReports.TextBox txtDFore3000 = null;
+		private DataDynamics.ActiveReports.TextBox txtDFore4000 = null;
+		private DataDynamics.ActiveReports.TextBox txtDFore5000 = null;
+		private DataDynamics.ActiveReports.TextBox txtDForeTot = null;
+		private DataDynamics.ActiveReports.Label Label13 = null;
+		private DataDynamics.ActiveReports.Label Label14 = null;
+		private DataDynamics.ActiveReports.Label Label15 = null;
+		private DataDynamics.ActiveReports.Label Label16 = null;
+		private DataDynamics.ActiveReports.Label Label17 = null;
+		private DataDynamics.ActiveReports.Label Label18 = null;
+		private DataDynamics.ActiveReports.Label Label19 = null;
+		private DataDynamics.ActiveReports.Label Label20 = null;
+		private DataDynamics.ActiveReports.TextBox txtDBudExp = null;
+		private DataDynamics.ActiveReports.TextBox txtDSpntExp = null;
+		private DataDynamics.ActiveReports.TextBox txtDFtcExp = null;
+		private DataDynamics.ActiveReports.TextBox txtDForeExp = null;
+		private DataDynamics.ActiveReports.Label Label21 = null;
+		private DataDynamics.ActiveReports.Label Label22 = null;
+		private DataDynamics.ActiveReports.Label Label23 = null;
+		private DataDynamics.ActiveReports.Label Label24 = null;
+		private DataDynamics.ActiveReports.Label Label25 = null;
+		private DataDynamics.ActiveReports.Label Label26 = null;
+		private DataDynamics.ActiveReports.Label Label27 = null;
+		private DataDynamics.ActiveReports.Label Label28 = null;
+		private DataDynamics.ActiveReports.Label Label29 = null;
+		private DataDynamics.ActiveReports.RichTextBox RichTextBox = null;
+		private DataDynamics.ActiveReports.Line Line1 = null;
+		private DataDynamics.ActiveReports.Line Line2 = null;
+		private DataDynamics.ActiveReports.Line Line3 = null;
+		private DataDynamics.ActiveReports.Line Line4 = null;
+		private DataDynamics.ActiveReports.Line Line5 = null;
+		private DataDynamics.ActiveReports.Line Line6 = null;
+		private DataDynamics.ActiveReports.Line Line7 = null;
+		private DataDynamics.ActiveReports.Line Line8 = null;
+		private DataDynamics.ActiveReports.Line Line9 = null;
+		private DataDynamics.ActiveReports.Line Line10 = null;
+		private DataDynamics.ActiveReports.Line Line11 = null;
+		private DataDynamics.ActiveReports.Line Line12 = null;
+		private DataDynamics.ActiveReports.Line Line13 = null;
+		private DataDynamics.ActiveReports.Line Line14 = null;
+		private DataDynamics.ActiveReports.Line Line15 = null;
+		private DataDynamics.ActiveReports.Line Line16 = null;
+		private DataDynamics.ActiveReports.Line Line17 = null;
+		private DataDynamics.ActiveReports.Line Line18 = null;
+		private DataDynamics.ActiveReports.Line Line19 = null;
+		private DataDynamics.ActiveReports.Line Line20 = null;
+		private DataDynamics.ActiveReports.Line Line21 = null;
+		private DataDynamics.ActiveReports.Line Line22 = null;
+		private DataDynamics.ActiveReports.Line Line23 = null;
+		private DataDynamics.ActiveReports.Line Line24 = null;
+		private DataDynamics.ActiveReports.Shape shpCover = null;
+		private DataDynamics.ActiveReports.Detail Detail = null;
+		private DataDynamics.ActiveReports.PageFooter PageFooter = null;
+		private DataDynamics.ActiveReports.Label Label30 = null;
+		private DataDynamics.ActiveReports.Label lblPrinted = null;
+		public void InitializeReport()
+		{
+			this.LoadLayout(this.GetType(), "RSMPS.rprtCostSummary.rpx");
+			this.PageHeader = ((DataDynamics.ActiveReports.PageHeader)(this.Sections["PageHeader"]));
+			this.Detail = ((DataDynamics.ActiveReports.Detail)(this.Sections["Detail"]));
+			this.PageFooter = ((DataDynamics.ActiveReports.PageFooter)(this.Sections["PageFooter"]));
+			this.Shape = ((DataDynamics.ActiveReports.Shape)(this.PageHeader.Controls[0]));
+			this.Shape1 = ((DataDynamics.ActiveReports.Shape)(this.PageHeader.Controls[1]));
+			this.Picture = ((DataDynamics.ActiveReports.Picture)(this.PageHeader.Controls[2]));
+			this.Label = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[3]));
+			this.Label1 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[4]));
+			this.Label2 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[5]));
+			this.Label3 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[6]));
+			this.Label4 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[7]));
+			this.txtProject = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[8]));
+			this.txtManager = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[9]));
+			this.txtTitle = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[10]));
+			this.txtWeekEnding = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[11]));
+			this.Line = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[12]));
+			this.txtBud1000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[13]));
+			this.txtBud2000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[14]));
+			this.txtBud3000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[15]));
+			this.txtBud4000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[16]));
+			this.txtBud5000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[17]));
+			this.txtBudTot = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[18]));
+			this.txtSpnt1000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[19]));
+			this.txtSpnt2000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[20]));
+			this.txtSpnt3000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[21]));
+			this.txtSpnt4000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[22]));
+			this.txtSpnt5000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[23]));
+			this.txtSpntTot = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[24]));
+			this.txtFtc1000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[25]));
+			this.txtFtc2000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[26]));
+			this.txtFtc3000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[27]));
+			this.txtFtc4000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[28]));
+			this.txtFtc5000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[29]));
+			this.txtFtcTot = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[30]));
+			this.txtFore1000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[31]));
+			this.txtFore2000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[32]));
+			this.txtFore3000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[33]));
+			this.txtFore4000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[34]));
+			this.txtFore5000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[35]));
+			this.txtForeTot = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[36]));
+			this.Label5 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[37]));
+			this.Label6 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[38]));
+			this.Label7 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[39]));
+			this.Label8 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[40]));
+			this.Label9 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[41]));
+			this.Label10 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[42]));
+			this.Label11 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[43]));
+			this.Label12 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[44]));
+			this.txtDBud1000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[45]));
+			this.txtDBud2000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[46]));
+			this.txtDBud3000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[47]));
+			this.txtDBud4000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[48]));
+			this.txtDBud5000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[49]));
+			this.txtDBudTot = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[50]));
+			this.txtDSpnt1000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[51]));
+			this.txtDSpnt2000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[52]));
+			this.txtDSpnt3000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[53]));
+			this.txtDSpnt4000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[54]));
+			this.txtDSpnt5000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[55]));
+			this.txtDSpntTot = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[56]));
+			this.txtDFtc1000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[57]));
+			this.txtDFtc2000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[58]));
+			this.txtDFtc3000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[59]));
+			this.txtDFtc4000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[60]));
+			this.txtDFtc5000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[61]));
+			this.txtDFtcTot = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[62]));
+			this.txtDFore1000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[63]));
+			this.txtDFore2000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[64]));
+			this.txtDFore3000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[65]));
+			this.txtDFore4000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[66]));
+			this.txtDFore5000 = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[67]));
+			this.txtDForeTot = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[68]));
+			this.Label13 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[69]));
+			this.Label14 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[70]));
+			this.Label15 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[71]));
+			this.Label16 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[72]));
+			this.Label17 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[73]));
+			this.Label18 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[74]));
+			this.Label19 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[75]));
+			this.Label20 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[76]));
+			this.txtDBudExp = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[77]));
+			this.txtDSpntExp = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[78]));
+			this.txtDFtcExp = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[79]));
+			this.txtDForeExp = ((DataDynamics.ActiveReports.TextBox)(this.PageHeader.Controls[80]));
+			this.Label21 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[81]));
+			this.Label22 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[82]));
+			this.Label23 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[83]));
+			this.Label24 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[84]));
+			this.Label25 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[85]));
+			this.Label26 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[86]));
+			this.Label27 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[87]));
+			this.Label28 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[88]));
+			this.Label29 = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[89]));
+			this.RichTextBox = ((DataDynamics.ActiveReports.RichTextBox)(this.PageHeader.Controls[90]));
+			this.Line1 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[91]));
+			this.Line2 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[92]));
+			this.Line3 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[93]));
+			this.Line4 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[94]));
+			this.Line5 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[95]));
+			this.Line6 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[96]));
+			this.Line7 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[97]));
+			this.Line8 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[98]));
+			this.Line9 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[99]));
+			this.Line10 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[100]));
+			this.Line11 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[101]));
+			this.Line12 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[102]));
+			this.Line13 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[103]));
+			this.Line14 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[104]));
+			this.Line15 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[105]));
+			this.Line16 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[106]));
+			this.Line17 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[107]));
+			this.Line18 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[108]));
+			this.Line19 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[109]));
+			this.Line20 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[110]));
+			this.Line21 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[111]));
+			this.Line22 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[112]));
+			this.Line23 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[113]));
+			this.Line24 = ((DataDynamics.ActiveReports.Line)(this.PageHeader.Controls[114]));
+			this.shpCover = ((DataDynamics.ActiveReports.Shape)(this.PageHeader.Controls[115]));
+			this.Label30 = ((DataDynamics.ActiveReports.Label)(this.PageFooter.Controls[0]));
+			this.lblPrinted = ((DataDynamics.ActiveReports.Label)(this.PageFooter.Controls[1]));
+			// Attach Report Events
+			this.PageHeader.Format += new System.EventHandler(this.PageHeader_Format);
+			this.ReportStart += new System.EventHandler(this.rprtCostSummary_ReportStart);
+		}
+
+		#endregion
+	}
+}

@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ED200D7A-E10B-477A-8D5C-9891956AEF26}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RSMPS</RootNamespace>
+    <AssemblyName>MPSBudget</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\MPSBudget.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="C1.C1Excel.2, Version=2.1.20121.228, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1Command.2, Version=2.0.20123.19538, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\C1.Win.C1Command.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1FlexGrid.2, Version=2.6.20123.730, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\C1.Win.C1FlexGrid.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1List.2, Version=2.1.20123.220, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\C1.Win.C1List.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1TrueDBGrid.2, Version=2.0.20123.61277, Culture=neutral, PublicKeyToken=75ae3fb0e2b1e0da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\C1.Win.C1TrueDBGrid.2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CBudgetExport.cs" />
+    <Compile Include="CodeGroupSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodeGroupSelector.Designer.cs">
+      <DependentUpon>CodeGroupSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FBudgetMain_dynamic.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBudgetMain_dynamic.resx</DependentUpon>
+    </Compile>
+    <Compile Include="FWS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FWS.Designer.cs">
+      <DependentUpon>FWS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dsAccts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsAccts.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsBudgetPCN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsBudgetPCN.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsPCNStatus.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPCNStatus.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsWorkSheet.cs">
+      <DependentUpon>dsWorkSheet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dsWorkSheet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsWorkSheet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FBudgetInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FBudgetInfo.Designer.cs">
+      <DependentUpon>FBudgetInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FBudgetMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FBudgetMain.Designer.cs">
+      <DependentUpon>FBudgetMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FBudgetMain.Dynamic.Designer.cs" />
+    <Compile Include="FBudgetPCNAddition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FBudgetPCNAddition.Designer.cs">
+      <DependentUpon>FBudgetPCNAddition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FBudgetPCNApproval.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FBudgetPCNApproval.Designer.cs">
+      <DependentUpon>FBudgetPCNApproval.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FBudgetToVision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FBudgetToVision.Designer.cs">
+      <DependentUpon>FBudgetToVision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FCopyBudget.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCopyBudget.Designer.cs">
+      <DependentUpon>FCopyBudget.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FDepartmentListForPCN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDepartmentListForPCN.Designer.cs">
+      <DependentUpon>FDepartmentListForPCN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FEmp_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FEmp_List.Designer.cs">
+      <DependentUpon>FEmp_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FPCIList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FPCIList.Designer.cs">
+      <DependentUpon>FPCIList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FPCILog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FPCILog.Designer.cs">
+      <DependentUpon>FPCILog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FPCIMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FPCIMain.Designer.cs">
+      <DependentUpon>FPCIMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FPCNLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FPCNLog.Designer.cs">
+      <DependentUpon>FPCNLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CodeGroupSelector.resx">
+      <DependentUpon>CodeGroupSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FWS.resx">
+      <DependentUpon>FWS.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FBudgetInfo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FBudgetInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FBudgetMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FBudgetMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FBudgetMain_dynamic.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>FBudgetMain_dynamic.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FBudgetPCNAddition.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FBudgetPCNAddition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FBudgetPCNApproval.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FBudgetPCNApproval.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FBudgetToVision.resx">
+      <DependentUpon>FBudgetToVision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FCopyBudget.resx">
+      <DependentUpon>FCopyBudget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FDepartmentListForPCN.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FDepartmentListForPCN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FEmp_List.resx">
+      <DependentUpon>FEmp_List.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FPCIList.resx">
+      <DependentUpon>FPCIList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FPCILog.resx">
+      <DependentUpon>FPCILog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FPCIMain.resx">
+      <DependentUpon>FPCIMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FPCNLog.resx">
+      <DependentUpon>FPCNLog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{4A089FC1-E105-4694-8DA5-F9E9F8C5DBE8}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MPSBus\MPSBus.csproj">
+      <Project>{12E92C40-6B50-4255-87B2-C9C010B6C284}</Project>
+      <Name>MPSBus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MPSLib\MPSLib.csproj">
+      <Project>{442DCC3C-E62D-41E8-BBEF-BD7C38D002EF}</Project>
+      <Name>MPSLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MPSPrnt\MPSPrnt.csproj">
+      <Project>{03CA7A04-6B0B-4F01-A2B3-B7EA29EE4B6E}</Project>
+      <Name>MPSPrnt</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RevSolLb\RevSolLb.csproj">
+      <Project>{4AAE51B8-8EF7-4794-95B3-F4175F982CBE}</Project>
+      <Name>RevSolLb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RSLib\RSLib.csproj">
+      <Project>{57DB77B5-A4FC-4360-BB87-BDE12BCD73F0}</Project>
+      <Name>RSLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dsAccts.xsc">
+      <DependentUpon>dsAccts.xsd</DependentUpon>
+    </None>
+    <None Include="dsAccts.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsAccts.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsAccts.xss">
+      <DependentUpon>dsAccts.xsd</DependentUpon>
+    </None>
+    <None Include="dsBudgetPCN.xsc">
+      <DependentUpon>dsBudgetPCN.xsd</DependentUpon>
+    </None>
+    <None Include="dsBudgetPCN.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsBudgetPCN.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsBudgetPCN.xss">
+      <DependentUpon>dsBudgetPCN.xsd</DependentUpon>
+    </None>
+    <None Include="dsPCNStatus.xsc">
+      <DependentUpon>dsPCNStatus.xsd</DependentUpon>
+    </None>
+    <None Include="dsPCNStatus.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPCNStatus.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsPCNStatus.xss">
+      <DependentUpon>dsPCNStatus.xsd</DependentUpon>
+    </None>
+    <None Include="dsWorkSheet.xsc">
+      <DependentUpon>dsWorkSheet.xsd</DependentUpon>
+    </None>
+    <None Include="dsWorkSheet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsWorkSheet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsWorkSheet.xss">
+      <DependentUpon>dsWorkSheet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,488 @@
+using System;
+using DataDynamics.ActiveReports;
+using DataDynamics.ActiveReports.Document;
+
+using System.Data;
+
+
+namespace RSMPS
+{
+	public class rprtPMReport2 : ActiveReport
+	{
+        private string msSchedule;
+        private string msAct;
+        private string msStaffing;
+
+        private int miCount = 0;
+
+		public rprtPMReport2()
+		{
+			InitializeReport();
+		}
+
+		private void Detail_Format(object sender, System.EventArgs eArgs)
+		{
+            rprtPMReportPCN rpcn = new rprtPMReportPCN();
+            DataSet ds = CBProjectBudget.GetPCNByProject(Convert.ToInt32(TextBox27.Text), Convert.ToInt32(TextBox28.Text));
+
+            rpcn.DataSource = ds;
+            rpcn.DataMember = "Table";
+            SubReport.Report = rpcn;
+
+            if (ds.Tables["Table"].Rows.Count < 1)
+            {
+                Label16.Visible = false;
+                Label17.Visible = false;
+                Label18.Visible = false;
+                Label19.Visible = false;
+                Shape1.Visible = false;
+            }
+            else
+            {
+                Label16.Visible = true;
+                Label17.Visible = true;
+                Label18.Visible = true;
+                Label19.Visible = true;
+                Shape1.Visible = true;
+            }
+
+			// get cost summary
+            LoadForecast(TextBox26.Text);
+
+            msSchedule = txtSchedule.Value.ToString();
+            msAct = txtActivities.Value.ToString();
+            msStaffing = txtStaffing.Value.ToString();
+
+            miCount++;
+		}
+
+        private void LoadForecast(string proj)
+        {
+            DataSet ds;
+
+            ds = CBProjectBudget.GetCostReport(proj);
+
+            decimal tmp1, tmp2;
+            decimal cbEngHrs, cbLabor, cbDlrMH, cbExpenses, cbTotal;
+            decimal spEngHrs, spLabor, spDlrMH, spExpenses, spTotal;
+            decimal tcEngHrs, tcLabor, tcDlrMH, tcExpenses, tcTotal;
+            decimal ftEngHrs, ftLabor, ftDlrMH, ftExpenses, ftTotal;
+            decimal ouEngHrs, ouLabor, ouDlrMH, ouExpenses, ouTotal;
+
+            decimal tmpBud, tmpCost;
+
+            cbEngHrs = 0;
+            cbLabor = 0;
+            cbDlrMH = 0;
+            cbExpenses = 0;
+            cbTotal = 0;
+
+            spEngHrs = 0;
+            spLabor = 0;
+            spDlrMH = 0;
+            spExpenses = 0;
+            spTotal = 0;
+
+            tcEngHrs = 0;
+            tcLabor = 0;
+            tcDlrMH = 0;
+            tcExpenses = 0;
+            tcTotal = 0;
+
+            ftEngHrs = 0;
+            ftLabor = 0;
+            ftDlrMH = 0;
+            ftExpenses = 0;
+            ftTotal = 0;
+
+            ouEngHrs = 0;
+            ouLabor = 0;
+            ouDlrMH = 0;
+            ouExpenses = 0;
+            ouTotal = 0;
+
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                cbEngHrs += Convert.ToDecimal(dr["BudgetHrs"]);
+                cbLabor += Convert.ToDecimal(dr["BudgetDlrs"]);
+                spEngHrs += Convert.ToDecimal(dr["ActualTime"]);
+                spLabor += Convert.ToDecimal(dr["ActualAmnt"]);
+
+                tmp1 = Convert.ToDecimal(dr["FTCHrs"]);
+                tmp2 = 0;
+
+                if (tmp1 >= 0)
+                {
+                    if (Convert.ToDecimal(dr["ActualTime"]) > Convert.ToDecimal(dr["FTCHrs"]))
+                        ftEngHrs += Convert.ToDecimal(dr["ActualTime"]);
+                    else
+                        ftEngHrs += Convert.ToDecimal(dr["FTCHrs"]);
+                }
+                else
+                {
+                    if (Convert.ToDecimal(dr["BudgetHrs"]) < Convert.ToDecimal(dr["ActualTime"]))
+                    {
+                        ftEngHrs += Convert.ToDecimal(dr["ActualTime"]);
+                    }
+                    else
+                    {
+                        ftEngHrs += Convert.ToDecimal(dr["BudgetHrs"]);
+                    }
+                }
+
+                tmp1 = Convert.ToDecimal(dr["FTCAmnt"]);
+
+                if (tmp1 >= 0)
+                {
+                    if (Convert.ToDecimal(dr["ActualAmnt"]) > Convert.ToDecimal(dr["FTCAmnt"]))
+                        ftLabor += Convert.ToDecimal(dr["ActualAmnt"]);
+                    else 
+                        ftLabor += Convert.ToDecimal(dr["FTCAmnt"]);
+                }
+                else
+                {
+                    if (Convert.ToDecimal(dr["BudgetDlrs"]) < Convert.ToDecimal(dr["ActualAmnt"]))
+                    {
+                        ftLabor += Convert.ToDecimal(dr["ActualAmnt"]);
+                    }
+                    else
+                    {
+                        ftLabor += Convert.ToDecimal(dr["BudgetDlrs"]);
+                    }
+                }
+            }
+
+            foreach (DataRow dr in ds.Tables[1].Rows)
+            {
+                tmpBud = Convert.ToDecimal(dr["budget"]);
+                tmpCost = Convert.ToDecimal(dr["costs"]);
+
+                cbExpenses += tmpBud;
+                spExpenses += tmpCost;
+
+                tmp1 = Convert.ToDecimal(dr["ForecastAmnt"]);
+
+                //System.Windows.Forms.MessageBox.Show("Forecast " + tmp1.ToString());
+
+                //System.Windows.Forms.MessageBox.Show("bud: " + tmpBud.ToString() + " cost: " + tmpCost.ToString() + " forecast: " + tmp1.ToString());
+
+                if (tmp1 <= -9998)
+                {
+                    if (tmpCost > tmpBud)
+                    {
+                        ftExpenses += tmpCost;
+                    }
+                    else
+                    {
+                        ftExpenses += tmpBud;
+                    }
+                }
+                else
+                {
+                    if (tmpCost > tmp1)
+                    {
+                        if (tmpCost > tmpBud)
+                        {
+                            ftExpenses += tmpCost;
+                        }
+                        else
+                        {
+                            ftExpenses += tmpBud;
+                        }
+                    }
+                    else
+                    {
+                        ftExpenses += tmp1;
+                    }
+                }
+
+                //if (tmp1 >= 0)
+                //{
+                //    ftExpenses += Convert.ToDecimal(dr["ForecastAmnt"]);
+                //}
+                //else
+                //{
+                //    ftExpenses += Convert.ToDecimal(dr["budget"]);
+                //}
+            }
+
+
+            tcEngHrs = ftEngHrs - spEngHrs;
+            tcLabor = ftLabor - spLabor;
+            tcExpenses = ftExpenses - spExpenses;
+
+            cbTotal = cbLabor + cbExpenses;
+            spTotal = spLabor + spExpenses;
+            tcTotal = tcLabor + tcExpenses;
+            ftTotal = ftLabor + ftExpenses;
+
+            ouEngHrs = ftEngHrs - cbEngHrs;
+            ouLabor = ftLabor - cbLabor;
+            ouDlrMH = 0;
+            ouExpenses = ftExpenses - cbExpenses;
+            ouTotal = ftTotal - cbTotal;
+
+            if (cbEngHrs != 0)
+                cbDlrMH = cbLabor / cbEngHrs;
+            else
+                cbDlrMH = 0;
+
+            if (spEngHrs != 0)
+                spDlrMH = spLabor / spEngHrs;
+            else
+                spDlrMH = 0;
+
+            if (tcEngHrs != 0)
+                tcDlrMH = tcLabor / tcEngHrs;
+            else
+                tcDlrMH = 0;
+
+            if (ftEngHrs != 0)
+                ftDlrMH = ftLabor / ftEngHrs;
+            else
+                ftDlrMH = 0;
+
+
+            // load the grid
+            TextBox1.Text = cbEngHrs.ToString("#,##0");
+            TextBox2.Text = cbLabor.ToString("$#,##0");
+            TextBox3.Text = cbDlrMH.ToString("$#,##0.00");
+            TextBox4.Text = cbExpenses.ToString("$#,##0");
+            TextBox5.Text = cbTotal.ToString("$#,##0");
+
+            TextBox6.Text = spEngHrs.ToString("#,##0");
+            TextBox7.Text = spLabor.ToString("$#,##0");
+            TextBox8.Text = spDlrMH.ToString("$#,##0.00");
+            TextBox9.Text = spExpenses.ToString("$#,##0");
+            TextBox10.Text = spTotal.ToString("$#,##0");
+
+            TextBox11.Text = tcEngHrs.ToString("#,##0");
+            TextBox12.Text = tcLabor.ToString("$#,##0");
+            TextBox13.Text = tcDlrMH.ToString("$#,##0.00");
+            TextBox14.Text = tcExpenses.ToString("$#,##0");
+            TextBox15.Text = tcTotal.ToString("$#,##0");
+
+            TextBox16.Text = ftEngHrs.ToString("#,##0");
+            TextBox17.Text = ftLabor.ToString("$#,##0");
+            TextBox18.Text = ftDlrMH.ToString("$#,##0.00");
+            TextBox19.Text = ftExpenses.ToString("$#,##0");
+            TextBox20.Text = ftTotal.ToString("$#,##0");
+
+            TextBox21.Text = ouEngHrs.ToString("#,##0;(#,##0)");
+            if (ouEngHrs <= 0)
+                TextBox21.ForeColor = System.Drawing.Color.Black;
+            else
+                TextBox21.ForeColor = System.Drawing.Color.Red;
+
+            TextBox22.Text = ouLabor.ToString("$#,##0;($#,##0)");
+            if (ouLabor <= 0)
+                TextBox22.ForeColor = System.Drawing.Color.Black;
+            else
+                TextBox22.ForeColor = System.Drawing.Color.Red;
+
+            TextBox23.Text = "";
+            TextBox24.Text = ouExpenses.ToString("$#,##0;($#,##0)");
+            if (ouExpenses <= 0)
+                TextBox24.ForeColor = System.Drawing.Color.Black;
+            else
+                TextBox24.ForeColor = System.Drawing.Color.Red;
+
+            TextBox25.Text = ouTotal.ToString("$#,##0;($#,##0)");
+            if (ouTotal <= 0)
+                TextBox25.ForeColor = System.Drawing.Color.Black;
+            else
+                TextBox25.ForeColor = System.Drawing.Color.Red;
+
+
+
+            DateTime tmpDate = DateTime.Now;
+            DateTime dataDate;
+            int weekDay;
+
+            weekDay = (-1) * (int)tmpDate.DayOfWeek;
+            dataDate = tmpDate.AddDays(weekDay);
+
+            lblWeekEnding.Text = dataDate.ToShortDateString();
+        }
+
+
+		private void GroupFooter1_Format(object sender, System.EventArgs eArgs)
+		{
+            rtbSchdule.RTF = msSchedule;
+            rtbActivities.RTF = msAct;
+            rtbStaffing.RTF = msStaffing;
+		}
+
+		private void GroupHeader1_Format(object sender, System.EventArgs eArgs)
+		{
+            if (miCount < 1)
+                GroupHeader1.NewPage = NewPage.None;
+            else
+                GroupHeader1.NewPage = NewPage.Before;
+		}
+
+		#region ActiveReports Designer generated code
+		public DataDynamics.ActiveReports.DataSources.SqlDBDataSource ds = null;
+		private DataDynamics.ActiveReports.PageHeader PageHeader = null;
+		private DataDynamics.ActiveReports.GroupHeader GroupHeader1 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox = null;
+		private DataDynamics.ActiveReports.TextBox TextBox26 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox27 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox28 = null;
+		private DataDynamics.ActiveReports.Detail Detail = null;
+		private DataDynamics.ActiveReports.Shape Shape = null;
+		private DataDynamics.ActiveReports.Label Label5 = null;
+		private DataDynamics.ActiveReports.Label Label6 = null;
+		private DataDynamics.ActiveReports.Label Label7 = null;
+		private DataDynamics.ActiveReports.Label Label8 = null;
+		private DataDynamics.ActiveReports.Label Label9 = null;
+		private DataDynamics.ActiveReports.Label Label10 = null;
+		private DataDynamics.ActiveReports.Label Label11 = null;
+		private DataDynamics.ActiveReports.Label Label12 = null;
+		private DataDynamics.ActiveReports.Label Label13 = null;
+		private DataDynamics.ActiveReports.Label Label14 = null;
+		private DataDynamics.ActiveReports.Label Label15 = null;
+		private DataDynamics.ActiveReports.Line Line = null;
+		private DataDynamics.ActiveReports.Line Line1 = null;
+		private DataDynamics.ActiveReports.Line Line2 = null;
+		private DataDynamics.ActiveReports.Line Line3 = null;
+		private DataDynamics.ActiveReports.Line Line4 = null;
+		private DataDynamics.ActiveReports.Line Line5 = null;
+		private DataDynamics.ActiveReports.Line Line6 = null;
+		private DataDynamics.ActiveReports.Line Line7 = null;
+		private DataDynamics.ActiveReports.Line Line8 = null;
+		private DataDynamics.ActiveReports.Line Line9 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox1 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox2 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox3 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox4 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox5 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox6 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox7 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox8 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox9 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox10 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox11 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox12 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox13 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox14 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox15 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox16 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox17 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox18 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox19 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox20 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox21 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox22 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox23 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox24 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox25 = null;
+		private DataDynamics.ActiveReports.Label lblWeekEnding = null;
+		private DataDynamics.ActiveReports.Label Label20 = null;
+		private DataDynamics.ActiveReports.Label Label = null;
+		private DataDynamics.ActiveReports.TextBox txtSchedule = null;
+		private DataDynamics.ActiveReports.TextBox txtActivities = null;
+		private DataDynamics.ActiveReports.TextBox txtStaffing = null;
+		private DataDynamics.ActiveReports.GroupFooter GroupFooter1 = null;
+		private DataDynamics.ActiveReports.Shape Shape1 = null;
+		private DataDynamics.ActiveReports.Label Label1 = null;
+		private DataDynamics.ActiveReports.Label Label2 = null;
+		private DataDynamics.ActiveReports.Label Label3 = null;
+		private DataDynamics.ActiveReports.Label Label4 = null;
+		private DataDynamics.ActiveReports.SubReport SubReport = null;
+		private DataDynamics.ActiveReports.RichTextBox rtbSchdule = null;
+		private DataDynamics.ActiveReports.RichTextBox rtbActivities = null;
+		private DataDynamics.ActiveReports.RichTextBox rtbStaffing = null;
+		private DataDynamics.ActiveReports.Label Label16 = null;
+		private DataDynamics.ActiveReports.Label Label17 = null;
+		private DataDynamics.ActiveReports.Label Label18 = null;
+		private DataDynamics.ActiveReports.Label Label19 = null;
+		private DataDynamics.ActiveReports.PageFooter PageFooter = null;
+		public void InitializeReport()
+		{
+			this.LoadLayout(this.GetType(), "RSMPS.rprtPMReport2.rpx");
+			this.ds = ((DataDynamics.ActiveReports.DataSources.SqlDBDataSource)(this.DataSource));
+			this.PageHeader = ((DataDynamics.ActiveReports.PageHeader)(this.Sections["PageHeader"]));
+			this.GroupHeader1 = ((DataDynamics.ActiveReports.GroupHeader)(this.Sections["GroupHeader1"]));
+			this.Detail = ((DataDynamics.ActiveReports.Detail)(this.Sections["Detail"]));
+			this.GroupFooter1 = ((DataDynamics.ActiveReports.GroupFooter)(this.Sections["GroupFooter1"]));
+			this.PageFooter = ((DataDynamics.ActiveReports.PageFooter)(this.Sections["PageFooter"]));
+			this.TextBox = ((DataDynamics.ActiveReports.TextBox)(this.GroupHeader1.Controls[0]));
+			this.TextBox26 = ((DataDynamics.ActiveReports.TextBox)(this.GroupHeader1.Controls[1]));
+			this.TextBox27 = ((DataDynamics.ActiveReports.TextBox)(this.GroupHeader1.Controls[2]));
+			this.TextBox28 = ((DataDynamics.ActiveReports.TextBox)(this.GroupHeader1.Controls[3]));
+			this.Shape = ((DataDynamics.ActiveReports.Shape)(this.Detail.Controls[0]));
+			this.Label5 = ((DataDynamics.ActiveReports.Label)(this.Detail.Controls[1]));
+			this.Label6 = ((DataDynamics.ActiveReports.Label)(this.Detail.Controls[2]));
+			this.Label7 = ((DataDynamics.ActiveReports.Label)(this.Detail.Controls[3]));
+			this.Label8 = ((DataDynamics.ActiveReports.Label)(this.Detail.Controls[4]));
+			this.Label9 = ((DataDynamics.ActiveReports.Label)(this.Detail.Controls[5]));
+			this.Label10 = ((DataDynamics.ActiveReports.Label)(this.Detail.Controls[6]));
+			this.Label11 = ((DataDynamics.ActiveReports.Label)(this.Detail.Controls[7]));
+			this.Label12 = ((DataDynamics.ActiveReports.Label)(this.Detail.Controls[8]));
+			this.Label13 = ((DataDynamics.ActiveReports.Label)(this.Detail.Controls[9]));
+			this.Label14 = ((DataDynamics.ActiveReports.Label)(this.Detail.Controls[10]));
+			this.Label15 = ((DataDynamics.ActiveReports.Label)(this.Detail.Controls[11]));
+			this.Line = ((DataDynamics.ActiveReports.Line)(this.Detail.Controls[12]));
+			this.Line1 = ((DataDynamics.ActiveReports.Line)(this.Detail.Controls[13]));
+			this.Line2 = ((DataDynamics.ActiveReports.Line)(this.Detail.Controls[14]));
+			this.Line3 = ((DataDynamics.ActiveReports.Line)(this.Detail.Controls[15]));
+			this.Line4 = ((DataDynamics.ActiveReports.Line)(this.Detail.Controls[16]));
+			this.Line5 = ((DataDynamics.ActiveReports.Line)(this.Detail.Controls[17]));
+			this.Line6 = ((DataDynamics.ActiveReports.Line)(this.Detail.Controls[18]));
+			this.Line7 = ((DataDynamics.ActiveReports.Line)(this.Detail.Controls[19]));
+			this.Line8 = ((DataDynamics.ActiveReports.Line)(this.Detail.Controls[20]));
+			this.Line9 = ((DataDynamics.ActiveReports.Line)(this.Detail.Controls[21]));
+			this.TextBox1 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[22]));
+			this.TextBox2 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[23]));
+			this.TextBox3 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[24]));
+			this.TextBox4 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[25]));
+			this.TextBox5 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[26]));
+			this.TextBox6 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[27]));
+			this.TextBox7 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[28]));
+			this.TextBox8 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[29]));
+			this.TextBox9 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[30]));
+			this.TextBox10 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[31]));
+			this.TextBox11 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[32]));
+			this.TextBox12 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[33]));
+			this.TextBox13 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[34]));
+			this.TextBox14 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[35]));
+			this.TextBox15 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[36]));
+			this.TextBox16 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[37]));
+			this.TextBox17 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[38]));
+			this.TextBox18 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[39]));
+			this.TextBox19 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[40]));
+			this.TextBox20 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[41]));
+			this.TextBox21 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[42]));
+			this.TextBox22 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[43]));
+			this.TextBox23 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[44]));
+			this.TextBox24 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[45]));
+			this.TextBox25 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[46]));
+			this.lblWeekEnding = ((DataDynamics.ActiveReports.Label)(this.Detail.Controls[47]));
+			this.Label20 = ((DataDynamics.ActiveReports.Label)(this.Detail.Controls[48]));
+			this.Label = ((DataDynamics.ActiveReports.Label)(this.Detail.Controls[49]));
+			this.txtSchedule = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[50]));
+			this.txtActivities = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[51]));
+			this.txtStaffing = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[52]));
+			this.Shape1 = ((DataDynamics.ActiveReports.Shape)(this.GroupFooter1.Controls[0]));
+			this.Label1 = ((DataDynamics.ActiveReports.Label)(this.GroupFooter1.Controls[1]));
+			this.Label2 = ((DataDynamics.ActiveReports.Label)(this.GroupFooter1.Controls[2]));
+			this.Label3 = ((DataDynamics.ActiveReports.Label)(this.GroupFooter1.Controls[3]));
+			this.Label4 = ((DataDynamics.ActiveReports.Label)(this.GroupFooter1.Controls[4]));
+			this.SubReport = ((DataDynamics.ActiveReports.SubReport)(this.GroupFooter1.Controls[5]));
+			this.rtbSchdule = ((DataDynamics.ActiveReports.RichTextBox)(this.GroupFooter1.Controls[6]));
+			this.rtbActivities = ((DataDynamics.ActiveReports.RichTextBox)(this.GroupFooter1.Controls[7]));
+			this.rtbStaffing = ((DataDynamics.ActiveReports.RichTextBox)(this.GroupFooter1.Controls[8]));
+			this.Label16 = ((DataDynamics.ActiveReports.Label)(this.GroupFooter1.Controls[9]));
+			this.Label17 = ((DataDynamics.ActiveReports.Label)(this.GroupFooter1.Controls[10]));
+			this.Label18 = ((DataDynamics.ActiveReports.Label)(this.GroupFooter1.Controls[11]));
+			this.Label19 = ((DataDynamics.ActiveReports.Label)(this.GroupFooter1.Controls[12]));
+			// Attach Report Events
+			this.Detail.Format += new System.EventHandler(this.Detail_Format);
+			this.GroupFooter1.Format += new System.EventHandler(this.GroupFooter1_Format);
+			this.GroupHeader1.Format += new System.EventHandler(this.GroupHeader1_Format);
+		}
+
+		#endregion
+	}
+}

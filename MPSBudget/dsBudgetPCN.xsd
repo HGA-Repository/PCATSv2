@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsBudgetPCN" targetNamespace="http://tempuri.org/dsBudgetPCN.xsd" xmlns:mstns="http://tempuri.org/dsBudgetPCN.xsd" xmlns="http://tempuri.org/dsBudgetPCN.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsBudgetPCN" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsBudgetPCN" msprop:Generator_DataSetName="dsBudgetPCN">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="PCNs" msprop:Generator_UserTableName="PCNs" msprop:Generator_RowDeletedName="PCNsRowDeleted" msprop:Generator_RowChangedName="PCNsRowChanged" msprop:Generator_RowClassName="PCNsRow" msprop:Generator_RowChangingName="PCNsRowChanging" msprop:Generator_RowEvArgName="PCNsRowChangeEvent" msprop:Generator_RowEvHandlerName="PCNsRowChangeEventHandler" msprop:Generator_TableClassName="PCNsDataTable" msprop:Generator_TableVarName="tablePCNs" msprop:Generator_RowDeletingName="PCNsRowDeleting" msprop:Generator_TablePropName="PCNs">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="BudgetID" msprop:Generator_UserColumnName="BudgetID" msprop:Generator_ColumnVarNameInTable="columnBudgetID" msprop:Generator_ColumnPropNameInRow="BudgetID" msprop:Generator_ColumnPropNameInTable="BudgetIDColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="PCNNumber" msprop:Generator_UserColumnName="PCNNumber" msprop:Generator_ColumnVarNameInTable="columnPCNNumber" msprop:Generator_ColumnPropNameInRow="PCNNumber" msprop:Generator_ColumnPropNameInTable="PCNNumberColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="PCNStatusID" msprop:Generator_UserColumnName="PCNStatusID" msprop:Generator_ColumnVarNameInTable="columnPCNStatusID" msprop:Generator_ColumnPropNameInRow="PCNStatusID" msprop:Generator_ColumnPropNameInTable="PCNStatusIDColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="PCNStatus" msprop:Generator_UserColumnName="PCNStatus" msprop:Generator_ColumnVarNameInTable="columnPCNStatus" msprop:Generator_ColumnPropNameInRow="PCNStatus" msprop:Generator_ColumnPropNameInTable="PCNStatusColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalHrs" msprop:Generator_UserColumnName="TotalHrs" msprop:Generator_ColumnVarNameInTable="columnTotalHrs" msprop:Generator_ColumnPropNameInRow="TotalHrs" msprop:Generator_ColumnPropNameInTable="TotalHrsColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalDlrs" msprop:Generator_UserColumnName="TotalDlrs" msprop:Generator_ColumnVarNameInTable="columnTotalDlrs" msprop:Generator_ColumnPropNameInRow="TotalDlrs" msprop:Generator_ColumnPropNameInTable="TotalDlrsColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="PCINumber" msprop:Generator_UserColumnName="PCINumber" msprop:Generator_ColumnPropNameInRow="PCINumber" msprop:Generator_ColumnVarNameInTable="columnPCINumber" msprop:Generator_ColumnPropNameInTable="PCINumberColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

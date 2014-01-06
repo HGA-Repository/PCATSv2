@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSForecastRprt" targetNamespace="http://tempuri.org/DSForecastRprt.xsd" xmlns:mstns="http://tempuri.org/DSForecastRprt.xsd" xmlns="http://tempuri.org/DSForecastRprt.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSForecastRprt" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSForecastRprt" msprop:Generator_UserDSName="DSForecastRprt">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="EngrInfo" msprop:Generator_TableClassName="EngrInfoDataTable" msprop:Generator_TableVarName="tableEngrInfo" msprop:Generator_RowChangedName="EngrInfoRowChanged" msprop:Generator_TablePropName="EngrInfo" msprop:Generator_RowDeletingName="EngrInfoRowDeleting" msprop:Generator_RowChangingName="EngrInfoRowChanging" msprop:Generator_RowEvHandlerName="EngrInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="EngrInfoRowDeleted" msprop:Generator_RowClassName="EngrInfoRow" msprop:Generator_UserTableName="EngrInfo" msprop:Generator_RowEvArgName="EngrInfoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Project" msprop:Generator_ColumnVarNameInTable="columnProject" msprop:Generator_ColumnPropNameInRow="Project" msprop:Generator_ColumnPropNameInTable="ProjectColumn" msprop:Generator_UserColumnName="Project" type="xs:string" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" type="xs:string" minOccurs="0" />
+              <xs:element name="Customer" msprop:Generator_ColumnVarNameInTable="columnCustomer" msprop:Generator_ColumnPropNameInRow="Customer" msprop:Generator_ColumnPropNameInTable="CustomerColumn" msprop:Generator_UserColumnName="Customer" type="xs:string" minOccurs="0" />
+              <xs:element name="Location" msprop:Generator_ColumnVarNameInTable="columnLocation" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnPropNameInTable="LocationColumn" msprop:Generator_UserColumnName="Location" type="xs:string" minOccurs="0" />
+              <xs:element name="BudgetGroup" msprop:Generator_ColumnVarNameInTable="columnBudgetGroup" msprop:Generator_ColumnPropNameInRow="BudgetGroup" msprop:Generator_ColumnPropNameInTable="BudgetGroupColumn" msprop:Generator_UserColumnName="BudgetGroup" type="xs:string" minOccurs="0" />
+              <xs:element name="AcctGroup" msprop:Generator_ColumnVarNameInTable="columnAcctGroup" msprop:Generator_ColumnPropNameInRow="AcctGroup" msprop:Generator_ColumnPropNameInTable="AcctGroupColumn" msprop:Generator_UserColumnName="AcctGroup" type="xs:string" minOccurs="0" />
+              <xs:element name="Manager" msprop:Generator_ColumnVarNameInTable="columnManager" msprop:Generator_ColumnPropNameInRow="Manager" msprop:Generator_ColumnPropNameInTable="ManagerColumn" msprop:Generator_UserColumnName="Manager" type="xs:string" minOccurs="0" />
+              <xs:element name="BillType" msprop:Generator_ColumnVarNameInTable="columnBillType" msprop:Generator_ColumnPropNameInRow="BillType" msprop:Generator_ColumnPropNameInTable="BillTypeColumn" msprop:Generator_UserColumnName="BillType" type="xs:string" minOccurs="0" />
+              <xs:element name="BudgetDlrs" msprop:Generator_ColumnVarNameInTable="columnBudgetDlrs" msprop:Generator_ColumnPropNameInRow="BudgetDlrs" msprop:Generator_ColumnPropNameInTable="BudgetDlrsColumn" msprop:Generator_UserColumnName="BudgetDlrs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="BudgetHrs" msprop:Generator_ColumnVarNameInTable="columnBudgetHrs" msprop:Generator_ColumnPropNameInRow="BudgetHrs" msprop:Generator_ColumnPropNameInTable="BudgetHrsColumn" msprop:Generator_UserColumnName="BudgetHrs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ActualTime" msprop:Generator_ColumnVarNameInTable="columnActualTime" msprop:Generator_ColumnPropNameInRow="ActualTime" msprop:Generator_ColumnPropNameInTable="ActualTimeColumn" msprop:Generator_UserColumnName="ActualTime" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ActualAmnt" msprop:Generator_ColumnVarNameInTable="columnActualAmnt" msprop:Generator_ColumnPropNameInRow="ActualAmnt" msprop:Generator_ColumnPropNameInTable="ActualAmntColumn" msprop:Generator_UserColumnName="ActualAmnt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="JSBudgetHrs" msprop:Generator_ColumnVarNameInTable="columnJSBudgetHrs" msprop:Generator_ColumnPropNameInRow="JSBudgetHrs" msprop:Generator_ColumnPropNameInTable="JSBudgetHrsColumn" msprop:Generator_UserColumnName="JSBudgetHrs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RemainingHrs" msprop:Generator_ColumnVarNameInTable="columnRemainingHrs" msprop:Generator_ColumnPropNameInRow="RemainingHrs" msprop:Generator_ColumnPropNameInTable="RemainingHrsColumn" msprop:Generator_UserColumnName="RemainingHrs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="JSLastUpdated" msprop:Generator_ColumnVarNameInTable="columnJSLastUpdated" msprop:Generator_ColumnPropNameInRow="JSLastUpdated" msprop:Generator_ColumnPropNameInTable="JSLastUpdatedColumn" msprop:Generator_UserColumnName="JSLastUpdated" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="EarnedHrs" msprop:Generator_ColumnVarNameInTable="columnEarnedHrs" msprop:Generator_ColumnPropNameInRow="EarnedHrs" msprop:Generator_ColumnPropNameInTable="EarnedHrsColumn" msprop:Generator_UserColumnName="EarnedHrs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ProjectedHrs" msprop:Generator_ColumnVarNameInTable="columnProjectedHrs" msprop:Generator_ColumnPropNameInRow="ProjectedHrs" msprop:Generator_ColumnPropNameInTable="ProjectedHrsColumn" msprop:Generator_UserColumnName="ProjectedHrs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ForecastHrs" msprop:Generator_ColumnVarNameInTable="columnForecastHrs" msprop:Generator_ColumnPropNameInRow="ForecastHrs" msprop:Generator_ColumnPropNameInTable="ForecastHrsColumn" msprop:Generator_UserColumnName="ForecastHrs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FTCHrs" msprop:Generator_ColumnVarNameInTable="columnFTCHrs" msprop:Generator_ColumnPropNameInRow="FTCHrs" msprop:Generator_ColumnPropNameInTable="FTCHrsColumn" msprop:Generator_UserColumnName="FTCHrs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FTCAmnt" msprop:Generator_ColumnVarNameInTable="columnFTCAmnt" msprop:Generator_ColumnPropNameInRow="FTCAmnt" msprop:Generator_ColumnPropNameInTable="FTCAmntColumn" msprop:Generator_UserColumnName="FTCAmnt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FTCUpdate" msprop:Generator_ColumnVarNameInTable="columnFTCUpdate" msprop:Generator_ColumnPropNameInRow="FTCUpdate" msprop:Generator_ColumnPropNameInTable="FTCUpdateColumn" msprop:Generator_UserColumnName="FTCUpdate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Table1" msprop:Generator_TableClassName="Table1DataTable" msprop:Generator_TableVarName="tableTable1" msprop:Generator_RowChangedName="Table1RowChanged" msprop:Generator_TablePropName="Table1" msprop:Generator_RowDeletingName="Table1RowDeleting" msprop:Generator_RowChangingName="Table1RowChanging" msprop:Generator_RowEvHandlerName="Table1RowChangeEventHandler" msprop:Generator_RowDeletedName="Table1RowDeleted" msprop:Generator_RowClassName="Table1Row" msprop:Generator_UserTableName="Table1" msprop:Generator_RowEvArgName="Table1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Project" msprop:Generator_ColumnVarNameInTable="columnProject" msprop:Generator_ColumnPropNameInRow="Project" msprop:Generator_ColumnPropNameInTable="ProjectColumn" msprop:Generator_UserColumnName="Project" type="xs:string" minOccurs="0" />
+              <xs:element name="AcctNumber" msprop:Generator_ColumnVarNameInTable="columnAcctNumber" msprop:Generator_ColumnPropNameInRow="AcctNumber" msprop:Generator_ColumnPropNameInTable="AcctNumberColumn" msprop:Generator_UserColumnName="AcctNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="AcctGroup" msprop:Generator_ColumnVarNameInTable="columnAcctGroup" msprop:Generator_ColumnPropNameInRow="AcctGroup" msprop:Generator_ColumnPropNameInTable="AcctGroupColumn" msprop:Generator_UserColumnName="AcctGroup" type="xs:string" minOccurs="0" />
+              <xs:element name="AcctNumberGroup" msprop:Generator_ColumnVarNameInTable="columnAcctNumberGroup" msprop:Generator_ColumnPropNameInRow="AcctNumberGroup" msprop:Generator_ColumnPropNameInTable="AcctNumberGroupColumn" msprop:Generator_UserColumnName="AcctNumberGroup" type="xs:string" minOccurs="0" />
+              <xs:element name="budget" msprop:Generator_ColumnVarNameInTable="columnbudget" msprop:Generator_ColumnPropNameInRow="budget" msprop:Generator_ColumnPropNameInTable="budgetColumn" msprop:Generator_UserColumnName="budget" type="xs:decimal" minOccurs="0" />
+              <xs:element name="costs" msprop:Generator_ColumnVarNameInTable="columncosts" msprop:Generator_ColumnPropNameInRow="costs" msprop:Generator_ColumnPropNameInTable="costsColumn" msprop:Generator_UserColumnName="costs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ForecastHrs" msprop:Generator_ColumnVarNameInTable="columnForecastHrs" msprop:Generator_ColumnPropNameInRow="ForecastHrs" msprop:Generator_ColumnPropNameInTable="ForecastHrsColumn" msprop:Generator_UserColumnName="ForecastHrs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ForecastAmnt" msprop:Generator_ColumnVarNameInTable="columnForecastAmnt" msprop:Generator_ColumnPropNameInRow="ForecastAmnt" msprop:Generator_ColumnPropNameInTable="ForecastAmntColumn" msprop:Generator_UserColumnName="ForecastAmnt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ftc" msprop:Generator_ColumnVarNameInTable="columnftc" msprop:Generator_ColumnPropNameInRow="ftc" msprop:Generator_ColumnPropNameInTable="ftcColumn" msprop:Generator_UserColumnName="ftc" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

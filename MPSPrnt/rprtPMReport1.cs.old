@@ -1,0 +1,94 @@
+using System;
+using DataDynamics.ActiveReports;
+using DataDynamics.ActiveReports.Document;
+
+namespace RSMPS
+{
+	public class rprtPMReport1 : ActiveReport
+	{
+        public string ProjectManager
+        {
+            get { return lblPM.Text; }
+            set { lblPM.Text = value; }
+        }
+
+		public rprtPMReport1()
+		{
+			InitializeReport();
+		}
+
+		private void GroupHeader1_Format(object sender, System.EventArgs eArgs)
+		{
+            this.CurrentPage.Font = new System.Drawing.Font("Times New Roman", 12);
+
+            rprtPMReport2 rpt = new rprtPMReport2();
+            rpt.DataSource = this.DataSource;
+            rpt.DataMember = "Table";
+            SubReport.Report = rpt;
+		}
+
+		private void rprtPMReport1_ReportStart(object sender, System.EventArgs eArgs)
+		{
+            lblDate.Text = DateTime.Now.ToShortDateString();
+
+            RichTextBox1.Font = new System.Drawing.Font("Times New Roman", 12);
+		}
+
+		#region ActiveReports Designer generated code
+		public DataDynamics.ActiveReports.DataSources.SqlDBDataSource ds = null;
+		private DataDynamics.ActiveReports.ReportHeader ReportHeader = null;
+		private DataDynamics.ActiveReports.Label Label = null;
+		private DataDynamics.ActiveReports.Line Line = null;
+		private DataDynamics.ActiveReports.Label lblPM = null;
+		private DataDynamics.ActiveReports.Label lblDate = null;
+		private DataDynamics.ActiveReports.Picture Picture = null;
+		private DataDynamics.ActiveReports.PageHeader PageHeader = null;
+		private DataDynamics.ActiveReports.GroupHeader GroupHeader1 = null;
+		private DataDynamics.ActiveReports.SubReport SubReport = null;
+		private DataDynamics.ActiveReports.Label Label1 = null;
+		private DataDynamics.ActiveReports.RichTextBox RichTextBox = null;
+		private DataDynamics.ActiveReports.Label Label2 = null;
+		private DataDynamics.ActiveReports.Label Label3 = null;
+		private DataDynamics.ActiveReports.Label Label4 = null;
+		private DataDynamics.ActiveReports.RichTextBox RichTextBox1 = null;
+		private DataDynamics.ActiveReports.RichTextBox RichTextBox2 = null;
+		private DataDynamics.ActiveReports.Label Label5 = null;
+		private DataDynamics.ActiveReports.RichTextBox RichTextBox3 = null;
+		private DataDynamics.ActiveReports.Detail Detail = null;
+		private DataDynamics.ActiveReports.GroupFooter GroupFooter1 = null;
+		private DataDynamics.ActiveReports.PageFooter PageFooter = null;
+		private DataDynamics.ActiveReports.ReportFooter ReportFooter = null;
+		public void InitializeReport()
+		{
+			this.LoadLayout(this.GetType(), "RSMPS.rprtPMReport1.rpx");
+			this.ds = ((DataDynamics.ActiveReports.DataSources.SqlDBDataSource)(this.DataSource));
+			this.ReportHeader = ((DataDynamics.ActiveReports.ReportHeader)(this.Sections["ReportHeader"]));
+			this.PageHeader = ((DataDynamics.ActiveReports.PageHeader)(this.Sections["PageHeader"]));
+			this.GroupHeader1 = ((DataDynamics.ActiveReports.GroupHeader)(this.Sections["GroupHeader1"]));
+			this.Detail = ((DataDynamics.ActiveReports.Detail)(this.Sections["Detail"]));
+			this.GroupFooter1 = ((DataDynamics.ActiveReports.GroupFooter)(this.Sections["GroupFooter1"]));
+			this.PageFooter = ((DataDynamics.ActiveReports.PageFooter)(this.Sections["PageFooter"]));
+			this.ReportFooter = ((DataDynamics.ActiveReports.ReportFooter)(this.Sections["ReportFooter"]));
+			this.Label = ((DataDynamics.ActiveReports.Label)(this.ReportHeader.Controls[0]));
+			this.Line = ((DataDynamics.ActiveReports.Line)(this.ReportHeader.Controls[1]));
+			this.lblPM = ((DataDynamics.ActiveReports.Label)(this.ReportHeader.Controls[2]));
+			this.lblDate = ((DataDynamics.ActiveReports.Label)(this.ReportHeader.Controls[3]));
+			this.Picture = ((DataDynamics.ActiveReports.Picture)(this.ReportHeader.Controls[4]));
+			this.SubReport = ((DataDynamics.ActiveReports.SubReport)(this.GroupHeader1.Controls[0]));
+			this.Label1 = ((DataDynamics.ActiveReports.Label)(this.GroupHeader1.Controls[1]));
+			this.RichTextBox = ((DataDynamics.ActiveReports.RichTextBox)(this.GroupHeader1.Controls[2]));
+			this.Label2 = ((DataDynamics.ActiveReports.Label)(this.GroupHeader1.Controls[3]));
+			this.Label3 = ((DataDynamics.ActiveReports.Label)(this.GroupHeader1.Controls[4]));
+			this.Label4 = ((DataDynamics.ActiveReports.Label)(this.GroupHeader1.Controls[5]));
+			this.RichTextBox1 = ((DataDynamics.ActiveReports.RichTextBox)(this.GroupHeader1.Controls[6]));
+			this.RichTextBox2 = ((DataDynamics.ActiveReports.RichTextBox)(this.GroupHeader1.Controls[7]));
+			this.Label5 = ((DataDynamics.ActiveReports.Label)(this.GroupHeader1.Controls[8]));
+			this.RichTextBox3 = ((DataDynamics.ActiveReports.RichTextBox)(this.GroupHeader1.Controls[9]));
+			// Attach Report Events
+			this.GroupHeader1.Format += new System.EventHandler(this.GroupHeader1_Format);
+			this.ReportStart += new System.EventHandler(this.rprtPMReport1_ReportStart);
+		}
+
+		#endregion
+	}
+}

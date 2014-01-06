@@ -1,0 +1,34 @@
+using System;
+using DataDynamics.ActiveReports;
+using DataDynamics.ActiveReports.Document;
+
+namespace RSMPS
+{
+	public class rprtIssuance3 : ActiveReport
+	{
+		public rprtIssuance3()
+		{
+			InitializeReport();
+		}
+
+		#region ActiveReports Designer generated code
+		public DataDynamics.ActiveReports.DataSources.SqlDBDataSource ds = null;
+		private DataDynamics.ActiveReports.PageHeader PageHeader = null;
+		private DataDynamics.ActiveReports.Detail Detail = null;
+		private DataDynamics.ActiveReports.TextBox txtSendLine = null;
+		private DataDynamics.ActiveReports.Line Line = null;
+		private DataDynamics.ActiveReports.PageFooter PageFooter = null;
+		public void InitializeReport()
+		{
+			this.LoadLayout(this.GetType(), "RSMPS.rprtIssuance3.rpx");
+			this.ds = ((DataDynamics.ActiveReports.DataSources.SqlDBDataSource)(this.DataSource));
+			this.PageHeader = ((DataDynamics.ActiveReports.PageHeader)(this.Sections["PageHeader"]));
+			this.Detail = ((DataDynamics.ActiveReports.Detail)(this.Sections["Detail"]));
+			this.PageFooter = ((DataDynamics.ActiveReports.PageFooter)(this.Sections["PageFooter"]));
+			this.txtSendLine = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[0]));
+			this.Line = ((DataDynamics.ActiveReports.Line)(this.Detail.Controls[1]));
+		}
+
+		#endregion
+	}
+}

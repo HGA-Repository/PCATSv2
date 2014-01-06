@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2FF593E2-80E3-4283-9517-26F16C6E1370}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RSMPS</RootNamespace>
+    <AssemblyName>MPSData</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\MPSData.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CDbActivityCode.cs" />
+    <Compile Include="CDbBudget.cs" />
+    <Compile Include="CDbBudgetExpenseLine.cs" />
+    <Compile Include="CDbBudgetExpenseSheet.cs" />
+    <Compile Include="CDbBudgetImp.cs" />
+    <Compile Include="CDbBudgetLine.cs" />
+    <Compile Include="CDbBudgetPCN.cs" />
+    <Compile Include="CDbBudgetPCNExpense.cs" />
+    <Compile Include="CDbBudgetPCNHour.cs" />
+    <Compile Include="CDbBudgetWorksheet.cs" />
+    <Compile Include="CDbCostSummary.cs" />
+    <Compile Include="CDbCustomer.cs" />
+    <Compile Include="CDbDepartment.cs" />
+    <Compile Include="CDbDocumentReleaseType.cs" />
+    <Compile Include="CDbDrawingLog.cs" />
+    <Compile Include="CDbDrawingSize.cs" />
+    <Compile Include="CDbEmployee.cs" />
+    <Compile Include="CDbEmployeeDepartment.cs" />
+    <Compile Include="CDbEmployeeTitle.cs" />
+    <Compile Include="CDbLocation.cs" />
+    <Compile Include="CDbPCIInfo.cs" />
+    <Compile Include="CDbPCNStatus.cs" />
+    <Compile Include="CDbProject.cs" />
+    <Compile Include="CDbProjectBudget.cs" />
+    <Compile Include="CDbProjectEmployee.cs" />
+    <Compile Include="CDbProjectSummary.cs" />
+    <Compile Include="CDbProjectSummaryInfo.cs" />
+    <Compile Include="CDbProjectSummaryPCN.cs" />
+    <Compile Include="CDbRateSchedule.cs" />
+    <Compile Include="CDbReleaseDrawing.cs" />
+    <Compile Include="CDbReportData.cs" />
+    <Compile Include="CDbScheduleHour.cs" />
+    <Compile Include="CDbSecurityLevel.cs" />
+    <Compile Include="CDbState.cs" />
+    <Compile Include="CDbTransmittal.cs" />
+    <Compile Include="CDbTransmittalDistribution.cs" />
+    <Compile Include="CDbTransmittalDoc.cs" />
+    <Compile Include="CDbTransmittalReleaseDrwg.cs" />
+    <Compile Include="CDbTransmittalTypes.cs" />
+    <Compile Include="CDbTransmittalRelease.cs" />
+    <Compile Include="CDbTransmittalReleaseDoc.cs" />
+    <Compile Include="CDbTransmittalSendTo.cs" />
+    <Compile Include="CDbUnitOfMeasure.cs" />
+    <Compile Include="CDbUser.cs" />
+    <Compile Include="CDbUserLevel.cs" />
+    <Compile Include="CDbUtility.cs" />
+    <Compile Include="CDbVisionExport.cs" />
+    <Compile Include="CDbWeekList.cs" />
+    <Compile Include="CDbActivityCodeDisc.cs" />
+    <Compile Include="FtcCalculator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{4A089FC1-E105-4694-8DA5-F9E9F8C5DBE8}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MPSLib\MPSLib.csproj">
+      <Project>{442DCC3C-E62D-41E8-BBEF-BD7C38D002EF}</Project>
+      <Name>MPSLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RevSolLb\RevSolLb.csproj">
+      <Project>{4AAE51B8-8EF7-4794-95B3-F4175F982CBE}</Project>
+      <Name>RevSolLb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RSLib\RSLib.csproj">
+      <Project>{57DB77B5-A4FC-4360-BB87-BDE12BCD73F0}</Project>
+      <Name>RSLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

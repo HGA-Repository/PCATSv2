@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COAppState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Sch_LastDeptID>8</Sch_LastDeptID>
+  <Sch_EmplyID>1</Sch_EmplyID>
+  <Sch_LastStartDate>2013-12-01T08:01:03</Sch_LastStartDate>
+  <Sch_LastEndDate>2013-12-31T08:01:03</Sch_LastEndDate>
+  <Sch_SortType>1</Sch_SortType>
+  <Sch_ViewPlan>true</Sch_ViewPlan>
+  <Sch_ViewFore>false</Sch_ViewFore>
+  <Sch_ViewActl>false</Sch_ViewActl>
+  <Sch_HrDisplay>#,##0</Sch_HrDisplay>
+</COAppState>

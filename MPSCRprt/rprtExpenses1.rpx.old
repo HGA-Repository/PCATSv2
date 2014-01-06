@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActiveReportsLayout Version="3" PrintWidth="10935" DocumentName="ActiveReports Document" ScriptLang="C#" CodeFile="rprtExpenses1.cs">
+  <StyleSheet>
+    <Style Name="Normal" Value="font-family: Arial; font-style: normal; font-variant: inherit; font-weight: normal; font-size: 10pt; font-size-adjust: inherit; font-stretch: inherit; color: rgb(0,0,0); background-repeat: inherit; background-attachment: inherit; opacity: inherit; word-spacing: inherit; letter-spacing: inherit; text-decoration: none; vertical-align: inherit; text-transform: inherit; text-align: inherit; text-indent: inherit; unicode-bidi: inherit; line-height: inherit; white-space: inherit; ddo-char-set: 0; " />
+    <Style Name="Heading1" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 16pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading2" Value="font-family: Times New Roman; font-style: italic; font-variant: inherit; font-weight: bold; font-size: 14pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading3" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 13pt; font-size-adjust: inherit; font-stretch: inherit; " />
+  </StyleSheet>
+  <Sections>
+    <Section Type="ReportHeader" Name="ReportHeader" Height="270" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="Label1" MOD="4" Left="0" Top="0" Width="900" Height="288" Caption="Expenses" Style="font-weight: bold; font-size: 8.25pt; " />
+    </Section>
+    <Section Type="PageHeader" Name="PageHeader" Height="0" BackColor="16777215" CanShrink="0" />
+    <Section Type="Detail" Name="Detail" Height="225" BackColor="16777215" KeepTogether="1" CanShrink="0">
+      <Control Type="AR.Shape" Name="Shape13" MOD="4" Left="1620" Top="0" Width="1080" Height="252" BackColor="14474460" BackStyle="1" LineColor="14474460" />
+      <Control Type="AR.Field" Name="txtbudget" DataField="budget" MOD="4" Left="1620" Top="0" Width="990.72" Height="252" Text="budget" OutputFormat="$#,##0;($#,##0)" Style="text-align: right; font-size: 8.25pt; " />
+      <Control Type="AR.Shape" Name="Shape15" MOD="4" Left="8820" Top="0" Width="2070" Height="252" BackColor="14474460" BackStyle="1" LineColor="14474460" />
+      <Control Type="AR.Shape" Name="Shape14" MOD="4" Left="4680" Top="0" Width="3060" Height="252" BackColor="14474460" BackStyle="1" LineColor="14474460" />
+      <Control Type="AR.Field" Name="txtcexpdesc" DataField="cexpdesc" MOD="4" Left="0" Top="0" Width="1620" Height="252" Text="cexpdesc" CanGrow="0" Style="font-size: 8.25pt; " />
+      <Control Type="AR.Field" Name="txtcosts" DataField="costs" MOD="4" Left="2700" Top="0" Width="990.72" Height="252" Text="costs" OutputFormat="$#,##0;($#,##0)" Style="text-align: right; font-size: 8.25pt; " />
+      <Control Type="AR.Field" Name="txtBudgetRemaining" MOD="4" Left="5940" Top="0" Width="990.72" Height="252" Text="txtBudgetRemaining" OutputFormat="$#,##0;($#,##0)" Style="text-align: right; font-size: 8.25pt; " />
+      <Control Type="AR.Field" Name="txtFtoC" MOD="4" Left="7920" Top="0" Width="810.72" Height="252" Text="txtFtoC" OutputFormat="$#,##0;($#,##0)" Style="text-align: right; font-size: 8.25pt; " />
+      <Control Type="AR.Field" Name="txtForecast" MOD="4" Left="8820" Top="0" Width="990.72" Height="252" Text="txtForecast" OutputFormat="$#,##0;($#,##0)" Style="text-align: right; font-size: 8.25pt; " />
+      <Control Type="AR.Field" Name="txtOU" MOD="4" Left="9810" Top="0" Width="990.72" Height="252" Text="txtOU" OutputFormat="$#,##0;($#,##0)" Style="text-align: right; font-size: 8.25pt; " />
+    </Section>
+    <Section Type="PageFooter" Name="PageFooter" Height="0" BackColor="16777215" CanShrink="0" />
+    <Section Type="ReportFooter" Name="ReportFooter" Height="525" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Shape" Name="Shape2" MOD="4" Left="1620" Top="0" Width="1080" Height="252" BackColor="14474460" BackStyle="1" LineColor="14474460" />
+      <Control Type="AR.Shape" Name="Shape" MOD="4" Left="8820" Top="0" Width="2070" Height="252" BackColor="14474460" BackStyle="1" LineColor="14474460" />
+      <Control Type="AR.Field" Name="txtOUTot" MOD="4" Left="9810" Top="0" Width="990.72" Height="252" Text="txtOU" OutputFormat="$#,##0;($#,##0)" Style="text-align: right; font-size: 8.25pt; " />
+      <Control Type="AR.Field" Name="txtTotBudget" DataField="budget" MOD="4" Left="1620" Top="0" Width="990.72" Height="288" Text="budget" OutputFormat="$#,##0;($#,##0)" Style="text-align: right; font-size: 8.25pt; " />
+      <Control Type="AR.Shape" Name="Shape1" MOD="4" Left="4680" Top="0" Width="3060" Height="252" BackColor="14474460" BackStyle="1" LineColor="14474460" />
+      <Control Type="AR.Field" Name="txtTotSpent" DataField="costs" MOD="4" Left="2715" Top="0" Width="990.72" Height="288" Text="costs" OutputFormat="$#,##0;($#,##0)" Style="text-align: right; font-size: 8.25pt; " />
+      <Control Type="AR.Label" Name="Label" MOD="4" Left="0" Top="0" Width="1440" Height="288" Caption="Total Expenses" Style="font-size: 8.25pt; " />
+      <Control Type="AR.Field" Name="txtBudgetRemainingTot" MOD="4" Left="5670" Top="0" Width="1260.72" Height="252" Text="txtBudgetRemaining" OutputFormat="$#,##0;($#,##0)" Style="text-align: right; font-size: 8.25pt; " />
+      <Control Type="AR.Field" Name="txtFtoCTot" MOD="4" Left="7470" Top="0" Width="1260.72" Height="252" Text="txtFtoC" OutputFormat="$#,##0;($#,##0)" Style="text-align: right; font-size: 8.25pt; " />
+      <Control Type="AR.Field" Name="txtForecastTot" MOD="4" Left="8639.279" Top="0" Width="1171.441" Height="252" Text="txtForecast" OutputFormat="$#,##0;($#,##0)" Style="text-align: right; font-size: 8.25pt; " />
+      <Control Type="AR.Label" Name="Label2" MOD="4" Left="0" Top="270" Width="1440" Height="288" Caption="Expense Forecast" Style="font-size: 8.25pt; " />
+      <Control Type="AR.Shape" Name="Shape3" MOD="4" Left="8820" Top="270" Width="2070" Height="252" BackColor="14474460" BackStyle="1" LineColor="14474460" />
+      <Control Type="AR.Field" Name="txtTotExpOU" MOD="4" Left="9810" Top="270" Width="990.72" Height="252" Text="txtOU" OutputFormat="$#,##0;($#,##0)" Style="text-align: right; font-size: 8.25pt; " />
+      <Control Type="AR.Field" Name="txtTotExpFTC" MOD="4" Left="7470" Top="270" Width="1260.72" Height="252" Text="txtFtoC" OutputFormat="$#,##0;($#,##0)" Style="text-align: right; font-size: 8.25pt; " />
+      <Control Type="AR.Field" Name="txtTotExpForecast" MOD="4" Left="8639.279" Top="270" Width="1171.441" Height="252" Text="txtForecast" OutputFormat="$#,##0;($#,##0)" Style="text-align: right; font-size: 8.25pt; " />
+    </Section>
+  </Sections>
+  <DataSources DataMember="D">
+    <SqlDbDataSource ConnectE="C/sVljIfO+IqI5exMgeLZbWZqDbpbJxYwQppIJ68+wassphCeSWnv3F/O7z+J0OJhFzXxK5gqk5cD0qWl3NoPfNf1LZ+f+d5CvdcVsr9FV8BqbVNKS2Mpr9c9cGFGsLwigul1zv4G9KR3jlgbZDk2t6CyEJcAquuUUQrwoYF9z8=" SQL="[spRPRT_CostReport_NewAcct] '96032-O', '8/4/2006'" />
+  </DataSources>
+  <PageSettings />
+</ActiveReportsLayout>

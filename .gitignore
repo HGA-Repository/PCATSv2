@@ -1,0 +1,18 @@
+#VS Files
+*.swp
+*.swo
+*.user
+*.suo
+*.*~
+*.rar
+.DS_Store
+
+#Folders
+obj
+bin
+Logs
+App_Data
+builds
+
+
+

@@ -1,0 +1,1 @@
+c:\cygwin\bin\ruby.exe compile_script.rb

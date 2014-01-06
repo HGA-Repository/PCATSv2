@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActiveReportsLayout Version="3" PrintWidth="10515" DocumentName="ActiveReports Document" ScriptLang="C#" CodeFile="rprtPMReport2.cs">
+  <StyleSheet>
+    <Style Name="Normal" Value="font-family: Arial; font-style: normal; font-variant: inherit; font-weight: normal; font-size: 10pt; font-size-adjust: inherit; font-stretch: inherit; color: rgb(0,0,0); background-repeat: inherit; background-attachment: inherit; opacity: inherit; word-spacing: inherit; letter-spacing: inherit; text-decoration: none; vertical-align: inherit; text-transform: inherit; text-align: inherit; text-indent: inherit; unicode-bidi: inherit; line-height: inherit; white-space: inherit; ddo-char-set: 0; " />
+    <Style Name="Heading1" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 16pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading2" Value="font-family: Times New Roman; font-style: italic; font-variant: inherit; font-weight: bold; font-size: 14pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading3" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 13pt; font-size-adjust: inherit; font-stretch: inherit; " />
+  </StyleSheet>
+  <Sections>
+    <Section Type="PageHeader" Name="PageHeader" Height="0" BackColor="16777215" CanShrink="0" />
+    <Section Type="GroupHeader" Name="GroupHeader1" Height="405" DataField="Number" BackColor="16777215" NewPage="1" CanShrink="0">
+      <Control Type="AR.Field" Name="TextBox" DataField="Project" MOD="4" Left="0" Top="0" Width="10260" Height="360" Text="TextBox" Style="font-weight: bold; font-size: 12pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox26" DataField="Number" Visible="0" MOD="4" Left="5580" Top="90" Width="1440" Height="288" Text="TextBox26" />
+      <Control Type="AR.Field" Name="TextBox27" DataField="ProjSumID" Visible="0" MOD="4" Left="7290" Top="270" Width="1440" Height="288" Text="TextBox27" />
+      <Control Type="AR.Field" Name="TextBox28" DataField="ProjectID" Visible="0" MOD="4" Left="8910" Top="270" Width="1440" Height="288" Text="TextBox28" />
+    </Section>
+    <Section Type="Detail" Name="Detail" Height="2865" BackColor="16777215" KeepTogether="1" CanShrink="0">
+      <Control Type="AR.Shape" Name="Shape" MOD="4" Left="720" Top="540" Width="9540" Height="2250" BackColor="16777215" />
+      <Control Type="AR.Label" Name="Label5" MOD="4" Left="810" Top="540" Width="1440" Height="288" Caption="Week Ending" Style="font-weight: bold; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Label" Name="Label6" MOD="4" Left="810" Top="1170" Width="2160" Height="288" Caption="Engineering Workhours" Style="font-weight: bold; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Label" Name="Label7" MOD="4" Left="810" Top="1507.5" Width="2160" Height="288" Caption="Labor Cost" Style="font-weight: bold; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Label" Name="Label8" MOD="4" Left="810" Top="1845" Width="2160" Height="288" Caption="$/MH" Style="font-weight: bold; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Label" Name="Label9" MOD="4" Left="810" Top="2182.5" Width="2160" Height="288" Caption="Expenses" Style="font-weight: bold; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Label" Name="Label10" MOD="4" Left="810" Top="2520" Width="2160" Height="288" Caption="Project Total" Style="font-weight: bold; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Label" Name="Label11" MOD="4" Left="2970" Top="630" Width="1440" Height="288" Caption="Current Budget" Style="text-align: center; font-weight: bold; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Label" Name="Label12" MOD="4" Left="4410" Top="630" Width="1440" Height="288" Caption="Spent to Date" Style="text-align: center; font-weight: bold; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Label" Name="Label13" MOD="4" Left="5850" Top="630" Width="1440" Height="288" Caption="To Complete" Style="text-align: center; font-weight: bold; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Label" Name="Label14" MOD="4" Left="7290" Top="630" Width="1440" Height="288" Caption="Forecast Total" Style="text-align: center; font-weight: bold; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Label" Name="Label15" MOD="4" Left="9360" Top="630" Width="810" Height="288" Caption="/(Under)" Style="text-align: center; font-weight: bold; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Line" Name="Line" MOD="4" X1="720" Y1="1080" X2="10260" Y2="1080" />
+      <Control Type="AR.Line" Name="Line1" MOD="4" X1="720" Y1="1472.4" X2="10260" Y2="1472.4" />
+      <Control Type="AR.Line" Name="Line2" MOD="4" X1="720" Y1="1789.2" X2="10260" Y2="1789.2" />
+      <Control Type="AR.Line" Name="Line3" MOD="4" X1="720" Y1="2149.2" X2="10260" Y2="2149.2" />
+      <Control Type="AR.Line" Name="Line4" MOD="4" X1="720" Y1="2494.8" X2="10260" Y2="2494.8" />
+      <Control Type="AR.Line" Name="Line5" MOD="4" X1="2970" Y1="540" X2="2970" Y2="2790" />
+      <Control Type="AR.Line" Name="Line6" MOD="4" X1="4410" Y1="540" X2="4410" Y2="2790" />
+      <Control Type="AR.Line" Name="Line7" MOD="4" X1="5850" Y1="540" X2="5850" Y2="2790" />
+      <Control Type="AR.Line" Name="Line8" MOD="4" X1="7290" Y1="540" X2="7290" Y2="2790" />
+      <Control Type="AR.Line" Name="Line9" MOD="4" X1="8730" Y1="540" X2="8730" Y2="2790" />
+      <Control Type="AR.Field" Name="TextBox1" MOD="4" Left="3060" Top="1170" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox2" MOD="4" Left="3060" Top="1507.5" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox3" MOD="4" Left="3060" Top="1845" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox4" MOD="4" Left="3060" Top="2182.5" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox5" MOD="4" Left="3060" Top="2520" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox6" MOD="4" Left="4500" Top="1170" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox7" MOD="4" Left="4500" Top="1507.5" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox8" MOD="4" Left="4500" Top="1845" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox9" MOD="4" Left="4500" Top="2182.5" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox10" MOD="4" Left="4500" Top="2520" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox11" MOD="4" Left="5940" Top="1170" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox12" MOD="4" Left="5940" Top="1507.5" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox13" MOD="4" Left="5940" Top="1845" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox14" MOD="4" Left="5940" Top="2182.5" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox15" MOD="4" Left="5940" Top="2520" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox16" MOD="4" Left="7380" Top="1170" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox17" MOD="4" Left="7380" Top="1507.5" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox18" MOD="4" Left="7380" Top="1845" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox19" MOD="4" Left="7380" Top="2182.5" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox20" MOD="4" Left="7380" Top="2520" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox21" MOD="4" Left="8820" Top="1170" Width="1260" Height="288" Text="TextBox1" OutputFormat="" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox22" MOD="4" Left="8820" Top="1507.5" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox23" MOD="4" Left="8820" Top="1845" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox24" MOD="4" Left="8820" Top="2182.5" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="TextBox25" MOD="4" Left="8820" Top="2520" Width="1260" Height="288" Text="TextBox1" Style="text-align: right; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Label" Name="lblWeekEnding" MOD="4" Left="810" Top="810" Width="1440" Height="288" Caption="00/00/00" Style="font-weight: bold; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Label" Name="Label20" MOD="4" Left="8910" Top="630" Width="540" Height="288" Caption="Over" Style="color: Red; text-align: center; font-weight: bold; font-size: 9.75pt; font-family: Times New Roman; " />
+      <Control Type="AR.Label" Name="Label" MOD="4" Left="450" Top="90" Width="3960" Height="360" Caption="-  Cost Summary" Style="font-weight: bold; font-size: 12pt; font-family: Times New Roman; " />
+      <Control Type="AR.Field" Name="txtSchedule" DataField="Schedule" Visible="0" MOD="4" Left="4590" Top="90" Width="1440" Height="288" Text="TextBox29" />
+      <Control Type="AR.Field" Name="txtActivities" DataField="ActHigh" Visible="0" MOD="4" Left="6210" Top="90" Width="1440" Height="288" Text="TextBox30" />
+      <Control Type="AR.Field" Name="txtStaffing" DataField="StaffNeeds" Visible="0" MOD="4" Left="7830" Top="90" Width="1440" Height="288" Text="TextBox31" />
+    </Section>
+    <Section Type="GroupFooter" Name="GroupFooter1" Height="4680" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Shape" Name="Shape1" MOD="4" Left="990" Top="540" Width="8730.721" Height="360" BackColor="14474460" BackStyle="1" />
+      <Control Type="AR.Label" Name="Label1" MOD="4" Left="450" Top="90" Width="5130" Height="360" Caption="-  Pending PCN's" Style="font-weight: bold; font-size: 12pt; font-family: Times New Roman; " />
+      <Control Type="AR.Label" Name="Label2" MOD="4" Left="450" Top="1170" Width="5130" Height="360" Caption="-  Schedule" Style="font-weight: bold; font-size: 12pt; font-family: Times New Roman; " />
+      <Control Type="AR.Label" Name="Label3" MOD="4" Left="450" Top="2340" Width="5130" Height="360" Caption="-  Activities / Highlights" Style="font-weight: bold; font-size: 12pt; font-family: Times New Roman; " />
+      <Control Type="AR.Label" Name="Label4" MOD="4" Left="450" Top="3510" Width="5130" Height="360" Caption="-  Staffing Issues / Needs / Concerns" Style="font-weight: bold; font-size: 12pt; font-family: Times New Roman; " />
+      <Control Type="AR.Subreport" Name="SubReport" MOD="4" Left="990" Top="900" Width="9270" Height="90" />
+      <Control Type="AR.RTF" Name="rtbSchdule" MOD="4" Left="990" Top="1620" Width="9270" Height="450" CanShrink="1" AutoReplaceFields="1" BackStyle="0">
+        <Data><![CDATA[00000000000000007B5C727466317B5C666F6E7474626C7B5C66305C666E696C5C66636861727365743020417269616C3B7D7D7B5C7374796C6573686565747B5C716C5C6C69305C7269305C6E6F77696463746C7061725C736C3234305C736C6D756C745C66616175746F5C667332305C6630204E6F726D616C3B7D7D5C706172645C706C61696E5C73305C6C69305C7269305C716C5C6E6F77696463746C7061725C736C3234305C736C6D756C745C66616175746F5C66305C667332307B5C6630205269636854657874426F785C7061727D7D]]></Data>
+      </Control>
+      <Control Type="AR.RTF" Name="rtbActivities" MOD="4" Left="990" Top="2790" Width="9270" Height="450" CanShrink="1" AutoReplaceFields="1" BackStyle="0">
+        <Data><![CDATA[00000000000000007B5C727466317B5C666F6E7474626C7B5C66305C666E696C5C66636861727365743020417269616C3B7D7D7B5C7374796C6573686565747B5C716C5C6C69305C7269305C6E6F77696463746C7061725C736C3234305C736C6D756C745C66616175746F5C667332305C6630204E6F726D616C3B7D7D5C706172645C706C61696E5C73305C6C69305C7269305C716C5C6E6F77696463746C7061725C736C3234305C736C6D756C745C66616175746F5C66305C667332307B5C6630205269636854657874426F78315C7061727D7D]]></Data>
+      </Control>
+      <Control Type="AR.RTF" Name="rtbStaffing" MOD="4" Left="990" Top="3960" Width="9270" Height="450" CanShrink="1" AutoReplaceFields="1" BackStyle="0">
+        <Data><![CDATA[00000000000000007B5C727466317B5C666F6E7474626C7B5C66305C666E696C5C66636861727365743020417269616C3B7D7D7B5C7374796C6573686565747B5C716C5C6C69305C7269305C6E6F77696463746C7061725C736C3234305C736C6D756C745C66616175746F5C667332305C6630204E6F726D616C3B7D7D5C706172645C706C61696E5C73305C6C69305C7269305C716C5C6E6F77696463746C7061725C736C3234305C736C6D756C745C66616175746F5C66305C667332307B5C6630205269636854657874426F78325C7061727D7D]]></Data>
+      </Control>
+      <Control Type="AR.Label" Name="Label16" MOD="4" Left="1080" Top="630" Width="1440" Height="288" Caption="PCN No." Style="font-weight: bold; font-size: 9.75pt; " />
+      <Control Type="AR.Label" Name="Label17" MOD="4" Left="2880" Top="630" Width="1440" Height="288" Caption="Description" Style="font-weight: bold; font-size: 9.75pt; " />
+      <Control Type="AR.Label" Name="Label18" MOD="4" Left="6930" Top="630" Width="1440" Height="288" Caption="Hours" Style="text-align: center; font-weight: bold; font-size: 9.75pt; " />
+      <Control Type="AR.Label" Name="Label19" MOD="4" Left="8460" Top="630" Width="1224" Height="288" Caption="Dollars" Style="text-align: center; font-weight: bold; font-size: 9.75pt; " />
+    </Section>
+    <Section Type="PageFooter" Name="PageFooter" Height="0" BackColor="16777215" CanShrink="0" />
+  </Sections>
+  <DataSources>
+    <SqlDbDataSource ConnectE="XGBGBK5vG54b9vPxFHURRArEzP4l2aRYVJWVtfXxbxTGsnKmDA+A6JBnL8x15Tnn+SGdA/gGqA/2qaaP3y8j2fL5rxBhN8F1TT8HyENlCSwc8KmFTaF7B0GvgNlNLL6CDJ+4yNXzVsYzonsgm0TGk0NiuOZvLTW3VV4+f7ehyX8=" SQL="spRPRT_PMReport1 35" />
+  </DataSources>
+  <PageSettings LeftMargin="720" RightMargin="360" TopMargin="720" BottomMargin="360" PaperSize="1" PaperWidth="12240" PaperHeight="15840" PaperName="" Orientation="1" />
+</ActiveReportsLayout>

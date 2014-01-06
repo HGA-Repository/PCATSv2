@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{4AAE51B8-8EF7-4794-95B3-F4175F982CBE}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <AssemblyName>RevSolLb</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data" />
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="RevSol.Properties\Resources.cs" />
+    <Compile Include="RevSol\Alphapad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RevSol\Alphapad800x600.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RevSol\CMenuButton.cs" />
+    <Compile Include="RevSol\CMenuButtons.cs" />
+    <Compile Include="RevSol\CODecryptor.cs" />
+    <Compile Include="RevSol\CODecryptTransformer.cs" />
+    <Compile Include="RevSol\COEncryptor.cs" />
+    <Compile Include="RevSol\COEncryptTransformer.cs" />
+    <Compile Include="RevSol\COUpdater.cs" />
+    <Compile Include="RevSol\DSButtonVals.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RevSol\EncryptionAlgorithm.cs" />
+    <Compile Include="RevSol\FAlphaPad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RevSol\FAlphaPad800x600.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RevSol\FEncryptForData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RevSol\FKeypad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RevSol\FKeypadExt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RevSol\FMenuButtons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RevSol\HandleScannerDataInput.cs" />
+    <Compile Include="RevSol\ItemMultiSelectHandler.cs" />
+    <Compile Include="RevSol\ItemSelectedHandler.cs" />
+    <Compile Include="RevSol\ItemValueChangedHandler.cs" />
+    <Compile Include="RevSol\MenuButton1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RevSol\MenuButtonList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RevSol\Numpad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RevSol\PadChanged.cs" />
+    <Compile Include="RevSol\PadCleared.cs" />
+    <Compile Include="RevSol\PadEntered.cs" />
+    <Compile Include="RevSol\PassDataString.cs" />
+    <Compile Include="RevSol\PassDataStringWithIndex.cs" />
+    <Compile Include="RevSol\PassMultiDataStrings.cs" />
+    <Compile Include="RevSol\PassUpdatedHandler.cs" />
+    <Compile Include="RevSol\RSCompression.cs" />
+    <Compile Include="RevSol\RSConnection.cs" />
+    <Compile Include="RevSol\RSDataServer.cs" />
+    <Compile Include="RevSol\RSEncryption.cs" />
+    <Compile Include="RevSol\RSFileUtility.cs" />
+    <Compile Include="RevSol\RSListItem.cs" />
+    <Compile Include="RevSol\RSMath.cs" />
+    <Compile Include="RevSol\RSScannerLS2208.cs" />
+    <Compile Include="RevSol\RSSerialReader.cs" />
+    <Compile Include="RevSol\RSSerialSetting.cs" />
+    <Compile Include="RevSol\RSStringProcessor.cs" />
+    <Compile Include="RevSol\RSTransparentPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RevSol\RSUpdater.cs" />
+    <Compile Include="RevSol\RSUtility.cs" />
+    <Compile Include="RevSol\RSWebConnection.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RevSol.Properties\Resources.resources" />
+    <EmbeddedResource Include="RevSol\Alphapad.resources" />
+    <EmbeddedResource Include="RevSol\Alphapad800x600.resources" />
+    <EmbeddedResource Include="RevSol\FAlphaPad.resources" />
+    <EmbeddedResource Include="RevSol\FAlphaPad800x600.resources" />
+    <EmbeddedResource Include="RevSol\FEncryptForData.resources" />
+    <EmbeddedResource Include="RevSol\FKeypad.resources" />
+    <EmbeddedResource Include="RevSol\FKeypadExt.resources" />
+    <EmbeddedResource Include="RevSol\FMenuButtons.resources" />
+    <EmbeddedResource Include="RevSol\MenuButton1.resources" />
+    <EmbeddedResource Include="RevSol\MenuButtonList.resources" />
+    <EmbeddedResource Include="RevSol\Numpad.resources" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

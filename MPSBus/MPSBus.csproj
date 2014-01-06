@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{12E92C40-6B50-4255-87B2-C9C010B6C284}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RSMPS</RootNamespace>
+    <AssemblyName>MPSBus</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\MPSBus.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CBActivityCode.cs" />
+    <Compile Include="CBBudget.cs" />
+    <Compile Include="CBBudgetExpenseLine.cs" />
+    <Compile Include="CBBudgetExpenseSheet.cs" />
+    <Compile Include="CBBudgetImp.cs" />
+    <Compile Include="CBBudgetLine.cs" />
+    <Compile Include="CBBudgetPCN.cs" />
+    <Compile Include="CBBudgetPCNExpense.cs" />
+    <Compile Include="CBBudgetPCNHour.cs" />
+    <Compile Include="CBBudgetWorksheet.cs" />
+    <Compile Include="CBCostSummary.cs" />
+    <Compile Include="CBCustomer.cs" />
+    <Compile Include="CBDepartment.cs" />
+    <Compile Include="CBDocumentReleaseType.cs" />
+    <Compile Include="CBDrawingLog.cs" />
+    <Compile Include="CBDrawingSize.cs" />
+    <Compile Include="CBEmployee.cs" />
+    <Compile Include="CBEmployeeDepartment.cs" />
+    <Compile Include="CBEmployeeTitle.cs" />
+    <Compile Include="CBHoursWarning.cs" />
+    <Compile Include="CBLocation.cs" />
+    <Compile Include="CBPCIInfo.cs" />
+    <Compile Include="CBPCNStatus.cs" />
+    <Compile Include="CBProject.cs" />
+    <Compile Include="CBProjectBudget.cs" />
+    <Compile Include="CBProjectEmployee.cs" />
+    <Compile Include="CBProjectSummary.cs" />
+    <Compile Include="CBProjectSummaryInfo.cs" />
+    <Compile Include="CBProjectSummaryPCN.cs" />
+    <Compile Include="CBRateSchedule.cs" />
+    <Compile Include="CBReleaseDrawing.cs" />
+    <Compile Include="CBReportData.cs" />
+    <Compile Include="CBScheduleHour.cs" />
+    <Compile Include="CBSecurityLevel.cs" />
+    <Compile Include="CBState.cs" />
+    <Compile Include="CBTransmittal.cs" />
+    <Compile Include="CBTransmittalDistribution.cs" />
+    <Compile Include="CBTransmittalDoc.cs" />
+    <Compile Include="CBTransmittalReleaseDrwg.cs" />
+    <Compile Include="CBTransmittalTypes.cs" />
+    <Compile Include="CBTransmittalRelease.cs" />
+    <Compile Include="CBTransmittalReleaseDoc.cs" />
+    <Compile Include="CBTransmittalSendTo.cs" />
+    <Compile Include="CBUnitOfMeasure.cs" />
+    <Compile Include="CBUser.cs" />
+    <Compile Include="CBUserLevel.cs" />
+    <Compile Include="CBUtility.cs" />
+    <Compile Include="CBVisionExport.cs" />
+    <Compile Include="CBWeekList.cs" />
+    <Compile Include="CBActivityCodeDisc.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MPSData\MPSData.csproj">
+      <Project>{2FF593E2-80E3-4283-9517-26F16C6E1370}</Project>
+      <Name>MPSData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MPSLib\MPSLib.csproj">
+      <Project>{442DCC3C-E62D-41E8-BBEF-BD7C38D002EF}</Project>
+      <Name>MPSLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RevSolLb\RevSolLb.csproj">
+      <Project>{4AAE51B8-8EF7-4794-95B3-F4175F982CBE}</Project>
+      <Name>RevSolLb</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

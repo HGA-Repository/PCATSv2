@@ -1,0 +1,9 @@
+C1.Win.C1Command.C1CommandHolder, C1.Win.C1Command.2
+C1.Win.C1FlexGrid.C1FlexGrid, C1.Win.C1FlexGrid.2
+C1.Win.C1Input.C1NumericEdit, C1.Win.C1Input.2
+C1.Win.C1Input.C1TextBox, C1.Win.C1Input.2
+C1.Win.C1List.C1Combo, C1.Win.C1List.2
+C1.Win.C1List.C1List, C1.Win.C1List.2
+C1.Win.C1TrueDBGrid.C1TrueDBGrid, C1.Win.C1TrueDBGrid.2
+C1.C1Excel.C1XLBook, C1.C1Excel.2
+DataDynamics.ActiveReports.ActiveReport, ActiveReports6, Version=6.1.2577.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff

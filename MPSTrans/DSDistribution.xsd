@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSDistribution" targetNamespace="http://tempuri.org/DSDistribution.xsd" xmlns:mstns="http://tempuri.org/DSDistribution.xsd" xmlns="http://tempuri.org/DSDistribution.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSDistribution" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DSDistribution" msprop:Generator_DataSetName="DSDistribution" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Distributions" msprop:Generator_UserTableName="Distributions" msprop:Generator_RowDeletedName="DistributionsRowDeleted" msprop:Generator_RowChangedName="DistributionsRowChanged" msprop:Generator_RowClassName="DistributionsRow" msprop:Generator_RowChangingName="DistributionsRowChanging" msprop:Generator_RowEvArgName="DistributionsRowChangeEvent" msprop:Generator_RowEvHandlerName="DistributionsRowChangeEventHandler" msprop:Generator_TableClassName="DistributionsDataTable" msprop:Generator_TableVarName="tableDistributions" msprop:Generator_RowDeletingName="DistributionsRowDeleting" msprop:Generator_TablePropName="Distributions">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DistID" msprop:Generator_UserColumnName="DistID" msprop:Generator_ColumnVarNameInTable="columnDistID" msprop:Generator_ColumnPropNameInRow="DistID" msprop:Generator_ColumnPropNameInTable="DistIDColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="DistributionName" msprop:Generator_UserColumnName="DistributionName" msprop:Generator_ColumnPropNameInRow="DistributionName" msprop:Generator_ColumnVarNameInTable="columnDistributionName" msprop:Generator_ColumnPropNameInTable="DistributionNameColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="ReleaseTypeID" msprop:Generator_UserColumnName="ReleaseTypeID" msprop:Generator_ColumnVarNameInTable="columnReleaseTypeID" msprop:Generator_ColumnPropNameInRow="ReleaseTypeID" msprop:Generator_ColumnPropNameInTable="ReleaseTypeIDColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="ReleaseType" msprop:Generator_UserColumnName="ReleaseType" msprop:Generator_ColumnVarNameInTable="columnReleaseType" msprop:Generator_ColumnPropNameInRow="ReleaseType" msprop:Generator_ColumnPropNameInTable="ReleaseTypeColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="DocCount" msprop:Generator_UserColumnName="DocCount" msprop:Generator_ColumnVarNameInTable="columnDocCount" msprop:Generator_ColumnPropNameInRow="DocCount" msprop:Generator_ColumnPropNameInTable="DocCountColumn" type="xs:int" default="1" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

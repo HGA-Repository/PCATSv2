@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CAppUpdate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PerformUpdate>true</PerformUpdate>
+  <UpdateLocation>\\\\fileserver\\corporate\\IT Department\\RevSol\\PCATS</UpdateLocation>
+  <UpdateFile>MPS.exe</UpdateFile>
+</CAppUpdate>

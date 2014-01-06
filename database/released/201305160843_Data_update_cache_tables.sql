@@ -1,0 +1,4 @@
+
+--update cache tables
+EXEC spUtility_UpdateBudgetsFromFMS
+EXEC spUtility_UpdateTimeFromFMS

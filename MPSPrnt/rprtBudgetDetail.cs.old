@@ -1,0 +1,314 @@
+using System;
+using DataDynamics.ActiveReports;
+using DataDynamics.ActiveReports.Document;
+
+using System.Data;
+
+namespace RSMPS
+{
+    public delegate void HandleTotalValues(decimal value1, decimal value2, decimal value3);
+
+	public class rprtBudgetDetail : ActiveReport
+	{
+        string custLoc = "";
+        string jobDesc = "";
+        string jobNumber = "";
+        string budRev = "";
+
+        int miExpNumItems;
+        decimal mdExpMuDlrs;
+        decimal mdExpTotDlrs;
+
+        string fltrVal = "";
+        decimal currentExpenseValue = 0;
+
+        public void SetTitles(string customer, string desc, string number, string revision)
+        {
+            lblCustomerLocation.Text = customer;
+            lblJobDescription.Text = desc;
+            lblJobNumber.Text = number;
+            lblRevision.Text = revision;
+        }
+
+		public rprtBudgetDetail()
+		{
+			InitializeReport();
+		}
+
+		private void GroupFooter1_Format(object sender, System.EventArgs eArgs)
+		{
+            lblDeptTotals.Text = "Total " + txtDiscipline.Value.ToString() + " (" + txtDepartment.Value.ToString() + ")";
+
+            rprtBudgetDetailExps exp = new rprtBudgetDetailExps();
+
+            exp.OnReportTotaled += new RevSol.PassMultiDataStrings(exp_OnReportTotaled);
+            exp.DataSource = ((DataSet)this.DataSource).Tables["Table1"].Select(fltrVal);
+            exp.SetTitle(txtDiscipline.Value.ToString(), txtDepartment.Value.ToString());
+            exp.OnTotalRun += new HandleTotalValues(exp_OnTotalRun);
+
+            this.subRprtExpenses.Report = exp;
+		}
+
+        void exp_OnReportTotaled(string[] vals, int count)
+        {
+            miExpNumItems += Convert.ToInt32(vals[0]);
+            mdExpMuDlrs += Convert.ToDecimal(vals[1]);
+            mdExpTotDlrs += Convert.ToDecimal(vals[2]);
+        }
+
+        void exp_OnTotalRun(decimal value1, decimal value2, decimal value3)
+        {
+            currentExpenseValue = value1;
+        }
+
+		private void GroupHeader1_Format(object sender, System.EventArgs eArgs)
+		{
+            currentExpenseValue = 0;
+
+            fltrVal = "DeptGroup = " + txtDepartment.Value.ToString();
+		}
+
+		private void rprtBudgetDetail_ReportStart(object sender, System.EventArgs eArgs)
+		{
+            lblDateTime.Text = DateTime.Now.ToShortDateString();
+
+            miExpNumItems = 0;
+            mdExpMuDlrs = 0;
+            mdExpTotDlrs = 0;
+		}
+
+		private void ReportFooter_Format(object sender, System.EventArgs eArgs)
+		{
+            //txtEngQty.Value = 0;
+            //txtEngTotalHrs.Value = 0;
+            
+            if (Convert.ToInt32(txtEngQty.Value) != 0)
+                txtEngHrsEach.Value = Convert.ToInt32(txtEngTotalHrs.Value) / Convert.ToInt32(txtEngQty.Value);
+            else
+                txtEngHrsEach.Value = 0;
+
+            if (Convert.ToInt32(txtEngTotalHrs.Value) != 0)
+                txtEngLdRt.Value = Convert.ToDecimal(txtEngTotLdDlrs.Value) / Convert.ToDecimal(txtEngTotalHrs.Value);
+            else
+                txtEngLdRt.Value = 0;
+
+            if (Convert.ToDecimal(txtEngTotLdDlrs.Value) != 0)
+                txtEngCostEach.Value = Convert.ToDecimal(txtEngTotLdDlrs.Value) / Convert.ToDecimal(txtEngQty.Value);
+            else
+                txtEngCostEach.Value = 0;
+
+            //txtEngTotLdDlrs.Value = 0;
+
+            txtNonEngQty.Value = 0;
+            txtNonEngTotHrs.Value = 0;
+            txtNonEngHrsEach.Value = 0;
+            txtNonEngLdRt.Value = 0;
+            txtNonEngCostEach.Value = mdExpTotDlrs;
+            txtNonEngTotLdDlrs.Value = mdExpTotDlrs;
+
+            txtTotalCostEach.Value = Convert.ToDecimal(txtEngCostEach.Value) + mdExpTotDlrs;
+            txtTotalLoadedDlrs.Value = Convert.ToDecimal(txtEngTotLdDlrs.Value) + mdExpTotDlrs;
+		}
+
+		#region ActiveReports Designer generated code
+		private DataDynamics.ActiveReports.ReportHeader ReportHeader = null;
+		private DataDynamics.ActiveReports.PageHeader PageHeader = null;
+		private DataDynamics.ActiveReports.Picture Picture = null;
+		private DataDynamics.ActiveReports.Label lblCustomerLocation = null;
+		private DataDynamics.ActiveReports.Label lblJobDescription = null;
+		private DataDynamics.ActiveReports.Label lblJobNumber = null;
+		private DataDynamics.ActiveReports.Label lblRevision = null;
+		private DataDynamics.ActiveReports.GroupHeader GroupHeader1 = null;
+		private DataDynamics.ActiveReports.Shape Shape1 = null;
+		private DataDynamics.ActiveReports.TextBox txtDepartment = null;
+		private DataDynamics.ActiveReports.Line Line = null;
+		private DataDynamics.ActiveReports.Label Label1 = null;
+		private DataDynamics.ActiveReports.Label Label2 = null;
+		private DataDynamics.ActiveReports.Label Label3 = null;
+		private DataDynamics.ActiveReports.Label Label4 = null;
+		private DataDynamics.ActiveReports.Label Label5 = null;
+		private DataDynamics.ActiveReports.Label Label6 = null;
+		private DataDynamics.ActiveReports.TextBox txtDiscipline = null;
+		private DataDynamics.ActiveReports.GroupHeader GroupHeader2 = null;
+		private DataDynamics.ActiveReports.Shape Shape2 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox7 = null;
+		private DataDynamics.ActiveReports.Line Line1 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox11 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox12 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox19 = null;
+		private DataDynamics.ActiveReports.GroupHeader GroupHeader3 = null;
+		private DataDynamics.ActiveReports.Shape Shape3 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox9 = null;
+		private DataDynamics.ActiveReports.Line Line2 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox8 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox10 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox20 = null;
+		private DataDynamics.ActiveReports.GroupHeader GroupHeader4 = null;
+		private DataDynamics.ActiveReports.Shape Shape4 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox13 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox14 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox18 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox21 = null;
+		private DataDynamics.ActiveReports.Detail Detail = null;
+		private DataDynamics.ActiveReports.TextBox TextBox = null;
+		private DataDynamics.ActiveReports.TextBox TextBox1 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox2 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox3 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox4 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox5 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox6 = null;
+		private DataDynamics.ActiveReports.GroupFooter GroupFooter4 = null;
+		private DataDynamics.ActiveReports.GroupFooter GroupFooter3 = null;
+		private DataDynamics.ActiveReports.GroupFooter GroupFooter2 = null;
+		private DataDynamics.ActiveReports.GroupFooter GroupFooter1 = null;
+		private DataDynamics.ActiveReports.Shape Shape = null;
+		private DataDynamics.ActiveReports.SubReport subRprtExpenses = null;
+		private DataDynamics.ActiveReports.TextBox TextBox15 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox16 = null;
+		private DataDynamics.ActiveReports.TextBox TextBox17 = null;
+		private DataDynamics.ActiveReports.Label lblDeptTotals = null;
+		private DataDynamics.ActiveReports.PageFooter PageFooter = null;
+		private DataDynamics.ActiveReports.Label lblDateTime = null;
+		private DataDynamics.ActiveReports.ReportFooter ReportFooter = null;
+		private DataDynamics.ActiveReports.Shape Shape5 = null;
+		private DataDynamics.ActiveReports.Label Label = null;
+		private DataDynamics.ActiveReports.Label Label7 = null;
+		private DataDynamics.ActiveReports.Label Label8 = null;
+		private DataDynamics.ActiveReports.Label Label9 = null;
+		private DataDynamics.ActiveReports.Label Label10 = null;
+		private DataDynamics.ActiveReports.Label Label11 = null;
+		private DataDynamics.ActiveReports.Label Label12 = null;
+		private DataDynamics.ActiveReports.Label Label13 = null;
+		private DataDynamics.ActiveReports.TextBox txtEngQty = null;
+		private DataDynamics.ActiveReports.TextBox txtEngHrsEach = null;
+		private DataDynamics.ActiveReports.TextBox txtEngTotalHrs = null;
+		private DataDynamics.ActiveReports.TextBox txtEngLdRt = null;
+		private DataDynamics.ActiveReports.TextBox txtEngCostEach = null;
+		private DataDynamics.ActiveReports.TextBox txtEngTotLdDlrs = null;
+		private DataDynamics.ActiveReports.TextBox txtNonEngQty = null;
+		private DataDynamics.ActiveReports.TextBox txtNonEngHrsEach = null;
+		private DataDynamics.ActiveReports.TextBox txtNonEngTotHrs = null;
+		private DataDynamics.ActiveReports.TextBox txtNonEngLdRt = null;
+		private DataDynamics.ActiveReports.TextBox txtNonEngCostEach = null;
+		private DataDynamics.ActiveReports.TextBox txtNonEngTotLdDlrs = null;
+		private DataDynamics.ActiveReports.Line Line3 = null;
+		private DataDynamics.ActiveReports.Line Line4 = null;
+		private DataDynamics.ActiveReports.Line Line5 = null;
+		private DataDynamics.ActiveReports.Line Line6 = null;
+		private DataDynamics.ActiveReports.Line Line7 = null;
+		private DataDynamics.ActiveReports.Line Line8 = null;
+		private DataDynamics.ActiveReports.Line Line9 = null;
+		private DataDynamics.ActiveReports.Line Line10 = null;
+		private DataDynamics.ActiveReports.Shape Shape6 = null;
+		private DataDynamics.ActiveReports.Label Label14 = null;
+		private DataDynamics.ActiveReports.TextBox txtTotalCostEach = null;
+		private DataDynamics.ActiveReports.TextBox txtTotalLoadedDlrs = null;
+		private DataDynamics.ActiveReports.Line Line11 = null;
+		private DataDynamics.ActiveReports.Line Line12 = null;
+		public void InitializeReport()
+		{
+			this.LoadLayout(this.GetType(), "RSMPS.rprtBudgetDetail.rpx");
+			this.ReportHeader = ((DataDynamics.ActiveReports.ReportHeader)(this.Sections["ReportHeader"]));
+			this.PageHeader = ((DataDynamics.ActiveReports.PageHeader)(this.Sections["PageHeader"]));
+			this.GroupHeader1 = ((DataDynamics.ActiveReports.GroupHeader)(this.Sections["GroupHeader1"]));
+			this.GroupHeader2 = ((DataDynamics.ActiveReports.GroupHeader)(this.Sections["GroupHeader2"]));
+			this.GroupHeader3 = ((DataDynamics.ActiveReports.GroupHeader)(this.Sections["GroupHeader3"]));
+			this.GroupHeader4 = ((DataDynamics.ActiveReports.GroupHeader)(this.Sections["GroupHeader4"]));
+			this.Detail = ((DataDynamics.ActiveReports.Detail)(this.Sections["Detail"]));
+			this.GroupFooter4 = ((DataDynamics.ActiveReports.GroupFooter)(this.Sections["GroupFooter4"]));
+			this.GroupFooter3 = ((DataDynamics.ActiveReports.GroupFooter)(this.Sections["GroupFooter3"]));
+			this.GroupFooter2 = ((DataDynamics.ActiveReports.GroupFooter)(this.Sections["GroupFooter2"]));
+			this.GroupFooter1 = ((DataDynamics.ActiveReports.GroupFooter)(this.Sections["GroupFooter1"]));
+			this.PageFooter = ((DataDynamics.ActiveReports.PageFooter)(this.Sections["PageFooter"]));
+			this.ReportFooter = ((DataDynamics.ActiveReports.ReportFooter)(this.Sections["ReportFooter"]));
+			this.Picture = ((DataDynamics.ActiveReports.Picture)(this.PageHeader.Controls[0]));
+			this.lblCustomerLocation = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[1]));
+			this.lblJobDescription = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[2]));
+			this.lblJobNumber = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[3]));
+			this.lblRevision = ((DataDynamics.ActiveReports.Label)(this.PageHeader.Controls[4]));
+			this.Shape1 = ((DataDynamics.ActiveReports.Shape)(this.GroupHeader1.Controls[0]));
+			this.txtDepartment = ((DataDynamics.ActiveReports.TextBox)(this.GroupHeader1.Controls[1]));
+			this.Line = ((DataDynamics.ActiveReports.Line)(this.GroupHeader1.Controls[2]));
+			this.Label1 = ((DataDynamics.ActiveReports.Label)(this.GroupHeader1.Controls[3]));
+			this.Label2 = ((DataDynamics.ActiveReports.Label)(this.GroupHeader1.Controls[4]));
+			this.Label3 = ((DataDynamics.ActiveReports.Label)(this.GroupHeader1.Controls[5]));
+			this.Label4 = ((DataDynamics.ActiveReports.Label)(this.GroupHeader1.Controls[6]));
+			this.Label5 = ((DataDynamics.ActiveReports.Label)(this.GroupHeader1.Controls[7]));
+			this.Label6 = ((DataDynamics.ActiveReports.Label)(this.GroupHeader1.Controls[8]));
+			this.txtDiscipline = ((DataDynamics.ActiveReports.TextBox)(this.GroupHeader1.Controls[9]));
+			this.Shape2 = ((DataDynamics.ActiveReports.Shape)(this.GroupHeader2.Controls[0]));
+			this.TextBox7 = ((DataDynamics.ActiveReports.TextBox)(this.GroupHeader2.Controls[1]));
+			this.Line1 = ((DataDynamics.ActiveReports.Line)(this.GroupHeader2.Controls[2]));
+			this.TextBox11 = ((DataDynamics.ActiveReports.TextBox)(this.GroupHeader2.Controls[3]));
+			this.TextBox12 = ((DataDynamics.ActiveReports.TextBox)(this.GroupHeader2.Controls[4]));
+			this.TextBox19 = ((DataDynamics.ActiveReports.TextBox)(this.GroupHeader2.Controls[5]));
+			this.Shape3 = ((DataDynamics.ActiveReports.Shape)(this.GroupHeader3.Controls[0]));
+			this.TextBox9 = ((DataDynamics.ActiveReports.TextBox)(this.GroupHeader3.Controls[1]));
+			this.Line2 = ((DataDynamics.ActiveReports.Line)(this.GroupHeader3.Controls[2]));
+			this.TextBox8 = ((DataDynamics.ActiveReports.TextBox)(this.GroupHeader3.Controls[3]));
+			this.TextBox10 = ((DataDynamics.ActiveReports.TextBox)(this.GroupHeader3.Controls[4]));
+			this.TextBox20 = ((DataDynamics.ActiveReports.TextBox)(this.GroupHeader3.Controls[5]));
+			this.Shape4 = ((DataDynamics.ActiveReports.Shape)(this.GroupHeader4.Controls[0]));
+			this.TextBox13 = ((DataDynamics.ActiveReports.TextBox)(this.GroupHeader4.Controls[1]));
+			this.TextBox14 = ((DataDynamics.ActiveReports.TextBox)(this.GroupHeader4.Controls[2]));
+			this.TextBox18 = ((DataDynamics.ActiveReports.TextBox)(this.GroupHeader4.Controls[3]));
+			this.TextBox21 = ((DataDynamics.ActiveReports.TextBox)(this.GroupHeader4.Controls[4]));
+			this.TextBox = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[0]));
+			this.TextBox1 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[1]));
+			this.TextBox2 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[2]));
+			this.TextBox3 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[3]));
+			this.TextBox4 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[4]));
+			this.TextBox5 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[5]));
+			this.TextBox6 = ((DataDynamics.ActiveReports.TextBox)(this.Detail.Controls[6]));
+			this.Shape = ((DataDynamics.ActiveReports.Shape)(this.GroupFooter1.Controls[0]));
+			this.subRprtExpenses = ((DataDynamics.ActiveReports.SubReport)(this.GroupFooter1.Controls[1]));
+			this.TextBox15 = ((DataDynamics.ActiveReports.TextBox)(this.GroupFooter1.Controls[2]));
+			this.TextBox16 = ((DataDynamics.ActiveReports.TextBox)(this.GroupFooter1.Controls[3]));
+			this.TextBox17 = ((DataDynamics.ActiveReports.TextBox)(this.GroupFooter1.Controls[4]));
+			this.lblDeptTotals = ((DataDynamics.ActiveReports.Label)(this.GroupFooter1.Controls[5]));
+			this.lblDateTime = ((DataDynamics.ActiveReports.Label)(this.PageFooter.Controls[0]));
+			this.Shape5 = ((DataDynamics.ActiveReports.Shape)(this.ReportFooter.Controls[0]));
+			this.Label = ((DataDynamics.ActiveReports.Label)(this.ReportFooter.Controls[1]));
+			this.Label7 = ((DataDynamics.ActiveReports.Label)(this.ReportFooter.Controls[2]));
+			this.Label8 = ((DataDynamics.ActiveReports.Label)(this.ReportFooter.Controls[3]));
+			this.Label9 = ((DataDynamics.ActiveReports.Label)(this.ReportFooter.Controls[4]));
+			this.Label10 = ((DataDynamics.ActiveReports.Label)(this.ReportFooter.Controls[5]));
+			this.Label11 = ((DataDynamics.ActiveReports.Label)(this.ReportFooter.Controls[6]));
+			this.Label12 = ((DataDynamics.ActiveReports.Label)(this.ReportFooter.Controls[7]));
+			this.Label13 = ((DataDynamics.ActiveReports.Label)(this.ReportFooter.Controls[8]));
+			this.txtEngQty = ((DataDynamics.ActiveReports.TextBox)(this.ReportFooter.Controls[9]));
+			this.txtEngHrsEach = ((DataDynamics.ActiveReports.TextBox)(this.ReportFooter.Controls[10]));
+			this.txtEngTotalHrs = ((DataDynamics.ActiveReports.TextBox)(this.ReportFooter.Controls[11]));
+			this.txtEngLdRt = ((DataDynamics.ActiveReports.TextBox)(this.ReportFooter.Controls[12]));
+			this.txtEngCostEach = ((DataDynamics.ActiveReports.TextBox)(this.ReportFooter.Controls[13]));
+			this.txtEngTotLdDlrs = ((DataDynamics.ActiveReports.TextBox)(this.ReportFooter.Controls[14]));
+			this.txtNonEngQty = ((DataDynamics.ActiveReports.TextBox)(this.ReportFooter.Controls[15]));
+			this.txtNonEngHrsEach = ((DataDynamics.ActiveReports.TextBox)(this.ReportFooter.Controls[16]));
+			this.txtNonEngTotHrs = ((DataDynamics.ActiveReports.TextBox)(this.ReportFooter.Controls[17]));
+			this.txtNonEngLdRt = ((DataDynamics.ActiveReports.TextBox)(this.ReportFooter.Controls[18]));
+			this.txtNonEngCostEach = ((DataDynamics.ActiveReports.TextBox)(this.ReportFooter.Controls[19]));
+			this.txtNonEngTotLdDlrs = ((DataDynamics.ActiveReports.TextBox)(this.ReportFooter.Controls[20]));
+			this.Line3 = ((DataDynamics.ActiveReports.Line)(this.ReportFooter.Controls[21]));
+			this.Line4 = ((DataDynamics.ActiveReports.Line)(this.ReportFooter.Controls[22]));
+			this.Line5 = ((DataDynamics.ActiveReports.Line)(this.ReportFooter.Controls[23]));
+			this.Line6 = ((DataDynamics.ActiveReports.Line)(this.ReportFooter.Controls[24]));
+			this.Line7 = ((DataDynamics.ActiveReports.Line)(this.ReportFooter.Controls[25]));
+			this.Line8 = ((DataDynamics.ActiveReports.Line)(this.ReportFooter.Controls[26]));
+			this.Line9 = ((DataDynamics.ActiveReports.Line)(this.ReportFooter.Controls[27]));
+			this.Line10 = ((DataDynamics.ActiveReports.Line)(this.ReportFooter.Controls[28]));
+			this.Shape6 = ((DataDynamics.ActiveReports.Shape)(this.ReportFooter.Controls[29]));
+			this.Label14 = ((DataDynamics.ActiveReports.Label)(this.ReportFooter.Controls[30]));
+			this.txtTotalCostEach = ((DataDynamics.ActiveReports.TextBox)(this.ReportFooter.Controls[31]));
+			this.txtTotalLoadedDlrs = ((DataDynamics.ActiveReports.TextBox)(this.ReportFooter.Controls[32]));
+			this.Line11 = ((DataDynamics.ActiveReports.Line)(this.ReportFooter.Controls[33]));
+			this.Line12 = ((DataDynamics.ActiveReports.Line)(this.ReportFooter.Controls[34]));
+			// Attach Report Events
+			this.GroupFooter1.Format += new System.EventHandler(this.GroupFooter1_Format);
+			this.GroupHeader1.Format += new System.EventHandler(this.GroupHeader1_Format);
+			this.ReportStart += new System.EventHandler(this.rprtBudgetDetail_ReportStart);
+			this.ReportFooter.Format += new System.EventHandler(this.ReportFooter_Format);
+		}
+
+		#endregion
+	}
+}
