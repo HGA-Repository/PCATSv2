@@ -24,7 +24,7 @@ namespace RSMPS
             string tmpStr = "";
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spBudget_ByID", cnn.GetConnection());
+            cmd = new SqlCommand("spBudget_ByID2", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -48,6 +48,15 @@ namespace RSMPS
                 oVar.Description = dr["Description"].ToString();
                 oVar.PreparedBy = dr["PreparedBy"].ToString();
                 oVar.Contingency = Convert.ToDecimal(dr["Contingency"]);
+                oVar.Clarification11000 = dr["Clarification11000"].ToString();
+                oVar.Clarification12000 = dr["Clarification12000"].ToString();
+                oVar.Clarification13000 = dr["Clarification13000"].ToString();
+                oVar.Clarification14000 = dr["Clarification14000"].ToString();
+                oVar.Clarification15000 = dr["Clarification15000"].ToString();
+                oVar.Clarification16000 = dr["Clarification16000"].ToString();
+                oVar.Clarification17000 = dr["Clarification17000"].ToString();
+                oVar.Clarification18000 = dr["Clarification18000"].ToString();
+                oVar.Clarification50000 = dr["Clarification50000"].ToString();
                 tmpStr = GetDataString();
             }
 
@@ -69,7 +78,7 @@ namespace RSMPS
             string tmpStr = "";
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spBudget_ByProjectID", cnn.GetConnection());
+            cmd = new SqlCommand("spBudget_ByProjectID2", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -93,6 +102,15 @@ namespace RSMPS
                 oVar.Description = dr["Description"].ToString();
                 oVar.PreparedBy = dr["PreparedBy"].ToString();
                 oVar.Contingency = Convert.ToDecimal(dr["Contingency"]);
+                oVar.Clarification11000 = dr["Clarification11000"].ToString();
+                oVar.Clarification12000 = dr["Clarification12000"].ToString();
+                oVar.Clarification13000 = dr["Clarification13000"].ToString();
+                oVar.Clarification14000 = dr["Clarification14000"].ToString();
+                oVar.Clarification15000 = dr["Clarification15000"].ToString();
+                oVar.Clarification16000 = dr["Clarification16000"].ToString();
+                oVar.Clarification17000 = dr["Clarification17000"].ToString();
+                oVar.Clarification18000 = dr["Clarification18000"].ToString();
+                oVar.Clarification50000 = dr["Clarification50000"].ToString();
 
                 tmpStr = GetDataString();
             }
@@ -116,7 +134,7 @@ namespace RSMPS
             LoadVals(strXml);
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spBudget_Insert", cnn.GetConnection());
+            cmd = new SqlCommand("spBudget_Insert2", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -141,6 +159,24 @@ namespace RSMPS
             prm.Value = oVar.PreparedBy;
             prm = cmd.Parameters.Add("@Contingency", SqlDbType.Money);
             prm.Value = oVar.Contingency;
+            prm = cmd.Parameters.Add("@Clarification11000", SqlDbType.VarChar, 500);
+            prm.Value = oVar.Clarification11000;
+            prm = cmd.Parameters.Add("@Clarification12000", SqlDbType.VarChar, 500);
+            prm.Value = oVar.Clarification12000;
+            prm = cmd.Parameters.Add("@Clarification13000", SqlDbType.VarChar, 500);
+            prm.Value = oVar.Clarification13000;
+            prm = cmd.Parameters.Add("@Clarification14000", SqlDbType.VarChar, 500);
+            prm.Value = oVar.Clarification14000;
+            prm = cmd.Parameters.Add("@Clarification15000", SqlDbType.VarChar, 500);
+            prm.Value = oVar.Clarification15000;
+            prm = cmd.Parameters.Add("@Clarification16000", SqlDbType.VarChar, 500);
+            prm.Value = oVar.Clarification16000;
+            prm = cmd.Parameters.Add("@Clarification17000", SqlDbType.VarChar, 500);
+            prm.Value = oVar.Clarification17000;
+            prm = cmd.Parameters.Add("@Clarification18000", SqlDbType.VarChar, 500);
+            prm.Value = oVar.Clarification18000;
+            prm = cmd.Parameters.Add("@Clarification50000", SqlDbType.VarChar, 500);
+            prm.Value = oVar.Clarification50000;
             cmd.ExecuteNonQuery();
 
             retVal = Convert.ToInt32(cmd.Parameters["@ID"].Value);
@@ -163,7 +199,7 @@ namespace RSMPS
             LoadVals(strXml);
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spBudget_Update", cnn.GetConnection());
+            cmd = new SqlCommand("spBudget_Update2", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -187,6 +223,24 @@ namespace RSMPS
             prm.Value = oVar.PreparedBy;
             prm = cmd.Parameters.Add("@Contingency", SqlDbType.Money);
             prm.Value = oVar.Contingency;
+            prm = cmd.Parameters.Add("@Clarification11000", SqlDbType.VarChar, 500);
+            prm.Value = oVar.Clarification11000;
+            prm = cmd.Parameters.Add("@Clarification12000", SqlDbType.VarChar, 500);
+            prm.Value = oVar.Clarification12000;
+            prm = cmd.Parameters.Add("@Clarification13000", SqlDbType.VarChar, 500);
+            prm.Value = oVar.Clarification13000;
+            prm = cmd.Parameters.Add("@Clarification14000", SqlDbType.VarChar, 500);
+            prm.Value = oVar.Clarification14000;
+            prm = cmd.Parameters.Add("@Clarification15000", SqlDbType.VarChar, 500);
+            prm.Value = oVar.Clarification15000;
+            prm = cmd.Parameters.Add("@Clarification16000", SqlDbType.VarChar, 500);
+            prm.Value = oVar.Clarification16000;
+            prm = cmd.Parameters.Add("@Clarification17000", SqlDbType.VarChar, 500);
+            prm.Value = oVar.Clarification17000;
+            prm = cmd.Parameters.Add("@Clarification18000", SqlDbType.VarChar, 500);
+            prm.Value = oVar.Clarification18000;
+            prm = cmd.Parameters.Add("@Clarification50000", SqlDbType.VarChar, 500);
+            prm.Value = oVar.Clarification50000;
             cmd.ExecuteNonQuery();
 
             prm = null;

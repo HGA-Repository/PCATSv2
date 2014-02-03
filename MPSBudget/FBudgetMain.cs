@@ -1197,17 +1197,7 @@ namespace RSMPS
             makeActiveToolStripMenuItem.Enabled = false;
         }
 
-        //private void DisablePanelsForGovernmentJob()
-        //{
-        //    if (mbIsGovernment == false || mbUseAllGroups == true)
-        //        return;
 
-        //    foreach (var group in _Groups.Where(x => !x.IsGovernment))
-        //    {
-        //        //tabControl2 is hidden, adding to it hide the tab
-        //        tabControl2.TabPages.Add(tabControl1.TabPages["tbp" + group]);
-        //    }
-        //}
 
         private void LoadPreviousBudget(int projID)
         {
@@ -1235,6 +1225,7 @@ namespace RSMPS
                     li.Meta = b.IsActive.ToString();
                     li.Meta1 = b.Description;
                     activeIndx = lstBudgets.Items.Count;
+                    
                 }
                 else
                 {

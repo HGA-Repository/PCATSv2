@@ -30,14 +30,14 @@ namespace RSMPS
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FBudgetMain));
-            C1.Win.C1TrueDBGrid.Style style1 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style2 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style3 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style4 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style5 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style6 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style7 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style8 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style33 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style34 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style35 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style36 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style37 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style38 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style39 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style40 = new C1.Win.C1TrueDBGrid.Style();
             this.c1ToolBar1 = new C1.Win.C1Command.C1ToolBar();
             this.c1CommandHolder1 = new C1.Win.C1Command.C1CommandHolder();
             this.tlbbSaveRev = new C1.Win.C1Command.C1Command();
@@ -126,6 +126,25 @@ namespace RSMPS
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tbpClarifications = new System.Windows.Forms.TabPage();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.richTextBox5 = new System.Windows.Forms.RichTextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.richTextBox6 = new System.Windows.Forms.RichTextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.richTextBox7 = new System.Windows.Forms.RichTextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.richTextBox8 = new System.Windows.Forms.RichTextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).BeginInit();
             this.cmnuBudget.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -133,18 +152,19 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.tdbdPCNStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tdbgBudgetPCN)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid2)).BeginInit();
             this.panel3.SuspendLayout();
             this.grpSummary.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid3)).BeginInit();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid3)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid4)).BeginInit();
             this.panel7.SuspendLayout();
             this.tabControl2.SuspendLayout();
+            this.tbpClarifications.SuspendLayout();
             this.SuspendLayout();
             // 
             // c1ToolBar1
@@ -429,6 +449,7 @@ namespace RSMPS
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.tabControl1.Controls.Add(this.tbpPCN);
+            this.tabControl1.Controls.Add(this.tbpClarifications);
             this.tabControl1.ItemSize = new System.Drawing.Size(105, 30);
             this.tabControl1.Location = new System.Drawing.Point(165, 30);
             this.tabControl1.Multiline = true;
@@ -458,25 +479,25 @@ namespace RSMPS
             this.tdbdPCNStatus.AllowColSelect = true;
             this.tdbdPCNStatus.AllowRowSizing = C1.Win.C1TrueDBGrid.RowSizingEnum.AllRows;
             this.tdbdPCNStatus.AlternatingRows = false;
-            this.tdbdPCNStatus.CaptionStyle = style1;
+            this.tdbdPCNStatus.CaptionStyle = style33;
             this.tdbdPCNStatus.ColumnCaptionHeight = 17;
             this.tdbdPCNStatus.ColumnFooterHeight = 17;
-            this.tdbdPCNStatus.EvenRowStyle = style2;
+            this.tdbdPCNStatus.EvenRowStyle = style34;
             this.tdbdPCNStatus.FetchRowStyles = false;
-            this.tdbdPCNStatus.FooterStyle = style3;
-            this.tdbdPCNStatus.HeadingStyle = style4;
-            this.tdbdPCNStatus.HighLightRowStyle = style5;
+            this.tdbdPCNStatus.FooterStyle = style35;
+            this.tdbdPCNStatus.HeadingStyle = style36;
+            this.tdbdPCNStatus.HighLightRowStyle = style37;
             this.tdbdPCNStatus.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbdPCNStatus.Images"))));
             this.tdbdPCNStatus.Location = new System.Drawing.Point(26, 95);
             this.tdbdPCNStatus.Name = "tdbdPCNStatus";
-            this.tdbdPCNStatus.OddRowStyle = style6;
-            this.tdbdPCNStatus.RecordSelectorStyle = style7;
+            this.tdbdPCNStatus.OddRowStyle = style38;
+            this.tdbdPCNStatus.RecordSelectorStyle = style39;
             this.tdbdPCNStatus.RowDivider.Color = System.Drawing.Color.DarkGray;
             this.tdbdPCNStatus.RowDivider.Style = C1.Win.C1TrueDBGrid.LineStyleEnum.Single;
             this.tdbdPCNStatus.RowSubDividerColor = System.Drawing.Color.DarkGray;
             this.tdbdPCNStatus.ScrollTips = false;
             this.tdbdPCNStatus.Size = new System.Drawing.Size(297, 138);
-            this.tdbdPCNStatus.Style = style8;
+            this.tdbdPCNStatus.Style = style40;
             this.tdbdPCNStatus.TabIndex = 3;
             this.tdbdPCNStatus.TabStop = false;
             this.tdbdPCNStatus.Text = "c1TrueDBDropdown1";
@@ -577,6 +598,12 @@ namespace RSMPS
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.c1FlexGrid1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(889, 397);
+            this.panel1.TabIndex = 5;
             // 
             // c1FlexGrid1
             // 
@@ -590,12 +617,6 @@ namespace RSMPS
             this.c1FlexGrid1.Size = new System.Drawing.Size(889, 397);
             this.c1FlexGrid1.StyleInfo = resources.GetString("c1FlexGrid1.StyleInfo");
             this.c1FlexGrid1.TabIndex = 2;
-            this.panel1.Controls.Add(this.c1FlexGrid1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(889, 397);
-            this.panel1.TabIndex = 5;
             // 
             // splitter2
             // 
@@ -821,6 +842,12 @@ namespace RSMPS
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.c1FlexGrid3);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(961, 433);
+            this.panel5.TabIndex = 1;
             // 
             // c1FlexGrid3
             // 
@@ -835,12 +862,6 @@ namespace RSMPS
             this.c1FlexGrid3.Size = new System.Drawing.Size(961, 433);
             this.c1FlexGrid3.StyleInfo = resources.GetString("c1FlexGrid3.StyleInfo");
             this.c1FlexGrid3.TabIndex = 3;
-            this.panel5.Controls.Add(this.c1FlexGrid3);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(961, 433);
-            this.panel5.TabIndex = 1;
             // 
             // panel6
             // 
@@ -970,6 +991,196 @@ namespace RSMPS
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // tbpClarifications
+            // 
+            this.tbpClarifications.Controls.Add(this.button6);
+            this.tbpClarifications.Controls.Add(this.button5);
+            this.tbpClarifications.Controls.Add(this.label10);
+            this.tbpClarifications.Controls.Add(this.richTextBox8);
+            this.tbpClarifications.Controls.Add(this.label9);
+            this.tbpClarifications.Controls.Add(this.richTextBox7);
+            this.tbpClarifications.Controls.Add(this.label8);
+            this.tbpClarifications.Controls.Add(this.richTextBox6);
+            this.tbpClarifications.Controls.Add(this.label7);
+            this.tbpClarifications.Controls.Add(this.richTextBox5);
+            this.tbpClarifications.Controls.Add(this.label6);
+            this.tbpClarifications.Controls.Add(this.richTextBox4);
+            this.tbpClarifications.Controls.Add(this.label5);
+            this.tbpClarifications.Controls.Add(this.richTextBox3);
+            this.tbpClarifications.Controls.Add(this.label4);
+            this.tbpClarifications.Controls.Add(this.richTextBox2);
+            this.tbpClarifications.Controls.Add(this.label1);
+            this.tbpClarifications.Controls.Add(this.richTextBox1);
+            this.tbpClarifications.Location = new System.Drawing.Point(4, 34);
+            this.tbpClarifications.Name = "tbpClarifications";
+            this.tbpClarifications.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpClarifications.Size = new System.Drawing.Size(961, 733);
+            this.tbpClarifications.TabIndex = 6;
+            this.tbpClarifications.Text = "Clarifications";
+            this.tbpClarifications.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBox1.Location = new System.Drawing.Point(10, 40);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(900, 50);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Text = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(167, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "11000 - General / Project Support";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 101);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(84, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "12000 - Process";
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBox2.Location = new System.Drawing.Point(10, 123);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(900, 50);
+            this.richTextBox2.TabIndex = 5;
+            this.richTextBox2.Text = "";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(11, 191);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(101, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "13000 - Mechanical";
+            // 
+            // richTextBox3
+            // 
+            this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBox3.Location = new System.Drawing.Point(6, 213);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(900, 50);
+            this.richTextBox3.TabIndex = 7;
+            this.richTextBox3.Text = "";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(11, 276);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "14000 - CSA";
+            // 
+            // richTextBox4
+            // 
+            this.richTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBox4.Location = new System.Drawing.Point(6, 298);
+            this.richTextBox4.Name = "richTextBox4";
+            this.richTextBox4.Size = new System.Drawing.Size(900, 50);
+            this.richTextBox4.TabIndex = 9;
+            this.richTextBox4.Text = "";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(11, 356);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "15000 - Electrical";
+            // 
+            // richTextBox5
+            // 
+            this.richTextBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBox5.Location = new System.Drawing.Point(6, 378);
+            this.richTextBox5.Name = "richTextBox5";
+            this.richTextBox5.Size = new System.Drawing.Size(900, 50);
+            this.richTextBox5.TabIndex = 11;
+            this.richTextBox5.Text = "";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(11, 445);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(118, 13);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "16000 - Instrumentation";
+            // 
+            // richTextBox6
+            // 
+            this.richTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBox6.Location = new System.Drawing.Point(6, 467);
+            this.richTextBox6.Name = "richTextBox6";
+            this.richTextBox6.Size = new System.Drawing.Size(900, 50);
+            this.richTextBox6.TabIndex = 13;
+            this.richTextBox6.Text = "";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(11, 531);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(83, 13);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "18000 - Pipeline";
+            // 
+            // richTextBox7
+            // 
+            this.richTextBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBox7.Location = new System.Drawing.Point(6, 553);
+            this.richTextBox7.Name = "richTextBox7";
+            this.richTextBox7.Size = new System.Drawing.Size(900, 50);
+            this.richTextBox7.TabIndex = 15;
+            this.richTextBox7.Text = "";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(11, 616);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(150, 13);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "50000 - Program Management";
+            // 
+            // richTextBox8
+            // 
+            this.richTextBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBox8.Location = new System.Drawing.Point(6, 638);
+            this.richTextBox8.Name = "richTextBox8";
+            this.richTextBox8.Size = new System.Drawing.Size(900, 50);
+            this.richTextBox8.TabIndex = 17;
+            this.richTextBox8.Text = "";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(16, 702);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(96, 28);
+            this.button5.TabIndex = 19;
+            this.button5.Text = "Save";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(162, 702);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(81, 31);
+            this.button6.TabIndex = 20;
+            this.button6.Text = "Cancel";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
             // FBudgetMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -997,21 +1208,23 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.tdbdPCNStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tdbgBudgetPCN)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.grpSummary.ResumeLayout(false);
             this.grpSummary.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid3)).EndInit();
             this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid3)).EndInit();
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid4)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.tabControl2.ResumeLayout(false);
+            this.tbpClarifications.ResumeLayout(false);
+            this.tbpClarifications.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1107,5 +1320,24 @@ namespace RSMPS
         private C1.Win.C1FlexGrid.C1FlexGrid c1FlexGrid4;
         private C1.Win.C1FlexGrid.C1FlexGrid c1FlexGrid1;
         private C1.Win.C1FlexGrid.C1FlexGrid c1FlexGrid3;
+        private System.Windows.Forms.TabPage tbpClarifications;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.RichTextBox richTextBox8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.RichTextBox richTextBox7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.RichTextBox richTextBox6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.RichTextBox richTextBox5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.RichTextBox richTextBox4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
     }
 }

@@ -25,7 +25,7 @@ namespace RSMPS
             string tmpStr = "";
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spEmployee_ByID", cnn.GetConnection());
+            cmd = new SqlCommand("spEmployee_ByID2", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -49,9 +49,7 @@ namespace RSMPS
                 oVar.MaxAllHrs = Convert.ToDecimal(dr["MaxAllHrs"]);
                 oVar.IsActive = Convert.ToBoolean(dr["IsActive"]);
                 oVar.IsProjectManager = Convert.ToBoolean(dr["IsProjectManager"]);
-                oVar.Location = Convert.ToInt32(dr["Location"]);
                 oVar.Contractor = Convert.ToBoolean(dr["Contractor"]);
-                oVar.Type = Convert.ToInt32(dr["Type"]);
                 oVar.OfficeLocation = dr["OfficeLocation"].ToString();
                 oVar.EngineerType = dr["EngineerType"].ToString();
                 
@@ -81,7 +79,7 @@ namespace RSMPS
             LoadVals(strXml);
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spEmployee_Insert", cnn.GetConnection());
+            cmd = new SqlCommand("spEmployee_Insert2", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -106,12 +104,8 @@ namespace RSMPS
             prm.Value = oVar.IsActive;
             prm = cmd.Parameters.Add("@IsProjectManager", SqlDbType.Bit);
             prm.Value = oVar.IsProjectManager;
-            prm = cmd.Parameters.Add("@Location", SqlDbType.Int);
-            prm.Value = oVar.Location;
             prm = cmd.Parameters.Add("@Contractor", SqlDbType.Bit);
             prm.Value = oVar.Contractor;
-            prm = cmd.Parameters.Add("@Type", SqlDbType.Int);
-            prm.Value = oVar.Type;
             prm = cmd.Parameters.Add("@OfficeLocation", SqlDbType.VarChar, 50);
             prm.Value = oVar.OfficeLocation;
             prm = cmd.Parameters.Add("@EngineerType", SqlDbType.VarChar, 50);
@@ -140,7 +134,7 @@ namespace RSMPS
             LoadVals(strXml);
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spEmployee_Update", cnn.GetConnection());
+            cmd = new SqlCommand("spEmployee_Update2", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -164,12 +158,8 @@ namespace RSMPS
             prm.Value = oVar.IsActive;
             prm = cmd.Parameters.Add("@IsProjectManager", SqlDbType.Bit);
             prm.Value = oVar.IsProjectManager;
-            prm = cmd.Parameters.Add("@Location", SqlDbType.Int);
-            prm.Value = oVar.Location;
             prm = cmd.Parameters.Add("@Contractor", SqlDbType.Bit);
             prm.Value = oVar.Contractor;
-            prm = cmd.Parameters.Add("@Type", SqlDbType.Int);
-            prm.Value = oVar.Type;
             prm = cmd.Parameters.Add("@OfficeLocation", SqlDbType.VarChar, 50);
             prm.Value = oVar.OfficeLocation;
             prm = cmd.Parameters.Add("@EngineerType", SqlDbType.VarChar, 50);
@@ -262,7 +252,7 @@ namespace RSMPS
             SqlCommand cmd;
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spEmployee_ListAll", cnn.GetConnection());
+            cmd = new SqlCommand("spEmployee_ListAll2", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -279,7 +269,7 @@ namespace RSMPS
             SqlCommand cmd;
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spEmployee_ListProjMngr", cnn.GetConnection());
+            cmd = new SqlCommand("spEmployee_ListProjMngr2", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -297,7 +287,7 @@ namespace RSMPS
             DataSet ds;
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spEmployee_ListAll", cnn.GetConnection());
+            cmd = new SqlCommand("spEmployee_ListAll2", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
             da = new SqlDataAdapter();
@@ -319,7 +309,7 @@ namespace RSMPS
             SqlParameter prm;
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spEmployee_ListByDept", cnn.GetConnection());
+            cmd = new SqlCommand("spEmployee_ListByDept2", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
             prm = cmd.Parameters.Add("@DepartmentID", SqlDbType.Int);

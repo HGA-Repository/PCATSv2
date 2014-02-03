@@ -58,6 +58,7 @@ namespace RSMPS
             cnn = new RSLib.CDbConnection();
             cmd = new SqlCommand("spAcctCodeDisc_UpdateForProject", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandTimeout = 60 * 2;
             var prm1 = cmd.Parameters.Add("@CODE", SqlDbType.Int);
             var prm2 = cmd.Parameters.Add("@PROJECT_ID", SqlDbType.Int);
             var prm3 = cmd.Parameters.Add("@enabled", SqlDbType.Int);
@@ -95,6 +96,7 @@ namespace RSMPS
             cnn = new RSLib.CDbConnection();
             cmd = new SqlCommand("spAcctCodeDisc_ListForProject", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandTimeout = 60 * 2;
             var prm = cmd.Parameters.Add("@ID", SqlDbType.Int);
             prm.Value = id;
 

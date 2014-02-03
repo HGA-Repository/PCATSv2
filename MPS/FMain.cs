@@ -338,6 +338,7 @@ namespace RSMPS
 
             tssUsername.Text = u.Username;
 
+          
             // turn everything back on in case of logout
             mnuToolsEmpTitle.Enabled = true;
             mnuToolsDept.Enabled = true;
@@ -381,8 +382,8 @@ namespace RSMPS
                     departmentsToolStripMenuItem.Visible = false;
                     systemUsersToolStripMenuItem.Visible = false;
 
-                    resourceVarianceToolStripMenuItem.Visible = true;
-                    resourceVarianceSummaryToolStripMenuItem.Visible = true;
+                    //resourceVarianceToolStripMenuItem.Visible = true;
+                    //resourceVarianceSummaryToolStripMenuItem.Visible = true;
                 }
                 else
                 {
@@ -399,8 +400,8 @@ namespace RSMPS
                     projectForecastingToolStripMenuItem.Visible = false;
                     weeklyPMReportsToolStripMenuItem.Visible = false;
                     pCNLogToolStripMenuItem.Visible = false;
-                    resourceVarianceToolStripMenuItem.Visible = false;
-                    resourceVarianceSummaryToolStripMenuItem.Visible = false;
+                    resourceVarianceToolStripMenuItem.Visible = true;
+                    resourceVarianceSummaryToolStripMenuItem.Visible = true;
                     projectForecastingReportRollupToolStripMenuItem.Visible = false;
                     forecastRemainingToolStripMenuItem.Visible = false;
                     pipelineForecastRemainingToolStripMenuItem.Visible = false;

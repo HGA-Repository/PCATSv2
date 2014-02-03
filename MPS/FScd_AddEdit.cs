@@ -1302,6 +1302,7 @@ namespace RSMPS
             RSLib.COSecurity sec = new RSLib.COSecurity();
             CBUser u = new CBUser();
             decimal passLvl;
+            int deptid;
 
             sec.InitAppSettings();
             u.Load(sec.UserID);

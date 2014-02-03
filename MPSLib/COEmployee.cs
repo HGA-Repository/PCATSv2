@@ -145,9 +145,7 @@ namespace RSMPS
             oNew.MaxAllHrs = mdMaxAllHrs;
             oNew.IsActive = mbIsActive;
             oNew.IsProjectManager = mbIsProjectManager;
-            oNew.Location = miLocation;
             oNew.Contractor = mbContractor;
-            oNew.Type = miType;
             oNew.OfficeLocation = msOfficeLocation;
             oNew.EngineerType = msEngineerType;
 
@@ -168,9 +166,7 @@ namespace RSMPS
             mdMaxAllHrs = oOrg.MaxAllHrs;
             mbIsActive = oOrg.IsActive;
             mbIsProjectManager = oOrg.IsProjectManager;
-            miLocation = oOrg.Location;
             mbContractor = oOrg.Contractor;
-            miType = oOrg.Type;
             msOfficeLocation = oOrg.OfficeLocation;
             msEngineerType = oOrg.EngineerType;
             

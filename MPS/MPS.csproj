@@ -639,6 +639,7 @@
     </Content>
     <Content Include="DataConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="DataConfigCR.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
