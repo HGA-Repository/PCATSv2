@@ -1066,7 +1066,7 @@ namespace RSMPS
             // 
             this.textBox2.DataField = "DateLastModified";
             this.textBox2.Height = 0.2F;
-            this.textBox2.Left = 2.15F;
+            this.textBox2.Left = 2.192F;
             this.textBox2.Name = "textBox2";
             this.textBox2.OutputFormat = resources.GetString("textBox2.OutputFormat");
             this.textBox2.Style = "font-size: 9.75pt; font-weight: normal; white-space: nowrap; ddo-char-set: 0";

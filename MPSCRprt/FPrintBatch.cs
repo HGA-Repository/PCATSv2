@@ -45,7 +45,7 @@ namespace RSMPS
 
             cnn = new RevSol.RSConnection("CR");
             //SSS 20131105 cmd = new SqlCommand("spProject_ListAll", cnn.GetConnection());
-            cmd = new SqlCommand("spProject_ListProj", cnn.GetConnection());
+            cmd = new SqlCommand("spProject_ListAllProj", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
             dr = cmd.ExecuteReader();
