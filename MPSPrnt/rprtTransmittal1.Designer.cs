@@ -275,7 +275,7 @@ namespace RSMPS
             this.shape1.Name = "shape1";
             this.shape1.RoundingRadius = 9.999999F;
             this.shape1.Top = 1.462F;
-            this.shape1.Width = 6.5F;
+            this.shape1.Width = 7.5F;
             // 
             // label11
             // 

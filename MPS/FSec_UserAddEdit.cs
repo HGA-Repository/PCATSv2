@@ -212,21 +212,22 @@ namespace RSMPS
         {
             if (chkManager.Checked == true)
             {
-                if (mdsDepts != null)
-                {
-                    // make admin in all departments
-                    foreach (DataRow dr in mdsDepts.Tables[0].Rows)
-                    {
-                        dr["IsModerator"] = true;
-                        dr["IsViewOnly"] = false;
-                    }
-                }
+                //if (mdsDepts != null)
+                //{
+                //    // make admin in all departments
+                //    foreach (DataRow dr in mdsDepts.Tables[0].Rows)
+                //    {
+                //        dr["IsModerator"] = true;
+                //        dr["IsViewOnly"] = false;
+                //    }
+                //}
+                //2/13/14 - Changing code so that click Manager doesn't lock down depts screen.
 
                 chkEngineerAdmin.Checked = false;
                 chkEngineerAdmin.Enabled = false;
                 chkAdministrator.Checked = false;
                 chkAdministrator.Enabled = false;
-                tdbgDepartments.Enabled = false;
+                tdbgDepartments.Enabled = true;
             }
             else
             {

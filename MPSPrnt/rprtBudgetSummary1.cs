@@ -817,7 +817,7 @@ namespace RSMPS
             this.textBox1,
             this.textBox2,
             this.lblPrintDate});
-            this.PageHeader.Height = 2F;
+            this.PageHeader.Height = 1.8F;
             this.PageHeader.Name = "PageHeader";
             // 
             // Shape
@@ -826,7 +826,7 @@ namespace RSMPS
             this.Shape.Left = 0F;
             this.Shape.Name = "Shape";
             this.Shape.RoundingRadius = 9.999999F;
-            this.Shape.Top = 1.443F;
+            this.Shape.Top = 1.233F;
             this.Shape.Width = 7.4375F;
             // 
             // Picture
@@ -859,7 +859,7 @@ namespace RSMPS
             this.Label1.Name = "Label1";
             this.Label1.Style = "text-align: center; vertical-align: bottom";
             this.Label1.Text = "Account Code";
-            this.Label1.Top = 1.5055F;
+            this.Label1.Top = 1.2955F;
             this.Label1.Width = 0.625F;
             // 
             // Label2
@@ -870,7 +870,7 @@ namespace RSMPS
             this.Label2.Name = "Label2";
             this.Label2.Style = "text-align: center; vertical-align: bottom";
             this.Label2.Text = "Description";
-            this.Label2.Top = 1.5055F;
+            this.Label2.Top = 1.2955F;
             this.Label2.Width = 2.6875F;
             // 
             // Label3
@@ -881,7 +881,7 @@ namespace RSMPS
             this.Label3.Name = "Label3";
             this.Label3.Style = "text-align: center; vertical-align: bottom";
             this.Label3.Text = "Loaded Dollars";
-            this.Label3.Top = 1.5055F;
+            this.Label3.Top = 1.2955F;
             this.Label3.Width = 1F;
             // 
             // Label4
@@ -892,7 +892,7 @@ namespace RSMPS
             this.Label4.Name = "Label4";
             this.Label4.Style = "text-align: center; vertical-align: bottom";
             this.Label4.Text = "Loaded Rate";
-            this.Label4.Top = 1.5055F;
+            this.Label4.Top = 1.2955F;
             this.Label4.Width = 1F;
             // 
             // Label5
@@ -903,7 +903,7 @@ namespace RSMPS
             this.Label5.Name = "Label5";
             this.Label5.Style = "text-align: center; vertical-align: bottom";
             this.Label5.Text = "Mhrs";
-            this.Label5.Top = 1.5055F;
+            this.Label5.Top = 1.2955F;
             this.Label5.Width = 0.75F;
             // 
             // Label6
@@ -914,7 +914,7 @@ namespace RSMPS
             this.Label6.Name = "Label6";
             this.Label6.Style = "text-align: center; vertical-align: bottom";
             this.Label6.Text = "% of Engr Hrs";
-            this.Label6.Top = 1.5055F;
+            this.Label6.Top = 1.2955F;
             this.Label6.Width = 0.625F;
             // 
             // Line
@@ -923,12 +923,12 @@ namespace RSMPS
             this.Line.Left = 0.75F;
             this.Line.LineWeight = 1F;
             this.Line.Name = "Line";
-            this.Line.Top = 1.443F;
+            this.Line.Top = 1.233F;
             this.Line.Width = 0F;
             this.Line.X1 = 0.75F;
             this.Line.X2 = 0.75F;
-            this.Line.Y1 = 1.443F;
-            this.Line.Y2 = 1.943F;
+            this.Line.Y1 = 1.233F;
+            this.Line.Y2 = 1.733F;
             // 
             // Line1
             // 
@@ -936,12 +936,12 @@ namespace RSMPS
             this.Line1.Left = 3.5625F;
             this.Line1.LineWeight = 1F;
             this.Line1.Name = "Line1";
-            this.Line1.Top = 1.443F;
+            this.Line1.Top = 1.233F;
             this.Line1.Width = 0F;
             this.Line1.X1 = 3.5625F;
             this.Line1.X2 = 3.5625F;
-            this.Line1.Y1 = 1.443F;
-            this.Line1.Y2 = 1.943F;
+            this.Line1.Y1 = 1.233F;
+            this.Line1.Y2 = 1.733F;
             // 
             // Line2
             // 
@@ -949,12 +949,12 @@ namespace RSMPS
             this.Line2.Left = 4.6875F;
             this.Line2.LineWeight = 1F;
             this.Line2.Name = "Line2";
-            this.Line2.Top = 1.443F;
+            this.Line2.Top = 1.233F;
             this.Line2.Width = 0F;
             this.Line2.X1 = 4.6875F;
             this.Line2.X2 = 4.6875F;
-            this.Line2.Y1 = 1.443F;
-            this.Line2.Y2 = 1.943F;
+            this.Line2.Y1 = 1.233F;
+            this.Line2.Y2 = 1.733F;
             // 
             // Line3
             // 
@@ -962,12 +962,12 @@ namespace RSMPS
             this.Line3.Left = 5.8125F;
             this.Line3.LineWeight = 1F;
             this.Line3.Name = "Line3";
-            this.Line3.Top = 1.443F;
+            this.Line3.Top = 1.233F;
             this.Line3.Width = 0F;
             this.Line3.X1 = 5.8125F;
             this.Line3.X2 = 5.8125F;
-            this.Line3.Y1 = 1.443F;
-            this.Line3.Y2 = 1.943F;
+            this.Line3.Y1 = 1.233F;
+            this.Line3.Y2 = 1.733F;
             // 
             // Line4
             // 
@@ -975,12 +975,12 @@ namespace RSMPS
             this.Line4.Left = 6.6875F;
             this.Line4.LineWeight = 1F;
             this.Line4.Name = "Line4";
-            this.Line4.Top = 1.443F;
+            this.Line4.Top = 1.233F;
             this.Line4.Width = 0F;
             this.Line4.X1 = 6.6875F;
             this.Line4.X2 = 6.6875F;
-            this.Line4.Y1 = 1.443F;
-            this.Line4.Y2 = 1.943F;
+            this.Line4.Y1 = 1.233F;
+            this.Line4.Y2 = 1.733F;
             // 
             // lblJobNumber
             // 
@@ -1023,7 +1023,7 @@ namespace RSMPS
             this.txtRateScheduleVal.Left = 0F;
             this.txtRateScheduleVal.Name = "txtRateScheduleVal";
             this.txtRateScheduleVal.Text = "textBox1";
-            this.txtRateScheduleVal.Top = 1.167F;
+            this.txtRateScheduleVal.Top = 1.047F;
             this.txtRateScheduleVal.Visible = false;
             this.txtRateScheduleVal.Width = 1F;
             // 
@@ -1035,7 +1035,7 @@ namespace RSMPS
             this.txtRateMultiplier.Name = "txtRateMultiplier";
             this.txtRateMultiplier.OutputFormat = resources.GetString("txtRateMultiplier.OutputFormat");
             this.txtRateMultiplier.Text = "textBox1";
-            this.txtRateMultiplier.Top = 1.167F;
+            this.txtRateMultiplier.Top = 1.067F;
             this.txtRateMultiplier.Visible = false;
             this.txtRateMultiplier.Width = 1F;
             // 
@@ -1047,7 +1047,7 @@ namespace RSMPS
             this.txtRateOverlay.Name = "txtRateOverlay";
             this.txtRateOverlay.OutputFormat = resources.GetString("txtRateOverlay.OutputFormat");
             this.txtRateOverlay.Text = "textBox1";
-            this.txtRateOverlay.Top = 1.167F;
+            this.txtRateOverlay.Top = 1.067F;
             this.txtRateOverlay.Visible = false;
             this.txtRateOverlay.Width = 1F;
             // 
@@ -1055,18 +1055,18 @@ namespace RSMPS
             // 
             this.textBox1.DataField = "PreparedBy";
             this.textBox1.Height = 0.2F;
-            this.textBox1.Left = 0F;
+            this.textBox1.Left = 2.05F;
             this.textBox1.Name = "textBox1";
             this.textBox1.Style = "font-size: 9.75pt; font-weight: normal; white-space: nowrap; ddo-char-set: 0";
             this.textBox1.Text = "textBox1";
-            this.textBox1.Top = 0.8F;
+            this.textBox1.Top = 0.813F;
             this.textBox1.Width = 2.375F;
             // 
             // textBox2
             // 
             this.textBox2.DataField = "DateLastModified";
             this.textBox2.Height = 0.2F;
-            this.textBox2.Left = 2.192F;
+            this.textBox2.Left = 0.002F;
             this.textBox2.Name = "textBox2";
             this.textBox2.OutputFormat = resources.GetString("textBox2.OutputFormat");
             this.textBox2.Style = "font-size: 9.75pt; font-weight: normal; white-space: nowrap; ddo-char-set: 0";
@@ -1202,66 +1202,66 @@ namespace RSMPS
             // 
             this.Label23.Height = 0.2F;
             this.Label23.HyperLink = null;
-            this.Label23.Left = 2.6875F;
+            this.Label23.Left = 2.687F;
             this.Label23.Name = "Label23";
             this.Label23.Style = "";
             this.Label23.Text = "Date:";
-            this.Label23.Top = 1.295F;
+            this.Label23.Top = 1.37F;
             this.Label23.Width = 0.375F;
             // 
             // Label24
             // 
             this.Label24.Height = 0.2F;
             this.Label24.HyperLink = null;
-            this.Label24.Left = 2.6875F;
+            this.Label24.Left = 2.687F;
             this.Label24.Name = "Label24";
             this.Label24.Style = "";
             this.Label24.Text = "Date:";
-            this.Label24.Top = 0.6300001F;
+            this.Label24.Top = 0.65F;
             this.Label24.Width = 0.375F;
             // 
             // Label25
             // 
             this.Label25.Height = 0.2F;
             this.Label25.HyperLink = null;
-            this.Label25.Left = 2.6875F;
+            this.Label25.Left = 2.687F;
             this.Label25.Name = "Label25";
             this.Label25.Style = "";
             this.Label25.Text = "Date:";
-            this.Label25.Top = 1.628F;
+            this.Label25.Top = 1.705F;
             this.Label25.Width = 0.375F;
             // 
             // Label26
             // 
             this.Label26.Height = 0.2F;
             this.Label26.HyperLink = null;
-            this.Label26.Left = 6.5625F;
+            this.Label26.Left = 6.562F;
             this.Label26.Name = "Label26";
             this.Label26.Style = "";
             this.Label26.Text = "Date:";
-            this.Label26.Top = 0.6300001F;
+            this.Label26.Top = 0.68F;
             this.Label26.Width = 0.375F;
             // 
             // Label27
             // 
             this.Label27.Height = 0.2F;
             this.Label27.HyperLink = null;
-            this.Label27.Left = 6.5625F;
+            this.Label27.Left = 6.562F;
             this.Label27.Name = "Label27";
             this.Label27.Style = "";
             this.Label27.Text = "Date:";
-            this.Label27.Top = 1.3F;
+            this.Label27.Top = 1.35F;
             this.Label27.Width = 0.375F;
             // 
             // Line13
             // 
             this.Line13.Height = 0F;
-            this.Line13.Left = 1F;
+            this.Line13.Left = 1.15F;
             this.Line13.LineWeight = 1F;
             this.Line13.Name = "Line13";
             this.Line13.Top = 1.55F;
-            this.Line13.Width = 1.625F;
-            this.Line13.X1 = 1F;
+            this.Line13.Width = 1.475F;
+            this.Line13.X1 = 1.15F;
             this.Line13.X2 = 2.625F;
             this.Line13.Y1 = 1.55F;
             this.Line13.Y2 = 1.55F;
@@ -1269,12 +1269,12 @@ namespace RSMPS
             // Line14
             // 
             this.Line14.Height = 0F;
-            this.Line14.Left = 1F;
+            this.Line14.Left = 1.15F;
             this.Line14.LineWeight = 1F;
             this.Line14.Name = "Line14";
             this.Line14.Top = 0.85F;
-            this.Line14.Width = 1.625F;
-            this.Line14.X1 = 1F;
+            this.Line14.Width = 1.475F;
+            this.Line14.X1 = 1.15F;
             this.Line14.X2 = 2.625F;
             this.Line14.Y1 = 0.85F;
             this.Line14.Y2 = 0.85F;
@@ -1282,12 +1282,12 @@ namespace RSMPS
             // Line15
             // 
             this.Line15.Height = 0F;
-            this.Line15.Left = 1F;
+            this.Line15.Left = 1.15F;
             this.Line15.LineWeight = 1F;
             this.Line15.Name = "Line15";
             this.Line15.Top = 1.9F;
-            this.Line15.Width = 1.625F;
-            this.Line15.X1 = 1F;
+            this.Line15.Width = 1.475F;
+            this.Line15.X1 = 1.15F;
             this.Line15.X2 = 2.625F;
             this.Line15.Y1 = 1.9F;
             this.Line15.Y2 = 1.9F;
@@ -1394,22 +1394,22 @@ namespace RSMPS
             // 
             this.label34.Height = 0.2F;
             this.label34.HyperLink = null;
-            this.label34.Left = 2.6875F;
+            this.label34.Left = 2.687F;
             this.label34.Name = "label34";
             this.label34.Style = "";
             this.label34.Text = "Date:";
-            this.label34.Top = 0.9730002F;
+            this.label34.Top = 0.993F;
             this.label34.Width = 0.375F;
             // 
             // line24
             // 
             this.line24.Height = 0F;
-            this.line24.Left = 1F;
+            this.line24.Left = 1.15F;
             this.line24.LineWeight = 1F;
             this.line24.Name = "line24";
             this.line24.Top = 1.2F;
-            this.line24.Width = 1.625F;
-            this.line24.X1 = 1F;
+            this.line24.Width = 1.475F;
+            this.line24.X1 = 1.15F;
             this.line24.X2 = 2.625F;
             this.line24.Y1 = 1.2F;
             this.line24.Y2 = 1.2F;
@@ -1442,11 +1442,11 @@ namespace RSMPS
             // 
             this.label36.Height = 0.2F;
             this.label36.HyperLink = null;
-            this.label36.Left = 6.5625F;
+            this.label36.Left = 6.562F;
             this.label36.Name = "label36";
             this.label36.Style = "";
             this.label36.Text = "Date:";
-            this.label36.Top = 1.655F;
+            this.label36.Top = 1.665F;
             this.label36.Width = 0.375F;
             // 
             // line27
@@ -1476,12 +1476,12 @@ namespace RSMPS
             // Line17
             // 
             this.Line17.Height = 0F;
-            this.Line17.Left = 4.94F;
+            this.Line17.Left = 5.1F;
             this.Line17.LineWeight = 1F;
             this.Line17.Name = "Line17";
             this.Line17.Top = 0.85F;
-            this.Line17.Width = 1.56F;
-            this.Line17.X1 = 4.94F;
+            this.Line17.Width = 1.4F;
+            this.Line17.X1 = 5.1F;
             this.Line17.X2 = 6.5F;
             this.Line17.Y1 = 0.85F;
             this.Line17.Y2 = 0.85F;
@@ -1489,12 +1489,12 @@ namespace RSMPS
             // Line18
             // 
             this.Line18.Height = 0F;
-            this.Line18.Left = 4.94F;
+            this.Line18.Left = 5.1F;
             this.Line18.LineWeight = 1F;
             this.Line18.Name = "Line18";
             this.Line18.Top = 1.55F;
-            this.Line18.Width = 1.56F;
-            this.Line18.X1 = 4.94F;
+            this.Line18.Width = 1.4F;
+            this.Line18.X1 = 5.1F;
             this.Line18.X2 = 6.5F;
             this.Line18.Y1 = 1.55F;
             this.Line18.Y2 = 1.55F;
@@ -1502,12 +1502,12 @@ namespace RSMPS
             // line26
             // 
             this.line26.Height = 0F;
-            this.line26.Left = 4.94F;
+            this.line26.Left = 5.1F;
             this.line26.LineWeight = 1F;
             this.line26.Name = "line26";
             this.line26.Top = 1.9F;
-            this.line26.Width = 1.56F;
-            this.line26.X1 = 4.94F;
+            this.line26.Width = 1.4F;
+            this.line26.X1 = 5.1F;
             this.line26.X2 = 6.5F;
             this.line26.Y1 = 1.9F;
             this.line26.Y2 = 1.9F;
@@ -1527,11 +1527,11 @@ namespace RSMPS
             // 
             this.label38.Height = 0.2F;
             this.label38.HyperLink = null;
-            this.label38.Left = 6.5625F;
+            this.label38.Left = 6.563F;
             this.label38.Name = "label38";
             this.label38.Style = "";
             this.label38.Text = "Date:";
-            this.label38.Top = 0.973F;
+            this.label38.Top = 1.013F;
             this.label38.Width = 0.375F;
             // 
             // line28
@@ -1550,12 +1550,12 @@ namespace RSMPS
             // line29
             // 
             this.line29.Height = 0F;
-            this.line29.Left = 4.940001F;
+            this.line29.Left = 5.1F;
             this.line29.LineWeight = 1F;
             this.line29.Name = "line29";
             this.line29.Top = 1.2F;
-            this.line29.Width = 1.56F;
-            this.line29.X1 = 4.940001F;
+            this.line29.Width = 1.400001F;
+            this.line29.X1 = 5.1F;
             this.line29.X2 = 6.500001F;
             this.line29.Y1 = 1.2F;
             this.line29.Y2 = 1.2F;
@@ -1585,12 +1585,12 @@ namespace RSMPS
             // line30
             // 
             this.line30.Height = 0F;
-            this.line30.Left = 1F;
+            this.line30.Left = 1.15F;
             this.line30.LineWeight = 1F;
             this.line30.Name = "line30";
             this.line30.Top = 0.5F;
-            this.line30.Width = 1.625F;
-            this.line30.X1 = 1F;
+            this.line30.Width = 1.475F;
+            this.line30.X1 = 1.15F;
             this.line30.X2 = 2.625F;
             this.line30.Y1 = 0.5F;
             this.line30.Y2 = 0.5F;
@@ -1598,13 +1598,13 @@ namespace RSMPS
             // line31
             // 
             this.line31.Height = 0F;
-            this.line31.Left = 1F;
+            this.line31.Left = 1.15F;
             this.line31.LineWeight = 1F;
             this.line31.Name = "line31";
             this.line31.Top = 0.15F;
-            this.line31.Width = 1.6245F;
-            this.line31.X1 = 1F;
-            this.line31.X2 = 2.6245F;
+            this.line31.Width = 1.5F;
+            this.line31.X1 = 1.15F;
+            this.line31.X2 = 2.65F;
             this.line31.Y1 = 0.15F;
             this.line31.Y2 = 0.15F;
             // 
@@ -1681,12 +1681,12 @@ namespace RSMPS
             // line34
             // 
             this.line34.Height = 0F;
-            this.line34.Left = 4.940001F;
+            this.line34.Left = 5.1F;
             this.line34.LineWeight = 1F;
             this.line34.Name = "line34";
             this.line34.Top = 0.5F;
-            this.line34.Width = 1.559999F;
-            this.line34.X1 = 4.940001F;
+            this.line34.Width = 1.4F;
+            this.line34.X1 = 5.1F;
             this.line34.X2 = 6.5F;
             this.line34.Y1 = 0.5F;
             this.line34.Y2 = 0.5F;
@@ -1694,12 +1694,12 @@ namespace RSMPS
             // line35
             // 
             this.line35.Height = 0F;
-            this.line35.Left = 4.94F;
+            this.line35.Left = 5.1F;
             this.line35.LineWeight = 1F;
             this.line35.Name = "line35";
             this.line35.Top = 0.15F;
-            this.line35.Width = 1.56F;
-            this.line35.X1 = 4.94F;
+            this.line35.Width = 1.4F;
+            this.line35.X1 = 5.1F;
             this.line35.X2 = 6.5F;
             this.line35.Y1 = 0.15F;
             this.line35.Y2 = 0.15F;

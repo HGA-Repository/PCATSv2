@@ -549,7 +549,7 @@ namespace RSMPS
             this.textBox8.Height = 0.448F;
             this.textBox8.Left = 0F;
             this.textBox8.Name = "textBox8";
-            this.textBox8.Text = "textBox8";
+            this.textBox8.Text = "";
             this.textBox8.Top = 0.302F;
             this.textBox8.Width = 7F;
             // 

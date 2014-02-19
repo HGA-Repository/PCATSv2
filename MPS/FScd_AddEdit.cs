@@ -21,7 +21,7 @@ namespace RSMPS
             enEmployeeSort
         }
 
-        private const int WEEKCOLSTART = 8;
+        private const int WEEKCOLSTART = 9; // was 8
         private const int WEEKCOLOFFSET = 5;
         private const int ROWTOTALCOLUMNS = 2;
         private const int TOTALCOLS = 0;
@@ -38,9 +38,10 @@ namespace RSMPS
         private const int PROJECTDESCCOLUMN = 2;
         private const int EMPLOYEECOLUMN = 3;
         private const int PROJECTIDCOLUMN = 4;
-        private const int EMPLOYEEIDCOLUMN = 5;
-        private const int EMPLOYEEPTOTCOL = 6;
-        private const int EMPLOYEEFTOTCOL = 7;
+        private const int VISIONEMPLOYEEID = 5; //new
+        private const int EMPLOYEEIDCOLUMN = 6; // was 5
+        private const int EMPLOYEEPTOTCOL = 7; // was 6
+        private const int EMPLOYEEFTOTCOL = 8;// was 7
 
         private String HOURDISPLAYFORMAT = "#,##0";
 
@@ -192,10 +193,10 @@ namespace RSMPS
             fgSchedule.Cols.Frozen = PROJECTDESCCOLUMN;
             fgSchedule.Cols[EMPLOYEECOLUMN].Width = 150;
             fgSchedule.Cols.Frozen = EMPLOYEECOLUMN;
-            fgSchedule.Cols[6].Width = 40;
-            fgSchedule.Cols.Frozen = 6;
             fgSchedule.Cols[7].Width = 40;
             fgSchedule.Cols.Frozen = 7;
+            fgSchedule.Cols[8].Width = 40;
+            fgSchedule.Cols.Frozen = 8;
 
             CreateWeekHeaders();
 
@@ -459,6 +460,7 @@ namespace RSMPS
                 r[2] = p.Description;
                 r[3] = e.Name;
                 r[PROJECTIDCOLUMN] = p.ID.ToString();
+                r[VISIONEMPLOYEEID] = e.ID.ToString();
                 r[EMPLOYEEIDCOLUMN] = e.ID.ToString();
             }
             else
@@ -467,6 +469,7 @@ namespace RSMPS
                 r[2] = p.Number;
                 r[3] = p.Description;
                 r[PROJECTIDCOLUMN] = p.ID.ToString();
+                r[VISIONEMPLOYEEID] = e.ID.ToString();
                 r[EMPLOYEEIDCOLUMN] = e.ID.ToString();
             }
 
@@ -712,7 +715,8 @@ namespace RSMPS
                         rw[2] = dr["ProjectDescription"].ToString();
                         rw[3] = dr["EmployeeName"].ToString();
                         rw[4] = dr["ProjectID"].ToString();
-                        rw[5] = dr["EmployeeID"].ToString();
+                        rw[5] = dr["VisionEmployeeID"].ToString();
+                        rw[6] = dr["EmployeeID"].ToString();
                     }
                     else
                     {
