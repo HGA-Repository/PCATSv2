@@ -21,8 +21,8 @@ namespace RSMPS
             enEmployeeSort
         }
 
-        private const int WEEKCOLSTART = 8;
-        private const int WEEKCOLOFFSET = 5;
+        private const int WEEKCOLSTART = 9; // was 8
+        private const int WEEKCOLOFFSET = 6; // was 5
         private const int ROWTOTALCOLUMNS = 2;
         private const int TOTALCOLS = 0;
         private const string PLANCOLTITLE = "P";
@@ -38,9 +38,10 @@ namespace RSMPS
         private const int PROJECTDESCCOLUMN = 2;
         private const int EMPLOYEECOLUMN = 3;
         private const int PROJECTIDCOLUMN = 4;
-        private const int EMPLOYEEIDCOLUMN = 5;
-        private const int EMPLOYEEPTOTCOL = 6;
-        private const int EMPLOYEEFTOTCOL = 7;
+        private const int VISIONEMPLOYEEID = 5; //new
+        private const int EMPLOYEEIDCOLUMN = 6; // was 5
+        private const int EMPLOYEEPTOTCOL = 7; // was 6
+        private const int EMPLOYEEFTOTCOL = 8;// was 7
 
         private String HOURDISPLAYFORMAT = "#,##0";
 
@@ -712,7 +713,8 @@ namespace RSMPS
                         rw[2] = dr["ProjectDescription"].ToString();
                         rw[3] = dr["EmployeeName"].ToString();
                         rw[4] = dr["ProjectID"].ToString();
-                        rw[5] = dr["EmployeeID"].ToString();
+                        rw[5] = dr["VisionEmployeeID"].ToString();
+                        rw[6] = dr["EmployeeID"].ToString();
                     }
                     else
                     {
@@ -1014,20 +1016,7 @@ namespace RSMPS
 
         private void mnuSch_AddEmployee_Click(object sender, EventArgs e)
         {
-            //if (mbSummaryOpen == true)
-            //{
-            //    int row = fgSchedule.Row;
-
-            //    int projID = Convert.ToInt32(fgSchedule[row, 3]);
-            //    CellRange rng = fgSchedule.GetCellRange(0, fgSchedule.Col);
-            //    int weekID = Convert.ToInt32(rng.UserData);
-
-            //    decimal tmpP, tmpF, tmpA;
-            //    CBScheduleHour sh = new CBScheduleHour();
-            //    tmpP = tmpF = tmpA = 0;
-            //    sh.GetProjectTotalByDate(miCurrDept, projID, weekID, ref tmpP, ref tmpF, ref tmpA);
-            //    moProjSumm.SetProject(projID, weekID, tmpP, tmpF, tmpA);
-            //}
+           
             FEmp_List el = new FEmp_List();
 
             el.IsSelectOnly = true;
@@ -1302,6 +1291,7 @@ namespace RSMPS
             RSLib.COSecurity sec = new RSLib.COSecurity();
             CBUser u = new CBUser();
             decimal passLvl;
+            //int deptid;
 
             sec.InitAppSettings();
             u.Load(sec.UserID);
@@ -1315,7 +1305,7 @@ namespace RSMPS
 
 
             miCurrUserID = u.ID;
-            if (passLvl < 3 || u.IsAdministrator == true || u.IsManager == true)
+            if (passLvl != 3 || u.IsAdministrator == true || u.IsManager == true)
             {
                 // is a moderator for this department so enable some stuff
                 mbIsModerator = true;

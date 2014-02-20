@@ -1956,8 +1956,8 @@ namespace RSMPS
                 else
                 {
                     FBudgetPCNApproval pa = new FBudgetPCNApproval();
-
-                    if (tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Approved")
+//SSS02192014
+                    if (tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Approved" | tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Pending")
                         pa.IsChangeOnly = false;
                     else
                         pa.IsChangeOnly = true;
@@ -2384,10 +2384,10 @@ namespace RSMPS
 
         private void tdbgBudgetPCN_Click(object sender, EventArgs e)
         {
-            if (tdbgBudgetPCN.Bookmark >= 0)
-            {
+            if (tdbgBudgetPCN.Bookmark >= 0 )
+                                {
                 bttEditPCN.Enabled = true;
-            }
+                }
         }
 
         private void tlbbSummary_Click(object sender, C1.Win.C1Command.ClickEventArgs e)

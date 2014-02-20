@@ -152,7 +152,7 @@ namespace RSMPS
             this.Line14,
             this.Line15,
             this.Line16});
-            this.Detail.Height = 0.333F;
+            this.Detail.Height = 0.92675F;
             this.Detail.Name = "Detail";
             // 
             // TextBox
@@ -177,6 +177,7 @@ namespace RSMPS
             // 
             // TextBox2
             // 
+            this.TextBox2.CanShrink = true;
             this.TextBox2.DataField = "Description";
             this.TextBox2.Height = 0.1875F;
             this.TextBox2.Left = 1F;
@@ -250,7 +251,7 @@ namespace RSMPS
             this.Line.LineWeight = 1F;
             this.Line.Name = "Line";
             this.Line.Top = 0.2679167F;
-            this.Line.Width = 7.2F;
+            this.Line.Width = 7.199999F;
             this.Line.X1 = 2.384186E-07F;
             this.Line.X2 = 7.2F;
             this.Line.Y1 = 0.2679167F;
@@ -375,12 +376,12 @@ namespace RSMPS
             this.Line16.Left = 0F;
             this.Line16.LineWeight = 1F;
             this.Line16.Name = "Line16";
-            this.Line16.Top = 0F;
+            this.Line16.Top = 0.04F;
             this.Line16.Width = 0F;
             this.Line16.X1 = 0F;
             this.Line16.X2 = 0F;
-            this.Line16.Y1 = 0F;
-            this.Line16.Y2 = 0.1875F;
+            this.Line16.Y1 = 0.04F;
+            this.Line16.Y2 = 0.2275F;
             // 
             // PageHeader
             // 

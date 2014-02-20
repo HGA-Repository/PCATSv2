@@ -84,21 +84,16 @@ namespace RSMPS
             else
                 lblJobNumber.Text = jobNumber + " - Revision:" + revision;
 
-            lblProject.Text = customer + "/" + location; //jobDesc;
-            lblRevision.Text = Desc; //jobDesc; // revision;
-           // lblLocation.Text = //pm; //location;
-            //lblcustomer.Text = customer;
+            lblProject.Text = customer + "/" + location;
+            lblRevision.Text = Desc;
 
-            //lblCustomerLocation.Text = customer;
-            //lblJobDescription.Text = desc;
+            //string jobsite;
+            //jobsite = ConvertToString(jobNumber[3]);
+            
+            
 
-            //if (wbs.Length > 0)
-                //SSS 11262013 Moved Revision up a line
-              //  lblJobNumber.Text = number + " - WBS: " + wbs + " - Revision:" + revision;
-            //else
-              //  lblJobNumber.Text = number + " - Revision:" + revision;
-
-            //lblRevision.Text = revision;
+                
+            
         }
 
         public int TotalHours

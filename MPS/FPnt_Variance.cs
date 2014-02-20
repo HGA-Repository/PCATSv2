@@ -32,22 +32,22 @@ namespace RSMPS
 
             li = new RevSol.RSListItem();
             li.ID = 0;
-            li.Description = "All Disiplines";
+            li.Description = "Engineering Disciplines";
             lstSorts.Items.Add(li);
 
             li = new RevSol.RSListItem();
             li.ID = 2;
-            li.Description = "All Summary";
+            li.Description = "Engineering Summary";
             lstSorts.Items.Add(li);
 
             li = new RevSol.RSListItem();
             li.ID = 3;
-            li.Description = "All Disiplines - Pipeline Services";
+            li.Description = "Pipeline Disciplines";
             lstSorts.Items.Add(li);
 
             li = new RevSol.RSListItem();
             li.ID = 4;
-            li.Description = "All Summary - Pipeline Services";
+            li.Description = "Pipeline Summary";
             lstSorts.Items.Add(li);
 
             var groups = CBActivityCodeDisc.GetAll().ToList();
