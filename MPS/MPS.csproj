@@ -345,6 +345,7 @@
     <Compile Include="FWeekCount.Designer.cs">
       <DependentUpon>FWeekCount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FPnt_JobStat_Customer.resx">
       <DependentUpon>FPnt_JobStat_Customer.cs</DependentUpon>
