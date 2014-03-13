@@ -28,8 +28,8 @@ namespace RSMPS
         /// </summary>
         private void InitializeComponent()
         {
-            this.viewer1 = new DataDynamics.ActiveReports.Viewer.Viewer();
-            this.xlsExport1 = new DataDynamics.ActiveReports.Export.Xls.XlsExport();
+            this.viewer1 = new GrapeCity.ActiveReports.Viewer.Win.Viewer();
+            this.xlsExport1 = new GrapeCity.ActiveReports.Export.Excel.Section.XlsExport();
             this.SuspendLayout();
             // 
             // viewer1
@@ -41,13 +41,13 @@ namespace RSMPS
             this.viewer1.ReportViewer.CurrentPage = 0;
             this.viewer1.ReportViewer.MultiplePageCols = 3;
             this.viewer1.ReportViewer.MultiplePageRows = 2;
-            this.viewer1.ReportViewer.ViewType = DataDynamics.ActiveReports.Viewer.ViewType.Normal;
+            this.viewer1.ReportViewer.ViewType = GrapeCity.Viewer.Common.Model.ViewType.SinglePage;
             this.viewer1.Size = new System.Drawing.Size(792, 566);
             this.viewer1.TabIndex = 0;
-            this.viewer1.TableOfContents.Text = "Table Of Contents";
+            //this.viewer1.TableOfContents.Text = "Table Of Contents";
             this.viewer1.TableOfContents.Width = 200;
             this.viewer1.Toolbar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewer1.ToolClick += new DataDynamics.ActiveReports.Toolbar.ToolClickEventHandler(this.viewer1_ToolClick);
+            //this.viewer1.ToolClick += new DataDynamics.ActiveReports.Toolbar.ToolClickEventHandler(this.viewer1_ToolClick);
             // 
             // xlsExport1
             // 
@@ -71,7 +71,9 @@ namespace RSMPS
 
         #endregion
 
-        private DataDynamics.ActiveReports.Viewer.Viewer viewer1;
-        private DataDynamics.ActiveReports.Export.Xls.XlsExport xlsExport1;
+
+
+        private GrapeCity.ActiveReports.Viewer.Win.Viewer viewer1;
+        private GrapeCity.ActiveReports.Export.Excel.Section.XlsExport xlsExport1;
     }
 }

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 using System.Data.SqlClient;
 
-using DataDynamics.ActiveReports;
+using GrapeCity.ActiveReports;
 
 namespace RSMPS
 {
@@ -17,14 +17,14 @@ namespace RSMPS
 
         public event RevSol.PassDataString OnProjectProcessed;
 
-        private ActiveReport rprt;
+        private SectionReport rprt;
 
         public FPreview()
         {
             InitializeComponent();
         }
 
-        public void ViewReport(ActiveReport ar)
+        public void ViewReport(SectionReport ar)
         {
             rprt = ar;
             viewer1.Document = rprt.Document;
@@ -81,7 +81,7 @@ namespace RSMPS
 
             this.Cursor = Cursors.Default;
         }
-        
+
         public void LoadReportForProjectRollup(string project, int rprtCase)
         {
             string currDate;
@@ -91,7 +91,7 @@ namespace RSMPS
 
             CRolllups ru = new CRolllups();
             rprtDs = ru.LoadReportForProjectRollup(project, rprtCase);
-            
+
             currDate = DateTime.Now.ToShortDateString();
 
             rprtCostReport1 rprt = new rprtCostReport1();
@@ -157,9 +157,9 @@ namespace RSMPS
 
             this.Cursor = Cursors.WaitCursor;
 
-         
+
             currDate = DateTime.Now.ToShortDateString();
-           
+
 
             cnn = new RevSol.RSConnection("CR");
 
@@ -205,9 +205,9 @@ namespace RSMPS
 
             this.Cursor = Cursors.WaitCursor;
 
-          
+
             currDate = DateTime.Now.ToShortDateString();
-            
+
             cnn = new RevSol.RSConnection("CR");
 
             //if (UseNewCodes(project) == true)
@@ -249,13 +249,13 @@ namespace RSMPS
 
         }
 
-        private void viewer1_ToolClick(object sender, DataDynamics.ActiveReports.Toolbar.ToolClickEventArgs e)
-        {
-            if (e.Tool.Id == 998)
-            {
-                ExportToExcel();
-            }
-        }
+        //private void viewer1_ToolClick(object sender, DataDynamics.ActiveReports.Toolbar.ToolClickEventArgs e)
+        //{
+        //    if (e.Tool.Id == 998)
+        //    {
+        //        ExportToExcel();
+        //    }
+        //}
 
         private void ExportToExcel()
         {

@@ -29,7 +29,7 @@ namespace RSMPS
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FPreviewEdit));
-            this.viewer1 = new DataDynamics.ActiveReports.Viewer.Viewer();
+            this.viewer1 = new GrapeCity.ActiveReports.Viewer.Win.Viewer();
             this.tdbgForecast = new C1.Win.C1TrueDBGrid.C1TrueDBGrid();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.bttSetForecast = new System.Windows.Forms.Button();
@@ -48,13 +48,13 @@ namespace RSMPS
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.viewer1.BackColor = System.Drawing.SystemColors.Control;
-            this.viewer1.Document = new DataDynamics.ActiveReports.Document.Document("ARNet Document");
+            this.viewer1.Document = new GrapeCity.ActiveReports.Document.SectionDocument("ARNet Document");
             this.viewer1.Location = new System.Drawing.Point(0, 0);
             this.viewer1.Name = "viewer1";
             this.viewer1.ReportViewer.CurrentPage = 0;
             this.viewer1.ReportViewer.MultiplePageCols = 3;
             this.viewer1.ReportViewer.MultiplePageRows = 2;
-            this.viewer1.ReportViewer.ViewType = DataDynamics.ActiveReports.Viewer.ViewType.Normal;
+            this.viewer1.ReportViewer.ViewType = GrapeCity.Viewer.Common.Model.ViewType.SinglePage;
             this.viewer1.Size = new System.Drawing.Size(718, 665);
             this.viewer1.TabIndex = 0;
             this.viewer1.TableOfContents.Text = "Table Of Contents";
@@ -172,7 +172,7 @@ namespace RSMPS
 
         #endregion
 
-        private DataDynamics.ActiveReports.Viewer.Viewer viewer1;
+
         private C1.Win.C1TrueDBGrid.C1TrueDBGrid tdbgForecast;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button bttClear;
@@ -180,5 +180,6 @@ namespace RSMPS
         private System.Windows.Forms.Button bttClose;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.Button bttSetForecast;
+        private GrapeCity.ActiveReports.Viewer.Win.Viewer viewer1;
     }
 }

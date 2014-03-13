@@ -66,6 +66,7 @@ namespace RSMPS
             this.bttPrint.TabIndex = 5;
             this.bttPrint.Text = "Print";
             this.bttPrint.UseVisualStyleBackColor = true;
+            this.bttPrint.Visible = false;
             this.bttPrint.Click += new System.EventHandler(this.bttPrint_Click);
             // 
             // bttPreview

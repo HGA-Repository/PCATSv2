@@ -323,6 +323,7 @@ namespace RSMPS
             }
 
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandTimeout = 60 * 2;
 
             prm = cmd.Parameters.Add("@Project", SqlDbType.VarChar, 50);
             prm.Value = project;

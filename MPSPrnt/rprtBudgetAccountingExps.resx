@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,11 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TextBox5.OutputFormat" xml:space="preserve">
-    <value>#,##0;(#,##0)</value>
+  <data name="TextBox5.OutputFormat" xml:space="preserve">&#xD;
+    <value>#,##0;(#,##0)</value>&#xD;
   </data>
-  <data name="txtExpenses.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00;($#,##0.00)</value>
+  <data name="txtExpenses.OutputFormat" xml:space="preserve">&#xD;
+    <value>$#,##0.00;($#,##0.00)</value>&#xD;
   </data>
   <metadata name="$this.TrayLargeIcon" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

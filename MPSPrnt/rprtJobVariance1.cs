@@ -2,15 +2,18 @@ using System;
 using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
-using DataDynamics.ActiveReports;
-using DataDynamics.ActiveReports.Document;
+using GrapeCity.ActiveReports;
+using GrapeCity.ActiveReports.Controls;
+using GrapeCity.ActiveReports.SectionReportModel;
+using GrapeCity.ActiveReports.Document.Section;
+using GrapeCity.ActiveReports.Document;
 
 namespace RSMPS
 {
     /// <summary>
     /// Summary description for rprtJobVariance1.
     /// </summary>
-    public partial class rprtJobVariance1 : DataDynamics.ActiveReports.ActiveReport
+    public partial class rprtJobVariance1 : GrapeCity.ActiveReports.SectionReport
     {
         private int mdJSTot;
         private int mdMPTot;
@@ -45,7 +48,7 @@ namespace RSMPS
 
             txtJS_MP.Value = (Convert.ToInt32(txtJobStat.Value) - Convert.ToInt32(txtMP.Value));
             txtJS_Fcst.Value = (Convert.ToInt32(txtJobStat.Value) - Convert.ToInt32(txtFcst.Value));
-            txtMP_Fcst.Value = (Convert.ToInt32(txtMP.Value) - Convert.ToInt32(txtFcst.Value));           
+            txtMP_Fcst.Value = (Convert.ToInt32(txtMP.Value) - Convert.ToInt32(txtFcst.Value));
         }
 
         private void groupHeader1_Format(object sender, EventArgs e)

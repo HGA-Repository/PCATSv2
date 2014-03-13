@@ -172,12 +172,12 @@ namespace RSMPS
         public void PreviewAllBudget(int budID, string wbs)
         {
             FPreviewAR pv = new FPreviewAR();
-            DataDynamics.ActiveReports.ActiveReport rprtMain = new DataDynamics.ActiveReports.ActiveReport();
+            GrapeCity.ActiveReports.SectionReport rprtMain = new GrapeCity.ActiveReports.SectionReport();
 
-            DataDynamics.ActiveReports.Document.PagesCollection pagesBudSum;
-            DataDynamics.ActiveReports.Document.PagesCollection pagesBudDtl;
-            DataDynamics.ActiveReports.Document.PagesCollection pagesJobStat;
-            DataDynamics.ActiveReports.Document.PagesCollection pagesBudEntry;
+            GrapeCity.ActiveReports.Document.Section.PagesCollection pagesBudSum;
+            GrapeCity.ActiveReports.Document.Section.PagesCollection pagesBudDtl;
+            GrapeCity.ActiveReports.Document.Section.PagesCollection pagesJobStat;
+            GrapeCity.ActiveReports.Document.Section.PagesCollection pagesBudEntry;
 
             pagesBudSum = CreatePagesBudgetSummary(budID, wbs);
 
@@ -211,7 +211,7 @@ namespace RSMPS
             pv.ShowDialog();
         }
 
-        private DataDynamics.ActiveReports.Document.PagesCollection CreatePagesBudgetSummary(int budID, string wbs)
+        private GrapeCity.ActiveReports.Document.Section.PagesCollection CreatePagesBudgetSummary(int budID, string wbs)
         {
             rprtBudgetSummary1 rprt = new rprtBudgetSummary1();
             DataSet ds;
@@ -253,7 +253,7 @@ namespace RSMPS
             return rprt.Document.Pages;
         }
 
-        private DataDynamics.ActiveReports.Document.PagesCollection CreatePagesBudgetDetails(int budID, string wbs)
+        private GrapeCity.ActiveReports.Document.Section.PagesCollection CreatePagesBudgetDetails(int budID, string wbs)
         {
             rprtBudgetDetail rprt = new rprtBudgetDetail();
             DataSet ds;
@@ -283,7 +283,7 @@ namespace RSMPS
             return rprt.Document.Pages;
         }
 
-        private DataDynamics.ActiveReports.Document.PagesCollection CreatePagesJobStat(int budID, string wbs)
+        private GrapeCity.ActiveReports.Document.Section.PagesCollection CreatePagesJobStat(int budID, string wbs)
         {
             rprtBudgetJobStat2 rprt = new rprtBudgetJobStat2();
             DataSet ds;
@@ -310,7 +310,7 @@ namespace RSMPS
             return rprt.Document.Pages;
         }
 
-        private DataDynamics.ActiveReports.Document.PagesCollection CreatePagesBudgetFormEntry(int budID, string wbs)
+        private GrapeCity.ActiveReports.Document.Section.PagesCollection CreatePagesBudgetFormEntry(int budID, string wbs)
         {
             rprtBudgetAccounting rprt = new rprtBudgetAccounting();
             DataSet ds;

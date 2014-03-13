@@ -1,10 +1,13 @@
 using System;
-using DataDynamics.ActiveReports;
-using DataDynamics.ActiveReports.Document;
+using GrapeCity.ActiveReports;
+using GrapeCity.ActiveReports.Controls;
+using GrapeCity.ActiveReports.SectionReportModel;
+using GrapeCity.ActiveReports.Document.Section;
+using GrapeCity.ActiveReports.Document;
 
 namespace RSMPS
 {
-    public class rprtExpenses2 : DataDynamics.ActiveReports.ActiveReport
+    public class rprtExpenses2 : GrapeCity.ActiveReports.SectionReport
 	{
         private decimal mdTotBud;
         private decimal mdTotSpent;
@@ -33,13 +36,13 @@ namespace RSMPS
 
         public event ReportFinishedHandler OnReportFinished;
 
-		public rprtExpenses2()
-		{
-			InitializeComponent();
-		}
+        public rprtExpenses2()
+        {
+            InitializeComponent();
+        }
 
-		private void ReportFooter_Format(object sender, System.EventArgs eArgs)
-		{
+        private void ReportFooter_Format(object sender, System.EventArgs eArgs)
+        {
             txtTotBudget.Value = mdTotBud;
             txtTotSpent.Value = mdTotSpent;
             txtBudgetRemainingTot.Value = mdTotRemain;
@@ -54,7 +57,7 @@ namespace RSMPS
 
             if (OnReportFinished != null)
                 OnReportFinished(mdTotBud, mdTotSpent, mdTotRemain, mdTotFtoC, mdTotForecast, mdTotOU);
-		}
+        }
 
 
 
@@ -146,8 +149,8 @@ namespace RSMPS
         //        txtOU.ForeColor = System.Drawing.Color.Black;
         //}
 
-		private void rprtExpenses1_ReportStart(object sender, System.EventArgs eArgs)
-		{
+        private void rprtExpenses1_ReportStart(object sender, System.EventArgs eArgs)
+        {
             mdTotBud = 0;
             mdTotSpent = 0;
             mdTotRemain = 0;
@@ -157,68 +160,68 @@ namespace RSMPS
 
             //SSS 20131104 mdExpFTC = 0;
             //SSS 20131104 mdExpForecast = 0;
-		}
+        }
 
 		#region ActiveReports Designer generated code
-		public DataDynamics.ActiveReports.DataSources.SqlDBDataSource ds = null;
-		private DataDynamics.ActiveReports.ReportHeader ReportHeader = null;
-		private DataDynamics.ActiveReports.Label Label1 = null;
-		private DataDynamics.ActiveReports.PageHeader PageHeader = null;
-		private DataDynamics.ActiveReports.Detail Detail = null;
-		private DataDynamics.ActiveReports.Shape Shape13 = null;
-		private DataDynamics.ActiveReports.TextBox txtbudget = null;
-		private DataDynamics.ActiveReports.Shape Shape15 = null;
-		private DataDynamics.ActiveReports.Shape Shape14 = null;
-		private DataDynamics.ActiveReports.TextBox txtcexpdesc = null;
-		private DataDynamics.ActiveReports.TextBox txtcosts = null;
-		private DataDynamics.ActiveReports.TextBox txtBudgetRemaining = null;
-		private DataDynamics.ActiveReports.TextBox txtFtoC = null;
-		private DataDynamics.ActiveReports.TextBox txtForecast = null;
-		private DataDynamics.ActiveReports.TextBox txtOU = null;
-		private DataDynamics.ActiveReports.PageFooter PageFooter = null;
-		private DataDynamics.ActiveReports.ReportFooter ReportFooter = null;
-		private DataDynamics.ActiveReports.Shape Shape2 = null;
-		private DataDynamics.ActiveReports.Shape Shape = null;
-		private DataDynamics.ActiveReports.TextBox txtOUTot = null;
-		private DataDynamics.ActiveReports.TextBox txtTotBudget = null;
-		private DataDynamics.ActiveReports.Shape Shape1 = null;
-		private DataDynamics.ActiveReports.TextBox txtTotSpent = null;
-		private DataDynamics.ActiveReports.Label Label = null;
-		private DataDynamics.ActiveReports.TextBox txtBudgetRemainingTot = null;
-		private DataDynamics.ActiveReports.TextBox txtFtoCTot = null;
-		private DataDynamics.ActiveReports.TextBox txtForecastTot = null;
-		private DataDynamics.ActiveReports.Line Line = null;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public void InitializeComponent()
         {
-            DataDynamics.ActiveReports.DataSources.SqlDBDataSource sqlDBDataSource1 = new DataDynamics.ActiveReports.DataSources.SqlDBDataSource();
+            GrapeCity.ActiveReports.Data.SqlDBDataSource sqlDBDataSource1 = new GrapeCity.ActiveReports.Data.SqlDBDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rprtExpenses2));
-            this.Detail = new DataDynamics.ActiveReports.Detail();
-            this.Shape13 = new DataDynamics.ActiveReports.Shape();
-            this.txtbudget = new DataDynamics.ActiveReports.TextBox();
-            this.Shape15 = new DataDynamics.ActiveReports.Shape();
-            this.Shape14 = new DataDynamics.ActiveReports.Shape();
-            this.txtcexpdesc = new DataDynamics.ActiveReports.TextBox();
-            this.txtcosts = new DataDynamics.ActiveReports.TextBox();
-            this.txtBudgetRemaining = new DataDynamics.ActiveReports.TextBox();
-            this.txtFtoC = new DataDynamics.ActiveReports.TextBox();
-            this.txtForecast = new DataDynamics.ActiveReports.TextBox();
-            this.txtOU = new DataDynamics.ActiveReports.TextBox();
-            this.ReportHeader = new DataDynamics.ActiveReports.ReportHeader();
-            this.Label1 = new DataDynamics.ActiveReports.Label();
-            this.ReportFooter = new DataDynamics.ActiveReports.ReportFooter();
-            this.Shape2 = new DataDynamics.ActiveReports.Shape();
-            this.Shape = new DataDynamics.ActiveReports.Shape();
-            this.txtOUTot = new DataDynamics.ActiveReports.TextBox();
-            this.txtTotBudget = new DataDynamics.ActiveReports.TextBox();
-            this.Shape1 = new DataDynamics.ActiveReports.Shape();
-            this.txtTotSpent = new DataDynamics.ActiveReports.TextBox();
-            this.Label = new DataDynamics.ActiveReports.Label();
-            this.txtBudgetRemainingTot = new DataDynamics.ActiveReports.TextBox();
-            this.txtFtoCTot = new DataDynamics.ActiveReports.TextBox();
-            this.txtForecastTot = new DataDynamics.ActiveReports.TextBox();
-            this.Line = new DataDynamics.ActiveReports.Line();
-            this.PageHeader = new DataDynamics.ActiveReports.PageHeader();
-            this.PageFooter = new DataDynamics.ActiveReports.PageFooter();
+            this.Detail = new GrapeCity.ActiveReports.SectionReportModel.Detail();
+            this.Shape13 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.txtbudget = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.Shape15 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.Shape14 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.txtcexpdesc = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtcosts = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtBudgetRemaining = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtFtoC = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtForecast = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtOU = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.ReportHeader = new GrapeCity.ActiveReports.SectionReportModel.ReportHeader();
+            this.Label1 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.ReportFooter = new GrapeCity.ActiveReports.SectionReportModel.ReportFooter();
+            this.Shape2 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.Shape = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.txtOUTot = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtTotBudget = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.Shape1 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.txtTotSpent = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.Label = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.txtBudgetRemainingTot = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtFtoCTot = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtForecastTot = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.Line = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.PageHeader = new GrapeCity.ActiveReports.SectionReportModel.PageHeader();
+            this.PageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
             ((System.ComponentModel.ISupportInitialize)(this.txtbudget)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtcexpdesc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtcosts)).BeginInit();
@@ -239,7 +242,7 @@ namespace RSMPS
             // Detail
             // 
             this.Detail.ColumnSpacing = 0F;
-            this.Detail.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.Detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.Shape13,
             this.txtbudget,
             this.Shape15,
@@ -373,7 +376,7 @@ namespace RSMPS
             // 
             // ReportHeader
             // 
-            this.ReportHeader.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.ReportHeader.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.Label1});
             this.ReportHeader.Height = 0.1875F;
             this.ReportHeader.Name = "ReportHeader";
@@ -391,7 +394,7 @@ namespace RSMPS
             // 
             // ReportFooter
             // 
-            this.ReportFooter.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.ReportFooter.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.Shape2,
             this.Shape,
             this.txtOUTot,
@@ -587,5 +590,34 @@ namespace RSMPS
         }
 
 		#endregion
+
+        public GrapeCity.ActiveReports.Data.SqlDBDataSource ds;
+        private ReportHeader ReportHeader;
+        private Label Label1;
+        private PageHeader PageHeader;
+        private Detail Detail;
+        private Shape Shape13;
+        private TextBox txtbudget;
+        private Shape Shape15;
+        private Shape Shape14;
+        private TextBox txtcexpdesc;
+        private TextBox txtcosts;
+        private TextBox txtBudgetRemaining;
+        private TextBox txtFtoC;
+        private TextBox txtForecast;
+        private TextBox txtOU;
+        private PageFooter PageFooter;
+        private ReportFooter ReportFooter;
+        private Shape Shape2;
+        private Shape Shape;
+        private TextBox txtOUTot;
+        private TextBox txtTotBudget;
+        private Shape Shape1;
+        private TextBox txtTotSpent;
+        private Label Label;
+        private TextBox txtBudgetRemainingTot;
+        private TextBox txtFtoCTot;
+        private TextBox txtForecastTot;
+        private Line Line;
 	}
 }

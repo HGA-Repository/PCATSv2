@@ -5,8 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
 using System.Data.SqlClient;
+using GrapeCity.ActiveReports;
 
 namespace RSMPS
 {
@@ -212,10 +212,10 @@ namespace RSMPS
             string currDate;
 
             this.Cursor = Cursors.WaitCursor;
-            
+
 
             currDate = DateTime.Now.ToShortDateString();
-        
+
             DSForecastRprt rprtDs;
             CRolllups ru = new CRolllups();
 
@@ -288,7 +288,7 @@ namespace RSMPS
             {
                 for (int j = clstProjects.CheckedItems.Count; j > 0; j--)
                 {
-                    o = clstProjects.CheckedItems[j-1];
+                    o = clstProjects.CheckedItems[j - 1];
                     proj = o.ToString();
                     indx++;
                     lblStatus.Text = "Printing - " + proj;
@@ -324,8 +324,8 @@ namespace RSMPS
 
             this.Cursor = Cursors.WaitCursor;
 
-            DataDynamics.ActiveReports.ActiveReport rprtMain = new DataDynamics.ActiveReports.ActiveReport();
-            DataDynamics.ActiveReports.Export.Pdf.PdfExport pdfOut;
+            GrapeCity.ActiveReports.SectionReport rprtMain = new GrapeCity.ActiveReports.SectionReport();
+            GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport pdfOut;
 
             prntCnt = clstProjects.CheckedItems.Count;
 
@@ -336,7 +336,7 @@ namespace RSMPS
 
             Application.DoEvents();
 
-            DataDynamics.ActiveReports.Document.PagesCollection pagesForecast;
+            GrapeCity.ActiveReports.Document.Section.PagesCollection pagesForecast;
 
             for (int j = clstProjects.CheckedItems.Count; j > 0; j--)
             {
@@ -370,8 +370,8 @@ namespace RSMPS
                 }
             }
 
-            pdfOut = new DataDynamics.ActiveReports.Export.Pdf.PdfExport();
-            
+            pdfOut = new GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport();
+
             pdfOut.Export(rprtMain.Document, pdfLoc);
 
             this.Cursor = Cursors.Default;
@@ -379,7 +379,7 @@ namespace RSMPS
             MessageBox.Show("Reports created");
         }
 
-        private DataDynamics.ActiveReports.Document.PagesCollection CreatePagesForecast(string project, int rprtCase)
+        private GrapeCity.ActiveReports.Document.Section.PagesCollection CreatePagesForecast(string project, int rprtCase)
         {
             DataSet ds;
             RevSol.RSConnection cnn;
@@ -427,7 +427,7 @@ namespace RSMPS
             return rprt.Document.Pages;
         }
 
-        private DataDynamics.ActiveReports.Document.PagesCollection CreatePagesForecastForRollup(string project)
+        private GrapeCity.ActiveReports.Document.Section.PagesCollection CreatePagesForecastForRollup(string project)
         {
             string currDate;
 

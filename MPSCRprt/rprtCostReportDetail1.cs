@@ -1,21 +1,24 @@
 using System;
-using DataDynamics.ActiveReports;
-using DataDynamics.ActiveReports.Document;
+using GrapeCity.ActiveReports;
+using GrapeCity.ActiveReports.Controls;
+using GrapeCity.ActiveReports.SectionReportModel;
+using GrapeCity.ActiveReports.Document.Section;
+using GrapeCity.ActiveReports.Document;
 
 namespace RSMPS
 {
-    public class rprtCostReportDetail1 : DataDynamics.ActiveReports.ActiveReport
+    public class rprtCostReportDetail1 : GrapeCity.ActiveReports.SectionReport
 	{
 
         private int printCnt;
 
-		public rprtCostReportDetail1()
-		{
-			InitializeComponent();
-		}
+        public rprtCostReportDetail1()
+        {
+            InitializeComponent();
+        }
 
-		private void Detail_Format(object sender, System.EventArgs eArgs)
-		{
+        private void Detail_Format(object sender, System.EventArgs eArgs)
+        {
             if (Convert.ToDecimal(txtBudgetHrs.Value) != 0)
             {
                 txtBudDlrsPerWork.Value = Convert.ToDecimal(txtBudgetDlrs.Value) / Convert.ToDecimal(txtBudgetHrs.Value);
@@ -45,15 +48,15 @@ namespace RSMPS
             }
 
             printCnt++;
-		}
+        }
 
-		private void GroupHeader1_Format(object sender, System.EventArgs eArgs)
-		{
+        private void GroupHeader1_Format(object sender, System.EventArgs eArgs)
+        {
             printCnt = 0;
-		}
+        }
 
-		private void GroupFooter1_Format(object sender, System.EventArgs eArgs)
-		{
+        private void GroupFooter1_Format(object sender, System.EventArgs eArgs)
+        {
             // budget dollars per work
             if (Convert.ToDecimal(TextBox6.Value) != 0)
             {
@@ -92,226 +95,226 @@ namespace RSMPS
             {
                 GroupFooter1.Visible = false;
             }
-		}
+        }
 
 		#region ActiveReports Designer generated code
-		public DataDynamics.ActiveReports.DataSources.SqlDBDataSource ds = null;
-		private DataDynamics.ActiveReports.PageHeader PageHeader = null;
-		private DataDynamics.ActiveReports.Label Label1 = null;
-		private DataDynamics.ActiveReports.Shape Shape8 = null;
-		private DataDynamics.ActiveReports.Label Label15 = null;
-		private DataDynamics.ActiveReports.Shape Shape6 = null;
-		private DataDynamics.ActiveReports.Shape Shape7 = null;
-		private DataDynamics.ActiveReports.Shape Shape5 = null;
-		private DataDynamics.ActiveReports.Shape Shape4 = null;
-		private DataDynamics.ActiveReports.TextBox txtProject = null;
-		private DataDynamics.ActiveReports.TextBox txtDescription = null;
-		private DataDynamics.ActiveReports.TextBox txtCustomer = null;
-		private DataDynamics.ActiveReports.TextBox txtLocation = null;
-		private DataDynamics.ActiveReports.Label Label = null;
-		private DataDynamics.ActiveReports.Label Label7 = null;
-		private DataDynamics.ActiveReports.Label Label18 = null;
-		private DataDynamics.ActiveReports.Label Label17 = null;
-		private DataDynamics.ActiveReports.Label Label16 = null;
-		private DataDynamics.ActiveReports.Label Label13 = null;
-		private DataDynamics.ActiveReports.Label Label8 = null;
-        private DataDynamics.ActiveReports.Label Label10 = null;
-		private DataDynamics.ActiveReports.Label Label12 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox = null;
-		private DataDynamics.ActiveReports.Label Label26 = null;
-		private DataDynamics.ActiveReports.Label Label11 = null;
-		private DataDynamics.ActiveReports.Shape Shape9 = null;
-		private DataDynamics.ActiveReports.Label Label14 = null;
-		private DataDynamics.ActiveReports.Label Label9 = null;
-		private DataDynamics.ActiveReports.Label Label19 = null;
-		private DataDynamics.ActiveReports.Label Label4 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox1 = null;
-		private DataDynamics.ActiveReports.TextBox txtFTCUpdate = null;
-		private DataDynamics.ActiveReports.GroupHeader GroupHeader1 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox2 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox3 = null;
-		private DataDynamics.ActiveReports.Shape Shape1 = null;
-		private DataDynamics.ActiveReports.Detail Detail = null;
-		private DataDynamics.ActiveReports.Shape Shape12 = null;
-		private DataDynamics.ActiveReports.Shape Shape11 = null;
-		private DataDynamics.ActiveReports.Shape Shape10 = null;
-		private DataDynamics.ActiveReports.TextBox txtBudgetGroup = null;
-		private DataDynamics.ActiveReports.TextBox txtActualTime = null;
-		private DataDynamics.ActiveReports.TextBox txtBudgetHrs = null;
-		private DataDynamics.ActiveReports.TextBox txtRemainingHrs = null;
-		private DataDynamics.ActiveReports.TextBox txtEarnedHrs = null;
-		private DataDynamics.ActiveReports.TextBox txtProjectedHrs = null;
-		private DataDynamics.ActiveReports.Label Label2 = null;
-		private DataDynamics.ActiveReports.Label Label3 = null;
-		private DataDynamics.ActiveReports.Label Label5 = null;
-		private DataDynamics.ActiveReports.Label Label6 = null;
-		private DataDynamics.ActiveReports.TextBox txtDelta = null;
-		private DataDynamics.ActiveReports.TextBox txtBudgetDlrs = null;
-		private DataDynamics.ActiveReports.TextBox txtActualDlrs = null;
-		private DataDynamics.ActiveReports.TextBox txtBudDlrsPerWork = null;
-		private DataDynamics.ActiveReports.TextBox txtActDlrsPerWork = null;
-		private DataDynamics.ActiveReports.TextBox txtActPercBudget = null;
-		private DataDynamics.ActiveReports.TextBox txtErnPercBudget = null;
-		private DataDynamics.ActiveReports.TextBox txtEIRatio = null;
-		private DataDynamics.ActiveReports.TextBox txtFtoCWrkHrs = null;
-		private DataDynamics.ActiveReports.TextBox txtFtoCPercBud = null;
-		private DataDynamics.ActiveReports.TextBox txtFtoCEIRatio = null;
-		private DataDynamics.ActiveReports.TextBox txtFtoCDollars = null;
-		private DataDynamics.ActiveReports.TextBox txtOUHrsTot = null;
-		private DataDynamics.ActiveReports.TextBox txtOUDlrsTot = null;
-		private DataDynamics.ActiveReports.Shape Shape = null;
-		private DataDynamics.ActiveReports.TextBox txtFTCHrs = null;
-		private DataDynamics.ActiveReports.TextBox txtFTCAmnt = null;
-		private DataDynamics.ActiveReports.TextBox txtFctToCpltHrs = null;
-		private DataDynamics.ActiveReports.TextBox txtFctToCpltDlrs = null;
-		private DataDynamics.ActiveReports.TextBox txtFctToCpltDlrsPerHr = null;
-		private DataDynamics.ActiveReports.TextBox txtForecastDlrsPerHr = null;
-		private DataDynamics.ActiveReports.TextBox txtRemainingBudget = null;
-		private DataDynamics.ActiveReports.TextBox txtEIDlrs = null;
-		private DataDynamics.ActiveReports.TextBox txtEarnedDlrs = null;
-		private DataDynamics.ActiveReports.GroupFooter GroupFooter1 = null;
-		private DataDynamics.ActiveReports.Shape Shape15 = null;
-		private DataDynamics.ActiveReports.Shape Shape2 = null;
-		private DataDynamics.ActiveReports.Shape Shape3 = null;
-		private DataDynamics.ActiveReports.Shape Shape13 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox4 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox5 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox6 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox7 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox8 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox9 = null;
-		private DataDynamics.ActiveReports.Label Label20 = null;
-		private DataDynamics.ActiveReports.Label Label21 = null;
-		private DataDynamics.ActiveReports.Label Label22 = null;
-		private DataDynamics.ActiveReports.Label Label23 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox10 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox11 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox12 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox13 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox14 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox15 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox16 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox17 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox18 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox21 = null;
-		private DataDynamics.ActiveReports.Shape Shape14 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox30 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox31 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox32 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox19 = null;
-		private DataDynamics.ActiveReports.Line Line = null;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         private Picture Picture;
-		private DataDynamics.ActiveReports.PageFooter PageFooter = null;
+
         public void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rprtCostReportDetail1));
-            DataDynamics.ActiveReports.DataSources.SqlDBDataSource sqlDBDataSource1 = new DataDynamics.ActiveReports.DataSources.SqlDBDataSource();
-            this.Detail = new DataDynamics.ActiveReports.Detail();
-            this.Shape12 = new DataDynamics.ActiveReports.Shape();
-            this.Shape11 = new DataDynamics.ActiveReports.Shape();
-            this.Shape10 = new DataDynamics.ActiveReports.Shape();
-            this.txtBudgetGroup = new DataDynamics.ActiveReports.TextBox();
-            this.txtActualTime = new DataDynamics.ActiveReports.TextBox();
-            this.txtBudgetHrs = new DataDynamics.ActiveReports.TextBox();
-            this.txtRemainingHrs = new DataDynamics.ActiveReports.TextBox();
-            this.txtEarnedHrs = new DataDynamics.ActiveReports.TextBox();
-            this.txtProjectedHrs = new DataDynamics.ActiveReports.TextBox();
-            this.Label2 = new DataDynamics.ActiveReports.Label();
-            this.Label3 = new DataDynamics.ActiveReports.Label();
-            this.Label5 = new DataDynamics.ActiveReports.Label();
-            this.Label6 = new DataDynamics.ActiveReports.Label();
-            this.txtDelta = new DataDynamics.ActiveReports.TextBox();
-            this.txtBudgetDlrs = new DataDynamics.ActiveReports.TextBox();
-            this.txtActualDlrs = new DataDynamics.ActiveReports.TextBox();
-            this.txtBudDlrsPerWork = new DataDynamics.ActiveReports.TextBox();
-            this.txtActDlrsPerWork = new DataDynamics.ActiveReports.TextBox();
-            this.txtActPercBudget = new DataDynamics.ActiveReports.TextBox();
-            this.txtErnPercBudget = new DataDynamics.ActiveReports.TextBox();
-            this.txtEIRatio = new DataDynamics.ActiveReports.TextBox();
-            this.txtFtoCWrkHrs = new DataDynamics.ActiveReports.TextBox();
-            this.txtFtoCPercBud = new DataDynamics.ActiveReports.TextBox();
-            this.txtFtoCEIRatio = new DataDynamics.ActiveReports.TextBox();
-            this.txtFtoCDollars = new DataDynamics.ActiveReports.TextBox();
-            this.txtOUHrsTot = new DataDynamics.ActiveReports.TextBox();
-            this.txtOUDlrsTot = new DataDynamics.ActiveReports.TextBox();
-            this.Shape = new DataDynamics.ActiveReports.Shape();
-            this.txtFTCHrs = new DataDynamics.ActiveReports.TextBox();
-            this.txtFTCAmnt = new DataDynamics.ActiveReports.TextBox();
-            this.txtFctToCpltHrs = new DataDynamics.ActiveReports.TextBox();
-            this.txtFctToCpltDlrs = new DataDynamics.ActiveReports.TextBox();
-            this.txtFctToCpltDlrsPerHr = new DataDynamics.ActiveReports.TextBox();
-            this.txtForecastDlrsPerHr = new DataDynamics.ActiveReports.TextBox();
-            this.txtRemainingBudget = new DataDynamics.ActiveReports.TextBox();
-            this.txtEIDlrs = new DataDynamics.ActiveReports.TextBox();
-            this.txtEarnedDlrs = new DataDynamics.ActiveReports.TextBox();
-            this.PageHeader = new DataDynamics.ActiveReports.PageHeader();
-            this.Label1 = new DataDynamics.ActiveReports.Label();
-            this.Shape8 = new DataDynamics.ActiveReports.Shape();
-            this.Label15 = new DataDynamics.ActiveReports.Label();
-            this.Shape6 = new DataDynamics.ActiveReports.Shape();
-            this.Shape7 = new DataDynamics.ActiveReports.Shape();
-            this.Shape5 = new DataDynamics.ActiveReports.Shape();
-            this.Shape4 = new DataDynamics.ActiveReports.Shape();
-            this.txtProject = new DataDynamics.ActiveReports.TextBox();
-            this.txtDescription = new DataDynamics.ActiveReports.TextBox();
-            this.txtCustomer = new DataDynamics.ActiveReports.TextBox();
-            this.txtLocation = new DataDynamics.ActiveReports.TextBox();
-            this.Label = new DataDynamics.ActiveReports.Label();
-            this.Label7 = new DataDynamics.ActiveReports.Label();
-            this.Label18 = new DataDynamics.ActiveReports.Label();
-            this.Label17 = new DataDynamics.ActiveReports.Label();
-            this.Label16 = new DataDynamics.ActiveReports.Label();
-            this.Label13 = new DataDynamics.ActiveReports.Label();
-            this.Label8 = new DataDynamics.ActiveReports.Label();
-            this.Label10 = new DataDynamics.ActiveReports.Label();
-            this.Label12 = new DataDynamics.ActiveReports.Label();
-            this.TextBox = new DataDynamics.ActiveReports.TextBox();
-            this.Label26 = new DataDynamics.ActiveReports.Label();
-            this.Label11 = new DataDynamics.ActiveReports.Label();
-            this.Shape9 = new DataDynamics.ActiveReports.Shape();
-            this.Label14 = new DataDynamics.ActiveReports.Label();
-            this.Label9 = new DataDynamics.ActiveReports.Label();
-            this.Label19 = new DataDynamics.ActiveReports.Label();
-            this.Label4 = new DataDynamics.ActiveReports.Label();
-            this.TextBox1 = new DataDynamics.ActiveReports.TextBox();
-            this.txtFTCUpdate = new DataDynamics.ActiveReports.TextBox();
-            this.Picture = new DataDynamics.ActiveReports.Picture();
-            this.PageFooter = new DataDynamics.ActiveReports.PageFooter();
-            this.GroupHeader1 = new DataDynamics.ActiveReports.GroupHeader();
-            this.TextBox2 = new DataDynamics.ActiveReports.TextBox();
-            this.TextBox3 = new DataDynamics.ActiveReports.TextBox();
-            this.Shape1 = new DataDynamics.ActiveReports.Shape();
-            this.GroupFooter1 = new DataDynamics.ActiveReports.GroupFooter();
-            this.Shape15 = new DataDynamics.ActiveReports.Shape();
-            this.Shape2 = new DataDynamics.ActiveReports.Shape();
-            this.Shape3 = new DataDynamics.ActiveReports.Shape();
-            this.Shape13 = new DataDynamics.ActiveReports.Shape();
-            this.TextBox4 = new DataDynamics.ActiveReports.TextBox();
-            this.TextBox5 = new DataDynamics.ActiveReports.TextBox();
-            this.TextBox6 = new DataDynamics.ActiveReports.TextBox();
-            this.TextBox7 = new DataDynamics.ActiveReports.TextBox();
-            this.TextBox8 = new DataDynamics.ActiveReports.TextBox();
-            this.TextBox9 = new DataDynamics.ActiveReports.TextBox();
-            this.Label20 = new DataDynamics.ActiveReports.Label();
-            this.Label21 = new DataDynamics.ActiveReports.Label();
-            this.Label22 = new DataDynamics.ActiveReports.Label();
-            this.Label23 = new DataDynamics.ActiveReports.Label();
-            this.TextBox10 = new DataDynamics.ActiveReports.TextBox();
-            this.TextBox11 = new DataDynamics.ActiveReports.TextBox();
-            this.TextBox12 = new DataDynamics.ActiveReports.TextBox();
-            this.TextBox13 = new DataDynamics.ActiveReports.TextBox();
-            this.TextBox14 = new DataDynamics.ActiveReports.TextBox();
-            this.TextBox15 = new DataDynamics.ActiveReports.TextBox();
-            this.TextBox16 = new DataDynamics.ActiveReports.TextBox();
-            this.TextBox17 = new DataDynamics.ActiveReports.TextBox();
-            this.TextBox18 = new DataDynamics.ActiveReports.TextBox();
-            this.TextBox21 = new DataDynamics.ActiveReports.TextBox();
-            this.Shape14 = new DataDynamics.ActiveReports.Shape();
-            this.TextBox30 = new DataDynamics.ActiveReports.TextBox();
-            this.TextBox31 = new DataDynamics.ActiveReports.TextBox();
-            this.TextBox32 = new DataDynamics.ActiveReports.TextBox();
-            this.TextBox19 = new DataDynamics.ActiveReports.TextBox();
-            this.Line = new DataDynamics.ActiveReports.Line();
+            GrapeCity.ActiveReports.Data.SqlDBDataSource sqlDBDataSource1 = new GrapeCity.ActiveReports.Data.SqlDBDataSource();
+            this.Detail = new GrapeCity.ActiveReports.SectionReportModel.Detail();
+            this.Shape12 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.Shape11 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.Shape10 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.txtBudgetGroup = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtActualTime = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtBudgetHrs = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtRemainingHrs = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtEarnedHrs = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtProjectedHrs = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.Label2 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label3 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label5 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label6 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.txtDelta = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtBudgetDlrs = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtActualDlrs = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtBudDlrsPerWork = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtActDlrsPerWork = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtActPercBudget = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtErnPercBudget = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtEIRatio = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtFtoCWrkHrs = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtFtoCPercBud = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtFtoCEIRatio = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtFtoCDollars = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtOUHrsTot = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtOUDlrsTot = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.Shape = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.txtFTCHrs = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtFTCAmnt = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtFctToCpltHrs = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtFctToCpltDlrs = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtFctToCpltDlrsPerHr = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtForecastDlrsPerHr = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtRemainingBudget = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtEIDlrs = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtEarnedDlrs = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.PageHeader = new GrapeCity.ActiveReports.SectionReportModel.PageHeader();
+            this.Label1 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Shape8 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.Label15 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Shape6 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.Shape7 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.Shape5 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.Shape4 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.txtProject = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtDescription = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtCustomer = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtLocation = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.Label = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label7 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label18 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label17 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label16 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label13 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label8 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label10 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label12 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.TextBox = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.Label26 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label11 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Shape9 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.Label14 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label9 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label19 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label4 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.TextBox1 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtFTCUpdate = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.Picture = new GrapeCity.ActiveReports.SectionReportModel.Picture();
+            this.PageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
+            this.GroupHeader1 = new GrapeCity.ActiveReports.SectionReportModel.GroupHeader();
+            this.TextBox2 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.TextBox3 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.Shape1 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.GroupFooter1 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
+            this.Shape15 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.Shape2 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.Shape3 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.Shape13 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.TextBox4 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.TextBox5 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.TextBox6 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.TextBox7 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.TextBox8 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.TextBox9 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.Label20 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label21 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label22 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label23 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.TextBox10 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.TextBox11 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.TextBox12 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.TextBox13 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.TextBox14 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.TextBox15 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.TextBox16 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.TextBox17 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.TextBox18 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.TextBox21 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.Shape14 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.TextBox30 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.TextBox31 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.TextBox32 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.TextBox19 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.Line = new GrapeCity.ActiveReports.SectionReportModel.Line();
             ((System.ComponentModel.ISupportInitialize)(this.txtBudgetGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtActualTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBudgetHrs)).BeginInit();
@@ -401,7 +404,7 @@ namespace RSMPS
             // Detail
             // 
             this.Detail.ColumnSpacing = 0F;
-            this.Detail.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.Detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.Shape12,
             this.Shape11,
             this.Shape10,
@@ -762,7 +765,7 @@ namespace RSMPS
             this.Shape.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape.Height = 0.0625F;
             this.Shape.Left = 0F;
-            this.Shape.LineStyle = DataDynamics.ActiveReports.LineStyle.Transparent;
+            this.Shape.LineStyle = GrapeCity.ActiveReports.SectionReportModel.LineStyle.Transparent;
             this.Shape.Name = "Shape";
             this.Shape.RoundingRadius = 9.999999F;
             this.Shape.Top = 0F;
@@ -850,8 +853,8 @@ namespace RSMPS
             this.txtRemainingBudget.OutputFormat = resources.GetString("txtRemainingBudget.OutputFormat");
             this.txtRemainingBudget.Style = "font-size: 8.25pt; text-align: right";
             this.txtRemainingBudget.SummaryGroup = "GroupHeader1";
-            this.txtRemainingBudget.SummaryRunning = DataDynamics.ActiveReports.SummaryRunning.Group;
-            this.txtRemainingBudget.SummaryType = DataDynamics.ActiveReports.SummaryType.SubTotal;
+            this.txtRemainingBudget.SummaryRunning = GrapeCity.ActiveReports.SectionReportModel.SummaryRunning.Group;
+            this.txtRemainingBudget.SummaryType = GrapeCity.ActiveReports.SectionReportModel.SummaryType.SubTotal;
             this.txtRemainingBudget.Text = "BudgetHrs";
             this.txtRemainingBudget.Top = 0.0625F;
             this.txtRemainingBudget.Visible = false;
@@ -883,7 +886,7 @@ namespace RSMPS
             // 
             // PageHeader
             // 
-            this.PageHeader.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.PageHeader.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.Label1,
             this.Shape8,
             this.Label15,
@@ -1183,7 +1186,7 @@ namespace RSMPS
             this.Shape9.BackColor = System.Drawing.Color.White;
             this.Shape9.Height = 0.125F;
             this.Shape9.Left = 1.0625F;
-            this.Shape9.LineStyle = DataDynamics.ActiveReports.LineStyle.Transparent;
+            this.Shape9.LineStyle = GrapeCity.ActiveReports.SectionReportModel.LineStyle.Transparent;
             this.Shape9.Name = "Shape9";
             this.Shape9.RoundingRadius = 9.999999F;
             this.Shape9.Top = 1.0625F;
@@ -1269,7 +1272,7 @@ namespace RSMPS
             this.Picture.Left = 6.332F;
             this.Picture.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Picture.Name = "Picture";
-            this.Picture.SizeMode = DataDynamics.ActiveReports.SizeModes.Zoom;
+            this.Picture.SizeMode = GrapeCity.ActiveReports.SectionReportModel.SizeModes.Zoom;
             this.Picture.Top = 0F;
             this.Picture.Width = 1.248F;
             // 
@@ -1280,7 +1283,7 @@ namespace RSMPS
             // 
             // GroupHeader1
             // 
-            this.GroupHeader1.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.GroupHeader1.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.TextBox2,
             this.TextBox3,
             this.Shape1});
@@ -1316,7 +1319,7 @@ namespace RSMPS
             this.Shape1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape1.Height = 0.0625F;
             this.Shape1.Left = 0F;
-            this.Shape1.LineStyle = DataDynamics.ActiveReports.LineStyle.Transparent;
+            this.Shape1.LineStyle = GrapeCity.ActiveReports.SectionReportModel.LineStyle.Transparent;
             this.Shape1.Name = "Shape1";
             this.Shape1.RoundingRadius = 9.999999F;
             this.Shape1.Top = 0F;
@@ -1324,7 +1327,7 @@ namespace RSMPS
             // 
             // GroupFooter1
             // 
-            this.GroupFooter1.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.GroupFooter1.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.Shape15,
             this.Shape2,
             this.Shape3,
@@ -1423,8 +1426,8 @@ namespace RSMPS
             this.TextBox5.OutputFormat = resources.GetString("TextBox5.OutputFormat");
             this.TextBox5.Style = "font-size: 8.25pt; text-align: right";
             this.TextBox5.SummaryGroup = "GroupHeader1";
-            this.TextBox5.SummaryRunning = DataDynamics.ActiveReports.SummaryRunning.Group;
-            this.TextBox5.SummaryType = DataDynamics.ActiveReports.SummaryType.SubTotal;
+            this.TextBox5.SummaryRunning = GrapeCity.ActiveReports.SectionReportModel.SummaryRunning.Group;
+            this.TextBox5.SummaryType = GrapeCity.ActiveReports.SectionReportModel.SummaryType.SubTotal;
             this.TextBox5.Text = "ActualTime";
             this.TextBox5.Top = 0.0625F;
             this.TextBox5.Width = 0.5625F;
@@ -1438,8 +1441,8 @@ namespace RSMPS
             this.TextBox6.OutputFormat = resources.GetString("TextBox6.OutputFormat");
             this.TextBox6.Style = "font-size: 8.25pt; text-align: right";
             this.TextBox6.SummaryGroup = "GroupHeader1";
-            this.TextBox6.SummaryRunning = DataDynamics.ActiveReports.SummaryRunning.Group;
-            this.TextBox6.SummaryType = DataDynamics.ActiveReports.SummaryType.SubTotal;
+            this.TextBox6.SummaryRunning = GrapeCity.ActiveReports.SectionReportModel.SummaryRunning.Group;
+            this.TextBox6.SummaryType = GrapeCity.ActiveReports.SectionReportModel.SummaryType.SubTotal;
             this.TextBox6.Text = "BudgetHrs";
             this.TextBox6.Top = 0.0625F;
             this.TextBox6.Width = 0.75F;
@@ -1453,8 +1456,8 @@ namespace RSMPS
             this.TextBox7.OutputFormat = resources.GetString("TextBox7.OutputFormat");
             this.TextBox7.Style = "font-size: 8.25pt; text-align: right";
             this.TextBox7.SummaryGroup = "GroupHeader1";
-            this.TextBox7.SummaryRunning = DataDynamics.ActiveReports.SummaryRunning.Group;
-            this.TextBox7.SummaryType = DataDynamics.ActiveReports.SummaryType.SubTotal;
+            this.TextBox7.SummaryRunning = GrapeCity.ActiveReports.SectionReportModel.SummaryRunning.Group;
+            this.TextBox7.SummaryType = GrapeCity.ActiveReports.SectionReportModel.SummaryType.SubTotal;
             this.TextBox7.Text = "RemainingHrs";
             this.TextBox7.Top = 0.0625F;
             this.TextBox7.Width = 0.5F;
@@ -1549,8 +1552,8 @@ namespace RSMPS
             this.TextBox11.OutputFormat = resources.GetString("TextBox11.OutputFormat");
             this.TextBox11.Style = "font-size: 8.25pt; text-align: right";
             this.TextBox11.SummaryGroup = "GroupHeader1";
-            this.TextBox11.SummaryRunning = DataDynamics.ActiveReports.SummaryRunning.Group;
-            this.TextBox11.SummaryType = DataDynamics.ActiveReports.SummaryType.SubTotal;
+            this.TextBox11.SummaryRunning = GrapeCity.ActiveReports.SectionReportModel.SummaryRunning.Group;
+            this.TextBox11.SummaryType = GrapeCity.ActiveReports.SectionReportModel.SummaryType.SubTotal;
             this.TextBox11.Text = "BudgetDlrs";
             this.TextBox11.Top = 0.625F;
             this.TextBox11.Width = 0.75F;
@@ -1564,8 +1567,8 @@ namespace RSMPS
             this.TextBox12.OutputFormat = resources.GetString("TextBox12.OutputFormat");
             this.TextBox12.Style = "font-size: 8.25pt; text-align: right";
             this.TextBox12.SummaryGroup = "GroupHeader1";
-            this.TextBox12.SummaryRunning = DataDynamics.ActiveReports.SummaryRunning.Group;
-            this.TextBox12.SummaryType = DataDynamics.ActiveReports.SummaryType.SubTotal;
+            this.TextBox12.SummaryRunning = GrapeCity.ActiveReports.SectionReportModel.SummaryRunning.Group;
+            this.TextBox12.SummaryType = GrapeCity.ActiveReports.SectionReportModel.SummaryType.SubTotal;
             this.TextBox12.Text = "0";
             this.TextBox12.Top = 0.625F;
             this.TextBox12.Width = 0.6875F;
@@ -1656,7 +1659,7 @@ namespace RSMPS
             this.Shape14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape14.Height = 0.0625F;
             this.Shape14.Left = 0F;
-            this.Shape14.LineStyle = DataDynamics.ActiveReports.LineStyle.Transparent;
+            this.Shape14.LineStyle = GrapeCity.ActiveReports.SectionReportModel.LineStyle.Transparent;
             this.Shape14.Name = "Shape14";
             this.Shape14.RoundingRadius = 9.999999F;
             this.Shape14.Top = 0F;
@@ -1670,8 +1673,8 @@ namespace RSMPS
             this.TextBox30.OutputFormat = resources.GetString("TextBox30.OutputFormat");
             this.TextBox30.Style = "font-size: 8.25pt; text-align: right";
             this.TextBox30.SummaryGroup = "GroupHeader1";
-            this.TextBox30.SummaryRunning = DataDynamics.ActiveReports.SummaryRunning.Group;
-            this.TextBox30.SummaryType = DataDynamics.ActiveReports.SummaryType.SubTotal;
+            this.TextBox30.SummaryRunning = GrapeCity.ActiveReports.SectionReportModel.SummaryRunning.Group;
+            this.TextBox30.SummaryType = GrapeCity.ActiveReports.SectionReportModel.SummaryType.SubTotal;
             this.TextBox30.Text = "BudgetHrs";
             this.TextBox30.Top = 0.0625F;
             this.TextBox30.Visible = false;
@@ -1736,7 +1739,7 @@ namespace RSMPS
             this.PageSettings.Margins.Left = 0.5F;
             this.PageSettings.Margins.Right = 0.3F;
             this.PageSettings.Margins.Top = 0.5F;
-            this.PageSettings.Orientation = DataDynamics.ActiveReports.Document.PageOrientation.Portrait;
+            this.PageSettings.Orientation = GrapeCity.ActiveReports.Document.Section.PageOrientation.Portrait;
             this.PageSettings.PaperHeight = 11F;
             this.PageSettings.PaperWidth = 8.5F;
             this.PrintWidth = 7.594F;
@@ -1841,5 +1844,112 @@ namespace RSMPS
         }
 
 		#endregion
+
+        public GrapeCity.ActiveReports.Data.SqlDBDataSource ds;
+        private PageHeader PageHeader;
+        private Label Label1;
+        private Shape Shape8;
+        private Label Label15;
+        private Shape Shape6;
+        private Shape Shape7;
+        private Shape Shape5;
+        private Shape Shape4;
+        private TextBox txtProject;
+        private TextBox txtDescription;
+        private TextBox txtCustomer;
+        private TextBox txtLocation;
+        private Label Label;
+        private Label Label7;
+        private Label Label18;
+        private Label Label17;
+        private Label Label16;
+        private Label Label13;
+        private Label Label8;
+        private Label Label10;
+        private Label Label12;
+        private TextBox TextBox;
+        private Label Label26;
+        private Label Label11;
+        private Shape Shape9;
+        private Label Label14;
+        private Label Label9;
+        private Label Label19;
+        private Label Label4;
+        private TextBox TextBox1;
+        private TextBox txtFTCUpdate;
+        private GroupHeader GroupHeader1;
+        private TextBox TextBox2;
+        private TextBox TextBox3;
+        private Shape Shape1;
+        private Detail Detail;
+        private Shape Shape12;
+        private Shape Shape11;
+        private Shape Shape10;
+        private TextBox txtBudgetGroup;
+        private TextBox txtActualTime;
+        private TextBox txtBudgetHrs;
+        private TextBox txtRemainingHrs;
+        private TextBox txtEarnedHrs;
+        private TextBox txtProjectedHrs;
+        private Label Label2;
+        private Label Label3;
+        private Label Label5;
+        private Label Label6;
+        private TextBox txtDelta;
+        private TextBox txtBudgetDlrs;
+        private TextBox txtActualDlrs;
+        private TextBox txtBudDlrsPerWork;
+        private TextBox txtActDlrsPerWork;
+        private TextBox txtActPercBudget;
+        private TextBox txtErnPercBudget;
+        private TextBox txtEIRatio;
+        private TextBox txtFtoCWrkHrs;
+        private TextBox txtFtoCPercBud;
+        private TextBox txtFtoCEIRatio;
+        private TextBox txtFtoCDollars;
+        private TextBox txtOUHrsTot;
+        private TextBox txtOUDlrsTot;
+        private Shape Shape;
+        private TextBox txtFTCHrs;
+        private TextBox txtFTCAmnt;
+        private TextBox txtFctToCpltHrs;
+        private TextBox txtFctToCpltDlrs;
+        private TextBox txtFctToCpltDlrsPerHr;
+        private TextBox txtForecastDlrsPerHr;
+        private TextBox txtRemainingBudget;
+        private TextBox txtEIDlrs;
+        private TextBox txtEarnedDlrs;
+        private GroupFooter GroupFooter1;
+        private Shape Shape15;
+        private Shape Shape2;
+        private Shape Shape3;
+        private Shape Shape13;
+        private TextBox TextBox4;
+        private TextBox TextBox5;
+        private TextBox TextBox6;
+        private TextBox TextBox7;
+        private TextBox TextBox8;
+        private TextBox TextBox9;
+        private Label Label20;
+        private Label Label21;
+        private Label Label22;
+        private Label Label23;
+        private TextBox TextBox10;
+        private TextBox TextBox11;
+        private TextBox TextBox12;
+        private TextBox TextBox13;
+        private TextBox TextBox14;
+        private TextBox TextBox15;
+        private TextBox TextBox16;
+        private TextBox TextBox17;
+        private TextBox TextBox18;
+        private TextBox TextBox21;
+        private Shape Shape14;
+        private TextBox TextBox30;
+        private TextBox TextBox31;
+        private TextBox TextBox32;
+        private TextBox TextBox19;
+        private Line Line;
+        private PageFooter PageFooter;
 	}
 }

@@ -1,60 +1,63 @@
 using System;
-using DataDynamics.ActiveReports;
-using DataDynamics.ActiveReports.Document;
+using GrapeCity.ActiveReports;
+using GrapeCity.ActiveReports.Controls;
+using GrapeCity.ActiveReports.SectionReportModel;
+using GrapeCity.ActiveReports.Document.Section;
+using GrapeCity.ActiveReports.Document;
 
 namespace RSMPS
 {
-    public class rprtIssuance1 : DataDynamics.ActiveReports.ActiveReport
+    public class rprtIssuance1 : GrapeCity.ActiveReports.SectionReport
 	{
-		public rprtIssuance1()
-		{
-			InitializeComponent();
-		}
+        public rprtIssuance1()
+        {
+            InitializeComponent();
+        }
 
-		private void Detail_Format(object sender, System.EventArgs eArgs)
-		{
+        private void Detail_Format(object sender, System.EventArgs eArgs)
+        {
             rprtIssuance2 rprt = new rprtIssuance2();
             rprt.DataSource = this.DataSource;
             rprt.DataMember = "Table";
             SubReport.Report = rprt;
-		}
+        }
 
 		#region ActiveReports Designer generated code
-		public DataDynamics.ActiveReports.DataSources.SqlDBDataSource ds = null;
-		private DataDynamics.ActiveReports.PageHeader PageHeader = null;
-        private DataDynamics.ActiveReports.Shape Shape = null;
-		private DataDynamics.ActiveReports.Label Label = null;
-		private DataDynamics.ActiveReports.Label Label1 = null;
-		private DataDynamics.ActiveReports.Line Line = null;
-		private DataDynamics.ActiveReports.Detail Detail = null;
-		private DataDynamics.ActiveReports.SubReport SubReport = null;
-		private DataDynamics.ActiveReports.PageFooter PageFooter = null;
-		private DataDynamics.ActiveReports.Label Label2 = null;
-		private DataDynamics.ActiveReports.Label Label3 = null;
-		private DataDynamics.ActiveReports.Label Label4 = null;
-		private DataDynamics.ActiveReports.TextBox TextBox = null;
-		private DataDynamics.ActiveReports.TextBox TextBox1 = null;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         private Picture picture1;
-		private DataDynamics.ActiveReports.Label Label5 = null;
+
         public void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rprtIssuance1));
-            DataDynamics.ActiveReports.DataSources.SqlDBDataSource sqlDBDataSource1 = new DataDynamics.ActiveReports.DataSources.SqlDBDataSource();
-            this.Detail = new DataDynamics.ActiveReports.Detail();
-            this.SubReport = new DataDynamics.ActiveReports.SubReport();
-            this.PageHeader = new DataDynamics.ActiveReports.PageHeader();
-            this.Shape = new DataDynamics.ActiveReports.Shape();
-            this.Label = new DataDynamics.ActiveReports.Label();
-            this.Label1 = new DataDynamics.ActiveReports.Label();
-            this.Line = new DataDynamics.ActiveReports.Line();
-            this.picture1 = new DataDynamics.ActiveReports.Picture();
-            this.PageFooter = new DataDynamics.ActiveReports.PageFooter();
-            this.Label2 = new DataDynamics.ActiveReports.Label();
-            this.Label3 = new DataDynamics.ActiveReports.Label();
-            this.Label4 = new DataDynamics.ActiveReports.Label();
-            this.TextBox = new DataDynamics.ActiveReports.TextBox();
-            this.TextBox1 = new DataDynamics.ActiveReports.TextBox();
-            this.Label5 = new DataDynamics.ActiveReports.Label();
+            GrapeCity.ActiveReports.Data.SqlDBDataSource sqlDBDataSource1 = new GrapeCity.ActiveReports.Data.SqlDBDataSource();
+            this.Detail = new GrapeCity.ActiveReports.SectionReportModel.Detail();
+            this.SubReport = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
+            this.PageHeader = new GrapeCity.ActiveReports.SectionReportModel.PageHeader();
+            this.Shape = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.Label = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label1 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Line = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.picture1 = new GrapeCity.ActiveReports.SectionReportModel.Picture();
+            this.PageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
+            this.Label2 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label3 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label4 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.TextBox = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.TextBox1 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.Label5 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Label)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture1)).BeginInit();
@@ -69,7 +72,7 @@ namespace RSMPS
             // Detail
             // 
             this.Detail.ColumnSpacing = 0F;
-            this.Detail.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.Detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.SubReport});
             this.Detail.Height = 2.53125F;
             this.Detail.Name = "Detail";
@@ -87,7 +90,7 @@ namespace RSMPS
             // 
             // PageHeader
             // 
-            this.PageHeader.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.PageHeader.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.Shape,
             this.Label,
             this.Label1,
@@ -148,13 +151,13 @@ namespace RSMPS
             this.picture1.Left = 0.062F;
             this.picture1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.picture1.Name = "picture1";
-            this.picture1.SizeMode = DataDynamics.ActiveReports.SizeModes.Zoom;
+            this.picture1.SizeMode = GrapeCity.ActiveReports.SectionReportModel.SizeModes.Zoom;
             this.picture1.Top = 0.062F;
             this.picture1.Width = 1.248F;
             // 
             // PageFooter
             // 
-            this.PageFooter.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.PageFooter.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.Label2,
             this.Label3,
             this.Label4,
@@ -205,9 +208,9 @@ namespace RSMPS
             this.TextBox.Left = 7.0625F;
             this.TextBox.Name = "TextBox";
             this.TextBox.Style = "font-family: Times New Roman; font-size: 8.25pt; text-align: center";
-            this.TextBox.SummaryFunc = DataDynamics.ActiveReports.SummaryFunc.Count;
-            this.TextBox.SummaryRunning = DataDynamics.ActiveReports.SummaryRunning.All;
-            this.TextBox.SummaryType = DataDynamics.ActiveReports.SummaryType.PageCount;
+            this.TextBox.SummaryFunc = GrapeCity.ActiveReports.SectionReportModel.SummaryFunc.Count;
+            this.TextBox.SummaryRunning = GrapeCity.ActiveReports.SectionReportModel.SummaryRunning.All;
+            this.TextBox.SummaryType = GrapeCity.ActiveReports.SectionReportModel.SummaryType.PageCount;
             this.TextBox.Text = "000";
             this.TextBox.Top = 0.3958333F;
             this.TextBox.Width = 0.25F;
@@ -218,7 +221,7 @@ namespace RSMPS
             this.TextBox1.Left = 7.4375F;
             this.TextBox1.Name = "TextBox1";
             this.TextBox1.Style = "font-family: Times New Roman; font-size: 8.25pt";
-            this.TextBox1.SummaryType = DataDynamics.ActiveReports.SummaryType.PageCount;
+            this.TextBox1.SummaryType = GrapeCity.ActiveReports.SectionReportModel.SummaryType.PageCount;
             this.TextBox1.Text = "000";
             this.TextBox1.Top = 0.3958333F;
             this.TextBox1.Width = 0.3125F;
@@ -272,5 +275,21 @@ namespace RSMPS
         }
 
 		#endregion
+
+        public GrapeCity.ActiveReports.Data.SqlDBDataSource ds;
+        private PageHeader PageHeader;
+        private Shape Shape;
+        private Label Label;
+        private Label Label1;
+        private Line Line;
+        private Detail Detail;
+        private SubReport SubReport;
+        private PageFooter PageFooter;
+        private Label Label2;
+        private Label Label3;
+        private Label Label4;
+        private TextBox TextBox;
+        private TextBox TextBox1;
+        private Label Label5;
 	}
 }

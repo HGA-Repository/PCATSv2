@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
 using System.Data;
+using GrapeCity.ActiveReports;
 
 namespace RSMPS
 {
@@ -10,24 +10,7 @@ namespace RSMPS
     {
         public void PrintDrawingLog(int deptID, int projID)
         {
-            //FPreview pv;
-            ////rprtDrawingLog rprt = new rprtDrawingLog();
-            //rprtDrawingLog rprt = new rprtDrawingLog();
-            //dsDrawingLog ds;
-
-            //ds = CBDrawingLog.GetDrawingLogForRprt(deptID, projID);
-            ////rprt = new rprtDrawingLog();
-            //rprt = new rprtDrawingLog();
-            //rprt.SetDataSource(ds);
-
-            //pv = new FPreview();
-            //pv.ShowReport(rprt);
-            //pv.ShowDialog();
-
-            ////rprt.PrintToPrinter(1, false, 0, 0);
-
             FPreviewAR pv;
-            //rprtDrawingLog1 rprt = new rprtDrawingLog1();
             rprtDrawingLogTranAlt2 rprt = new rprtDrawingLogTranAlt2();
             dsDrawingLog ds;
 
@@ -39,35 +22,9 @@ namespace RSMPS
             pv.ViewReport(rprt);
             pv.ShowDialog();
         }
-
-        public void PrintTest()
-        {
-            //FPreview pv;
-            //rprtTest1 rprt = new rprtTest1();
-
-            //pv = new FPreview();
-            //pv.ShowReport(rprt);
-            //pv.ShowDialog();
-
-            //rprt.PrintToPrinter(1, false, 0, 0);
-        }
-    
+ 
         public void PrintJobStat(int deptID, int projID)
         {
-            //FPreview pv;
-            //rprtJobStat rprt = new rprtJobStat();
-            //dsJobStat ds;
-
-            //ds = CBDrawingLog.GetJobStatForRprt(deptID, projID);
-            //rprt = new rprtJobStat();
-            //rprt.SetDataSource(ds);
-
-            //pv = new FPreview();
-            //pv.ShowReport(rprt);
-            //pv.ShowDialog();
-
-            //rprt.PrintToPrinter(1, false, 0, 0);
-
             FPreviewAR pv;
             rprtJobStat1 rprt = new rprtJobStat1();
             DataSet ds;
@@ -220,7 +177,6 @@ namespace RSMPS
                 dl = CBDrawingLog.GetDrawingLogMainByProjList(xml, sortCode, drwgSpec);
             }
 
-            //rprtDrawingLogTest rprt = new rprtDrawingLogTest();
             rprt.DataSource = dl;
             rprt.DataMember = "DrawingList";
             rprt.SetTitle = GetDrawingSpecTitle(drwgSpec);
@@ -228,7 +184,6 @@ namespace RSMPS
             if (isPreview == true)
             {
                 pv = new FPreviewAR();
-                //pv.ViewReport(rprt);
                 pv.ViewDrawingLogWithExcel(rprt);
                 pv.ShowDialog();
             }
@@ -242,7 +197,6 @@ namespace RSMPS
         public void PrintDrawingLogList(string deptXml, string projXml, bool isPreview, int sortCode, int drwgSpec)
         {
             FPreviewAR pv;
-            //rprtDrawingLog1 rprt = new rprtDrawingLog1();
             rprtDrawingLogTranAlt2 rprt = new rprtDrawingLogTranAlt2();
             dsDrawingLog dl;
 
@@ -255,7 +209,6 @@ namespace RSMPS
             if (isPreview == true)
             {
                 pv = new FPreviewAR();
-                //pv.ViewReport(rprt);
                 pv.ViewDrawingLogWithExcel(rprt);
                 pv.ShowDialog();
             }
@@ -269,7 +222,6 @@ namespace RSMPS
         public void PrintDrawingLogList(string deptXml, string leadXml, bool isLead, bool isPreview, int sortCode, int drwgSpec)
         {
             FPreviewAR pv;
-            //rprtDrawingLog1 rprt = new rprtDrawingLog1();
             rprtDrawingLogTranAlt2 rprt = new rprtDrawingLogTranAlt2();
             dsDrawingLog dl;
 
@@ -282,7 +234,6 @@ namespace RSMPS
             if (isPreview == true)
             {
                 pv = new FPreviewAR();
-                //pv.ViewReport(rprt);
                 pv.ViewDrawingLogWithExcel(rprt);
                 pv.ShowDialog();
             }

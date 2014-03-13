@@ -117,34 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="txtLoadedDollars.OutputFormat" xml:space="preserve">
-    <value>#,##0.00;(#,##0.00)</value>
+  <data name="txtLoadedDollars.OutputFormat" xml:space="preserve">&#xD;
+    <value>#,##0.00;(#,##0.00)</value>&#xD;
   </data>
-  <data name="txtLoadedRate.OutputFormat" xml:space="preserve">
-    <value>#,##0.00;(#,##0.00)</value>
+  <data name="txtLoadedRate.OutputFormat" xml:space="preserve">&#xD;
+    <value>#,##0.00;(#,##0.00)</value>&#xD;
   </data>
-  <data name="txtMHrs.OutputFormat" xml:space="preserve">
-    <value>#,##0;(#,##0)</value>
+  <data name="txtMHrs.OutputFormat" xml:space="preserve">&#xD;
+    <value>#,##0;(#,##0)</value>&#xD;
   </data>
-  <data name="txtPercOfHrs.OutputFormat" xml:space="preserve">
-    <value>0.0%</value>
+  <data name="txtPercOfHrs.OutputFormat" xml:space="preserve">&#xD;
+    <value>0.0%</value>&#xD;
   </data>
-  <data name="txtLoadedDollarsGroup.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00;($#,##0.00)</value>
+  <data name="txtLoadedDollarsGroup.OutputFormat" xml:space="preserve">&#xD;
+    <value>$#,##0.00;($#,##0.00)</value>&#xD;
   </data>
-  <data name="txtLoadedRateGroup.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00;($#,##0.00)</value>
+  <data name="txtLoadedRateGroup.OutputFormat" xml:space="preserve">&#xD;
+    <value>$#,##0.00;($#,##0.00)</value>&#xD;
   </data>
-  <data name="txtMHrsGroup.OutputFormat" xml:space="preserve">
-    <value>#,##0;(#,##0)</value>
+  <data name="txtMHrsGroup.OutputFormat" xml:space="preserve">&#xD;
+    <value>#,##0;(#,##0)</value>&#xD;
   </data>
-  <data name="txtPerHrsGroup.OutputFormat" xml:space="preserve">
-    <value>0.0%</value>
+  <data name="txtPerHrsGroup.OutputFormat" xml:space="preserve">&#xD;
+    <value>0.0%</value>&#xD;
   </data>
   <metadata name="$this.TrayLargeIcon" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="$this.StyleSheet" xml:space="preserve">
-    <value>font-family: Arial; font-style: normal; font-variant: inherit; font-weight: normal; font-size: 10pt; font-size-adjust: inherit; font-stretch: inherit; color: rgb(0,0,0); background-repeat: inherit; background-attachment: inherit; opacity: inherit; word-spacing: inherit; letter-spacing: inherit; text-decoration: none; vertical-align: inherit; text-transform: inherit; text-align: inherit; text-indent: inherit; unicode-bidi: inherit; line-height: inherit; white-space: inherit; ddo-char-set: 0</value>
+  <data name="$this.StyleSheet" xml:space="preserve">&#xD;
+    <value>font-family: Arial; font-style: normal; font-variant: inherit; font-weight: normal; font-size: 10pt; font-size-adjust: inherit; font-stretch: inherit; color: rgb(0,0,0); background-repeat: inherit; background-attachment: inherit; opacity: inherit; word-spacing: inherit; letter-spacing: inherit; text-decoration: none; vertical-align: inherit; text-transform: inherit; text-align: inherit; text-indent: inherit; unicode-bidi: inherit; line-height: inherit; white-space: inherit; ddo-char-set: 0</value>&#xD;
   </data>
 </root>

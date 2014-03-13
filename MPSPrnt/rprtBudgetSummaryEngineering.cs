@@ -1,10 +1,13 @@
 using System;
-using DataDynamics.ActiveReports;
-using DataDynamics.ActiveReports.Document;
+using GrapeCity.ActiveReports;
+using GrapeCity.ActiveReports.Controls;
+using GrapeCity.ActiveReports.SectionReportModel;
+using GrapeCity.ActiveReports.Document.Section;
+using GrapeCity.ActiveReports.Document;
 
 namespace RSMPS
 {
-    public class rprtBudgetSummaryEngineering : DataDynamics.ActiveReports.ActiveReport
+    public class rprtBudgetSummaryEngineering : GrapeCity.ActiveReports.SectionReport
     {
         private int miTotalHours = 0;
 
@@ -20,13 +23,13 @@ namespace RSMPS
             set { lblHeading.Text = value; }
         }
 
-		public rprtBudgetSummaryEngineering()
-		{
-			InitializeComponent();
-		}
+        public rprtBudgetSummaryEngineering()
+        {
+            InitializeComponent();
+        }
 
-		private void Detail_Format(object sender, System.EventArgs eArgs)
-		{
+        private void Detail_Format(object sender, System.EventArgs eArgs)
+        {
             if (Convert.ToInt32(txtMHrs.Value) != 0)
             {
                 txtLoadedRate.Value = Convert.ToDecimal(txtLoadedDollars.Value) / Convert.ToDecimal(txtMHrs.Value);
@@ -44,10 +47,10 @@ namespace RSMPS
             {
                 txtPercOfHrs.Value = 0;
             }
-		}
+        }
 
-		private void GroupFooter1_Format(object sender, System.EventArgs eArgs)
-		{
+        private void GroupFooter1_Format(object sender, System.EventArgs eArgs)
+        {
             if (Convert.ToInt32(txtMHrsGroup.Value) != 0)
             {
                 txtLoadedRateGroup.Value = Convert.ToDecimal(txtLoadedDollarsGroup.Value) / Convert.ToDecimal(txtMHrsGroup.Value);
@@ -65,100 +68,100 @@ namespace RSMPS
             {
                 txtPerHrsGroup.Value = 0;
             }
-		}
+        }
 
 		#region ActiveReports Designer generated code
-		private DataDynamics.ActiveReports.PageHeader PageHeader = null;
-		private DataDynamics.ActiveReports.GroupHeader GroupHeader1 = null;
-		private DataDynamics.ActiveReports.Label lblHeading = null;
-		private DataDynamics.ActiveReports.Line Line8 = null;
-		private DataDynamics.ActiveReports.Line Line9 = null;
-		private DataDynamics.ActiveReports.Line Line10 = null;
-		private DataDynamics.ActiveReports.Line Line11 = null;
-		private DataDynamics.ActiveReports.Line Line12 = null;
-		private DataDynamics.ActiveReports.Line Line13 = null;
-		private DataDynamics.ActiveReports.Line Line14 = null;
-		private DataDynamics.ActiveReports.Line Line15 = null;
-		private DataDynamics.ActiveReports.Line Line16 = null;
-		private DataDynamics.ActiveReports.Detail Detail = null;
-		private DataDynamics.ActiveReports.TextBox txtAcctCode = null;
-		private DataDynamics.ActiveReports.TextBox txtDescription = null;
-		private DataDynamics.ActiveReports.TextBox txtLoadedDollars = null;
-		private DataDynamics.ActiveReports.TextBox txtLoadedRate = null;
-		private DataDynamics.ActiveReports.TextBox txtMHrs = null;
-		private DataDynamics.ActiveReports.TextBox txtPercOfHrs = null;
-		private DataDynamics.ActiveReports.Line Line = null;
-		private DataDynamics.ActiveReports.Line Line1 = null;
-		private DataDynamics.ActiveReports.Line Line2 = null;
-		private DataDynamics.ActiveReports.Line Line3 = null;
-		private DataDynamics.ActiveReports.Line Line4 = null;
-		private DataDynamics.ActiveReports.Line Line5 = null;
-		private DataDynamics.ActiveReports.Line Line6 = null;
-		private DataDynamics.ActiveReports.Line Line7 = null;
-		private DataDynamics.ActiveReports.GroupFooter GroupFooter1 = null;
-		private DataDynamics.ActiveReports.TextBox txtLoadedDollarsGroup = null;
-		private DataDynamics.ActiveReports.TextBox txtLoadedRateGroup = null;
-		private DataDynamics.ActiveReports.TextBox txtMHrsGroup = null;
-		private DataDynamics.ActiveReports.TextBox txtPerHrsGroup = null;
-		private DataDynamics.ActiveReports.Line Line17 = null;
-		private DataDynamics.ActiveReports.Line Line18 = null;
-		private DataDynamics.ActiveReports.Line Line19 = null;
-		private DataDynamics.ActiveReports.Line Line20 = null;
-		private DataDynamics.ActiveReports.Line Line21 = null;
-		private DataDynamics.ActiveReports.Line Line22 = null;
-		private DataDynamics.ActiveReports.Line Line23 = null;
-		private DataDynamics.ActiveReports.Line Line24 = null;
-		private DataDynamics.ActiveReports.Label Label1 = null;
-		private DataDynamics.ActiveReports.Label Label2 = null;
-		private DataDynamics.ActiveReports.Line Line25 = null;
-		private DataDynamics.ActiveReports.PageFooter PageFooter = null;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rprtBudgetSummaryEngineering));
-            this.Detail = new DataDynamics.ActiveReports.Detail();
-            this.txtAcctCode = new DataDynamics.ActiveReports.TextBox();
-            this.txtDescription = new DataDynamics.ActiveReports.TextBox();
-            this.txtLoadedDollars = new DataDynamics.ActiveReports.TextBox();
-            this.txtLoadedRate = new DataDynamics.ActiveReports.TextBox();
-            this.txtMHrs = new DataDynamics.ActiveReports.TextBox();
-            this.txtPercOfHrs = new DataDynamics.ActiveReports.TextBox();
-            this.Line = new DataDynamics.ActiveReports.Line();
-            this.Line1 = new DataDynamics.ActiveReports.Line();
-            this.Line2 = new DataDynamics.ActiveReports.Line();
-            this.Line3 = new DataDynamics.ActiveReports.Line();
-            this.Line4 = new DataDynamics.ActiveReports.Line();
-            this.Line5 = new DataDynamics.ActiveReports.Line();
-            this.Line6 = new DataDynamics.ActiveReports.Line();
-            this.Line7 = new DataDynamics.ActiveReports.Line();
-            this.PageHeader = new DataDynamics.ActiveReports.PageHeader();
-            this.PageFooter = new DataDynamics.ActiveReports.PageFooter();
-            this.GroupHeader1 = new DataDynamics.ActiveReports.GroupHeader();
-            this.lblHeading = new DataDynamics.ActiveReports.Label();
-            this.Line8 = new DataDynamics.ActiveReports.Line();
-            this.Line9 = new DataDynamics.ActiveReports.Line();
-            this.Line10 = new DataDynamics.ActiveReports.Line();
-            this.Line11 = new DataDynamics.ActiveReports.Line();
-            this.Line12 = new DataDynamics.ActiveReports.Line();
-            this.Line13 = new DataDynamics.ActiveReports.Line();
-            this.Line14 = new DataDynamics.ActiveReports.Line();
-            this.Line15 = new DataDynamics.ActiveReports.Line();
-            this.Line16 = new DataDynamics.ActiveReports.Line();
-            this.GroupFooter1 = new DataDynamics.ActiveReports.GroupFooter();
-            this.txtLoadedDollarsGroup = new DataDynamics.ActiveReports.TextBox();
-            this.txtLoadedRateGroup = new DataDynamics.ActiveReports.TextBox();
-            this.txtMHrsGroup = new DataDynamics.ActiveReports.TextBox();
-            this.txtPerHrsGroup = new DataDynamics.ActiveReports.TextBox();
-            this.Line17 = new DataDynamics.ActiveReports.Line();
-            this.Line18 = new DataDynamics.ActiveReports.Line();
-            this.Line19 = new DataDynamics.ActiveReports.Line();
-            this.Line20 = new DataDynamics.ActiveReports.Line();
-            this.Line21 = new DataDynamics.ActiveReports.Line();
-            this.Line22 = new DataDynamics.ActiveReports.Line();
-            this.Line23 = new DataDynamics.ActiveReports.Line();
-            this.Line24 = new DataDynamics.ActiveReports.Line();
-            this.Label1 = new DataDynamics.ActiveReports.Label();
-            this.Label2 = new DataDynamics.ActiveReports.Label();
-            this.Line25 = new DataDynamics.ActiveReports.Line();
+            this.Detail = new GrapeCity.ActiveReports.SectionReportModel.Detail();
+            this.txtAcctCode = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtDescription = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtLoadedDollars = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtLoadedRate = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtMHrs = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtPercOfHrs = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.Line = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line1 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line2 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line3 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line4 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line5 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line6 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line7 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.PageHeader = new GrapeCity.ActiveReports.SectionReportModel.PageHeader();
+            this.PageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
+            this.GroupHeader1 = new GrapeCity.ActiveReports.SectionReportModel.GroupHeader();
+            this.lblHeading = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Line8 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line9 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line10 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line11 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line12 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line13 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line14 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line15 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line16 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.GroupFooter1 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
+            this.txtLoadedDollarsGroup = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtLoadedRateGroup = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtMHrsGroup = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtPerHrsGroup = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.Line17 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line18 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line19 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line20 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line21 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line22 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line23 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line24 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Label1 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label2 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Line25 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             ((System.ComponentModel.ISupportInitialize)(this.txtAcctCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLoadedDollars)).BeginInit();
@@ -177,7 +180,7 @@ namespace RSMPS
             // Detail
             // 
             this.Detail.ColumnSpacing = 0F;
-            this.Detail.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.Detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.txtAcctCode,
             this.txtDescription,
             this.txtLoadedDollars,
@@ -379,7 +382,7 @@ namespace RSMPS
             // 
             // GroupHeader1
             // 
-            this.GroupHeader1.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.GroupHeader1.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.lblHeading,
             this.Line8,
             this.Line9,
@@ -523,7 +526,7 @@ namespace RSMPS
             // 
             // GroupFooter1
             // 
-            this.GroupFooter1.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.GroupFooter1.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.txtLoadedDollarsGroup,
             this.txtLoadedRateGroup,
             this.txtMHrsGroup,
@@ -551,8 +554,8 @@ namespace RSMPS
             this.txtLoadedDollarsGroup.Name = "txtLoadedDollarsGroup";
             this.txtLoadedDollarsGroup.OutputFormat = resources.GetString("txtLoadedDollarsGroup.OutputFormat");
             this.txtLoadedDollarsGroup.Style = "text-align: right";
-            this.txtLoadedDollarsGroup.SummaryRunning = DataDynamics.ActiveReports.SummaryRunning.All;
-            this.txtLoadedDollarsGroup.SummaryType = DataDynamics.ActiveReports.SummaryType.GrandTotal;
+            this.txtLoadedDollarsGroup.SummaryRunning = GrapeCity.ActiveReports.SectionReportModel.SummaryRunning.All;
+            this.txtLoadedDollarsGroup.SummaryType = GrapeCity.ActiveReports.SectionReportModel.SummaryType.GrandTotal;
             this.txtLoadedDollarsGroup.Text = "TextBox2";
             this.txtLoadedDollarsGroup.Top = 0F;
             this.txtLoadedDollarsGroup.Width = 1.0625F;
@@ -576,8 +579,8 @@ namespace RSMPS
             this.txtMHrsGroup.Name = "txtMHrsGroup";
             this.txtMHrsGroup.OutputFormat = resources.GetString("txtMHrsGroup.OutputFormat");
             this.txtMHrsGroup.Style = "text-align: right";
-            this.txtMHrsGroup.SummaryRunning = DataDynamics.ActiveReports.SummaryRunning.All;
-            this.txtMHrsGroup.SummaryType = DataDynamics.ActiveReports.SummaryType.GrandTotal;
+            this.txtMHrsGroup.SummaryRunning = GrapeCity.ActiveReports.SectionReportModel.SummaryRunning.All;
+            this.txtMHrsGroup.SummaryType = GrapeCity.ActiveReports.SectionReportModel.SummaryType.GrandTotal;
             this.txtMHrsGroup.Text = "TextBox4";
             this.txtMHrsGroup.Top = 0F;
             this.txtMHrsGroup.Width = 0.7916667F;
@@ -737,7 +740,7 @@ namespace RSMPS
             this.MasterReport = false;
             this.PageSettings.Margins.Left = 0.5F;
             this.PageSettings.Margins.Right = 0.2F;
-            this.PageSettings.Orientation = DataDynamics.ActiveReports.Document.PageOrientation.Portrait;
+            this.PageSettings.Orientation = GrapeCity.ActiveReports.Document.Section.PageOrientation.Portrait;
             this.PageSettings.PaperHeight = 11F;
             this.PageSettings.PaperWidth = 8.5F;
             this.PrintWidth = 7.510417F;
@@ -771,5 +774,50 @@ namespace RSMPS
         }
 
 		#endregion
+
+        private PageHeader PageHeader;
+        private GroupHeader GroupHeader1;
+        private Label lblHeading;
+        private Line Line8;
+        private Line Line9;
+        private Line Line10;
+        private Line Line11;
+        private Line Line12;
+        private Line Line13;
+        private Line Line14;
+        private Line Line15;
+        private Line Line16;
+        private Detail Detail;
+        private TextBox txtAcctCode;
+        private TextBox txtDescription;
+        private TextBox txtLoadedDollars;
+        private TextBox txtLoadedRate;
+        private TextBox txtMHrs;
+        private TextBox txtPercOfHrs;
+        private Line Line;
+        private Line Line1;
+        private Line Line2;
+        private Line Line3;
+        private Line Line4;
+        private Line Line5;
+        private Line Line6;
+        private Line Line7;
+        private GroupFooter GroupFooter1;
+        private TextBox txtLoadedDollarsGroup;
+        private TextBox txtLoadedRateGroup;
+        private TextBox txtMHrsGroup;
+        private TextBox txtPerHrsGroup;
+        private Line Line17;
+        private Line Line18;
+        private Line Line19;
+        private Line Line20;
+        private Line Line21;
+        private Line Line22;
+        private Line Line23;
+        private Line Line24;
+        private Label Label1;
+        private Label Label2;
+        private Line Line25;
+        private PageFooter PageFooter;
 	}
 }

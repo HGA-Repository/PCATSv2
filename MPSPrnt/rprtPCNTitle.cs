@@ -1,53 +1,56 @@
 using System;
-using DataDynamics.ActiveReports;
-using DataDynamics.ActiveReports.Document;
+using GrapeCity.ActiveReports;
+using GrapeCity.ActiveReports.Controls;
+using GrapeCity.ActiveReports.SectionReportModel;
+using GrapeCity.ActiveReports.Document.Section;
+using GrapeCity.ActiveReports.Document;
 
 namespace RSMPS
 {
-    public class rprtPCNTitle : DataDynamics.ActiveReports.ActiveReport
+    public class rprtPCNTitle : GrapeCity.ActiveReports.SectionReport
 	{
-		public rprtPCNTitle()
-		{
-			InitializeComponent();
-		}
+        public rprtPCNTitle()
+        {
+            InitializeComponent();
+        }
 
-		private void Detail_Format(object sender, System.EventArgs eArgs)
-		{
-			
-		}
+        private void Detail_Format(object sender, System.EventArgs eArgs)
+        {
+
+        }
 
 		#region ActiveReports Designer generated code
-		private DataDynamics.ActiveReports.PageHeader PageHeader = null;
-		private DataDynamics.ActiveReports.Shape Shape = null;
-		private DataDynamics.ActiveReports.Label Label = null;
-		private DataDynamics.ActiveReports.Detail Detail = null;
-		private DataDynamics.ActiveReports.Label Label1 = null;
-		private DataDynamics.ActiveReports.Label Label2 = null;
-		private DataDynamics.ActiveReports.Label Label3 = null;
-		private DataDynamics.ActiveReports.Label Label4 = null;
-		private DataDynamics.ActiveReports.Label Label5 = null;
-		private DataDynamics.ActiveReports.Label Label6 = null;
-		private DataDynamics.ActiveReports.PageBreak PageBreak = null;
-		private DataDynamics.ActiveReports.SubReport subPCNHours = null;
-		private DataDynamics.ActiveReports.SubReport subPCNExpenses = null;
-		private DataDynamics.ActiveReports.PageFooter PageFooter = null;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rprtPCNTitle));
-            this.Detail = new DataDynamics.ActiveReports.Detail();
-            this.PageHeader = new DataDynamics.ActiveReports.PageHeader();
-            this.PageFooter = new DataDynamics.ActiveReports.PageFooter();
-            this.Shape = new DataDynamics.ActiveReports.Shape();
-            this.Label = new DataDynamics.ActiveReports.Label();
-            this.Label1 = new DataDynamics.ActiveReports.Label();
-            this.Label2 = new DataDynamics.ActiveReports.Label();
-            this.Label3 = new DataDynamics.ActiveReports.Label();
-            this.Label4 = new DataDynamics.ActiveReports.Label();
-            this.Label5 = new DataDynamics.ActiveReports.Label();
-            this.Label6 = new DataDynamics.ActiveReports.Label();
-            this.PageBreak = new DataDynamics.ActiveReports.PageBreak();
-            this.subPCNHours = new DataDynamics.ActiveReports.SubReport();
-            this.subPCNExpenses = new DataDynamics.ActiveReports.SubReport();
+            this.Detail = new GrapeCity.ActiveReports.SectionReportModel.Detail();
+            this.PageHeader = new GrapeCity.ActiveReports.SectionReportModel.PageHeader();
+            this.PageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
+            this.Shape = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.Label = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label1 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label2 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label3 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label4 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label5 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label6 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.PageBreak = new GrapeCity.ActiveReports.SectionReportModel.PageBreak();
+            this.subPCNHours = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
+            this.subPCNExpenses = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
             ((System.ComponentModel.ISupportInitialize)(this.Label)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label2)).BeginInit();
@@ -60,7 +63,7 @@ namespace RSMPS
             // Detail
             // 
             this.Detail.ColumnSpacing = 0F;
-            this.Detail.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.Detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
                         this.Label1,
                         this.Label2,
                         this.Label3,
@@ -75,7 +78,7 @@ namespace RSMPS
             // 
             // PageHeader
             // 
-            this.PageHeader.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.PageHeader.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
                         this.Shape,
                         this.Label});
             this.PageHeader.Height = 0.5416667F;
@@ -89,13 +92,13 @@ namespace RSMPS
             // Shape
             // 
             this.Shape.Border.BottomColor = System.Drawing.Color.Black;
-            this.Shape.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Shape.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Shape.Border.LeftColor = System.Drawing.Color.Black;
-            this.Shape.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Shape.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Shape.Border.RightColor = System.Drawing.Color.Black;
-            this.Shape.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Shape.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Shape.Border.TopColor = System.Drawing.Color.Black;
-            this.Shape.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Shape.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Shape.Height = 0.5F;
             this.Shape.Left = 0F;
             this.Shape.Name = "Shape";
@@ -106,13 +109,13 @@ namespace RSMPS
             // Label
             // 
             this.Label.Border.BottomColor = System.Drawing.Color.Black;
-            this.Label.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label.Border.LeftColor = System.Drawing.Color.Black;
-            this.Label.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label.Border.RightColor = System.Drawing.Color.Black;
-            this.Label.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label.Border.TopColor = System.Drawing.Color.Black;
-            this.Label.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label.Height = 0.2F;
             this.Label.HyperLink = null;
             this.Label.Left = 0.8125F;
@@ -125,13 +128,13 @@ namespace RSMPS
             // Label1
             // 
             this.Label1.Border.BottomColor = System.Drawing.Color.Black;
-            this.Label1.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label1.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label1.Border.LeftColor = System.Drawing.Color.Black;
-            this.Label1.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label1.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label1.Border.RightColor = System.Drawing.Color.Black;
-            this.Label1.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label1.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label1.Border.TopColor = System.Drawing.Color.Black;
-            this.Label1.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label1.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label1.Height = 0.25F;
             this.Label1.HyperLink = null;
             this.Label1.Left = 0F;
@@ -144,13 +147,13 @@ namespace RSMPS
             // Label2
             // 
             this.Label2.Border.BottomColor = System.Drawing.Color.Black;
-            this.Label2.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label2.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label2.Border.LeftColor = System.Drawing.Color.Black;
-            this.Label2.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label2.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label2.Border.RightColor = System.Drawing.Color.Black;
-            this.Label2.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label2.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label2.Border.TopColor = System.Drawing.Color.Black;
-            this.Label2.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label2.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label2.Height = 0.2375F;
             this.Label2.HyperLink = null;
             this.Label2.Left = 0F;
@@ -163,13 +166,13 @@ namespace RSMPS
             // Label3
             // 
             this.Label3.Border.BottomColor = System.Drawing.Color.Black;
-            this.Label3.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label3.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label3.Border.LeftColor = System.Drawing.Color.Black;
-            this.Label3.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label3.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label3.Border.RightColor = System.Drawing.Color.Black;
-            this.Label3.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label3.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label3.Border.TopColor = System.Drawing.Color.Black;
-            this.Label3.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label3.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label3.Height = 0.225F;
             this.Label3.HyperLink = null;
             this.Label3.Left = 0F;
@@ -182,13 +185,13 @@ namespace RSMPS
             // Label4
             // 
             this.Label4.Border.BottomColor = System.Drawing.Color.Black;
-            this.Label4.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label4.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label4.Border.LeftColor = System.Drawing.Color.Black;
-            this.Label4.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label4.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label4.Border.RightColor = System.Drawing.Color.Black;
-            this.Label4.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label4.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label4.Border.TopColor = System.Drawing.Color.Black;
-            this.Label4.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label4.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label4.Height = 0.25F;
             this.Label4.HyperLink = null;
             this.Label4.Left = 0.25F;
@@ -201,13 +204,13 @@ namespace RSMPS
             // Label5
             // 
             this.Label5.Border.BottomColor = System.Drawing.Color.Black;
-            this.Label5.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label5.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label5.Border.LeftColor = System.Drawing.Color.Black;
-            this.Label5.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label5.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label5.Border.RightColor = System.Drawing.Color.Black;
-            this.Label5.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label5.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label5.Border.TopColor = System.Drawing.Color.Black;
-            this.Label5.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label5.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label5.Height = 0.2374999F;
             this.Label5.HyperLink = null;
             this.Label5.Left = 0.25F;
@@ -220,13 +223,13 @@ namespace RSMPS
             // Label6
             // 
             this.Label6.Border.BottomColor = System.Drawing.Color.Black;
-            this.Label6.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label6.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label6.Border.LeftColor = System.Drawing.Color.Black;
-            this.Label6.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label6.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label6.Border.RightColor = System.Drawing.Color.Black;
-            this.Label6.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label6.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label6.Border.TopColor = System.Drawing.Color.Black;
-            this.Label6.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.Label6.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label6.Height = 0.25F;
             this.Label6.HyperLink = null;
             this.Label6.Left = 1F;
@@ -239,13 +242,13 @@ namespace RSMPS
             // PageBreak
             // 
             this.PageBreak.Border.BottomColor = System.Drawing.Color.Black;
-            this.PageBreak.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.PageBreak.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.PageBreak.Border.LeftColor = System.Drawing.Color.Black;
-            this.PageBreak.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.PageBreak.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.PageBreak.Border.RightColor = System.Drawing.Color.Black;
-            this.PageBreak.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.PageBreak.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.PageBreak.Border.TopColor = System.Drawing.Color.Black;
-            this.PageBreak.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.PageBreak.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.PageBreak.Height = 0.05555556F;
             this.PageBreak.Left = 0F;
             this.PageBreak.Name = "PageBreak";
@@ -256,13 +259,13 @@ namespace RSMPS
             // subPCNHours
             // 
             this.subPCNHours.Border.BottomColor = System.Drawing.Color.Black;
-            this.subPCNHours.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.subPCNHours.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.subPCNHours.Border.LeftColor = System.Drawing.Color.Black;
-            this.subPCNHours.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.subPCNHours.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.subPCNHours.Border.RightColor = System.Drawing.Color.Black;
-            this.subPCNHours.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.subPCNHours.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.subPCNHours.Border.TopColor = System.Drawing.Color.Black;
-            this.subPCNHours.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.subPCNHours.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.subPCNHours.CloseBorder = false;
             this.subPCNHours.Height = 0.625F;
             this.subPCNHours.Left = 0F;
@@ -274,13 +277,13 @@ namespace RSMPS
             // subPCNExpenses
             // 
             this.subPCNExpenses.Border.BottomColor = System.Drawing.Color.Black;
-            this.subPCNExpenses.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.subPCNExpenses.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.subPCNExpenses.Border.LeftColor = System.Drawing.Color.Black;
-            this.subPCNExpenses.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.subPCNExpenses.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.subPCNExpenses.Border.RightColor = System.Drawing.Color.Black;
-            this.subPCNExpenses.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.subPCNExpenses.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.subPCNExpenses.Border.TopColor = System.Drawing.Color.Black;
-            this.subPCNExpenses.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.None;
+            this.subPCNExpenses.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.subPCNExpenses.CloseBorder = false;
             this.subPCNExpenses.Height = 0.625F;
             this.subPCNExpenses.Left = 0F;
@@ -318,5 +321,20 @@ namespace RSMPS
         }
 
 		#endregion
+
+        private PageHeader PageHeader;
+        private Shape Shape;
+        private Label Label;
+        private Detail Detail;
+        private Label Label1;
+        private Label Label2;
+        private Label Label3;
+        private Label Label4;
+        private Label Label5;
+        private Label Label6;
+        private PageBreak PageBreak;
+        private SubReport subPCNHours;
+        private SubReport subPCNExpenses;
+        private PageFooter PageFooter;
 	}
 }

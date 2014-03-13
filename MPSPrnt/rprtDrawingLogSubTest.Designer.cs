@@ -5,9 +5,9 @@ namespace RSMPS
     /// </summary>
     partial class rprtDrawingLogSubTest
     {
-        private DataDynamics.ActiveReports.PageHeader pageHeader;
-        private DataDynamics.ActiveReports.Detail detail;
-        private DataDynamics.ActiveReports.PageFooter pageFooter;
+
+
+
 
         /// <summary>
         /// Clean up any resources being used.
@@ -28,10 +28,10 @@ namespace RSMPS
         private void InitializeComponent()
         {
             System.Resources.ResourceManager resources = new System.Resources.ResourceManager(typeof(rprtDrawingLogSubTest));
-            this.pageHeader = new DataDynamics.ActiveReports.PageHeader();
-            this.detail = new DataDynamics.ActiveReports.Detail();
-            this.pageFooter = new DataDynamics.ActiveReports.PageFooter();
-            this.textBox1 = new DataDynamics.ActiveReports.TextBox();
+            this.pageHeader = new GrapeCity.ActiveReports.SectionReportModel.PageHeader();
+            this.detail = new GrapeCity.ActiveReports.SectionReportModel.Detail();
+            this.pageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
+            this.textBox1 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -43,7 +43,7 @@ namespace RSMPS
             // detail
             // 
             this.detail.ColumnSpacing = 0F;
-            this.detail.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.textBox1});
             this.detail.Height = 0.2916666F;
             this.detail.Name = "detail";
@@ -84,6 +84,10 @@ namespace RSMPS
         }
         #endregion
 
-        private DataDynamics.ActiveReports.TextBox textBox1;
+
+        private GrapeCity.ActiveReports.SectionReportModel.PageHeader pageHeader;
+        private GrapeCity.ActiveReports.SectionReportModel.Detail detail;
+        private GrapeCity.ActiveReports.SectionReportModel.PageFooter pageFooter;
+        private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox1;
     }
 }

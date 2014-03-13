@@ -5,9 +5,9 @@ namespace RSMPS
     /// </summary>
     partial class rprtTransmittal1
     {
-        private DataDynamics.ActiveReports.PageHeader pageHeader;
-        private DataDynamics.ActiveReports.Detail detail;
-        private DataDynamics.ActiveReports.PageFooter pageFooter;
+
+
+
 
         /// <summary>
         /// Clean up any resources being used.
@@ -28,85 +28,85 @@ namespace RSMPS
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rprtTransmittal1));
-            this.pageHeader = new DataDynamics.ActiveReports.PageHeader();
-            this.label1 = new DataDynamics.ActiveReports.Label();
-            this.label2 = new DataDynamics.ActiveReports.Label();
-            this.label3 = new DataDynamics.ActiveReports.Label();
-            this.label5 = new DataDynamics.ActiveReports.Label();
-            this.label6 = new DataDynamics.ActiveReports.Label();
-            this.line1 = new DataDynamics.ActiveReports.Line();
-            this.line2 = new DataDynamics.ActiveReports.Line();
-            this.shape1 = new DataDynamics.ActiveReports.Shape();
-            this.label11 = new DataDynamics.ActiveReports.Label();
-            this.textBox1 = new DataDynamics.ActiveReports.TextBox();
-            this.Picture = new DataDynamics.ActiveReports.Picture();
-            this.detail = new DataDynamics.ActiveReports.Detail();
-            this.textBox8 = new DataDynamics.ActiveReports.TextBox();
-            this.textBox9 = new DataDynamics.ActiveReports.TextBox();
-            this.textBox10 = new DataDynamics.ActiveReports.TextBox();
-            this.textBox12 = new DataDynamics.ActiveReports.TextBox();
-            this.line9 = new DataDynamics.ActiveReports.Line();
-            this.line10 = new DataDynamics.ActiveReports.Line();
-            this.line11 = new DataDynamics.ActiveReports.Line();
-            this.line12 = new DataDynamics.ActiveReports.Line();
-            this.line13 = new DataDynamics.ActiveReports.Line();
-            this.line15 = new DataDynamics.ActiveReports.Line();
-            this.pageFooter = new DataDynamics.ActiveReports.PageFooter();
-            this.label13 = new DataDynamics.ActiveReports.Label();
-            this.label14 = new DataDynamics.ActiveReports.Label();
-            this.label15 = new DataDynamics.ActiveReports.Label();
-            this.label16 = new DataDynamics.ActiveReports.Label();
-            this.label17 = new DataDynamics.ActiveReports.Label();
-            this.label18 = new DataDynamics.ActiveReports.Label();
-            this.label19 = new DataDynamics.ActiveReports.Label();
-            this.richTextBox1 = new DataDynamics.ActiveReports.RichTextBox();
-            this.richTextBox2 = new DataDynamics.ActiveReports.RichTextBox();
-            this.line7 = new DataDynamics.ActiveReports.Line();
-            this.line8 = new DataDynamics.ActiveReports.Line();
-            this.textBox6 = new DataDynamics.ActiveReports.TextBox();
-            this.textBox7 = new DataDynamics.ActiveReports.TextBox();
-            this.groupHeader1 = new DataDynamics.ActiveReports.GroupHeader();
-            this.label7 = new DataDynamics.ActiveReports.Label();
-            this.label8 = new DataDynamics.ActiveReports.Label();
-            this.label9 = new DataDynamics.ActiveReports.Label();
-            this.label10 = new DataDynamics.ActiveReports.Label();
-            this.textBox2 = new DataDynamics.ActiveReports.TextBox();
-            this.textBox3 = new DataDynamics.ActiveReports.TextBox();
-            this.textBox4 = new DataDynamics.ActiveReports.TextBox();
-            this.textBox5 = new DataDynamics.ActiveReports.TextBox();
-            this.line4 = new DataDynamics.ActiveReports.Line();
-            this.line5 = new DataDynamics.ActiveReports.Line();
-            this.line6 = new DataDynamics.ActiveReports.Line();
-            this.checkBox1 = new DataDynamics.ActiveReports.CheckBox();
-            this.checkBox2 = new DataDynamics.ActiveReports.CheckBox();
-            this.checkBox3 = new DataDynamics.ActiveReports.CheckBox();
-            this.checkBox4 = new DataDynamics.ActiveReports.CheckBox();
-            this.checkBox5 = new DataDynamics.ActiveReports.CheckBox();
-            this.checkBox6 = new DataDynamics.ActiveReports.CheckBox();
-            this.checkBox7 = new DataDynamics.ActiveReports.CheckBox();
-            this.checkBox8 = new DataDynamics.ActiveReports.CheckBox();
-            this.checkBox9 = new DataDynamics.ActiveReports.CheckBox();
-            this.checkBox10 = new DataDynamics.ActiveReports.CheckBox();
-            this.checkBox11 = new DataDynamics.ActiveReports.CheckBox();
-            this.chkApprovedOther = new DataDynamics.ActiveReports.CheckBox();
-            this.checkBox13 = new DataDynamics.ActiveReports.CheckBox();
-            this.checkBox14 = new DataDynamics.ActiveReports.CheckBox();
-            this.checkBox15 = new DataDynamics.ActiveReports.CheckBox();
-            this.checkBox16 = new DataDynamics.ActiveReports.CheckBox();
-            this.checkBox17 = new DataDynamics.ActiveReports.CheckBox();
-            this.label12 = new DataDynamics.ActiveReports.Label();
-            this.label4 = new DataDynamics.ActiveReports.Label();
-            this.textBox13 = new DataDynamics.ActiveReports.TextBox();
-            this.line3 = new DataDynamics.ActiveReports.Line();
-            this.txtApprvOther = new DataDynamics.ActiveReports.TextBox();
-            this.groupFooter1 = new DataDynamics.ActiveReports.GroupFooter();
-            this.groupHeader2 = new DataDynamics.ActiveReports.GroupHeader();
-            this.shape2 = new DataDynamics.ActiveReports.Shape();
-            this.label20 = new DataDynamics.ActiveReports.Label();
-            this.label21 = new DataDynamics.ActiveReports.Label();
-            this.label22 = new DataDynamics.ActiveReports.Label();
-            this.label24 = new DataDynamics.ActiveReports.Label();
-            this.groupFooter2 = new DataDynamics.ActiveReports.GroupFooter();
+            this.pageHeader = new GrapeCity.ActiveReports.SectionReportModel.PageHeader();
+            this.label1 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label2 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label3 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label5 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label6 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.line1 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.line2 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.shape1 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.label11 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.textBox1 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.Picture = new GrapeCity.ActiveReports.SectionReportModel.Picture();
+            this.detail = new GrapeCity.ActiveReports.SectionReportModel.Detail();
+            this.textBox8 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.textBox9 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.textBox10 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.textBox12 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.line9 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.line10 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.line11 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.line12 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.line13 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.line15 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.pageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
+            this.label13 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label14 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label15 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label16 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label17 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label18 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label19 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.richTextBox1 = new GrapeCity.ActiveReports.SectionReportModel.RichTextBox();
+            this.richTextBox2 = new GrapeCity.ActiveReports.SectionReportModel.RichTextBox();
+            this.line7 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.line8 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.textBox6 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.textBox7 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.groupHeader1 = new GrapeCity.ActiveReports.SectionReportModel.GroupHeader();
+            this.label7 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label8 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label9 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label10 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.textBox2 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.textBox3 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.textBox4 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.textBox5 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.line4 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.line5 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.line6 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.checkBox1 = new GrapeCity.ActiveReports.SectionReportModel.CheckBox();
+            this.checkBox2 = new GrapeCity.ActiveReports.SectionReportModel.CheckBox();
+            this.checkBox3 = new GrapeCity.ActiveReports.SectionReportModel.CheckBox();
+            this.checkBox4 = new GrapeCity.ActiveReports.SectionReportModel.CheckBox();
+            this.checkBox5 = new GrapeCity.ActiveReports.SectionReportModel.CheckBox();
+            this.checkBox6 = new GrapeCity.ActiveReports.SectionReportModel.CheckBox();
+            this.checkBox7 = new GrapeCity.ActiveReports.SectionReportModel.CheckBox();
+            this.checkBox8 = new GrapeCity.ActiveReports.SectionReportModel.CheckBox();
+            this.checkBox9 = new GrapeCity.ActiveReports.SectionReportModel.CheckBox();
+            this.checkBox10 = new GrapeCity.ActiveReports.SectionReportModel.CheckBox();
+            this.checkBox11 = new GrapeCity.ActiveReports.SectionReportModel.CheckBox();
+            this.chkApprovedOther = new GrapeCity.ActiveReports.SectionReportModel.CheckBox();
+            this.checkBox13 = new GrapeCity.ActiveReports.SectionReportModel.CheckBox();
+            this.checkBox14 = new GrapeCity.ActiveReports.SectionReportModel.CheckBox();
+            this.checkBox15 = new GrapeCity.ActiveReports.SectionReportModel.CheckBox();
+            this.checkBox16 = new GrapeCity.ActiveReports.SectionReportModel.CheckBox();
+            this.checkBox17 = new GrapeCity.ActiveReports.SectionReportModel.CheckBox();
+            this.label12 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label4 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.textBox13 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.line3 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.txtApprvOther = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.groupFooter1 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
+            this.groupHeader2 = new GrapeCity.ActiveReports.SectionReportModel.GroupHeader();
+            this.shape2 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.label20 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label21 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label22 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label24 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.groupFooter2 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
             ((System.ComponentModel.ISupportInitialize)(this.label1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label3)).BeginInit();
@@ -165,7 +165,7 @@ namespace RSMPS
             // 
             // pageHeader
             // 
-            this.pageHeader.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.pageHeader.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.label1,
             this.label2,
             this.label3,
@@ -307,14 +307,14 @@ namespace RSMPS
             this.Picture.Left = 2.95F;
             this.Picture.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Picture.Name = "Picture";
-            this.Picture.SizeMode = DataDynamics.ActiveReports.SizeModes.Zoom;
+            this.Picture.SizeMode = GrapeCity.ActiveReports.SectionReportModel.SizeModes.Zoom;
             this.Picture.Top = 0F;
             this.Picture.Width = 1.248F;
             // 
             // detail
             // 
             this.detail.ColumnSpacing = 0F;
-            this.detail.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.textBox8,
             this.textBox9,
             this.textBox10,
@@ -459,7 +459,7 @@ namespace RSMPS
             // 
             // pageFooter
             // 
-            this.pageFooter.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.pageFooter.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.label13,
             this.label14,
             this.label15,
@@ -628,7 +628,7 @@ namespace RSMPS
             // 
             // groupHeader1
             // 
-            this.groupHeader1.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.groupHeader1.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.label7,
             this.label8,
             this.label9,
@@ -1048,7 +1048,7 @@ namespace RSMPS
             // 
             // groupHeader2
             // 
-            this.groupHeader2.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.groupHeader2.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.shape2,
             this.label20,
             this.label21,
@@ -1056,7 +1056,7 @@ namespace RSMPS
             this.label24});
             this.groupHeader2.Height = 0.1979167F;
             this.groupHeader2.Name = "groupHeader2";
-            this.groupHeader2.RepeatStyle = DataDynamics.ActiveReports.RepeatStyle.All;
+            this.groupHeader2.RepeatStyle = GrapeCity.ActiveReports.SectionReportModel.RepeatStyle.All;
             // 
             // shape2
             // 
@@ -1124,7 +1124,7 @@ namespace RSMPS
             this.PageSettings.Margins.Left = 0.5F;
             this.PageSettings.Margins.Right = 0.2F;
             this.PageSettings.Margins.Top = 0.5F;
-            this.PageSettings.Orientation = DataDynamics.ActiveReports.Document.PageOrientation.Portrait;
+            this.PageSettings.Orientation = GrapeCity.ActiveReports.Document.Section.PageOrientation.Portrait;
             this.PageSettings.PaperHeight = 11F;
             this.PageSettings.PaperWidth = 8.5F;
             this.PrintWidth = 7.5F;
@@ -1200,81 +1200,160 @@ namespace RSMPS
         }
         #endregion
 
-        private DataDynamics.ActiveReports.Label label1;
-        private DataDynamics.ActiveReports.Label label2;
-        private DataDynamics.ActiveReports.Label label3;
-        private DataDynamics.ActiveReports.Label label5;
-        private DataDynamics.ActiveReports.Label label6;
-        private DataDynamics.ActiveReports.Line line1;
-        private DataDynamics.ActiveReports.Line line2;
-        private DataDynamics.ActiveReports.Shape shape1;
-        private DataDynamics.ActiveReports.Label label11;
-        private DataDynamics.ActiveReports.TextBox textBox1;
-        private DataDynamics.ActiveReports.GroupHeader groupHeader1;
-        private DataDynamics.ActiveReports.Label label7;
-        private DataDynamics.ActiveReports.Label label8;
-        private DataDynamics.ActiveReports.Label label9;
-        private DataDynamics.ActiveReports.Label label10;
-        private DataDynamics.ActiveReports.TextBox textBox2;
-        private DataDynamics.ActiveReports.TextBox textBox3;
-        private DataDynamics.ActiveReports.TextBox textBox4;
-        private DataDynamics.ActiveReports.TextBox textBox5;
-        private DataDynamics.ActiveReports.Line line4;
-        private DataDynamics.ActiveReports.Line line5;
-        private DataDynamics.ActiveReports.Line line6;
-        private DataDynamics.ActiveReports.CheckBox checkBox1;
-        private DataDynamics.ActiveReports.CheckBox checkBox2;
-        private DataDynamics.ActiveReports.CheckBox checkBox3;
-        private DataDynamics.ActiveReports.CheckBox checkBox4;
-        private DataDynamics.ActiveReports.CheckBox checkBox5;
-        private DataDynamics.ActiveReports.CheckBox checkBox6;
-        private DataDynamics.ActiveReports.CheckBox checkBox7;
-        private DataDynamics.ActiveReports.CheckBox checkBox8;
-        private DataDynamics.ActiveReports.CheckBox checkBox9;
-        private DataDynamics.ActiveReports.CheckBox checkBox10;
-        private DataDynamics.ActiveReports.CheckBox checkBox11;
-        private DataDynamics.ActiveReports.CheckBox chkApprovedOther;
-        private DataDynamics.ActiveReports.CheckBox checkBox13;
-        private DataDynamics.ActiveReports.CheckBox checkBox14;
-        private DataDynamics.ActiveReports.CheckBox checkBox15;
-        private DataDynamics.ActiveReports.CheckBox checkBox16;
-        private DataDynamics.ActiveReports.CheckBox checkBox17;
-        private DataDynamics.ActiveReports.Label label12;
-        private DataDynamics.ActiveReports.GroupFooter groupFooter1;
-        private DataDynamics.ActiveReports.GroupHeader groupHeader2;
-        private DataDynamics.ActiveReports.GroupFooter groupFooter2;
-        private DataDynamics.ActiveReports.Label label20;
-        private DataDynamics.ActiveReports.Label label21;
-        private DataDynamics.ActiveReports.Label label22;
-        private DataDynamics.ActiveReports.Label label24;
-        private DataDynamics.ActiveReports.Shape shape2;
-        private DataDynamics.ActiveReports.TextBox textBox8;
-        private DataDynamics.ActiveReports.TextBox textBox9;
-        private DataDynamics.ActiveReports.TextBox textBox10;
-        private DataDynamics.ActiveReports.TextBox textBox12;
-        private DataDynamics.ActiveReports.Line line9;
-        private DataDynamics.ActiveReports.Line line10;
-        private DataDynamics.ActiveReports.Line line11;
-        private DataDynamics.ActiveReports.Line line12;
-        private DataDynamics.ActiveReports.Line line13;
-        private DataDynamics.ActiveReports.Line line15;
-        private DataDynamics.ActiveReports.Label label13;
-        private DataDynamics.ActiveReports.Label label14;
-        private DataDynamics.ActiveReports.Label label15;
-        private DataDynamics.ActiveReports.Label label16;
-        private DataDynamics.ActiveReports.Label label17;
-        private DataDynamics.ActiveReports.Label label18;
-        private DataDynamics.ActiveReports.Label label19;
-        private DataDynamics.ActiveReports.RichTextBox richTextBox1;
-        private DataDynamics.ActiveReports.RichTextBox richTextBox2;
-        private DataDynamics.ActiveReports.Line line7;
-        private DataDynamics.ActiveReports.Line line8;
-        private DataDynamics.ActiveReports.TextBox textBox6;
-        private DataDynamics.ActiveReports.TextBox textBox7;
-        private DataDynamics.ActiveReports.Label label4;
-        private DataDynamics.ActiveReports.TextBox textBox13;
-        private DataDynamics.ActiveReports.Line line3;
-        private DataDynamics.ActiveReports.TextBox txtApprvOther;
-        private DataDynamics.ActiveReports.Picture Picture;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        private GrapeCity.ActiveReports.SectionReportModel.PageHeader pageHeader;
+        private GrapeCity.ActiveReports.SectionReportModel.Detail detail;
+        private GrapeCity.ActiveReports.SectionReportModel.PageFooter pageFooter;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label1;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label2;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label3;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label5;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label6;
+        private GrapeCity.ActiveReports.SectionReportModel.Line line1;
+        private GrapeCity.ActiveReports.SectionReportModel.Line line2;
+        private GrapeCity.ActiveReports.SectionReportModel.Shape shape1;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label11;
+        private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox1;
+        private GrapeCity.ActiveReports.SectionReportModel.GroupHeader groupHeader1;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label7;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label8;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label9;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label10;
+        private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox2;
+        private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox3;
+        private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox4;
+        private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox5;
+        private GrapeCity.ActiveReports.SectionReportModel.Line line4;
+        private GrapeCity.ActiveReports.SectionReportModel.Line line5;
+        private GrapeCity.ActiveReports.SectionReportModel.Line line6;
+        private GrapeCity.ActiveReports.SectionReportModel.CheckBox checkBox1;
+        private GrapeCity.ActiveReports.SectionReportModel.CheckBox checkBox2;
+        private GrapeCity.ActiveReports.SectionReportModel.CheckBox checkBox3;
+        private GrapeCity.ActiveReports.SectionReportModel.CheckBox checkBox4;
+        private GrapeCity.ActiveReports.SectionReportModel.CheckBox checkBox5;
+        private GrapeCity.ActiveReports.SectionReportModel.CheckBox checkBox6;
+        private GrapeCity.ActiveReports.SectionReportModel.CheckBox checkBox7;
+        private GrapeCity.ActiveReports.SectionReportModel.CheckBox checkBox8;
+        private GrapeCity.ActiveReports.SectionReportModel.CheckBox checkBox9;
+        private GrapeCity.ActiveReports.SectionReportModel.CheckBox checkBox10;
+        private GrapeCity.ActiveReports.SectionReportModel.CheckBox checkBox11;
+        private GrapeCity.ActiveReports.SectionReportModel.CheckBox chkApprovedOther;
+        private GrapeCity.ActiveReports.SectionReportModel.CheckBox checkBox13;
+        private GrapeCity.ActiveReports.SectionReportModel.CheckBox checkBox14;
+        private GrapeCity.ActiveReports.SectionReportModel.CheckBox checkBox15;
+        private GrapeCity.ActiveReports.SectionReportModel.CheckBox checkBox16;
+        private GrapeCity.ActiveReports.SectionReportModel.CheckBox checkBox17;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label12;
+        private GrapeCity.ActiveReports.SectionReportModel.GroupFooter groupFooter1;
+        private GrapeCity.ActiveReports.SectionReportModel.GroupHeader groupHeader2;
+        private GrapeCity.ActiveReports.SectionReportModel.GroupFooter groupFooter2;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label20;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label21;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label22;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label24;
+        private GrapeCity.ActiveReports.SectionReportModel.Shape shape2;
+        private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox8;
+        private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox9;
+        private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox10;
+        private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox12;
+        private GrapeCity.ActiveReports.SectionReportModel.Line line9;
+        private GrapeCity.ActiveReports.SectionReportModel.Line line10;
+        private GrapeCity.ActiveReports.SectionReportModel.Line line11;
+        private GrapeCity.ActiveReports.SectionReportModel.Line line12;
+        private GrapeCity.ActiveReports.SectionReportModel.Line line13;
+        private GrapeCity.ActiveReports.SectionReportModel.Line line15;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label13;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label14;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label15;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label16;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label17;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label18;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label19;
+        private GrapeCity.ActiveReports.SectionReportModel.RichTextBox richTextBox1;
+        private GrapeCity.ActiveReports.SectionReportModel.RichTextBox richTextBox2;
+        private GrapeCity.ActiveReports.SectionReportModel.Line line7;
+        private GrapeCity.ActiveReports.SectionReportModel.Line line8;
+        private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox6;
+        private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox7;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label4;
+        private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox13;
+        private GrapeCity.ActiveReports.SectionReportModel.Line line3;
+        private GrapeCity.ActiveReports.SectionReportModel.TextBox txtApprvOther;
+        private GrapeCity.ActiveReports.SectionReportModel.Picture Picture;
     }
 }

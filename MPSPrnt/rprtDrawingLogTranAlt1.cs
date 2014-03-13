@@ -2,15 +2,18 @@ using System;
 using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
-using DataDynamics.ActiveReports;
-using DataDynamics.ActiveReports.Document;
+using GrapeCity.ActiveReports;
+using GrapeCity.ActiveReports.Controls;
+using GrapeCity.ActiveReports.SectionReportModel;
+using GrapeCity.ActiveReports.Document.Section;
+using GrapeCity.ActiveReports.Document;
 
 namespace RSMPS
 {
     /// <summary>
     /// Summary description for rprtDrawingLogTranAlt1.
     /// </summary>
-    public partial class rprtDrawingLogTranAlt1 : DataDynamics.ActiveReports.ActiveReport
+    public partial class rprtDrawingLogTranAlt1 : GrapeCity.ActiveReports.SectionReport
     {
         public string SetTitle
         {
@@ -63,7 +66,7 @@ namespace RSMPS
             r.DataSource = dv;
             subReport1.Report = r;
 
-          
+
         }
 
         private void rprtDrawingLogTranAlt1_ReportStart(object sender, EventArgs e)

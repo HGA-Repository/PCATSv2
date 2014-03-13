@@ -1,3 +1,5 @@
 C1.Win.C1List.C1List, C1.Win.C1List.2
 C1.Win.C1TrueDBGrid.C1TrueDBGrid, C1.Win.C1TrueDBGrid.2
-DataDynamics.ActiveReports.ActiveReport, ActiveReports6, Version=6.2.4238.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff
+GrapeCity.ActiveReports.SectionReport, GrapeCity.ActiveReports.v7, Version=7.1.7470.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff
+GrapeCity.ActiveReports.Viewer.Win.Viewer, GrapeCity.ActiveReports.Viewer.Win.v7, Version=7.1.7470.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff
+GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport, GrapeCity.ActiveReports.Export.Pdf.v7, Version=7.1.7470.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,23 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="textBox16.OutputFormat" xml:space="preserve">
-    <value>#,##0;(#,##0)</value>
+  <data name="textBox16.OutputFormat" xml:space="preserve">&#xD;
+    <value>#,##0;(#,##0)</value>&#xD;
   </data>
-  <data name="textBox17.OutputFormat" xml:space="preserve">
-    <value>$#,##0;($#,##0)</value>
+  <data name="textBox17.OutputFormat" xml:space="preserve">&#xD;
+    <value>$#,##0;($#,##0)</value>&#xD;
   </data>
-  <data name="textBox9.OutputFormat" xml:space="preserve">
-    <value>MM/dd/yy</value>
+  <data name="textBox9.OutputFormat" xml:space="preserve">&#xD;
+    <value>MM/dd/yy</value>&#xD;
   </data>
-  <data name="textBox13.OutputFormat" xml:space="preserve">
-    <value>MM/dd/yy</value>
+  <data name="textBox13.OutputFormat" xml:space="preserve">&#xD;
+    <value>MM/dd/yy</value>&#xD;
   </data>
-  <data name="textBox18.OutputFormat" xml:space="preserve">
-    <value>#,##0;(#,##0)</value>
+  <data name="textBox18.OutputFormat" xml:space="preserve">&#xD;
+    <value>#,##0;(#,##0)</value>&#xD;
   </data>
-  <data name="textBox19.OutputFormat" xml:space="preserve">
-    <value>$#,##0;($#,##0)</value>
+  <data name="textBox19.OutputFormat" xml:space="preserve">&#xD;
+    <value>$#,##0;($#,##0)</value>&#xD;
   </data>
   <metadata name="$this.TrayLargeIcon" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

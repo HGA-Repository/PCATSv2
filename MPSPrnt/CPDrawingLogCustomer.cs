@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
 using System.Data;
+using GrapeCity.ActiveReports;
 
 namespace RSMPS
 {
@@ -108,6 +108,7 @@ namespace RSMPS
             {
                 rprt.Run();
                 rprt.Document.Print(true, false);
+                
             }
         }
 
@@ -139,6 +140,7 @@ namespace RSMPS
             {
                 rprt.Run();
                 rprt.Document.Print(true, false);
+               
             }
         }
 
@@ -187,6 +189,7 @@ namespace RSMPS
             {
                 rprt.Run();
                 rprt.Document.Print(true, false);
+                
             }
         }
 

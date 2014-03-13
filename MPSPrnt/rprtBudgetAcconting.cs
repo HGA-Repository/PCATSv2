@@ -2,15 +2,18 @@ using System;
 using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
-using DataDynamics.ActiveReports;
-using DataDynamics.ActiveReports.Document;
+using GrapeCity.ActiveReports;
+using GrapeCity.ActiveReports.Controls;
+using GrapeCity.ActiveReports.SectionReportModel;
+using GrapeCity.ActiveReports.Document.Section;
+using GrapeCity.ActiveReports.Document;
 
 namespace RSMPS
 {
     /// <summary>
     /// Summary description for rprtBudgetJobStat2.
     /// </summary>
-    public partial class rprtBudgetAccounting : DataDynamics.ActiveReports.ActiveReport
+    public partial class rprtBudgetAccounting : GrapeCity.ActiveReports.SectionReport
     {
         private decimal mdTotalHours;
         private decimal mdTotalDollars;
@@ -27,7 +30,7 @@ namespace RSMPS
                 lblJobNumber.Text = number + " - Revision:" + revision;
 
             //lblRevision.Text = "PM -" + pm + "ClientNum - " + clientnum + "HGANum - " + hganum + "Project - " + project + "Client - " + client;
-           
+
         }
 
         public rprtBudgetAccounting()

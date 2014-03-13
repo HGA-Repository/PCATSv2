@@ -5,9 +5,9 @@ namespace RSMPS
     /// </summary>
     partial class rprtDrawingLogTranAlt1_SubRevs2
     {
-        private DataDynamics.ActiveReports.PageHeader pageHeader;
-        private DataDynamics.ActiveReports.Detail detail;
-        private DataDynamics.ActiveReports.PageFooter pageFooter;
+
+
+
 
         /// <summary>
         /// Clean up any resources being used.
@@ -28,11 +28,11 @@ namespace RSMPS
         private void InitializeComponent()
         {
             System.Resources.ResourceManager resources = new System.Resources.ResourceManager(typeof(rprtDrawingLogTranAlt1_SubRevs2));
-            this.pageHeader = new DataDynamics.ActiveReports.PageHeader();
-            this.detail = new DataDynamics.ActiveReports.Detail();
-            this.label1 = new DataDynamics.ActiveReports.Label();
-            this.textBox1 = new DataDynamics.ActiveReports.TextBox();
-            this.pageFooter = new DataDynamics.ActiveReports.PageFooter();
+            this.pageHeader = new GrapeCity.ActiveReports.SectionReportModel.PageHeader();
+            this.detail = new GrapeCity.ActiveReports.SectionReportModel.Detail();
+            this.label1 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.textBox1 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.pageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
             ((System.ComponentModel.ISupportInitialize)(this.label1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -45,7 +45,7 @@ namespace RSMPS
             // detail
             // 
             this.detail.ColumnSpacing = 0F;
-            this.detail.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.label1,
             this.textBox1});
             this.detail.Height = 0.2708333F;
@@ -100,7 +100,12 @@ namespace RSMPS
         }
         #endregion
 
-        private DataDynamics.ActiveReports.Label label1;
-        private DataDynamics.ActiveReports.TextBox textBox1;
+
+
+        private GrapeCity.ActiveReports.SectionReportModel.PageHeader pageHeader;
+        private GrapeCity.ActiveReports.SectionReportModel.Detail detail;
+        private GrapeCity.ActiveReports.SectionReportModel.PageFooter pageFooter;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label1;
+        private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox1;
     }
 }

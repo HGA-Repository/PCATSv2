@@ -3,15 +3,18 @@ using System.Drawing;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using DataDynamics.ActiveReports;
-using DataDynamics.ActiveReports.Document;
+using GrapeCity.ActiveReports;
+using GrapeCity.ActiveReports.Controls;
+using GrapeCity.ActiveReports.SectionReportModel;
+using GrapeCity.ActiveReports.Document.Section;
+using GrapeCity.ActiveReports.Document;
 
 namespace RSMPS
 {
     /// <summary>
     /// Summary description for rprtDrawingLogSubTest.
     /// </summary>
-    public partial class rprtDrawingLogSubTest : DataDynamics.ActiveReports.ActiveReport
+    public partial class rprtDrawingLogSubTest : GrapeCity.ActiveReports.SectionReport
     {
 
         public rprtDrawingLogSubTest()

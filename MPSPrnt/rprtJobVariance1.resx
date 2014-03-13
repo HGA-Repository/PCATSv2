@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,50 +117,50 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="txtFcst.OutputFormat" xml:space="preserve">
-    <value>0;(0)</value>
+  <data name="txtFcst.OutputFormat" xml:space="preserve">&#xD;
+    <value>0;(0)</value>&#xD;
   </data>
-  <data name="txtJobStat.OutputFormat" xml:space="preserve">
-    <value>#,##0.00</value>
+  <data name="txtJobStat.OutputFormat" xml:space="preserve">&#xD;
+    <value>#,##0.00</value>&#xD;
   </data>
-  <data name="txtMP.OutputFormat" xml:space="preserve">
-    <value>#,##0.00</value>
+  <data name="txtMP.OutputFormat" xml:space="preserve">&#xD;
+    <value>#,##0.00</value>&#xD;
   </data>
-  <data name="txtBudget.OutputFormat" xml:space="preserve">
-    <value>#,##0.00</value>
+  <data name="txtBudget.OutputFormat" xml:space="preserve">&#xD;
+    <value>#,##0.00</value>&#xD;
   </data>
-  <data name="txtJS_MP.OutputFormat" xml:space="preserve">
-    <value>0</value>
+  <data name="txtJS_MP.OutputFormat" xml:space="preserve">&#xD;
+    <value>0</value>&#xD;
   </data>
-  <data name="txtJS_Fcst.OutputFormat" xml:space="preserve">
-    <value>0</value>
+  <data name="txtJS_Fcst.OutputFormat" xml:space="preserve">&#xD;
+    <value>0</value>&#xD;
   </data>
-  <data name="txtMP_Fcst.OutputFormat" xml:space="preserve">
-    <value>0</value>
+  <data name="txtMP_Fcst.OutputFormat" xml:space="preserve">&#xD;
+    <value>0</value>&#xD;
   </data>
-  <data name="textBox1.OutputFormat" xml:space="preserve">
-    <value>M/d/yyyy</value>
+  <data name="textBox1.OutputFormat" xml:space="preserve">&#xD;
+    <value>M/d/yyyy</value>&#xD;
   </data>
-  <data name="txtMPTot.OutputFormat" xml:space="preserve">
-    <value>0;(0)</value>
+  <data name="txtMPTot.OutputFormat" xml:space="preserve">&#xD;
+    <value>0;(0)</value>&#xD;
   </data>
-  <data name="txtFcstTot.OutputFormat" xml:space="preserve">
-    <value>0;(0)</value>
+  <data name="txtFcstTot.OutputFormat" xml:space="preserve">&#xD;
+    <value>0;(0)</value>&#xD;
   </data>
-  <data name="txtJSTot.OutputFormat" xml:space="preserve">
-    <value>0;(0)</value>
+  <data name="txtJSTot.OutputFormat" xml:space="preserve">&#xD;
+    <value>0;(0)</value>&#xD;
   </data>
-  <data name="txtBudTot.OutputFormat" xml:space="preserve">
-    <value>0;(0)</value>
+  <data name="txtBudTot.OutputFormat" xml:space="preserve">&#xD;
+    <value>0;(0)</value>&#xD;
   </data>
-  <data name="txtJS_MPTot.OutputFormat" xml:space="preserve">
-    <value>0</value>
+  <data name="txtJS_MPTot.OutputFormat" xml:space="preserve">&#xD;
+    <value>0</value>&#xD;
   </data>
-  <data name="txtJS_FcstTot.OutputFormat" xml:space="preserve">
-    <value>0</value>
+  <data name="txtJS_FcstTot.OutputFormat" xml:space="preserve">&#xD;
+    <value>0</value>&#xD;
   </data>
-  <data name="txtMP_FcstTot.OutputFormat" xml:space="preserve">
-    <value>0</value>
+  <data name="txtMP_FcstTot.OutputFormat" xml:space="preserve">&#xD;
+    <value>0</value>&#xD;
   </data>
   <metadata name="$this.ScriptEditorPositionForUndo" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 0</value>

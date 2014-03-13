@@ -5,119 +5,69 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
 using System.Data.SqlClient;
+using GrapeCity.ActiveReports;
 
-using DataDynamics.ActiveReports;
 
 
 namespace RSMPS
 {
     public partial class FPreviewAR : Form
     {
-        private ActiveReport rprt;
-        
+        private SectionReport rprt;
+
         public FPreviewAR()
         {
             InitializeComponent();
         }
 
-        public void ViewReport(ActiveReport ar)
+        public void ViewReport(SectionReport ar)
         {
             rprt = ar;
             viewer1.Document = rprt.Document;
             rprt.Run();
-            //Cursor.Current = Cursors.Default;
         }
 
-        public void ViewReportNoRun(ActiveReport ar)
+        public void ViewReportNoRun(SectionReport ar)
         {
             rprt = ar;
             viewer1.Document = rprt.Document;
-            //Cursor.Current = Cursors.Default;
         }
 
-        public void ViewReportWithExcel(ActiveReport ar)
+        public void ViewReportWithExcel(SectionReport ar)
         {
-            // load excel export into toolbar
-            DataDynamics.ActiveReports.Toolbar.Button toolXls;
-
-            toolXls = new DataDynamics.ActiveReports.Toolbar.Button();
-            toolXls.Caption = "&Export To Excel";
-            toolXls.ToolTip = "Export this Report To Microsoft Excel";
-            toolXls.Id = 999;
-
-            try
-            {
-                viewer1.Toolbar.Tools.Add(toolXls);
-            }
-            catch
-            {
-            }
-
             rprt = ar;
             viewer1.Document = rprt.Document;
             rprt.Run();
         }
 
-        public void ViewDrawingLogWithExcel(ActiveReport ar)
+        public void ViewDrawingLogWithExcel(SectionReport ar)
         {
-            // load excel export into toolbar
-            DataDynamics.ActiveReports.Toolbar.Button toolXls;
-
-            toolXls = new DataDynamics.ActiveReports.Toolbar.Button();
-            toolXls.Caption = "&Export To Excel";
-            toolXls.ToolTip = "Export this Report To Microsoft Excel";
-            toolXls.Id = 997;
-
-            try
-            {
-                viewer1.Toolbar.Tools.Add(toolXls);
-            }
-            catch
-            {
-            }
-
             rprt = ar;
             viewer1.Document = rprt.Document;
             rprt.Run();
         }
-        private void viewer1_ToolClick(object sender, DataDynamics.ActiveReports.Toolbar.ToolClickEventArgs e)
-        {
-            if (e.Tool.Id == 999)
-            {
-                SendForcastReportToExcel();
-            }
-            else if (e.Tool.Id == 997)
-            {
-                SendDrawingLogToExcel();
-            }
-        }
-
+       
         private void SendForcastReportToExcel()
         {
-            DataDynamics.ActiveReports.Export.Xls.XlsExport xlExport;
-            xlExport = new DataDynamics.ActiveReports.Export.Xls.XlsExport();
+            GrapeCity.ActiveReports.Export.Excel.Section.XlsExport xlExport;
+            xlExport = new GrapeCity.ActiveReports.Export.Excel.Section.XlsExport();
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 this.Cursor = Cursors.WaitCursor;
 
                 xlExport.Export(viewer1.Document, saveFileDialog1.FileName);
-                
+
                 this.Cursor = Cursors.Default;
             }
-        }   
+        }
         private void SendForcastReportToExcelOld()
         {
-            //DataDynamics.ActiveReports.Export.Xls.XlsExport xlExport;
-            //xlExport = new DataDynamics.ActiveReports.Export.Xls.XlsExport();
-
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 this.Cursor = Cursors.WaitCursor;
 
-                //xlExport.Export(viewer1.Document, saveFileDialog1.FileName);
                 C1.C1Excel.C1XLBook book = new C1.C1Excel.C1XLBook();
                 C1.C1Excel.XLSheet sheet = book.Sheets[0];
                 int indx = 0;
@@ -140,21 +90,7 @@ namespace RSMPS
 
                 foreach (DataRow dr in ((DataSet)rprt.DataSource).Tables[0].Rows)
                 {
-                    /*
-                    proj.Number
-                    ,cust.[Name] AS [Customer]
-                    ,proj.[Description]
-                    ,f1000.[ForToCmp] AS ftc1000
-                    ,f2000.[ForToCmp] AS ftc2000
-                    ,f3000.[ForToCmp] AS ftc3000
-                    ,f4000.[ForToCmp] AS ftc4000
-                    ,f5000.[ForToCmp] AS ftc5000
-                    ,f6000.[ForToCmp] AS ftc6000
-                    ,[Status] = CASE
-                    WHEN proj.[IsActive] = 1 THEN 'A'
-                    ELSE 'IA'
-                    */
-
+                  
                     ftc1000 = Convert.ToInt32(dr["ftc1000"]);
                     ftc2000 = Convert.ToInt32(dr["ftc2000"]);
                     ftc3000 = Convert.ToInt32(dr["ftc3000"]);
@@ -200,7 +136,6 @@ namespace RSMPS
                 DataView dvLoc;
 
                 sheet[indx, 0].Value = "CADNumber";
-                sheet[indx, 1].Value = "DrawingID";
                 sheet[indx, 1].Value = "Title";
                 sheet[indx, 2].Value = "Revision";
                 sheet[indx, 3].Value = "IssueDate";
@@ -224,7 +159,6 @@ namespace RSMPS
                             DataRowView d = dvLoc[i];
 
                             cadNumber = dr["CADNumber"].ToString();
-                            //hgaNumber = dr["DrawingID"].ToString();
                             title = dr["Title1"].ToString();
                             revision = d["RevisionNumber"].ToString();
                             issuedate = DateToOutput(Convert.ToDateTime(d["IssuedDate"]));
@@ -232,7 +166,6 @@ namespace RSMPS
                             transmittalnumber = d["TransmittalNumber"].ToString();
 
                             sheet[indx, 0].Value = cadNumber;
-                            //sheet[indx, 1].Value = hgaNumber;
                             sheet[indx, 1].Value = title;
                             sheet[indx, 2].Value = revision;
                             sheet[indx, 3].Value = issuedate;
@@ -245,7 +178,7 @@ namespace RSMPS
                     else
                     {
                         cadNumber = dr["CADNumber"].ToString();
-                        //hgaNumber = dr["DrawingID"].ToString();
+                        hgaNumber = dr["DrawingID"].ToString();
                         title = dr["Title1"].ToString();
                         revision = "";
                         issuedate = "";
@@ -253,7 +186,6 @@ namespace RSMPS
                         transmittalnumber = "";
 
                         sheet[indx, 0].Value = cadNumber;
-                        //sheet[indx, 1].Value = hgaNumber;
                         sheet[indx, 1].Value = title;
                         sheet[indx, 2].Value = revision;
                         sheet[indx, 3].Value = issuedate;

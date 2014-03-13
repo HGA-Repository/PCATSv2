@@ -83,26 +83,9 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ActiveReports.Chart, Version=6.2.4238.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
-    <Reference Include="ActiveReports.Document, Version=6.2.4238.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ActiveReports.PdfExport, Version=6.2.4238.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ActiveReports.Viewer6, Version=6.2.4238.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ActiveReports.XlsExport, Version=6.2.4238.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ActiveReports6, Version=6.2.4238.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
     <Reference Include="C1.C1Excel.2, Version=2.1.20132.277, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="C1.C1Report.2, Version=2.6.20132.54642, Culture=neutral, PublicKeyToken=594a0605db190bb9, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Command.2, Version=2.0.20123.19538, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\C1.Win.C1Command.2.dll</HintPath>
@@ -119,7 +102,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\C1.Win.C1List.2.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.C1Report.2, Version=2.6.20132.54642, Culture=neutral, PublicKeyToken=41780e2fc605e636, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1TrueDBGrid.2, Version=2.0.20123.61277, Culture=neutral, PublicKeyToken=75ae3fb0e2b1e0da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\C1.Win.C1TrueDBGrid.2.dll</HintPath>
@@ -363,7 +345,6 @@
     <Compile Include="FWeekCount.Designer.cs">
       <DependentUpon>FWeekCount.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FPnt_JobStat_Customer.resx">
       <DependentUpon>FPnt_JobStat_Customer.cs</DependentUpon>
@@ -679,16 +660,6 @@
     <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
   </ItemGroup>
   <ItemGroup>
-    <PublishFile Include="ActiveReports.Chart">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
     <PublishFile Include="Config\Debug\DataConfig.xml">
       <Visible>False</Visible>
       <Group>

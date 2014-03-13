@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using C1.Win.C1FlexGrid;
 using System.Data.SqlClient;
 using System.Threading;
-using C1.C1Excel;
 
 
 namespace RSMPS
@@ -22,8 +21,6 @@ namespace RSMPS
             enEmployeeSort
         }
 
-        // modified by SSS
-        //private const int WEEKCOLSTART = 9;
         private const int WEEKCOLSTART = 8;
         private const int WEEKCOLOFFSET = 5;
         private const int ROWTOTALCOLUMNS = 2;
@@ -42,12 +39,10 @@ namespace RSMPS
         private const int EMPLOYEECOLUMN = 3;
         private const int PROJECTIDCOLUMN = 4;
         private const int EMPLOYEEIDCOLUMN = 5;
-        // modified by SSS 
-        //private const int EMPLOYEEIDCOLUMNVISION = 6;
         private const int EMPLOYEEPTOTCOL = 6;
         private const int EMPLOYEEFTOTCOL = 7;
-        //modified SSS
-        private String HOURDISPLAYFORMAT = "#,##0.##";
+
+        private String HOURDISPLAYFORMAT = "#,##0";
 
         private Color WARNINGCOLORBELOW = Color.White;
         private Color WARNINGCOLORHIGH = Color.Yellow;
@@ -465,7 +460,6 @@ namespace RSMPS
                 r[3] = e.Name;
                 r[PROJECTIDCOLUMN] = p.ID.ToString();
                 r[EMPLOYEEIDCOLUMN] = e.ID.ToString();
-                //r[EMPLOYEEIDCOLUMNVISION] = e.Number.ToString();
             }
             else
             {
@@ -473,7 +467,7 @@ namespace RSMPS
                 r[2] = p.Number;
                 r[3] = p.Description;
                 r[PROJECTIDCOLUMN] = p.ID.ToString();
-               // r[EMPLOYEEIDCOLUMN] = e.ID.ToString();
+                r[EMPLOYEEIDCOLUMN] = e.ID.ToString();
             }
 
             CreateSubtotals();
@@ -602,7 +596,6 @@ namespace RSMPS
                 int weekID = Convert.ToInt32(rng.UserData);
                 
                 decimal tmpP, tmpF, tmpA;
-                //tmpP = totP.Phrs;
                 CBScheduleHour sh = new CBScheduleHour();
                 tmpP = tmpF = tmpA = 0;
                 sh.GetProjectTotalByDate(miCurrDept, projID, weekID, ref tmpP, ref tmpF, ref tmpA);
@@ -695,8 +688,8 @@ namespace RSMPS
             string lineCode;
             string tmpCode;
 
+            //dr = CBScheduleHour.GetListByRange(deptID, sDate, eDate);
             dr = CBProjectEmployee.GetListActiveWithHours(deptID, sDate, eDate);
-            //dr = CBProjectEmployee.GetListActiveWithHoursAllDept(sDate, eDate);
 
             this.Cursor = Cursors.WaitCursor;
 
@@ -1284,8 +1277,7 @@ namespace RSMPS
 
                 try
                 {
-                    fgSchedule.SaveExcel(newFile, "Manpower", FileFlags.OpenXml);
-
+                    fgSchedule.SaveExcel(newFile, "Manpower", FileFlags.IncludeFixedCells);
                 }
                 catch (Exception ex)
                 {
@@ -1310,7 +1302,6 @@ namespace RSMPS
             RSLib.COSecurity sec = new RSLib.COSecurity();
             CBUser u = new CBUser();
             decimal passLvl;
-            
 
             sec.InitAppSettings();
             u.Load(sec.UserID);
@@ -1324,8 +1315,7 @@ namespace RSMPS
 
 
             miCurrUserID = u.ID;
-            if (passLvl != 3 || u.IsAdministrator == true) //|| u.IsManager == true)
-                
+            if (passLvl < 3 || u.IsAdministrator == true || u.IsManager == true)
             {
                 // is a moderator for this department so enable some stuff
                 mbIsModerator = true;
@@ -1340,7 +1330,6 @@ namespace RSMPS
 
                 fgSchedule.AllowEditing = false;
             }
-               //MessageBox.Show("Pass Level" + passLvl, "Pass Level", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void tsbAddEmployye_Click(object sender, EventArgs e)
@@ -1722,11 +1711,6 @@ namespace RSMPS
         }
 
         private void dtpEnd_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

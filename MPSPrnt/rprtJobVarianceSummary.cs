@@ -2,16 +2,19 @@ using System;
 using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
-using DataDynamics.ActiveReports;
-using DataDynamics.ActiveReports.Document;
 using Common.Extentions;
+using GrapeCity.ActiveReports;
+using GrapeCity.ActiveReports.Controls;
+using GrapeCity.ActiveReports.SectionReportModel;
+using GrapeCity.ActiveReports.Document.Section;
+using GrapeCity.ActiveReports.Document;
 
 namespace RSMPS
 {
     /// <summary>
     /// Summary description for rprtJobVarianceSummary.
     /// </summary>
-    public partial class rprtJobVarianceSummary : DataDynamics.ActiveReports.ActiveReport
+    public partial class rprtJobVarianceSummary : GrapeCity.ActiveReports.SectionReport
     {
         private int mdJSTot = 0;
         private int mdMPTot = 0;
@@ -43,7 +46,7 @@ namespace RSMPS
 
             txtJS_MP.Value = (txtJobStat.Text.ToInt() ?? 0) - (txtMP.Text.ToInt() ?? 0);
             txtJS_Fcst.Value = (txtJobStat.Text.ToInt() ?? 0) - (txtFcst.Text.ToInt() ?? 0);
-            txtMP_Fcst.Value = (txtMP.Text.ToInt() ?? 0) - (txtFcst.Text.ToInt() ?? 0);           
+            txtMP_Fcst.Value = (txtMP.Text.ToInt() ?? 0) - (txtFcst.Text.ToInt() ?? 0);
 
         }
 

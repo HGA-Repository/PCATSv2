@@ -38,9 +38,9 @@ namespace RSMPS
             DataColumn dc;
 
             dt = new DataTable("Forecast");
-            dc = new DataColumn("AcctGroup",Type.GetType("System.String"));
+            dc = new DataColumn("AcctGroup", Type.GetType("System.String"));
             dt.Columns.Add(dc);
-            dc = new DataColumn("FTCHrs",Type.GetType("System.Int32"));
+            dc = new DataColumn("FTCHrs", Type.GetType("System.Int32"));
             dt.Columns.Add(dc);
             dc = new DataColumn("FTCRate", Type.GetType("System.Decimal"));
             dt.Columns.Add(dc);
@@ -98,7 +98,7 @@ namespace RSMPS
             //d["FTCRate"] = 0;
 
             //mdsForecast.Tables["ForeCast"].Rows.Add(d);
-            
+
 
             dr.Close();
             cnn.CloseConnection();
@@ -260,7 +260,7 @@ namespace RSMPS
                 prm = cmd.Parameters.Add("@ForecastID", SqlDbType.Int);
                 prm.Value = forecastID;
                 prm = cmd.Parameters.Add("@AccountGroup", SqlDbType.VarChar, 50);
-                prm.Value = acct.Replace("E","");
+                prm.Value = acct.Replace("E", "");
                 prm = cmd.Parameters.Add("@ForecastHrs", SqlDbType.Money);
                 prm.Value = hrs;
                 prm = cmd.Parameters.Add("@ForecastRate", SqlDbType.Money);

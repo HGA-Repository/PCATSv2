@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,50 +117,50 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="textBox4.OutputFormat" xml:space="preserve">
-    <value>#,##0;(#,##0)</value>
+  <data name="textBox4.OutputFormat" xml:space="preserve">&#xD;
+    <value>#,##0;(#,##0)</value>&#xD;
   </data>
-  <data name="textBox5.OutputFormat" xml:space="preserve">
-    <value>$#,##0;($#,##0)</value>
+  <data name="textBox5.OutputFormat" xml:space="preserve">&#xD;
+    <value>$#,##0;($#,##0)</value>&#xD;
   </data>
-  <data name="textBox6.OutputFormat" xml:space="preserve">
-    <value>MM/dd/yy</value>
+  <data name="textBox6.OutputFormat" xml:space="preserve">&#xD;
+    <value>MM/dd/yy</value>&#xD;
   </data>
-  <data name="textBox7.OutputFormat" xml:space="preserve">
-    <value>MM/dd/yy</value>
+  <data name="textBox7.OutputFormat" xml:space="preserve">&#xD;
+    <value>MM/dd/yy</value>&#xD;
   </data>
-  <data name="textBox9.OutputFormat" xml:space="preserve">
-    <value>$#,##0;($#,##0)</value>
+  <data name="textBox9.OutputFormat" xml:space="preserve">&#xD;
+    <value>$#,##0;($#,##0)</value>&#xD;
   </data>
-  <data name="textBox10.OutputFormat" xml:space="preserve">
-    <value>$#,##0;($#,##0)</value>
+  <data name="textBox10.OutputFormat" xml:space="preserve">&#xD;
+    <value>$#,##0;($#,##0)</value>&#xD;
   </data>
-  <data name="textBox8.OutputFormat" xml:space="preserve">
-    <value>#,##0;(#,##0)</value>
+  <data name="textBox8.OutputFormat" xml:space="preserve">&#xD;
+    <value>#,##0;(#,##0)</value>&#xD;
   </data>
-  <data name="textBox17.OutputFormat" xml:space="preserve">
-    <value>$#,##0;($#,##0)</value>
+  <data name="textBox17.OutputFormat" xml:space="preserve">&#xD;
+    <value>$#,##0;($#,##0)</value>&#xD;
   </data>
-  <data name="richTextBox1.RTF" xml:space="preserve">
-    <value>{\rtf1{\fonttbl{\f0\fnil\fcharset0 Arial;}}{\stylesheet{\ql\li0\ri0\nowidctlpar\sl240\slmult\faauto\fs20\f0 Normal;}}\pard\plain\s0\li0\ri0\ql\nowidctlpar\sl240\slmult\faauto\f0\fs20{\f0 richTextBox1\par}}</value>
+  <data name="richTextBox1.RTF" xml:space="preserve">&#xD;
+    <value>{\rtf1{\fonttbl{\f0\fnil\fcharset0 Arial;}}{\stylesheet{\ql\li0\ri0\nowidctlpar\sl240\slmult\faauto\fs20\f0 Normal;}}\pard\plain\s0\li0\ri0\ql\nowidctlpar\sl240\slmult\faauto\f0\fs20{\f0 richTextBox1\par}}</value>&#xD;
   </data>
-  <data name="richTextBox1.RTF" xml:space="preserve">
-    <value>{\rtf1{\fonttbl{\f0\fnil\fcharset0 Arial;}}{\stylesheet{\ql\li0\ri0\nowidctlpar\sl240\slmult\faauto\fs20\f0 Normal;}}\pard\plain\s0\li0\ri0\ql\nowidctlpar\sl240\slmult\faauto\f0\fs20{\f0 richTextBox1\par}}</value>
+  <data name="richTextBox1.RTF" xml:space="preserve">&#xD;
+    <value>{\rtf1{\fonttbl{\f0\fnil\fcharset0 Arial;}}{\stylesheet{\ql\li0\ri0\nowidctlpar\sl240\slmult\faauto\fs20\f0 Normal;}}\pard\plain\s0\li0\ri0\ql\nowidctlpar\sl240\slmult\faauto\f0\fs20{\f0 richTextBox1\par}}</value>&#xD;
   </data>
-  <data name="textBox12.OutputFormat" xml:space="preserve">
-    <value>#,##0;(#,##0)</value>
+  <data name="textBox12.OutputFormat" xml:space="preserve">&#xD;
+    <value>#,##0;(#,##0)</value>&#xD;
   </data>
-  <data name="textBox13.OutputFormat" xml:space="preserve">
-    <value>$#,##0;($#,##0)</value>
+  <data name="textBox13.OutputFormat" xml:space="preserve">&#xD;
+    <value>$#,##0;($#,##0)</value>&#xD;
   </data>
-  <data name="textBox14.OutputFormat" xml:space="preserve">
-    <value>#,##0;(#,##0)</value>
+  <data name="textBox14.OutputFormat" xml:space="preserve">&#xD;
+    <value>#,##0;(#,##0)</value>&#xD;
   </data>
-  <data name="textBox15.OutputFormat" xml:space="preserve">
-    <value>$#,##0;($#,##0)</value>
+  <data name="textBox15.OutputFormat" xml:space="preserve">&#xD;
+    <value>$#,##0;($#,##0)</value>&#xD;
   </data>
-  <data name="textBox16.OutputFormat" xml:space="preserve">
-    <value>$#,##0;($#,##0)</value>
+  <data name="textBox16.OutputFormat" xml:space="preserve">&#xD;
+    <value>$#,##0;($#,##0)</value>&#xD;
   </data>
   <metadata name="$this.TrayLargeIcon" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

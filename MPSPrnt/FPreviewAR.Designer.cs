@@ -28,7 +28,7 @@ namespace RSMPS
         /// </summary>
         private void InitializeComponent()
         {
-            this.viewer1 = new DataDynamics.ActiveReports.Viewer.Viewer();
+            this.viewer1 = new GrapeCity.ActiveReports.Viewer.Win.Viewer();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
@@ -36,20 +36,20 @@ namespace RSMPS
             // 
             this.viewer1.BackColor = System.Drawing.SystemColors.Control;
             this.viewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.viewer1.Document = new DataDynamics.ActiveReports.Document.Document("ARNet Document");
+            this.viewer1.Document = new GrapeCity.ActiveReports.Document.SectionDocument("ARNet Document");
             this.viewer1.Location = new System.Drawing.Point(0, 0);
             this.viewer1.Name = "viewer1";
             this.viewer1.ReportViewer.CurrentPage = 0;
             this.viewer1.ReportViewer.MultiplePageCols = 3;
             this.viewer1.ReportViewer.MultiplePageRows = 2;
-            this.viewer1.ReportViewer.ViewType = DataDynamics.ActiveReports.Viewer.ViewType.Normal;
+            this.viewer1.ReportViewer.ViewType = GrapeCity.Viewer.Common.Model.ViewType.SinglePage;
             this.viewer1.Size = new System.Drawing.Size(733, 634);
             this.viewer1.TabIndex = 0;
-            this.viewer1.TableOfContents.Text = "Table Of Contents";
+           // this.viewer1.TableOfContents.Text = "Table Of Contents";
             this.viewer1.TableOfContents.Width = 200;
-            this.viewer1.TabTitleLength = 35;
+            //this.viewer1.TabTitleLength = 35;
             this.viewer1.Toolbar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewer1.ToolClick += new DataDynamics.ActiveReports.Toolbar.ToolClickEventHandler(this.viewer1_ToolClick);
+            //this.viewer1.ToolClick += new GrapeCity.ActiveReports.Toolbar.ToolClickEventHandler(this.viewer1_ToolClick);
             // 
             // saveFileDialog1
             // 
@@ -74,7 +74,8 @@ namespace RSMPS
 
         #endregion
 
-        private DataDynamics.ActiveReports.Viewer.Viewer viewer1;
+
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private GrapeCity.ActiveReports.Viewer.Win.Viewer viewer1;
     }
 }

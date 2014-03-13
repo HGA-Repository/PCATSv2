@@ -1,11 +1,14 @@
 using System;
-using DataDynamics.ActiveReports;
-using DataDynamics.ActiveReports.Document;
 using Common.Extentions;
+using GrapeCity.ActiveReports;
+using GrapeCity.ActiveReports.Controls;
+using GrapeCity.ActiveReports.SectionReportModel;
+using GrapeCity.ActiveReports.Document.Section;
+using GrapeCity.ActiveReports.Document;
 
 namespace RSMPS
 {
-    public class rprtCostSummary : DataDynamics.ActiveReports.ActiveReport
+    public class rprtCostSummary : GrapeCity.ActiveReports.SectionReport
 	{
         private Label Label29;
         private RichTextBox RichTextBox;
@@ -52,13 +55,13 @@ namespace RSMPS
         }
 
 
-		public rprtCostSummary()
-		{
-			InitializeComponent();
-		}
+        public rprtCostSummary()
+        {
+            InitializeComponent();
+        }
 
-		private void PageHeader_Format(object sender, System.EventArgs eArgs)
-		{
+        private void PageHeader_Format(object sender, System.EventArgs eArgs)
+        {
             txtProject.Text = msSummary.project;
             txtManager.Text = msSummary.manager;
             txtTitle.Text = msSummary.title;
@@ -79,10 +82,10 @@ namespace RSMPS
 
         }
 
-		private void rprtCostSummary_ReportStart(object sender, System.EventArgs eArgs)
-		{
+        private void rprtCostSummary_ReportStart(object sender, System.EventArgs eArgs)
+        {
             lblPrinted.Text = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
-		}
+        }
 
         private void Detail_Format(object sender, EventArgs e)
         {
@@ -92,66 +95,66 @@ namespace RSMPS
 
 
 		#region ActiveReports Designer generated code
-        private DataDynamics.ActiveReports.PageHeader PageHeader = null;
-		private DataDynamics.ActiveReports.Label Label = null;
-		private DataDynamics.ActiveReports.Label Label1 = null;
-		private DataDynamics.ActiveReports.Label Label2 = null;
-		private DataDynamics.ActiveReports.Label Label3 = null;
-		private DataDynamics.ActiveReports.Label Label4 = null;
-		private DataDynamics.ActiveReports.TextBox txtProject = null;
-		private DataDynamics.ActiveReports.TextBox txtManager = null;
-		private DataDynamics.ActiveReports.TextBox txtTitle = null;
-		private DataDynamics.ActiveReports.TextBox txtWeekEnding = null;
-        private DataDynamics.ActiveReports.Line Line = null;
-		private DataDynamics.ActiveReports.Detail Detail = null;
-		private DataDynamics.ActiveReports.PageFooter PageFooter = null;
-		private DataDynamics.ActiveReports.Label Label30 = null;
-		private DataDynamics.ActiveReports.Label lblPrinted = null;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rprtCostSummary));
-            this.Detail = new DataDynamics.ActiveReports.Detail();
-            this.HoursForecastedTotal = new DataDynamics.ActiveReports.TextBox();
-            this.HoursToComplete = new DataDynamics.ActiveReports.TextBox();
-            this.HoursSpentToDate = new DataDynamics.ActiveReports.TextBox();
-            this.HoursCurrentBudget = new DataDynamics.ActiveReports.TextBox();
-            this.HoursTitle = new DataDynamics.ActiveReports.Label();
-            this.DollarsForecastedTotal = new DataDynamics.ActiveReports.TextBox();
-            this.DollarsTitle = new DataDynamics.ActiveReports.Label();
-            this.DollarsCurrentBudget = new DataDynamics.ActiveReports.TextBox();
-            this.DollarsSpentToDate = new DataDynamics.ActiveReports.TextBox();
-            this.DollarsToComplete = new DataDynamics.ActiveReports.TextBox();
-            this.PageHeader = new DataDynamics.ActiveReports.PageHeader();
-            this.Label = new DataDynamics.ActiveReports.Label();
-            this.Label1 = new DataDynamics.ActiveReports.Label();
-            this.Label2 = new DataDynamics.ActiveReports.Label();
-            this.Label3 = new DataDynamics.ActiveReports.Label();
-            this.Label4 = new DataDynamics.ActiveReports.Label();
-            this.txtProject = new DataDynamics.ActiveReports.TextBox();
-            this.txtManager = new DataDynamics.ActiveReports.TextBox();
-            this.txtTitle = new DataDynamics.ActiveReports.TextBox();
-            this.txtWeekEnding = new DataDynamics.ActiveReports.TextBox();
-            this.Line = new DataDynamics.ActiveReports.Line();
-            this.Picture = new DataDynamics.ActiveReports.Picture();
-            this.PageFooter = new DataDynamics.ActiveReports.PageFooter();
-            this.Label30 = new DataDynamics.ActiveReports.Label();
-            this.lblPrinted = new DataDynamics.ActiveReports.Label();
-            this.Label29 = new DataDynamics.ActiveReports.Label();
-            this.RichTextBox = new DataDynamics.ActiveReports.RichTextBox();
-            this.groupHeader1 = new DataDynamics.ActiveReports.GroupHeader();
-            this.label31 = new DataDynamics.ActiveReports.Label();
-            this.label32 = new DataDynamics.ActiveReports.Label();
-            this.label33 = new DataDynamics.ActiveReports.Label();
-            this.label34 = new DataDynamics.ActiveReports.Label();
-            this.label35 = new DataDynamics.ActiveReports.Label();
-            this.label36 = new DataDynamics.ActiveReports.Label();
-            this.label5 = new DataDynamics.ActiveReports.Label();
-            this.label6 = new DataDynamics.ActiveReports.Label();
-            this.label7 = new DataDynamics.ActiveReports.Label();
-            this.label8 = new DataDynamics.ActiveReports.Label();
-            this.label9 = new DataDynamics.ActiveReports.Label();
-            this.label10 = new DataDynamics.ActiveReports.Label();
-            this.groupFooter1 = new DataDynamics.ActiveReports.GroupFooter();
+            this.Detail = new GrapeCity.ActiveReports.SectionReportModel.Detail();
+            this.HoursForecastedTotal = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.HoursToComplete = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.HoursSpentToDate = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.HoursCurrentBudget = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.HoursTitle = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.DollarsForecastedTotal = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.DollarsTitle = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.DollarsCurrentBudget = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.DollarsSpentToDate = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.DollarsToComplete = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.PageHeader = new GrapeCity.ActiveReports.SectionReportModel.PageHeader();
+            this.Label = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label1 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label2 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label3 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label4 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.txtProject = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtManager = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtTitle = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtWeekEnding = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.Line = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Picture = new GrapeCity.ActiveReports.SectionReportModel.Picture();
+            this.PageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
+            this.Label30 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.lblPrinted = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label29 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.RichTextBox = new GrapeCity.ActiveReports.SectionReportModel.RichTextBox();
+            this.groupHeader1 = new GrapeCity.ActiveReports.SectionReportModel.GroupHeader();
+            this.label31 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label32 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label33 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label34 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label35 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label36 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label5 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label6 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label7 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label8 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label9 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label10 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.groupFooter1 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
             ((System.ComponentModel.ISupportInitialize)(this.HoursForecastedTotal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HoursToComplete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HoursSpentToDate)).BeginInit();
@@ -192,7 +195,7 @@ namespace RSMPS
             // Detail
             // 
             this.Detail.ColumnSpacing = 0F;
-            this.Detail.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.Detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.HoursForecastedTotal,
             this.HoursToComplete,
             this.HoursSpentToDate,
@@ -209,15 +212,15 @@ namespace RSMPS
             // 
             // HoursForecastedTotal
             // 
-            this.HoursForecastedTotal.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.HoursForecastedTotal.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.HoursForecastedTotal.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.HoursForecastedTotal.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
+            this.HoursForecastedTotal.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.HoursForecastedTotal.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.HoursForecastedTotal.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.HoursForecastedTotal.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
             this.HoursForecastedTotal.DataField = "HoursForcastedTotal";
             this.HoursForecastedTotal.Height = 0.2F;
             this.HoursForecastedTotal.Left = 3.703F;
             this.HoursForecastedTotal.Name = "HoursForecastedTotal";
-            this.HoursForecastedTotal.Padding = new DataDynamics.ActiveReports.PaddingEx(0, 0, 5, 0);
+            this.HoursForecastedTotal.Padding = new GrapeCity.ActiveReports.PaddingEx(0, 0, 5, 0);
             this.HoursForecastedTotal.Style = "text-align: right";
             this.HoursForecastedTotal.Text = "TextBox";
             this.HoursForecastedTotal.Top = 0F;
@@ -225,15 +228,15 @@ namespace RSMPS
             // 
             // HoursToComplete
             // 
-            this.HoursToComplete.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.HoursToComplete.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.HoursToComplete.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.HoursToComplete.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
+            this.HoursToComplete.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.HoursToComplete.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.HoursToComplete.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.HoursToComplete.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
             this.HoursToComplete.DataField = "HoursToComplete";
             this.HoursToComplete.Height = 0.2F;
             this.HoursToComplete.Left = 2.829F;
             this.HoursToComplete.Name = "HoursToComplete";
-            this.HoursToComplete.Padding = new DataDynamics.ActiveReports.PaddingEx(0, 0, 5, 0);
+            this.HoursToComplete.Padding = new GrapeCity.ActiveReports.PaddingEx(0, 0, 5, 0);
             this.HoursToComplete.Style = "text-align: right";
             this.HoursToComplete.Text = "TextBox";
             this.HoursToComplete.Top = 0F;
@@ -241,15 +244,15 @@ namespace RSMPS
             // 
             // HoursSpentToDate
             // 
-            this.HoursSpentToDate.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.HoursSpentToDate.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.HoursSpentToDate.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.HoursSpentToDate.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
+            this.HoursSpentToDate.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.HoursSpentToDate.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.HoursSpentToDate.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.HoursSpentToDate.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
             this.HoursSpentToDate.DataField = "HoursSpentToDate";
             this.HoursSpentToDate.Height = 0.2F;
             this.HoursSpentToDate.Left = 1.953F;
             this.HoursSpentToDate.Name = "HoursSpentToDate";
-            this.HoursSpentToDate.Padding = new DataDynamics.ActiveReports.PaddingEx(0, 0, 5, 0);
+            this.HoursSpentToDate.Padding = new GrapeCity.ActiveReports.PaddingEx(0, 0, 5, 0);
             this.HoursSpentToDate.Style = "text-align: right";
             this.HoursSpentToDate.Text = "TextBox";
             this.HoursSpentToDate.Top = 0F;
@@ -257,15 +260,15 @@ namespace RSMPS
             // 
             // HoursCurrentBudget
             // 
-            this.HoursCurrentBudget.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.HoursCurrentBudget.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.HoursCurrentBudget.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.HoursCurrentBudget.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
+            this.HoursCurrentBudget.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.HoursCurrentBudget.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.HoursCurrentBudget.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.HoursCurrentBudget.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
             this.HoursCurrentBudget.DataField = "HoursCurrentBudget";
             this.HoursCurrentBudget.Height = 0.2F;
             this.HoursCurrentBudget.Left = 1.016F;
             this.HoursCurrentBudget.Name = "HoursCurrentBudget";
-            this.HoursCurrentBudget.Padding = new DataDynamics.ActiveReports.PaddingEx(0, 0, 5, 0);
+            this.HoursCurrentBudget.Padding = new GrapeCity.ActiveReports.PaddingEx(0, 0, 5, 0);
             this.HoursCurrentBudget.Style = "text-align: right";
             this.HoursCurrentBudget.Text = "TextBox";
             this.HoursCurrentBudget.Top = 0F;
@@ -273,10 +276,10 @@ namespace RSMPS
             // 
             // HoursTitle
             // 
-            this.HoursTitle.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.HoursTitle.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.HoursTitle.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.HoursTitle.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
+            this.HoursTitle.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.HoursTitle.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.HoursTitle.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.HoursTitle.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
             this.HoursTitle.DataField = "HoursTitle";
             this.HoursTitle.Height = 0.2F;
             this.HoursTitle.HyperLink = null;
@@ -289,15 +292,15 @@ namespace RSMPS
             // 
             // DollarsForecastedTotal
             // 
-            this.DollarsForecastedTotal.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.DollarsForecastedTotal.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.DollarsForecastedTotal.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.DollarsForecastedTotal.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
+            this.DollarsForecastedTotal.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.DollarsForecastedTotal.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.DollarsForecastedTotal.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.DollarsForecastedTotal.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
             this.DollarsForecastedTotal.DataField = "DollarsForcastedTotal";
             this.DollarsForecastedTotal.Height = 0.2F;
             this.DollarsForecastedTotal.Left = 9.053F;
             this.DollarsForecastedTotal.Name = "DollarsForecastedTotal";
-            this.DollarsForecastedTotal.Padding = new DataDynamics.ActiveReports.PaddingEx(0, 0, 5, 0);
+            this.DollarsForecastedTotal.Padding = new GrapeCity.ActiveReports.PaddingEx(0, 0, 5, 0);
             this.DollarsForecastedTotal.Style = "text-align: right";
             this.DollarsForecastedTotal.Text = "TextBox";
             this.DollarsForecastedTotal.Top = 0F;
@@ -305,10 +308,10 @@ namespace RSMPS
             // 
             // DollarsTitle
             // 
-            this.DollarsTitle.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.DollarsTitle.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.DollarsTitle.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.DollarsTitle.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
+            this.DollarsTitle.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.DollarsTitle.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.DollarsTitle.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.DollarsTitle.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
             this.DollarsTitle.DataField = "DollarsTitle";
             this.DollarsTitle.Height = 0.2F;
             this.DollarsTitle.HyperLink = null;
@@ -321,15 +324,15 @@ namespace RSMPS
             // 
             // DollarsCurrentBudget
             // 
-            this.DollarsCurrentBudget.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.DollarsCurrentBudget.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.DollarsCurrentBudget.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.DollarsCurrentBudget.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
+            this.DollarsCurrentBudget.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.DollarsCurrentBudget.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.DollarsCurrentBudget.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.DollarsCurrentBudget.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
             this.DollarsCurrentBudget.DataField = "DollarsCurrentBudget";
             this.DollarsCurrentBudget.Height = 0.2F;
             this.DollarsCurrentBudget.Left = 6.366F;
             this.DollarsCurrentBudget.Name = "DollarsCurrentBudget";
-            this.DollarsCurrentBudget.Padding = new DataDynamics.ActiveReports.PaddingEx(0, 0, 5, 0);
+            this.DollarsCurrentBudget.Padding = new GrapeCity.ActiveReports.PaddingEx(0, 0, 5, 0);
             this.DollarsCurrentBudget.Style = "text-align: right";
             this.DollarsCurrentBudget.Text = "DollarsCurrentBudget";
             this.DollarsCurrentBudget.Top = 0F;
@@ -337,15 +340,15 @@ namespace RSMPS
             // 
             // DollarsSpentToDate
             // 
-            this.DollarsSpentToDate.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.DollarsSpentToDate.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.DollarsSpentToDate.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.DollarsSpentToDate.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
+            this.DollarsSpentToDate.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.DollarsSpentToDate.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.DollarsSpentToDate.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.DollarsSpentToDate.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
             this.DollarsSpentToDate.DataField = "DollarsSpentToDate";
             this.DollarsSpentToDate.Height = 0.2F;
             this.DollarsSpentToDate.Left = 7.303F;
             this.DollarsSpentToDate.Name = "DollarsSpentToDate";
-            this.DollarsSpentToDate.Padding = new DataDynamics.ActiveReports.PaddingEx(0, 0, 5, 0);
+            this.DollarsSpentToDate.Padding = new GrapeCity.ActiveReports.PaddingEx(0, 0, 5, 0);
             this.DollarsSpentToDate.Style = "text-align: right";
             this.DollarsSpentToDate.Text = "TextBox";
             this.DollarsSpentToDate.Top = 0F;
@@ -353,15 +356,15 @@ namespace RSMPS
             // 
             // DollarsToComplete
             // 
-            this.DollarsToComplete.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.DollarsToComplete.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.DollarsToComplete.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.DollarsToComplete.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
+            this.DollarsToComplete.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.DollarsToComplete.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.DollarsToComplete.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.DollarsToComplete.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
             this.DollarsToComplete.DataField = "DollarsToComplete";
             this.DollarsToComplete.Height = 0.2F;
             this.DollarsToComplete.Left = 8.179001F;
             this.DollarsToComplete.Name = "DollarsToComplete";
-            this.DollarsToComplete.Padding = new DataDynamics.ActiveReports.PaddingEx(0, 0, 5, 0);
+            this.DollarsToComplete.Padding = new GrapeCity.ActiveReports.PaddingEx(0, 0, 5, 0);
             this.DollarsToComplete.Style = "text-align: right";
             this.DollarsToComplete.Text = "TextBox";
             this.DollarsToComplete.Top = 0F;
@@ -369,7 +372,7 @@ namespace RSMPS
             // 
             // PageHeader
             // 
-            this.PageHeader.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.PageHeader.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.Label,
             this.Label1,
             this.Label2,
@@ -499,13 +502,13 @@ namespace RSMPS
             this.Picture.Left = 8.690001F;
             this.Picture.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Picture.Name = "Picture";
-            this.Picture.SizeMode = DataDynamics.ActiveReports.SizeModes.Zoom;
+            this.Picture.SizeMode = GrapeCity.ActiveReports.SectionReportModel.SizeModes.Zoom;
             this.Picture.Top = 0F;
             this.Picture.Width = 1.248F;
             // 
             // PageFooter
             // 
-            this.PageFooter.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.PageFooter.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.Label29,
             this.RichTextBox});
             this.PageFooter.Height = 1.474306F;
@@ -557,7 +560,7 @@ namespace RSMPS
             // 
             // groupHeader1
             // 
-            this.groupHeader1.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
+            this.groupHeader1.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.label31,
             this.label32,
             this.label33,
@@ -575,10 +578,10 @@ namespace RSMPS
             // 
             // label31
             // 
-            this.label31.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label31.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label31.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label31.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
+            this.label31.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label31.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label31.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label31.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
             this.label31.Height = 0.375F;
             this.label31.HyperLink = null;
             this.label31.Left = 3.703F;
@@ -590,10 +593,10 @@ namespace RSMPS
             // 
             // label32
             // 
-            this.label32.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label32.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label32.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label32.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
+            this.label32.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label32.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label32.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label32.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
             this.label32.Height = 0.375F;
             this.label32.HyperLink = null;
             this.label32.Left = 2.829F;
@@ -605,10 +608,10 @@ namespace RSMPS
             // 
             // label33
             // 
-            this.label33.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label33.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label33.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label33.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
+            this.label33.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label33.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label33.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label33.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
             this.label33.Height = 0.375F;
             this.label33.HyperLink = null;
             this.label33.Left = 1.954F;
@@ -620,10 +623,10 @@ namespace RSMPS
             // 
             // label34
             // 
-            this.label34.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label34.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label34.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label34.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
+            this.label34.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label34.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label34.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label34.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
             this.label34.Height = 0.375F;
             this.label34.HyperLink = null;
             this.label34.Left = 1.016F;
@@ -635,10 +638,10 @@ namespace RSMPS
             // 
             // label35
             // 
-            this.label35.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label35.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label35.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label35.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
+            this.label35.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label35.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label35.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label35.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
             this.label35.Height = 0.2F;
             this.label35.HyperLink = null;
             this.label35.Left = 0.07899982F;
@@ -650,10 +653,10 @@ namespace RSMPS
             // 
             // label36
             // 
-            this.label36.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label36.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label36.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label36.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
+            this.label36.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label36.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label36.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label36.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
             this.label36.Height = 0.375F;
             this.label36.HyperLink = null;
             this.label36.Left = 0.07899982F;
@@ -665,10 +668,10 @@ namespace RSMPS
             // 
             // label5
             // 
-            this.label5.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label5.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label5.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label5.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
+            this.label5.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label5.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label5.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label5.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
             this.label5.Height = 0.375F;
             this.label5.HyperLink = null;
             this.label5.Left = 9.053F;
@@ -680,10 +683,10 @@ namespace RSMPS
             // 
             // label6
             // 
-            this.label6.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label6.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label6.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label6.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
+            this.label6.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label6.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label6.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label6.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
             this.label6.Height = 0.375F;
             this.label6.HyperLink = null;
             this.label6.Left = 8.179001F;
@@ -695,10 +698,10 @@ namespace RSMPS
             // 
             // label7
             // 
-            this.label7.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label7.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label7.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label7.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
+            this.label7.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label7.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label7.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label7.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
             this.label7.Height = 0.375F;
             this.label7.HyperLink = null;
             this.label7.Left = 7.304F;
@@ -710,10 +713,10 @@ namespace RSMPS
             // 
             // label8
             // 
-            this.label8.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label8.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label8.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label8.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
+            this.label8.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label8.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label8.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label8.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
             this.label8.Height = 0.375F;
             this.label8.HyperLink = null;
             this.label8.Left = 6.366F;
@@ -725,10 +728,10 @@ namespace RSMPS
             // 
             // label9
             // 
-            this.label9.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label9.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label9.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label9.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
+            this.label9.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label9.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label9.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label9.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
             this.label9.Height = 0.2F;
             this.label9.HyperLink = null;
             this.label9.Left = 5.429F;
@@ -740,10 +743,10 @@ namespace RSMPS
             // 
             // label10
             // 
-            this.label10.Border.BottomStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label10.Border.LeftStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label10.Border.RightStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
-            this.label10.Border.TopStyle = DataDynamics.ActiveReports.BorderLineStyle.Solid;
+            this.label10.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label10.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label10.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
+            this.label10.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.Solid;
             this.label10.Height = 0.375F;
             this.label10.HyperLink = null;
             this.label10.Left = 5.429F;
@@ -764,7 +767,7 @@ namespace RSMPS
             this.PageSettings.Margins.Bottom = 0.25F;
             this.PageSettings.Margins.Left = 0.5F;
             this.PageSettings.Margins.Right = 0F;
-            this.PageSettings.Orientation = DataDynamics.ActiveReports.Document.PageOrientation.Landscape;
+            this.PageSettings.Orientation = GrapeCity.ActiveReports.Document.Section.PageOrientation.Landscape;
             this.PageSettings.PaperHeight = 11F;
             this.PageSettings.PaperWidth = 8.5F;
             this.PrintWidth = 10.01042F;
@@ -821,6 +824,22 @@ namespace RSMPS
         }
 
 		#endregion
+
+        private PageHeader PageHeader;
+        private Label Label;
+        private Label Label1;
+        private Label Label2;
+        private Label Label3;
+        private Label Label4;
+        private TextBox txtProject;
+        private TextBox txtManager;
+        private TextBox txtTitle;
+        private TextBox txtWeekEnding;
+        private Line Line;
+        private Detail Detail;
+        private PageFooter PageFooter;
+        private Label Label30;
+        private Label lblPrinted;
 
 
 

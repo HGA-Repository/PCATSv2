@@ -2,15 +2,18 @@ using System;
 using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
-using DataDynamics.ActiveReports;
-using DataDynamics.ActiveReports.Document;
+using GrapeCity.ActiveReports;
+using GrapeCity.ActiveReports.Controls;
+using GrapeCity.ActiveReports.SectionReportModel;
+using GrapeCity.ActiveReports.Document.Section;
+using GrapeCity.ActiveReports.Document;
 
 namespace RSMPS
 {
     /// <summary>
     /// Summary description for rprtPCILog.
     /// </summary>
-    public partial class rprtPCILog : DataDynamics.ActiveReports.ActiveReport
+    public partial class rprtPCILog : GrapeCity.ActiveReports.SectionReport
     {
         public void SetHeaderInfo(string client, string project, string hgaNum, string clientNum, string pm)
         {

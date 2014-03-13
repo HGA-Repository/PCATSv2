@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using GrapeCity.ActiveReports;
 
 namespace RSMPS
 {
@@ -33,65 +34,7 @@ namespace RSMPS
 
         public class RowsInfo : List<Row> {}
 
-        //public struct HoursInfo
-        //{
-        //    public string bud1000;
-        //    public string bud2000;
-        //    public string bud3000;
-        //    public string bud4000;
-        //    public string bud5000;
-        //    public string budTot;
-        //    public string spnt1000;
-        //    public string spnt2000;
-        //    public string spnt3000;
-        //    public string spnt4000;
-        //    public string spnt5000;
-        //    public string spntTot;
-        //    public string ftc1000;
-        //    public string ftc2000;
-        //    public string ftc3000;
-        //    public string ftc4000;
-        //    public string ftc5000;
-        //    public string ftcTot;
-        //    public string fore1000;
-        //    public string fore2000;
-        //    public string fore3000;
-        //    public string fore4000;
-        //    public string fore5000;
-        //    public string foreTot;
-        //}
-
-        //public struct DollarsInfo
-        //{
-        //    public string bud1000;
-        //    public string bud2000;
-        //    public string bud3000;
-        //    public string bud4000;
-        //    public string bud5000;
-        //    public string budExp;
-        //    public string budTot;
-        //    public string spnt1000;
-        //    public string spnt2000;
-        //    public string spnt3000;
-        //    public string spnt4000;
-        //    public string spnt5000;
-        //    public string spntExp;
-        //    public string spntTot;
-        //    public string ftc1000;
-        //    public string ftc2000;
-        //    public string ftc3000;
-        //    public string ftc4000;
-        //    public string ftc5000;
-        //    public string ftcExp;
-        //    public string ftcTot;
-        //    public string fore1000;
-        //    public string fore2000;
-        //    public string fore3000;
-        //    public string fore4000;
-        //    public string fore5000;
-        //    public string foreExp;
-        //    public string foreTot;
-        //}
+        
 
         public void PreviewSummary(SummaryInfo si, RowsInfo ri)
         {
@@ -113,9 +56,9 @@ namespace RSMPS
 
             rprt.SummaryInformation = si;
             rprt.RowsInfo = ri;
-
             rprt.Run();
             rprt.Document.Print(true, false);
+
         }
     }
 }
