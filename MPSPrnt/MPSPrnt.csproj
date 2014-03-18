@@ -301,6 +301,24 @@
     <Compile Include="rprtTransmittalReleaseDocs1.Designer.cs">
       <DependentUpon>rprtTransmittalReleaseDocs1.cs</DependentUpon>
     </Compile>
+    <Compile Include="SectionReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SectionReport1.designer.cs">
+      <DependentUpon>SectionReport1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolStripExport\Exporters\ExcelSectionReportExporter.cs" />
+    <Compile Include="ToolStripExport\Exporters\HtmlSectionReportExporter.cs" />
+    <Compile Include="ToolStripExport\Exporters\PdfSectionReportExporter.cs" />
+    <Compile Include="ToolStripExport\Exporters\RtfSectionReportExporter.cs" />
+    <Compile Include="ToolStripExport\Exporters\SectionReportExporter.cs" />
+    <Compile Include="ToolStripExport\Exporters\TextSectionReportExporter.cs" />
+    <Compile Include="ToolStripExport\Exporters\TiffSectionReportExporter.cs" />
+    <Compile Include="ToolStripExport\ExportItem.cs" />
+    <Compile Include="ToolStripExport\ExportToolStripButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ToolStripExport\ISectionReportExporter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
@@ -408,7 +426,9 @@
       <DependentUpon>rprtPCNHours.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
+    <EmbeddedResource Include="SectionReport1.resx">
+      <DependentUpon>SectionReport1.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="dsDrawingList.xsc">
       <DependentUpon>dsDrawingList.xsd</DependentUpon>
     </None>
@@ -518,6 +538,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ToolStripExport\ReportViewer.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

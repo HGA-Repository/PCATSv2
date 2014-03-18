@@ -396,7 +396,6 @@ namespace RSMPS
             // 
             // Detail
             // 
-            this.Detail.ColumnSpacing = 0F;
             this.Detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.subPCNHours,
             this.subPCNExpenses,
@@ -500,9 +499,9 @@ namespace RSMPS
             this.pageBreak1.Height = 0.01F;
             this.pageBreak1.Left = 0F;
             this.pageBreak1.Name = "pageBreak1";
-            this.pageBreak1.Size = new System.Drawing.SizeF(6.5F, 0.01F);
-            this.pageBreak1.Top = 7.738F;
-            this.pageBreak1.Width = 6.5F;
+            this.pageBreak1.Size = new System.Drawing.SizeF(7.25F, 0.01F);
+            this.pageBreak1.Top = 7.5F;
+            this.pageBreak1.Width = 7.25F;
             // 
             // label48
             // 
@@ -557,7 +556,7 @@ namespace RSMPS
             this.label50.Name = "label50";
             this.label50.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.label50.Text = "Project Impact:";
-            this.label50.Top = 2.3125F;
+            this.label50.Top = 2.062F;
             this.label50.Width = 1.4375F;
             // 
             // label51
@@ -568,7 +567,7 @@ namespace RSMPS
             this.label51.Name = "label51";
             this.label51.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.label51.Text = "Schedule Impact:";
-            this.label51.Top = 3.25F;
+            this.label51.Top = 2.9995F;
             this.label51.Width = 1.4375F;
             // 
             // label52
@@ -579,7 +578,7 @@ namespace RSMPS
             this.label52.Name = "label52";
             this.label52.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.label52.Text = "Estimated Engr. Hrs.:";
-            this.label52.Top = 2.5625F;
+            this.label52.Top = 2.312F;
             this.label52.Width = 1.6875F;
             // 
             // label53
@@ -590,7 +589,7 @@ namespace RSMPS
             this.label53.Name = "label53";
             this.label53.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.label53.Text = "Estimated Engr. Cost:";
-            this.label53.Top = 2.8125F;
+            this.label53.Top = 2.562F;
             this.label53.Width = 1.6875F;
             // 
             // chkDesignError
@@ -611,7 +610,7 @@ namespace RSMPS
             this.chkVendorError.Name = "chkVendorError";
             this.chkVendorError.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.chkVendorError.Text = "Vendor Error";
-            this.chkVendorError.Top = 1.1875F;
+            this.chkVendorError.Top = 1.177F;
             this.chkVendorError.Width = 1.375F;
             // 
             // chkEstimError
@@ -621,7 +620,7 @@ namespace RSMPS
             this.chkEstimError.Name = "chkEstimError";
             this.chkEstimError.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.chkEstimError.Text = "Estimating Error";
-            this.chkEstimError.Top = 1.6875F;
+            this.chkEstimError.Top = 1.583F;
             this.chkEstimError.Width = 1.375F;
             // 
             // chkContrError
@@ -631,7 +630,7 @@ namespace RSMPS
             this.chkContrError.Name = "chkContrError";
             this.chkContrError.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.chkContrError.Text = "Contractor Error";
-            this.chkContrError.Top = 1.4375F;
+            this.chkContrError.Top = 1.385F;
             this.chkContrError.Width = 1.375F;
             // 
             // chkSchedDelay
@@ -641,7 +640,7 @@ namespace RSMPS
             this.chkSchedDelay.Name = "chkSchedDelay";
             this.chkSchedDelay.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.chkSchedDelay.Text = "Schedule Delay";
-            this.chkSchedDelay.Top = 1.9375F;
+            this.chkSchedDelay.Top = 1.781F;
             this.chkSchedDelay.Width = 1.375F;
             // 
             // chkScopeAdd
@@ -661,7 +660,7 @@ namespace RSMPS
             this.chkDesignChange.Name = "chkDesignChange";
             this.chkDesignChange.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.chkDesignChange.Text = "Design Change After Approval";
-            this.chkDesignChange.Top = 1.6875F;
+            this.chkDesignChange.Top = 1.583F;
             this.chkDesignChange.Width = 2.3125F;
             // 
             // chkReasonOther
@@ -671,7 +670,7 @@ namespace RSMPS
             this.chkReasonOther.Name = "chkReasonOther";
             this.chkReasonOther.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.chkReasonOther.Text = "Other";
-            this.chkReasonOther.Top = 1.9375F;
+            this.chkReasonOther.Top = 1.77F;
             this.chkReasonOther.Width = 1.375F;
             // 
             // txtReasonOther
@@ -681,60 +680,60 @@ namespace RSMPS
             this.txtReasonOther.Name = "txtReasonOther";
             this.txtReasonOther.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.txtReasonOther.Text = "textBox2";
-            this.txtReasonOther.Top = 1.9375F;
+            this.txtReasonOther.Top = 1.7805F;
             this.txtReasonOther.Width = 2.8125F;
             // 
             // line31
             // 
             this.line31.Height = 0F;
-            this.line31.Left = 1.1875F;
+            this.line31.Left = 1.187F;
             this.line31.LineWeight = 1F;
             this.line31.Name = "line31";
-            this.line31.Top = 2.125F;
+            this.line31.Top = 1.968F;
             this.line31.Width = 2.8125F;
-            this.line31.X1 = 1.1875F;
-            this.line31.X2 = 4F;
-            this.line31.Y1 = 2.125F;
-            this.line31.Y2 = 2.125F;
+            this.line31.X1 = 1.187F;
+            this.line31.X2 = 3.9995F;
+            this.line31.Y1 = 1.968F;
+            this.line31.Y2 = 1.968F;
             // 
             // txtScheduleImpact
             // 
-            this.txtScheduleImpact.Height = 0.625F;
+            this.txtScheduleImpact.Height = 0.6255F;
             this.txtScheduleImpact.Left = 0.1875F;
             this.txtScheduleImpact.Name = "txtScheduleImpact";
             this.txtScheduleImpact.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.txtScheduleImpact.Text = "txt";
-            this.txtScheduleImpact.Top = 3.5F;
+            this.txtScheduleImpact.Top = 3.2495F;
             this.txtScheduleImpact.Width = 6.625F;
             // 
             // chkApprovedProceed
             // 
             this.chkApprovedProceed.Height = 0.1874998F;
-            this.chkApprovedProceed.Left = 0.3125F;
+            this.chkApprovedProceed.Left = 0.125F;
             this.chkApprovedProceed.Name = "chkApprovedProceed";
             this.chkApprovedProceed.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.chkApprovedProceed.Text = "Approved";
-            this.chkApprovedProceed.Top = 6.613F;
-            this.chkApprovedProceed.Width = 2.6875F;
+            this.chkApprovedProceed.Top = 6.176F;
+            this.chkApprovedProceed.Width = 1.062F;
             // 
             // chkDisApproved
             // 
             this.chkDisApproved.Height = 0.1874999F;
-            this.chkDisApproved.Left = 0.3125F;
+            this.chkDisApproved.Left = 1.375F;
             this.chkDisApproved.Name = "chkDisApproved";
             this.chkDisApproved.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.chkDisApproved.Text = "Disapproved";
-            this.chkDisApproved.Top = 6.9255F;
-            this.chkDisApproved.Width = 3.5F;
+            this.chkDisApproved.Top = 6.176F;
+            this.chkDisApproved.Width = 1.4375F;
             // 
             // chkPrepareControlEstimate
             // 
             this.chkPrepareControlEstimate.Height = 0.1874999F;
-            this.chkPrepareControlEstimate.Left = 0.3125F;
+            this.chkPrepareControlEstimate.Left = 3.312F;
             this.chkPrepareControlEstimate.Name = "chkPrepareControlEstimate";
             this.chkPrepareControlEstimate.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.chkPrepareControlEstimate.Text = "Prepare Control Estimate";
-            this.chkPrepareControlEstimate.Top = 7.238F;
+            this.chkPrepareControlEstimate.Top = 6.176F;
             this.chkPrepareControlEstimate.Width = 2.4375F;
             // 
             // txtEngrHrs
@@ -745,7 +744,7 @@ namespace RSMPS
             this.txtEngrHrs.Style = "font-family: Times New Roman; font-size: 12pt; text-align: right; ddo-char-set: 0" +
     "";
             this.txtEngrHrs.Text = "textBox4";
-            this.txtEngrHrs.Top = 2.5625F;
+            this.txtEngrHrs.Top = 2.312F;
             this.txtEngrHrs.Width = 1F;
             // 
             // txtEngrDlrs
@@ -756,7 +755,7 @@ namespace RSMPS
             this.txtEngrDlrs.Style = "font-family: Times New Roman; font-size: 12pt; text-align: right; ddo-char-set: 0" +
     "";
             this.txtEngrDlrs.Text = "textBox4";
-            this.txtEngrDlrs.Top = 2.8125F;
+            this.txtEngrDlrs.Top = 2.562F;
             this.txtEngrDlrs.Width = 1F;
             // 
             // line33
@@ -765,12 +764,12 @@ namespace RSMPS
             this.line33.Left = 2.25F;
             this.line33.LineWeight = 1F;
             this.line33.Name = "line33";
-            this.line33.Top = 2.75F;
+            this.line33.Top = 2.4995F;
             this.line33.Width = 1.125F;
             this.line33.X1 = 2.25F;
             this.line33.X2 = 3.375F;
-            this.line33.Y1 = 2.75F;
-            this.line33.Y2 = 2.75F;
+            this.line33.Y1 = 2.4995F;
+            this.line33.Y2 = 2.4995F;
             // 
             // line34
             // 
@@ -778,25 +777,25 @@ namespace RSMPS
             this.line34.Left = 2.25F;
             this.line34.LineWeight = 1F;
             this.line34.Name = "line34";
-            this.line34.Top = 3F;
+            this.line34.Top = 2.7495F;
             this.line34.Width = 1.125F;
             this.line34.X1 = 2.25F;
             this.line34.X2 = 3.375F;
-            this.line34.Y1 = 3F;
-            this.line34.Y2 = 3F;
+            this.line34.Y1 = 2.7495F;
+            this.line34.Y2 = 2.7495F;
             // 
             // line35
             // 
             this.line35.Height = 0F;
-            this.line35.Left = 0.1875F;
+            this.line35.Left = 0.187F;
             this.line35.LineWeight = 1F;
             this.line35.Name = "line35";
-            this.line35.Top = 3.6875F;
+            this.line35.Top = 3.625F;
             this.line35.Width = 6.625F;
-            this.line35.X1 = 0.1875F;
-            this.line35.X2 = 6.8125F;
-            this.line35.Y1 = 3.6875F;
-            this.line35.Y2 = 3.6875F;
+            this.line35.X1 = 0.187F;
+            this.line35.X2 = 6.812F;
+            this.line35.Y1 = 3.625F;
+            this.line35.Y2 = 3.625F;
             // 
             // line36
             // 
@@ -804,12 +803,12 @@ namespace RSMPS
             this.line36.Left = 0.1875F;
             this.line36.LineWeight = 1F;
             this.line36.Name = "line36";
-            this.line36.Top = 4.0625F;
+            this.line36.Top = 3.813F;
             this.line36.Width = 6.625F;
             this.line36.X1 = 0.1875F;
             this.line36.X2 = 6.8125F;
-            this.line36.Y1 = 4.0625F;
-            this.line36.Y2 = 4.0625F;
+            this.line36.Y1 = 3.813F;
+            this.line36.Y2 = 3.813F;
             // 
             // line37
             // 
@@ -817,12 +816,12 @@ namespace RSMPS
             this.line37.Left = 0.1875F;
             this.line37.LineWeight = 1F;
             this.line37.Name = "line37";
-            this.line37.Top = 3.875F;
+            this.line37.Top = 3.438F;
             this.line37.Width = 6.625F;
             this.line37.X1 = 0.1875F;
             this.line37.X2 = 6.8125F;
-            this.line37.Y1 = 3.875F;
-            this.line37.Y2 = 3.875F;
+            this.line37.Y1 = 3.438F;
+            this.line37.Y2 = 3.438F;
             // 
             // label54
             // 
@@ -832,7 +831,7 @@ namespace RSMPS
             this.label54.Name = "label54";
             this.label54.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.label54.Text = "Estimated TIC:";
-            this.label54.Top = 2.5625F;
+            this.label54.Top = 2.312F;
             this.label54.Width = 1.25F;
             // 
             // label55
@@ -843,7 +842,7 @@ namespace RSMPS
             this.label55.Name = "label55";
             this.label55.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.label55.Text = "Estimate Accuracy:";
-            this.label55.Top = 2.8125F;
+            this.label55.Top = 2.562F;
             this.label55.Width = 1.375F;
             // 
             // txtEstimTIC
@@ -854,7 +853,7 @@ namespace RSMPS
             this.txtEstimTIC.Style = "font-family: Times New Roman; font-size: 12pt; text-align: right; ddo-char-set: 0" +
     "";
             this.txtEstimTIC.Text = "textBox4";
-            this.txtEstimTIC.Top = 2.5625F;
+            this.txtEstimTIC.Top = 2.312F;
             this.txtEstimTIC.Width = 1F;
             // 
             // txtEstimTIC10
@@ -865,7 +864,7 @@ namespace RSMPS
             this.txtEstimTIC10.Style = "font-family: Times New Roman; font-size: 12pt; text-align: right; ddo-char-set: 0" +
     "";
             this.txtEstimTIC10.Text = "textBox4";
-            this.txtEstimTIC10.Top = 2.8125F;
+            this.txtEstimTIC10.Top = 2.562F;
             this.txtEstimTIC10.Width = 0.5F;
             // 
             // line38
@@ -874,12 +873,12 @@ namespace RSMPS
             this.line38.Left = 5.75F;
             this.line38.LineWeight = 1F;
             this.line38.Name = "line38";
-            this.line38.Top = 2.75F;
+            this.line38.Top = 2.4995F;
             this.line38.Width = 1.125F;
             this.line38.X1 = 5.75F;
             this.line38.X2 = 6.875F;
-            this.line38.Y1 = 2.75F;
-            this.line38.Y2 = 2.75F;
+            this.line38.Y1 = 2.4995F;
+            this.line38.Y2 = 2.4995F;
             // 
             // line39
             // 
@@ -887,12 +886,12 @@ namespace RSMPS
             this.line39.Left = 5.75F;
             this.line39.LineWeight = 1F;
             this.line39.Name = "line39";
-            this.line39.Top = 3F;
+            this.line39.Top = 2.7495F;
             this.line39.Width = 1.125F;
             this.line39.X1 = 5.75F;
             this.line39.X2 = 6.875F;
-            this.line39.Y1 = 3F;
-            this.line39.Y2 = 3F;
+            this.line39.Y1 = 2.7495F;
+            this.line39.Y2 = 2.7495F;
             // 
             // label56
             // 
@@ -902,7 +901,7 @@ namespace RSMPS
             this.label56.Name = "label56";
             this.label56.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.label56.Text = "HGA Project Engr/Mgr..";
-            this.label56.Top = 4.3125F;
+            this.label56.Top = 3.8755F;
             this.label56.Width = 1.75F;
             // 
             // label57
@@ -913,7 +912,7 @@ namespace RSMPS
             this.label57.Name = "label57";
             this.label57.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.label57.Text = "Date:";
-            this.label57.Top = 4.3125F;
+            this.label57.Top = 3.8755F;
             this.label57.Width = 0.4375F;
             // 
             // line40
@@ -922,12 +921,12 @@ namespace RSMPS
             this.line40.Left = 2.125F;
             this.line40.LineWeight = 1F;
             this.line40.Name = "line40";
-            this.line40.Top = 4.5625F;
+            this.line40.Top = 4.1255F;
             this.line40.Width = 3.25F;
             this.line40.X1 = 2.125F;
             this.line40.X2 = 5.375F;
-            this.line40.Y1 = 4.5625F;
-            this.line40.Y2 = 4.5625F;
+            this.line40.Y1 = 4.1255F;
+            this.line40.Y2 = 4.1255F;
             // 
             // line41
             // 
@@ -935,12 +934,12 @@ namespace RSMPS
             this.line41.Left = 5.875F;
             this.line41.LineWeight = 1F;
             this.line41.Name = "line41";
-            this.line41.Top = 4.5F;
+            this.line41.Top = 4.063F;
             this.line41.Width = 1.275F;
             this.line41.X1 = 5.875F;
             this.line41.X2 = 7.15F;
-            this.line41.Y1 = 4.5F;
-            this.line41.Y2 = 4.5F;
+            this.line41.Y1 = 4.063F;
+            this.line41.Y2 = 4.063F;
             // 
             // label58
             // 
@@ -950,7 +949,7 @@ namespace RSMPS
             this.label58.Name = "label58";
             this.label58.Style = "font-family: Times New Roman; font-size: 12pt";
             this.label58.Text = "HGA Project Controls";
-            this.label58.Top = 4.677F;
+            this.label58.Top = 4.24F;
             this.label58.Width = 2.6875F;
             // 
             // label59
@@ -961,7 +960,7 @@ namespace RSMPS
             this.label59.Name = "label59";
             this.label59.Style = "font-family: Times New Roman; font-size: 12pt";
             this.label59.Text = "HGA Projects Director";
-            this.label59.Top = 5.042F;
+            this.label59.Top = 4.605F;
             this.label59.Width = 2.6875F;
             // 
             // label60
@@ -972,7 +971,7 @@ namespace RSMPS
             this.label60.Name = "label60";
             this.label60.Style = "font-family: Times New Roman; font-size: 12pt";
             this.label60.Text = "HGA Operations Manager";
-            this.label60.Top = 5.4165F;
+            this.label60.Top = 4.9795F;
             this.label60.Width = 2.6875F;
             // 
             // label61
@@ -983,7 +982,7 @@ namespace RSMPS
             this.label61.Name = "label61";
             this.label61.Style = "font-family: Times New Roman; font-size: 12pt";
             this.label61.Text = "Date:";
-            this.label61.Top = 4.677F;
+            this.label61.Top = 4.24F;
             this.label61.Width = 0.4375F;
             // 
             // label62
@@ -994,7 +993,7 @@ namespace RSMPS
             this.label62.Name = "label62";
             this.label62.Style = "font-family: Times New Roman; font-size: 12pt";
             this.label62.Text = "Date:";
-            this.label62.Top = 5.042F;
+            this.label62.Top = 4.605F;
             this.label62.Width = 0.4375F;
             // 
             // label63
@@ -1005,7 +1004,7 @@ namespace RSMPS
             this.label63.Name = "label63";
             this.label63.Style = "font-family: Times New Roman; font-size: 12pt";
             this.label63.Text = "Date:";
-            this.label63.Top = 5.4165F;
+            this.label63.Top = 4.9795F;
             this.label63.Width = 0.4375F;
             // 
             // line42
@@ -1014,12 +1013,12 @@ namespace RSMPS
             this.line42.Left = 2.1245F;
             this.line42.LineWeight = 1F;
             this.line42.Name = "line42";
-            this.line42.Top = 4.927F;
+            this.line42.Top = 4.49F;
             this.line42.Width = 3.25F;
             this.line42.X1 = 2.1245F;
             this.line42.X2 = 5.3745F;
-            this.line42.Y1 = 4.927F;
-            this.line42.Y2 = 4.927F;
+            this.line42.Y1 = 4.49F;
+            this.line42.Y2 = 4.49F;
             // 
             // line43
             // 
@@ -1027,12 +1026,12 @@ namespace RSMPS
             this.line43.Left = 2.1245F;
             this.line43.LineWeight = 1F;
             this.line43.Name = "line43";
-            this.line43.Top = 5.292F;
+            this.line43.Top = 4.855F;
             this.line43.Width = 3.25F;
             this.line43.X1 = 2.1245F;
             this.line43.X2 = 5.3745F;
-            this.line43.Y1 = 5.292F;
-            this.line43.Y2 = 5.292F;
+            this.line43.Y1 = 4.855F;
+            this.line43.Y2 = 4.855F;
             // 
             // line44
             // 
@@ -1040,12 +1039,12 @@ namespace RSMPS
             this.line44.Left = 2.124F;
             this.line44.LineWeight = 1F;
             this.line44.Name = "line44";
-            this.line44.Top = 5.6665F;
+            this.line44.Top = 5.2295F;
             this.line44.Width = 3.25F;
             this.line44.X1 = 2.124F;
             this.line44.X2 = 5.374F;
-            this.line44.Y1 = 5.6665F;
-            this.line44.Y2 = 5.6665F;
+            this.line44.Y1 = 5.2295F;
+            this.line44.Y2 = 5.2295F;
             // 
             // line45
             // 
@@ -1053,12 +1052,12 @@ namespace RSMPS
             this.line45.Left = 5.937F;
             this.line45.LineWeight = 1F;
             this.line45.Name = "line45";
-            this.line45.Top = 4.927F;
+            this.line45.Top = 4.49F;
             this.line45.Width = 1.2125F;
             this.line45.X1 = 5.937F;
             this.line45.X2 = 7.1495F;
-            this.line45.Y1 = 4.927F;
-            this.line45.Y2 = 4.927F;
+            this.line45.Y1 = 4.49F;
+            this.line45.Y2 = 4.49F;
             // 
             // line46
             // 
@@ -1066,12 +1065,12 @@ namespace RSMPS
             this.line46.Left = 5.937F;
             this.line46.LineWeight = 1F;
             this.line46.Name = "line46";
-            this.line46.Top = 5.292F;
+            this.line46.Top = 4.855F;
             this.line46.Width = 1.2125F;
             this.line46.X1 = 5.937F;
             this.line46.X2 = 7.1495F;
-            this.line46.Y1 = 5.292F;
-            this.line46.Y2 = 5.292F;
+            this.line46.Y1 = 4.855F;
+            this.line46.Y2 = 4.855F;
             // 
             // line47
             // 
@@ -1079,12 +1078,12 @@ namespace RSMPS
             this.line47.Left = 5.9365F;
             this.line47.LineWeight = 1F;
             this.line47.Name = "line47";
-            this.line47.Top = 5.6665F;
+            this.line47.Top = 5.2295F;
             this.line47.Width = 1.2125F;
             this.line47.X1 = 5.9365F;
             this.line47.X2 = 7.149F;
-            this.line47.Y1 = 5.6665F;
-            this.line47.Y2 = 5.6665F;
+            this.line47.Y1 = 5.2295F;
+            this.line47.Y2 = 5.2295F;
             // 
             // label64
             // 
@@ -1094,7 +1093,7 @@ namespace RSMPS
             this.label64.Name = "label64";
             this.label64.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.label64.Text = "Client Authorization";
-            this.label64.Top = 6.238F;
+            this.label64.Top = 5.801F;
             this.label64.Width = 2.6875F;
             // 
             // label65
@@ -1105,7 +1104,7 @@ namespace RSMPS
             this.label65.Name = "label65";
             this.label65.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.label65.Text = "Date:";
-            this.label65.Top = 6.238F;
+            this.label65.Top = 5.801F;
             this.label65.Width = 0.4375F;
             // 
             // line48
@@ -1114,12 +1113,12 @@ namespace RSMPS
             this.line48.Left = 2.125F;
             this.line48.LineWeight = 1F;
             this.line48.Name = "line48";
-            this.line48.Top = 6.488F;
+            this.line48.Top = 6.051F;
             this.line48.Width = 3.25F;
             this.line48.X1 = 2.125F;
             this.line48.X2 = 5.375F;
-            this.line48.Y1 = 6.488F;
-            this.line48.Y2 = 6.488F;
+            this.line48.Y1 = 6.051F;
+            this.line48.Y2 = 6.051F;
             // 
             // line49
             // 
@@ -1127,12 +1126,12 @@ namespace RSMPS
             this.line49.Left = 5.9375F;
             this.line49.LineWeight = 1F;
             this.line49.Name = "line49";
-            this.line49.Top = 6.488F;
+            this.line49.Top = 6.051F;
             this.line49.Width = 1.2125F;
             this.line49.X1 = 5.9375F;
             this.line49.X2 = 7.15F;
-            this.line49.Y1 = 6.488F;
-            this.line49.Y2 = 6.488F;
+            this.line49.Y1 = 6.051F;
+            this.line49.Y2 = 6.051F;
             // 
             // line1
             // 
@@ -1167,7 +1166,7 @@ namespace RSMPS
             this.chkScopeDel.Name = "chkScopeDel";
             this.chkScopeDel.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.chkScopeDel.Text = "Scope Deletion";
-            this.chkScopeDel.Top = 1.4375F;
+            this.chkScopeDel.Top = 1.385F;
             this.chkScopeDel.Width = 1.375F;
             // 
             // label1
@@ -1213,7 +1212,7 @@ namespace RSMPS
             this.label4.Name = "label4";
             this.label4.Style = "";
             this.label4.Text = "$";
-            this.label4.Top = 2.5625F;
+            this.label4.Top = 2.312F;
             this.label4.Width = 0.1875F;
             // 
             // label13
@@ -1224,7 +1223,7 @@ namespace RSMPS
             this.label13.Name = "label13";
             this.label13.Style = "";
             this.label13.Text = "$";
-            this.label13.Top = 2.8125F;
+            this.label13.Top = 2.562F;
             this.label13.Width = 0.1875F;
             // 
             // label14
@@ -1235,7 +1234,7 @@ namespace RSMPS
             this.label14.Name = "label14";
             this.label14.Style = "";
             this.label14.Text = "(+/- %)";
-            this.label14.Top = 2.8125F;
+            this.label14.Top = 2.562F;
             this.label14.Width = 0.5F;
             // 
             // label15
@@ -1246,7 +1245,7 @@ namespace RSMPS
             this.label15.Name = "label15";
             this.label15.Style = "font-family: Times New Roman; font-size: 12pt";
             this.label15.Text = "HGA Relationship Manager";
-            this.label15.Top = 5.789001F;
+            this.label15.Top = 5.352001F;
             this.label15.Width = 2.6875F;
             // 
             // label18
@@ -1257,7 +1256,7 @@ namespace RSMPS
             this.label18.Name = "label18";
             this.label18.Style = "font-family: Times New Roman; font-size: 12pt";
             this.label18.Text = "Date:";
-            this.label18.Top = 5.789001F;
+            this.label18.Top = 5.352001F;
             this.label18.Width = 0.4375F;
             // 
             // line9
@@ -1266,12 +1265,12 @@ namespace RSMPS
             this.line9.Left = 2.1235F;
             this.line9.LineWeight = 1F;
             this.line9.Name = "line9";
-            this.line9.Top = 6.039001F;
+            this.line9.Top = 5.602001F;
             this.line9.Width = 3.249999F;
             this.line9.X1 = 2.1235F;
             this.line9.X2 = 5.373499F;
-            this.line9.Y1 = 6.039001F;
-            this.line9.Y2 = 6.039001F;
+            this.line9.Y1 = 5.602001F;
+            this.line9.Y2 = 5.602001F;
             // 
             // line10
             // 
@@ -1279,12 +1278,12 @@ namespace RSMPS
             this.line10.Left = 5.935999F;
             this.line10.LineWeight = 1F;
             this.line10.Name = "line10";
-            this.line10.Top = 6.039001F;
+            this.line10.Top = 5.602001F;
             this.line10.Width = 1.2125F;
             this.line10.X1 = 5.935999F;
             this.line10.X2 = 7.148499F;
-            this.line10.Y1 = 6.039001F;
-            this.line10.Y2 = 6.039001F;
+            this.line10.Y1 = 5.602001F;
+            this.line10.Y2 = 5.602001F;
             // 
             // PageHeader
             // 

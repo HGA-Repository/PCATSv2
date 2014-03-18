@@ -29,7 +29,7 @@ namespace RSMPS
         private void InitializeComponent()
         {
             this.viewer1 = new GrapeCity.ActiveReports.Viewer.Win.Viewer();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            //this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // viewer1
@@ -45,17 +45,17 @@ namespace RSMPS
             this.viewer1.ReportViewer.ViewType = GrapeCity.Viewer.Common.Model.ViewType.SinglePage;
             this.viewer1.Size = new System.Drawing.Size(733, 634);
             this.viewer1.TabIndex = 0;
-           // this.viewer1.TableOfContents.Text = "Table Of Contents";
+           // - obsolete code this.viewer1.TableOfContents.Text = "Table Of Contents";
             this.viewer1.TableOfContents.Width = 200;
-            //this.viewer1.TabTitleLength = 35;
+            // - obsolete code this.viewer1.TabTitleLength = 35;
             this.viewer1.Toolbar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //this.viewer1.ToolClick += new GrapeCity.ActiveReports.Toolbar.ToolClickEventHandler(this.viewer1_ToolClick);
+            // - obsolete code this.viewer1.ToolClick += new GrapeCity.ActiveReports.Toolbar.ToolClickEventHandler(this.viewer1_ToolClick);
             // 
             // saveFileDialog1
             // 
-            this.saveFileDialog1.DefaultExt = "xls";
-            this.saveFileDialog1.Filter = "Excel|*.xls|Excel 07|*.xlsx";
-            this.saveFileDialog1.Title = "Save to XLS file";
+            //this.saveFileDialog1.DefaultExt = "xls";
+            //this.saveFileDialog1.Filter = "Excel|*.xls|Excel 07|*.xlsx";
+            //this.saveFileDialog1.Title = "Save to XLS file";
             // 
             // FPreviewAR
             // 
