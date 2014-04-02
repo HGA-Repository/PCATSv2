@@ -92,48 +92,19 @@ namespace RSMPS
                 mdsForecast.Tables["ForeCast"].Rows.Add(d);
             }
 
-            //d = mdsForecast.Tables["Forecast"].NewRow();
-            //d["AcctGroup"] = "Expense";
-            //d["FTCHrs"] = 0;
-            //d["FTCRate"] = 0;
-
-            //mdsForecast.Tables["ForeCast"].Rows.Add(d);
+         
 
 
             dr.Close();
             cnn.CloseConnection();
 
-            //tdbgForecast.SetDataBinding(mdsForecast, "Forecast", true);
-            //bttUpdate.Enabled = false;
+            
             LoadExpenseGroups();
         }
 
         private void LoadExpenseGroups()
         {
-            //RevSol.RSConnection cnn;
-            //SqlDataReader dr;
-            //SqlCommand cmd;
-            //DataRow d;
-
-            //cnn = new RevSol.RSConnection();
-            //cmd = new SqlCommand("spAcctEGroup_ListAll", cnn.GetConnection());
-            //cmd.CommandType = CommandType.StoredProcedure;
-
-            //dr = cmd.ExecuteReader();
-
-            //while (dr.Read())
-            //{
-            //    d = mdsForecast.Tables["Forecast"].NewRow();
-
-            //    d["AcctGroup"] = dr["AcctNumber"];
-            //    d["FTCHrs"] = 0;
-            //    d["FTCRate"] = 0;
-
-            //    mdsForecast.Tables["ForeCast"].Rows.Add(d);
-            //}
-
-            //dr.Close();
-            //cnn.CloseConnection();
+           
 
             tdbgForecast.SetDataBinding(mdsForecast, "Forecast", true);
             bttUpdate.Enabled = false;
@@ -150,7 +121,6 @@ namespace RSMPS
 
             LoadCurrentGroups();
 
-            // retrieve report for current project
             LoadReportForProject(rprtCase);
         }
 
@@ -233,10 +203,7 @@ namespace RSMPS
             forecastID = Convert.ToInt32(cmd.Parameters["@ForecastID"].Value);
 
             specGrp = 0;
-            //if (CheckForPipeline(msCurrProj) == true)
-            //    specGrp = 1;
-            //else
-            //    specGrp = 0;
+          
 
             if (proj.UseAllGroups() == true)
                 specGrp = 0;
@@ -252,11 +219,7 @@ namespace RSMPS
                 cmd = new SqlCommand("spForecastToComplete_Insert2_Vision", cnn.GetConnection());
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                //@ForecastID	int,
-                //@AccountGroup	varchar(50),
-                //@ForecastHrs	money,
-                //@ForecastDlrs	money
-
+           
                 prm = cmd.Parameters.Add("@ForecastID", SqlDbType.Int);
                 prm.Value = forecastID;
                 prm = cmd.Parameters.Add("@AccountGroup", SqlDbType.VarChar, 50);

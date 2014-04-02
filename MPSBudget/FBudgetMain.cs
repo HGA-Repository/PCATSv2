@@ -125,6 +125,7 @@ namespace RSMPS
         public FBudgetMain( int project_id )
         {
             InitializeComponent();
+            
             this.ReloadForm = false;
             _Groups = CBActivityCodeDisc.GetAllForProject(project_id).ToList();
             if (_Groups.Count() == 0) _Groups.Add(CBActivityCodeDisc.GetAll().ToList().First());

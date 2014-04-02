@@ -78,8 +78,6 @@ namespace RSMPS
             this.GroupHeader1 = new GrapeCity.ActiveReports.SectionReportModel.GroupHeader();
             this.SubReport = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
             this.Label1 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.RichTextBox = new GrapeCity.ActiveReports.SectionReportModel.RichTextBox();
-            this.Label2 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.Label3 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.Label4 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.RichTextBox1 = new GrapeCity.ActiveReports.SectionReportModel.RichTextBox();
@@ -92,7 +90,6 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.lblDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label5)).BeginInit();
@@ -100,7 +97,6 @@ namespace RSMPS
             // 
             // Detail
             // 
-            this.Detail.ColumnSpacing = 0F;
             this.Detail.Height = 0F;
             this.Detail.Name = "Detail";
             // 
@@ -177,7 +173,6 @@ namespace RSMPS
             // 
             // ReportFooter
             // 
-            this.ReportFooter.Height = 0.25F;
             this.ReportFooter.Name = "ReportFooter";
             // 
             // PageHeader
@@ -195,8 +190,6 @@ namespace RSMPS
             this.GroupHeader1.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.SubReport,
             this.Label1,
-            this.RichTextBox,
-            this.Label2,
             this.Label3,
             this.Label4,
             this.RichTextBox1,
@@ -230,30 +223,6 @@ namespace RSMPS
             this.Label1.Top = 0F;
             this.Label1.Width = 6.5625F;
             // 
-            // RichTextBox
-            // 
-            this.RichTextBox.AutoReplaceFields = true;
-            this.RichTextBox.DataField = "ClientFeedback";
-            this.RichTextBox.Font = new System.Drawing.Font("Arial", 10F);
-            this.RichTextBox.Height = 0.3125F;
-            this.RichTextBox.Left = 0.3125F;
-            this.RichTextBox.Name = "RichTextBox";
-            this.RichTextBox.RTF = resources.GetString("RichTextBox.RTF");
-            this.RichTextBox.Top = 1.25F;
-            this.RichTextBox.Width = 7.4375F;
-            // 
-            // Label2
-            // 
-            this.Label2.Height = 0.25F;
-            this.Label2.HyperLink = null;
-            this.Label2.Left = 0F;
-            this.Label2.Name = "Label2";
-            this.Label2.Style = "font-family: Times New Roman; font-size: 14.25pt; font-weight: bold; text-decorat" +
-    "ion: underline";
-            this.Label2.Text = "II.  Client Feedback";
-            this.Label2.Top = 0.9479167F;
-            this.Label2.Width = 6.5625F;
-            // 
             // Label3
             // 
             this.Label3.Height = 0.25F;
@@ -262,8 +231,8 @@ namespace RSMPS
             this.Label3.Name = "Label3";
             this.Label3.Style = "font-family: Times New Roman; font-size: 14.25pt; font-weight: bold; text-decorat" +
     "ion: underline";
-            this.Label3.Text = "III.  Quality Improvements / Suggestions for Improvement";
-            this.Label3.Top = 1.635417F;
+            this.Label3.Text = "II.  Quality Improvements / Suggestions for Improvement";
+            this.Label3.Top = 0.8750001F;
             this.Label3.Width = 6.5625F;
             // 
             // Label4
@@ -274,8 +243,8 @@ namespace RSMPS
             this.Label4.Name = "Label4";
             this.Label4.Style = "font-family: Times New Roman; font-size: 14.25pt; font-weight: bold; text-decorat" +
     "ion: underline";
-            this.Label4.Text = "IV.  New Work / Proposals";
-            this.Label4.Top = 2.3125F;
+            this.Label4.Text = "III.  New Work / Proposals";
+            this.Label4.Top = 1.552083F;
             this.Label4.Width = 6.5625F;
             // 
             // RichTextBox1
@@ -287,7 +256,7 @@ namespace RSMPS
             this.RichTextBox1.Left = 0.3125F;
             this.RichTextBox1.Name = "RichTextBox1";
             this.RichTextBox1.RTF = resources.GetString("RichTextBox1.RTF");
-            this.RichTextBox1.Top = 1.9375F;
+            this.RichTextBox1.Top = 1.177083F;
             this.RichTextBox1.Width = 7.4375F;
             // 
             // RichTextBox2
@@ -299,7 +268,7 @@ namespace RSMPS
             this.RichTextBox2.Left = 0.3125F;
             this.RichTextBox2.Name = "RichTextBox2";
             this.RichTextBox2.RTF = resources.GetString("RichTextBox2.RTF");
-            this.RichTextBox2.Top = 2.625F;
+            this.RichTextBox2.Top = 1.864583F;
             this.RichTextBox2.Width = 7.4375F;
             // 
             // Label5
@@ -311,7 +280,7 @@ namespace RSMPS
             this.Label5.Style = "font-family: Times New Roman; font-size: 14.25pt; font-weight: bold; text-decorat" +
     "ion: underline";
             this.Label5.Text = "Distribution List";
-            this.Label5.Top = 3F;
+            this.Label5.Top = 2.239583F;
             this.Label5.Width = 6.5625F;
             // 
             // RichTextBox3
@@ -323,7 +292,7 @@ namespace RSMPS
             this.RichTextBox3.Left = 0.3125F;
             this.RichTextBox3.Name = "RichTextBox3";
             this.RichTextBox3.RTF = resources.GetString("RichTextBox3.RTF");
-            this.RichTextBox3.Top = 3.3125F;
+            this.RichTextBox3.Top = 2.552083F;
             this.RichTextBox3.Width = 7.4375F;
             // 
             // GroupFooter1
@@ -367,7 +336,6 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.lblDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label5)).EndInit();
@@ -387,8 +355,6 @@ namespace RSMPS
         private GroupHeader GroupHeader1;
         private SubReport SubReport;
         private Label Label1;
-        private RichTextBox RichTextBox;
-        private Label Label2;
         private Label Label3;
         private Label Label4;
         private RichTextBox RichTextBox1;

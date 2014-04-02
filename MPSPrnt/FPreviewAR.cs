@@ -8,8 +8,6 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using GrapeCity.ActiveReports;
 
-
-
 namespace RSMPS
 {
     public partial class FPreviewAR : Form
@@ -19,11 +17,7 @@ namespace RSMPS
         public FPreviewAR()
         {
             InitializeComponent();
-
-            ExportToolStripButton button = new ExportToolStripButton(viewer1);
-            //button.AvailableExports.Remove("PDF");
-            viewer1.Toolbar.ToolStrip.Items.Insert(3, button);
-                               
+                                     
         }
 
         public void ViewReport(SectionReport ar)

@@ -25,12 +25,7 @@ namespace RSMPS
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //linkLabel1.LinkVisited = true;
-            //System.Diagnostics.Process.Start("mailto:ragava@fastmail.ca");
-
-            //linkLabel1.LinkVisited = true;
-            //System.Diagnostics.Process.Start("mailto:tim@revsol.net?Subject=MPS Scheduling");
-            //SSS 20131030
+         
             linkLabel1.LinkVisited = true;
             System.Diagnostics.Process.Start("mailto:administrator@hga-llc.com?Subject=PCATS Application Issue");
         }
