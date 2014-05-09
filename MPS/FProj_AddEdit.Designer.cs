@@ -74,6 +74,8 @@ namespace RSMPS
             this.label5 = new System.Windows.Forms.Label();
             this.bttCancel = new System.Windows.Forms.Button();
             this.bttOK = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cboManagerLead = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -138,8 +140,8 @@ namespace RSMPS
             // 
             // txtNumber
             // 
-            this.txtNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNumber.Location = new System.Drawing.Point(75, 19);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Size = new System.Drawing.Size(200, 20);
@@ -148,8 +150,8 @@ namespace RSMPS
             // 
             // txtDescription
             // 
-            this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDescription.Location = new System.Drawing.Point(75, 45);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(200, 20);
@@ -158,8 +160,8 @@ namespace RSMPS
             // 
             // cboCustomer
             // 
-            this.cboCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboCustomer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.cboCustomer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboCustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -172,8 +174,8 @@ namespace RSMPS
             // 
             // cboManager
             // 
-            this.cboManager.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboManager.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboManager.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.cboManager.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboManager.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -186,12 +188,12 @@ namespace RSMPS
             // 
             // rtbNotes
             // 
-            this.rtbNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbNotes.Location = new System.Drawing.Point(9, 19);
             this.rtbNotes.Name = "rtbNotes";
-            this.rtbNotes.Size = new System.Drawing.Size(266, 285);
+            this.rtbNotes.Size = new System.Drawing.Size(266, 315);
             this.rtbNotes.TabIndex = 0;
             this.rtbNotes.Text = "";
             this.rtbNotes.TextChanged += new System.EventHandler(this.rtbNotes_TextChanged);
@@ -216,8 +218,10 @@ namespace RSMPS
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.cboManagerLead);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.txtCustomerNumber);
             this.groupBox1.Controls.Add(this.txtOverlay);
@@ -243,7 +247,7 @@ namespace RSMPS
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(287, 285);
+            this.groupBox1.Size = new System.Drawing.Size(287, 337);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Description";
@@ -259,8 +263,8 @@ namespace RSMPS
             // 
             // txtCustomerNumber
             // 
-            this.txtCustomerNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCustomerNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCustomerNumber.Location = new System.Drawing.Point(75, 98);
             this.txtCustomerNumber.Name = "txtCustomerNumber";
             this.txtCustomerNumber.Size = new System.Drawing.Size(200, 20);
@@ -269,9 +273,9 @@ namespace RSMPS
             // 
             // txtOverlay
             // 
-            this.txtOverlay.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtOverlay.Location = new System.Drawing.Point(227, 232);
+            this.txtOverlay.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtOverlay.Location = new System.Drawing.Point(227, 274);
             this.txtOverlay.Name = "txtOverlay";
             this.txtOverlay.Size = new System.Drawing.Size(48, 20);
             this.txtOverlay.TabIndex = 19;
@@ -281,9 +285,9 @@ namespace RSMPS
             // 
             // txtMultiplier
             // 
-            this.txtMultiplier.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMultiplier.Location = new System.Drawing.Point(127, 232);
+            this.txtMultiplier.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMultiplier.Location = new System.Drawing.Point(127, 274);
             this.txtMultiplier.Name = "txtMultiplier";
             this.txtMultiplier.Size = new System.Drawing.Size(48, 20);
             this.txtMultiplier.TabIndex = 17;
@@ -294,7 +298,7 @@ namespace RSMPS
             // lblOverlay
             // 
             this.lblOverlay.AutoSize = true;
-            this.lblOverlay.Location = new System.Drawing.Point(180, 236);
+            this.lblOverlay.Location = new System.Drawing.Point(180, 278);
             this.lblOverlay.Name = "lblOverlay";
             this.lblOverlay.Size = new System.Drawing.Size(46, 13);
             this.lblOverlay.TabIndex = 18;
@@ -304,7 +308,7 @@ namespace RSMPS
             // lblMultiplier
             // 
             this.lblMultiplier.AutoSize = true;
-            this.lblMultiplier.Location = new System.Drawing.Point(72, 236);
+            this.lblMultiplier.Location = new System.Drawing.Point(72, 278);
             this.lblMultiplier.Name = "lblMultiplier";
             this.lblMultiplier.Size = new System.Drawing.Size(51, 13);
             this.lblMultiplier.TabIndex = 16;
@@ -314,7 +318,7 @@ namespace RSMPS
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 209);
+            this.label11.Location = new System.Drawing.Point(6, 251);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(67, 13);
             this.label11.TabIndex = 14;
@@ -322,13 +326,13 @@ namespace RSMPS
             // 
             // cboRateSched
             // 
-            this.cboRateSched.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboRateSched.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboRateSched.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.cboRateSched.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboRateSched.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboRateSched.FormattingEnabled = true;
-            this.cboRateSched.Location = new System.Drawing.Point(75, 205);
+            this.cboRateSched.Location = new System.Drawing.Point(75, 247);
             this.cboRateSched.Name = "cboRateSched";
             this.cboRateSched.Size = new System.Drawing.Size(200, 21);
             this.cboRateSched.TabIndex = 15;
@@ -337,7 +341,7 @@ namespace RSMPS
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 182);
+            this.label10.Location = new System.Drawing.Point(6, 224);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(56, 13);
             this.label10.TabIndex = 12;
@@ -345,13 +349,13 @@ namespace RSMPS
             // 
             // cboRelationship
             // 
-            this.cboRelationship.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboRelationship.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboRelationship.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.cboRelationship.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboRelationship.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboRelationship.FormattingEnabled = true;
-            this.cboRelationship.Location = new System.Drawing.Point(75, 178);
+            this.cboRelationship.Location = new System.Drawing.Point(75, 220);
             this.cboRelationship.Name = "cboRelationship";
             this.cboRelationship.Size = new System.Drawing.Size(200, 21);
             this.cboRelationship.TabIndex = 13;
@@ -360,7 +364,7 @@ namespace RSMPS
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 262);
+            this.label9.Location = new System.Drawing.Point(6, 304);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(64, 13);
             this.label9.TabIndex = 20;
@@ -368,9 +372,9 @@ namespace RSMPS
             // 
             // txtPOAmount
             // 
-            this.txtPOAmount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPOAmount.Location = new System.Drawing.Point(75, 258);
+            this.txtPOAmount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPOAmount.Location = new System.Drawing.Point(75, 300);
             this.txtPOAmount.Name = "txtPOAmount";
             this.txtPOAmount.Size = new System.Drawing.Size(200, 20);
             this.txtPOAmount.TabIndex = 21;
@@ -387,8 +391,8 @@ namespace RSMPS
             // 
             // cboLocation
             // 
-            this.cboLocation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboLocation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboLocation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.cboLocation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboLocation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -452,8 +456,8 @@ namespace RSMPS
             // 
             // cboMasterJobs
             // 
-            this.cboMasterJobs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboMasterJobs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboMasterJobs.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.cboMasterJobs.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboMasterJobs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -521,13 +525,13 @@ namespace RSMPS
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.rtbNotes);
-            this.groupBox3.Location = new System.Drawing.Point(12, 303);
+            this.groupBox3.Location = new System.Drawing.Point(12, 355);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(287, 318);
+            this.groupBox3.Size = new System.Drawing.Size(287, 348);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Notes";
@@ -537,8 +541,8 @@ namespace RSMPS
             this.tdbgBudget.AllowColMove = false;
             this.tdbgBudget.AllowFilter = false;
             this.tdbgBudget.AllowSort = false;
-            this.tdbgBudget.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tdbgBudget.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tdbgBudget.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tdbgBudget.GroupByCaption = "Drag a column header here to group by that column";
             this.tdbgBudget.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbgBudget.Images"))));
@@ -546,9 +550,9 @@ namespace RSMPS
             this.tdbgBudget.Name = "tdbgBudget";
             this.tdbgBudget.PreviewInfo.Location = new System.Drawing.Point(0, 0);
             this.tdbgBudget.PreviewInfo.Size = new System.Drawing.Size(0, 0);
-            this.tdbgBudget.PreviewInfo.ZoomFactor = 75;
+            this.tdbgBudget.PreviewInfo.ZoomFactor = 75D;
             this.tdbgBudget.PrintInfo.PageSettings = ((System.Drawing.Printing.PageSettings)(resources.GetObject("tdbgBudget.PrintInfo.PageSettings")));
-            this.tdbgBudget.Size = new System.Drawing.Size(190, 259);
+            this.tdbgBudget.Size = new System.Drawing.Size(190, 289);
             this.tdbgBudget.TabIndex = 0;
             this.tdbgBudget.Text = "c1TrueDBGrid1";
             this.tdbgBudget.AfterColUpdate += new C1.Win.C1TrueDBGrid.ColEventHandler(this.tdbgBudget_AfterColUpdate);
@@ -556,14 +560,14 @@ namespace RSMPS
             // 
             // groupBox4
             // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.txtBudgetTotal);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.tdbgBudget);
-            this.groupBox4.Location = new System.Drawing.Point(305, 303);
+            this.groupBox4.Location = new System.Drawing.Point(305, 355);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(210, 318);
+            this.groupBox4.Size = new System.Drawing.Size(210, 348);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Budget";
@@ -571,7 +575,7 @@ namespace RSMPS
             // txtBudgetTotal
             // 
             this.txtBudgetTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBudgetTotal.Location = new System.Drawing.Point(99, 284);
+            this.txtBudgetTotal.Location = new System.Drawing.Point(99, 314);
             this.txtBudgetTotal.Name = "txtBudgetTotal";
             this.txtBudgetTotal.ReadOnly = true;
             this.txtBudgetTotal.Size = new System.Drawing.Size(100, 20);
@@ -583,7 +587,7 @@ namespace RSMPS
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(59, 287);
+            this.label5.Location = new System.Drawing.Point(59, 317);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(34, 13);
             this.label5.TabIndex = 1;
@@ -592,7 +596,7 @@ namespace RSMPS
             // bttCancel
             // 
             this.bttCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bttCancel.Location = new System.Drawing.Point(437, 636);
+            this.bttCancel.Location = new System.Drawing.Point(437, 709);
             this.bttCancel.Name = "bttCancel";
             this.bttCancel.Size = new System.Drawing.Size(78, 30);
             this.bttCancel.TabIndex = 5;
@@ -603,7 +607,7 @@ namespace RSMPS
             // bttOK
             // 
             this.bttOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bttOK.Location = new System.Drawing.Point(353, 636);
+            this.bttOK.Location = new System.Drawing.Point(353, 709);
             this.bttOK.Name = "bttOK";
             this.bttOK.Size = new System.Drawing.Size(78, 30);
             this.bttOK.TabIndex = 4;
@@ -611,11 +615,35 @@ namespace RSMPS
             this.bttOK.UseVisualStyleBackColor = true;
             this.bttOK.Click += new System.EventHandler(this.bttOK_Click);
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 182);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(53, 13);
+            this.label14.TabIndex = 22;
+            this.label14.Text = "Lead PM:";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
+            // 
+            // CBOManagerLead
+            // 
+            this.cboManagerLead.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboManagerLead.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.cboManagerLead.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboManagerLead.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboManagerLead.FormattingEnabled = true;
+            this.cboManagerLead.Location = new System.Drawing.Point(75, 178);
+            this.cboManagerLead.Name = "cboManagerLead";
+            this.cboManagerLead.Size = new System.Drawing.Size(200, 21);
+            this.cboManagerLead.TabIndex = 23;
+            this.cboManagerLead.SelectedIndexChanged += new System.EventHandler(this.cboManagerLead_SelectedIndexChanged);
+            // 
             // FProj_AddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(529, 674);
+            this.ClientSize = new System.Drawing.Size(529, 742);
             this.ControlBox = false;
             this.Controls.Add(this.bttOK);
             this.Controls.Add(this.bttCancel);
@@ -690,5 +718,7 @@ namespace RSMPS
         private System.Windows.Forms.CheckBox chkIsMaster;
         private System.Windows.Forms.ComboBox cboReportStatus;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox cboManagerLead;
     }
 }

@@ -47,6 +47,7 @@ namespace RSMPS
             cboCustomer.Text = "";
             txtCustomerNumber.Text = "";
             cboManager.Text = "";
+            cboManagerLead.Text = "";
             lblMultiplier.Visible = false;
             txtMultiplier.Visible = false;
             txtMultiplier.Text = "1.85";
@@ -151,6 +152,7 @@ namespace RSMPS
              dr = CBEmployee.GetListProjectManagers();
 
             cboManager.Items.Clear();
+            cboManagerLead.Items.Clear();
             while (dr.Read())
             {
                 li = new RSLib.COListItem();
@@ -159,6 +161,7 @@ namespace RSMPS
                 li.Description = dr["Name"].ToString();
 
                 cboManager.Items.Add(li);
+                cboManagerLead.Items.Add(li);
             }
 
             dr.Close();
@@ -279,6 +282,9 @@ namespace RSMPS
             e.Load(moProj.ProjMngrID);
             cboManager.Text = e.Name;
 
+            e.Load(moProj.LeadProjMngrID);
+            cboManagerLead.Text = e.Name;
+
             e.Load(moProj.RelationshipMngrID);
             cboRelationship.Text = e.Name;
 
@@ -359,6 +365,7 @@ namespace RSMPS
             moProj.CustomerID = getId(cboCustomer) ?? moProj.CustomerID;
             moProj.LocationID = getId(cboLocation) ?? moProj.LocationID;
             moProj.ProjMngrID = getId(cboManager) ?? moProj.ProjMngrID;
+            moProj.LeadProjMngrID = getId(cboManagerLead) ?? moProj.LeadProjMngrID;
             moProj.RelationshipMngrID = getId(cboRelationship) ?? moProj.RelationshipMngrID;
             moProj.RateSchedID = getId(cboRateSched) ?? moProj.RateSchedID;
 
@@ -480,7 +487,12 @@ namespace RSMPS
             else if (cboManager.Text.Length < 1)
             {
                 retVal = false;
-                msg = "Please select a manager.";
+                msg = "Please select a Project Manager.";
+            }
+            else if (cboManagerLead.Text.Length < 1)
+            {
+                retVal = false;
+                msg = "Please select a Lead Project Manager.";
             }
             else if (cboRateSched.Text.Length < 1)
             {
@@ -529,7 +541,10 @@ namespace RSMPS
         {
             mbItemChanged = true;
         }
-
+        private void cboManagerLead_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            mbItemChanged = true;
+        }
         private void rtbNotes_TextChanged(object sender, EventArgs e)
         {
             mbItemChanged = true;
@@ -692,6 +707,11 @@ namespace RSMPS
         private void cboReportStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             mbItemChanged = true;
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

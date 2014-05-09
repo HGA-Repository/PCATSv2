@@ -625,6 +625,7 @@ namespace RSMPS
         {
             var found = removed.FirstOrDefault(x => x.Activity == code);
             return found != null ? found.LoadedRate : DEFAULTRATE;
+
         }
 
 
@@ -863,7 +864,7 @@ namespace RSMPS
             string taskVal, catVal, actVal;
             int task, cat, act;
             int rowGrp;
-
+            
             taskVal = "";
             catVal = "";
             actVal = "";
@@ -1554,7 +1555,7 @@ namespace RSMPS
             bl.TotalHours = r[BUDCOL13].As<string>().ToInt() ?? 0;
             bl.LoadedRate = r[BUDCOL14].As<string>().ToInt() ?? 0;
             bl.TotalDollars = r[BUDCOL15].As<string>().ToInt() ?? 0;
-            
+                    
 
 
             bl.BareRate = 0;

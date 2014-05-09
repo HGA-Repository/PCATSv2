@@ -26,6 +26,7 @@ namespace RSMPS
             cnn = new RSLib.CDbConnection();
             cmd = new SqlCommand("spCustomer_ByID", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandTimeout = 60 * 2;
 
 
             prm = cmd.Parameters.Add("@ID", SqlDbType.Int);

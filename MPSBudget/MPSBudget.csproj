@@ -297,6 +297,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="dsAccts.xsc">
       <DependentUpon>dsAccts.xsd</DependentUpon>
     </None>

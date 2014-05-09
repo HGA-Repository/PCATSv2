@@ -45,6 +45,7 @@ namespace RSMPS
                 oVar.CustomerProjNumber = dr["CustomerProjNumber"].ToString();
                 oVar.LocationID = Convert.ToInt32(dr["LocationID"]);
                 oVar.ProjMngrID = Convert.ToInt32(dr["ProjMngrID"]);
+                oVar.LeadProjMngrID = Convert.ToInt32(dr["LeadProjMngrID"]);
                 oVar.RelationshipMngrID = Convert.ToInt32(dr["RelationshipMngrID"]);
                 oVar.RateSchedID = Convert.ToInt32(dr["RateSchedID"]);
                 oVar.Multiplier = Convert.ToDecimal(dr["Multiplier"]);
@@ -104,6 +105,7 @@ namespace RSMPS
                 oVar.CustomerProjNumber = dr["CustomerProjNumber"].ToString();
                 oVar.LocationID = Convert.ToInt32(dr["LocationID"]);
                 oVar.ProjMngrID = Convert.ToInt32(dr["ProjMngrID"]);
+                oVar.LeadProjMngrID = Convert.ToInt32(dr["LeadProjMngrID"]);
                 oVar.RelationshipMngrID = Convert.ToInt32(dr["RelationshipMngrID"]);
                 oVar.RateSchedID = Convert.ToInt32(dr["RateSchedID"]);
                 oVar.Multiplier = Convert.ToDecimal(dr["Multiplier"]);
@@ -195,6 +197,8 @@ namespace RSMPS
             prm.Value = oVar.LocationID;
             prm = cmd.Parameters.Add("@ProjMngrID", SqlDbType.Int);
             prm.Value = oVar.ProjMngrID;
+            prm = cmd.Parameters.Add("@LeadProjMngrID", SqlDbType.Int);
+            prm.Value = oVar.LeadProjMngrID;
             prm = cmd.Parameters.Add("@RelationshipMngrID", SqlDbType.Int);
             prm.Value = oVar.RelationshipMngrID;
             prm = cmd.Parameters.Add("@RateSchedID", SqlDbType.Int);
@@ -266,6 +270,8 @@ namespace RSMPS
             prm.Value = oVar.LocationID;
             prm = cmd.Parameters.Add("@ProjMngrID", SqlDbType.Int);
             prm.Value = oVar.ProjMngrID;
+            prm = cmd.Parameters.Add("@LeadProjMngrID", SqlDbType.Int);
+            prm.Value = oVar.LeadProjMngrID;
             prm = cmd.Parameters.Add("@RelationshipMngrID", SqlDbType.Int);
             prm.Value = oVar.RelationshipMngrID;
             prm = cmd.Parameters.Add("@RateSchedID", SqlDbType.Int);

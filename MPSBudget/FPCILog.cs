@@ -43,6 +43,7 @@ namespace RSMPS
             proj.Load(projID);
             cust.Load(proj.CustomerID);
             emp.Load(proj.ProjMngrID);
+            emp.Load(proj.LeadProjMngrID);
 
             txtClient.Text = cust.Name;
             txtProjName.Text = proj.Description;

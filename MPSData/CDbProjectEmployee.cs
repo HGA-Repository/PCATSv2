@@ -300,7 +300,7 @@ namespace RSMPS
             SqlParameter prm;
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spProjectEmployee_ListActiveWithHours2", cnn.GetConnection());
+            cmd = new SqlCommand("spProjectEmployee_ListActiveWithHours", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
             prm = cmd.Parameters.Add("@DepartmentID", SqlDbType.Int);

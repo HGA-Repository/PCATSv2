@@ -13,6 +13,7 @@ namespace RSMPS
         private string msCustomerProjNumber;
         private int miLocationID;
         private int miProjMngrID;
+        private int miLeadProjMngrID;
         private int miRelationshipMngrID;
         private int miRateSchedID;
         private decimal mdMultiplier;
@@ -73,7 +74,11 @@ namespace RSMPS
             get { return miProjMngrID; }
             set { miProjMngrID = value; }
         }
-
+        public int LeadProjMngrID
+        {
+            get { return miLeadProjMngrID; }
+            set { miLeadProjMngrID = value; }
+        }
         public int RelationshipMngrID
         {
             get { return miRelationshipMngrID; }
@@ -181,6 +186,7 @@ namespace RSMPS
             msCustomerProjNumber = "";
             miLocationID = 0;
             miProjMngrID = 0;
+            miLeadProjMngrID = 0;
             miRelationshipMngrID = 0;
             miRateSchedID = 0;
             mdMultiplier = 0;
@@ -208,6 +214,7 @@ namespace RSMPS
             oNew.CustomerProjNumber = msCustomerProjNumber;
             oNew.LocationID = miLocationID;
             oNew.ProjMngrID = miProjMngrID;
+            oNew.LeadProjMngrID = miLeadProjMngrID;
             oNew.RelationshipMngrID = miRelationshipMngrID;
             oNew.RateSchedID = miRateSchedID;
             oNew.Multiplier = mdMultiplier;
@@ -235,6 +242,7 @@ namespace RSMPS
             msCustomerProjNumber = oOrg.CustomerProjNumber;
             miLocationID = oOrg.LocationID;
             miProjMngrID = oOrg.ProjMngrID;
+            miLeadProjMngrID = oOrg.LeadProjMngrID;
             miRelationshipMngrID = oOrg.RelationshipMngrID;
             miRateSchedID = oOrg.RateSchedID;
             mdMultiplier = oOrg.Multiplier;

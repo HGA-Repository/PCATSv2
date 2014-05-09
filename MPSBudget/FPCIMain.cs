@@ -106,6 +106,7 @@ namespace RSMPS
 
                 proj.Load(miProject);
                 emp.Load(proj.ProjMngrID);
+                emp.Load(proj.LeadProjMngrID);
 
                 lblProjectNumber.Text = proj.Number;
                 lblProjectTitle.Text = proj.Description;

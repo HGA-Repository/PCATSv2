@@ -118,8 +118,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.txtBudgetTrend);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.txtBudgetDlrAdd);
@@ -248,8 +248,8 @@
             // 
             // txtProjectManager
             // 
-            this.txtProjectManager.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProjectManager.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtProjectManager.Location = new System.Drawing.Point(100, 123);
             this.txtProjectManager.Name = "txtProjectManager";
             this.txtProjectManager.ReadOnly = true;
@@ -258,8 +258,8 @@
             // 
             // txtClientNumber
             // 
-            this.txtClientNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtClientNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtClientNumber.Location = new System.Drawing.Point(100, 97);
             this.txtClientNumber.Name = "txtClientNumber";
             this.txtClientNumber.ReadOnly = true;
@@ -268,8 +268,8 @@
             // 
             // txtHGANumber
             // 
-            this.txtHGANumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtHGANumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtHGANumber.Location = new System.Drawing.Point(100, 71);
             this.txtHGANumber.Name = "txtHGANumber";
             this.txtHGANumber.ReadOnly = true;
@@ -278,8 +278,8 @@
             // 
             // txtProjName
             // 
-            this.txtProjName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProjName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtProjName.Location = new System.Drawing.Point(100, 45);
             this.txtProjName.Name = "txtProjName";
             this.txtProjName.ReadOnly = true;
@@ -288,8 +288,8 @@
             // 
             // txtClient
             // 
-            this.txtClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtClient.Location = new System.Drawing.Point(100, 19);
             this.txtClient.Name = "txtClient";
             this.txtClient.ReadOnly = true;
@@ -344,9 +344,9 @@
             // tdbgPCNLogs
             // 
             this.tdbgPCNLogs.AllowSort = false;
-            this.tdbgPCNLogs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tdbgPCNLogs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tdbgPCNLogs.ContextMenuStrip = this.contextMenuStrip1;
             this.tdbgPCNLogs.GroupByCaption = "Drag a column header here to group by that column";
             this.tdbgPCNLogs.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbgPCNLogs.Images"))));
@@ -354,7 +354,7 @@
             this.tdbgPCNLogs.Name = "tdbgPCNLogs";
             this.tdbgPCNLogs.PreviewInfo.Location = new System.Drawing.Point(0, 0);
             this.tdbgPCNLogs.PreviewInfo.Size = new System.Drawing.Size(0, 0);
-            this.tdbgPCNLogs.PreviewInfo.ZoomFactor = 75;
+            this.tdbgPCNLogs.PreviewInfo.ZoomFactor = 75D;
             this.tdbgPCNLogs.PrintInfo.PageSettings = ((System.Drawing.Printing.PageSettings)(resources.GetObject("tdbgPCNLogs.PrintInfo.PageSettings")));
             this.tdbgPCNLogs.Size = new System.Drawing.Size(902, 397);
             this.tdbgPCNLogs.TabIndex = 3;
@@ -369,13 +369,13 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openCurrentPCNToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(175, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(174, 26);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // openCurrentPCNToolStripMenuItem
             // 
             this.openCurrentPCNToolStripMenuItem.Name = "openCurrentPCNToolStripMenuItem";
-            this.openCurrentPCNToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.openCurrentPCNToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.openCurrentPCNToolStripMenuItem.Text = "Open Current PCN";
             this.openCurrentPCNToolStripMenuItem.Click += new System.EventHandler(this.openCurrentPCNToolStripMenuItem_Click);
             // 

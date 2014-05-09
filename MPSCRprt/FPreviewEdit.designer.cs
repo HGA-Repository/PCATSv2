@@ -57,9 +57,7 @@ namespace RSMPS
             this.viewer1.ReportViewer.ViewType = GrapeCity.Viewer.Common.Model.ViewType.SinglePage;
             this.viewer1.Size = new System.Drawing.Size(718, 665);
             this.viewer1.TabIndex = 0;
-            this.viewer1.TableOfContents.Text = "Table Of Contents";
             this.viewer1.TableOfContents.Width = 200;
-            this.viewer1.TabTitleLength = 35;
             this.viewer1.Toolbar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // tdbgForecast
