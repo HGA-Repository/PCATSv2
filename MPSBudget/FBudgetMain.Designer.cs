@@ -81,7 +81,7 @@ namespace RSMPS
             this.bttEditPCN = new System.Windows.Forms.Button();
             this.bttAddPCN = new System.Windows.Forms.Button();
             this.tdbgBudgetPCN = new C1.Win.C1TrueDBGrid.C1TrueDBGrid();
-            //this.tbpClarifications = new System.Windows.Forms.TabPage();
+            this.tbpClarifications = new System.Windows.Forms.TabPage();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -151,7 +151,7 @@ namespace RSMPS
             this.tbpPCN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tdbdPCNStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tdbgBudgetPCN)).BeginInit();
-           // this.tbpClarifications.SuspendLayout();
+            this.tbpClarifications.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).BeginInit();
@@ -449,7 +449,7 @@ namespace RSMPS
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.tabControl1.Controls.Add(this.tbpPCN);
-            //this.tabControl1.Controls.Add(this.tbpClarifications);
+            this.tabControl1.Controls.Add(this.tbpClarifications);
             this.tabControl1.ItemSize = new System.Drawing.Size(105, 30);
             this.tabControl1.Location = new System.Drawing.Point(165, 30);
             this.tabControl1.Multiline = true;
@@ -553,31 +553,32 @@ namespace RSMPS
             // 
             // tbpClarifications
             // 
-            //this.tbpClarifications.Controls.Add(this.button6);
-            //this.tbpClarifications.Controls.Add(this.button5);
-            //this.tbpClarifications.Controls.Add(this.label10);
-            //this.tbpClarifications.Controls.Add(this.richTextBox8);
-            //this.tbpClarifications.Controls.Add(this.label9);
-            //this.tbpClarifications.Controls.Add(this.richTextBox7);
-            //this.tbpClarifications.Controls.Add(this.label8);
-            //this.tbpClarifications.Controls.Add(this.richTextBox6);
-            //this.tbpClarifications.Controls.Add(this.label7);
-            //this.tbpClarifications.Controls.Add(this.richTextBox5);
-            //this.tbpClarifications.Controls.Add(this.label6);
-            //this.tbpClarifications.Controls.Add(this.richTextBox4);
-            //this.tbpClarifications.Controls.Add(this.label5);
-            //this.tbpClarifications.Controls.Add(this.richTextBox3);
-            //this.tbpClarifications.Controls.Add(this.label4);
-            //this.tbpClarifications.Controls.Add(this.richTextBox2);
-            //this.tbpClarifications.Controls.Add(this.label1);
-            //this.tbpClarifications.Controls.Add(this.richTextBox1);
-            //this.tbpClarifications.Location = new System.Drawing.Point(4, 34);
-            //this.tbpClarifications.Name = "tbpClarifications";
-            //this.tbpClarifications.Padding = new System.Windows.Forms.Padding(3);
-            //this.tbpClarifications.Size = new System.Drawing.Size(961, 733);
-            //this.tbpClarifications.TabIndex = 6;
-            //this.tbpClarifications.Text = "Clarifications";
-            //this.tbpClarifications.UseVisualStyleBackColor = true;
+            this.tbpClarifications.Controls.Add(this.button6);
+            this.tbpClarifications.Controls.Add(this.button5);
+            this.tbpClarifications.Controls.Add(this.label10);
+            this.tbpClarifications.Controls.Add(this.richTextBox8);
+            this.tbpClarifications.Controls.Add(this.label9);
+            this.tbpClarifications.Controls.Add(this.richTextBox7);
+            this.tbpClarifications.Controls.Add(this.label8);
+            this.tbpClarifications.Controls.Add(this.richTextBox6);
+            this.tbpClarifications.Controls.Add(this.label7);
+            this.tbpClarifications.Controls.Add(this.richTextBox5);
+            this.tbpClarifications.Controls.Add(this.label6);
+            this.tbpClarifications.Controls.Add(this.richTextBox4);
+            this.tbpClarifications.Controls.Add(this.label5);
+            this.tbpClarifications.Controls.Add(this.richTextBox3);
+            this.tbpClarifications.Controls.Add(this.label4);
+            this.tbpClarifications.Controls.Add(this.richTextBox2);
+            this.tbpClarifications.Controls.Add(this.label1);
+            this.tbpClarifications.Controls.Add(this.richTextBox1);
+            this.tbpClarifications.Location = new System.Drawing.Point(4, 34);
+            this.tbpClarifications.Name = "tbpClarifications";
+            this.tbpClarifications.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpClarifications.Size = new System.Drawing.Size(961, 733);
+            this.tbpClarifications.TabIndex = 6;
+            this.tbpClarifications.Text = "Clarifications";
+            this.tbpClarifications.UseVisualStyleBackColor = true;
+            //this.tbpClarifications.SelectedIndexChanged += new System.EventHandler(this.tbpClarifications_SelectedIndexChanged);
             // 
             // button6
             // 
@@ -1207,8 +1208,8 @@ namespace RSMPS
             this.tbpPCN.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tdbdPCNStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tdbgBudgetPCN)).EndInit();
-            //this.tbpClarifications.ResumeLayout(false);
-            //this.tbpClarifications.PerformLayout();
+            this.tbpClarifications.ResumeLayout(false);
+            this.tbpClarifications.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).EndInit();
@@ -1320,7 +1321,7 @@ namespace RSMPS
         private C1.Win.C1FlexGrid.C1FlexGrid c1FlexGrid4;
         private C1.Win.C1FlexGrid.C1FlexGrid c1FlexGrid1;
         private C1.Win.C1FlexGrid.C1FlexGrid c1FlexGrid3;
-        //private System.Windows.Forms.TabPage tbpClarifications;
+        private System.Windows.Forms.TabPage tbpClarifications;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label10;

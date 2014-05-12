@@ -34,10 +34,10 @@ namespace RSMPS
             this.bttRemoveProject = new System.Windows.Forms.Button();
             this.bttAddProject = new System.Windows.Forms.Button();
             this.lvwProjects = new System.Windows.Forms.ListView();
-            this.colID = new System.Windows.Forms.ColumnHeader();
-            this.colProject = new System.Windows.Forms.ColumnHeader();
-            this.colProjSumID = new System.Windows.Forms.ColumnHeader();
-            this.colProjectID = new System.Windows.Forms.ColumnHeader();
+            this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colProject = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colProjSumID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colProjectID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.fgForecast = new C1.Win.C1FlexGrid.C1FlexGrid();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -98,8 +98,8 @@ namespace RSMPS
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.bttRemoveProject);
             this.groupBox1.Controls.Add(this.bttAddProject);
             this.groupBox1.Controls.Add(this.lvwProjects);
@@ -135,8 +135,8 @@ namespace RSMPS
             // 
             // lvwProjects
             // 
-            this.lvwProjects.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.lvwProjects.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.lvwProjects.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colID,
             this.colProject,
@@ -174,8 +174,8 @@ namespace RSMPS
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.fgForecast);
             this.groupBox2.Location = new System.Drawing.Point(6, 6);
             this.groupBox2.Name = "groupBox2";
@@ -187,10 +187,10 @@ namespace RSMPS
             // fgForecast
             // 
             this.fgForecast.AllowEditing = false;
-            this.fgForecast.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.fgForecast.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.fgForecast.ColumnInfo = "7,1,0,0,0,85,Columns:0{Width:15;}\t1{Width:135;}\t2{Width:95;}\t3{Width:95;}\t4{Width" +
-                ":95;}\t5{Width:95;}\t6{Width:95;}\t";
+    ":95;}\t5{Width:95;}\t6{Width:95;}\t";
             this.fgForecast.Location = new System.Drawing.Point(6, 19);
             this.fgForecast.Name = "fgForecast";
             this.fgForecast.Rows.Count = 6;
@@ -200,8 +200,8 @@ namespace RSMPS
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.tdbgPCNs);
             this.groupBox3.Location = new System.Drawing.Point(6, 139);
             this.groupBox3.Name = "groupBox3";
@@ -215,8 +215,9 @@ namespace RSMPS
             this.tdbgPCNs.AllowAddNew = true;
             this.tdbgPCNs.AllowColMove = false;
             this.tdbgPCNs.AllowDelete = true;
-            this.tdbgPCNs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tdbgPCNs.AllowUpdate = false;
+            this.tdbgPCNs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tdbgPCNs.ColumnFooters = true;
             this.tdbgPCNs.Enabled = false;
             this.tdbgPCNs.GroupByCaption = "Drag a column header here to group by that column";
@@ -225,20 +226,20 @@ namespace RSMPS
             this.tdbgPCNs.Name = "tdbgPCNs";
             this.tdbgPCNs.PreviewInfo.Location = new System.Drawing.Point(0, 0);
             this.tdbgPCNs.PreviewInfo.Size = new System.Drawing.Size(0, 0);
-            this.tdbgPCNs.PreviewInfo.ZoomFactor = 75;
+            this.tdbgPCNs.PreviewInfo.ZoomFactor = 75D;
             this.tdbgPCNs.PrintInfo.PageSettings = ((System.Drawing.Printing.PageSettings)(resources.GetObject("tdbgPCNs.PrintInfo.PageSettings")));
             this.tdbgPCNs.Size = new System.Drawing.Size(630, 85);
             this.tdbgPCNs.TabIndex = 0;
             this.tdbgPCNs.Text = "c1TrueDBGrid1";
-            this.tdbgPCNs.BeforeUpdate += new C1.Win.C1TrueDBGrid.CancelEventHandler(this.tdbgPCNs_BeforeUpdate);
             this.tdbgPCNs.AfterDelete += new System.EventHandler(this.tdbgPCNs_AfterDelete);
             this.tdbgPCNs.AfterUpdate += new System.EventHandler(this.tdbgPCNs_AfterUpdate);
+            this.tdbgPCNs.BeforeUpdate += new C1.Win.C1TrueDBGrid.CancelEventHandler(this.tdbgPCNs_BeforeUpdate);
             this.tdbgPCNs.PropBag = resources.GetString("tdbgPCNs.PropBag");
             // 
             // groupBox4
             // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.rtbSchedule);
             this.groupBox4.Location = new System.Drawing.Point(6, 257);
             this.groupBox4.Name = "groupBox4";
@@ -249,8 +250,8 @@ namespace RSMPS
             // 
             // rtbSchedule
             // 
-            this.rtbSchedule.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbSchedule.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbSchedule.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtbSchedule.BulletIndent = 10;
             this.rtbSchedule.ContextMenuStrip = this.cmnuSchedule;
@@ -303,9 +304,9 @@ namespace RSMPS
             // 
             // groupBox5
             // 
-            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.rtbActHigh);
             this.groupBox5.Location = new System.Drawing.Point(6, 368);
             this.groupBox5.Name = "groupBox5";
@@ -316,9 +317,9 @@ namespace RSMPS
             // 
             // rtbActHigh
             // 
-            this.rtbActHigh.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbActHigh.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbActHigh.ContextMenuStrip = this.cmnuSchedule;
             this.rtbActHigh.Enabled = false;
             this.rtbActHigh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -331,8 +332,8 @@ namespace RSMPS
             // 
             // groupBox6
             // 
-            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.Controls.Add(this.rtbNeeds);
             this.groupBox6.Location = new System.Drawing.Point(6, 524);
             this.groupBox6.Name = "groupBox6";
@@ -343,8 +344,8 @@ namespace RSMPS
             // 
             // rtbNeeds
             // 
-            this.rtbNeeds.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbNeeds.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbNeeds.ContextMenuStrip = this.cmnuSchedule;
             this.rtbNeeds.Enabled = false;
             this.rtbNeeds.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -357,14 +358,10 @@ namespace RSMPS
             // 
             // tbSummay
             // 
-            this.tbSummay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbSummay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbSummay.Controls.Add(this.tbpProjStat);
-            this.tbSummay.Controls.Add(this.tbpFeedback);
-            this.tbSummay.Controls.Add(this.tbpQuality);
-            this.tbSummay.Controls.Add(this.tbpProposals);
-            this.tbSummay.Controls.Add(this.tbpDistributions);
             this.tbSummay.ItemSize = new System.Drawing.Size(125, 18);
             this.tbSummay.Location = new System.Drawing.Point(148, 30);
             this.tbSummay.Name = "tbSummay";
@@ -401,9 +398,9 @@ namespace RSMPS
             // 
             // rtbClientFeed
             // 
-            this.rtbClientFeed.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbClientFeed.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbClientFeed.ContextMenuStrip = this.cmnuPMVals;
             this.rtbClientFeed.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbClientFeed.Location = new System.Drawing.Point(6, 6);
@@ -455,9 +452,9 @@ namespace RSMPS
             // 
             // rtbQuality
             // 
-            this.rtbQuality.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbQuality.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbQuality.ContextMenuStrip = this.cmnuPMVals;
             this.rtbQuality.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbQuality.Location = new System.Drawing.Point(6, 6);
@@ -479,9 +476,9 @@ namespace RSMPS
             // 
             // rtbNewWork
             // 
-            this.rtbNewWork.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbNewWork.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbNewWork.ContextMenuStrip = this.cmnuPMVals;
             this.rtbNewWork.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbNewWork.Location = new System.Drawing.Point(6, 6);
@@ -503,9 +500,9 @@ namespace RSMPS
             // 
             // rtbDists
             // 
-            this.rtbDists.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbDists.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbDists.ContextMenuStrip = this.cmnuPMVals;
             this.rtbDists.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbDists.Location = new System.Drawing.Point(6, 6);
@@ -611,8 +608,8 @@ namespace RSMPS
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Weekly Report";
-            this.Load += new System.EventHandler(this.FManager_Summary_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FManager_Summary_FormClosing);
+            this.Load += new System.EventHandler(this.FManager_Summary_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fgForecast)).EndInit();
