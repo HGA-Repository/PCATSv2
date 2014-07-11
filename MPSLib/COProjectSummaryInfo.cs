@@ -12,6 +12,10 @@ namespace RSMPS
         private string msSchedule;
         private string msActHigh;
         private string msStaffNeeds;
+        private string msCFeedBack;
+        private decimal mdPOAmt;
+        private decimal mdBilledtoDate;
+        private decimal mdPaidtoDate;
 
         #region Properties
 
@@ -50,6 +54,26 @@ namespace RSMPS
             get { return msStaffNeeds; }
             set { msStaffNeeds = value; }
         }
+        public string CFeedBack
+        {
+            get { return msCFeedBack; }
+            set { msCFeedBack = value; }
+        }
+        public decimal POAmt
+        {
+            get { return mdPOAmt; }
+            set { mdPOAmt = value; }
+        }
+        public decimal BilledtoDate
+        {
+            get { return mdBilledtoDate; }
+            set { mdBilledtoDate = value; }
+        }
+        public decimal PaidtoDate
+        {
+            get { return mdPaidtoDate; }
+            set { mdPaidtoDate = value; }
+        }
 
         #endregion
 
@@ -61,6 +85,10 @@ namespace RSMPS
             msSchedule = "";
             msActHigh = "";
             msStaffNeeds = "";
+            msCFeedBack = "";
+            mdPOAmt = 0;
+            mdBilledtoDate = 0;
+            mdPaidtoDate = 0;
         }
 
         public void Copy(COProjectSummaryInfo oNew)
@@ -71,6 +99,10 @@ namespace RSMPS
             oNew.Schedule = msSchedule;
             oNew.ActHigh = msActHigh;
             oNew.StaffNeeds = msStaffNeeds;
+            oNew.CFeedBack = msCFeedBack;
+            oNew.POAmt = mdPOAmt;
+            oNew.BilledtoDate = mdBilledtoDate;
+            oNew.PaidtoDate = mdPaidtoDate;
         }
 
         public void LoadFromObj(COProjectSummaryInfo oOrg)
@@ -81,6 +113,10 @@ namespace RSMPS
             msSchedule = oOrg.Schedule;
             msActHigh = oOrg.ActHigh;
             msStaffNeeds = oOrg.StaffNeeds;
+            msCFeedBack = oOrg.CFeedBack;
+            mdPOAmt = oOrg.POAmt;
+            mdBilledtoDate = oOrg.BilledtoDate;
+            mdPaidtoDate = oOrg.PaidtoDate;
         }
     }
 }

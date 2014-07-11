@@ -102,6 +102,7 @@
     <Compile Include="COProjectSummaryInfo.cs" />
     <Compile Include="COProjectSummaryPCN.cs" />
     <Compile Include="COActivityCodeDisc.cs" />
+    <Compile Include="COProjectSummarySch.cs" />
     <Compile Include="CORateSchedule.cs" />
     <Compile Include="COReleaseDrawing.cs" />
     <Compile Include="COScheduleHour.cs" />

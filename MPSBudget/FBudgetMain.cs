@@ -1252,7 +1252,8 @@ namespace RSMPS
 
             DoBudgetSelectChange();
         }
-        private void tbpClarifications_SelectedIndexChanged(object send, EventArgs e)
+        
+        private void tbpClarifications_SelectedIndexChanged(object sender, EventArgs e)
         {
             DoBudgetSelectChange();
 

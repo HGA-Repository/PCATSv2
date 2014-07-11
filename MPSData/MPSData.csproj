@@ -85,6 +85,7 @@
     <Compile Include="CDbProjectSummary.cs" />
     <Compile Include="CDbProjectSummaryInfo.cs" />
     <Compile Include="CDbProjectSummaryPCN.cs" />
+    <Compile Include="CDbProjectSummarySch.cs" />
     <Compile Include="CDbRateSchedule.cs" />
     <Compile Include="CDbReleaseDrawing.cs" />
     <Compile Include="CDbReportData.cs" />

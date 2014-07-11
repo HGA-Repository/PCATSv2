@@ -86,6 +86,7 @@
     <Compile Include="CBProjectSummary.cs" />
     <Compile Include="CBProjectSummaryInfo.cs" />
     <Compile Include="CBProjectSummaryPCN.cs" />
+    <Compile Include="CBProjectSummarySch.cs" />
     <Compile Include="CBRateSchedule.cs" />
     <Compile Include="CBReleaseDrawing.cs" />
     <Compile Include="CBReportData.cs" />

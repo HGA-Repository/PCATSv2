@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,9 +11,9 @@ using RSLib;
 
 namespace RSMPS
 {
-    public class CDbProjectSummaryInfo
+    public class CDbProjectSummarySch
     {
-        private COProjectSummaryInfo oVar;
+        private COProjectSummarySch oVar;
 
         public string GetByID(int lID)
         {
@@ -24,7 +24,7 @@ namespace RSMPS
             string tmpStr = "";
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spProjectSummaryInfo_ByID", cnn.GetConnection());
+            cmd = new SqlCommand("spProjectSummarySch_ByID", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -36,18 +36,15 @@ namespace RSMPS
 
             while (dr.Read())
             {
-                oVar = new COProjectSummaryInfo();
+                oVar = new COProjectSummarySch();
 
                 oVar.ID = Convert.ToInt32(dr["ID"]);
                 oVar.ProjSumID = Convert.ToInt32(dr["ProjSumID"]);
                 oVar.ProjectID = Convert.ToInt32(dr["ProjectID"]);
-                oVar.Schedule = dr["Schedule"].ToString();
-                oVar.ActHigh = dr["ActHigh"].ToString();
-                oVar.StaffNeeds = dr["StaffNeeds"].ToString();
-                oVar.CFeedBack = dr["CFeedBack"].ToString();
-                oVar.POAmt = Convert.ToDecimal(dr["POAmt"]);
-                oVar.BilledtoDate = Convert.ToDecimal(dr["BilledtoDate"]);
-                oVar.PaidtoDate = Convert.ToDecimal(dr["PaidtoDate"]);
+                oVar.Description = dr["Description"].ToString();
+                oVar.InitialTarget = Convert.ToDateTime(dr["InitialTarget"]);
+                oVar.Projected = Convert.ToDateTime(dr["Projected"]);
+                oVar.Actual = Convert.ToDateTime(dr["Actual"]);
                 tmpStr = GetDataString();
             }
 
@@ -71,7 +68,7 @@ namespace RSMPS
             LoadVals(strXml);
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spProjectSummaryInfo_Insert", cnn.GetConnection());
+            cmd = new SqlCommand("spProjectSummarySch_Insert", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -82,21 +79,15 @@ namespace RSMPS
             prm.Value = oVar.ProjSumID;
             prm = cmd.Parameters.Add("@ProjectID", SqlDbType.Int);
             prm.Value = oVar.ProjectID;
-            prm = cmd.Parameters.Add("@Schedule", SqlDbType.Text);
-            prm.Value = oVar.Schedule;
-            prm = cmd.Parameters.Add("@ActHigh", SqlDbType.Text);
-            prm.Value = oVar.ActHigh;
-            prm = cmd.Parameters.Add("@StaffNeeds", SqlDbType.Text);
-            prm.Value = oVar.StaffNeeds;
-            prm = cmd.Parameters.Add("@CFeedBack", SqlDbType.Text);
-            prm.Value = oVar.CFeedBack;
-            prm = cmd.Parameters.Add("@POAmt", SqlDbType.Money);
-            prm.Value = oVar.POAmt;
-            prm = cmd.Parameters.Add("@BilledtoDate", SqlDbType.Money);
-            prm.Value = oVar.BilledtoDate;
-            prm = cmd.Parameters.Add("@PaidtoDate", SqlDbType.Money);
-            prm.Value = oVar.PaidtoDate;
-            
+            prm = cmd.Parameters.Add("@Description", SqlDbType.Text);
+            prm.Value = oVar.Description;
+            prm = cmd.Parameters.Add("@InitialTarget", SqlDbType.DateTime);
+            prm.Value = oVar.InitialTarget;
+            prm = cmd.Parameters.Add("@Projected", SqlDbType.DateTime);
+            prm.Value = oVar.Projected;
+            prm = cmd.Parameters.Add("@Actual", SqlDbType.DateTime);
+            prm.Value = oVar.Actual;
+
             cmd.ExecuteNonQuery();
 
             retVal = Convert.ToInt32(cmd.Parameters["@ID"].Value);
@@ -119,7 +110,7 @@ namespace RSMPS
             LoadVals(strXml);
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spProjectSummaryInfo_Update", cnn.GetConnection());
+            cmd = new SqlCommand("spProjectSummarySch_Update", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -129,20 +120,14 @@ namespace RSMPS
             prm.Value = oVar.ProjSumID;
             prm = cmd.Parameters.Add("@ProjectID", SqlDbType.Int);
             prm.Value = oVar.ProjectID;
-            prm = cmd.Parameters.Add("@Schedule", SqlDbType.Text);
-            prm.Value = oVar.Schedule;
-            prm = cmd.Parameters.Add("@ActHigh", SqlDbType.Text);
-            prm.Value = oVar.ActHigh;
-            prm = cmd.Parameters.Add("@StaffNeeds", SqlDbType.Text);
-            prm.Value = oVar.StaffNeeds;
-            prm = cmd.Parameters.Add("@CFeedBack", SqlDbType.Text);
-            prm.Value = oVar.CFeedBack;
-            prm = cmd.Parameters.Add("@POAmt", SqlDbType.Money);
-            prm.Value = oVar.POAmt;
-            prm = cmd.Parameters.Add("@BilledtoDate", SqlDbType.Money);
-            prm.Value = oVar.BilledtoDate;
-            prm = cmd.Parameters.Add("@PaidtoDate", SqlDbType.Money);
-            prm.Value = oVar.PaidtoDate;
+            prm = cmd.Parameters.Add("@Description", SqlDbType.Text);
+            prm.Value = oVar.Description;
+            prm = cmd.Parameters.Add("@InitialTarget", SqlDbType.DateTime);
+            prm.Value = oVar.InitialTarget;
+            prm = cmd.Parameters.Add("@Projected", SqlDbType.DateTime);
+            prm.Value = oVar.Projected;
+            prm = cmd.Parameters.Add("@Actual", SqlDbType.DateTime);
+            prm.Value = oVar.Actual;
             cmd.ExecuteNonQuery();
 
             prm = null;
@@ -160,7 +145,7 @@ namespace RSMPS
             XmlSerializer s;
             StringWriter sw;
 
-            s = new XmlSerializer(typeof(COProjectSummaryInfo));
+            s = new XmlSerializer(typeof(COProjectSummarySch));
             sw = new StringWriter();
 
             s.Serialize(sw, oVar);
@@ -175,11 +160,11 @@ namespace RSMPS
             XmlSerializer s;
             StringReader sr;
 
-            s = new XmlSerializer(typeof(COProjectSummaryInfo));
+            s = new XmlSerializer(typeof(COProjectSummarySch));
             sr = new System.IO.StringReader(strXml);
 
-            oVar = new COProjectSummaryInfo();
-            oVar = (COProjectSummaryInfo)s.Deserialize(sr);
+            oVar = new COProjectSummarySch();
+            oVar = (COProjectSummarySch)s.Deserialize(sr);
 
             sr.Close();
             sr = null;
@@ -196,7 +181,7 @@ namespace RSMPS
             SqlParameter prm;
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spProjectSummaryInfo_Delete", cnn.GetConnection());
+            cmd = new SqlCommand("spProjectSummarySch_Delete", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -230,7 +215,7 @@ namespace RSMPS
             SqlCommand cmd;
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spProjectSummaryInfo_ListAll", cnn.GetConnection());
+            cmd = new SqlCommand("spProjectSummarySch_ListAll", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -240,7 +225,7 @@ namespace RSMPS
             return dr;
         }
 
-        public SqlDataReader GetListByProjSum(int projSumID)
+        public SqlDataReader GetListByProjectSum(int projSumID)
         {
             SqlDataReader dr;
             RSLib.CDbConnection cnn;
@@ -248,11 +233,33 @@ namespace RSMPS
             SqlParameter prm;
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spProjectSummaryInfo_ListByProjSum", cnn.GetConnection());
+            cmd = new SqlCommand("spProjectSummarySch_ListBySumID", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
             prm = cmd.Parameters.Add("@ProjSumID", SqlDbType.Int);
             prm.Value = projSumID;
+
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            cmd = null;
+
+            return dr;
+        }
+
+        public SqlDataReader GetListByProject(int projSumID, int projID)
+        {
+            SqlDataReader dr;
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spProjectSummarySch_ListByProjectID", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@ProjSumID", SqlDbType.Int);
+            prm.Value = projSumID;
+            prm = cmd.Parameters.Add("@ProjectID", SqlDbType.Int);
+            prm.Value = projID;
 
             dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
             cmd = null;
