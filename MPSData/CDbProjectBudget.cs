@@ -404,7 +404,32 @@ namespace RSMPS
 
             return ds;
         }
+        public DataSet GetSchByProject(int projSumID, int projID)
+        {
+            DataSet ds;
+            RSLib.CDbConnection cnn;
+            SqlDataAdapter da;
+            SqlCommand cmd;
+            SqlParameter prm;
 
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spProjectSummarySch_ListByProjectID", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@ProjSumID", SqlDbType.Int);
+            prm.Value = projSumID;
+            prm = cmd.Parameters.Add("@ProjectID", SqlDbType.Int);
+            prm.Value = projID;
+
+            da = new SqlDataAdapter();
+            ds = new DataSet();
+            da.SelectCommand = cmd;
+            da.Fill(ds);
+
+            cnn.CloseConnection();
+
+            return ds;
+        }
         public SqlDataReader GetAccountGroupByDiscipline(int discipline)
         {
             SqlDataReader dr;

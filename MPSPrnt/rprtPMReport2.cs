@@ -15,6 +15,9 @@ namespace RSMPS
         private string msSchedule;
         private string msAct;
         private string msStaffing;
+        private string msClientFeedBack;
+        private Label label21;
+        private RichTextBox rtbClientFeedBack;
 
         private int miCount = 0;
 
@@ -27,10 +30,17 @@ namespace RSMPS
         {
             rprtPMReportPCN rpcn = new rprtPMReportPCN();
             DataSet ds = CBProjectBudget.GetPCNByProject(Convert.ToInt32(TextBox27.Text), Convert.ToInt32(TextBox28.Text));
+            rprtPMReportSch rsch = new rprtPMReportSch();
+            DataSet dssch = CBProjectBudget.GetSchByProject(Convert.ToInt32(TextBox27.Text), Convert.ToInt32(TextBox28.Text));
+            
 
             rpcn.DataSource = ds;
             rpcn.DataMember = "Table";
             SubReport.Report = rpcn;
+
+            rsch.DataSource = dssch;
+            rsch.DataMember = "Table";
+            SubReport.Report = rsch;
 
             if (ds.Tables["Table"].Rows.Count < 1)
             {
@@ -55,6 +65,7 @@ namespace RSMPS
             msSchedule = txtSchedule.Value.ToString();
             msAct = txtActivities.Value.ToString();
             msStaffing = txtStaffing.Value.ToString();
+            //msClientFeedBack = txtClientFeedBack.Value.ToString();
 
             miCount++;
         }
@@ -328,6 +339,7 @@ namespace RSMPS
             rtbSchdule.RTF = msSchedule;
             rtbActivities.RTF = msAct;
             rtbStaffing.RTF = msStaffing;
+            rtbClientFeedBack.RTF = msClientFeedBack;
         }
 
         private void GroupHeader1_Format(object sender, System.EventArgs eArgs)
@@ -494,6 +506,8 @@ namespace RSMPS
             this.Label17 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.Label18 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.Label19 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label21 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.rtbClientFeedBack = new GrapeCity.ActiveReports.SectionReportModel.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Label5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label7)).BeginInit();
@@ -548,11 +562,11 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.Label17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
             // 
-            this.Detail.ColumnSpacing = 0F;
             this.Detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.Shape,
             this.Label5,
@@ -1277,8 +1291,10 @@ namespace RSMPS
             this.Label16,
             this.Label17,
             this.Label18,
-            this.Label19});
-            this.GroupFooter1.Height = 3.25F;
+            this.Label19,
+            this.label21,
+            this.rtbClientFeedBack});
+            this.GroupFooter1.Height = 3.979167F;
             this.GroupFooter1.Name = "GroupFooter1";
             this.GroupFooter1.Format += new System.EventHandler(this.GroupFooter1_Format);
             // 
@@ -1318,11 +1334,11 @@ namespace RSMPS
             // 
             this.Label3.Height = 0.25F;
             this.Label3.HyperLink = null;
-            this.Label3.Left = 0.3125F;
+            this.Label3.Left = 0.312F;
             this.Label3.Name = "Label3";
             this.Label3.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.Label3.Text = "-  Activities / Highlights";
-            this.Label3.Top = 1.625F;
+            this.Label3.Top = 1.572F;
             this.Label3.Width = 3.5625F;
             // 
             // Label4
@@ -1426,6 +1442,29 @@ namespace RSMPS
             this.Label19.Top = 0.4375F;
             this.Label19.Width = 0.85F;
             // 
+            // label21
+            // 
+            this.label21.Height = 0.25F;
+            this.label21.HyperLink = null;
+            this.label21.Left = 0.312F;
+            this.label21.Name = "label21";
+            this.label21.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
+            this.label21.Text = "- Client Feedback";
+            this.label21.Top = 3.146F;
+            this.label21.Width = 3.5625F;
+            // 
+            // rtbClientFeedBack
+            // 
+            this.rtbClientFeedBack.AutoReplaceFields = true;
+            this.rtbClientFeedBack.CanShrink = true;
+            this.rtbClientFeedBack.Font = new System.Drawing.Font("Arial", 10F);
+            this.rtbClientFeedBack.Height = 0.3125F;
+            this.rtbClientFeedBack.Left = 0.687F;
+            this.rtbClientFeedBack.Name = "rtbClientFeedBack";
+            this.rtbClientFeedBack.RTF = resources.GetString("rtbClientFeedBack.RTF");
+            this.rtbClientFeedBack.Top = 3.396F;
+            this.rtbClientFeedBack.Width = 6.4375F;
+            // 
             // rprtPMReport2
             // 
             this.MasterReport = false;
@@ -1508,6 +1547,7 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.Label17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }

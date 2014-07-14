@@ -159,6 +159,7 @@ namespace RSMPS
             if (lvwProjects.SelectedItems.Count > 0)
             {
                 tdbgPCNs.UpdateData();
+                tdbgSchedule.UpdateData();
 
                 bttRemoveProject.Enabled = true;
                 tdbgPCNs.Enabled = true;
@@ -167,6 +168,11 @@ namespace RSMPS
                 rtbActHigh.Enabled = true;
                 rtbNeeds.Enabled = true;
                 rtbCFeedBack.Enabled = true;
+                POAmt.Enabled = true;
+                BilledtoDate.Enabled = true;
+                PaidtoDate.Enabled = true;
+                Outstanding.Enabled = true;
+
 
                 SaveCurrentProject();
                 miCurrentProjectID = Convert.ToInt32(lvwProjects.SelectedItems[0].SubItems[3].Text);
@@ -182,6 +188,10 @@ namespace RSMPS
                 rtbActHigh.Enabled = false;
                 rtbNeeds.Enabled = false;
                 rtbCFeedBack.Enabled = false;
+                POAmt.Enabled = false;
+                BilledtoDate.Enabled = false;
+                PaidtoDate.Enabled = false;
+                Outstanding.Enabled = false;
             }
 
             tlbbSave.Enabled = tmpChanged;
@@ -234,6 +244,7 @@ namespace RSMPS
                     POAmt.Text += dr["POAmt"];
                     BilledtoDate.Text += dr["BilledtoDate"];
                     PaidtoDate.Text += dr["PaidtoDate"];
+                    Outstanding.Text += dr["Outstanding"];
                     
                    
                     break;
@@ -265,6 +276,11 @@ namespace RSMPS
             rtbCFeedBack.Text = "None";
             rtbCFeedBack.SelectAll();
             rtbCFeedBack.SelectionBullet = true;
+            POAmt.Clear();
+            BilledtoDate.Clear();
+            PaidtoDate.Clear();
+            Outstanding.Clear();
+       
         }
 
         private void ClearCostSummary()
@@ -440,6 +456,7 @@ namespace RSMPS
                 d["POAmt"] = dr["POAmt"];
                 d["BilledtoDate"] = dr["BilledtoDate"];
                 d["PaidtoDate"] = dr["PaidtoDate"];
+                d["Outstanding"] = dr["Outstanding"];
 
                 mdsProjInfos.Tables["ProjectInfos"].Rows.Add(d);
 
@@ -496,6 +513,7 @@ namespace RSMPS
                     dr["POAmt"] = POAmt.Text;
                     dr["BilledtoDate"] = BilledtoDate.Text;
                     dr["PaidtoDate"] = PaidtoDate.Text;
+                    dr["Outstanding"] = Outstanding.Text;
 
                     break;
                 }
@@ -532,6 +550,7 @@ namespace RSMPS
                     psi.POAmt = Convert.ToDecimal(dr["POAmt"]);
                     psi.BilledtoDate = Convert.ToDecimal(dr["BilledtoDate"]);
                     psi.PaidtoDate = Convert.ToDecimal(dr["PaidtoDate"]);
+                    psi.Outstanding = Convert.ToDecimal(dr["Outstanding"]);
 
                     psi.Save();
                 }
@@ -580,7 +599,7 @@ namespace RSMPS
 
         private void tdbgSchedule_AfterUpdate(object sender, EventArgs e)
         {
-            
+            InfoChanged();
         }
 
         private void TotalPCNAmount()
@@ -1013,12 +1032,30 @@ namespace RSMPS
         {
             InfoChanged();
         }
-
+        private void tdbgSchedule_TextChanged(object sender, EventArgs e)
+        {
+            InfoChanged();
+        }
+        private void tdbgPCNS_TextChanged(object sender, EventArgs e)
+        {
+            InfoChanged();
+        }
         private void rtbNewWork_TextChanged(object sender, EventArgs e)
         {
             InfoChanged();
         }
-
+        private void POAmt_TextChanged(object sender, EventArgs e)
+        {
+            InfoChanged();
+        }
+        private void BilledToDate_TextChanged(object sender, EventArgs e)
+        {
+            InfoChanged();
+        }
+        private void PaidtoDate_TextChanged(object sender, EventArgs e)
+        {
+            InfoChanged();
+        }
         private void InfoChanged()
         {
             mbChanged = true;

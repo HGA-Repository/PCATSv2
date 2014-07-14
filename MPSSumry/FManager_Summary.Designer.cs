@@ -41,6 +41,7 @@ namespace RSMPS
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.fgForecast = new C1.Win.C1FlexGrid.C1FlexGrid();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tdbgPCNs = new C1.Win.C1TrueDBGrid.C1TrueDBGrid();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.cmnuSchedule = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.scheduleBulletIndent = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,7 +65,6 @@ namespace RSMPS
             this.BilledtoDate = new System.Windows.Forms.TextBox();
             this.POAmt = new System.Windows.Forms.TextBox();
             this.tbpFeedback = new System.Windows.Forms.TabPage();
-            this.tdbgPCNs = new C1.Win.C1TrueDBGrid.C1TrueDBGrid();
             this.rtbSchedule = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -89,15 +89,14 @@ namespace RSMPS
             this.c1CommandLink1 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink2 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink3 = new C1.Win.C1Command.C1CommandLink();
-            this.tdbgSchedule = new C1.Win.C1TrueDBGrid.C1TrueDBGrid();
-//            this.rSManpowerSchDBDataSet = new RSMPS.RSManpowerSchDBDataSet();
- //           this.rSManpowerSchDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsProjectSchedule = new RSMPS.dsProjectSchedule();
-            this.dTProjectSummarySchBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dT_ProjectSummarySchTableAdapter = new RSMPS.dsProjectScheduleTableAdapters.DT_ProjectSummarySchTableAdapter();
+            this.c1TableLogic1 = new C1.Data.C1TableLogic();
+            this.tdbgSchedule = new C1.Win.C1TrueDBGrid.C1TrueDBGrid();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fgForecast)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tdbgPCNs)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.cmnuSchedule.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -106,14 +105,10 @@ namespace RSMPS
             this.tbpProjStat.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.tbpFeedback.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tdbgPCNs)).BeginInit();
             this.cmnuPMVals.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tdbgSchedule)).BeginInit();
-          //  ((System.ComponentModel.ISupportInitialize)(this.rSManpowerSchDBDataSet)).BeginInit();
-           // ((System.ComponentModel.ISupportInitialize)(this.rSManpowerSchDBDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProjectSchedule)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dTProjectSummarySchBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tdbgSchedule)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -222,12 +217,35 @@ namespace RSMPS
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.tdbgPCNs);
             this.groupBox3.Location = new System.Drawing.Point(6, 139);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(642, 112);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "PCN";
+            // 
+            // tdbgPCNs
+            // 
+            this.tdbgPCNs.AllowAddNew = true;
+            this.tdbgPCNs.AllowColMove = false;
+            this.tdbgPCNs.AllowDelete = true;
+            this.tdbgPCNs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tdbgPCNs.ColumnFooters = true;
+            this.tdbgPCNs.Enabled = false;
+            this.tdbgPCNs.GroupByCaption = "Drag a column header here to group by that column";
+            this.tdbgPCNs.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbgPCNs.Images"))));
+            this.tdbgPCNs.Location = new System.Drawing.Point(6, 14);
+            this.tdbgPCNs.Name = "tdbgPCNs";
+            this.tdbgPCNs.PreviewInfo.Location = new System.Drawing.Point(0, 0);
+            this.tdbgPCNs.PreviewInfo.Size = new System.Drawing.Size(0, 0);
+            this.tdbgPCNs.PreviewInfo.ZoomFactor = 75D;
+            this.tdbgPCNs.PrintInfo.PageSettings = ((System.Drawing.Printing.PageSettings)(resources.GetObject("tdbgPCNs.PrintInfo.PageSettings")));
+            this.tdbgPCNs.Size = new System.Drawing.Size(630, 85);
+            this.tdbgPCNs.TabIndex = 12;
+            this.tdbgPCNs.Text = "c1TrueDBGrid1";
+            this.tdbgPCNs.PropBag = resources.GetString("tdbgPCNs.PropBag");
             // 
             // groupBox4
             // 
@@ -464,7 +482,6 @@ namespace RSMPS
             // 
             // tbpFeedback
             // 
-            this.tbpFeedback.Controls.Add(this.tdbgPCNs);
             this.tbpFeedback.Controls.Add(this.rtbSchedule);
             this.tbpFeedback.Controls.Add(this.label5);
             this.tbpFeedback.Controls.Add(this.label4);
@@ -708,27 +725,16 @@ namespace RSMPS
             this.c1CommandLink3.Delimiter = true;
             this.c1CommandLink3.SortOrder = 2;
             // 
-            // tdbgPCNs
+            // dsProjectSchedule
             // 
-            this.tdbgPCNs.AllowAddNew = true;
-            this.tdbgPCNs.AllowColMove = false;
-            this.tdbgPCNs.AllowDelete = true;
-            this.tdbgPCNs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tdbgPCNs.ColumnFooters = true;
-            this.tdbgPCNs.Enabled = false;
-            this.tdbgPCNs.GroupByCaption = "Drag a column header here to group by that column";
-            this.tdbgPCNs.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbgPCNs.Images"))));
-            this.tdbgPCNs.Location = new System.Drawing.Point(6, 562);
-            this.tdbgPCNs.Name = "tdbgPCNs";
-            this.tdbgPCNs.PreviewInfo.Location = new System.Drawing.Point(0, 0);
-            this.tdbgPCNs.PreviewInfo.Size = new System.Drawing.Size(0, 0);
-            this.tdbgPCNs.PreviewInfo.ZoomFactor = 75D;
-            this.tdbgPCNs.PrintInfo.PageSettings = ((System.Drawing.Printing.PageSettings)(resources.GetObject("tdbgPCNs.PrintInfo.PageSettings")));
-            this.tdbgPCNs.Size = new System.Drawing.Size(630, 85);
-            this.tdbgPCNs.TabIndex = 11;
-            this.tdbgPCNs.Text = "c1TrueDBGrid1";
-            this.tdbgPCNs.PropBag = resources.GetString("tdbgPCNs.PropBag");
+            this.dsProjectSchedule.DataSetName = "dsProjectSchedule";
+            this.dsProjectSchedule.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // c1TableLogic1
+            // 
+            this.c1TableLogic1.SchemaComponent = null;
+            this.c1TableLogic1.SchemaPersist = null;
+            this.c1TableLogic1.Table = "";
             // 
             // tdbgSchedule
             // 
@@ -738,7 +744,6 @@ namespace RSMPS
             this.tdbgSchedule.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tdbgSchedule.ColumnFooters = true;
-            //this.tdbgSchedule.DataSource = this.dTProjectSummarySchBindingSource;
             this.tdbgSchedule.Enabled = false;
             this.tdbgSchedule.GroupByCaption = "Drag a column header here to group by that column";
             this.tdbgSchedule.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbgSchedule.Images"))));
@@ -752,30 +757,6 @@ namespace RSMPS
             this.tdbgSchedule.TabIndex = 12;
             this.tdbgSchedule.Text = "c1TrueDBGrid1";
             this.tdbgSchedule.PropBag = resources.GetString("tdbgSchedule.PropBag");
-            // 
-            // rSManpowerSchDBDataSet
-            // 
-            //this.rSManpowerSchDBDataSet.DataSetName = "RSManpowerSchDBDataSet";
-            //this.rSManpowerSchDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rSManpowerSchDBDataSetBindingSource
-            // 
-            //this.rSManpowerSchDBDataSetBindingSource.DataSource = this.rSManpowerSchDBDataSet;
-            //this.rSManpowerSchDBDataSetBindingSource.Position = 0;
-            // 
-            // dsProjectSchedule
-            // 
-            this.dsProjectSchedule.DataSetName = "dsProjectSchedule";
-            this.dsProjectSchedule.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dTProjectSummarySchBindingSource
-            // 
-            this.dTProjectSummarySchBindingSource.DataMember = "DT_ProjectSummarySch";
-            this.dTProjectSummarySchBindingSource.DataSource = this.dsProjectSchedule;
-            // 
-            // dT_ProjectSummarySchTableAdapter
-            // 
-            this.dT_ProjectSummarySchTableAdapter.ClearBeforeFill = true;
             // 
             // FManager_Summary
             // 
@@ -797,6 +778,8 @@ namespace RSMPS
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fgForecast)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tdbgPCNs)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.cmnuSchedule.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
@@ -807,14 +790,10 @@ namespace RSMPS
             this.groupBox7.ResumeLayout(false);
             this.tbpFeedback.ResumeLayout(false);
             this.tbpFeedback.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tdbgPCNs)).EndInit();
             this.cmnuPMVals.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tdbgSchedule)).EndInit();
-            //((System.ComponentModel.ISupportInitialize)(this.rSManpowerSchDBDataSet)).EndInit();
-            //((System.ComponentModel.ISupportInitialize)(this.rSManpowerSchDBDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProjectSchedule)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dTProjectSummarySchBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tdbgSchedule)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -871,7 +850,6 @@ namespace RSMPS
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.RichTextBox rtbCFeedBack;
-        private C1.Win.C1TrueDBGrid.C1TrueDBGrid tdbgPCNs;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -880,11 +858,13 @@ namespace RSMPS
         private System.Windows.Forms.TextBox PaidtoDate;
         private System.Windows.Forms.TextBox BilledtoDate;
         private System.Windows.Forms.TextBox POAmt;
-        private C1.Win.C1TrueDBGrid.C1TrueDBGrid tdbgSchedule;
        // private System.Windows.Forms.BindingSource rSManpowerSchDBDataSetBindingSource;
        // private RSManpowerSchDBDataSet rSManpowerSchDBDataSet;
         private dsProjectSchedule dsProjectSchedule;
-        private System.Windows.Forms.BindingSource dTProjectSummarySchBindingSource;
-        private dsProjectScheduleTableAdapters.DT_ProjectSummarySchTableAdapter dT_ProjectSummarySchTableAdapter;
+       // private System.Windows.Forms.BindingSource dTProjectSummarySchBindingSource;
+        //private dsProjectScheduleTableAdapters.DT_ProjectSummarySchTableAdapter dT_ProjectSummarySchTableAdapter;
+        private C1.Win.C1TrueDBGrid.C1TrueDBGrid tdbgPCNs;
+        private C1.Data.C1TableLogic c1TableLogic1;
+        private C1.Win.C1TrueDBGrid.C1TrueDBGrid tdbgSchedule;
     }
 }

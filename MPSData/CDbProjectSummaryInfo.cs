@@ -48,6 +48,7 @@ namespace RSMPS
                 oVar.POAmt = Convert.ToDecimal(dr["POAmt"]);
                 oVar.BilledtoDate = Convert.ToDecimal(dr["BilledtoDate"]);
                 oVar.PaidtoDate = Convert.ToDecimal(dr["PaidtoDate"]);
+                oVar.Outstanding = Convert.ToDecimal(dr["Outstanding"]);
                 tmpStr = GetDataString();
             }
 
@@ -96,6 +97,8 @@ namespace RSMPS
             prm.Value = oVar.BilledtoDate;
             prm = cmd.Parameters.Add("@PaidtoDate", SqlDbType.Money);
             prm.Value = oVar.PaidtoDate;
+            prm = cmd.Parameters.Add("@Outstanding", SqlDbType.Money);
+            prm.Value = oVar.Outstanding;
             
             cmd.ExecuteNonQuery();
 
@@ -143,6 +146,8 @@ namespace RSMPS
             prm.Value = oVar.BilledtoDate;
             prm = cmd.Parameters.Add("@PaidtoDate", SqlDbType.Money);
             prm.Value = oVar.PaidtoDate;
+            prm = cmd.Parameters.Add("@Outstanding", SqlDbType.Money);
+            prm.Value = oVar.Outstanding;
             cmd.ExecuteNonQuery();
 
             prm = null;

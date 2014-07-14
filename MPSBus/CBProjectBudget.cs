@@ -155,6 +155,13 @@ namespace RSMPS
             return dbDt.GetPCNByProject(projSumID, projID);
         }
 
+        public static DataSet GetSchByProject(int projSumID, int projID)
+        {
+            CDbProjectBudget dbDt = new CDbProjectBudget();
+
+            return dbDt.GetSchByProject(projSumID, projID);
+        }
+
         public static SqlDataReader GetAccountGroupByDiscipline(int discipline)
         {
             CDbProjectBudget dbDt = new CDbProjectBudget();

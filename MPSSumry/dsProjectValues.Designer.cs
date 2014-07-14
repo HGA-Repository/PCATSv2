@@ -295,9 +295,11 @@ namespace RSMPS {
             
             private global::System.Data.DataColumn columnPOAmt;
             
-            private global::System.Data.DataColumn columnBilledtoDate;
+            private global::System.Data.DataColumn columnPaidToDate;
             
-            private global::System.Data.DataColumn columnPaidtoDate;
+            private global::System.Data.DataColumn columnBilledToDate;
+            
+            private global::System.Data.DataColumn columnOutstanding;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -398,17 +400,25 @@ namespace RSMPS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn BilledtoDateColumn {
+            public global::System.Data.DataColumn PaidToDateColumn {
                 get {
-                    return this.columnBilledtoDate;
+                    return this.columnPaidToDate;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PaidtoDateColumn {
+            public global::System.Data.DataColumn BilledToDateColumn {
                 get {
-                    return this.columnPaidtoDate;
+                    return this.columnBilledToDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn OutstandingColumn {
+                get {
+                    return this.columnOutstanding;
                 }
             }
             
@@ -449,7 +459,7 @@ namespace RSMPS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectInfosRow AddProjectInfosRow(int ID, int ProjSumID, int ProjectID, string Schedule, string ActHigh, string StaffNeeds, string CFeedBack, decimal POAmt, decimal BilledtoDate, decimal PaidtoDate) {
+            public ProjectInfosRow AddProjectInfosRow(int ID, int ProjSumID, int ProjectID, string Schedule, string ActHigh, string StaffNeeds, string CFeedBack, decimal POAmt, decimal PaidToDate, decimal BilledToDate, decimal Outstanding) {
                 ProjectInfosRow rowProjectInfosRow = ((ProjectInfosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
@@ -460,8 +470,9 @@ namespace RSMPS {
                         StaffNeeds,
                         CFeedBack,
                         POAmt,
-                        BilledtoDate,
-                        PaidtoDate};
+                        PaidToDate,
+                        BilledToDate,
+                        Outstanding};
                 rowProjectInfosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProjectInfosRow);
                 return rowProjectInfosRow;
@@ -492,8 +503,9 @@ namespace RSMPS {
                 this.columnStaffNeeds = base.Columns["StaffNeeds"];
                 this.columnCFeedBack = base.Columns["CFeedBack"];
                 this.columnPOAmt = base.Columns["POAmt"];
-                this.columnBilledtoDate = base.Columns["BilledtoDate"];
-                this.columnPaidtoDate = base.Columns["PaidtoDate"];
+                this.columnPaidToDate = base.Columns["PaidToDate"];
+                this.columnBilledToDate = base.Columns["BilledToDate"];
+                this.columnOutstanding = base.Columns["Outstanding"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -515,10 +527,12 @@ namespace RSMPS {
                 base.Columns.Add(this.columnCFeedBack);
                 this.columnPOAmt = new global::System.Data.DataColumn("POAmt", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPOAmt);
-                this.columnBilledtoDate = new global::System.Data.DataColumn("BilledtoDate", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBilledtoDate);
-                this.columnPaidtoDate = new global::System.Data.DataColumn("PaidtoDate", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPaidtoDate);
+                this.columnPaidToDate = new global::System.Data.DataColumn("PaidToDate", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPaidToDate);
+                this.columnBilledToDate = new global::System.Data.DataColumn("BilledToDate", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBilledToDate);
+                this.columnOutstanding = new global::System.Data.DataColumn("Outstanding", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOutstanding);
                 this.columnID.DefaultValue = ((int)(0));
                 this.columnProjSumID.DefaultValue = ((int)(0));
                 this.columnProjectID.DefaultValue = ((int)(0));
@@ -776,10 +790,10 @@ namespace RSMPS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string POAmt {
+            public decimal POAmt {
                 get {
                     try {
-                        return ((string)(this[this.tableProjectInfos.POAmtColumn]));
+                        return ((decimal)(this[this.tableProjectInfos.POAmtColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'POAmt\' in table \'ProjectInfos\' is DBNull.", e);
@@ -792,33 +806,49 @@ namespace RSMPS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string BilledtoDate {
+            public decimal PaidToDate {
                 get {
                     try {
-                        return ((string)(this[this.tableProjectInfos.BilledtoDateColumn]));
+                        return ((decimal)(this[this.tableProjectInfos.PaidToDateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BilledtoDate\' in table \'ProjectInfos\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'PaidToDate\' in table \'ProjectInfos\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableProjectInfos.BilledtoDateColumn] = value;
+                    this[this.tableProjectInfos.PaidToDateColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string PaidtoDate {
+            public decimal BilledToDate {
                 get {
                     try {
-                        return ((string)(this[this.tableProjectInfos.PaidtoDateColumn]));
+                        return ((decimal)(this[this.tableProjectInfos.BilledToDateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PaidtoDate\' in table \'ProjectInfos\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'BilledToDate\' in table \'ProjectInfos\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableProjectInfos.PaidtoDateColumn] = value;
+                    this[this.tableProjectInfos.BilledToDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Outstanding {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableProjectInfos.OutstandingColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Outstanding\' in table \'ProjectInfos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectInfos.OutstandingColumn] = value;
                 }
             }
             
@@ -920,26 +950,38 @@ namespace RSMPS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsBilledtoDateNull() {
-                return this.IsNull(this.tableProjectInfos.BilledtoDateColumn);
+            public bool IsPaidToDateNull() {
+                return this.IsNull(this.tableProjectInfos.PaidToDateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetBilledtoDateNull() {
-                this[this.tableProjectInfos.BilledtoDateColumn] = global::System.Convert.DBNull;
+            public void SetPaidToDateNull() {
+                this[this.tableProjectInfos.PaidToDateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPaidtoDateNull() {
-                return this.IsNull(this.tableProjectInfos.PaidtoDateColumn);
+            public bool IsBilledToDateNull() {
+                return this.IsNull(this.tableProjectInfos.BilledToDateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPaidtoDateNull() {
-                this[this.tableProjectInfos.PaidtoDateColumn] = global::System.Convert.DBNull;
+            public void SetBilledToDateNull() {
+                this[this.tableProjectInfos.BilledToDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOutstandingNull() {
+                return this.IsNull(this.tableProjectInfos.OutstandingColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOutstandingNull() {
+                this[this.tableProjectInfos.OutstandingColumn] = global::System.Convert.DBNull;
             }
         }
         

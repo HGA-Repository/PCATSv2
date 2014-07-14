@@ -67,9 +67,7 @@
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="C1.Data.2, Version=2.0.20141.272, Culture=neutral, PublicKeyToken=900b028620cd3a1b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
+    <Reference Include="C1.Data.2, Version=2.0.20141.272, Culture=neutral, PublicKeyToken=900b028620cd3a1b, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Command.2, Version=2.0.20123.19538, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\C1.Win.C1Command.2.dll</HintPath>

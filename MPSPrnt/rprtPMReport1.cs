@@ -30,12 +30,12 @@ namespace RSMPS
             SubReport.Report = rpt;
         }
 
-        private void rprtPMReport1_ReportStart(object sender, System.EventArgs eArgs)
-        {
-            lblDate.Text = DateTime.Now.ToShortDateString();
+        //private void rprtPMReport1_ReportStart(object sender, System.EventArgs eArgs)
+        //{
+        //    lblDate.Text = DateTime.Now.ToShortDateString();
 
-            RichTextBox1.Font = new System.Drawing.Font("Times New Roman", 12);
-        }
+        //    RichTextBox1.Font = new System.Drawing.Font("Times New Roman", 12);
+        //}
 
 		#region ActiveReports Designer generated code
 
@@ -78,21 +78,12 @@ namespace RSMPS
             this.GroupHeader1 = new GrapeCity.ActiveReports.SectionReportModel.GroupHeader();
             this.SubReport = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
             this.Label1 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.Label3 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.Label4 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.RichTextBox1 = new GrapeCity.ActiveReports.SectionReportModel.RichTextBox();
-            this.RichTextBox2 = new GrapeCity.ActiveReports.SectionReportModel.RichTextBox();
-            this.Label5 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.RichTextBox3 = new GrapeCity.ActiveReports.SectionReportModel.RichTextBox();
             this.GroupFooter1 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
             ((System.ComponentModel.ISupportInitialize)(this.Label)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblPM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -189,13 +180,7 @@ namespace RSMPS
             // 
             this.GroupHeader1.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.SubReport,
-            this.Label1,
-            this.Label3,
-            this.Label4,
-            this.RichTextBox1,
-            this.RichTextBox2,
-            this.Label5,
-            this.RichTextBox3});
+            this.Label1});
             this.GroupHeader1.DataField = "ProjSumID";
             this.GroupHeader1.Height = 3.676389F;
             this.GroupHeader1.Name = "GroupHeader1";
@@ -222,78 +207,6 @@ namespace RSMPS
             this.Label1.Text = "I.  Project Status";
             this.Label1.Top = 0F;
             this.Label1.Width = 6.5625F;
-            // 
-            // Label3
-            // 
-            this.Label3.Height = 0.25F;
-            this.Label3.HyperLink = null;
-            this.Label3.Left = 0F;
-            this.Label3.Name = "Label3";
-            this.Label3.Style = "font-family: Times New Roman; font-size: 14.25pt; font-weight: bold; text-decorat" +
-    "ion: underline";
-            this.Label3.Text = "II.  Quality Improvements / Suggestions for Improvement";
-            this.Label3.Top = 0.8750001F;
-            this.Label3.Width = 6.5625F;
-            // 
-            // Label4
-            // 
-            this.Label4.Height = 0.25F;
-            this.Label4.HyperLink = null;
-            this.Label4.Left = 0F;
-            this.Label4.Name = "Label4";
-            this.Label4.Style = "font-family: Times New Roman; font-size: 14.25pt; font-weight: bold; text-decorat" +
-    "ion: underline";
-            this.Label4.Text = "III.  New Work / Proposals";
-            this.Label4.Top = 1.552083F;
-            this.Label4.Width = 6.5625F;
-            // 
-            // RichTextBox1
-            // 
-            this.RichTextBox1.AutoReplaceFields = true;
-            this.RichTextBox1.DataField = "QualityImp";
-            this.RichTextBox1.Font = new System.Drawing.Font("Arial", 10F);
-            this.RichTextBox1.Height = 0.3125F;
-            this.RichTextBox1.Left = 0.3125F;
-            this.RichTextBox1.Name = "RichTextBox1";
-            this.RichTextBox1.RTF = resources.GetString("RichTextBox1.RTF");
-            this.RichTextBox1.Top = 1.177083F;
-            this.RichTextBox1.Width = 7.4375F;
-            // 
-            // RichTextBox2
-            // 
-            this.RichTextBox2.AutoReplaceFields = true;
-            this.RichTextBox2.DataField = "NewWorkProp";
-            this.RichTextBox2.Font = new System.Drawing.Font("Arial", 10F);
-            this.RichTextBox2.Height = 0.3125F;
-            this.RichTextBox2.Left = 0.3125F;
-            this.RichTextBox2.Name = "RichTextBox2";
-            this.RichTextBox2.RTF = resources.GetString("RichTextBox2.RTF");
-            this.RichTextBox2.Top = 1.864583F;
-            this.RichTextBox2.Width = 7.4375F;
-            // 
-            // Label5
-            // 
-            this.Label5.Height = 0.25F;
-            this.Label5.HyperLink = null;
-            this.Label5.Left = 0F;
-            this.Label5.Name = "Label5";
-            this.Label5.Style = "font-family: Times New Roman; font-size: 14.25pt; font-weight: bold; text-decorat" +
-    "ion: underline";
-            this.Label5.Text = "Distribution List";
-            this.Label5.Top = 2.239583F;
-            this.Label5.Width = 6.5625F;
-            // 
-            // RichTextBox3
-            // 
-            this.RichTextBox3.AutoReplaceFields = true;
-            this.RichTextBox3.DataField = "DistributionList";
-            this.RichTextBox3.Font = new System.Drawing.Font("Arial", 10F);
-            this.RichTextBox3.Height = 0.3125F;
-            this.RichTextBox3.Left = 0.3125F;
-            this.RichTextBox3.Name = "RichTextBox3";
-            this.RichTextBox3.RTF = resources.GetString("RichTextBox3.RTF");
-            this.RichTextBox3.Top = 2.552083F;
-            this.RichTextBox3.Width = 7.4375F;
             // 
             // GroupFooter1
             // 
@@ -330,15 +243,12 @@ namespace RSMPS
             "ght: bold; font-size: 14pt; font-size-adjust: inherit; font-stretch: inherit", "Heading2", "Normal"));
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bo" +
             "ld; font-size: 13pt; font-size-adjust: inherit; font-stretch: inherit", "Heading3", "Normal"));
-            this.ReportStart += new System.EventHandler(this.rprtPMReport1_ReportStart);
+            //this.ReportStart += new System.EventHandler(this.rprtPMReport1_ReportStart);
             ((System.ComponentModel.ISupportInitialize)(this.Label)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblPM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -355,12 +265,6 @@ namespace RSMPS
         private GroupHeader GroupHeader1;
         private SubReport SubReport;
         private Label Label1;
-        private Label Label3;
-        private Label Label4;
-        private RichTextBox RichTextBox1;
-        private RichTextBox RichTextBox2;
-        private Label Label5;
-        private RichTextBox RichTextBox3;
         private Detail Detail;
         private GroupFooter GroupFooter1;
         private PageFooter PageFooter;

@@ -277,6 +277,9 @@
     <Compile Include="rprtPMReportPCN.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="rprtPMReportSch.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="rprtTransmittal1.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -450,6 +453,10 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="rprtPMReportPCN.resx">
       <DependentUpon>rprtPMReportPCN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtPMReportSch.resx">
+      <DependentUpon>rprtPMReportSch.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="rprtTransmittal1.resx">

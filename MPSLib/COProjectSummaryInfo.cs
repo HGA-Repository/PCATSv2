@@ -16,6 +16,7 @@ namespace RSMPS
         private decimal mdPOAmt;
         private decimal mdBilledtoDate;
         private decimal mdPaidtoDate;
+        private decimal mdOutstanding;
 
         #region Properties
 
@@ -74,6 +75,11 @@ namespace RSMPS
             get { return mdPaidtoDate; }
             set { mdPaidtoDate = value; }
         }
+        public decimal Outstanding
+        {
+            get { return mdOutstanding; }
+            set { mdOutstanding = value; }
+        }
 
         #endregion
 
@@ -89,6 +95,7 @@ namespace RSMPS
             mdPOAmt = 0;
             mdBilledtoDate = 0;
             mdPaidtoDate = 0;
+            mdOutstanding = 0;
         }
 
         public void Copy(COProjectSummaryInfo oNew)
@@ -103,6 +110,7 @@ namespace RSMPS
             oNew.POAmt = mdPOAmt;
             oNew.BilledtoDate = mdBilledtoDate;
             oNew.PaidtoDate = mdPaidtoDate;
+            oNew.Outstanding = mdOutstanding;
         }
 
         public void LoadFromObj(COProjectSummaryInfo oOrg)
@@ -117,6 +125,7 @@ namespace RSMPS
             mdPOAmt = oOrg.POAmt;
             mdBilledtoDate = oOrg.BilledtoDate;
             mdPaidtoDate = oOrg.PaidtoDate;
+            mdOutstanding = oOrg.Outstanding;
         }
     }
 }
