@@ -437,6 +437,7 @@ namespace RSMPS
             mdsProjInfos = new dsProjectValues();
 
             dr = CBProjectSummaryInfo.GetListByProjSum(moProjSum.ID);
+            
 
             while (dr.Read())
             {

@@ -387,9 +387,9 @@ namespace RSMPS
             rtbStaffing.RTF = msStaffing;
             rtbCFeedBack.RTF = msCFeedBack;
             txtPOAmtV.Text = msPOAmt;
-            txtBilledToDate.Text= msBilledToDate;
-            txtPaidToDate.Text = msPaidToDate;
-            txtOutstanding.Text = msOutstanding;
+            txtBilledToDateV.Text= msBilledToDate;
+            txtPaidToDateV.Text = msPaidToDate;
+            txtOutstandingV.Text = msOutstanding;
         }
 
         private void GroupHeader1_Format(object sender, System.EventArgs eArgs)
@@ -1666,7 +1666,7 @@ namespace RSMPS
             // 
             this.label25.Height = 0.2F;
             this.label25.HyperLink = null;
-            this.label25.Left = 3.063F;
+            this.label25.Left = 3.125F;
             this.label25.Name = "label25";
             this.label25.Style = "font-size: 9.75pt; font-weight: bold";
             this.label25.Text = "Paid To Date";
@@ -1688,7 +1688,7 @@ namespace RSMPS
             // 
             this.Shape2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape2.Height = 0.25F;
-            this.Shape2.Left = 0.687F;
+            this.Shape2.Left = 0.689F;
             this.Shape2.Name = "Shape2";
             this.Shape2.RoundingRadius = 9.999999F;
             this.Shape2.Top = 1F;
@@ -1698,51 +1698,51 @@ namespace RSMPS
             // 
             this.Label27.Height = 0.2F;
             this.Label27.HyperLink = null;
-            this.Label27.Left = 0.7135F;
+            this.Label27.Left = 0.687F;
             this.Label27.Name = "Label27";
-            this.Label27.Style = "font-size: 9.75pt; font-weight: bold";
+            this.Label27.Style = "font-size: 9.75pt; font-weight: bold; text-align: center";
             this.Label27.Text = "Description";
-            this.Label27.Top = 1.0615F;
+            this.Label27.Top = 1F;
             this.Label27.Width = 2.9585F;
             // 
             // Label28
             // 
             this.Label28.Height = 0.2F;
             this.Label28.HyperLink = null;
-            this.Label28.Left = 3.812F;
+            this.Label28.Left = 3.671F;
             this.Label28.Name = "Label28";
-            this.Label28.Style = "font-size: 9.75pt; font-weight: bold";
+            this.Label28.Style = "font-size: 9.75pt; font-weight: bold; text-align: center";
             this.Label28.Text = "Initial Target";
-            this.Label28.Top = 1.062F;
-            this.Label28.Width = 1F;
+            this.Label28.Top = 1F;
+            this.Label28.Width = 0.8649998F;
             // 
             // Label29
             // 
             this.Label29.Height = 0.2F;
             this.Label29.HyperLink = null;
-            this.Label29.Left = 4.8385F;
+            this.Label29.Left = 4.671F;
             this.Label29.Name = "Label29";
             this.Label29.Style = "font-size: 9.75pt; font-weight: bold; text-align: center";
             this.Label29.Text = "Projected";
-            this.Label29.Top = 1.062F;
+            this.Label29.Top = 1F;
             this.Label29.Width = 1F;
             // 
             // Label30
             // 
             this.Label30.Height = 0.2F;
             this.Label30.HyperLink = null;
-            this.Label30.Left = 5.901F;
+            this.Label30.Left = 5.812F;
             this.Label30.Name = "Label30";
             this.Label30.Style = "font-size: 9.75pt; font-weight: bold; text-align: center";
             this.Label30.Text = "Actual";
-            this.Label30.Top = 1.062F;
+            this.Label30.Top = 1F;
             this.Label30.Width = 0.85F;
             // 
             // subReport3
             // 
             this.subReport3.CloseBorder = false;
             this.subReport3.Height = 0.125F;
-            this.subReport3.Left = 0.659F;
+            this.subReport3.Left = 0.686F;
             this.subReport3.Name = "subReport3";
             this.subReport3.Report = null;
             this.subReport3.ReportName = "";
@@ -1752,9 +1752,11 @@ namespace RSMPS
             // txtPOAmtV
             // 
             this.txtPOAmtV.Height = 0.2F;
-            this.txtPOAmtV.Left = 0.626F;
+            this.txtPOAmtV.Left = 0.686F;
             this.txtPOAmtV.Name = "txtPOAmtV";
-            this.txtPOAmtV.Top = 4.636001F;
+            this.txtPOAmtV.OutputFormat = resources.GetString("txtPOAmtV.OutputFormat");
+            this.txtPOAmtV.Text = null;
+            this.txtPOAmtV.Top = 4.678F;
             this.txtPOAmtV.Width = 1F;
             // 
             // txtBilledToDateV
@@ -1762,7 +1764,9 @@ namespace RSMPS
             this.txtBilledToDateV.Height = 0.2F;
             this.txtBilledToDateV.Left = 1.829F;
             this.txtBilledToDateV.Name = "txtBilledToDateV";
-            this.txtBilledToDateV.Top = 4.636001F;
+            this.txtBilledToDateV.OutputFormat = resources.GetString("txtBilledToDateV.OutputFormat");
+            this.txtBilledToDateV.Text = null;
+            this.txtBilledToDateV.Top = 4.678F;
             this.txtBilledToDateV.Width = 1F;
             // 
             // txtPaidToDateV
@@ -1770,6 +1774,8 @@ namespace RSMPS
             this.txtPaidToDateV.Height = 0.2F;
             this.txtPaidToDateV.Left = 3.125F;
             this.txtPaidToDateV.Name = "txtPaidToDateV";
+            this.txtPaidToDateV.OutputFormat = resources.GetString("txtPaidToDateV.OutputFormat");
+            this.txtPaidToDateV.Text = null;
             this.txtPaidToDateV.Top = 4.678F;
             this.txtPaidToDateV.Width = 1F;
             // 
@@ -1778,6 +1784,8 @@ namespace RSMPS
             this.txtOutstandingV.Height = 0.2F;
             this.txtOutstandingV.Left = 4.465F;
             this.txtOutstandingV.Name = "txtOutstandingV";
+            this.txtOutstandingV.OutputFormat = resources.GetString("txtOutstandingV.OutputFormat");
+            this.txtOutstandingV.Text = null;
             this.txtOutstandingV.Top = 4.678F;
             this.txtOutstandingV.Width = 1F;
             // 
