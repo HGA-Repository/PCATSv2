@@ -133,16 +133,16 @@
     <value>{\rtf1{\fonttbl{\f0\fnil\fcharset0 Arial;}}{\stylesheet{\ql\li0\ri0\nowidctlpar\sl240\slmult\faauto\fs20\f0 Normal;}}\pard\plain\s0\li0\ri0\ql\nowidctlpar\sl240\slmult\faauto\f0\fs20{\f0 RichTextBox1\par}}</value>
   </data>
   <data name="rtbStaffing.RTF" xml:space="preserve">
-    <value>{\rtf1\ansi\ansicpg1252\deff0{\fonttbl{\f0\fnil\fcharset0 Arial;}}
-\viewkind4\uc1\pard\nowidctlpar\sl240\slmult0\lang1033\fs20 RichTextBox2\par
-}
-</value>
+    <value>{\rtf1{\fonttbl{\f0\fnil\fcharset0 Arial;}}{\stylesheet{\ql\li0\ri0\nowidctlpar\sl240\slmult\faauto\fs20\f0 Normal;}}\pard\plain\s0\li0\ri0\ql\nowidctlpar\sl240\slmult\faauto\f0\fs20{\f0 RichTextBox2\par}}</value>
   </data>
-  <data name="rtbClientFeedBack.RTF" xml:space="preserve">
-    <value>{\rtf1\ansi\ansicpg1252\deff0{\fonttbl{\f0\fnil\fcharset0 Arial;}}
-\viewkind4\uc1\pard\nowidctlpar\sl240\slmult0\lang1033\fs20 RichTextBox3\par
-}
-</value>
+  <data name="rtbStaffing.RTF" xml:space="preserve">
+    <value>{\rtf1{\fonttbl{\f0\fnil\fcharset0 Arial;}}{\stylesheet{\ql\li0\ri0\nowidctlpar\sl240\slmult\faauto\fs20\f0 Normal;}}\pard\plain\s0\li0\ri0\ql\nowidctlpar\sl240\slmult\faauto\f0\fs20{\f0 RichTextBox2\par}}</value>
+  </data>
+  <data name="rtbCFeedBack.RTF" xml:space="preserve">
+    <value>{\rtf1{\fonttbl{\f0\fnil\fcharset0 Arial;}}{\stylesheet{\ql\li0\ri0\nowidctlpar\sl240\slmult\faauto\fs20\f0 Normal;}}\pard\plain\s0\li0\ri0\ql\nowidctlpar\sl240\slmult\faauto\f0\fs20{\f0 RichTextBox2\par}}</value>
+  </data>
+  <data name="rtbCFeedBack.RTF" xml:space="preserve">
+    <value>{\rtf1{\fonttbl{\f0\fnil\fcharset0 Arial;}}{\stylesheet{\ql\li0\ri0\nowidctlpar\sl240\slmult\faauto\fs20\f0 Normal;}}\pard\plain\s0\li0\ri0\ql\nowidctlpar\sl240\slmult\faauto\f0\fs20{\f0 RichTextBox2\par}}</value>
   </data>
   <metadata name="$this.ScriptEditorPositionForUndo" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 0</value>

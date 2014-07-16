@@ -30,12 +30,12 @@ namespace RSMPS
             SubReport.Report = rpt;
         }
 
-        //private void rprtPMReport1_ReportStart(object sender, System.EventArgs eArgs)
-        //{
-        //    lblDate.Text = DateTime.Now.ToShortDateString();
+        private void rprtPMReport1_ReportStart(object sender, System.EventArgs eArgs)
+        {
+            lblDate.Text = DateTime.Now.ToShortDateString();
 
-        //    RichTextBox1.Font = new System.Drawing.Font("Times New Roman", 12);
-        //}
+           // RichTextBox1.Font = new System.Drawing.Font("Times New Roman", 12);
+        }
 
 		#region ActiveReports Designer generated code
 
@@ -243,7 +243,7 @@ namespace RSMPS
             "ght: bold; font-size: 14pt; font-size-adjust: inherit; font-stretch: inherit", "Heading2", "Normal"));
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bo" +
             "ld; font-size: 13pt; font-size-adjust: inherit; font-stretch: inherit", "Heading3", "Normal"));
-            //this.ReportStart += new System.EventHandler(this.rprtPMReport1_ReportStart);
+            this.ReportStart += new System.EventHandler(this.rprtPMReport1_ReportStart);
             ((System.ComponentModel.ISupportInitialize)(this.Label)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblPM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblDate)).EndInit();

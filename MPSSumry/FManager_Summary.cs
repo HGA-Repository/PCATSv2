@@ -19,6 +19,7 @@ namespace RSMPS
         private CBProjectSummary moProjSum;
         private dsProjectValues mdsProjInfos;
         private dsProjectSchedule mdsProjSch;
+        
         private bool mbIsRollup = false;
 
         private bool mbChanged;
@@ -56,7 +57,7 @@ namespace RSMPS
             miCurrentProjectID = 0;
             moProjSum = new CBProjectSummary();
             tdbgPCNs.SetDataBinding(mdsProjPCNs, "PCNList", true);
-            tdbgSchedule.SetDataBinding(mdsProjSch, "DT_ProjectSummarySch", true);
+            tdbgSchedule.SetDataBinding(mdsProjSch, "ScheduleList", true);
 
             mbChanged = false;
         }
@@ -72,7 +73,7 @@ namespace RSMPS
 
         void pl_OnItemSelected(int itmID)
         {
-            CBProject p = new CBProject(); 
+            CBProject p = new CBProject();
 
             p.Load(itmID);
 
@@ -144,7 +145,7 @@ namespace RSMPS
         }
         private void CancelProjectSch(int projID, string projNum)
         {
-            foreach (DataRow dr in mdsProjSch.Tables["DT_ProjectSummarySch"].Rows)
+            foreach (DataRow dr in mdsProjSch.Tables["ScheduleList"].Rows)
             {
                 if (Convert.ToInt32(dr["ProjectID"]) == projID)
                 {
@@ -169,10 +170,9 @@ namespace RSMPS
                 rtbNeeds.Enabled = true;
                 rtbCFeedBack.Enabled = true;
                 POAmt.Enabled = true;
-                BilledtoDate.Enabled = true;
-                PaidtoDate.Enabled = true;
+                BilledToDate.Enabled = true;
+                PaidToDate.Enabled = true;
                 Outstanding.Enabled = true;
-
 
                 SaveCurrentProject();
                 miCurrentProjectID = Convert.ToInt32(lvwProjects.SelectedItems[0].SubItems[3].Text);
@@ -189,8 +189,8 @@ namespace RSMPS
                 rtbNeeds.Enabled = false;
                 rtbCFeedBack.Enabled = false;
                 POAmt.Enabled = false;
-                BilledtoDate.Enabled = false;
-                PaidtoDate.Enabled = false;
+                BilledToDate.Enabled = false;
+                PaidToDate.Enabled = false;
                 Outstanding.Enabled = false;
             }
 
@@ -238,15 +238,14 @@ namespace RSMPS
 
                     if (dr["StaffNeeds"].ToString().Length > 0)
                         rtbNeeds.Rtf = dr["StaffNeeds"].ToString();
+                   
                     if (dr["CFeedBack"].ToString().Length > 0)
                         rtbCFeedBack.Rtf = dr["CFeedBack"].ToString();
 
                     POAmt.Text += dr["POAmt"];
-                    BilledtoDate.Text += dr["BilledtoDate"];
-                    PaidtoDate.Text += dr["PaidtoDate"];
+                    BilledToDate.Text += dr["BilledtoDate"];
+                    PaidToDate.Text += dr["PaidtoDate"];
                     Outstanding.Text += dr["Outstanding"];
-                    
-                   
                     break;
                 }
             }
@@ -277,10 +276,10 @@ namespace RSMPS
             rtbCFeedBack.SelectAll();
             rtbCFeedBack.SelectionBullet = true;
             POAmt.Clear();
-            BilledtoDate.Clear();
-            PaidtoDate.Clear();
+            BilledToDate.Clear();
+            PaidToDate.Clear();
             Outstanding.Clear();
-       
+
         }
 
         private void ClearCostSummary()
@@ -372,35 +371,7 @@ namespace RSMPS
             LoadPCNList();
             LoadSchList();
         }
-        private void LoadSchList()
-        {
-            SqlDataReader dr;
 
-            dr = CBProjectSummarySch.GetListByProjectSum(moProjSum.ID);
-            mdsProjSch.Tables["DT_ProjectSummarySch"].Rows.Clear();
-
-            while (dr.Read())
-            {
-                DataRow d = mdsProjSch.Tables["DT_ProjectSummarySch"].NewRow();
-
-                d["ID"] = dr["ID"];
-                d["ProjSumID"] = dr["ProjSumID"];
-                d["ProjectID"] = dr["ProjectID"];
-                d["Description"] = dr["Description"];
-                d["InitialTarget"] = dr["InitialTarget"];
-                d["Projected"] = dr["Projected"];
-                d["Actual"] = dr["Actual"];
-
-                mdsProjSch.Tables["DT_ProjectSummarySch"].Rows.Add(d);
-            }
-
-            dr.Close();
-
-            tdbgSchedule.Columns["ProjectID"].FilterText = "-1";
-
-            
-        }
-        
         private void LoadPCNList()
         {
             SqlDataReader dr;
@@ -429,7 +400,33 @@ namespace RSMPS
 
             TotalPCNAmount();
         }
+        private void LoadSchList()
+        {
+            SqlDataReader dr;
 
+            dr = CBProjectSummarySch.GetListByProjectSum(moProjSum.ID);
+            mdsProjSch.Tables["ScheduleList"].Rows.Clear();
+
+            while (dr.Read())
+            {
+                DataRow d = mdsProjSch.Tables["ScheduleList"].NewRow();
+
+                d["ID"] = dr["ID"];
+                d["ProjSumID"] = dr["ProjSumID"];
+                d["ProjectID"] = dr["ProjectID"];
+                d["Description"] = dr["Description"];
+                d["InitialTarget"] = dr["InitialTarget"];
+                d["Projected"] = dr["Projected"];
+                d["Actual"] = dr["Actual"];
+
+                mdsProjSch.Tables["ScheduleList"].Rows.Add(d);
+            }
+
+            dr.Close();
+
+            tdbgSchedule.Columns["ProjectID"].FilterText = "-1";
+
+           }
         private void LoadProjectList()
         {
             ListViewItem lvi;
@@ -454,8 +451,8 @@ namespace RSMPS
                 d["StaffNeeds"] = dr["StaffNeeds"];
                 d["CFeedBack"] = dr["CFeedBack"];
                 d["POAmt"] = dr["POAmt"];
-                d["BilledtoDate"] = dr["BilledtoDate"];
-                d["PaidtoDate"] = dr["PaidtoDate"];
+                d["BilledtoDate"] = dr["BilledToDate"];
+                d["PaidtoDate"] = dr["PaidToDate"];
                 d["Outstanding"] = dr["Outstanding"];
 
                 mdsProjInfos.Tables["ProjectInfos"].Rows.Add(d);
@@ -511,8 +508,8 @@ namespace RSMPS
                     dr["StaffNeeds"] = rtbNeeds.Rtf;
                     dr["CFeedBack"] = rtbCFeedBack.Rtf;
                     dr["POAmt"] = POAmt.Text;
-                    dr["BilledtoDate"] = BilledtoDate.Text;
-                    dr["PaidtoDate"] = PaidtoDate.Text;
+                    dr["BilledtoDate"] = BilledToDate.Text;
+                    dr["PaidtoDate"] = PaidToDate.Text;
                     dr["Outstanding"] = Outstanding.Text;
 
                     break;
@@ -572,8 +569,7 @@ namespace RSMPS
                     psp.Save();
                 }
             }
-                
-            foreach (DataRow dr in mdsProjSch.Tables["DT_ProjectSummarySch"].Rows)
+            foreach (DataRow dr in mdsProjSch.Tables["ScheduleList"].Rows)
             {
                 sch = new CBProjectSummarySch();
 
@@ -582,11 +578,9 @@ namespace RSMPS
                     sch.ProjSumID = ps.ID;
                     sch.ProjectID = Convert.ToInt32(dr["ProjectID"]);
                     sch.Description = dr["Description"].ToString();
-                    sch.InitialTarget = Convert.ToDateTime(dr["InitalTarget"]);
+                    sch.InitialTarget = Convert.ToDateTime(dr["InitialTarget"]);
                     sch.Projected = Convert.ToDateTime(dr["Projected"]);
                     sch.Actual = Convert.ToDateTime(dr["Actual"]);
-                    
-
                     sch.Save();
                 }
             }
@@ -596,12 +590,10 @@ namespace RSMPS
         {
             TotalPCNAmount();
         }
-
         private void tdbgSchedule_AfterUpdate(object sender, EventArgs e)
         {
-            InfoChanged();
-        }
 
+        }
         private void TotalPCNAmount()
         {
 
@@ -631,6 +623,7 @@ namespace RSMPS
         {
             tdbgPCNs.Columns["ProjectID"].FilterText = "";
             tdbgPCNs.Columns["ProjSumID"].FilterText = "";
+
             tdbgSchedule.Columns["ProjectID"].FilterText = "";
             tdbgSchedule.Columns["ProjSumID"].FilterText = "";
         }
@@ -662,6 +655,7 @@ namespace RSMPS
             InfoChanged();
         }
 
+
         private void tdbgSchedule_BeforeUpdate(object sender, C1.Win.C1TrueDBGrid.CancelEventArgs e)
         {
             int projsumid = 0;
@@ -688,7 +682,6 @@ namespace RSMPS
 
             InfoChanged();
         }
-
         private void LoadForecast(string proj)
         {
             DataSet ds;
@@ -922,7 +915,7 @@ namespace RSMPS
             {
                 rtbSchedule.SelectionBullet = false;
             }
-             else if (rtbCFeedBack.Focused == true)
+            else if (rtbCFeedBack.Focused == true)
             {
                 rtbCFeedBack.SelectionBullet = false;
             }
@@ -969,7 +962,7 @@ namespace RSMPS
                     rtbSchedule.SelectionFont = nf;
                 }
             }
-             else if (rtbCFeedBack.Focused == true)
+            else if (rtbCFeedBack.Focused == true)
             {
                 if (rtbCFeedBack.SelectionFont.Bold == true)
                 {
@@ -981,7 +974,7 @@ namespace RSMPS
                     Font nf = new Font(rtbCFeedBack.Font, FontStyle.Bold);
                     rtbCFeedBack.SelectionFont = nf;
                 }
-             }
+            }
         }
 
         private void tlbbExit_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
@@ -1018,11 +1011,11 @@ namespace RSMPS
         {
             InfoChanged();
         }
-         
         private void rtbCFeedBack_TextChanged(object sender, EventArgs e)
         {
             InfoChanged();
         }
+
         private void rtbClientFeed_TextChanged(object sender, EventArgs e)
         {
             InfoChanged();
@@ -1032,30 +1025,12 @@ namespace RSMPS
         {
             InfoChanged();
         }
-        private void tdbgSchedule_TextChanged(object sender, EventArgs e)
-        {
-            InfoChanged();
-        }
-        private void tdbgPCNS_TextChanged(object sender, EventArgs e)
-        {
-            InfoChanged();
-        }
+
         private void rtbNewWork_TextChanged(object sender, EventArgs e)
         {
             InfoChanged();
         }
-        private void POAmt_TextChanged(object sender, EventArgs e)
-        {
-            InfoChanged();
-        }
-        private void BilledToDate_TextChanged(object sender, EventArgs e)
-        {
-            InfoChanged();
-        }
-        private void PaidtoDate_TextChanged(object sender, EventArgs e)
-        {
-            InfoChanged();
-        }
+
         private void InfoChanged()
         {
             mbChanged = true;
@@ -1216,13 +1191,9 @@ namespace RSMPS
         private void tdbgSchedule_AfterDelete(object sender, EventArgs e)
         {
             InfoChanged();
-        }
-       private void FManager_Summary_Load(object sender, EventArgs e)
-        {
-            //this.dT_ProjectSummarySchTableAdapter.Fill(this.dsProjectSchedule.DT_ProjectSummarySch);
-        }
 
-        private void label1_Click(object sender, EventArgs e)
+        }
+        private void FManager_Summary_Load(object sender, EventArgs e)
         {
 
         }

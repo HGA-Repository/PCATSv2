@@ -43,7 +43,6 @@ namespace RSMPS
 
             moCostSum.LoadByProject(moProj.ID);
             emp.Load(moProj.ProjMngrID);
-            emp.Load(moProj.LeadProjMngrID);
 
             if (moCostSum.Number.Length < 1)
                 txtProject.Text = moProj.Number;

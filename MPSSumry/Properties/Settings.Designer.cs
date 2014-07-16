@@ -26,11 +26,11 @@ namespace RSMPS.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=HGASQLSERVER;Initial Catalog=RSManpowerSchDB;Persist Security Info=Tr" +
-            "ue;User ID=RSMPUser;Password=RSMPPass")]
-        public string RSManpowerSchDBConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=HGASQLSERVER;Initial Catalog=RSManpowerSchDBTest;Persist Security Inf" +
+            "o=True;User ID=RSMPUser")]
+        public string RSManpowerSchDBTestConnectionString {
             get {
-                return ((string)(this["RSManpowerSchDBConnectionString"]));
+                return ((string)(this["RSManpowerSchDBTestConnectionString"]));
             }
         }
     }

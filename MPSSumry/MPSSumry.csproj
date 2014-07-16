@@ -67,9 +67,6 @@
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="C1.Data.2, Version=2.0.20141.272, Culture=neutral, PublicKeyToken=900b028620cd3a1b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
     <Reference Include="C1.Win.C1Command.2, Version=2.0.20123.19538, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\C1.Win.C1Command.2.dll</HintPath>
@@ -78,7 +75,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\C1.Win.C1FlexGrid.2.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.C1TrueDBGrid.2, Version=2.0.20123.61277, Culture=neutral, PublicKeyToken=75ae3fb0e2b1e0da, processorArchitecture=MSIL">
+    <Reference Include="C1.Win.C1TrueDBGrid.2, Version=2.0.20142.61400, Culture=neutral, PublicKeyToken=75ae3fb0e2b1e0da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\C1.Win.C1TrueDBGrid.2.dll</HintPath>
     </Reference>
@@ -90,12 +87,11 @@
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
-    <Reference Include="System.Runtime.Remoting" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="dsPCNNotes.cs">
       <DependentUpon>dsPCNNotes.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -107,14 +103,12 @@
     </Compile>
     <Compile Include="dsProjectSchedule.cs">
       <DependentUpon>dsProjectSchedule.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="dsProjectSchedule.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsProjectSchedule.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="dsProjectValues.cs">
-      <DependentUpon>dsProjectValues.xsd</DependentUpon>
     </Compile>
     <Compile Include="dsProjectValues.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -214,9 +208,9 @@
       <DependentUpon>dsProjectSchedule.xsd</DependentUpon>
     </None>
     <None Include="dsProjectSchedule.xsd">
+      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>dsProjectSchedule.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
     <None Include="dsProjectSchedule.xss">
       <DependentUpon>dsProjectSchedule.xsd</DependentUpon>
@@ -263,6 +257,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

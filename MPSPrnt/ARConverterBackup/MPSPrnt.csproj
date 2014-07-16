@@ -1,0 +1,530 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{03CA7A04-6B0B-4F01-A2B3-B7EA29EE4B6E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RSMPS</RootNamespace>
+    <AssemblyName>MPSPrnt</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/MPSPrnt/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\MPSPrnt.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="C1.C1Excel.2, Version=2.1.20121.228, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Chart.v7, Version=7.1.7470.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
+    <Reference Include="GrapeCity.ActiveReports.Design.Win.v7, Version=7.1.7470.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
+    <Reference Include="GrapeCity.ActiveReports.Diagnostics.v7, Version=7.1.7470.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
+    <Reference Include="GrapeCity.ActiveReports.Document.v7, Version=7.1.7470.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
+    <Reference Include="GrapeCity.ActiveReports.Export.Excel.v7, Version=7.1.7470.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
+    <Reference Include="GrapeCity.ActiveReports.Export.Image.v7, Version=7.1.7470.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
+    <Reference Include="GrapeCity.ActiveReports.Export.Pdf.v7, Version=7.1.7470.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
+    <Reference Include="GrapeCity.ActiveReports.Export.Rdf.v7, Version=7.1.7470.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
+    <Reference Include="GrapeCity.ActiveReports.Extensibility.v7, Version=7.1.7470.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
+    <Reference Include="GrapeCity.ActiveReports.v7, Version=7.1.7470.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
+    <Reference Include="GrapeCity.ActiveReports.Viewer.Win.v7, Version=7.1.7470.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\WINDOWS\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="rprtBudgetAcconting.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtBudgetAcconting.Designer.cs">
+      <DependentUpon>rprtBudgetAcconting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CPBudget.cs" />
+    <Compile Include="rprtBudgetAccountingExps.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtBudgetAccountingExps.Designer.cs">
+      <DependentUpon>rprtBudgetAccountingExps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtBudgetDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtBudgetDetailExps.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtBudgetJobStat2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtBudgetJobStat2.Designer.cs">
+      <DependentUpon>rprtBudgetJobStat2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtBudgetSummary1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtBudgetSummaryEngineering.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtBudgetSummaryExpenses.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtBudgetSummaryGeneral.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtCostSummary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtDrawingLog1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtDrawingLog1.Designer.cs">
+      <DependentUpon>rprtDrawingLog1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtDrawingLogSubTest.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtDrawingLogSubTest.Designer.cs">
+      <DependentUpon>rprtDrawingLogSubTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtDrawingLogTranAlt1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtDrawingLogTranAlt1.designer.cs">
+      <DependentUpon>rprtDrawingLogTranAlt1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtDrawingLogTranAlt1_SubRevs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtDrawingLogTranAlt1_SubRevs.Designer.cs">
+      <DependentUpon>rprtDrawingLogTranAlt1_SubRevs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtDrawingLogTranAlt1_SubRevs2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtDrawingLogTranAlt1_SubRevs2.Designer.cs">
+      <DependentUpon>rprtDrawingLogTranAlt1_SubRevs2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtDrawingLogTranAlt2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtDrawingLogTranAlt2.Designer.cs">
+      <DependentUpon>rprtDrawingLogTranAlt2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtForecastRemaining.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtForecastRemaining.Designer.cs">
+      <DependentUpon>rprtForecastRemaining.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtIssuance1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtIssuance2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtIssuance3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtIssuance4.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtJobStat1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtJobStat1.Designer.cs">
+      <DependentUpon>rprtJobStat1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtJobVariance1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtJobVariance1.Designer.cs">
+      <DependentUpon>rprtJobVariance1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtJobVarianceSummary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtJobVarianceSummary.Designer.cs">
+      <DependentUpon>rprtJobVarianceSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtPCIInformation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtPCIInformation.Designer.cs">
+      <DependentUpon>rprtPCIInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtPCILog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtPCILog.Designer.cs">
+      <DependentUpon>rprtPCILog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtPCNExpenses.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtPCNHours.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CPCostSummary.cs" />
+    <Compile Include="CPDrawingLogCustomer.cs" />
+    <Compile Include="CPDrawingLog.cs" />
+    <Compile Include="CPSummary.cs" />
+    <Compile Include="CPTest.cs" />
+    <Compile Include="CPTransmittal.cs" />
+    <Compile Include="dsDrawingList.cs">
+      <DependentUpon>dsDrawingList.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dsDrawingList.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsDrawingList.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FPreviewAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FPreviewAR.Designer.cs">
+      <DependentUpon>FPreviewAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="rprtPCNLog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtPCNLog.Designer.cs">
+      <DependentUpon>rprtPCNLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtPCNMain.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtPCNTitle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtPMReport1.cs" />
+    <Compile Include="rprtPMReport2.cs" />
+    <Compile Include="rprtPMReportPCN.cs" />
+    <Compile Include="rprtPMReportSch.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtTransmittal1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtTransmittal1.Designer.cs">
+      <DependentUpon>rprtTransmittal1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtTransmittalRelease1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtTransmittalRelease1.Designer.cs">
+      <DependentUpon>rprtTransmittalRelease1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtTransmittalReleaseDist1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtTransmittalReleaseDist1.Designer.cs">
+      <DependentUpon>rprtTransmittalReleaseDist1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtTransmittalReleaseDocs1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtTransmittalReleaseDocs1.Designer.cs">
+      <DependentUpon>rprtTransmittalReleaseDocs1.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="rprtBudgetAcconting.resx">
+      <DependentUpon>rprtBudgetAcconting.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtBudgetAccountingExps.resx">
+      <DependentUpon>rprtBudgetAccountingExps.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtBudgetDetail.resx">
+      <DependentUpon>rprtBudgetDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtBudgetDetailExps.resx">
+      <DependentUpon>rprtBudgetDetailExps.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtBudgetJobStat2.resx">
+      <DependentUpon>rprtBudgetJobStat2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtBudgetSummary1.resx">
+      <DependentUpon>rprtBudgetSummary1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtBudgetSummaryEngineering.resx">
+      <DependentUpon>rprtBudgetSummaryEngineering.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtBudgetSummaryExpenses.resx">
+      <DependentUpon>rprtBudgetSummaryExpenses.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtBudgetSummaryGeneral.resx">
+      <DependentUpon>rprtBudgetSummaryGeneral.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtCostSummary.resx">
+      <DependentUpon>rprtCostSummary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtDrawingLog1.resx">
+      <DependentUpon>rprtDrawingLog1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtDrawingLogSubTest.resx">
+      <DependentUpon>rprtDrawingLogSubTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtDrawingLogTranAlt1.resx">
+      <DependentUpon>rprtDrawingLogTranAlt1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtDrawingLogTranAlt1_SubRevs.resx">
+      <DependentUpon>rprtDrawingLogTranAlt1_SubRevs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtDrawingLogTranAlt1_SubRevs2.resx">
+      <DependentUpon>rprtDrawingLogTranAlt1_SubRevs2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtDrawingLogTranAlt2.resx">
+      <DependentUpon>rprtDrawingLogTranAlt2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtForecastRemaining.resx">
+      <DependentUpon>rprtForecastRemaining.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtIssuance1.resx">
+      <DependentUpon>rprtIssuance1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtIssuance2.resx">
+      <DependentUpon>rprtIssuance2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtIssuance3.resx">
+      <DependentUpon>rprtIssuance3.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtIssuance4.resx">
+      <DependentUpon>rprtIssuance4.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtJobStat1.resx">
+      <DependentUpon>rprtJobStat1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtJobVariance1.resx">
+      <DependentUpon>rprtJobVariance1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtJobVarianceSummary.resx">
+      <DependentUpon>rprtJobVarianceSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtPCIInformation.resx">
+      <DependentUpon>rprtPCIInformation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtPCILog.resx">
+      <DependentUpon>rprtPCILog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtPCNExpenses.resx">
+      <DependentUpon>rprtPCNExpenses.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtPCNHours.resx">
+      <DependentUpon>rprtPCNHours.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="dsDrawingList.xsc">
+      <DependentUpon>dsDrawingList.xsd</DependentUpon>
+    </None>
+    <None Include="dsDrawingList.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDrawingList.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsDrawingList.xss">
+      <DependentUpon>dsDrawingList.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <EmbeddedResource Include="rprtPCNLog.resx">
+      <DependentUpon>rprtPCNLog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtPCNMain.resx">
+      <DependentUpon>rprtPCNMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtPCNTitle.resx">
+      <DependentUpon>rprtPCNTitle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtPMReport1.resx">
+      <DependentUpon>rprtPMReport1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtPMReport2.resx">
+      <DependentUpon>rprtPMReport2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FPreviewAR.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FPreviewAR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="rprtPMReportPCN.resx">
+      <DependentUpon>rprtPMReportPCN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtPMReportSch.resx">
+      <DependentUpon>rprtPMReportSch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtTransmittal1.resx">
+      <DependentUpon>rprtTransmittal1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtTransmittalRelease1.resx">
+      <DependentUpon>rprtTransmittalRelease1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtTransmittalReleaseDist1.resx">
+      <DependentUpon>rprtTransmittalReleaseDist1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtTransmittalReleaseDocs1.resx">
+      <DependentUpon>rprtTransmittalReleaseDocs1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{4A089FC1-E105-4694-8DA5-F9E9F8C5DBE8}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MPSBus\MPSBus.csproj">
+      <Project>{12E92C40-6B50-4255-87B2-C9C010B6C284}</Project>
+      <Name>MPSBus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MPSCRprt\MPSCRprt.csproj">
+      <Project>{74CA7DF9-7499-4FB4-9B7A-4B1F437BBDE7}</Project>
+      <Name>MPSCRprt</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MPSLib\MPSLib.csproj">
+      <Project>{442DCC3C-E62D-41E8-BBEF-BD7C38D002EF}</Project>
+      <Name>MPSLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RevSolLb\RevSolLb.csproj">
+      <Project>{4AAE51B8-8EF7-4794-95B3-F4175F982CBE}</Project>
+      <Name>RevSolLb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RSLib\RSLib.csproj">
+      <Project>{57DB77B5-A4FC-4360-BB87-BDE12BCD73F0}</Project>
+      <Name>RSLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
