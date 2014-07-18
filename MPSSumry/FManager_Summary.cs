@@ -579,9 +579,9 @@ namespace RSMPS
                     sch.ProjSumID = ps.ID;
                     sch.ProjectID = Convert.ToInt32(dr["ProjectID"]);
                     sch.Description = dr["Description"].ToString();
-                    sch.InitialTarget = Convert.ToDateTime(dr["InitialTarget"]);
-                    sch.Projected = Convert.ToDateTime(dr["Projected"]);
-                    sch.Actual = Convert.ToDateTime(dr["Actual"]);
+                    sch.InitialTarget = dr["InitialTarget"].ToString();
+                    sch.Projected = dr["Projected"].ToString();
+                    sch.Actual = dr["Actual"].ToString();
                     sch.Save();
                 }
             }

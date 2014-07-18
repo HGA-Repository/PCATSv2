@@ -20,6 +20,7 @@ namespace RSMPS
         private string msBilledToDate;
         private string msPaidToDate;
         private string msOutstanding;
+        private string msDateLastModified;
         private TextBox txtCFeedBack;
         private TextBox txtPOAmt;
         private TextBox txtPaidToDate;
@@ -44,6 +45,9 @@ namespace RSMPS
         private TextBox txtBilledToDateV;
         private TextBox txtPaidToDateV;
         private TextBox txtOutstandingV;
+        private TextBox txtDateLastModified;
+        private Label label31;
+        private TextBox txtDateLastModifiedV;
 
         private int miCount = 0;
 
@@ -112,6 +116,7 @@ namespace RSMPS
             msBilledToDate = txtBilledToDate.Value.ToString();
             msPaidToDate = txtPaidToDate.Value.ToString();
             msOutstanding = txtOutstanding.Value.ToString();
+            msDateLastModified = txtDateLastModified.Value.ToString();
 
             miCount++;
         }
@@ -382,7 +387,7 @@ namespace RSMPS
 
         private void GroupFooter1_Format(object sender, System.EventArgs eArgs)
         {
-            rtbSchdule.RTF = msSchedule;
+            //rtbSchdule.RTF = msSchedule;
             rtbActivities.RTF = msAct;
             rtbStaffing.RTF = msStaffing;
             rtbCFeedBack.RTF = msCFeedBack;
@@ -390,6 +395,7 @@ namespace RSMPS
             txtBilledToDateV.Text= msBilledToDate;
             txtPaidToDateV.Text = msPaidToDate;
             txtOutstandingV.Text = msOutstanding;
+            txtDateLastModifiedV.Text = msDateLastModified;
         }
 
         private void GroupHeader1_Format(object sender, System.EventArgs eArgs)
@@ -540,6 +546,7 @@ namespace RSMPS
             this.txtPaidToDate = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.txtBilledToDate = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.txtOutstanding = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.txtDateLastModified = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.PageHeader = new GrapeCity.ActiveReports.SectionReportModel.PageHeader();
             this.PageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
             this.GroupHeader1 = new GrapeCity.ActiveReports.SectionReportModel.GroupHeader();
@@ -554,7 +561,6 @@ namespace RSMPS
             this.Label3 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.Label4 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.SubReport = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
-            this.rtbSchdule = new GrapeCity.ActiveReports.SectionReportModel.RichTextBox();
             this.rtbActivities = new GrapeCity.ActiveReports.SectionReportModel.RichTextBox();
             this.rtbStaffing = new GrapeCity.ActiveReports.SectionReportModel.RichTextBox();
             this.Label16 = new GrapeCity.ActiveReports.SectionReportModel.Label();
@@ -578,6 +584,8 @@ namespace RSMPS
             this.txtBilledToDateV = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.txtPaidToDateV = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.txtOutstandingV = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.label31 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.txtDateLastModifiedV = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Label5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label7)).BeginInit();
@@ -625,6 +633,7 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.txtPaidToDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBilledToDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOutstanding)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateLastModified)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextBox26)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextBox27)).BeginInit();
@@ -651,6 +660,8 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.txtBilledToDateV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPaidToDateV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOutstandingV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label31)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateLastModifiedV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -713,7 +724,8 @@ namespace RSMPS
             this.txtPOAmt,
             this.txtPaidToDate,
             this.txtBilledToDate,
-            this.txtOutstanding});
+            this.txtOutstanding,
+            this.txtDateLastModified});
             this.Detail.Height = 1.989583F;
             this.Detail.KeepTogether = true;
             this.Detail.Name = "Detail";
@@ -1357,6 +1369,17 @@ namespace RSMPS
             this.txtOutstanding.Visible = false;
             this.txtOutstanding.Width = 1F;
             // 
+            // txtDateLastModified
+            // 
+            this.txtDateLastModified.DataField = "DateLastModified";
+            this.txtDateLastModified.Height = 0.2F;
+            this.txtDateLastModified.Left = 2.948F;
+            this.txtDateLastModified.Name = "txtDateLastModified";
+            this.txtDateLastModified.Text = "textBox29";
+            this.txtDateLastModified.Top = 0.175F;
+            this.txtDateLastModified.Visible = false;
+            this.txtDateLastModified.Width = 1F;
+            // 
             // PageHeader
             // 
             this.PageHeader.Height = 0F;
@@ -1434,7 +1457,6 @@ namespace RSMPS
             this.Label3,
             this.Label4,
             this.SubReport,
-            this.rtbSchdule,
             this.rtbActivities,
             this.rtbStaffing,
             this.Label16,
@@ -1457,7 +1479,9 @@ namespace RSMPS
             this.txtPOAmtV,
             this.txtBilledToDateV,
             this.txtPaidToDateV,
-            this.txtOutstandingV});
+            this.txtOutstandingV,
+            this.label31,
+            this.txtDateLastModifiedV});
             this.GroupFooter1.Height = 5F;
             this.GroupFooter1.Name = "GroupFooter1";
             this.GroupFooter1.Format += new System.EventHandler(this.GroupFooter1_Format);
@@ -1502,7 +1526,7 @@ namespace RSMPS
             this.Label3.Name = "Label3";
             this.Label3.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.Label3.Text = "-  Activities / Highlights";
-            this.Label3.Top = 2.015F;
+            this.Label3.Top = 1.387F;
             this.Label3.Width = 3.5625F;
             // 
             // Label4
@@ -1513,7 +1537,7 @@ namespace RSMPS
             this.Label4.Name = "Label4";
             this.Label4.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.Label4.Text = "-  Staffing Issues / Needs / Concerns";
-            this.Label4.Top = 2.827F;
+            this.Label4.Top = 2.199F;
             this.Label4.Width = 3.5625F;
             // 
             // SubReport
@@ -1526,18 +1550,6 @@ namespace RSMPS
             this.SubReport.Top = 0.625F;
             this.SubReport.Width = 6.4375F;
             // 
-            // rtbSchdule
-            // 
-            this.rtbSchdule.AutoReplaceFields = true;
-            this.rtbSchdule.CanShrink = true;
-            this.rtbSchdule.Font = new System.Drawing.Font("Arial", 10F);
-            this.rtbSchdule.Height = 0.3125F;
-            this.rtbSchdule.Left = 0.7130001F;
-            this.rtbSchdule.Name = "rtbSchdule";
-            this.rtbSchdule.RTF = resources.GetString("rtbSchdule.RTF");
-            this.rtbSchdule.Top = 1.577F;
-            this.rtbSchdule.Width = 6.4375F;
-            // 
             // rtbActivities
             // 
             this.rtbActivities.AutoReplaceFields = true;
@@ -1547,7 +1559,7 @@ namespace RSMPS
             this.rtbActivities.Left = 0.687F;
             this.rtbActivities.Name = "rtbActivities";
             this.rtbActivities.RTF = resources.GetString("rtbActivities.RTF");
-            this.rtbActivities.Top = 2.3275F;
+            this.rtbActivities.Top = 1.6995F;
             this.rtbActivities.Width = 6.4375F;
             // 
             // rtbStaffing
@@ -1559,7 +1571,7 @@ namespace RSMPS
             this.rtbStaffing.Left = 0.686F;
             this.rtbStaffing.Name = "rtbStaffing";
             this.rtbStaffing.RTF = resources.GetString("rtbStaffing.RTF");
-            this.rtbStaffing.Top = 3.1395F;
+            this.rtbStaffing.Top = 2.5115F;
             this.rtbStaffing.Width = 6.4375F;
             // 
             // Label16
@@ -1614,7 +1626,7 @@ namespace RSMPS
             this.label21.Name = "label21";
             this.label21.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.label21.Text = "-  Client Feedback";
-            this.label21.Top = 3.514F;
+            this.label21.Top = 2.886F;
             this.label21.Width = 3.5625F;
             // 
             // rtbCFeedBack
@@ -1626,7 +1638,7 @@ namespace RSMPS
             this.rtbCFeedBack.Left = 0.714F;
             this.rtbCFeedBack.Name = "rtbCFeedBack";
             this.rtbCFeedBack.RTF = resources.GetString("rtbCFeedBack.RTF");
-            this.rtbCFeedBack.Top = 3.817001F;
+            this.rtbCFeedBack.Top = 3.189001F;
             this.rtbCFeedBack.Width = 6.437F;
             // 
             // label22
@@ -1637,7 +1649,7 @@ namespace RSMPS
             this.label22.Name = "label22";
             this.label22.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.label22.Text = "- Financials";
-            this.label22.Top = 4.129001F;
+            this.label22.Top = 3.501001F;
             this.label22.Width = 3.5625F;
             // 
             // label23
@@ -1648,7 +1660,7 @@ namespace RSMPS
             this.label23.Name = "label23";
             this.label23.Style = "font-size: 9.75pt; font-weight: bold";
             this.label23.Text = "POAmt";
-            this.label23.Top = 4.436F;
+            this.label23.Top = 3.808F;
             this.label23.Width = 1F;
             // 
             // label24
@@ -1659,7 +1671,7 @@ namespace RSMPS
             this.label24.Name = "label24";
             this.label24.Style = "font-size: 9.75pt; font-weight: bold";
             this.label24.Text = "Billed To Date";
-            this.label24.Top = 4.436F;
+            this.label24.Top = 3.808F;
             this.label24.Width = 1F;
             // 
             // label25
@@ -1670,7 +1682,7 @@ namespace RSMPS
             this.label25.Name = "label25";
             this.label25.Style = "font-size: 9.75pt; font-weight: bold";
             this.label25.Text = "Paid To Date";
-            this.label25.Top = 4.436F;
+            this.label25.Top = 3.808F;
             this.label25.Width = 1F;
             // 
             // label26
@@ -1681,7 +1693,7 @@ namespace RSMPS
             this.label26.Name = "label26";
             this.label26.Style = "font-size: 9.75pt; font-weight: bold";
             this.label26.Text = "Outstanding";
-            this.label26.Top = 4.436F;
+            this.label26.Top = 3.808F;
             this.label26.Width = 1F;
             // 
             // Shape2
@@ -1691,7 +1703,7 @@ namespace RSMPS
             this.Shape2.Left = 0.689F;
             this.Shape2.Name = "Shape2";
             this.Shape2.RoundingRadius = 9.999999F;
-            this.Shape2.Top = 1F;
+            this.Shape2.Top = 1.012F;
             this.Shape2.Width = 6.063001F;
             // 
             // Label27
@@ -1756,7 +1768,7 @@ namespace RSMPS
             this.txtPOAmtV.Name = "txtPOAmtV";
             this.txtPOAmtV.OutputFormat = resources.GetString("txtPOAmtV.OutputFormat");
             this.txtPOAmtV.Text = null;
-            this.txtPOAmtV.Top = 4.678F;
+            this.txtPOAmtV.Top = 4.05F;
             this.txtPOAmtV.Width = 1F;
             // 
             // txtBilledToDateV
@@ -1766,7 +1778,7 @@ namespace RSMPS
             this.txtBilledToDateV.Name = "txtBilledToDateV";
             this.txtBilledToDateV.OutputFormat = resources.GetString("txtBilledToDateV.OutputFormat");
             this.txtBilledToDateV.Text = null;
-            this.txtBilledToDateV.Top = 4.678F;
+            this.txtBilledToDateV.Top = 4.05F;
             this.txtBilledToDateV.Width = 1F;
             // 
             // txtPaidToDateV
@@ -1776,7 +1788,7 @@ namespace RSMPS
             this.txtPaidToDateV.Name = "txtPaidToDateV";
             this.txtPaidToDateV.OutputFormat = resources.GetString("txtPaidToDateV.OutputFormat");
             this.txtPaidToDateV.Text = null;
-            this.txtPaidToDateV.Top = 4.678F;
+            this.txtPaidToDateV.Top = 4.05F;
             this.txtPaidToDateV.Width = 1F;
             // 
             // txtOutstandingV
@@ -1786,8 +1798,28 @@ namespace RSMPS
             this.txtOutstandingV.Name = "txtOutstandingV";
             this.txtOutstandingV.OutputFormat = resources.GetString("txtOutstandingV.OutputFormat");
             this.txtOutstandingV.Text = null;
-            this.txtOutstandingV.Top = 4.678F;
+            this.txtOutstandingV.Top = 4.05F;
             this.txtOutstandingV.Width = 1F;
+            // 
+            // label31
+            // 
+            this.label31.Height = 0.2F;
+            this.label31.HyperLink = null;
+            this.label31.Left = 4.24F;
+            this.label31.Name = "label31";
+            this.label31.Style = "";
+            this.label31.Text = "Updated";
+            this.label31.Top = 4.708F;
+            this.label31.Width = 1F;
+            // 
+            // txtDateLastModifiedV
+            // 
+            this.txtDateLastModifiedV.Height = 0.2F;
+            this.txtDateLastModifiedV.Left = 5.562F;
+            this.txtDateLastModifiedV.Name = "txtDateLastModifiedV";
+            this.txtDateLastModifiedV.Text = null;
+            this.txtDateLastModifiedV.Top = 4.708F;
+            this.txtDateLastModifiedV.Width = 1F;
             // 
             // rprtPMReport2
             // 
@@ -1864,6 +1896,7 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.txtPaidToDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBilledToDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOutstanding)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateLastModified)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextBox26)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextBox27)).EndInit();
@@ -1890,6 +1923,8 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.txtBilledToDateV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPaidToDateV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOutstandingV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label31)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateLastModifiedV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -1964,7 +1999,6 @@ namespace RSMPS
         private Label Label3;
         private Label Label4;
         private SubReport SubReport;
-        private RichTextBox rtbSchdule;
         private RichTextBox rtbActivities;
         private RichTextBox rtbStaffing;
         private Label Label16;

@@ -10,9 +10,9 @@ namespace RSMPS
         private int miProjSumID;
         private int miProjectID;
         private string msDescription;
-        private DateTime mdtInitialTarget;
-        private DateTime mdtProjected;
-        private DateTime mdtActual;
+        private string msInitialTarget;
+        private string msProjected;
+        private string msActual;
 
         #region Properties
 
@@ -40,21 +40,21 @@ namespace RSMPS
             set { msDescription = value; }
         }
 
-        public DateTime InitialTarget
+        public String InitialTarget
         {
-            get { return mdtInitialTarget; }
-            set { mdtInitialTarget = value; }
+            get { return msInitialTarget; }
+            set { msInitialTarget = value; }
         }
 
-        public DateTime Projected
+        public String Projected
         {
-            get { return mdtProjected; }
-            set { mdtProjected = value; }
+            get { return msProjected; }
+            set { msProjected = value; }
         }
-        public DateTime Actual
+        public String Actual
         {
-            get { return mdtActual; }
-            set { mdtActual = value; }
+            get { return msActual; }
+            set { msActual = value; }
         }
 
         #endregion
@@ -65,9 +65,9 @@ namespace RSMPS
             miProjSumID = 0;
             miProjectID = 0;
             msDescription = "";
-            mdtInitialTarget = DateTime.Now;
-            mdtProjected = DateTime.Now;
-            mdtActual = DateTime.Now;
+            msInitialTarget = "";
+            msProjected = "";
+            msActual = "";
         }
 
         public void Copy(COProjectSummarySch oNew)
@@ -76,9 +76,9 @@ namespace RSMPS
             oNew.ProjSumID = miProjSumID;
             oNew.ProjectID = miProjectID;
             oNew.Description = msDescription;
-            oNew.InitialTarget = mdtInitialTarget;
-            oNew.Projected = mdtProjected;
-            oNew.Actual = mdtActual;
+            oNew.InitialTarget = msInitialTarget;
+            oNew.Projected = msProjected;
+            oNew.Actual = msActual;
         }
 
         public void LoadFromObj(COProjectSummarySch oOrg)
@@ -87,9 +87,9 @@ namespace RSMPS
             miProjSumID = oOrg.ProjSumID;
             miProjectID = oOrg.ProjectID;
             msDescription = oOrg.Description;
-            mdtInitialTarget = oOrg.InitialTarget;
-            mdtProjected = oOrg.Projected;
-            mdtActual = oOrg.Actual;
+            msInitialTarget = oOrg.InitialTarget;
+            msProjected = oOrg.Projected;
+            msActual = oOrg.Actual;
         }
     }
 }

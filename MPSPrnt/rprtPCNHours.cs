@@ -135,7 +135,6 @@ namespace RSMPS
             // 
             // Detail
             // 
-            this.Detail.ColumnSpacing = 0F;
             this.Detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.TextBox,
             this.TextBox1,
@@ -155,7 +154,7 @@ namespace RSMPS
             this.Line14,
             this.Line15,
             this.Line16});
-            this.Detail.Height = 0.92675F;
+            this.Detail.Height = 0.55175F;
             this.Detail.Name = "Detail";
             // 
             // TextBox
@@ -263,113 +262,113 @@ namespace RSMPS
             // Line8
             // 
             this.Line8.AnchorBottom = true;
-            this.Line8.Height = 0.1875F;
+            this.Line8.Height = 0.2425F;
             this.Line8.Left = 0.5000002F;
             this.Line8.LineWeight = 1F;
             this.Line8.Name = "Line8";
-            this.Line8.Top = 0.07F;
+            this.Line8.Top = 0.015F;
             this.Line8.Width = 0F;
             this.Line8.X1 = 0.5000002F;
             this.Line8.X2 = 0.5000002F;
-            this.Line8.Y1 = 0.07F;
+            this.Line8.Y1 = 0.015F;
             this.Line8.Y2 = 0.2575F;
             // 
             // Line9
             // 
             this.Line9.AnchorBottom = true;
-            this.Line9.Height = 0.1875F;
+            this.Line9.Height = 0.2425F;
             this.Line9.Left = 0.9375002F;
             this.Line9.LineWeight = 1F;
             this.Line9.Name = "Line9";
-            this.Line9.Top = 0.07F;
+            this.Line9.Top = 0.015F;
             this.Line9.Width = 0F;
             this.Line9.X1 = 0.9375002F;
             this.Line9.X2 = 0.9375002F;
-            this.Line9.Y1 = 0.07F;
+            this.Line9.Y1 = 0.015F;
             this.Line9.Y2 = 0.2575F;
             // 
             // Line10
             // 
             this.Line10.AnchorBottom = true;
-            this.Line10.Height = 0.1875F;
+            this.Line10.Height = 0.2425F;
             this.Line10.Left = 3.625F;
             this.Line10.LineWeight = 1F;
             this.Line10.Name = "Line10";
-            this.Line10.Top = 0.07F;
+            this.Line10.Top = 0.015F;
             this.Line10.Width = 0F;
             this.Line10.X1 = 3.625F;
             this.Line10.X2 = 3.625F;
-            this.Line10.Y1 = 0.07F;
+            this.Line10.Y1 = 0.015F;
             this.Line10.Y2 = 0.2575F;
             // 
             // Line11
             // 
             this.Line11.AnchorBottom = true;
-            this.Line11.Height = 0.1875F;
+            this.Line11.Height = 0.2425F;
             this.Line11.Left = 4.062F;
             this.Line11.LineWeight = 1F;
             this.Line11.Name = "Line11";
-            this.Line11.Top = 0.07F;
+            this.Line11.Top = 0.015F;
             this.Line11.Width = 0F;
             this.Line11.X1 = 4.062F;
             this.Line11.X2 = 4.062F;
-            this.Line11.Y1 = 0.07F;
+            this.Line11.Y1 = 0.015F;
             this.Line11.Y2 = 0.2575F;
             // 
             // Line12
             // 
             this.Line12.AnchorBottom = true;
-            this.Line12.Height = 0.1875F;
+            this.Line12.Height = 0.2425F;
             this.Line12.Left = 4.8125F;
             this.Line12.LineWeight = 1F;
             this.Line12.Name = "Line12";
-            this.Line12.Top = 0.07F;
+            this.Line12.Top = 0.015F;
             this.Line12.Width = 0F;
             this.Line12.X1 = 4.8125F;
             this.Line12.X2 = 4.8125F;
-            this.Line12.Y1 = 0.07F;
+            this.Line12.Y1 = 0.015F;
             this.Line12.Y2 = 0.2575F;
             // 
             // Line13
             // 
             this.Line13.AnchorBottom = true;
-            this.Line13.Height = 0.1875F;
+            this.Line13.Height = 0.2425F;
             this.Line13.Left = 5.5F;
             this.Line13.LineWeight = 1F;
             this.Line13.Name = "Line13";
-            this.Line13.Top = 0.07F;
+            this.Line13.Top = 0.015F;
             this.Line13.Width = 0F;
             this.Line13.X1 = 5.5F;
             this.Line13.X2 = 5.5F;
-            this.Line13.Y1 = 0.07F;
+            this.Line13.Y1 = 0.015F;
             this.Line13.Y2 = 0.2575F;
             // 
             // Line14
             // 
             this.Line14.AnchorBottom = true;
-            this.Line14.Height = 0.1875F;
+            this.Line14.Height = 0.2425F;
             this.Line14.Left = 6.1875F;
             this.Line14.LineWeight = 1F;
             this.Line14.Name = "Line14";
-            this.Line14.Top = 0.07F;
+            this.Line14.Top = 0.015F;
             this.Line14.Width = 0F;
             this.Line14.X1 = 6.1875F;
             this.Line14.X2 = 6.1875F;
-            this.Line14.Y1 = 0.07F;
+            this.Line14.Y1 = 0.015F;
             this.Line14.Y2 = 0.2575F;
             // 
             // Line15
             // 
             this.Line15.AnchorBottom = true;
-            this.Line15.Height = 0.1875F;
+            this.Line15.Height = 0.2425F;
             this.Line15.Left = 7.1875F;
             this.Line15.LineWeight = 1F;
             this.Line15.Name = "Line15";
-            this.Line15.Top = 0.07F;
+            this.Line15.Top = 0.015F;
             this.Line15.Width = 0F;
             this.Line15.X1 = 7.1875F;
             this.Line15.X2 = 7.1875F;
-            this.Line15.Y1 = 0.07F;
+            this.Line15.Y1 = 0.015F;
             this.Line15.Y2 = 0.2575F;
             // 
             // Line16

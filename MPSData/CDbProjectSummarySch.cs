@@ -42,9 +42,9 @@ namespace RSMPS
                 oVar.ProjSumID = Convert.ToInt32(dr["ProjSumID"]);
                 oVar.ProjectID = Convert.ToInt32(dr["ProjectID"]);
                 oVar.Description = dr["Description"].ToString();
-                oVar.InitialTarget = Convert.ToDateTime(dr["InitialTarget"]);
-                oVar.Projected = Convert.ToDateTime(dr["Projected"]);
-                oVar.Actual = Convert.ToDateTime(dr["Actual"]);
+                oVar.InitialTarget = dr["InitialTarget"].ToString();
+                oVar.Projected = dr["Projected"].ToString();
+                oVar.Actual = dr["Actual"].ToString();
                 tmpStr = GetDataString();
             }
 
@@ -81,11 +81,11 @@ namespace RSMPS
             prm.Value = oVar.ProjectID;
             prm = cmd.Parameters.Add("@Description", SqlDbType.Text);
             prm.Value = oVar.Description;
-            prm = cmd.Parameters.Add("@InitialTarget", SqlDbType.DateTime);
+            prm = cmd.Parameters.Add("@InitialTarget", SqlDbType.Text);
             prm.Value = oVar.InitialTarget;
-            prm = cmd.Parameters.Add("@Projected", SqlDbType.DateTime);
+            prm = cmd.Parameters.Add("@Projected", SqlDbType.Text);
             prm.Value = oVar.Projected;
-            prm = cmd.Parameters.Add("@Actual", SqlDbType.DateTime);
+            prm = cmd.Parameters.Add("@Actual", SqlDbType.Text);
             prm.Value = oVar.Actual;
 
             cmd.ExecuteNonQuery();
@@ -122,11 +122,11 @@ namespace RSMPS
             prm.Value = oVar.ProjectID;
             prm = cmd.Parameters.Add("@Description", SqlDbType.Text);
             prm.Value = oVar.Description;
-            prm = cmd.Parameters.Add("@InitialTarget", SqlDbType.DateTime);
+            prm = cmd.Parameters.Add("@InitialTarget", SqlDbType.Text);
             prm.Value = oVar.InitialTarget;
-            prm = cmd.Parameters.Add("@Projected", SqlDbType.DateTime);
+            prm = cmd.Parameters.Add("@Projected", SqlDbType.Text);
             prm.Value = oVar.Projected;
-            prm = cmd.Parameters.Add("@Actual", SqlDbType.DateTime);
+            prm = cmd.Parameters.Add("@Actual", SqlDbType.Text);
             prm.Value = oVar.Actual;
             cmd.ExecuteNonQuery();
 

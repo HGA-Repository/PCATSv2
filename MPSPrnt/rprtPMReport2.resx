@@ -120,12 +120,6 @@
   <data name="TextBox21.OutputFormat" xml:space="preserve">
     <value />
   </data>
-  <data name="rtbSchdule.RTF" xml:space="preserve">
-    <value>{\rtf1{\fonttbl{\f0\fnil\fcharset0 Arial;}}{\stylesheet{\ql\li0\ri0\nowidctlpar\sl240\slmult\faauto\fs20\f0 Normal;}}\pard\plain\s0\li0\ri0\ql\nowidctlpar\sl240\slmult\faauto\f0\fs20{\f0 RichTextBox\par}}</value>
-  </data>
-  <data name="rtbSchdule.RTF" xml:space="preserve">
-    <value>{\rtf1{\fonttbl{\f0\fnil\fcharset0 Arial;}}{\stylesheet{\ql\li0\ri0\nowidctlpar\sl240\slmult\faauto\fs20\f0 Normal;}}\pard\plain\s0\li0\ri0\ql\nowidctlpar\sl240\slmult\faauto\f0\fs20{\f0 RichTextBox\par}}</value>
-  </data>
   <data name="rtbActivities.RTF" xml:space="preserve">
     <value>{\rtf1{\fonttbl{\f0\fnil\fcharset0 Arial;}}{\stylesheet{\ql\li0\ri0\nowidctlpar\sl240\slmult\faauto\fs20\f0 Normal;}}\pard\plain\s0\li0\ri0\ql\nowidctlpar\sl240\slmult\faauto\f0\fs20{\f0 RichTextBox1\par}}</value>
   </data>
