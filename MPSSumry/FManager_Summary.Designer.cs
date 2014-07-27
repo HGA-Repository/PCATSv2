@@ -292,9 +292,9 @@ namespace RSMPS
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.rtbActHigh);
-            this.groupBox5.Location = new System.Drawing.Point(6, 364);
+            this.groupBox5.Location = new System.Drawing.Point(6, 383);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(642, 96);
+            this.groupBox5.Size = new System.Drawing.Size(642, 102);
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Activities / Highlights";
@@ -307,9 +307,10 @@ namespace RSMPS
             this.rtbActHigh.ContextMenuStrip = this.cmnuSchedule;
             this.rtbActHigh.Enabled = false;
             this.rtbActHigh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbActHigh.Location = new System.Drawing.Point(6, 17);
+            this.rtbActHigh.Location = new System.Drawing.Point(3, 15);
             this.rtbActHigh.Name = "rtbActHigh";
-            this.rtbActHigh.Size = new System.Drawing.Size(1072, 69);
+            this.rtbActHigh.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.rtbActHigh.Size = new System.Drawing.Size(639, 81);
             this.rtbActHigh.TabIndex = 1;
             this.rtbActHigh.Text = "";
             this.rtbActHigh.TextChanged += new System.EventHandler(this.rtbActHigh_TextChanged);
@@ -319,7 +320,7 @@ namespace RSMPS
             this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.Controls.Add(this.rtbNeeds);
-            this.groupBox6.Location = new System.Drawing.Point(9, 466);
+            this.groupBox6.Location = new System.Drawing.Point(6, 486);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(642, 75);
             this.groupBox6.TabIndex = 5;
@@ -333,9 +334,10 @@ namespace RSMPS
             this.rtbNeeds.ContextMenuStrip = this.cmnuSchedule;
             this.rtbNeeds.Enabled = false;
             this.rtbNeeds.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbNeeds.Location = new System.Drawing.Point(6, 16);
+            this.rtbNeeds.Location = new System.Drawing.Point(5, 16);
             this.rtbNeeds.Name = "rtbNeeds";
-            this.rtbNeeds.Size = new System.Drawing.Size(630, 53);
+            this.rtbNeeds.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.rtbNeeds.Size = new System.Drawing.Size(639, 53);
             this.rtbNeeds.TabIndex = 1;
             this.rtbNeeds.Text = "";
             this.rtbNeeds.TextChanged += new System.EventHandler(this.rtbNeeds_TextChanged);
@@ -382,7 +384,7 @@ namespace RSMPS
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(484, 626);
+            this.label8.Location = new System.Drawing.Point(484, 641);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(64, 13);
             this.label8.TabIndex = 15;
@@ -391,9 +393,9 @@ namespace RSMPS
             // groupBox8
             // 
             this.groupBox8.Controls.Add(this.rtbCFeedBack);
-            this.groupBox8.Location = new System.Drawing.Point(12, 547);
+            this.groupBox8.Location = new System.Drawing.Point(6, 563);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(636, 67);
+            this.groupBox8.Size = new System.Drawing.Size(642, 67);
             this.groupBox8.TabIndex = 7;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Client Feedback";
@@ -401,16 +403,17 @@ namespace RSMPS
             // rtbCFeedBack
             // 
             this.rtbCFeedBack.ContextMenuStrip = this.cmnuSchedule;
-            this.rtbCFeedBack.Location = new System.Drawing.Point(3, 20);
+            this.rtbCFeedBack.Location = new System.Drawing.Point(3, 14);
             this.rtbCFeedBack.Name = "rtbCFeedBack";
-            this.rtbCFeedBack.Size = new System.Drawing.Size(623, 41);
+            this.rtbCFeedBack.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.rtbCFeedBack.Size = new System.Drawing.Size(639, 50);
             this.rtbCFeedBack.TabIndex = 0;
             this.rtbCFeedBack.Text = "";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(325, 624);
+            this.label7.Location = new System.Drawing.Point(315, 641);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(66, 13);
             this.label7.TabIndex = 14;
@@ -419,9 +422,9 @@ namespace RSMPS
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.tdbgSchedule);
-            this.groupBox7.Location = new System.Drawing.Point(7, 249);
+            this.groupBox7.Location = new System.Drawing.Point(6, 249);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(641, 109);
+            this.groupBox7.Size = new System.Drawing.Size(642, 128);
             this.groupBox7.TabIndex = 6;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Project Schedule";
@@ -442,7 +445,7 @@ namespace RSMPS
             this.tdbgSchedule.PreviewInfo.Size = new System.Drawing.Size(0, 0);
             this.tdbgSchedule.PreviewInfo.ZoomFactor = 75D;
             this.tdbgSchedule.PrintInfo.PageSettings = ((System.Drawing.Printing.PageSettings)(resources.GetObject("tdbgSchedule.PrintInfo.PageSettings")));
-            this.tdbgSchedule.Size = new System.Drawing.Size(630, 86);
+            this.tdbgSchedule.Size = new System.Drawing.Size(639, 107);
             this.tdbgSchedule.TabIndex = 0;
             this.tdbgSchedule.Text = "Schedule";
             this.tdbgSchedule.AfterDelete += new System.EventHandler(this.tdbgSchedule_AfterDelete);
@@ -453,15 +456,16 @@ namespace RSMPS
             // POAmt
             // 
             this.POAmt.ContextMenuStrip = this.cmnuSchedule;
-            this.POAmt.Location = new System.Drawing.Point(15, 639);
+            this.POAmt.Location = new System.Drawing.Point(39, 641);
             this.POAmt.Name = "POAmt";
             this.POAmt.Size = new System.Drawing.Size(100, 20);
             this.POAmt.TabIndex = 8;
+            this.POAmt.TextChanged += new System.EventHandler(this.POAmt_TextChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(169, 623);
+            this.label6.Location = new System.Drawing.Point(142, 641);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 13);
             this.label6.TabIndex = 13;
@@ -470,35 +474,38 @@ namespace RSMPS
             // BilledToDate
             // 
             this.BilledToDate.ContextMenuStrip = this.cmnuSchedule;
-            this.BilledToDate.Location = new System.Drawing.Point(172, 642);
+            this.BilledToDate.Location = new System.Drawing.Point(210, 641);
             this.BilledToDate.Name = "BilledToDate";
             this.BilledToDate.Size = new System.Drawing.Size(100, 20);
             this.BilledToDate.TabIndex = 9;
+            this.BilledToDate.TextChanged += new System.EventHandler(this.BilledToDate_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 623);
+            this.label5.Location = new System.Drawing.Point(11, 641);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.Size = new System.Drawing.Size(22, 13);
             this.label5.TabIndex = 12;
-            this.label5.Text = "POAmt";
+            this.label5.Text = "PO";
             // 
             // PaidToDate
             // 
             this.PaidToDate.ContextMenuStrip = this.cmnuSchedule;
-            this.PaidToDate.Location = new System.Drawing.Point(328, 642);
+            this.PaidToDate.Location = new System.Drawing.Point(380, 641);
             this.PaidToDate.Name = "PaidToDate";
             this.PaidToDate.Size = new System.Drawing.Size(100, 20);
             this.PaidToDate.TabIndex = 10;
+            this.PaidToDate.TextChanged += new System.EventHandler(this.PaidToDate_TextChanged);
             // 
             // Outstanding
             // 
             this.Outstanding.ContextMenuStrip = this.cmnuSchedule;
-            this.Outstanding.Location = new System.Drawing.Point(487, 642);
+            this.Outstanding.Location = new System.Drawing.Point(548, 641);
             this.Outstanding.Name = "Outstanding";
             this.Outstanding.Size = new System.Drawing.Size(100, 20);
             this.Outstanding.TabIndex = 11;
+            this.Outstanding.TextChanged += new System.EventHandler(this.Outstanding_TextChanged);
             // 
             // tbpFeedback
             // 
@@ -524,7 +531,7 @@ namespace RSMPS
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.rtbSchedule);
-            this.groupBox4.Location = new System.Drawing.Point(3, 381);
+            this.groupBox4.Location = new System.Drawing.Point(6, 381);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(642, 105);
             this.groupBox4.TabIndex = 8;
@@ -542,7 +549,7 @@ namespace RSMPS
             this.rtbSchedule.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbSchedule.Location = new System.Drawing.Point(3, 19);
             this.rtbSchedule.Name = "rtbSchedule";
-            this.rtbSchedule.Size = new System.Drawing.Size(630, 80);
+            this.rtbSchedule.Size = new System.Drawing.Size(639, 80);
             this.rtbSchedule.TabIndex = 1;
             this.rtbSchedule.Text = "";
             // 

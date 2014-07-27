@@ -79,7 +79,7 @@ namespace RSMPS
             r.DataSource = ds;
             r.DataMember = "Table";
 
-            //pv.ViewReportWithExcel(r);
+            pv.ViewReportWithExcel(r);
             pv.ShowDialog();
         }
         public void PrintForecastRemainingNew(int ENGPLSPM)
@@ -94,7 +94,7 @@ namespace RSMPS
             r.DataSource = ds;
             r.DataMember = "Table";
 
-            //pv.ViewReportWithExcel(r);
+            pv.ViewReportWithExcel(r);
             pv.ShowDialog();
         }
     }

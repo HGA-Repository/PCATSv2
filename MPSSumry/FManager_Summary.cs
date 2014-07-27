@@ -69,6 +69,7 @@ namespace RSMPS
             pl.OnItemSelected += new RSLib.ListItemAction(pl_OnItemSelected);
             pl.ShowDialog();
             pl.OnItemSelected -= new RSLib.ListItemAction(pl_OnItemSelected);
+
         }
 
         void pl_OnItemSelected(int itmID)
@@ -169,10 +170,10 @@ namespace RSMPS
                 rtbActHigh.Enabled = true;
                 rtbNeeds.Enabled = true;
                 rtbCFeedBack.Enabled = true;
-                POAmt.Enabled = true;
-                BilledToDate.Enabled = true;
-                PaidToDate.Enabled = true;
-                Outstanding.Enabled = true;
+                //POAmt.Enabled = true;
+                //BilledToDate.Enabled = true;
+                //PaidToDate.Enabled = true;
+                //Outstanding.Enabled = true;
 
                 SaveCurrentProject();
                 miCurrentProjectID = Convert.ToInt32(lvwProjects.SelectedItems[0].SubItems[3].Text);
@@ -188,10 +189,10 @@ namespace RSMPS
                 rtbActHigh.Enabled = false;
                 rtbNeeds.Enabled = false;
                 rtbCFeedBack.Enabled = false;
-                POAmt.Enabled = false;
-                BilledToDate.Enabled = false;
-                PaidToDate.Enabled = false;
-                Outstanding.Enabled = false;
+                //POAmt.Enabled = false;
+                //BilledToDate.Enabled = false;
+                //PaidToDate.Enabled = false;
+                //Outstanding.Enabled = false;
             }
 
             tlbbSave.Enabled = tmpChanged;
@@ -242,10 +243,15 @@ namespace RSMPS
                     if (dr["CFeedBack"].ToString().Length > 0)
                         rtbCFeedBack.Rtf = dr["CFeedBack"].ToString();
 
-                    POAmt.Text += dr["POAmt"];
-                    BilledToDate.Text += dr["BilledtoDate"];
-                    PaidToDate.Text += dr["PaidtoDate"];
-                    Outstanding.Text += dr["Outstanding"];
+                    //POAmt.Text = String.Format("{0:C}", dr["POAmt"]);
+                    //BilledToDate.Text = String.Format("{0:C}",dr["BilledtoDate"]);
+                    //PaidToDate.Text = String.Format("{0:C}",dr["PaidtoDate"]);
+                    //Outstanding.Text = String.Format("{0:C}",dr["Outstanding"]);
+                    POAmt.Text += Convert.ToInt32(dr["POAmt"]);
+                    BilledToDate.Text += Convert.ToInt32(dr["BilledToDate"]);
+                    PaidToDate.Text += Convert.ToInt32(dr["PaidToDate"]);
+                    Outstanding.Text += Convert.ToInt32(dr["Outstanding"]);
+                    
                     break;
                 }
             }
@@ -503,16 +509,17 @@ namespace RSMPS
             foreach (DataRow dr in mdsProjInfos.Tables["ProjectInfos"].Rows)
             {
                 if (Convert.ToInt32(dr["ProjectID"]) == projid && Convert.ToInt32(dr["ProjSumID"]) == projsumid)
-                {
+                {                
+                  
                     dr["Schedule"] = rtbSchedule.Rtf;
                     dr["ActHigh"] = rtbActHigh.Rtf;
                     dr["StaffNeeds"] = rtbNeeds.Rtf;
                     dr["CFeedBack"] = rtbCFeedBack.Rtf;
                     dr["POAmt"] = POAmt.Text;
-                    dr["BilledtoDate"] = BilledToDate.Text;
-                    dr["PaidtoDate"] = PaidToDate.Text;
-                    dr["Outstanding"] = Outstanding.Text;
-
+                    dr["BilledToDate"] = BilledToDate.Text;
+                    dr["PaidToDate"] = PaidToDate.Text;
+                    dr["Outstanding"] = Outstanding.Text;                                       
+                    
                     break;
                 }
             }
@@ -1197,6 +1204,26 @@ namespace RSMPS
         private void FManager_Summary_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void POAmt_TextChanged(object sender, EventArgs e)
+        {
+            InfoChanged();
+        }
+
+        private void BilledToDate_TextChanged(object sender, EventArgs e)
+        {
+            InfoChanged();
+        }
+
+        private void PaidToDate_TextChanged(object sender, EventArgs e)
+        {
+            InfoChanged();
+        }
+
+        private void Outstanding_TextChanged(object sender, EventArgs e)
+        {
+            InfoChanged();
         }
     }
 }

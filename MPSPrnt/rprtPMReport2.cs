@@ -112,10 +112,10 @@ namespace RSMPS
             msAct = txtActivities.Value.ToString();
             msStaffing = txtStaffing.Value.ToString();
             msCFeedBack = txtCFeedBack.Value.ToString();
-            msPOAmt = txtPOAmt.Value.ToString();
-            msBilledToDate = txtBilledToDate.Value.ToString();
-            msPaidToDate = txtPaidToDate.Value.ToString();
-            msOutstanding = txtOutstanding.Value.ToString();
+            msPOAmt = txtPOAmt.Text;
+            msBilledToDate = txtBilledToDate.Text;
+            msPaidToDate = txtPaidToDate.Text;
+            msOutstanding = txtOutstanding.Text;
             msDateLastModified = txtDateLastModified.Value.ToString();
 
             miCount++;
@@ -392,7 +392,7 @@ namespace RSMPS
             rtbStaffing.RTF = msStaffing;
             rtbCFeedBack.RTF = msCFeedBack;
             txtPOAmtV.Text = msPOAmt;
-            txtBilledToDateV.Text= msBilledToDate;
+            txtBilledToDateV.Text = msBilledToDate;
             txtPaidToDateV.Text = msPaidToDate;
             txtOutstandingV.Text = msOutstanding;
             txtDateLastModifiedV.Text = msDateLastModified;
@@ -1330,7 +1330,9 @@ namespace RSMPS
             this.txtPOAmt.DataField = "POAmt";
             this.txtPOAmt.Height = 0.2F;
             this.txtPOAmt.Left = 2.062F;
+            this.txtPOAmt.MultiLine = false;
             this.txtPOAmt.Name = "txtPOAmt";
+            this.txtPOAmt.OutputFormat = resources.GetString("txtPOAmt.OutputFormat");
             this.txtPOAmt.Text = "textBox33";
             this.txtPOAmt.Top = 0F;
             this.txtPOAmt.Visible = false;
@@ -1341,7 +1343,9 @@ namespace RSMPS
             this.txtPaidToDate.DataField = "PaidToDate";
             this.txtPaidToDate.Height = 0.2F;
             this.txtPaidToDate.Left = 6.24F;
+            this.txtPaidToDate.MultiLine = false;
             this.txtPaidToDate.Name = "txtPaidToDate";
+            this.txtPaidToDate.OutputFormat = resources.GetString("txtPaidToDate.OutputFormat");
             this.txtPaidToDate.Text = "textBox34";
             this.txtPaidToDate.Top = 0.112F;
             this.txtPaidToDate.Visible = false;
@@ -1352,7 +1356,9 @@ namespace RSMPS
             this.txtBilledToDate.DataField = "BilledToDate";
             this.txtBilledToDate.Height = 0.2F;
             this.txtBilledToDate.Left = 5F;
+            this.txtBilledToDate.MultiLine = false;
             this.txtBilledToDate.Name = "txtBilledToDate";
+            this.txtBilledToDate.OutputFormat = resources.GetString("txtBilledToDate.OutputFormat");
             this.txtBilledToDate.Text = "textBox35";
             this.txtBilledToDate.Top = 0.175F;
             this.txtBilledToDate.Visible = false;
@@ -1363,7 +1369,9 @@ namespace RSMPS
             this.txtOutstanding.DataField = "Outstanding";
             this.txtOutstanding.Height = 0.2F;
             this.txtOutstanding.Left = 3.948F;
+            this.txtOutstanding.MultiLine = false;
             this.txtOutstanding.Name = "txtOutstanding";
+            this.txtOutstanding.OutputFormat = resources.GetString("txtOutstanding.OutputFormat");
             this.txtOutstanding.Text = "textBox36";
             this.txtOutstanding.Top = 0.175F;
             this.txtOutstanding.Visible = false;
@@ -1763,11 +1771,13 @@ namespace RSMPS
             // 
             // txtPOAmtV
             // 
+            this.txtPOAmtV.CanGrow = false;
             this.txtPOAmtV.Height = 0.2F;
             this.txtPOAmtV.Left = 0.686F;
+            this.txtPOAmtV.MultiLine = false;
             this.txtPOAmtV.Name = "txtPOAmtV";
             this.txtPOAmtV.OutputFormat = resources.GetString("txtPOAmtV.OutputFormat");
-            this.txtPOAmtV.Text = null;
+            this.txtPOAmtV.Style = "white-space: nowrap; ddo-wrap-mode: nowrap";
             this.txtPOAmtV.Top = 4.05F;
             this.txtPOAmtV.Width = 1F;
             // 
@@ -1775,6 +1785,7 @@ namespace RSMPS
             // 
             this.txtBilledToDateV.Height = 0.2F;
             this.txtBilledToDateV.Left = 1.829F;
+            this.txtBilledToDateV.MultiLine = false;
             this.txtBilledToDateV.Name = "txtBilledToDateV";
             this.txtBilledToDateV.OutputFormat = resources.GetString("txtBilledToDateV.OutputFormat");
             this.txtBilledToDateV.Text = null;
@@ -1785,6 +1796,7 @@ namespace RSMPS
             // 
             this.txtPaidToDateV.Height = 0.2F;
             this.txtPaidToDateV.Left = 3.125F;
+            this.txtPaidToDateV.MultiLine = false;
             this.txtPaidToDateV.Name = "txtPaidToDateV";
             this.txtPaidToDateV.OutputFormat = resources.GetString("txtPaidToDateV.OutputFormat");
             this.txtPaidToDateV.Text = null;
@@ -1795,6 +1807,7 @@ namespace RSMPS
             // 
             this.txtOutstandingV.Height = 0.2F;
             this.txtOutstandingV.Left = 4.465F;
+            this.txtOutstandingV.MultiLine = false;
             this.txtOutstandingV.Name = "txtOutstandingV";
             this.txtOutstandingV.OutputFormat = resources.GetString("txtOutstandingV.OutputFormat");
             this.txtOutstandingV.Text = null;
@@ -1810,16 +1823,17 @@ namespace RSMPS
             this.label31.Style = "";
             this.label31.Text = "Updated";
             this.label31.Top = 4.708F;
-            this.label31.Width = 1F;
+            this.label31.Width = 0.5720005F;
             // 
             // txtDateLastModifiedV
             // 
             this.txtDateLastModifiedV.Height = 0.2F;
-            this.txtDateLastModifiedV.Left = 5.562F;
+            this.txtDateLastModifiedV.Left = 4.875F;
             this.txtDateLastModifiedV.Name = "txtDateLastModifiedV";
+            this.txtDateLastModifiedV.Style = "font-size: 8.25pt; font-weight: bold";
             this.txtDateLastModifiedV.Text = null;
             this.txtDateLastModifiedV.Top = 4.708F;
-            this.txtDateLastModifiedV.Width = 1F;
+            this.txtDateLastModifiedV.Width = 2.365F;
             // 
             // rprtPMReport2
             // 
