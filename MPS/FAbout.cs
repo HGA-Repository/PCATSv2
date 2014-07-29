@@ -37,7 +37,17 @@ namespace RSMPS
 
             version = Application.ProductVersion;
 
-            lblVersion.Text = "Version: " + version;
+            lblVersion.Text = "Version: 3.02.2014";// +version;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblVersion_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

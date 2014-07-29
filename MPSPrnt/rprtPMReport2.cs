@@ -12,7 +12,6 @@ namespace RSMPS
 {
     public class rprtPMReport2 : GrapeCity.ActiveReports.SectionReport
 	{
-        private string msSchedule;
         private string msAct;
         private string msStaffing;
         private string msCFeedBack;
@@ -29,8 +28,6 @@ namespace RSMPS
         private Label label21;
         private RichTextBox rtbCFeedBack;
         private Label label22;
-
-
         private Label label23;
         private Label label24;
         private Label label25;
@@ -40,7 +37,6 @@ namespace RSMPS
         private Label Label28;
         private Label Label29;
         private Label Label30;
-        private SubReport subReport3;
         private TextBox txtPOAmtV;
         private TextBox txtBilledToDateV;
         private TextBox txtPaidToDateV;
@@ -48,6 +44,16 @@ namespace RSMPS
         private TextBox txtDateLastModified;
         private Label label31;
         private TextBox txtDateLastModifiedV;
+        private SubReport SubReport1;
+        private GroupHeader groupHeader2;
+        private GroupFooter groupFooter2;
+        private Shape Shape1;
+        private Label Label1;
+        private SubReport SubReport;
+        private Label Label16;
+        private Label Label17;
+        private Label Label18;
+        private Label Label19;
 
         private int miCount = 0;
 
@@ -81,13 +87,13 @@ namespace RSMPS
                 Label19.Visible = true;
                 Shape1.Visible = true;
             }
-            
+  
             rprtPMReportSch rsch = new rprtPMReportSch();
             DataSet dssch = CBProjectBudget.GetSchByProject(Convert.ToInt32(TextBox27.Text), Convert.ToInt32(TextBox28.Text));
 
             rsch.DataSource = dssch;
             rsch.DataMember = "Table";
-            subReport3.Report = rsch;
+            SubReport1.Report = rsch;
 
             if (dssch.Tables["Table"].Rows.Count < 1)
             {
@@ -95,7 +101,7 @@ namespace RSMPS
                 Label28.Visible = false;
                 Label29.Visible = false;
                 Label30.Visible = false;
-                Shape1.Visible = false;
+                Shape2.Visible = false;
             }
             else
             {
@@ -105,10 +111,11 @@ namespace RSMPS
                 Label30.Visible = true;
                 Shape2.Visible = true;
             }
+       
             // get cost summary
             LoadForecast(TextBox26.Text);
 
-            msSchedule = txtSchedule.Value.ToString();
+            //msSchedule = txtSchedule.Value.ToString();
             msAct = txtActivities.Value.ToString();
             msStaffing = txtStaffing.Value.ToString();
             msCFeedBack = txtCFeedBack.Value.ToString();
@@ -555,18 +562,10 @@ namespace RSMPS
             this.TextBox27 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.TextBox28 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.GroupFooter1 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
-            this.Shape1 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
-            this.Label1 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.Label2 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.Label3 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.Label4 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.SubReport = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
             this.rtbActivities = new GrapeCity.ActiveReports.SectionReportModel.RichTextBox();
             this.rtbStaffing = new GrapeCity.ActiveReports.SectionReportModel.RichTextBox();
-            this.Label16 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.Label17 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.Label18 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.Label19 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.label21 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.rtbCFeedBack = new GrapeCity.ActiveReports.SectionReportModel.RichTextBox();
             this.label22 = new GrapeCity.ActiveReports.SectionReportModel.Label();
@@ -574,18 +573,28 @@ namespace RSMPS
             this.label24 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.label25 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.label26 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.Shape2 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
-            this.Label27 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.Label28 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.Label29 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.Label30 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.subReport3 = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
             this.txtPOAmtV = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.txtBilledToDateV = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.txtPaidToDateV = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.txtOutstandingV = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.label31 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.txtDateLastModifiedV = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.Shape1 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.Label1 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.SubReport = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
+            this.Label16 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label17 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label18 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label19 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label2 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Shape2 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.Label27 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label28 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label29 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Label30 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.SubReport1 = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
+            this.groupHeader2 = new GrapeCity.ActiveReports.SectionReportModel.GroupHeader();
+            this.groupFooter2 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
             ((System.ComponentModel.ISupportInitialize)(this.Label5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label7)).BeginInit();
@@ -638,30 +647,30 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.TextBox26)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextBox27)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextBox28)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label25)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label26)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label27)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label28)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label29)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label30)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPOAmtV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBilledToDateV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPaidToDateV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOutstandingV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label31)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDateLastModifiedV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Label1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Label16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Label17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Label18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Label19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Label2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Label27)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Label28)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Label29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Label30)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -1395,7 +1404,7 @@ namespace RSMPS
             // 
             // PageFooter
             // 
-            this.PageFooter.Height = 0.65625F;
+            this.PageFooter.Height = 0.02083331F;
             this.PageFooter.Name = "PageFooter";
             // 
             // GroupHeader1
@@ -1459,18 +1468,10 @@ namespace RSMPS
             // GroupFooter1
             // 
             this.GroupFooter1.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
-            this.Shape1,
-            this.Label1,
-            this.Label2,
             this.Label3,
             this.Label4,
-            this.SubReport,
             this.rtbActivities,
             this.rtbStaffing,
-            this.Label16,
-            this.Label17,
-            this.Label18,
-            this.Label19,
             this.label21,
             this.rtbCFeedBack,
             this.label22,
@@ -1478,85 +1479,44 @@ namespace RSMPS
             this.label24,
             this.label25,
             this.label26,
-            this.Shape2,
-            this.Label27,
-            this.Label28,
-            this.Label29,
-            this.Label30,
-            this.subReport3,
             this.txtPOAmtV,
             this.txtBilledToDateV,
             this.txtPaidToDateV,
             this.txtOutstandingV,
             this.label31,
-            this.txtDateLastModifiedV});
-            this.GroupFooter1.Height = 5F;
+            this.txtDateLastModifiedV,
+            this.Shape1,
+            this.Label1,
+            this.SubReport,
+            this.Label16,
+            this.Label17,
+            this.Label18,
+            this.Label19});
+            this.GroupFooter1.Height = 3.5F;
             this.GroupFooter1.Name = "GroupFooter1";
             this.GroupFooter1.Format += new System.EventHandler(this.GroupFooter1_Format);
-            // 
-            // Shape1
-            // 
-            this.Shape1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.Shape1.Height = 0.25F;
-            this.Shape1.Left = 0.6875F;
-            this.Shape1.Name = "Shape1";
-            this.Shape1.RoundingRadius = 9.999999F;
-            this.Shape1.Top = 0.375F;
-            this.Shape1.Width = 6.063001F;
-            // 
-            // Label1
-            // 
-            this.Label1.Height = 0.25F;
-            this.Label1.HyperLink = null;
-            this.Label1.Left = 0.3125F;
-            this.Label1.Name = "Label1";
-            this.Label1.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
-            this.Label1.Text = "-  Pending PCN\'s";
-            this.Label1.Top = 0.0625F;
-            this.Label1.Width = 3.5625F;
-            // 
-            // Label2
-            // 
-            this.Label2.Height = 0.25F;
-            this.Label2.HyperLink = null;
-            this.Label2.Left = 0.312F;
-            this.Label2.Name = "Label2";
-            this.Label2.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
-            this.Label2.Text = "-  Schedule";
-            this.Label2.Top = 0.7500001F;
-            this.Label2.Width = 3.5625F;
             // 
             // Label3
             // 
             this.Label3.Height = 0.25F;
             this.Label3.HyperLink = null;
-            this.Label3.Left = 0.312F;
+            this.Label3.Left = 0.376F;
             this.Label3.Name = "Label3";
             this.Label3.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.Label3.Text = "-  Activities / Highlights";
-            this.Label3.Top = 1.387F;
+            this.Label3.Top = 0.654F;
             this.Label3.Width = 3.5625F;
             // 
             // Label4
             // 
-            this.Label4.Height = 0.25F;
+            this.Label4.Height = 0.2F;
             this.Label4.HyperLink = null;
-            this.Label4.Left = 0.311F;
+            this.Label4.Left = 0.349F;
             this.Label4.Name = "Label4";
             this.Label4.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.Label4.Text = "-  Staffing Issues / Needs / Concerns";
-            this.Label4.Top = 2.199F;
+            this.Label4.Top = 1.384F;
             this.Label4.Width = 3.5625F;
-            // 
-            // SubReport
-            // 
-            this.SubReport.CloseBorder = false;
-            this.SubReport.Height = 0.0625F;
-            this.SubReport.Left = 0.6875F;
-            this.SubReport.Name = "SubReport";
-            this.SubReport.Report = null;
-            this.SubReport.Top = 0.625F;
-            this.SubReport.Width = 6.4375F;
             // 
             // rtbActivities
             // 
@@ -1564,10 +1524,10 @@ namespace RSMPS
             this.rtbActivities.CanShrink = true;
             this.rtbActivities.Font = new System.Drawing.Font("Arial", 10F);
             this.rtbActivities.Height = 0.3125F;
-            this.rtbActivities.Left = 0.687F;
+            this.rtbActivities.Left = 0.726F;
             this.rtbActivities.Name = "rtbActivities";
             this.rtbActivities.RTF = resources.GetString("rtbActivities.RTF");
-            this.rtbActivities.Top = 1.6995F;
+            this.rtbActivities.Top = 0.977F;
             this.rtbActivities.Width = 6.4375F;
             // 
             // rtbStaffing
@@ -1576,65 +1536,21 @@ namespace RSMPS
             this.rtbStaffing.CanShrink = true;
             this.rtbStaffing.Font = new System.Drawing.Font("Arial", 10F);
             this.rtbStaffing.Height = 0.3125F;
-            this.rtbStaffing.Left = 0.686F;
+            this.rtbStaffing.Left = 0.7500001F;
             this.rtbStaffing.Name = "rtbStaffing";
             this.rtbStaffing.RTF = resources.GetString("rtbStaffing.RTF");
-            this.rtbStaffing.Top = 2.5115F;
+            this.rtbStaffing.Top = 1.657F;
             this.rtbStaffing.Width = 6.4375F;
-            // 
-            // Label16
-            // 
-            this.Label16.Height = 0.2F;
-            this.Label16.HyperLink = null;
-            this.Label16.Left = 0.75F;
-            this.Label16.Name = "Label16";
-            this.Label16.Style = "font-size: 9.75pt; font-weight: bold";
-            this.Label16.Text = "PCN No.";
-            this.Label16.Top = 0.4375F;
-            this.Label16.Width = 1F;
-            // 
-            // Label17
-            // 
-            this.Label17.Height = 0.2F;
-            this.Label17.HyperLink = null;
-            this.Label17.Left = 2F;
-            this.Label17.Name = "Label17";
-            this.Label17.Style = "font-size: 9.75pt; font-weight: bold";
-            this.Label17.Text = "Description";
-            this.Label17.Top = 0.4375F;
-            this.Label17.Width = 1F;
-            // 
-            // Label18
-            // 
-            this.Label18.Height = 0.2F;
-            this.Label18.HyperLink = null;
-            this.Label18.Left = 4.8125F;
-            this.Label18.Name = "Label18";
-            this.Label18.Style = "font-size: 9.75pt; font-weight: bold; text-align: center";
-            this.Label18.Text = "Hours";
-            this.Label18.Top = 0.4375F;
-            this.Label18.Width = 1F;
-            // 
-            // Label19
-            // 
-            this.Label19.Height = 0.2F;
-            this.Label19.HyperLink = null;
-            this.Label19.Left = 5.875F;
-            this.Label19.Name = "Label19";
-            this.Label19.Style = "font-size: 9.75pt; font-weight: bold; text-align: center";
-            this.Label19.Text = "Dollars";
-            this.Label19.Top = 0.4375F;
-            this.Label19.Width = 0.85F;
             // 
             // label21
             // 
-            this.label21.Height = 0.25F;
+            this.label21.Height = 0.2F;
             this.label21.HyperLink = null;
-            this.label21.Left = 0.339F;
+            this.label21.Left = 0.376F;
             this.label21.Name = "label21";
             this.label21.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.label21.Text = "-  Client Feedback";
-            this.label21.Top = 2.886F;
+            this.label21.Top = 2.031F;
             this.label21.Width = 3.5625F;
             // 
             // rtbCFeedBack
@@ -1643,197 +1559,302 @@ namespace RSMPS
             this.rtbCFeedBack.CanShrink = true;
             this.rtbCFeedBack.Font = new System.Drawing.Font("Arial", 10F);
             this.rtbCFeedBack.Height = 0.3125F;
-            this.rtbCFeedBack.Left = 0.714F;
+            this.rtbCFeedBack.Left = 0.751F;
             this.rtbCFeedBack.Name = "rtbCFeedBack";
             this.rtbCFeedBack.RTF = resources.GetString("rtbCFeedBack.RTF");
-            this.rtbCFeedBack.Top = 3.189001F;
+            this.rtbCFeedBack.Top = 2.231F;
             this.rtbCFeedBack.Width = 6.437F;
             // 
             // label22
             // 
             this.label22.Height = 0.25F;
             this.label22.HyperLink = null;
-            this.label22.Left = 0.3130002F;
+            this.label22.Left = 0.35F;
             this.label22.Name = "label22";
             this.label22.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.label22.Text = "- Financials";
-            this.label22.Top = 3.501001F;
+            this.label22.Top = 2.544F;
             this.label22.Width = 3.5625F;
             // 
             // label23
             // 
             this.label23.Height = 0.2F;
             this.label23.HyperLink = null;
-            this.label23.Left = 0.6890002F;
+            this.label23.Left = 0.726F;
             this.label23.Name = "label23";
             this.label23.Style = "font-size: 9.75pt; font-weight: bold";
             this.label23.Text = "POAmt";
-            this.label23.Top = 3.808F;
+            this.label23.Top = 2.794F;
             this.label23.Width = 1F;
             // 
             // label24
             // 
             this.label24.Height = 0.2F;
             this.label24.HyperLink = null;
-            this.label24.Left = 1.829F;
+            this.label24.Left = 1.866F;
             this.label24.Name = "label24";
             this.label24.Style = "font-size: 9.75pt; font-weight: bold";
             this.label24.Text = "Billed To Date";
-            this.label24.Top = 3.808F;
+            this.label24.Top = 2.794F;
             this.label24.Width = 1F;
             // 
             // label25
             // 
             this.label25.Height = 0.2F;
             this.label25.HyperLink = null;
-            this.label25.Left = 3.125F;
+            this.label25.Left = 3.162F;
             this.label25.Name = "label25";
             this.label25.Style = "font-size: 9.75pt; font-weight: bold";
             this.label25.Text = "Paid To Date";
-            this.label25.Top = 3.808F;
+            this.label25.Top = 2.794F;
             this.label25.Width = 1F;
             // 
             // label26
             // 
             this.label26.Height = 0.2F;
             this.label26.HyperLink = null;
-            this.label26.Left = 4.465F;
+            this.label26.Left = 4.502F;
             this.label26.Name = "label26";
             this.label26.Style = "font-size: 9.75pt; font-weight: bold";
             this.label26.Text = "Outstanding";
-            this.label26.Top = 3.808F;
+            this.label26.Top = 2.794F;
             this.label26.Width = 1F;
-            // 
-            // Shape2
-            // 
-            this.Shape2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.Shape2.Height = 0.25F;
-            this.Shape2.Left = 0.689F;
-            this.Shape2.Name = "Shape2";
-            this.Shape2.RoundingRadius = 9.999999F;
-            this.Shape2.Top = 1.012F;
-            this.Shape2.Width = 6.063001F;
-            // 
-            // Label27
-            // 
-            this.Label27.Height = 0.2F;
-            this.Label27.HyperLink = null;
-            this.Label27.Left = 0.687F;
-            this.Label27.Name = "Label27";
-            this.Label27.Style = "font-size: 9.75pt; font-weight: bold; text-align: center";
-            this.Label27.Text = "Description";
-            this.Label27.Top = 1F;
-            this.Label27.Width = 2.9585F;
-            // 
-            // Label28
-            // 
-            this.Label28.Height = 0.2F;
-            this.Label28.HyperLink = null;
-            this.Label28.Left = 3.671F;
-            this.Label28.Name = "Label28";
-            this.Label28.Style = "font-size: 9.75pt; font-weight: bold; text-align: center";
-            this.Label28.Text = "Initial Target";
-            this.Label28.Top = 1F;
-            this.Label28.Width = 0.8649998F;
-            // 
-            // Label29
-            // 
-            this.Label29.Height = 0.2F;
-            this.Label29.HyperLink = null;
-            this.Label29.Left = 4.671F;
-            this.Label29.Name = "Label29";
-            this.Label29.Style = "font-size: 9.75pt; font-weight: bold; text-align: center";
-            this.Label29.Text = "Projected";
-            this.Label29.Top = 1F;
-            this.Label29.Width = 1F;
-            // 
-            // Label30
-            // 
-            this.Label30.Height = 0.2F;
-            this.Label30.HyperLink = null;
-            this.Label30.Left = 5.812F;
-            this.Label30.Name = "Label30";
-            this.Label30.Style = "font-size: 9.75pt; font-weight: bold; text-align: center";
-            this.Label30.Text = "Actual";
-            this.Label30.Top = 1F;
-            this.Label30.Width = 0.85F;
-            // 
-            // subReport3
-            // 
-            this.subReport3.CloseBorder = false;
-            this.subReport3.Height = 0.125F;
-            this.subReport3.Left = 0.686F;
-            this.subReport3.Name = "subReport3";
-            this.subReport3.Report = null;
-            this.subReport3.ReportName = "";
-            this.subReport3.Top = 1.262F;
-            this.subReport3.Width = 6.092F;
             // 
             // txtPOAmtV
             // 
             this.txtPOAmtV.CanGrow = false;
             this.txtPOAmtV.Height = 0.2F;
-            this.txtPOAmtV.Left = 0.686F;
+            this.txtPOAmtV.Left = 0.723F;
             this.txtPOAmtV.MultiLine = false;
             this.txtPOAmtV.Name = "txtPOAmtV";
             this.txtPOAmtV.OutputFormat = resources.GetString("txtPOAmtV.OutputFormat");
             this.txtPOAmtV.Style = "white-space: nowrap; ddo-wrap-mode: nowrap";
-            this.txtPOAmtV.Top = 4.05F;
+            this.txtPOAmtV.Text = null;
+            this.txtPOAmtV.Top = 2.994F;
             this.txtPOAmtV.Width = 1F;
             // 
             // txtBilledToDateV
             // 
             this.txtBilledToDateV.Height = 0.2F;
-            this.txtBilledToDateV.Left = 1.829F;
+            this.txtBilledToDateV.Left = 1.866F;
             this.txtBilledToDateV.MultiLine = false;
             this.txtBilledToDateV.Name = "txtBilledToDateV";
             this.txtBilledToDateV.OutputFormat = resources.GetString("txtBilledToDateV.OutputFormat");
             this.txtBilledToDateV.Text = null;
-            this.txtBilledToDateV.Top = 4.05F;
+            this.txtBilledToDateV.Top = 2.994F;
             this.txtBilledToDateV.Width = 1F;
             // 
             // txtPaidToDateV
             // 
             this.txtPaidToDateV.Height = 0.2F;
-            this.txtPaidToDateV.Left = 3.125F;
+            this.txtPaidToDateV.Left = 3.162F;
             this.txtPaidToDateV.MultiLine = false;
             this.txtPaidToDateV.Name = "txtPaidToDateV";
             this.txtPaidToDateV.OutputFormat = resources.GetString("txtPaidToDateV.OutputFormat");
             this.txtPaidToDateV.Text = null;
-            this.txtPaidToDateV.Top = 4.05F;
+            this.txtPaidToDateV.Top = 2.994F;
             this.txtPaidToDateV.Width = 1F;
             // 
             // txtOutstandingV
             // 
             this.txtOutstandingV.Height = 0.2F;
-            this.txtOutstandingV.Left = 4.465F;
+            this.txtOutstandingV.Left = 4.533F;
             this.txtOutstandingV.MultiLine = false;
             this.txtOutstandingV.Name = "txtOutstandingV";
             this.txtOutstandingV.OutputFormat = resources.GetString("txtOutstandingV.OutputFormat");
             this.txtOutstandingV.Text = null;
-            this.txtOutstandingV.Top = 4.05F;
+            this.txtOutstandingV.Top = 2.994F;
             this.txtOutstandingV.Width = 1F;
             // 
             // label31
             // 
             this.label31.Height = 0.2F;
             this.label31.HyperLink = null;
-            this.label31.Left = 4.24F;
+            this.label31.Left = 4.277F;
             this.label31.Name = "label31";
             this.label31.Style = "";
             this.label31.Text = "Updated";
-            this.label31.Top = 4.708F;
+            this.label31.Top = 3.246F;
             this.label31.Width = 0.5720005F;
             // 
             // txtDateLastModifiedV
             // 
             this.txtDateLastModifiedV.Height = 0.2F;
-            this.txtDateLastModifiedV.Left = 4.875F;
+            this.txtDateLastModifiedV.Left = 4.912F;
             this.txtDateLastModifiedV.Name = "txtDateLastModifiedV";
             this.txtDateLastModifiedV.Style = "font-size: 8.25pt; font-weight: bold";
             this.txtDateLastModifiedV.Text = null;
-            this.txtDateLastModifiedV.Top = 4.708F;
+            this.txtDateLastModifiedV.Top = 3.246F;
             this.txtDateLastModifiedV.Width = 2.365F;
+            // 
+            // Shape1
+            // 
+            this.Shape1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.Shape1.Height = 0.25F;
+            this.Shape1.Left = 0.7925416F;
+            this.Shape1.Name = "Shape1";
+            this.Shape1.RoundingRadius = 9.999999F;
+            this.Shape1.Top = 1.69375F;
+            this.Shape1.Width = 6.063001F;
+            // 
+            // Label1
+            // 
+            this.Label1.Height = 0.2F;
+            this.Label1.HyperLink = null;
+            this.Label1.Left = 0.418F;
+            this.Label1.Name = "Label1";
+            this.Label1.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
+            this.Label1.Text = "-  Pending PCN\'s";
+            this.Label1.Top = 0F;
+            this.Label1.Width = 3.5625F;
+            // 
+            // SubReport
+            // 
+            this.SubReport.CloseBorder = false;
+            this.SubReport.Height = 0.0625F;
+            this.SubReport.Left = 0.7930003F;
+            this.SubReport.Name = "SubReport";
+            this.SubReport.Report = null;
+            this.SubReport.Top = 0.45F;
+            this.SubReport.Width = 6.092F;
+            // 
+            // Label16
+            // 
+            this.Label16.Height = 0.2F;
+            this.Label16.HyperLink = null;
+            this.Label16.Left = 0.8559997F;
+            this.Label16.Name = "Label16";
+            this.Label16.Style = "font-size: 9.75pt; font-weight: bold";
+            this.Label16.Text = "PCN No.";
+            this.Label16.Top = 0.25F;
+            this.Label16.Width = 1F;
+            // 
+            // Label17
+            // 
+            this.Label17.Height = 0.2F;
+            this.Label17.HyperLink = null;
+            this.Label17.Left = 2.106F;
+            this.Label17.Name = "Label17";
+            this.Label17.Style = "font-size: 9.75pt; font-weight: bold";
+            this.Label17.Text = "Description";
+            this.Label17.Top = 0.25F;
+            this.Label17.Width = 1F;
+            // 
+            // Label18
+            // 
+            this.Label18.Height = 0.2F;
+            this.Label18.HyperLink = null;
+            this.Label18.Left = 4.918F;
+            this.Label18.Name = "Label18";
+            this.Label18.Style = "font-size: 9.75pt; font-weight: bold; text-align: center";
+            this.Label18.Text = "Hours";
+            this.Label18.Top = 0.25F;
+            this.Label18.Width = 1F;
+            // 
+            // Label19
+            // 
+            this.Label19.Height = 0.2F;
+            this.Label19.HyperLink = null;
+            this.Label19.Left = 5.980999F;
+            this.Label19.Name = "Label19";
+            this.Label19.Style = "font-size: 9.75pt; font-weight: bold; text-align: center";
+            this.Label19.Text = "Dollars";
+            this.Label19.Top = 0.25F;
+            this.Label19.Width = 0.85F;
+            // 
+            // Label2
+            // 
+            this.Label2.Height = 0.17F;
+            this.Label2.HyperLink = null;
+            this.Label2.Left = 0.4699999F;
+            this.Label2.Name = "Label2";
+            this.Label2.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold; text-align: lef" +
+    "t";
+            this.Label2.Text = "-  Schedule";
+            this.Label2.Top = 0F;
+            this.Label2.Width = 3.5625F;
+            // 
+            // Shape2
+            // 
+            this.Shape2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.Shape2.Height = 0.2F;
+            this.Shape2.Left = 0.8200001F;
+            this.Shape2.Name = "Shape2";
+            this.Shape2.RoundingRadius = 9.999999F;
+            this.Shape2.Top = 0.264F;
+            this.Shape2.Width = 6.063001F;
+            // 
+            // Label27
+            // 
+            this.Label27.Height = 0.194F;
+            this.Label27.HyperLink = null;
+            this.Label27.Left = 1.199F;
+            this.Label27.Name = "Label27";
+            this.Label27.Style = "font-size: 9.75pt; font-weight: bold; text-align: center";
+            this.Label27.Text = "Description";
+            this.Label27.Top = 0.25F;
+            this.Label27.Width = 1.907F;
+            // 
+            // Label28
+            // 
+            this.Label28.Height = 0.18F;
+            this.Label28.HyperLink = null;
+            this.Label28.Left = 3.829F;
+            this.Label28.Name = "Label28";
+            this.Label28.Style = "font-size: 9.75pt; font-weight: bold; text-align: center";
+            this.Label28.Text = "Initial Target";
+            this.Label28.Top = 0.284F;
+            this.Label28.Width = 0.8649998F;
+            // 
+            // Label29
+            // 
+            this.Label29.Height = 0.2F;
+            this.Label29.HyperLink = null;
+            this.Label29.Left = 4.829F;
+            this.Label29.Name = "Label29";
+            this.Label29.Style = "font-size: 9.75pt; font-weight: bold; text-align: center";
+            this.Label29.Text = "Projected";
+            this.Label29.Top = 0.2840001F;
+            this.Label29.Width = 1F;
+            // 
+            // Label30
+            // 
+            this.Label30.Height = 0.2F;
+            this.Label30.HyperLink = null;
+            this.Label30.Left = 5.97F;
+            this.Label30.Name = "Label30";
+            this.Label30.Style = "font-size: 9.75pt; font-weight: bold; text-align: center";
+            this.Label30.Text = "Actual";
+            this.Label30.Top = 0.2840001F;
+            this.Label30.Width = 0.85F;
+            // 
+            // SubReport1
+            // 
+            this.SubReport1.CloseBorder = false;
+            this.SubReport1.Height = 0.063F;
+            this.SubReport1.Left = 0.8449999F;
+            this.SubReport1.Name = "SubReport1";
+            this.SubReport1.Report = null;
+            this.SubReport1.ReportName = "";
+            this.SubReport1.Top = 0.4639998F;
+            this.SubReport1.Width = 6.092F;
+            // 
+            // groupHeader2
+            // 
+            this.groupHeader2.Name = "groupHeader2";
+            // 
+            // groupFooter2
+            // 
+            this.groupFooter2.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
+            this.Shape2,
+            this.Label2,
+            this.Label27,
+            this.Label28,
+            this.Label29,
+            this.Label30,
+            this.SubReport1});
+            this.groupFooter2.Height = 0.5645834F;
+            this.groupFooter2.Name = "groupFooter2";
             // 
             // rprtPMReport2
             // 
@@ -1853,7 +1874,9 @@ namespace RSMPS
             this.PrintWidth = 7.302083F;
             this.Sections.Add(this.PageHeader);
             this.Sections.Add(this.GroupHeader1);
+            this.Sections.Add(this.groupHeader2);
             this.Sections.Add(this.Detail);
+            this.Sections.Add(this.groupFooter2);
             this.Sections.Add(this.GroupFooter1);
             this.Sections.Add(this.PageFooter);
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule(resources.GetString("$this.StyleSheet"), "Normal"));
@@ -1915,30 +1938,30 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.TextBox26)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextBox27)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextBox28)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label25)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label26)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label27)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label28)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label29)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Label30)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPOAmtV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBilledToDateV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPaidToDateV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOutstandingV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label31)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDateLastModifiedV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Label1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Label16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Label17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Label18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Label19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Label2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Label27)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Label28)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Label29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Label30)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -2007,18 +2030,11 @@ namespace RSMPS
         private TextBox txtActivities;
         private TextBox txtStaffing;
         private GroupFooter GroupFooter1;
-        private Shape Shape1;
-        private Label Label1;
         private Label Label2;
         private Label Label3;
         private Label Label4;
-        private SubReport SubReport;
         private RichTextBox rtbActivities;
         private RichTextBox rtbStaffing;
-        private Label Label16;
-        private Label Label17;
-        private Label Label18;
-        private Label Label19;
         private PageFooter PageFooter;
 	}
 }

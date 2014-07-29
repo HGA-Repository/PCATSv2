@@ -9,7 +9,7 @@ namespace RSMPS
 {
     public class rprtPMReportSch : GrapeCity.ActiveReports.SectionReport
 	{
-        private int miLineCnt = 0;
+        private int miLineCntSch = 0;
 
         public rprtPMReportSch()
         {
@@ -18,12 +18,12 @@ namespace RSMPS
 
         private void Detail_Format(object sender, System.EventArgs eArgs)
         {
-            miLineCnt++;
+            miLineCntSch++;
         }
 
         private void GroupFooter1_Format(object sender, System.EventArgs eArgs)
         {
-            if (miLineCnt < 2)
+            //if (miLineCntSch < 2)
                 GroupFooter1.Visible = false;
         }
 
@@ -59,14 +59,14 @@ namespace RSMPS
             this.Line1 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.Line2 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.Line3 = new GrapeCity.ActiveReports.SectionReportModel.Line();
-            this.Line4 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.Line5 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.Line6 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.textBox4 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.line4 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.PageHeader = new GrapeCity.ActiveReports.SectionReportModel.PageHeader();
             this.PageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
             this.GroupHeader1 = new GrapeCity.ActiveReports.SectionReportModel.GroupHeader();
             this.GroupFooter1 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
-            this.textBox4 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.TextBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextBox3)).BeginInit();
@@ -83,11 +83,11 @@ namespace RSMPS
             this.Line1,
             this.Line2,
             this.Line3,
-            this.Line4,
             this.Line5,
             this.Line6,
-            this.textBox4});
-            this.Detail.Height = 0.1944444F;
+            this.textBox4,
+            this.line4});
+            this.Detail.Height = 0.2152777F;
             this.Detail.Name = "Detail";
             this.Detail.Format += new System.EventHandler(this.Detail_Format);
             // 
@@ -98,9 +98,9 @@ namespace RSMPS
             this.Line.LineWeight = 1F;
             this.Line.Name = "Line";
             this.Line.Top = 0F;
-            this.Line.Width = 6.0625F;
+            this.Line.Width = 6.25F;
             this.Line.X1 = 0F;
-            this.Line.X2 = 6.0625F;
+            this.Line.X2 = 6.25F;
             this.Line.Y1 = 0F;
             this.Line.Y2 = 0F;
             // 
@@ -118,7 +118,7 @@ namespace RSMPS
             // 
             this.TextBox2.DataField = "InitialTarget";
             this.TextBox2.Height = 0.18F;
-            this.TextBox2.Left = 2.937F;
+            this.TextBox2.Left = 3.312F;
             this.TextBox2.Name = "TextBox2";
             this.TextBox2.OutputFormat = resources.GetString("TextBox2.OutputFormat");
             this.TextBox2.Style = "text-align: right";
@@ -179,33 +179,19 @@ namespace RSMPS
             this.Line3.Y1 = 0F;
             this.Line3.Y2 = 0.1875F;
             // 
-            // Line4
-            // 
-            this.Line4.AnchorBottom = true;
-            this.Line4.Height = 0.1875F;
-            this.Line4.Left = 1F;
-            this.Line4.LineWeight = 1F;
-            this.Line4.Name = "Line4";
-            this.Line4.Top = 0F;
-            this.Line4.Width = 0F;
-            this.Line4.X1 = 1F;
-            this.Line4.X2 = 1F;
-            this.Line4.Y1 = 0F;
-            this.Line4.Y2 = 0.1875F;
-            // 
             // Line5
             // 
             this.Line5.AnchorBottom = true;
             this.Line5.Height = 0.1875F;
-            this.Line5.Left = 4.0625F;
+            this.Line5.Left = 4.083F;
             this.Line5.LineWeight = 1F;
             this.Line5.Name = "Line5";
-            this.Line5.Top = 0F;
+            this.Line5.Top = 0.014F;
             this.Line5.Width = 0F;
-            this.Line5.X1 = 4.0625F;
-            this.Line5.X2 = 4.0625F;
-            this.Line5.Y1 = 0F;
-            this.Line5.Y2 = 0.1875F;
+            this.Line5.X1 = 4.083F;
+            this.Line5.X2 = 4.083F;
+            this.Line5.Y1 = 0.014F;
+            this.Line5.Y2 = 0.2015F;
             // 
             // Line6
             // 
@@ -220,6 +206,32 @@ namespace RSMPS
             this.Line6.X2 = 4.875F;
             this.Line6.Y1 = 0F;
             this.Line6.Y2 = 0.1875F;
+            // 
+            // textBox4
+            // 
+            this.textBox4.DataField = "Actual";
+            this.textBox4.Height = 0.18F;
+            this.textBox4.Left = 4.875F;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.OutputFormat = resources.GetString("textBox4.OutputFormat");
+            this.textBox4.Style = "text-align: right";
+            this.textBox4.Text = "TextBox4";
+            this.textBox4.Top = 0F;
+            this.textBox4.Width = 0.958F;
+            // 
+            // line4
+            // 
+            this.line4.AnchorBottom = true;
+            this.line4.Height = 0.1875F;
+            this.line4.Left = 3F;
+            this.line4.LineWeight = 1F;
+            this.line4.Name = "line4";
+            this.line4.Top = 0.014F;
+            this.line4.Width = 0F;
+            this.line4.X1 = 3F;
+            this.line4.X2 = 3F;
+            this.line4.Y1 = 0.014F;
+            this.line4.Y2 = 0.2015F;
             // 
             // PageHeader
             // 
@@ -239,21 +251,9 @@ namespace RSMPS
             // 
             // GroupFooter1
             // 
-            this.GroupFooter1.Height = 0.21875F;
+            this.GroupFooter1.Height = 0F;
             this.GroupFooter1.Name = "GroupFooter1";
             this.GroupFooter1.Format += new System.EventHandler(this.GroupFooter1_Format);
-            // 
-            // textBox4
-            // 
-            this.textBox4.DataField = "Actual";
-            this.textBox4.Height = 0.18F;
-            this.textBox4.Left = 4.875F;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.OutputFormat = resources.GetString("textBox4.OutputFormat");
-            this.textBox4.Style = "text-align: right";
-            this.textBox4.Text = "TextBox4";
-            this.textBox4.Top = 0.014F;
-            this.textBox4.Width = 0.958F;
             // 
             // rprtPMReportSch
             // 
@@ -293,11 +293,11 @@ namespace RSMPS
         private Line Line1;
         private Line Line2;
         private Line Line3;
-        private Line Line4;
         private Line Line5;
         private Line Line6;
         private GroupFooter GroupFooter1;
         private TextBox textBox4;
+        private Line line4;
         private PageFooter PageFooter;
 	}
 }

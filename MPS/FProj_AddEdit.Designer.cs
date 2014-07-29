@@ -43,6 +43,8 @@ namespace RSMPS
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cboManagerLead = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtCustomerNumber = new System.Windows.Forms.TextBox();
             this.txtOverlay = new System.Windows.Forms.TextBox();
@@ -74,8 +76,6 @@ namespace RSMPS
             this.label5 = new System.Windows.Forms.Label();
             this.bttCancel = new System.Windows.Forms.Button();
             this.bttOK = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.cboManagerLead = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -251,6 +251,30 @@ namespace RSMPS
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Description";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 182);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(53, 13);
+            this.label14.TabIndex = 22;
+            this.label14.Text = "Lead PM:";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
+            // 
+            // cboManagerLead
+            // 
+            this.cboManagerLead.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboManagerLead.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.cboManagerLead.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboManagerLead.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboManagerLead.FormattingEnabled = true;
+            this.cboManagerLead.Location = new System.Drawing.Point(75, 178);
+            this.cboManagerLead.Name = "cboManagerLead";
+            this.cboManagerLead.Size = new System.Drawing.Size(200, 21);
+            this.cboManagerLead.TabIndex = 12;
+            this.cboManagerLead.SelectedIndexChanged += new System.EventHandler(this.cboManagerLead_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -614,30 +638,6 @@ namespace RSMPS
             this.bttOK.Text = "&OK";
             this.bttOK.UseVisualStyleBackColor = true;
             this.bttOK.Click += new System.EventHandler(this.bttOK_Click);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 182);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(53, 13);
-            this.label14.TabIndex = 22;
-            this.label14.Text = "Lead PM:";
-            this.label14.Click += new System.EventHandler(this.label14_Click);
-            // 
-            // CBOManagerLead
-            // 
-            this.cboManagerLead.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboManagerLead.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.cboManagerLead.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboManagerLead.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboManagerLead.FormattingEnabled = true;
-            this.cboManagerLead.Location = new System.Drawing.Point(75, 178);
-            this.cboManagerLead.Name = "cboManagerLead";
-            this.cboManagerLead.Size = new System.Drawing.Size(200, 21);
-            this.cboManagerLead.TabIndex = 23;
-            this.cboManagerLead.SelectedIndexChanged += new System.EventHandler(this.cboManagerLead_SelectedIndexChanged);
             // 
             // FProj_AddEdit
             // 

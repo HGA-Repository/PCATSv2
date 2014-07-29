@@ -75,6 +75,7 @@ namespace RSMPS
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(434, 76);
             this.panel1.TabIndex = 4;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label6
             // 
@@ -104,6 +105,7 @@ namespace RSMPS
             this.lblVersion.Size = new System.Drawing.Size(45, 13);
             this.lblVersion.TabIndex = 4;
             this.lblVersion.Text = "Version:";
+            this.lblVersion.Click += new System.EventHandler(this.lblVersion_Click);
             // 
             // label1
             // 

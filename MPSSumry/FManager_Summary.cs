@@ -170,10 +170,10 @@ namespace RSMPS
                 rtbActHigh.Enabled = true;
                 rtbNeeds.Enabled = true;
                 rtbCFeedBack.Enabled = true;
-                //POAmt.Enabled = true;
-                //BilledToDate.Enabled = true;
-                //PaidToDate.Enabled = true;
-                //Outstanding.Enabled = true;
+                POAmt.Enabled = true;
+                BilledToDate.Enabled = true;
+                PaidToDate.Enabled = true;
+                Outstanding.Enabled = true;
 
                 SaveCurrentProject();
                 miCurrentProjectID = Convert.ToInt32(lvwProjects.SelectedItems[0].SubItems[3].Text);
@@ -189,10 +189,10 @@ namespace RSMPS
                 rtbActHigh.Enabled = false;
                 rtbNeeds.Enabled = false;
                 rtbCFeedBack.Enabled = false;
-                //POAmt.Enabled = false;
-                //BilledToDate.Enabled = false;
-                //PaidToDate.Enabled = false;
-                //Outstanding.Enabled = false;
+                POAmt.Enabled = false;
+                BilledToDate.Enabled = false;
+                PaidToDate.Enabled = false;
+                Outstanding.Enabled = false;
             }
 
             tlbbSave.Enabled = tmpChanged;
@@ -243,14 +243,14 @@ namespace RSMPS
                     if (dr["CFeedBack"].ToString().Length > 0)
                         rtbCFeedBack.Rtf = dr["CFeedBack"].ToString();
 
-                    //POAmt.Text = String.Format("{0:C}", dr["POAmt"]);
-                    //BilledToDate.Text = String.Format("{0:C}",dr["BilledtoDate"]);
-                    //PaidToDate.Text = String.Format("{0:C}",dr["PaidtoDate"]);
-                    //Outstanding.Text = String.Format("{0:C}",dr["Outstanding"]);
-                    POAmt.Text += Convert.ToInt32(dr["POAmt"]);
-                    BilledToDate.Text += Convert.ToInt32(dr["BilledToDate"]);
-                    PaidToDate.Text += Convert.ToInt32(dr["PaidToDate"]);
-                    Outstanding.Text += Convert.ToInt32(dr["Outstanding"]);
+                    if (dr["POAmt"].ToString().Length > 0)
+                        POAmt.Text += Convert.ToInt32(dr["POAmt"]);
+                    if (dr["BilledToDate"].ToString().Length > 0)
+                        BilledToDate.Text += Convert.ToInt32(dr["BilledToDate"]);
+                    if (dr["PaidToDate"].ToString().Length > 0)
+                        PaidToDate.Text += Convert.ToInt32(dr["PaidToDate"]);
+                    if (dr["Outstanding"].ToString().Length > 0) 
+                        Outstanding.Text += Convert.ToInt32(dr["Outstanding"]);
                     
                     break;
                 }
@@ -515,10 +515,10 @@ namespace RSMPS
                     dr["ActHigh"] = rtbActHigh.Rtf;
                     dr["StaffNeeds"] = rtbNeeds.Rtf;
                     dr["CFeedBack"] = rtbCFeedBack.Rtf;
-                    dr["POAmt"] = POAmt.Text;
-                    dr["BilledToDate"] = BilledToDate.Text;
-                    dr["PaidToDate"] = PaidToDate.Text;
-                    dr["Outstanding"] = Outstanding.Text;                                       
+                    if (dr["POAmt"].ToString().Length > 0) dr["POAmt"] = POAmt.Text; else dr["POAmt"] = 0;
+                    if (dr["BilledToDate"].ToString().Length > 0) dr["BilledToDate"] = BilledToDate.Text; else dr["BilledToDate"] = 0;
+                    if (dr["PaidToDate"].ToString().Length > 0) dr["PaidToDate"] = PaidToDate.Text; else dr["PaidToDate"] = 0;
+                    if (dr["Outstanding"].ToString().Length > 0) dr["Outstanding"] = Outstanding.Text; else dr["Outstanding"] = 0; 
                     
                     break;
                 }

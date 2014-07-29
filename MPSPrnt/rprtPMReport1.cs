@@ -182,7 +182,7 @@ namespace RSMPS
             this.SubReport,
             this.Label1});
             this.GroupHeader1.DataField = "ProjSumID";
-            this.GroupHeader1.Height = 3.676389F;
+            this.GroupHeader1.Height = 1.249306F;
             this.GroupHeader1.Name = "GroupHeader1";
             this.GroupHeader1.Format += new System.EventHandler(this.GroupHeader1_Format);
             // 
