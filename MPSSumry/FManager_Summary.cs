@@ -195,13 +195,14 @@ namespace RSMPS
                 Outstanding.Enabled = false;
             }
 
-            tlbbSave.Enabled = tmpChanged;
-            mbChanged = tmpChanged;
+           // tlbbSave.Enabled = tmpChanged;
+           // mbChanged = tmpChanged;
 
-            if (tmpChanged == false)
-                tlbbPrint.Enabled = true;
-            else
-                tlbbPrint.Enabled = false;
+           // if (tmpChanged == false)
+           //     tlbbPrint.Enabled = true;
+           // else
+           //     tlbbPrint.Enabled = false;
+            InfoChanged();
         }
 
         private void LoadCurrentProject()
@@ -262,6 +263,7 @@ namespace RSMPS
             TotalPCNAmount();
 
             LoadForecast(proj);
+            
         }
 
         private void ClearProjectSummary()
@@ -515,10 +517,10 @@ namespace RSMPS
                     dr["ActHigh"] = rtbActHigh.Rtf;
                     dr["StaffNeeds"] = rtbNeeds.Rtf;
                     dr["CFeedBack"] = rtbCFeedBack.Rtf;
-                    if (dr["POAmt"].ToString().Length > 0) dr["POAmt"] = POAmt.Text; else dr["POAmt"] = 0;
-                    if (dr["BilledToDate"].ToString().Length > 0) dr["BilledToDate"] = BilledToDate.Text; else dr["BilledToDate"] = 0;
-                    if (dr["PaidToDate"].ToString().Length > 0) dr["PaidToDate"] = PaidToDate.Text; else dr["PaidToDate"] = 0;
-                    if (dr["Outstanding"].ToString().Length > 0) dr["Outstanding"] = Outstanding.Text; else dr["Outstanding"] = 0; 
+                    dr["POAmt"] = POAmt.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["POAmt"]);
+                    dr["BilledToDate"] = BilledToDate.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["BilledToDate"]);
+                    dr["PaidToDate"] = PaidToDate.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["PaidToDate"]);
+                    dr["Outstanding"] = Outstanding.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["Outstanding"]);
                     
                     break;
                 }
@@ -552,10 +554,10 @@ namespace RSMPS
                     psi.ActHigh = dr["ActHigh"].ToString();
                     psi.StaffNeeds = dr["StaffNeeds"].ToString();
                     psi.CFeedBack = dr["CFeedBack"].ToString();
-                    psi.POAmt = Convert.ToDecimal(dr["POAmt"]);
-                    psi.BilledtoDate = Convert.ToDecimal(dr["BilledtoDate"]);
-                    psi.PaidtoDate = Convert.ToDecimal(dr["PaidtoDate"]);
-                    psi.Outstanding = Convert.ToDecimal(dr["Outstanding"]);
+                    psi.POAmt = POAmt.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["POAmt"]);
+                    psi.BilledtoDate = BilledToDate.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["BilledToDate"]);
+                    psi.PaidtoDate = PaidToDate.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["PaidToDate"]);
+                    psi.Outstanding = Outstanding.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["Outstanding"]);
 
                     psi.Save();
                 }

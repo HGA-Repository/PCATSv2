@@ -168,7 +168,12 @@ namespace RSMPS
 
             return dbDt.GetListProj();
         }
+        public static SqlDataReader GetListProjRev()
+        {
+            CDbProject dbDt = new CDbProject();
 
+            return dbDt.GetListProjRev();
+        }
         public static SqlDataReader GetListProp()
         {
             CDbProject dbDt = new CDbProject();

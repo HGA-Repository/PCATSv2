@@ -388,6 +388,7 @@ namespace RSMPS
 
             cnn = new RSLib.CDbConnection();
             cmd = new SqlCommand("spProjectSummaryPCN_ListByProjectID", cnn.GetConnection());
+            //cmd = new SqlCommand("spProjectSummaryPCN_ListByProjectID1", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
             prm = cmd.Parameters.Add("@ProjSumID", SqlDbType.Int);

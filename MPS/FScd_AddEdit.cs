@@ -970,10 +970,25 @@ namespace RSMPS
         {
             if (mbSummaryOpen == false)
             {
+                int row = fgSchedule.Row;
+
+                if (row < 0)
+                    return;     // not in a valid area so exit
                 moProjSumm = new FScd_ProjSummary();
 
                 mbSummaryOpen = true;
                 moProjSumm.OnSummaryClose += new EventHandler(ps_OnSummaryClose);
+
+                int projID = Convert.ToInt32(fgSchedule[row, PROJECTIDCOLUMN]);
+                CellRange rng = fgSchedule.GetCellRange(0, fgSchedule.Col);
+                int weekID = Convert.ToInt32(rng.UserData);
+
+                decimal tmpP, tmpF, tmpA;
+                CBScheduleHour sh = new CBScheduleHour();
+                tmpP = tmpF = tmpA = 0;
+
+                sh.GetProjectTotalByDate(miCurrDept, projID, weekID, ref tmpP, ref tmpF, ref tmpA);
+                moProjSumm.SetProject(miCurrDept, projID, weekID, tmpP, tmpF, tmpA);
                 moProjSumm.Show();
 
                 mnuSch_ProjSummary.Enabled = false;
@@ -1315,7 +1330,7 @@ namespace RSMPS
 
 
             miCurrUserID = u.ID;
-            if (passLvl < 3 || u.IsAdministrator == true || u.IsManager == true)
+            if (passLvl != 3 || u.IsAdministrator == true || u.IsManager == true)
             {
                 // is a moderator for this department so enable some stuff
                 mbIsModerator = true;

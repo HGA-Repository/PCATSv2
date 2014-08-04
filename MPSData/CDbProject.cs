@@ -453,6 +453,22 @@ namespace RSMPS
 
             return dr;
         }
+        public SqlDataReader GetListProjRev()
+        {
+            SqlDataReader dr;
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spProject_ListAllProjRev", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            cmd = null;
+
+            return dr;
+        }
         //SSS 20131105 Tied to New Stored Procedure
         public SqlDataReader GetListProp()
         {

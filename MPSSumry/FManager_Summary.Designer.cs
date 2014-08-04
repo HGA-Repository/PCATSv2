@@ -338,7 +338,6 @@ namespace RSMPS
             this.rtbNeeds.ContextMenuStrip = this.cmnuSchedule;
             this.rtbNeeds.Enabled = false;
             this.rtbNeeds.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbNeeds.HideSelection = false;
             this.rtbNeeds.Location = new System.Drawing.Point(5, 16);
             this.rtbNeeds.Name = "rtbNeeds";
             this.rtbNeeds.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
@@ -486,13 +485,15 @@ namespace RSMPS
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbCFeedBack.ContextMenuStrip = this.cmnuSchedule;
+            this.rtbCFeedBack.Enabled = false;
             this.rtbCFeedBack.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.rtbCFeedBack.Location = new System.Drawing.Point(3, 11);
             this.rtbCFeedBack.Name = "rtbCFeedBack";
             this.rtbCFeedBack.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.rtbCFeedBack.Size = new System.Drawing.Size(722, 56);
+            this.rtbCFeedBack.Size = new System.Drawing.Size(728, 56);
             this.rtbCFeedBack.TabIndex = 3;
             this.rtbCFeedBack.Text = "";
+            this.rtbCFeedBack.TextChanged += new System.EventHandler(this.rtbCFeedBack_TextChanged);
             // 
             // groupBox7
             // 

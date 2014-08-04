@@ -66,7 +66,11 @@ namespace RSMPS
             r.DataSource = dv;
             subReport1.Report = r;
 
-
+            //if (txtDrawingID.Text == "70289")
+            //{
+            //    int rwCnt = dv.Count;
+            //    string tmp = "Stop";
+            //}
         }
 
         private void rprtDrawingLogTranAlt1_ReportStart(object sender, EventArgs e)

@@ -2392,10 +2392,11 @@ namespace RSMPS
 
         private void tdbgBudgetPCN_Click(object sender, EventArgs e)
         {
-            if (tdbgBudgetPCN.Bookmark >= 0 )
+            if (tdbgBudgetPCN.Bookmark >= 0) 
                                 {
                 bttEditPCN.Enabled = true;
                 }
+
         }
 
         private void tlbbSummary_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
