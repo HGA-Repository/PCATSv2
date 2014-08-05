@@ -284,7 +284,8 @@ namespace RSMPS
             "New Orleans",
             "Lake Charles",
             "Shreveport",
-            "Field / Client"});
+            "Field / Client",
+            "New York"});
             this.cmbLocation.Location = new System.Drawing.Point(83, 99);
             this.cmbLocation.Name = "cmbLocation";
             this.cmbLocation.Size = new System.Drawing.Size(176, 21);

@@ -459,11 +459,13 @@ namespace RSMPS
 
             string exps = tdbgExpenses.Columns[0].Value.ToString();
             string desc = IsValidExpense(exps);
+            string mudefault = IsValidExpense1(exps);
 
             if (desc.Length < 1)
                 e.Cancel = true;
             else
                 tdbgExpenses.Columns[1].Value = desc;
+                tdbgExpenses.Columns[4].Value = mudefault;
         }
 
         private void tdbgExpenses_AfterColUpdate(object sender, C1.Win.C1TrueDBGrid.ColEventArgs e)
@@ -531,7 +533,24 @@ namespace RSMPS
 
             return retVal;
         }
+        private string IsValidExpense1(string expense)
+        {
+            string retVal = "";
+            string rowVal;
 
+            foreach (DataRow d in mdsExpensAccts.Tables["Accounts"].Rows)
+            {
+                rowVal = d["Code"].ToString();
+
+                if (rowVal == expense)
+                {
+                    retVal = d["DefaultMU"].ToString();
+                    break;
+                }
+            }
+
+            return retVal;
+        }
         private void txtRequestedBy_TextChanged(object sender, EventArgs e)
         {
             tlbbSave.Enabled = true;

@@ -308,8 +308,8 @@ namespace RSMPS
         private void tbbPrint_Click(object sender, EventArgs e)
         {
             CPDrawingLog dl = new CPDrawingLog();
-
             dl.PrintDrawingLog(miCurrDept, miCurrProj);
+                       
         }
 
         private void tbbJobStatPrint_Click(object sender, EventArgs e)
