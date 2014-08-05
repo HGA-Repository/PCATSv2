@@ -123,6 +123,7 @@ namespace RSMPS
                 d = mdsExpensAccts.Tables["Accounts"].NewRow();
                 d["Code"] = dr["Code"];
                 d["Description"] = dr["Description"];
+                d["DefaultMU"] = dr["DefaultMU"];
 
                 mdsExpensAccts.Tables["Accounts"].Rows.Add(d);
             }

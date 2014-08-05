@@ -40,8 +40,6 @@ namespace RSMPS
             this.colProjectID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.fgForecast = new C1.Win.C1FlexGrid.C1FlexGrid();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.tdbgPCNs = new C1.Win.C1TrueDBGrid.C1TrueDBGrid();
             this.cmnuSchedule = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.scheduleBulletIndent = new System.Windows.Forms.ToolStripMenuItem();
             this.scheduleBulletRemove = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,11 +89,11 @@ namespace RSMPS
             this.c1CommandLink1 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink2 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink3 = new C1.Win.C1Command.C1CommandLink();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tdbgPCNs = new C1.Win.C1TrueDBGrid.C1TrueDBGrid();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fgForecast)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tdbgPCNs)).BeginInit();
             this.cmnuSchedule.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -109,6 +107,8 @@ namespace RSMPS
             this.groupBox4.SuspendLayout();
             this.cmnuPMVals.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tdbgPCNs)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -213,43 +213,6 @@ namespace RSMPS
             this.fgForecast.Size = new System.Drawing.Size(719, 109);
             this.fgForecast.TabIndex = 2;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.tdbgPCNs);
-            this.groupBox3.Location = new System.Drawing.Point(6, 139);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(731, 112);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "PCN";
-            // 
-            // tdbgPCNs
-            // 
-            this.tdbgPCNs.AllowAddNew = true;
-            this.tdbgPCNs.AllowColMove = false;
-            this.tdbgPCNs.AllowDelete = true;
-            this.tdbgPCNs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tdbgPCNs.ColumnFooters = true;
-            this.tdbgPCNs.Enabled = false;
-            this.tdbgPCNs.GroupByCaption = "Drag a column header here to group by that column";
-            this.tdbgPCNs.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbgPCNs.Images"))));
-            this.tdbgPCNs.Location = new System.Drawing.Point(6, 19);
-            this.tdbgPCNs.Name = "tdbgPCNs";
-            this.tdbgPCNs.PreviewInfo.Location = new System.Drawing.Point(0, 0);
-            this.tdbgPCNs.PreviewInfo.Size = new System.Drawing.Size(0, 0);
-            this.tdbgPCNs.PreviewInfo.ZoomFactor = 75D;
-            this.tdbgPCNs.PrintInfo.PageSettings = ((System.Drawing.Printing.PageSettings)(resources.GetObject("tdbgPCNs.PrintInfo.PageSettings")));
-            this.tdbgPCNs.Size = new System.Drawing.Size(719, 85);
-            this.tdbgPCNs.TabIndex = 0;
-            this.tdbgPCNs.Text = "PCN";
-            this.tdbgPCNs.AfterDelete += new System.EventHandler(this.tdbgPCNs_AfterDelete);
-            this.tdbgPCNs.AfterUpdate += new System.EventHandler(this.tdbgPCNs_AfterUpdate);
-            this.tdbgPCNs.BeforeUpdate += new C1.Win.C1TrueDBGrid.CancelEventHandler(this.tdbgPCNs_BeforeUpdate);
-            this.tdbgPCNs.PropBag = resources.GetString("tdbgPCNs.PropBag");
-            // 
             // cmnuSchedule
             // 
             this.cmnuSchedule.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -294,9 +257,9 @@ namespace RSMPS
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.rtbActHigh);
-            this.groupBox5.Location = new System.Drawing.Point(6, 383);
+            this.groupBox5.Location = new System.Drawing.Point(6, 311);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(731, 108);
+            this.groupBox5.Size = new System.Drawing.Size(731, 152);
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Activities / Highlights";
@@ -312,7 +275,7 @@ namespace RSMPS
             this.rtbActHigh.Location = new System.Drawing.Point(3, 15);
             this.rtbActHigh.Name = "rtbActHigh";
             this.rtbActHigh.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.rtbActHigh.Size = new System.Drawing.Size(728, 87);
+            this.rtbActHigh.Size = new System.Drawing.Size(728, 131);
             this.rtbActHigh.TabIndex = 1;
             this.rtbActHigh.Text = "";
             this.rtbActHigh.TextChanged += new System.EventHandler(this.rtbActHigh_TextChanged);
@@ -323,9 +286,9 @@ namespace RSMPS
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.Controls.Add(this.rtbNeeds);
-            this.groupBox6.Location = new System.Drawing.Point(6, 486);
+            this.groupBox6.Location = new System.Drawing.Point(6, 467);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(731, 81);
+            this.groupBox6.Size = new System.Drawing.Size(731, 101);
             this.groupBox6.TabIndex = 5;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Staffing Issues / Needs / Concerns";
@@ -341,7 +304,7 @@ namespace RSMPS
             this.rtbNeeds.Location = new System.Drawing.Point(5, 16);
             this.rtbNeeds.Name = "rtbNeeds";
             this.rtbNeeds.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.rtbNeeds.Size = new System.Drawing.Size(728, 59);
+            this.rtbNeeds.Size = new System.Drawing.Size(728, 79);
             this.rtbNeeds.TabIndex = 2;
             this.rtbNeeds.Text = "";
             this.rtbNeeds.TextChanged += new System.EventHandler(this.rtbNeeds_TextChanged);
@@ -368,7 +331,6 @@ namespace RSMPS
             this.tbpProjStat.Controls.Add(this.groupBox7);
             this.tbpProjStat.Controls.Add(this.groupBox2);
             this.tbpProjStat.Controls.Add(this.groupBox6);
-            this.tbpProjStat.Controls.Add(this.groupBox3);
             this.tbpProjStat.Controls.Add(this.groupBox5);
             this.tbpProjStat.Location = new System.Drawing.Point(4, 22);
             this.tbpProjStat.Name = "tbpProjStat";
@@ -500,9 +462,9 @@ namespace RSMPS
             this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox7.Controls.Add(this.tdbgSchedule);
-            this.groupBox7.Location = new System.Drawing.Point(6, 249);
+            this.groupBox7.Location = new System.Drawing.Point(6, 145);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(733, 128);
+            this.groupBox7.Size = new System.Drawing.Size(733, 162);
             this.groupBox7.TabIndex = 6;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Project Schedule";
@@ -524,7 +486,7 @@ namespace RSMPS
             this.tdbgSchedule.PreviewInfo.Size = new System.Drawing.Size(0, 0);
             this.tdbgSchedule.PreviewInfo.ZoomFactor = 75D;
             this.tdbgSchedule.PrintInfo.PageSettings = ((System.Drawing.Printing.PageSettings)(resources.GetObject("tdbgSchedule.PrintInfo.PageSettings")));
-            this.tdbgSchedule.Size = new System.Drawing.Size(730, 107);
+            this.tdbgSchedule.Size = new System.Drawing.Size(730, 137);
             this.tdbgSchedule.TabIndex = 0;
             this.tdbgSchedule.Text = "Schedule";
             this.tdbgSchedule.AfterDelete += new System.EventHandler(this.tdbgSchedule_AfterDelete);
@@ -534,6 +496,7 @@ namespace RSMPS
             // 
             // tbpFeedback
             // 
+            this.tbpFeedback.Controls.Add(this.groupBox3);
             this.tbpFeedback.Controls.Add(this.groupBox4);
             this.tbpFeedback.Controls.Add(this.label4);
             this.tbpFeedback.Controls.Add(this.rtbDists);
@@ -572,7 +535,7 @@ namespace RSMPS
             this.rtbSchedule.ContextMenuStrip = this.cmnuSchedule;
             this.rtbSchedule.Enabled = false;
             this.rtbSchedule.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbSchedule.Location = new System.Drawing.Point(3, 19);
+            this.rtbSchedule.Location = new System.Drawing.Point(-2, 19);
             this.rtbSchedule.Name = "rtbSchedule";
             this.rtbSchedule.Size = new System.Drawing.Size(639, 80);
             this.rtbSchedule.TabIndex = 1;
@@ -778,6 +741,40 @@ namespace RSMPS
             this.c1CommandLink3.Delimiter = true;
             this.c1CommandLink3.SortOrder = 2;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.tdbgPCNs);
+            this.groupBox3.Location = new System.Drawing.Point(3, 492);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(731, 112);
+            this.groupBox3.TabIndex = 9;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "PCN";
+            // 
+            // tdbgPCNs
+            // 
+            this.tdbgPCNs.AllowAddNew = true;
+            this.tdbgPCNs.AllowColMove = false;
+            this.tdbgPCNs.AllowDelete = true;
+            this.tdbgPCNs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tdbgPCNs.ColumnFooters = true;
+            this.tdbgPCNs.Enabled = false;
+            this.tdbgPCNs.GroupByCaption = "Drag a column header here to group by that column";
+            this.tdbgPCNs.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbgPCNs.Images"))));
+            this.tdbgPCNs.Location = new System.Drawing.Point(6, 19);
+            this.tdbgPCNs.Name = "tdbgPCNs";
+            this.tdbgPCNs.PreviewInfo.Location = new System.Drawing.Point(0, 0);
+            this.tdbgPCNs.PreviewInfo.Size = new System.Drawing.Size(0, 0);
+            this.tdbgPCNs.PreviewInfo.ZoomFactor = 75D;
+            this.tdbgPCNs.PrintInfo.PageSettings = ((System.Drawing.Printing.PageSettings)(resources.GetObject("tdbgPCNs.PrintInfo.PageSettings")));
+            this.tdbgPCNs.Size = new System.Drawing.Size(719, 85);
+            this.tdbgPCNs.TabIndex = 0;
+            this.tdbgPCNs.Text = "PCN";
+            this.tdbgPCNs.PropBag = resources.GetString("tdbgPCNs.PropBag");
+            // 
             // FManager_Summary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -798,8 +795,6 @@ namespace RSMPS
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fgForecast)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tdbgPCNs)).EndInit();
             this.cmnuSchedule.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
@@ -815,6 +810,8 @@ namespace RSMPS
             this.groupBox4.ResumeLayout(false);
             this.cmnuPMVals.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tdbgPCNs)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -829,15 +826,12 @@ namespace RSMPS
         private System.Windows.Forms.ColumnHeader colProject;
         private System.Windows.Forms.GroupBox groupBox2;
         private C1.Win.C1FlexGrid.C1FlexGrid fgForecast;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.RichTextBox rtbActHigh;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.RichTextBox rtbNeeds;
-        private C1.Win.C1TrueDBGrid.C1TrueDBGrid tdbgPCNs;
         private System.Windows.Forms.TabControl tbSummay;
         private System.Windows.Forms.TabPage tbpProjStat;
-        private System.Windows.Forms.TabPage tbpFeedback;
         private System.Windows.Forms.ColumnHeader colProjSumID;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ColumnHeader colProjectID;
@@ -883,5 +877,8 @@ namespace RSMPS
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox PaidToDate;
         private System.Windows.Forms.TextBox Outstanding;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private C1.Win.C1TrueDBGrid.C1TrueDBGrid tdbgPCNs;
+        internal System.Windows.Forms.TabPage tbpFeedback;
     }
 }

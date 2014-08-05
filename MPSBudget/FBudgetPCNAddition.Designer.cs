@@ -28,6 +28,7 @@ namespace RSMPS
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             C1.Win.C1TrueDBGrid.Style style1 = new C1.Win.C1TrueDBGrid.Style();
             C1.Win.C1TrueDBGrid.Style style2 = new C1.Win.C1TrueDBGrid.Style();
             C1.Win.C1TrueDBGrid.Style style3 = new C1.Win.C1TrueDBGrid.Style();
@@ -100,13 +101,13 @@ namespace RSMPS
             this.tbpHours = new System.Windows.Forms.TabPage();
             this.tdbdActivities = new C1.Win.C1TrueDBGrid.C1TrueDBDropdown();
             this.tdbgHours = new C1.Win.C1TrueDBGrid.C1TrueDBGrid();
-            this.cmnuHours = new System.Windows.Forms.ContextMenuStrip();
+            this.cmnuHours = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteLineInHours = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbpExpenses = new System.Windows.Forms.TabPage();
             this.tdbdExpenseAccts = new C1.Win.C1TrueDBGrid.C1TrueDBDropdown();
             this.tdbgExpenses = new C1.Win.C1TrueDBGrid.C1TrueDBGrid();
-            this.cmnuExpenses = new System.Windows.Forms.ContextMenuStrip();
+            this.cmnuExpenses = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteLineInExpenses = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tbpComments = new System.Windows.Forms.TabPage();
@@ -801,6 +802,7 @@ namespace RSMPS
             this.tdbdExpenseAccts.CaptionStyle = style9;
             this.tdbdExpenseAccts.ColumnCaptionHeight = 17;
             this.tdbdExpenseAccts.ColumnFooterHeight = 17;
+            this.tdbdExpenseAccts.Cursor = System.Windows.Forms.Cursors.Default;
             this.tdbdExpenseAccts.DisplayMember = "Code";
             this.tdbdExpenseAccts.EvenRowStyle = style10;
             this.tdbdExpenseAccts.FetchRowStyles = false;
@@ -816,11 +818,12 @@ namespace RSMPS
             this.tdbdExpenseAccts.RowDivider.Style = C1.Win.C1TrueDBGrid.LineStyleEnum.Single;
             this.tdbdExpenseAccts.RowSubDividerColor = System.Drawing.Color.DarkGray;
             this.tdbdExpenseAccts.ScrollTips = false;
-            this.tdbdExpenseAccts.Size = new System.Drawing.Size(275, 288);
+            this.tdbdExpenseAccts.Size = new System.Drawing.Size(375, 288);
             this.tdbdExpenseAccts.Style = style16;
             this.tdbdExpenseAccts.TabIndex = 1;
             this.tdbdExpenseAccts.TabStop = false;
             this.tdbdExpenseAccts.Text = "c1TrueDBDropdown1";
+            this.tdbdExpenseAccts.UseColumnStyles = false;
             this.tdbdExpenseAccts.Visible = false;
             this.tdbdExpenseAccts.PropBag = resources.GetString("tdbdExpenseAccts.PropBag");
             // 

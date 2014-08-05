@@ -1205,7 +1205,7 @@ namespace RSMPS
         }
         private void FManager_Summary_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void POAmt_TextChanged(object sender, EventArgs e)
