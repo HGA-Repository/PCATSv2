@@ -132,6 +132,7 @@ namespace RSMPS
             this.lblPM.Height = 0.2F;
             this.lblPM.HyperLink = null;
             this.lblPM.Left = 2.875F;
+            this.lblPM.MultiLine = false;
             this.lblPM.Name = "lblPM";
             this.lblPM.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold; text-align: cen" +
     "ter; text-decoration: underline";
@@ -144,6 +145,7 @@ namespace RSMPS
             this.lblDate.Height = 0.2F;
             this.lblDate.HyperLink = null;
             this.lblDate.Left = 2.875F;
+            this.lblDate.MultiLine = false;
             this.lblDate.Name = "lblDate";
             this.lblDate.Style = "text-align: center";
             this.lblDate.Text = "Label5";
@@ -190,10 +192,10 @@ namespace RSMPS
             // 
             this.SubReport.CloseBorder = false;
             this.SubReport.Height = 0.5625F;
-            this.SubReport.Left = 0.25F;
+            this.SubReport.Left = 0.236F;
             this.SubReport.Name = "SubReport";
             this.SubReport.Report = null;
-            this.SubReport.Top = 0.3125F;
+            this.SubReport.Top = 0.344F;
             this.SubReport.Width = 7.4375F;
             // 
             // Label1

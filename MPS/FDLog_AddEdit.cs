@@ -53,6 +53,7 @@ namespace RSMPS
 
                 LoadDrawingList();
                 LoadWBSCodesForFilter();
+                SetAccessForSecurityLevel(miCurrDept);
             }
         }
 
@@ -121,7 +122,7 @@ namespace RSMPS
             ListViewItem li;
             SqlDataReader dr;
             int leadID;
-
+            
             lvwLogs.Sorting = System.Windows.Forms.SortOrder.Ascending;
 
             dr = CBDrawingLog.GetListByDeptProj(miCurrDept, miCurrProj, cboWBS.Text, 1, true);
@@ -148,11 +149,12 @@ namespace RSMPS
             emp.Load(leadID);
             miCurrLead = leadID;
             txtProjectLead.Text = emp.Name;
+            bttProjectLead.Enabled = false;
 
-            if (lvwLogs.Items.Count > 0 && txtProjectLead.Text.Length > 0)
-                bttProjectLead.Enabled = false;
-            else
-                bttProjectLead.Enabled = true;
+            //if (lvwLogs.Items.Count > 0 && txtProjectLead.Text.Length > 0)
+            //    bttProjectLead.Enabled = false;
+            //else
+            //    bttProjectLead.Enabled = true;
 
             sbStatus1.Text = lvwLogs.Items.Count.ToString() + " Drawing(s)";
 
@@ -203,11 +205,12 @@ namespace RSMPS
             emp.Load(leadID);
             miCurrLead = leadID;
             txtProjectLead.Text = emp.Name;
+            bttProjectLead.Enabled = false;
 
-            if (lvwLogs.Items.Count > 0 && txtProjectLead.Text.Length > 0)
-                bttProjectLead.Enabled = false;
-            else
-                bttProjectLead.Enabled = true;
+            //if (lvwLogs.Items.Count > 0 && txtProjectLead.Text.Length > 0)
+            //    bttProjectLead.Enabled = false;
+            //else
+            //    bttProjectLead.Enabled = true;
 
             sbStatus1.Text = lvwLogs.Items.Count.ToString() + " Drawing(s)";
 
@@ -713,12 +716,18 @@ namespace RSMPS
                 retVal = false;
                 msg = "Please enter an HGA number";
             }
+            else if (cboActivityCodes.Text.Length < 1) // new code added by SSS on 08132014
+            {
+                retVal = false;
+                msg = "Please select an Activity Code";
+            }
             else
             {
                 retVal = true;
                 msg = "";
             }
 
+            
             if (retVal == false && warning == true)
                 MessageBox.Show(msg, "Incomplete Log", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -768,6 +777,7 @@ namespace RSMPS
                 indx = -1;
 
             LoadDrawingList();
+            SetAccessForSecurityLevel(miCurrDept);
 
             if (indx >= 0)
             {
@@ -832,6 +842,7 @@ namespace RSMPS
                 int currID = Convert.ToInt32(lvwLogs.SelectedItems[0].Text);
                 CBDrawingLog.Delete(currID);
                 LoadDrawingList();
+                SetAccessForSecurityLevel(miCurrDept);
             }
         }
 
@@ -1012,6 +1023,7 @@ namespace RSMPS
         private void cboWBS_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadDrawingList();
+            SetAccessForSecurityLevel(miCurrDept);
         }
 
         private void LoadWBSCodesForFilter()
@@ -1243,7 +1255,7 @@ namespace RSMPS
                 txtBudgetHrs.Enabled = true;
                 txtRemainingHrs.Enabled = true;
                 txtWBS.Enabled = true;
-            }
+              }
             else
             {
                 //mbIsModerator = false;
@@ -1257,8 +1269,16 @@ namespace RSMPS
                 txtBudgetHrs.Enabled = false;
                 txtRemainingHrs.Enabled = false;
                 txtWBS.Enabled = false;
-
             }
+            if (u.IsAdministrator == true)
+            {
+                bttProjectLead.Enabled = true;
+            }
+            else
+            {
+                bttProjectLead.Enabled = false;
+            }
+
             //MessageBox.Show("Pass Level" + passLvl, "Pass Level", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }

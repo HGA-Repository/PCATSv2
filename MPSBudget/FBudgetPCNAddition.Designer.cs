@@ -122,6 +122,7 @@ namespace RSMPS
             this.c1CommandLink2 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink3 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink4 = new C1.Win.C1Command.C1CommandLink();
+            this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -139,6 +140,7 @@ namespace RSMPS
             this.cmnuExpenses.SuspendLayout();
             this.tbpComments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1SpellChecker1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -314,6 +316,7 @@ namespace RSMPS
             this.txtScheduleImpact.Multiline = true;
             this.txtScheduleImpact.Name = "txtScheduleImpact";
             this.txtScheduleImpact.Size = new System.Drawing.Size(732, 36);
+            this.c1SpellChecker1.SetSpellChecking(this.txtScheduleImpact, true);
             this.txtScheduleImpact.TabIndex = 10;
             this.txtScheduleImpact.TextChanged += new System.EventHandler(this.txtScheduleImpact_TextChanged);
             // 
@@ -685,6 +688,7 @@ namespace RSMPS
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(731, 36);
+            this.c1SpellChecker1.SetSpellChecking(this.txtDescription, true);
             this.txtDescription.TabIndex = 0;
             this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged_1);
             // 
@@ -895,6 +899,7 @@ namespace RSMPS
             this.rtbComments.Location = new System.Drawing.Point(6, 6);
             this.rtbComments.Name = "rtbComments";
             this.rtbComments.Size = new System.Drawing.Size(848, 555);
+            this.c1SpellChecker1.SetSpellChecking(this.rtbComments, true);
             this.rtbComments.TabIndex = 0;
             this.rtbComments.Text = "";
             this.rtbComments.TextChanged += new System.EventHandler(this.rtbComments_TextChanged);
@@ -906,11 +911,13 @@ namespace RSMPS
             this.c1CommandHolder1.Commands.Add(this.tlbbPrint);
             this.c1CommandHolder1.Commands.Add(this.tlbbClose);
             this.c1CommandHolder1.Owner = this;
+            this.c1CommandHolder1.VisualStyle = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
             // tlbbSave
             // 
             this.tlbbSave.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbSave.Icon")));
             this.tlbbSave.Name = "tlbbSave";
+            this.tlbbSave.ShortcutText = "";
             this.tlbbSave.Text = "Save";
             this.tlbbSave.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbSave_Click);
             // 
@@ -918,6 +925,7 @@ namespace RSMPS
             // 
             this.tlbbClear.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbClear.Icon")));
             this.tlbbClear.Name = "tlbbClear";
+            this.tlbbClear.ShortcutText = "";
             this.tlbbClear.Text = "Clear PCN";
             this.tlbbClear.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbClear_Click);
             // 
@@ -925,6 +933,7 @@ namespace RSMPS
             // 
             this.tlbbPrint.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbPrint.Icon")));
             this.tlbbPrint.Name = "tlbbPrint";
+            this.tlbbPrint.ShortcutText = "";
             this.tlbbPrint.Text = "Print";
             this.tlbbPrint.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbPrint_Click);
             // 
@@ -932,6 +941,7 @@ namespace RSMPS
             // 
             this.tlbbClose.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbClose.Icon")));
             this.tlbbClose.Name = "tlbbClose";
+            this.tlbbClose.ShortcutText = "";
             this.tlbbClose.Text = "Close";
             this.tlbbClose.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbClose_Click);
             // 
@@ -952,7 +962,7 @@ namespace RSMPS
             this.c1ToolBar1.Name = "c1ToolBar1";
             this.c1ToolBar1.Size = new System.Drawing.Size(892, 24);
             this.c1ToolBar1.Text = "c1ToolBar1";
-            this.c1ToolBar1.VisualStyleBase = C1.Win.C1Command.VisualStyle.OfficeXP;
+            this.c1ToolBar1.VisualStyleBase = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
             // c1CommandLink1
             // 
@@ -1010,6 +1020,7 @@ namespace RSMPS
             this.cmnuExpenses.ResumeLayout(false);
             this.tbpComments.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1SpellChecker1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1092,5 +1103,6 @@ namespace RSMPS
         private System.Windows.Forms.ContextMenuStrip cmnuExpenses;
         private System.Windows.Forms.ToolStripMenuItem deleteLineInExpenses;
         private System.Windows.Forms.ToolStripMenuItem cancelToolStripMenuItem1;
+        private C1.Win.C1SpellChecker.C1SpellChecker c1SpellChecker1;
     }
 }

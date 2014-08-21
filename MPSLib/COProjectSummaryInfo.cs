@@ -17,6 +17,9 @@ namespace RSMPS
         private decimal mdBilledtoDate;
         private decimal mdPaidtoDate;
         private decimal mdOutstanding;
+        private string msClient;
+        private string msJob;
+        private string msLocation;
 
         #region Properties
 
@@ -80,6 +83,21 @@ namespace RSMPS
             get { return mdOutstanding; }
             set { mdOutstanding = value; }
         }
+        public string Client
+        {
+            get { return msClient; }
+            set { msClient = value; }
+        }
+        public string Job
+        {
+            get { return msJob; }
+            set { msJob = value; }
+        }
+        public string Location
+        {
+            get { return msLocation; }
+            set { msLocation = value; }
+        }
 
         #endregion
 
@@ -96,6 +114,9 @@ namespace RSMPS
             mdBilledtoDate = 0;
             mdPaidtoDate = 0;
             mdOutstanding = 0;
+            msClient = "";
+            msJob = "";
+            msLocation = "";
         }
 
         public void Copy(COProjectSummaryInfo oNew)
@@ -111,6 +132,9 @@ namespace RSMPS
             oNew.BilledtoDate = mdBilledtoDate;
             oNew.PaidtoDate = mdPaidtoDate;
             oNew.Outstanding = mdOutstanding;
+            oNew.Client = msClient;
+            oNew.Job = msJob;
+            oNew.Location = msLocation;
         }
 
         public void LoadFromObj(COProjectSummaryInfo oOrg)
@@ -126,6 +150,9 @@ namespace RSMPS
             mdBilledtoDate = oOrg.BilledtoDate;
             mdPaidtoDate = oOrg.PaidtoDate;
             mdOutstanding = oOrg.Outstanding;
+            msClient = oOrg.Client;
+            msJob = oOrg.Job;
+            msLocation = oOrg.msLocation;
         }
     }
 }

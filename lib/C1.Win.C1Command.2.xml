@@ -4,9 +4,262 @@
     <name>C1.Win.C1Command.2</name>
   </assembly>
   <members>
+    <member name="T:C1.Util.FlagsEnumEditor">
+      <summary>
+            Represents the editor of enum properties with FlagsAttribute attribute.
+            </summary>
+    </member>
+    <member name="M:C1.Util.FlagsEnumEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
+      <summary>
+            Gets the editor style used by the <see cref="M:C1.Util.FlagsEnumEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)" /> method.
+            The override for <see cref="T:C1.Util.FlagsEnumEditor" /> returns <see cref="F:System.Drawing.Design.UITypeEditorEditStyle.DropDown" />.
+            </summary>
+    </member>
+    <member name="M:C1.Util.FlagsEnumEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
+      <summary>
+            Edits the specified object's value using the editor style 
+            indicated by the <see cref="M:C1.Util.FlagsEnumEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)" /> method. 
+            </summary>
+      <param name="context">
+      </param>
+      <param name="provider">
+      </param>
+      <param name="value">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:C1.Util.FlagsEnumEditor.IsDropDownResizable">
+      <summary>
+            Gets a value indicating whether drop-down editors should be resizable by the user. 
+            The override for <see cref="T:C1.Util.FlagsEnumEditor" /> returns true;
+            </summary>
+    </member>
+    <member name="T:C1.Util.Design.Floaties.FloatiesStrings">
+      <summary>
+            Contains localizable design-time strings.
+            </summary>
+    </member>
+    <member name="T:C1.Design.UITypeEditorStrings">
+      <summary>
+            Static class containing UI strings used by the designer.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Command.UIStringsItemEventHandler">
+      <summary>
+            Represents a handler for an <see cref="T:C1.Win.C1Command.UIStrings" /> item related event.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Command.UIStringsItemEventArgs">
+      <summary>
+            Provides data for an <see cref="T:C1.Win.C1Command.UIStrings" /> item related event.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.UIStringsItemEventArgs.Key">
+      <summary>
+            Gets key of the item being added or changed.
+            </summary>
+      <value>The key.</value>
+    </member>
+    <member name="P:C1.Win.C1Command.UIStringsItemEventArgs.Value">
+      <summary>
+            Gets the string value.
+            </summary>
+      <value>The value.</value>
+    </member>
+    <member name="P:C1.Win.C1Command.UIStringsItemEventArgs.IsDefault">
+      <summary>
+            Gets a value indicating whether this instance is default.
+            </summary>
+      <value>
+        <c>true</c> if this instance is default; otherwise, <c>false</c>.
+            </value>
+    </member>
+    <member name="P:C1.Win.C1Command.UIStringsItemEventArgs.Description">
+      <summary>
+            Gets the description.
+            </summary>
+      <value>The description.</value>
+    </member>
+    <member name="T:C1.Win.C1Command.UIStrings">
+      <summary>
+            Represents a collection of end user visible UI strings.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Command.UIStrings.Add(System.Object,System.Int32,System.String,System.String)">
+      <summary>
+            Adds a string to the collection, specifying the ordinal.
+            </summary>
+      <param name="key">The key of the string.</param>
+      <param name="ordinal">The ordinal of the string.</param>
+      <param name="value">The string.</param>
+      <param name="description">The description of the string.</param>
+    </member>
+    <member name="M:C1.Win.C1Command.UIStrings.Add(System.Object,System.String,System.String)">
+      <summary>
+            Adds a string to the collection in alphabetical order.
+            </summary>
+      <param name="key">The key of the string.</param>
+      <param name="value">The string.</param>
+      <param name="description">The description of the string.</param>
+    </member>
+    <member name="M:C1.Win.C1Command.UIStrings.AddInOrder(System.Object,System.String,System.String)">
+      <summary>
+            Adds a string to the collection, preserving the order.
+            </summary>
+      <param name="key">The key of the string.</param>
+      <param name="value">The string.</param>
+      <param name="description">The description of the string.</param>
+    </member>
+    <member name="M:C1.Win.C1Command.UIStrings.Reset">
+      <summary>
+            Sets all strings in collection to their default values.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Command.UIStrings.ShouldSerialize">
+      <summary>
+            Indicates whether any of the strings in the current collection
+            have non-default values.
+            </summary>
+      <returns>
+        <c>true</c> if any of the strings have non-default values, <c>false</c> otherwise.</returns>
+    </member>
+    <member name="M:C1.Win.C1Command.UIStrings.IsDefault(System.Object)">
+      <summary>
+            Tests whether a string in the collection has default value.
+            </summary>
+      <param name="key">The key of the string to test.</param>
+      <returns>
+        <c>true</c> if the string has default value, <c>false</c> otherwise.</returns>
+    </member>
+    <member name="M:C1.Win.C1Command.UIStrings.GetDescription(System.Object)">
+      <summary>
+            Returns the description of a string.
+            </summary>
+      <param name="key">The key of the string to get the description of.</param>
+      <returns>The string's description</returns>
+    </member>
+    <member name="M:C1.Win.C1Command.UIStrings.Reset(System.Object)">
+      <summary>
+            Resets a string to its default value.
+            </summary>
+      <param name="key">The key of the string to reset.</param>
+    </member>
+    <member name="M:C1.Win.C1Command.UIStrings.GetKeyAt(System.Int32)">
+      <summary>
+            Returns the key of an item with the specified index.
+            </summary>
+      <param name="index">The item index.</param>
+      <returns>The item's key.</returns>
+    </member>
+    <member name="M:C1.Win.C1Command.UIStrings.GetValueAt(System.Int32)">
+      <summary>
+            Gets the string by its index.
+            </summary>
+      <param name="index">The string index.</param>
+      <returns>The string.</returns>
+    </member>
+    <member name="M:C1.Win.C1Command.UIStrings.SetValueAt(System.Int32,System.String)">
+      <summary>
+            Sets the value of a string with the specified index.
+            </summary>
+      <param name="index">The string index.</param>
+      <param name="value">The new string value.</param>
+    </member>
+    <member name="M:C1.Win.C1Command.UIStrings.OnItemAdded(C1.Win.C1Command.UIStringsItemEventArgs)">
+      <summary>
+            Fires the <see cref="E:C1.Win.C1Command.UIStrings.ItemAdded" /> event.
+            </summary>
+      <param name="e">The event data.</param>
+    </member>
+    <member name="M:C1.Win.C1Command.UIStrings.OnItemChanged(C1.Win.C1Command.UIStringsItemEventArgs)">
+      <summary>
+            Fires the <see cref="E:C1.Win.C1Command.UIStrings.ItemChanged" /> event.
+            </summary>
+      <param name="e">The event data.</param>
+    </member>
+    <member name="M:C1.Win.C1Command.UIStrings.OnCollectionChanged(System.EventArgs)">
+      <summary>
+            Fires the <see cref="E:C1.Win.C1Command.UIStrings.CollectionChanged" /> event.
+            </summary>
+      <param name="e">The event data.</param>
+    </member>
+    <member name="P:C1.Win.C1Command.UIStrings.Count">
+      <summary>
+            Gets the number of elements contained in the collection.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Command.UIStrings.ItemAdded">
+      <summary>
+            Occurs when a new item is added to the collection.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Command.UIStrings.ItemChanged">
+      <summary>
+            Occurs when an item in the collection is changed.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Command.UIStrings.CollectionChanged">
+      <summary>
+            Occurs when the collection has been changed.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Command.UIStrings.TypeConverter">
+      <summary>
+            Provides type conversion for the <see cref="T:C1.Win.C1Command.UIStrings" /> type.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Command.UIStrings.TypeConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+      <summary>
+            For internal use.
+            </summary>
+      <param name="context">
+      </param>
+      <param name="culture">
+      </param>
+      <param name="value">
+      </param>
+      <param name="type">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Command.UIStrings.TypeConverter.GetProperties(System.ComponentModel.ITypeDescriptorContext,System.Object,System.Attribute[])">
+      <summary>
+            For internal use.
+            </summary>
+      <param name="context">
+      </param>
+      <param name="value">
+      </param>
+      <param name="attrFilter">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Command.UIStrings.TypeConverter.GetPropertiesSupported(System.ComponentModel.ITypeDescriptorContext)">
+      <summary>
+            For internal use.
+            </summary>
+      <param name="context">
+      </param>
+      <returns>
+      </returns>
+    </member>
     <member name="T:C1.Win.C1Command.VisualStyleDependent">
       <summary>
             This attribute is used for properties, which are depended on VisualStyle
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Command.VisualStyleDependent.#ctor(System.Boolean)">
+      <summary>
+            Initializes a new instance of the VisualStyleDependent class.
+            </summary>
+      <param name="depend">True if the property is depended on the VisualStyle.</param>
+    </member>
+    <member name="P:C1.Win.C1Command.VisualStyleDependent.Depend">
+      <summary>
+            Returns true if the property is depended on the VisualStyle.
             </summary>
     </member>
     <member name="T:C1.Win.C1Command.BorderStyleEnum">
@@ -377,8 +630,6 @@
       <summary>
             This method is for internal use only.
             </summary>
-      <param name="measure">
-      </param>
     </member>
     <member name="M:C1.Win.C1Command.C1Command.CheckNonEmpty">
       <summary>
@@ -463,6 +714,16 @@
       <summary>
             Gets or sets the keyboard shortcut associated with the command.
             </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1Command.ShortcutText">
+      <summary>
+            Gets or sets the shortcut text associated with the command.
+            </summary>
+      <remarks>
+        <para>&gt;Use this property to localize shortcuts.</para>
+        <para>If <see cref="P:C1.Win.C1Command.C1Command.Shortcut" /> property is empty or <see cref="P:C1.Win.C1Command.C1Command.ShowShortcut" /> is False, then the <see cref="P:C1.Win.C1Command.C1Command.ShortcutText" /> has no any effect.</para>
+        <para>If <see cref="P:C1.Win.C1Command.C1Command.ShortcutText" /> property is empty, then default value is used for the shortcut.</para>
+      </remarks>
     </member>
     <member name="P:C1.Win.C1Command.C1Command.ShowShortcut">
       <summary>
@@ -984,6 +1245,11 @@
             </para>
       </remarks>
     </member>
+    <member name="P:C1.Win.C1Command.C1CommandDock.FloatHide">
+      <summary>
+            Defines behavior of floating windows when the application loses focus.
+            </summary>
+    </member>
     <member name="T:C1.Win.C1Command.C1CommandException">
       <summary>
             This class is for internal use only.
@@ -1032,22 +1298,22 @@
       <param name="form">Form whose command holder is returned.</param>
       <returns>The command holder for the specified form, or null.</returns>
     </member>
-    <member name="M:C1.Win.C1Command.C1CommandHolder.GetC1ContextMenu(System.Windows.Forms.Control)">
+    <member name="M:C1.Win.C1Command.C1CommandHolder.GetC1ContextMenu(System.Object)">
       <summary>
             Gets a context menu contained within the C1CommandHolder.
             </summary>
-      <param name="control">The control for which to retrieve the context menu.</param>
+      <param name="control">The control or NotifyIcon for which to retrieve the context menu.</param>
       <returns>
       </returns>
     </member>
-    <member name="M:C1.Win.C1Command.C1CommandHolder.SetC1ContextMenu(System.Windows.Forms.Control,C1.Win.C1Command.C1ContextMenu)">
+    <member name="M:C1.Win.C1Command.C1CommandHolder.SetC1ContextMenu(System.Object,C1.Win.C1Command.C1ContextMenu)">
       <summary>
             Sets a context menu contained within the C1CommandHolder.
             </summary>
-      <param name="control">The control for which to set the context menu.</param>
+      <param name="control">The control or NotifyIcon for which to set the context menu.</param>
       <param name="value">The context menu to attach to the control.</param>
     </member>
-    <member name="M:C1.Win.C1Command.C1CommandHolder.ShouldSerializeC1ContextMenu(System.Windows.Forms.Control)">
+    <member name="M:C1.Win.C1Command.C1CommandHolder.ShouldSerializeC1ContextMenu(System.Object)">
       <summary>
             This method is for internal use only.
             </summary>
@@ -1056,14 +1322,14 @@
       <returns>
       </returns>
     </member>
-    <member name="M:C1.Win.C1Command.C1CommandHolder.ResetC1ContextMenu(System.Windows.Forms.Control)">
+    <member name="M:C1.Win.C1Command.C1CommandHolder.ResetC1ContextMenu(System.Object)">
       <summary>
             This method is for internal use only.
             </summary>
       <param name="control">
       </param>
     </member>
-    <member name="M:C1.Win.C1Command.C1CommandHolder.GetC1Command(System.Windows.Forms.Control)">
+    <member name="M:C1.Win.C1Command.C1CommandHolder.GetC1Command(System.Object)">
       <summary>
             Determines the command (of the type C1Command or inherited) invoked when the control's default (or, if there is none, Click) event fires.
             </summary>
@@ -1072,7 +1338,7 @@
       <returns>
       </returns>
     </member>
-    <member name="M:C1.Win.C1Command.C1CommandHolder.SetC1Command(System.Windows.Forms.Control,C1.Win.C1Command.C1Command)">
+    <member name="M:C1.Win.C1Command.C1CommandHolder.SetC1Command(System.Object,C1.Win.C1Command.C1Command)">
       <summary>
             Set the command (of the type C1Command or inherited) invoked when the control's default (or, if there is none, Click) event fires.
             </summary>
@@ -1081,7 +1347,7 @@
       <param name="value">
       </param>
     </member>
-    <member name="M:C1.Win.C1Command.C1CommandHolder.ShouldSerializeC1Command(System.Windows.Forms.Control)">
+    <member name="M:C1.Win.C1Command.C1CommandHolder.ShouldSerializeC1Command(System.Object)">
       <summary>
             This method is for internal use only.
             </summary>
@@ -1090,7 +1356,7 @@
       <returns>
       </returns>
     </member>
-    <member name="M:C1.Win.C1Command.C1CommandHolder.ResetC1Command(System.Windows.Forms.Control)">
+    <member name="M:C1.Win.C1Command.C1CommandHolder.ResetC1Command(System.Object)">
       <summary>
             This method is for internal use only.
             </summary>
@@ -2932,6 +3198,13 @@
       <returns>
       </returns>
     </member>
+    <member name="M:C1.Win.C1Command.C1DockingTab.OnSelectedTabChanged(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.C1Command.C1DockingTab.SelectedIndexChanged" /> event.
+            </summary>
+      <param name="e">An EventArgs that contains the event data. 
+            </param>
+    </member>
     <member name="M:C1.Win.C1Command.C1DockingTab.OnSelectedIndexChanged(System.EventArgs)">
       <summary>
             This method is for internal use only.
@@ -3197,6 +3470,11 @@
             For internal use.
             </summary>
     </member>
+    <member name="P:C1.Win.C1Command.C1DockingTab.LayoutExclude">
+      <summary>
+            List of controls whose children are excluded from SaveLayout / RestoreLayout.
+            </summary>
+    </member>
     <member name="E:C1.Win.C1Command.C1DockingTab.AutoCreatedDockingTab">
       <summary>
             Fired when a new C1DockingTab is automatically created in response to user actions (e.g. tearing off a tab and dropping it elsewhere).
@@ -3282,6 +3560,11 @@
             Occurs when the SelectedIndex property is changed.
             </summary>
     </member>
+    <member name="E:C1.Win.C1Command.C1DockingTab.SelectedTabChanged">
+      <summary>
+            Event fired when the SelectedTab is changed.
+            </summary>
+    </member>
     <member name="E:C1.Win.C1Command.C1DockingTab.ShowToolTipsChanged">
       <summary>
             Occurs when the ShowToolTips property is changed.
@@ -3347,6 +3630,19 @@
             Occurs when the VisualStyle property has changed.
             </summary>
     </member>
+    <member name="P:C1.Win.C1Command.C1DockingTab.TabsShowFocusCues">
+      <summary>
+            Gets or sets a value indicating whether tabs should display focus rectangles.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1DockingTab.CloseBox">
+      <summary>
+            Gets or sets position of close box.
+            </summary>
+      <remarks>
+            This property has effect only if <see cref="P:C1.Win.C1Command.C1DockingTab.CanCloseTabs" /> is True.
+            </remarks>
+    </member>
     <member name="P:C1.Win.C1Command.C1DockingTab.DockPreventModifierKey">
       <summary>
             Gets or sets modifier key which, if pressed, will prevent the floating control from docking when it is moved around at runtime.
@@ -3408,6 +3704,11 @@
     <member name="P:C1.Win.C1Command.C1DockingTab.CanMoveTabs">
       <summary>
             Gets or sets a value indicating whether the end user can rearrange tabs by dragging them around at runtime.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1DockingTab.CanRenameTabs">
+      <summary>
+            Gets or sets a value indicating whether the end user can rename tabs by double clicking on the tab's text.
             </summary>
     </member>
     <member name="P:C1.Win.C1Command.C1DockingTab.HotTrack">
@@ -3735,7 +4036,7 @@
       <summary>
             Docks the page to the target DockingTab.
             </summary>
-      <param name="targetPage">The target page.</param>
+      <param name="targetDockingTab">The target docking tab.</param>
       <remarks>
             The page becomes the first page at the target DockingTab.
             </remarks>
@@ -3767,6 +4068,12 @@
             </summary>
       <param name="e">
       </param>
+    </member>
+    <member name="M:C1.Win.C1Command.C1DockingTabPage.OnHandleCreated(System.EventArgs)">
+      <summary>
+            Raises the HandleCreated event.
+            </summary>
+      <param name="e">An EventArgs that contains the event data.</param>
     </member>
     <member name="M:C1.Win.C1Command.C1DockingTabPage.OnPaint(System.Windows.Forms.PaintEventArgs)">
       <summary>
@@ -3882,6 +4189,22 @@
       <param name="value">
       </param>
     </member>
+    <member name="M:C1.Win.C1Command.C1DockingTabPage.OnClosing(System.ComponentModel.CancelEventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Command.C1DockingTabPage.OnClosed(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
     <member name="M:C1.Win.C1Command.C1DockingTabPage.OnToolTipTextChanged(System.EventArgs)">
       <summary>
             This method is for internal use only.
@@ -3918,6 +4241,16 @@
             Occurs when the visibility of the tab changes.
             </summary>
     </member>
+    <member name="E:C1.Win.C1Command.C1DockingTabPage.Closing">
+      <summary>
+            Event fired when the page is about to be closed by the user. Allows to cancel closing the page.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Command.C1DockingTabPage.Closed">
+      <summary>
+            Event fired after the page has been closed.
+            </summary>
+    </member>
     <member name="P:C1.Win.C1Command.C1DockingTabPage.ImageIndex">
       <summary>
             Gets or sets the index of the tab image in the tab control's ImageList.
@@ -3951,6 +4284,11 @@
     <member name="P:C1.Win.C1Command.C1DockingTabPage.TabVisible">
       <summary>
             Gets or sets the value indicating whether the tab is visible.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1DockingTabPage.CloseTabBehavior">
+      <summary>
+            Defines behavior on C1DockingTabPage's CloseBox click.
             </summary>
     </member>
     <member name="P:C1.Win.C1Command.C1DockingTabPage.TabBounds">
@@ -4260,6 +4598,11 @@
       </param>
       <returns>
       </returns>
+    </member>
+    <member name="P:C1.Win.C1Command.C1DockingTabPages.VisibleCount">
+      <summary>
+            Returns number of pages where TabVisible property is True.
+            </summary>
     </member>
     <member name="P:C1.Win.C1Command.C1DockingTabPages.Item(System.Int32)">
       <summary>
@@ -4858,6 +5201,187 @@
             Gets or sets the space between the image and the text on a stack button.
             </summary>
     </member>
+    <member name="P:C1.Win.C1Command.C1NavBar.Theme">
+      <summary>
+            Represents a set of color properties to customize appearance of C1NavBar. 
+            </summary>
+      <remarks>
+        <para>The theme colors are reset when VisualStyle property is changed to a new value.</para>
+        <para>Some theme colors have effect only with certain visual styles.</para>
+        <list type="table">
+          <listheader>
+            <description>List of the <see cref="T:C1.Win.C1Command.C1NavBarTheme" /> properties, which have effect in Classic, OfficeXP, Office2003 visual styles:</description>
+          </listheader>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.BorderColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonNormalGradientBegin" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonNormalGradientEnd" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonPressedGradientBegin" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonPressedGradientEnd" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonHighlightedGradientBegin" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonHighlightedGradientEnd" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonCheckedGradientBegin" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonCheckedGradientEnd" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonNormalForeColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonPressedForeColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonHighlightedForeColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonCheckedForeColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.PanelHeaderGradientBegin" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.PanelHeaderGradientEnd" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.PanelHeaderForeColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.GripGradientBegin" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.GripGradientEnd" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.SeparatorNormalColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.SeparatorLightColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.SectionHeaderGradientBegin" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.SectionHeaderGradientEnd" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.SectionHeaderForeColor" />
+            </description>
+          </item>
+        </list>
+        <list type="table">
+          <listheader>
+            <description>List of the <see cref="T:C1.Win.C1Command.C1NavBarTheme" /> properties, which have effect in WindowsXP visual style:</description>
+          </listheader>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.BorderColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonNormalForeColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.PanelHeaderForeColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonHighlightedGradientBegin" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonHighlightedGradientEnd" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonPressedGradientBegin" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonPressedGradientEnd" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.SeparatorNormalColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.SectionHeaderForeColor" />
+            </description>
+          </item>
+        </list>
+            
+            Note, Theme does not have effect in Office2007, Office2010 visual styles.
+            </remarks>
+    </member>
     <member name="P:C1.Win.C1Command.C1NavBar.StripHeight">
       <summary>
             Gets or sets the height of the button strip at the bottom of the navigation bar.
@@ -5310,6 +5834,327 @@
     <member name="P:C1.Win.C1Command.C1NavBarHorizontalRule.Owner">
       <summary>
             Gets the owner C1NavBar control.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Command.C1NavBarTheme">
+      <summary>
+            Represents a set of color properties to customize appearance of C1NavBar. 
+            </summary>
+      <remarks>
+        <para>The theme colors are reset when VisualStyle property is changed to a new value.</para>
+        <para>Some theme colors have effect only with certain visual styles.</para>
+        <list type="table">
+          <listheader>
+            <description>List of the <see cref="T:C1.Win.C1Command.C1NavBarTheme" /> properties, which have effect in Classic, OfficeXP, Office2003 visual styles:</description>
+          </listheader>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.BorderColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonNormalGradientBegin" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonNormalGradientEnd" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonPressedGradientBegin" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonPressedGradientEnd" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonHighlightedGradientBegin" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonHighlightedGradientEnd" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonCheckedGradientBegin" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonCheckedGradientEnd" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonNormalForeColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonPressedForeColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonHighlightedForeColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonCheckedForeColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.PanelHeaderGradientBegin" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.PanelHeaderGradientEnd" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.PanelHeaderForeColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.GripGradientBegin" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.GripGradientEnd" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.SeparatorNormalColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.SeparatorLightColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.SectionHeaderGradientBegin" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.SectionHeaderGradientEnd" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.SectionHeaderForeColor" />
+            </description>
+          </item>
+        </list>
+        <list type="table">
+          <listheader>
+            <description>List of the <see cref="T:C1.Win.C1Command.C1NavBarTheme" /> properties, which have effect in WindowsXP visual style:</description>
+          </listheader>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.BorderColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonNormalForeColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.PanelHeaderForeColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonHighlightedGradientBegin" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonHighlightedGradientEnd" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonPressedGradientBegin" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.ButtonPressedGradientEnd" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.SeparatorNormalColor" />
+            </description>
+          </item>
+          <item>
+            <description>
+              <see cref="P:C1.Win.C1Command.C1NavBarTheme.SectionHeaderForeColor" />
+            </description>
+          </item>
+        </list>
+            
+            Note, Theme does not have effect in Office2007, Office2010 visual styles.
+            </remarks>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.ClassicTheme">
+      <summary>
+            Gets the theme that corresponds to the Windows Classic style.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.BlueTheme">
+      <summary>
+            Gets the theme that corresponds to the default blue color scheme.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.OliveGreenTheme">
+      <summary>
+            Gets the theme that corresponds to the Olive Green color scheme.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.SilverTheme">
+      <summary>
+            Gets the theme that corresponds to the Silver color scheme.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.RoyaleTheme">
+      <summary>
+            Gets the theme that corresponds to the Media Center style.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.PanelHeaderForeColor">
+      <summary>
+            Represents foreground color of panel header.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.PanelHeaderGradientBegin">
+      <summary>
+            Represents 1st background gradient color of panel header.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.PanelHeaderGradientEnd">
+      <summary>
+            Represents 2nd background gradient color of panel header.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.SectionHeaderForeColor">
+      <summary>
+            Represents foreground color of section header.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.SectionHeaderGradientBegin">
+      <summary>
+            Represents 1st background gradient color of section header.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.SectionHeaderGradientEnd">
+      <summary>
+            Represents 2nd background gradient color of section header.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.SeparatorLightColor">
+      <summary>
+            Represents color of horizontal rule in C1NavBar section header.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.SeparatorNormalColor">
+      <summary>
+            Represents color of horizontal rule between C1NavBar sections.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.GripGradientBegin">
+      <summary>
+            Represents 1st gradient color of grip line.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.GripGradientEnd">
+      <summary>
+            Represents 2nd gradient color of grip line.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.ButtonNormalForeColor">
+      <summary>
+            Represents foreground color of button in normal state.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.ButtonNormalGradientBegin">
+      <summary>
+            Represents 1st gradient color of button background in normal state.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.ButtonNormalGradientEnd">
+      <summary>
+            Represents 2nd gradient color of button background in normal state.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.ButtonHighlightedForeColor">
+      <summary>
+            Represents foreground color of button when it is highlighted.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.ButtonHighlightedGradientBegin">
+      <summary>
+            Represents 1st gradient color of button background when it is highlighted.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.ButtonHighlightedGradientEnd">
+      <summary>
+            Represents 2nd gradient color of button background when it is highlighted.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.ButtonPressedForeColor">
+      <summary>
+            Represents foreground color of button when it is pressed.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.ButtonPressedGradientBegin">
+      <summary>
+            Represents 1st gradient color of button background when it is pressed.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.ButtonPressedGradientEnd">
+      <summary>
+            Represents 2nd gradient color of button background when it is pressed.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.ButtonCheckedForeColor">
+      <summary>
+            Represents foreground color of button when it is in checked state.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.ButtonCheckedGradientBegin">
+      <summary>
+            Represents 1st gradient color of button background when it is in checked state.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.ButtonCheckedGradientEnd">
+      <summary>
+            Represents 2nd gradient color of button background when it is in checked state.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarTheme.BorderColor">
+      <summary>
+            Border color.
             </summary>
     </member>
     <member name="T:C1.Win.C1Command.C1OutBar">
@@ -6921,6 +7766,54 @@
       <param name="imageList">
       </param>
     </member>
+    <member name="M:C1.Win.C1Command.C1TopicBar.HitTest">
+      <summary>
+            Returns information about the control at at the current mouse position.
+            </summary>
+      <returns>A <see cref="T:C1.Win.C1Command.C1TopicBarHitTestInfo" /> object that contains information about the point.</returns>
+    </member>
+    <member name="M:C1.Win.C1Command.C1TopicBar.HitTest(System.Int32,System.Int32)">
+      <summary>
+            Returns information about the control at a specified point on the control surface.
+            </summary>
+      <param name="x">The horizontal position of the client coordinate.</param>
+      <param name="y">The vertical position of the client coordinate.</param>
+      <returns>A <see cref="T:C1.Win.C1Command.C1TopicBarHitTestInfo" /> object that contains information about the point.</returns>
+      <remarks>
+            This method is useful when handling the <see cref="E:System.Windows.Forms.Control.MouseMove" />, <see cref="E:System.Windows.Forms.Control.MouseDown" /> events or similar. 
+            It allows you to determine whether the mouse is over a specific link, page title, etc.
+            </remarks>
+    </member>
+    <member name="M:C1.Win.C1Command.C1TopicBar.HitTest(System.Drawing.Point)">
+      <summary>
+            Returns information about the control at a specified point on the control surface.
+            </summary>
+      <param name="p">
+        <see cref="T:System.Drawing.Point" /> in client coordinates.</param>
+      <returns>A <see cref="T:C1.Win.C1Command.C1TopicBarHitTestInfo" /> object that contains information about the point.</returns>
+      <remarks>
+            This method is useful when handling the <see cref="E:System.Windows.Forms.Control.MouseMove" />, <see cref="E:System.Windows.Forms.Control.MouseDown" /> events or similar. 
+            It allows you to determine whether the mouse is over a specific link, page title, etc.
+            </remarks>
+      <example>
+            The code below shows hit test information whenever the user moves the mouse:
+            <code>
+            Private Sub C1TopicBar1_MouseMove(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles C1TopicBar1.MouseMove
+            Dim ht As C1.Win.C1Command.C1TopicBarHitTestInfo = C1TopicBar1.HitTest(e.Location)
+            Label1.Text = ht.Type.ToString()
+            If (Not IsNothing(ht.Page)) Then
+               Label2.Text = ht.Page.Text
+            Else
+               Label2.Text = ""
+            End If
+            If (Not IsNothing(ht.Link)) Then
+               Label3.Text = ht.Link.Text
+            Else
+               Label3.Text = ""
+            End If
+            End Sub        
+            </code></example>
+    </member>
     <member name="M:C1.Win.C1Command.C1TopicBar.CollapseAll">
       <summary>
             Collapses the all pages
@@ -7072,6 +7965,11 @@
             Gets or sets arbitrary data that can be associated with the link.
             </summary>
     </member>
+    <member name="P:C1.Win.C1Command.C1TopicLink.Enabled">
+      <summary>
+            Gets or sets the value indicating whether the link is enabled.
+            </summary>
+    </member>
     <member name="T:C1.Win.C1Command.C1TopicLinkCollection">
       <summary>
             Represents a collection of C1TopicLink objects.
@@ -7157,6 +8055,11 @@
     <member name="P:C1.Win.C1Command.C1TopicPage.SpecialStyle">
       <summary>
             Gets or sets the value indicating whether the page has a special dark title.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1TopicPage.ShowButton">
+      <summary>
+            Gets or sets the value indicating whether the expand/collapse button is shown on the page title.
             </summary>
     </member>
     <member name="P:C1.Win.C1Command.C1TopicPage.ImageList">
@@ -7635,6 +8538,11 @@
             This property is for internal use only.
             </summary>
     </member>
+    <member name="P:C1.Win.C1Command.C1CommandDockReflector.Name">
+      <summary>
+            This property is for internal use only.
+            </summary>
+    </member>
     <member name="P:C1.Win.C1Command.C1CommandDockReflector.Size">
       <summary>
             This property is for internal use only.
@@ -7797,6 +8705,41 @@
             Text is above the image.
             </summary>
     </member>
+    <member name="T:C1.Win.C1Command.CloseBoxPositionEnum">
+      <summary>
+            Specifies position of close box in locked mode.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.CloseBoxPositionEnum.Default">
+      <summary>
+            Default position of close box.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.CloseBoxPositionEnum.ActivePage">
+      <summary>
+            Close box on the active tab.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.CloseBoxPositionEnum.AllPages">
+      <summary>
+            Close boxes on the all tabs.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Command.CloseTabBehavior">
+      <summary>
+            Defines behavior on C1DockingTabPage's CloseBox click.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.CloseTabBehavior.Close">
+      <summary>
+            Closes the <see cref="T:C1.Win.C1Command.C1DockingTabPage" /> and removes it from <see cref="T:C1.Win.C1Command.C1DockingTabPages" /> collection.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.CloseTabBehavior.Hide">
+      <summary>
+            Set the <see cref="P:C1.Win.C1Command.C1DockingTabPage.TabVisible" /> property to false.
+            </summary>
+    </member>
     <member name="T:C1.Win.C1Command.ItemStateEnum">
       <summary>
             Specifies the current state of a menu or toolbar item.
@@ -7938,6 +8881,36 @@
     <member name="F:C1.Win.C1Command.UIStringsEnum.DockingTabListTooltip">
       <summary>
             Tooltip for the tab list C1DockngTab button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.UIStringsEnum.NavBarShowButtonsMenuText">
+      <summary>
+            Show item in the NavBar menu.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.UIStringsEnum.NavBarHideButtonsMenuText">
+      <summary>
+            Hide item in the NavBar menu.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.UIStringsEnum.NavBarOptionsMenuText">
+      <summary>
+            Options item in the NavBar menu.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.UIStringsEnum.NavBarAddRemoveMenuText">
+      <summary>
+            Add/remove item in the NavBar menu.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.UIStringsEnum.NavBarCustomizeButtonsToolTipText">
+      <summary>
+            Customize item in the NavBar menu.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.UIStringsEnum.NavBarCollapsedBarText">
+      <summary>
+            Collapsed bar text in the NavBar.
             </summary>
     </member>
     <member name="T:C1.Win.C1Command.LookAndFeelEnum">
@@ -8170,6 +9143,29 @@
     <member name="F:C1.Win.C1Command.HotFrameEnum.None">
       <summary>
             Hot frame/selection is not drawn.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Command.FloatHide">
+      <summary>
+            Defines behavior of floating windows when the application loses focus.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.FloatHide.Default">
+      <summary>
+            Default float hide behavior.
+            </summary>
+      <remarks>
+            Same to <see cref="F:C1.Win.C1Command.FloatHide.Never" /> float hide behavior.
+            </remarks>
+    </member>
+    <member name="F:C1.Win.C1Command.FloatHide.FocusLost">
+      <summary>
+            Hides floating docking tabs when the application loses focus.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.FloatHide.Never">
+      <summary>
+            Never hides floating docking tabs.
             </summary>
     </member>
     <member name="T:C1.Win.C1Command.C1NavBarOutlookButton">
@@ -9334,244 +10330,532 @@
       <param name="sender">The source of the event.</param>
       <param name="e">A PanelCancelEventArgs object that contains the event data.</param>
     </member>
-    <member name="T:C1.Util.FlagsEnumEditor">
+    <member name="T:C1.Win.C1Command.C1TopicBarHitTestTypeEnum">
       <summary>
-            Represents the editor of enum properties with FlagsAttribute attribute.
+            Type of topic bar element at a specific point on the control.
             </summary>
     </member>
-    <member name="M:C1.Util.FlagsEnumEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
+    <member name="F:C1.Win.C1Command.C1TopicBarHitTestTypeEnum.None">
       <summary>
-            Gets the editor style used by the <see cref="M:C1.Util.FlagsEnumEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)" /> method.
-            The override for <see cref="T:C1.Util.FlagsEnumEditor" /> returns <see cref="F:System.Drawing.Design.UITypeEditorEditStyle.DropDown" />.
+            The point is out of the C1TopicBar's area.
             </summary>
     </member>
-    <member name="M:C1.Util.FlagsEnumEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
+    <member name="F:C1.Win.C1Command.C1TopicBarHitTestTypeEnum.Empty">
       <summary>
-            Edits the specified object's value using the editor style 
-            indicated by the <see cref="M:C1.Util.FlagsEnumEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)" /> method. 
+            The point is in the C1TopicBar's empty area.
             </summary>
-      <param name="context">
+    </member>
+    <member name="F:C1.Win.C1Command.C1TopicBarHitTestTypeEnum.PageTitle">
+      <summary>
+            The point is on empty space of a page title area (not over a text, image or expand/collapse indicator).
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.C1TopicBarHitTestTypeEnum.PageTitleIndicator">
+      <summary>
+            The point is on expand/collapse indicator of a page title.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.C1TopicBarHitTestTypeEnum.PageTitleImage">
+      <summary>
+            The point is on image of a page title.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.C1TopicBarHitTestTypeEnum.PageTitleText">
+      <summary>
+            The point is on text of a page title.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.C1TopicBarHitTestTypeEnum.PageBody">
+      <summary>
+            The point is on a page body (but not on a link).
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.C1TopicBarHitTestTypeEnum.Link">
+      <summary>
+            The point is on empty space of a link (not over a text or image).
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.C1TopicBarHitTestTypeEnum.LinkImage">
+      <summary>
+            The point is on image of a link.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.C1TopicBarHitTestTypeEnum.LinkText">
+      <summary>
+            The point is on text of a link.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Command.C1TopicBarHitTestInfo">
+      <summary>
+            Contains information, such as the page and the link
+            in the <see cref="T:C1.Win.C1Command.C1TopicBar" /> control.
+            </summary>
+      <remarks>
+            Use the <see cref="M:C1.Win.C1Command.C1TopicBar.HitTest" /> method to obtain a <see cref="T:C1.Win.C1Command.C1TopicBarHitTestInfo" /> value.
+            </remarks>
+    </member>
+    <member name="F:C1.Win.C1Command.C1TopicBarHitTestInfo.Type">
+      <summary>
+            Gets a <see cref="T:C1.Win.C1Command.C1TopicBarHitTestTypeEnum" /> that describes the type of element described by a <see cref="T:C1.Win.C1Command.C1TopicBarHitTestInfo" />.
+            </summary>
+      <remarks>
+            This property allows you to determine whether the point corresponds to a topic link or
+            to special elements such as title image or text, and so on.</remarks>
+    </member>
+    <member name="F:C1.Win.C1Command.C1TopicBarHitTestInfo.Page">
+      <summary>
+            Get the <see cref="T:C1.Win.C1Command.C1TopicPage" /> at the point being tested (if the point does not correspond to a page, it returns null).
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.C1TopicBarHitTestInfo.Link">
+      <summary>
+            Get the <see cref="T:C1.Win.C1Command.C1TopicLink" /> at the point being tested (if the point does not correspond to a page, it returns null).
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Command.RadialStrings">
+      <summary>
+            Static class containing UI strings used by the designer.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Command.C1RadialMenu">
+      <summary>
+            Represents a radial menu.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Command.C1RadialMenu.#ctor">
+      <summary>
+            Initializes a new instance of the C1RadialMenu class.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Command.C1RadialMenu.ShouldSerializeCursor">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.C1RadialMenu.ResetCursor">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.C1RadialMenu.ShowMenu(System.Windows.Forms.Form,System.Drawing.Point,System.Boolean)">
+      <summary>
+            Shows the radial menu at the specified screen point.
+            If the menu is currently visible at another location, it is hidden first.
+            </summary>
+      <param name="form">The owner form.</param>
+      <param name="pt">The radial menu center's screen coordinates.</param>
+      <param name="expand">Indicates whether the menu should show initially expanded.</param>
+    </member>
+    <member name="M:C1.Win.C1Command.C1RadialMenu.HideMenu">
+      <summary>
+            Hides the radial menu if it is currently visible.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Command.C1RadialMenu.Move(System.Int32,System.Int32)">
+      <summary>
+            Moves the radial menu if it is currently visible,
+            does nothing otherwise.
+            </summary>
+      <param name="dx">The X offset.</param>
+      <param name="dy">The Y offset.</param>
+    </member>
+    <member name="E:C1.Win.C1Command.C1RadialMenu.PropertyChanged">
+      <summary>
+            Occurs when a public property has changed.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Command.C1RadialMenu.MenuClosed">
+      <summary>
+            Occurs when the menu is closed.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Command.C1RadialMenu.ItemClick">
+      <summary>
+            Occurs when a menu item is clicked.
+            </summary>
+      <remarks>
+            If the clicked item has its own Click event associated with it,
+            that event occurs immediately before this one.
+            </remarks>
+    </member>
+    <member name="P:C1.Win.C1Command.C1RadialMenu.Radius">
+      <summary>
+            Gets or sets the menu radius in the expanded state.
+            <para>The default value is 160.</para></summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1RadialMenu.ButtonRadius">
+      <summary>
+            Gets or sets the radius of the central button.
+            <para>The default value is 28.</para></summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1RadialMenu.InnerRadius">
+      <summary>
+            Gets or sets the radius separating the area filled with items' background color on the outside
+            from the inner area filled with radial menu's own background.
+            <para>The default value is 70.</para></summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1RadialMenu.BorderWidth">
+      <summary>
+            Gets or sets the width of the radial menu's outer border.
+            <para>The default value is 24.</para></summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1RadialMenu.TooltipPosition">
+      <summary>
+            Gets or sets the position of the tooltip relative to the radial menu.
+            <para>The default value is "left".</para></summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1RadialMenu.UseAnimation">
+      <summary>
+            Gets or sets a value indicating whether the menu should use animation effects.
+            <para>The default value is true.</para></summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1RadialMenu.Items">
+      <summary>
+            Gets or sets the collection of items contained in this menu.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1RadialMenu.Image">
+      <summary>
+            Gets or sets the image shown in the radial menu's center button.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1RadialMenu.Cursor">
+      <summary>
+            Gets or sets the cursor used by the radial menu.
+            <para>The default value is "hand".</para></summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1RadialMenu.AutoHide">
+      <summary>
+            Gets or sets a value indicating whether the radial menu should automatically hide
+            on certain events (such as lost focus etc).
+            <para>The default is true.</para></summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1RadialMenu.Enabled">
+      <summary>
+            Gets or sets a value indicating whether the radial menu is enabled.
+            <para>The default is true.</para></summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1RadialMenu.Visible">
+      <summary>
+            Gets a value indicating whether the radial menu is currently visible.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1RadialMenu.Expanded">
+      <summary>
+            Gets a value indicating whether the radial menu is currently expanded.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1RadialMenu.CenterOnScreen">
+      <summary>
+            Gets or sets the screen coordinates of the menu's center.
+            If the menu is currently invisible (<see cref="P:C1.Win.C1Command.C1RadialMenu.Visible" /> is false),
+            setting this property throws an exception.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Command.RadialMenuItemClickEventArgs">
+      <summary>
+            Arguments for the RadialMenuItemClickEventHandler event handler.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItemClickEventArgs.#ctor(System.Object)">
+      <summary>
+            Initializes a new instance of the RadialMenuItemClickEventArgs class.
+            </summary>
+      <param name="item">The item that was clicked.</param>
+    </member>
+    <member name="P:C1.Win.C1Command.RadialMenuItemClickEventArgs.Item">
+      <summary>
+            Gets the item that was clicked.
+            This may be either an object of a type derived from <see cref="T:C1.Win.C1Command.RadialMenuItemBase" />,
+            or a <see cref="T:C1.Win.C1Command.C1CommandLink" />.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.RadialMenuItemClickEventArgs.RadialMenuItem">
+      <summary>
+            If the clicked item was a <see cref="P:C1.Win.C1Command.RadialMenuItemClickEventArgs.RadialMenuItem" />, returns that item;
+            otherwise, returns null.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.RadialMenuItemClickEventArgs.CommandLink">
+      <summary>
+            If the clicked item was a <see cref="T:C1.Win.C1Command.C1CommandLink" />, returns that link;
+            otherwise, returns null.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Command.RadialMenuItemClickEventHandler">
+      <summary>
+            Represents the method that will handle a RadialMenuItemClick event.
+            </summary>
+      <param name="sender">The source of the event.</param>
+      <param name="e">A RadialMenuItemClickEventArgs object that contains the event data.</param>
+    </member>
+    <member name="T:C1.Win.C1Command.TooltipPosition">
+      <summary>
+            Specifies where to show menu tooltips relative to the radial menu.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.TooltipPosition.None">
+      <summary>
+            Tooltips are not shown.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.TooltipPosition.Left">
+      <summary>
+            Tooltips are shown to the left of the menu.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.TooltipPosition.Top">
+      <summary>
+            Tooltips are shown above the menu.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.TooltipPosition.Right">
+      <summary>
+            Tooltips are shown to the right of the menu.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.TooltipPosition.Bottom">
+      <summary>
+            Tooltips are shown below the menu.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Command.RadialMenuItemBase">
+      <summary>
+            Abstract base class for items in a radial menu.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItemBase.ShouldSerializeName">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItemBase.ResetName">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItemBase.ShouldSerializeText">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItemBase.ResetText">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItemBase.ShouldSerializeToolTip">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItemBase.ResetToolTip">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItemBase.ShouldSerializeImage">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItemBase.ResetImage">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItemBase.ShouldSerializeChecked">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItemBase.ResetChecked">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItemBase.ShouldSerializeEnabled">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItemBase.ResetEnabled">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="P:C1.Win.C1Command.RadialMenuItemBase.Name">
+      <summary>
+            Gets or sets the name used to identify the item.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.RadialMenuItemBase.Text">
+      <summary>
+            Gets or sets the text associated with the menu item.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.RadialMenuItemBase.ToolTip">
+      <summary>
+            Gets or sets the tooltip associated with the menu item.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.RadialMenuItemBase.Image">
+      <summary>
+            Gets or sets the image associated with the menu item.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.RadialMenuItemBase.Checked">
+      <summary>
+            Gets or sets a value indicating whether the menu item is checked.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.RadialMenuItemBase.Enabled">
+      <summary>
+            Gets or sets a value indicating whether the menu item is enabled.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Command.RadialMenuItem">
+      <summary>
+            Represents a radial menu item, possibly with a sub-menu.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItem.#ctor">
+      <summary>
+            Initializes a new instance of the RadialMenuItem class.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItem.OnClick(System.EventArgs)">
+      <summary>
+            Invokes the Click event.
+            </summary>
+      <param name="e">
       </param>
-      <param name="provider">
-      </param>
-      <param name="value">
-      </param>
-      <returns>
-      </returns>
     </member>
-    <member name="P:C1.Util.FlagsEnumEditor.IsDropDownResizable">
+    <member name="M:C1.Win.C1Command.RadialMenuItem.ShouldSerializeName">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItem.ResetName">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItem.ShouldSerializeText">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItem.ResetText">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItem.ShouldSerializeToolTip">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItem.ResetToolTip">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItem.ShouldSerializeImage">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItem.ResetImage">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItem.ShouldSerializeChecked">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItem.ResetChecked">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItem.ShouldSerializeEnabled">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuItem.ResetEnabled">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="P:C1.Win.C1Command.RadialMenuItem.Items">
       <summary>
-            Gets a value indicating whether drop-down editors should be resizable by the user. 
-            The override for <see cref="T:C1.Util.FlagsEnumEditor" /> returns true;
+            Gets or sets the collection of items contained in this menu item.
             </summary>
     </member>
-    <member name="T:C1.Win.C1Command.UIStringsItemEventHandler">
+    <member name="E:C1.Win.C1Command.RadialMenuItem.Click">
       <summary>
-            Represents a handler for an <see cref="T:C1.Win.C1Command.UIStrings" /> item related event.
+            Occurs when the menu item is clicked.
             </summary>
     </member>
-    <member name="T:C1.Win.C1Command.UIStringsItemEventArgs">
+    <member name="P:C1.Win.C1Command.RadialMenuItem.Parent">
       <summary>
-            Provides data for an <see cref="T:C1.Win.C1Command.UIStrings" /> item related event.
+            Gets the parent of this menu item (which may be either a <see cref="T:C1.Win.C1Command.C1RadialMenu" />,
+            or another <see cref="T:C1.Win.C1Command.RadialMenuItem" />).
             </summary>
     </member>
-    <member name="P:C1.Win.C1Command.UIStringsItemEventArgs.Key">
+    <member name="P:C1.Win.C1Command.RadialMenuItem.BackColor">
       <summary>
-            Gets key of the item being added or changed.
-            </summary>
-      <value>The key.</value>
-    </member>
-    <member name="P:C1.Win.C1Command.UIStringsItemEventArgs.Value">
-      <summary>
-            Gets the string value.
-            </summary>
-      <value>The value.</value>
-    </member>
-    <member name="P:C1.Win.C1Command.UIStringsItemEventArgs.IsDefault">
-      <summary>
-            Gets a value indicating whether this instance is default.
-            </summary>
-      <value>
-        <c>true</c> if this instance is default; otherwise, <c>false</c>.
-            </value>
-    </member>
-    <member name="P:C1.Win.C1Command.UIStringsItemEventArgs.Description">
-      <summary>
-            Gets the description.
-            </summary>
-      <value>The description.</value>
-    </member>
-    <member name="T:C1.Win.C1Command.UIStrings">
-      <summary>
-            Represents a collection of end user visible UI strings.
+            Gets or sets the background color of this menu item.
+            Empty (default) means that item background specified for the whole menu is used.
             </summary>
     </member>
-    <member name="M:C1.Win.C1Command.UIStrings.Add(System.Object,System.Int32,System.String,System.String)">
+    <member name="P:C1.Win.C1Command.RadialMenuItem.HighlightColor">
       <summary>
-            Adds a string to the collection, specifying the ordinal.
-            </summary>
-      <param name="key">The key of the string.</param>
-      <param name="ordinal">The ordinal of the string.</param>
-      <param name="value">The string.</param>
-      <param name="description">The description of the string.</param>
-    </member>
-    <member name="M:C1.Win.C1Command.UIStrings.Add(System.Object,System.String,System.String)">
-      <summary>
-            Adds a string to the collection in alphabetical order.
-            </summary>
-      <param name="key">The key of the string.</param>
-      <param name="value">The string.</param>
-      <param name="description">The description of the string.</param>
-    </member>
-    <member name="M:C1.Win.C1Command.UIStrings.AddInOrder(System.Object,System.String,System.String)">
-      <summary>
-            Adds a string to the collection, preserving the order.
-            </summary>
-      <param name="key">The key of the string.</param>
-      <param name="value">The string.</param>
-      <param name="description">The description of the string.</param>
-    </member>
-    <member name="M:C1.Win.C1Command.UIStrings.Reset">
-      <summary>
-            Sets all strings in collection to their default values.
+            Gets or sets the highlight color of this menu item.
+            Empty (default) means that item highlight color specified for the whole menu is used.
             </summary>
     </member>
-    <member name="M:C1.Win.C1Command.UIStrings.ShouldSerialize">
+    <member name="P:C1.Win.C1Command.RadialMenuItem.CheckColor">
       <summary>
-            Indicates whether any of the strings in the current collection
-            have non-default values.
-            </summary>
-      <returns>
-        <c>true</c> if any of the strings have non-default values, <c>false</c> otherwise.</returns>
-    </member>
-    <member name="M:C1.Win.C1Command.UIStrings.IsDefault(System.Object)">
-      <summary>
-            Tests whether a string in the collection has default value.
-            </summary>
-      <param name="key">The key of the string to test.</param>
-      <returns>
-        <c>true</c> if the string has default value, <c>false</c> otherwise.</returns>
-    </member>
-    <member name="M:C1.Win.C1Command.UIStrings.GetDescription(System.Object)">
-      <summary>
-            Returns the description of a string.
-            </summary>
-      <param name="key">The key of the string to get the description of.</param>
-      <returns>The string's description</returns>
-    </member>
-    <member name="M:C1.Win.C1Command.UIStrings.Reset(System.Object)">
-      <summary>
-            Resets a string to its default value.
-            </summary>
-      <param name="key">The key of the string to reset.</param>
-    </member>
-    <member name="M:C1.Win.C1Command.UIStrings.GetKeyAt(System.Int32)">
-      <summary>
-            Returns the key of an item with the specified index.
-            </summary>
-      <param name="index">The item index.</param>
-      <returns>The item's key.</returns>
-    </member>
-    <member name="M:C1.Win.C1Command.UIStrings.GetValueAt(System.Int32)">
-      <summary>
-            Gets the string by its index.
-            </summary>
-      <param name="index">The string index.</param>
-      <returns>The string.</returns>
-    </member>
-    <member name="M:C1.Win.C1Command.UIStrings.SetValueAt(System.Int32,System.String)">
-      <summary>
-            Sets the value of a string with the specified index.
-            </summary>
-      <param name="index">The string index.</param>
-      <param name="value">The new string value.</param>
-    </member>
-    <member name="M:C1.Win.C1Command.UIStrings.OnItemAdded(C1.Win.C1Command.UIStringsItemEventArgs)">
-      <summary>
-            Fires the <see cref="E:C1.Win.C1Command.UIStrings.ItemAdded" /> event.
-            </summary>
-      <param name="e">The event data.</param>
-    </member>
-    <member name="M:C1.Win.C1Command.UIStrings.OnItemChanged(C1.Win.C1Command.UIStringsItemEventArgs)">
-      <summary>
-            Fires the <see cref="E:C1.Win.C1Command.UIStrings.ItemChanged" /> event.
-            </summary>
-      <param name="e">The event data.</param>
-    </member>
-    <member name="M:C1.Win.C1Command.UIStrings.OnCollectionChanged(System.EventArgs)">
-      <summary>
-            Fires the <see cref="E:C1.Win.C1Command.UIStrings.CollectionChanged" /> event.
-            </summary>
-      <param name="e">The event data.</param>
-    </member>
-    <member name="P:C1.Win.C1Command.UIStrings.Item(System.Object)">
-      <summary>
-            Gets or sets the string value for the specified key.
-            </summary>
-      <param name="key">The key of the string.</param>
-      <returns>The string corresponding to the specified key.</returns>
-    </member>
-    <member name="P:C1.Win.C1Command.UIStrings.Count">
-      <summary>
-            Gets the number of elements contained in the collection.
+            Gets or sets the check mark color of this menu item.
+            Empty (default) means that item check mark color specified for the whole menu is used.
             </summary>
     </member>
-    <member name="E:C1.Win.C1Command.UIStrings.ItemAdded">
+    <member name="P:C1.Win.C1Command.RadialMenuItem.BorderColor">
       <summary>
-            Occurs when a new item is added to the collection.
+            Gets or sets the non-expandable border color of this menu item.
+            Empty (default) means that item non-expandable border color specified for the whole menu is used.
             </summary>
     </member>
-    <member name="E:C1.Win.C1Command.UIStrings.ItemChanged">
+    <member name="P:C1.Win.C1Command.RadialMenuItem.HotExpandableBorderColor">
       <summary>
-            Occurs when an item in the collection is changed.
+            Gets or sets the hot expandable border color of this menu item.
+            Empty (default) means that style specified for the whole menu is used.
             </summary>
     </member>
-    <member name="E:C1.Win.C1Command.UIStrings.CollectionChanged">
+    <member name="P:C1.Win.C1Command.RadialMenuItem.UserData">
       <summary>
-            Occurs when the collection has been changed.
+            Gets or sets an arbitrary object that can be associated with this menu item.
             </summary>
     </member>
-    <member name="T:C1.Win.C1Command.UIStrings.TypeConverter">
+    <member name="T:C1.Win.C1Command.RadialMenuCommandItem">
       <summary>
-            Provides type conversion for the <see cref="T:C1.Win.C1Command.UIStrings" /> type.
+            Represents a radial menu item associated with a <see cref="T:C1.Win.C1Command.C1Command" />.
             </summary>
     </member>
-    <member name="M:C1.Win.C1Command.UIStrings.TypeConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
-      <summary>
-            For internal use.
-            </summary>
-      <param name="context">
-      </param>
-      <param name="culture">
-      </param>
-      <param name="value">
-      </param>
-      <param name="type">
-      </param>
-      <returns>
-      </returns>
+    <member name="M:C1.Win.C1Command.RadialMenuCommandItem.ShouldSerializeCommand">
+      <summary>This method is for internal use only.</summary>
     </member>
-    <member name="M:C1.Win.C1Command.UIStrings.TypeConverter.GetProperties(System.ComponentModel.ITypeDescriptorContext,System.Object,System.Attribute[])">
-      <summary>
-            For internal use.
-            </summary>
-      <param name="context">
-      </param>
-      <param name="value">
-      </param>
-      <param name="attrFilter">
-      </param>
-      <returns>
-      </returns>
+    <member name="M:C1.Win.C1Command.RadialMenuCommandItem.ResetCommand">
+      <summary>This method is for internal use only.</summary>
     </member>
-    <member name="M:C1.Win.C1Command.UIStrings.TypeConverter.GetPropertiesSupported(System.ComponentModel.ITypeDescriptorContext)">
+    <member name="M:C1.Win.C1Command.RadialMenuCommandItem.ShouldSerializeText">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuCommandItem.ResetText">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuCommandItem.ShouldSerializeToolTip">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuCommandItem.ResetToolTip">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuCommandItem.ShouldSerializeImage">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuCommandItem.ResetImage">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuCommandItem.ShouldSerializeChecked">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuCommandItem.ResetChecked">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuCommandItem.ShouldSerializeEnabled">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="M:C1.Win.C1Command.RadialMenuCommandItem.ResetEnabled">
+      <summary>This method is for internal use only.</summary>
+    </member>
+    <member name="P:C1.Win.C1Command.RadialMenuCommandItem.Command">
       <summary>
-            For internal use.
+            Gets or sets the <see cref="T:C1.Win.C1Command.C1Command" /> associated with this menu item.
             </summary>
-      <param name="context">
-      </param>
-      <returns>
-      </returns>
+    </member>
+    <member name="P:C1.Win.C1Command.RadialMenuCommandItem.Text">
+      <summary>
+            Overridden. Gets or sets the text shown by this menu item.
+            Note that setting this property does not change the text
+            on the associated C1Command.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.RadialMenuCommandItem.ToolTip">
+      <summary>
+            Overridden. Gets or sets the tooltip shown by this menu item.
+            Note that setting this property does not change the tooltip
+            on the associated C1Command.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.RadialMenuCommandItem.Image">
+      <summary>
+            Overridden. Gets or sets the image shown by this menu item.
+            Note that setting this property does not change the image
+            on the associated C1Command.
+            </summary>
     </member>
     <member name="T:C1.Win.C1Command.C1Stack">
       <summary>

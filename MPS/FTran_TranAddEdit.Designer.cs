@@ -97,10 +97,10 @@ namespace RSMPS
             this.txtDepartment = new System.Windows.Forms.TextBox();
             this.bttDept = new System.Windows.Forms.Button();
             this.lvwDocList = new System.Windows.Forms.ListView();
-            this.colID = new System.Windows.Forms.ColumnHeader();
-            this.colDocNum = new System.Windows.Forms.ColumnHeader();
-            this.colCADNum = new System.Windows.Forms.ColumnHeader();
-            this.colTitleDesc = new System.Windows.Forms.ColumnHeader();
+            this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDocNum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCADNum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTitleDesc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.bttAdd = new System.Windows.Forms.Button();
             this.bttRemove = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -318,6 +318,7 @@ namespace RSMPS
             // 
             // c1ToolBar1
             // 
+            this.c1ToolBar1.AutoSize = false;
             this.c1ToolBar1.ButtonLookHorz = ((C1.Win.C1Command.ButtonLookFlags)((C1.Win.C1Command.ButtonLookFlags.Text | C1.Win.C1Command.ButtonLookFlags.Image)));
             this.c1ToolBar1.CommandHolder = this.c1CommandHolder1;
             this.c1ToolBar1.CommandLinks.AddRange(new C1.Win.C1Command.C1CommandLink[] {
@@ -331,6 +332,7 @@ namespace RSMPS
             this.c1ToolBar1.Name = "c1ToolBar1";
             this.c1ToolBar1.Size = new System.Drawing.Size(695, 24);
             this.c1ToolBar1.Text = "c1ToolBar1";
+            this.c1ToolBar1.VisualStyleBase = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
             // c1CommandHolder1
             // 
@@ -339,11 +341,13 @@ namespace RSMPS
             this.c1CommandHolder1.Commands.Add(this.tlbbPrint);
             this.c1CommandHolder1.Commands.Add(this.tlbbClose);
             this.c1CommandHolder1.Owner = this;
+            this.c1CommandHolder1.VisualStyle = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
             // tlbbNew
             // 
             this.tlbbNew.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbNew.Icon")));
             this.tlbbNew.Name = "tlbbNew";
+            this.tlbbNew.ShortcutText = "";
             this.tlbbNew.Text = "New";
             this.tlbbNew.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbNew_Click);
             // 
@@ -351,18 +355,21 @@ namespace RSMPS
             // 
             this.tlbbSave.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbSave.Icon")));
             this.tlbbSave.Name = "tlbbSave";
+            this.tlbbSave.ShortcutText = "";
             this.tlbbSave.Text = "Save";
             // 
             // tlbbPrint
             // 
             this.tlbbPrint.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbPrint.Icon")));
             this.tlbbPrint.Name = "tlbbPrint";
+            this.tlbbPrint.ShortcutText = "";
             this.tlbbPrint.Text = "Print";
             // 
             // tlbbClose
             // 
             this.tlbbClose.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbClose.Icon")));
             this.tlbbClose.Name = "tlbbClose";
+            this.tlbbClose.ShortcutText = "";
             this.tlbbClose.Text = "Close";
             this.tlbbClose.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbClose_Click);
             // 
@@ -608,8 +615,6 @@ namespace RSMPS
             this.tddReleases.ColumnCaptionHeight = 17;
             this.tddReleases.ColumnFooterHeight = 17;
             this.tddReleases.ColumnHeaders = false;
-            //this.tddReleases.DataField = "ID";
-            this.tddReleases.ValueMember = "ID";
             this.tddReleases.DisplayMember = "Name";
             this.tddReleases.EvenRowStyle = style2;
             this.tddReleases.FetchRowStyles = false;
@@ -617,8 +622,6 @@ namespace RSMPS
             this.tddReleases.HeadingStyle = style4;
             this.tddReleases.HighLightRowStyle = style5;
             this.tddReleases.Images.Add(((System.Drawing.Image)(resources.GetObject("tddReleases.Images"))));
-            //this.tddReleases.ListField = "Name";
-            this.tddReleases.DisplayMember = "Name";
             this.tddReleases.Location = new System.Drawing.Point(214, 59);
             this.tddReleases.Name = "tddReleases";
             this.tddReleases.OddRowStyle = style6;
@@ -637,16 +640,16 @@ namespace RSMPS
             // 
             // tdbgDocList
             // 
-            this.tdbgDocList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tdbgDocList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tdbgDocList.GroupByCaption = "Drag a column header here to group by that column";
             this.tdbgDocList.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbgDocList.Images"))));
             this.tdbgDocList.Location = new System.Drawing.Point(3, 6);
             this.tdbgDocList.Name = "tdbgDocList";
             this.tdbgDocList.PreviewInfo.Location = new System.Drawing.Point(0, 0);
             this.tdbgDocList.PreviewInfo.Size = new System.Drawing.Size(0, 0);
-            this.tdbgDocList.PreviewInfo.ZoomFactor = 75;
+            this.tdbgDocList.PreviewInfo.ZoomFactor = 75D;
             this.tdbgDocList.PrintInfo.PageSettings = ((System.Drawing.Printing.PageSettings)(resources.GetObject("tdbgDocList.PrintInfo.PageSettings")));
             this.tdbgDocList.Size = new System.Drawing.Size(647, 197);
             this.tdbgDocList.TabIndex = 0;
@@ -710,9 +713,9 @@ namespace RSMPS
             // 
             // lvwDocList
             // 
-            this.lvwDocList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvwDocList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lvwDocList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colID,
             this.colDocNum,
@@ -772,9 +775,9 @@ namespace RSMPS
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tssStatus1,
             this.tssStatus2});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 490);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 488);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(695, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(695, 24);
             this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 27;
             this.statusStrip1.Text = "Ready";
@@ -783,7 +786,7 @@ namespace RSMPS
             // 
             this.tssStatus1.AutoSize = false;
             this.tssStatus1.Name = "tssStatus1";
-            this.tssStatus1.Size = new System.Drawing.Size(200, 17);
+            this.tssStatus1.Size = new System.Drawing.Size(200, 19);
             this.tssStatus1.Text = "Transmittal No.:";
             this.tssStatus1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -791,7 +794,7 @@ namespace RSMPS
             // 
             this.tssStatus2.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
             this.tssStatus2.Name = "tssStatus2";
-            this.tssStatus2.Size = new System.Drawing.Size(81, 17);
+            this.tssStatus2.Size = new System.Drawing.Size(89, 19);
             this.tssStatus2.Text = "0 Document(s)";
             // 
             // imageList1

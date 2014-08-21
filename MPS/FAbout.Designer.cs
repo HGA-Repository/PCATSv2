@@ -138,6 +138,7 @@ namespace RSMPS
             // c1CommandHolder1
             // 
             this.c1CommandHolder1.Owner = this;
+            this.c1CommandHolder1.VisualStyle = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
             // FAbout
             // 

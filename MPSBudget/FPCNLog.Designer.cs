@@ -85,18 +85,20 @@
             this.c1ToolBar1.Name = "c1ToolBar1";
             this.c1ToolBar1.Size = new System.Drawing.Size(926, 24);
             this.c1ToolBar1.Text = "c1ToolBar1";
-            this.c1ToolBar1.VisualStyleBase = C1.Win.C1Command.VisualStyle.OfficeXP;
+            this.c1ToolBar1.VisualStyleBase = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
             // c1CommandHolder1
             // 
             this.c1CommandHolder1.Commands.Add(this.tlbbPrint);
             this.c1CommandHolder1.Commands.Add(this.tlbbExit);
             this.c1CommandHolder1.Owner = this;
+            this.c1CommandHolder1.VisualStyle = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
             // tlbbPrint
             // 
             this.tlbbPrint.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbPrint.Icon")));
             this.tlbbPrint.Name = "tlbbPrint";
+            this.tlbbPrint.ShortcutText = "";
             this.tlbbPrint.Text = "Print";
             this.tlbbPrint.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbPrint_Click);
             // 
@@ -104,6 +106,7 @@
             // 
             this.tlbbExit.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbExit.Icon")));
             this.tlbbExit.Name = "tlbbExit";
+            this.tlbbExit.ShortcutText = "";
             this.tlbbExit.Text = "Exit";
             this.tlbbExit.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbExit_Click);
             // 

@@ -133,6 +133,12 @@ namespace RSMPS
             return dbDt.GetPMReport(empID);
         }
 
+        public static DataSet GetPMCustReport(int empID)
+        {
+            CDbProjectSummary dbDt = new CDbProjectSummary();
+
+            return dbDt.GetPMCustReport(empID);
+        }
         public static DataSet GetVarianceReport(int indx, int pmID)
         {
             CDbProjectSummary dbDt = new CDbProjectSummary();

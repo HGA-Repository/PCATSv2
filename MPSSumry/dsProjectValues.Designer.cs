@@ -301,6 +301,12 @@ namespace RSMPS {
             
             private global::System.Data.DataColumn columnOutstanding;
             
+            private global::System.Data.DataColumn columnClient;
+            
+            private global::System.Data.DataColumn columnJob;
+            
+            private global::System.Data.DataColumn columnLocation;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ProjectInfosDataTable() {
@@ -424,6 +430,30 @@ namespace RSMPS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ClientColumn {
+                get {
+                    return this.columnClient;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn JobColumn {
+                get {
+                    return this.columnJob;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LocationColumn {
+                get {
+                    return this.columnLocation;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -459,7 +489,7 @@ namespace RSMPS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectInfosRow AddProjectInfosRow(int ID, int ProjSumID, int ProjectID, string Schedule, string ActHigh, string StaffNeeds, string CFeedBack, decimal POAmt, decimal BilledToDate, decimal PaidToDate, decimal Outstanding) {
+            public ProjectInfosRow AddProjectInfosRow(int ID, int ProjSumID, int ProjectID, string Schedule, string ActHigh, string StaffNeeds, string CFeedBack, decimal POAmt, decimal BilledToDate, decimal PaidToDate, decimal Outstanding, string Client, string Job, string Location) {
                 ProjectInfosRow rowProjectInfosRow = ((ProjectInfosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
@@ -472,7 +502,10 @@ namespace RSMPS {
                         POAmt,
                         BilledToDate,
                         PaidToDate,
-                        Outstanding};
+                        Outstanding,
+                        Client,
+                        Job,
+                        Location};
                 rowProjectInfosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProjectInfosRow);
                 return rowProjectInfosRow;
@@ -506,6 +539,9 @@ namespace RSMPS {
                 this.columnBilledToDate = base.Columns["BilledToDate"];
                 this.columnPaidToDate = base.Columns["PaidToDate"];
                 this.columnOutstanding = base.Columns["Outstanding"];
+                this.columnClient = base.Columns["Client"];
+                this.columnJob = base.Columns["Job"];
+                this.columnLocation = base.Columns["Location"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -533,6 +569,12 @@ namespace RSMPS {
                 base.Columns.Add(this.columnPaidToDate);
                 this.columnOutstanding = new global::System.Data.DataColumn("Outstanding", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOutstanding);
+                this.columnClient = new global::System.Data.DataColumn("Client", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnClient);
+                this.columnJob = new global::System.Data.DataColumn("Job", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnJob);
+                this.columnLocation = new global::System.Data.DataColumn("Location", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLocation);
                 this.columnID.DefaultValue = ((int)(0));
                 this.columnProjSumID.DefaultValue = ((int)(0));
                 this.columnProjectID.DefaultValue = ((int)(0));
@@ -854,6 +896,54 @@ namespace RSMPS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Client {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectInfos.ClientColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Client\' in table \'ProjectInfos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectInfos.ClientColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Job {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectInfos.JobColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Job\' in table \'ProjectInfos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectInfos.JobColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Location {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectInfos.LocationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Location\' in table \'ProjectInfos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectInfos.LocationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsIDNull() {
                 return this.IsNull(this.tableProjectInfos.IDColumn);
             }
@@ -982,6 +1072,42 @@ namespace RSMPS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetOutstandingNull() {
                 this[this.tableProjectInfos.OutstandingColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsClientNull() {
+                return this.IsNull(this.tableProjectInfos.ClientColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetClientNull() {
+                this[this.tableProjectInfos.ClientColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsJobNull() {
+                return this.IsNull(this.tableProjectInfos.JobColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetJobNull() {
+                this[this.tableProjectInfos.JobColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLocationNull() {
+                return this.IsNull(this.tableProjectInfos.LocationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLocationNull() {
+                this[this.tableProjectInfos.LocationColumn] = global::System.Convert.DBNull;
             }
         }
         

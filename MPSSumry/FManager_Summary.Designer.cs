@@ -65,6 +65,8 @@ namespace RSMPS
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.tdbgSchedule = new C1.Win.C1TrueDBGrid.C1TrueDBGrid();
             this.tbpFeedback = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tdbgPCNs = new C1.Win.C1TrueDBGrid.C1TrueDBGrid();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.rtbSchedule = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -89,8 +91,12 @@ namespace RSMPS
             this.c1CommandLink1 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink2 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink3 = new C1.Win.C1Command.C1CommandLink();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.tdbgPCNs = new C1.Win.C1TrueDBGrid.C1TrueDBGrid();
+            this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components);
+            this.Client = new System.Windows.Forms.TextBox();
+            this.Job = new System.Windows.Forms.TextBox();
+            this.Location = new System.Windows.Forms.TextBox();
+            this.tlbbPrintCust = new C1.Win.C1Command.C1Command();
+            this.c1CommandLink4 = new C1.Win.C1Command.C1CommandLink();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fgForecast)).BeginInit();
@@ -104,11 +110,12 @@ namespace RSMPS
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tdbgSchedule)).BeginInit();
             this.tbpFeedback.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tdbgPCNs)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.cmnuPMVals.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tdbgPCNs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1SpellChecker1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -276,6 +283,7 @@ namespace RSMPS
             this.rtbActHigh.Name = "rtbActHigh";
             this.rtbActHigh.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
             this.rtbActHigh.Size = new System.Drawing.Size(728, 131);
+            this.c1SpellChecker1.SetSpellChecking(this.rtbActHigh, true);
             this.rtbActHigh.TabIndex = 1;
             this.rtbActHigh.Text = "";
             this.rtbActHigh.TextChanged += new System.EventHandler(this.rtbActHigh_TextChanged);
@@ -305,6 +313,7 @@ namespace RSMPS
             this.rtbNeeds.Name = "rtbNeeds";
             this.rtbNeeds.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
             this.rtbNeeds.Size = new System.Drawing.Size(728, 79);
+            this.c1SpellChecker1.SetSpellChecking(this.rtbNeeds, true);
             this.rtbNeeds.TabIndex = 2;
             this.rtbNeeds.Text = "";
             this.rtbNeeds.TextChanged += new System.EventHandler(this.rtbNeeds_TextChanged);
@@ -453,6 +462,7 @@ namespace RSMPS
             this.rtbCFeedBack.Name = "rtbCFeedBack";
             this.rtbCFeedBack.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
             this.rtbCFeedBack.Size = new System.Drawing.Size(728, 56);
+            this.c1SpellChecker1.SetSpellChecking(this.rtbCFeedBack, true);
             this.rtbCFeedBack.TabIndex = 3;
             this.rtbCFeedBack.Text = "";
             this.rtbCFeedBack.TextChanged += new System.EventHandler(this.rtbCFeedBack_TextChanged);
@@ -513,6 +523,40 @@ namespace RSMPS
             this.tbpFeedback.TabIndex = 1;
             this.tbpFeedback.Text = "Old Data";
             this.tbpFeedback.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.tdbgPCNs);
+            this.groupBox3.Location = new System.Drawing.Point(3, 492);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(731, 112);
+            this.groupBox3.TabIndex = 9;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "PCN";
+            // 
+            // tdbgPCNs
+            // 
+            this.tdbgPCNs.AllowAddNew = true;
+            this.tdbgPCNs.AllowColMove = false;
+            this.tdbgPCNs.AllowDelete = true;
+            this.tdbgPCNs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tdbgPCNs.ColumnFooters = true;
+            this.tdbgPCNs.Enabled = false;
+            this.tdbgPCNs.GroupByCaption = "Drag a column header here to group by that column";
+            this.tdbgPCNs.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbgPCNs.Images"))));
+            this.tdbgPCNs.Location = new System.Drawing.Point(6, 19);
+            this.tdbgPCNs.Name = "tdbgPCNs";
+            this.tdbgPCNs.PreviewInfo.Location = new System.Drawing.Point(0, 0);
+            this.tdbgPCNs.PreviewInfo.Size = new System.Drawing.Size(0, 0);
+            this.tdbgPCNs.PreviewInfo.ZoomFactor = 75D;
+            this.tdbgPCNs.PrintInfo.PageSettings = ((System.Drawing.Printing.PageSettings)(resources.GetObject("tdbgPCNs.PrintInfo.PageSettings")));
+            this.tdbgPCNs.Size = new System.Drawing.Size(719, 85);
+            this.tdbgPCNs.TabIndex = 0;
+            this.tdbgPCNs.Text = "PCN";
+            this.tdbgPCNs.PropBag = resources.GetString("tdbgPCNs.PropBag");
             // 
             // groupBox4
             // 
@@ -684,6 +728,7 @@ namespace RSMPS
             this.c1ToolBar1.CommandLinks.AddRange(new C1.Win.C1Command.C1CommandLink[] {
             this.c1CommandLink1,
             this.c1CommandLink2,
+            this.c1CommandLink4,
             this.c1CommandLink3});
             this.c1ToolBar1.Dock = System.Windows.Forms.DockStyle.Top;
             this.c1ToolBar1.Location = new System.Drawing.Point(0, 0);
@@ -691,20 +736,23 @@ namespace RSMPS
             this.c1ToolBar1.Name = "c1ToolBar1";
             this.c1ToolBar1.Size = new System.Drawing.Size(908, 24);
             this.c1ToolBar1.Text = "c1ToolBar1";
-            this.c1ToolBar1.VisualStyleBase = C1.Win.C1Command.VisualStyle.OfficeXP;
+            this.c1ToolBar1.VisualStyleBase = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
             // c1CommandHolder1
             // 
             this.c1CommandHolder1.Commands.Add(this.tlbbSave);
             this.c1CommandHolder1.Commands.Add(this.tlbbPrint);
+            this.c1CommandHolder1.Commands.Add(this.tlbbPrintCust);
             this.c1CommandHolder1.Commands.Add(this.tlbbExit);
             this.c1CommandHolder1.Owner = this;
+            this.c1CommandHolder1.VisualStyle = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
             // tlbbSave
             // 
             this.tlbbSave.Enabled = false;
             this.tlbbSave.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbSave.Icon")));
             this.tlbbSave.Name = "tlbbSave";
+            this.tlbbSave.ShortcutText = "";
             this.tlbbSave.Text = "Save";
             this.tlbbSave.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbSave_Click);
             // 
@@ -713,6 +761,7 @@ namespace RSMPS
             this.tlbbPrint.Enabled = false;
             this.tlbbPrint.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbPrint.Icon")));
             this.tlbbPrint.Name = "tlbbPrint";
+            this.tlbbPrint.ShortcutText = "";
             this.tlbbPrint.Text = "Print";
             this.tlbbPrint.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbPrint_Click);
             // 
@@ -720,6 +769,7 @@ namespace RSMPS
             // 
             this.tlbbExit.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbExit.Icon")));
             this.tlbbExit.Name = "tlbbExit";
+            this.tlbbExit.ShortcutText = "";
             this.tlbbExit.Text = "Exit";
             this.tlbbExit.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbExit_Click);
             // 
@@ -739,47 +789,56 @@ namespace RSMPS
             this.c1CommandLink3.ButtonLook = ((C1.Win.C1Command.ButtonLookFlags)((C1.Win.C1Command.ButtonLookFlags.Text | C1.Win.C1Command.ButtonLookFlags.Image)));
             this.c1CommandLink3.Command = this.tlbbExit;
             this.c1CommandLink3.Delimiter = true;
-            this.c1CommandLink3.SortOrder = 2;
+            this.c1CommandLink3.SortOrder = 3;
             // 
-            // groupBox3
+            // Client
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.tdbgPCNs);
-            this.groupBox3.Location = new System.Drawing.Point(3, 492);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(731, 112);
-            this.groupBox3.TabIndex = 9;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "PCN";
+            this.Client.Enabled = false;
+            this.Client.Location = new System.Drawing.Point(0, 414);
+            this.Client.Multiline = true;
+            this.Client.Name = "Client";
+            this.Client.Size = new System.Drawing.Size(136, 58);
+            this.Client.TabIndex = 8;
             // 
-            // tdbgPCNs
+            // Job
             // 
-            this.tdbgPCNs.AllowAddNew = true;
-            this.tdbgPCNs.AllowColMove = false;
-            this.tdbgPCNs.AllowDelete = true;
-            this.tdbgPCNs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tdbgPCNs.ColumnFooters = true;
-            this.tdbgPCNs.Enabled = false;
-            this.tdbgPCNs.GroupByCaption = "Drag a column header here to group by that column";
-            this.tdbgPCNs.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbgPCNs.Images"))));
-            this.tdbgPCNs.Location = new System.Drawing.Point(6, 19);
-            this.tdbgPCNs.Name = "tdbgPCNs";
-            this.tdbgPCNs.PreviewInfo.Location = new System.Drawing.Point(0, 0);
-            this.tdbgPCNs.PreviewInfo.Size = new System.Drawing.Size(0, 0);
-            this.tdbgPCNs.PreviewInfo.ZoomFactor = 75D;
-            this.tdbgPCNs.PrintInfo.PageSettings = ((System.Drawing.Printing.PageSettings)(resources.GetObject("tdbgPCNs.PrintInfo.PageSettings")));
-            this.tdbgPCNs.Size = new System.Drawing.Size(719, 85);
-            this.tdbgPCNs.TabIndex = 0;
-            this.tdbgPCNs.Text = "PCN";
-            this.tdbgPCNs.PropBag = resources.GetString("tdbgPCNs.PropBag");
+            this.Job.Enabled = false;
+            this.Job.Location = new System.Drawing.Point(0, 488);
+            this.Job.Multiline = true;
+            this.Job.Name = "Job";
+            this.Job.Size = new System.Drawing.Size(136, 65);
+            this.Job.TabIndex = 9;
+            // 
+            // Location
+            // 
+            this.Location.Enabled = false;
+            this.Location.Location = new System.Drawing.Point(0, 571);
+            this.Location.Multiline = true;
+            this.Location.Name = "Location";
+            this.Location.Size = new System.Drawing.Size(136, 43);
+            this.Location.TabIndex = 10;
+            // 
+            // tlbbPrintCust
+            // 
+            this.tlbbPrintCust.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbPrintCust.Icon")));
+            this.tlbbPrintCust.Name = "tlbbPrintCust";
+            this.tlbbPrintCust.ShortcutText = "";
+            this.tlbbPrintCust.Text = "Print Client";
+            // 
+            // c1CommandLink4
+            // 
+            this.c1CommandLink4.ButtonLook = ((C1.Win.C1Command.ButtonLookFlags)((C1.Win.C1Command.ButtonLookFlags.Text | C1.Win.C1Command.ButtonLookFlags.Image)));
+            this.c1CommandLink4.Command = this.tlbbPrintCust;
+            this.c1CommandLink4.SortOrder = 2;
             // 
             // FManager_Summary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(908, 729);
+            this.Controls.Add(this.Location);
+            this.Controls.Add(this.Job);
+            this.Controls.Add(this.Client);
             this.Controls.Add(this.c1ToolBar1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tbSummay);
@@ -807,12 +866,14 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.tdbgSchedule)).EndInit();
             this.tbpFeedback.ResumeLayout(false);
             this.tbpFeedback.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tdbgPCNs)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.cmnuPMVals.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tdbgPCNs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1SpellChecker1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -880,5 +941,11 @@ namespace RSMPS
         private System.Windows.Forms.GroupBox groupBox3;
         private C1.Win.C1TrueDBGrid.C1TrueDBGrid tdbgPCNs;
         internal System.Windows.Forms.TabPage tbpFeedback;
+        private C1.Win.C1SpellChecker.C1SpellChecker c1SpellChecker1;
+        private C1.Win.C1Command.C1Command tlbbPrintCust;
+        private System.Windows.Forms.TextBox Location;
+        private System.Windows.Forms.TextBox Job;
+        private System.Windows.Forms.TextBox Client;
+        private C1.Win.C1Command.C1CommandLink c1CommandLink4;
     }
 }

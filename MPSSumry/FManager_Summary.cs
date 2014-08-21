@@ -252,6 +252,12 @@ namespace RSMPS
                         PaidToDate.Text += Convert.ToInt32(dr["PaidToDate"]);
                     if (dr["Outstanding"].ToString().Length > 0) 
                         Outstanding.Text += Convert.ToInt32(dr["Outstanding"]);
+                    if (dr["Client"].ToString().Length > 0)
+                        Client.Text = dr["Client"].ToString();
+                    if (dr["Job"].ToString().Length > 0)
+                        Job.Text = dr["Job"].ToString();
+                    if (dr["Location"].ToString().Length > 0)
+                        Location.Text = dr["Location"].ToString();
                     
                     break;
                 }
@@ -320,6 +326,7 @@ namespace RSMPS
 
             if (moProjSum.EmployeeID > 0)
                 tlbbPrint.Enabled = true;
+            tlbbPrintCust.Enabled = true;
 
             tlbbSave.Enabled = false;
             mbChanged = false;
@@ -463,6 +470,9 @@ namespace RSMPS
                 d["BilledtoDate"] = dr["BilledToDate"];
                 d["PaidtoDate"] = dr["PaidToDate"];
                 d["Outstanding"] = dr["Outstanding"];
+                d["Client"] = dr["Client"];
+                d["Job"] = dr["Job"];
+                d["Location"] = dr["Location"];
 
                 mdsProjInfos.Tables["ProjectInfos"].Rows.Add(d);
 
@@ -1005,6 +1015,7 @@ namespace RSMPS
 
             tlbbSave.Enabled = false;
             tlbbPrint.Enabled = true;
+            tlbbPrintCust.Enabled = true;
         }
 
         private void rtbSchedule_TextChanged(object sender, EventArgs e)
@@ -1046,6 +1057,7 @@ namespace RSMPS
             mbChanged = true;
             tlbbSave.Enabled = true;
             tlbbPrint.Enabled = false;
+            tlbbPrintCust.Enabled = false;
         }
 
         private void mnuPmBulletIn_Click(object sender, EventArgs e)
@@ -1155,6 +1167,16 @@ namespace RSMPS
             this.Cursor = Cursors.Default;
         }
 
+        private void tlbbPrintCust_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
+        {
+            CPSummary pmS = new CPSummary();
+
+            this.Cursor = Cursors.WaitCursor;
+
+            pmS.PrintPMCustSummary(moProjSum.EmployeeID);
+
+            this.Cursor = Cursors.Default;
+        }
         private void indentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (rtbSchedule.Focused == true)

@@ -116,7 +116,7 @@
             this.c1ToolBar1.Name = "c1ToolBar1";
             this.c1ToolBar1.Size = new System.Drawing.Size(743, 24);
             this.c1ToolBar1.Text = "c1ToolBar1";
-            this.c1ToolBar1.VisualStyleBase = C1.Win.C1Command.VisualStyle.OfficeXP;
+            this.c1ToolBar1.VisualStyleBase = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
             // c1CommandHolder1
             // 
@@ -125,11 +125,13 @@
             this.c1CommandHolder1.Commands.Add(this.tlbbPrint);
             this.c1CommandHolder1.Commands.Add(this.tlbbClose);
             this.c1CommandHolder1.Owner = this;
+            this.c1CommandHolder1.VisualStyle = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
             // tlbbNew
             // 
             this.tlbbNew.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbNew.Icon")));
             this.tlbbNew.Name = "tlbbNew";
+            this.tlbbNew.ShortcutText = "";
             this.tlbbNew.Text = "New";
             this.tlbbNew.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbNew_Click);
             // 
@@ -137,6 +139,7 @@
             // 
             this.tlbbSave.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbSave.Icon")));
             this.tlbbSave.Name = "tlbbSave";
+            this.tlbbSave.ShortcutText = "";
             this.tlbbSave.Text = "Save";
             this.tlbbSave.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbSave_Click);
             // 
@@ -145,6 +148,7 @@
             this.tlbbPrint.Enabled = false;
             this.tlbbPrint.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbPrint.Icon")));
             this.tlbbPrint.Name = "tlbbPrint";
+            this.tlbbPrint.ShortcutText = "";
             this.tlbbPrint.Text = "Print";
             this.tlbbPrint.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbPrint_Click);
             // 
@@ -152,6 +156,7 @@
             // 
             this.tlbbClose.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbClose.Icon")));
             this.tlbbClose.Name = "tlbbClose";
+            this.tlbbClose.ShortcutText = "";
             this.tlbbClose.Text = "Close";
             this.tlbbClose.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbClose_Click);
             // 
@@ -176,9 +181,9 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tbpTransmittal);
             this.tabControl1.Controls.Add(this.tbpDocs);
             this.tabControl1.Location = new System.Drawing.Point(12, 30);

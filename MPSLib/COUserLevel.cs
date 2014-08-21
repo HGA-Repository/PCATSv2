@@ -10,6 +10,8 @@ namespace RSMPS
         private int miUserID;
         private int miDepartmentID;
         private int miSecurityLevelID;
+        private int miSecurityLevelIDJS;
+        private int miSecurityLevelIDDRW;
 
         #region Properties
 
@@ -36,7 +38,16 @@ namespace RSMPS
             get { return miSecurityLevelID; }
             set { miSecurityLevelID = value; }
         }
-
+        public int SecurityLevelIDJS
+        {
+            get { return miSecurityLevelIDJS; }
+            set { miSecurityLevelIDJS = value; }
+        }
+        public int SecurityLevelIDDRW
+        {
+            get { return miSecurityLevelIDDRW; }
+            set { miSecurityLevelIDDRW = value; }
+        }
         #endregion
 
         public virtual void Clear()
@@ -45,6 +56,8 @@ namespace RSMPS
             miUserID = 0;
             miDepartmentID = 0;
             miSecurityLevelID = 0;
+            miSecurityLevelIDJS = 0;
+            miSecurityLevelIDDRW = 0;
         }
 
         public void Copy(COUserLevel oNew)
@@ -53,6 +66,8 @@ namespace RSMPS
             oNew.UserID = miUserID;
             oNew.DepartmentID = miDepartmentID;
             oNew.SecurityLevelID = miSecurityLevelID;
+            oNew.SecurityLevelIDJS = miSecurityLevelIDJS;
+            oNew.SecurityLevelIDDRW = miSecurityLevelIDDRW;
         }
 
         public void LoadFromObj(COUserLevel oOrg)
@@ -61,6 +76,8 @@ namespace RSMPS
             miUserID = oOrg.UserID;
             miDepartmentID = oOrg.DepartmentID;
             miSecurityLevelID = oOrg.SecurityLevelID;
+            miSecurityLevelIDJS = oOrg.SecurityLevelIDJS;
+            miSecurityLevelIDDRW = oOrg.SecurityLevelIDDRW;
         }
     }
 }

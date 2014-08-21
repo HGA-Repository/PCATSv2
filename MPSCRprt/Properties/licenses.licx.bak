@@ -1,3 +1,6 @@
-DataDynamics.ActiveReports.ActiveReport, ActiveReports6, Version=6.2.4238.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff
-C1.Win.C1TrueDBGrid.C1TrueDBGrid, C1.Win.C1TrueDBGrid.2, Version=2.0.20103.61202, Culture=neutral, PublicKeyToken=75ae3fb0e2b1e0da
-C1.Win.C1List.C1List, C1.Win.C1List.2, Version=2.1.20103.174, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc
+C1.Win.C1List.C1List, C1.Win.C1List.2, Version=2.1.20142.301, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc
+GrapeCity.ActiveReports.Viewer.Win.Viewer, GrapeCity.ActiveReports.Viewer.Win.v7, Version=7.3.7973.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff
+GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport, GrapeCity.ActiveReports.Export.Pdf.v7, Version=7.3.7973.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff
+C1.Win.C1List.C1Combo, C1.Win.C1List.2, Version=2.1.20142.301, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc
+C1.Win.C1TrueDBGrid.C1TrueDBGrid, C1.Win.C1TrueDBGrid.2, Version=2.0.20142.61400, Culture=neutral, PublicKeyToken=75ae3fb0e2b1e0da
+GrapeCity.ActiveReports.SectionReport, GrapeCity.ActiveReports.v7, Version=7.3.7973.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff

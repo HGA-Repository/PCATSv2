@@ -42,6 +42,7 @@ namespace RSMPS
             this.rdoCADSort = new System.Windows.Forms.RadioButton();
             this.rdoDocSort = new System.Windows.Forms.RadioButton();
             this.bttPreviewSpec = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -213,12 +214,22 @@ namespace RSMPS
             this.bttPreviewSpec.UseVisualStyleBackColor = true;
             this.bttPreviewSpec.Click += new System.EventHandler(this.bttPreviewSpec_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(178, 346);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "label1";
+            // 
             // FPnt_JobStat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(526, 372);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.bttPreviewSpec);
             this.Controls.Add(this.rdoLeads);
             this.Controls.Add(this.rdoProjects);
@@ -260,5 +271,6 @@ namespace RSMPS
         private System.Windows.Forms.RadioButton rdoCADSort;
         private System.Windows.Forms.RadioButton rdoDocSort;
         private System.Windows.Forms.Button bttPreviewSpec;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRelease_AddEdit));
             this.c1ToolBar1 = new C1.Win.C1Command.C1ToolBar();
             this.c1CommandHolder1 = new C1.Win.C1Command.C1CommandHolder();
@@ -58,12 +57,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tdbgToNames = new C1.Win.C1TrueDBGrid.C1TrueDBGrid();
-            this.mnuToPeople = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuToPeople = new System.Windows.Forms.ContextMenuStrip();
             this.deleteToPeople = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tdbgCcNames = new C1.Win.C1TrueDBGrid.C1TrueDBGrid();
-            this.mnuCcPeople = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuCcPeople = new System.Windows.Forms.ContextMenuStrip();
             this.deleteCcPeople = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -150,7 +149,7 @@
             this.c1ToolBar1.Name = "c1ToolBar1";
             this.c1ToolBar1.Size = new System.Drawing.Size(754, 24);
             this.c1ToolBar1.Text = "c1ToolBar1";
-            this.c1ToolBar1.VisualStyleBase = C1.Win.C1Command.VisualStyle.OfficeXP;
+            this.c1ToolBar1.VisualStyleBase = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
             // c1CommandHolder1
             // 
@@ -159,11 +158,13 @@
             this.c1CommandHolder1.Commands.Add(this.tlbbPrint);
             this.c1CommandHolder1.Commands.Add(this.tlbbClose);
             this.c1CommandHolder1.Owner = this;
+            this.c1CommandHolder1.VisualStyle = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
             // tlbbSave
             // 
             this.tlbbSave.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbSave.Icon")));
             this.tlbbSave.Name = "tlbbSave";
+            this.tlbbSave.ShortcutText = "";
             this.tlbbSave.Text = "Save";
             this.tlbbSave.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbSave_Click);
             // 
@@ -171,6 +172,7 @@
             // 
             this.tlbbNew.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbNew.Icon")));
             this.tlbbNew.Name = "tlbbNew";
+            this.tlbbNew.ShortcutText = "";
             this.tlbbNew.Text = "New";
             this.tlbbNew.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbNew_Click);
             // 
@@ -179,6 +181,7 @@
             this.tlbbPrint.Enabled = false;
             this.tlbbPrint.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbPrint.Icon")));
             this.tlbbPrint.Name = "tlbbPrint";
+            this.tlbbPrint.ShortcutText = "";
             this.tlbbPrint.Text = "Print";
             this.tlbbPrint.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbPrint_Click);
             // 
@@ -186,6 +189,7 @@
             // 
             this.tlbbClose.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbClose.Icon")));
             this.tlbbClose.Name = "tlbbClose";
+            this.tlbbClose.ShortcutText = "";
             this.tlbbClose.Text = "Close";
             this.tlbbClose.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbClose_Click);
             // 

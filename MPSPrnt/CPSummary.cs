@@ -25,6 +25,22 @@ namespace RSMPS
             pv.ShowDialog();
         }
 
+        public void PrintPMCustSummary(int empID)
+        {
+            rprtPMCustReport1 r = new rprtPMCustReport1();
+            FPreviewAR pv = new FPreviewAR();
+            CBEmployee e = new CBEmployee();
+
+            e.Load(empID);
+            DataSet ds = CBProjectSummary.GetPMCustReport(empID);
+            r.ProjectManager = e.Name;
+            r.DataSource = ds;
+            r.DataMember = "Table";
+
+            pv.ViewReport(r);
+            pv.ShowDialog();
+        }
+
         public void PrintVariance(int indx, int pmID)
         {
             DataSet ds = CBProjectSummary.GetVarianceReport(indx, pmID);

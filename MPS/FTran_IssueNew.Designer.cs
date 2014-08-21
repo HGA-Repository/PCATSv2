@@ -132,8 +132,6 @@ namespace RSMPS
             this.tdbddTypes.ColumnCaptionHeight = 17;
             this.tdbddTypes.ColumnFooterHeight = 17;
             this.tdbddTypes.ColumnHeaders = false;
-            //this.tdbddTypes.DataField = "ID";
-            this.tdbddTypes.ValueMember = "ID";
             this.tdbddTypes.DisplayMember = "Code";
             this.tdbddTypes.EvenRowStyle = style2;
             this.tdbddTypes.FetchRowStyles = false;
@@ -141,8 +139,6 @@ namespace RSMPS
             this.tdbddTypes.HeadingStyle = style4;
             this.tdbddTypes.HighLightRowStyle = style5;
             this.tdbddTypes.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbddTypes.Images"))));
-            //this.tdbddTypes.ListField = "Code";
-            this.tdbddTypes.DisplayMember = "Code";
             this.tdbddTypes.Location = new System.Drawing.Point(99, 36);
             this.tdbddTypes.Name = "tdbddTypes";
             this.tdbddTypes.OddRowStyle = style6;
@@ -174,14 +170,14 @@ namespace RSMPS
             this.tdbgSendTo.Name = "tdbgSendTo";
             this.tdbgSendTo.PreviewInfo.Location = new System.Drawing.Point(0, 0);
             this.tdbgSendTo.PreviewInfo.Size = new System.Drawing.Size(0, 0);
-            this.tdbgSendTo.PreviewInfo.ZoomFactor = 75;
+            this.tdbgSendTo.PreviewInfo.ZoomFactor = 75D;
             this.tdbgSendTo.PrintInfo.PageSettings = ((System.Drawing.Printing.PageSettings)(resources.GetObject("tdbgSendTo.PrintInfo.PageSettings")));
             this.tdbgSendTo.Size = new System.Drawing.Size(268, 128);
             this.tdbgSendTo.TabAction = C1.Win.C1TrueDBGrid.TabActionEnum.GridNavigation;
             this.tdbgSendTo.TabIndex = 0;
             this.tdbgSendTo.Text = "c1TrueDBGrid1";
-            this.tdbgSendTo.Click += new System.EventHandler(this.tdbgSendTo_Click);
             this.tdbgSendTo.Change += new System.EventHandler(this.tdbgSendTo_Change);
+            this.tdbgSendTo.Click += new System.EventHandler(this.tdbgSendTo_Click);
             this.tdbgSendTo.PropBag = resources.GetString("tdbgSendTo.PropBag");
             // 
             // groupBox2
@@ -205,8 +201,6 @@ namespace RSMPS
             this.tdbddTypes2.ColumnCaptionHeight = 17;
             this.tdbddTypes2.ColumnFooterHeight = 17;
             this.tdbddTypes2.ColumnHeaders = false;
-            //this.tdbddTypes2.DataField = "ID";
-            this.tdbddTypes2.ValueMember = "ID";
             this.tdbddTypes2.DisplayMember = "Code";
             this.tdbddTypes2.EvenRowStyle = style10;
             this.tdbddTypes2.FetchRowStyles = false;
@@ -214,8 +208,6 @@ namespace RSMPS
             this.tdbddTypes2.HeadingStyle = style12;
             this.tdbddTypes2.HighLightRowStyle = style13;
             this.tdbddTypes2.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbddTypes2.Images"))));
-            //this.tdbddTypes2.ListField = "Code";
-            this.tdbddTypes2.DisplayMember = "Code";
             this.tdbddTypes2.Location = new System.Drawing.Point(80, 36);
             this.tdbddTypes2.Name = "tdbddTypes2";
             this.tdbddTypes2.OddRowStyle = style14;
@@ -247,7 +239,7 @@ namespace RSMPS
             this.tdbgCarbonCopy.Name = "tdbgCarbonCopy";
             this.tdbgCarbonCopy.PreviewInfo.Location = new System.Drawing.Point(0, 0);
             this.tdbgCarbonCopy.PreviewInfo.Size = new System.Drawing.Size(0, 0);
-            this.tdbgCarbonCopy.PreviewInfo.ZoomFactor = 75;
+            this.tdbgCarbonCopy.PreviewInfo.ZoomFactor = 75D;
             this.tdbgCarbonCopy.PrintInfo.PageSettings = ((System.Drawing.Printing.PageSettings)(resources.GetObject("tdbgCarbonCopy.PrintInfo.PageSettings")));
             this.tdbgCarbonCopy.Size = new System.Drawing.Size(268, 128);
             this.tdbgCarbonCopy.TabAction = C1.Win.C1TrueDBGrid.TabActionEnum.GridNavigation;
@@ -337,6 +329,7 @@ namespace RSMPS
             // 
             // c1ToolBar1
             // 
+            this.c1ToolBar1.AutoSize = false;
             this.c1ToolBar1.ButtonLookHorz = ((C1.Win.C1Command.ButtonLookFlags)((C1.Win.C1Command.ButtonLookFlags.Text | C1.Win.C1Command.ButtonLookFlags.Image)));
             this.c1ToolBar1.CommandHolder = this.c1CommandHolder1;
             this.c1ToolBar1.CommandLinks.AddRange(new C1.Win.C1Command.C1CommandLink[] {
@@ -351,6 +344,7 @@ namespace RSMPS
             this.c1ToolBar1.Name = "c1ToolBar1";
             this.c1ToolBar1.Size = new System.Drawing.Size(605, 24);
             this.c1ToolBar1.Text = "c1ToolBar1";
+            this.c1ToolBar1.VisualStyleBase = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
             // c1CommandHolder1
             // 
@@ -360,11 +354,13 @@ namespace RSMPS
             this.c1CommandHolder1.Commands.Add(this.tlbbPrint);
             this.c1CommandHolder1.Commands.Add(this.tlbbClose);
             this.c1CommandHolder1.Owner = this;
+            this.c1CommandHolder1.VisualStyle = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
             // tlbbNew
             // 
             this.tlbbNew.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbNew.Icon")));
             this.tlbbNew.Name = "tlbbNew";
+            this.tlbbNew.ShortcutText = "";
             this.tlbbNew.Text = "New";
             this.tlbbNew.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbNew_Click);
             // 
@@ -373,6 +369,7 @@ namespace RSMPS
             this.tlbbSave.Enabled = false;
             this.tlbbSave.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbSave.Icon")));
             this.tlbbSave.Name = "tlbbSave";
+            this.tlbbSave.ShortcutText = "";
             this.tlbbSave.Text = "Save";
             this.tlbbSave.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbSave_Click);
             // 
@@ -381,6 +378,7 @@ namespace RSMPS
             this.tlbbListDrwgs.Enabled = false;
             this.tlbbListDrwgs.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbListDrwgs.Icon")));
             this.tlbbListDrwgs.Name = "tlbbListDrwgs";
+            this.tlbbListDrwgs.ShortcutText = "";
             this.tlbbListDrwgs.Text = "List Drawings";
             this.tlbbListDrwgs.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbListDrwgs_Click);
             // 
@@ -389,6 +387,7 @@ namespace RSMPS
             this.tlbbPrint.Enabled = false;
             this.tlbbPrint.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbPrint.Icon")));
             this.tlbbPrint.Name = "tlbbPrint";
+            this.tlbbPrint.ShortcutText = "";
             this.tlbbPrint.Text = "Print";
             this.tlbbPrint.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbPrint_Click);
             // 
@@ -396,6 +395,7 @@ namespace RSMPS
             // 
             this.tlbbClose.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbClose.Icon")));
             this.tlbbClose.Name = "tlbbClose";
+            this.tlbbClose.ShortcutText = "";
             this.tlbbClose.Text = "Close";
             this.tlbbClose.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbClose_Click);
             // 
@@ -710,7 +710,7 @@ namespace RSMPS
             // statusDocs
             // 
             this.statusDocs.Name = "statusDocs";
-            this.statusDocs.Size = new System.Drawing.Size(77, 17);
+            this.statusDocs.Size = new System.Drawing.Size(85, 17);
             this.statusDocs.Text = "0 Document(s)";
             // 
             // FTran_IssueNew

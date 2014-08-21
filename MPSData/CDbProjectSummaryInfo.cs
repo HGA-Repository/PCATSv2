@@ -49,6 +49,9 @@ namespace RSMPS
                 oVar.BilledtoDate = Convert.ToDecimal(dr["BilledtoDate"]);
                 oVar.PaidtoDate = Convert.ToDecimal(dr["PaidtoDate"]);
                 oVar.Outstanding = Convert.ToDecimal(dr["Outstanding"]);
+                oVar.Client = dr["Client"].ToString();
+                oVar.Job = dr["Job"].ToString();
+                oVar.Location = dr["Location"].ToString();
                 tmpStr = GetDataString();
             }
 

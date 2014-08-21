@@ -4,6 +4,16 @@
     <name>C1.Win.C1FlexGrid.2</name>
   </assembly>
   <members>
+    <member name="T:C1.C1Excel.Strings">
+      <summary>
+            Static class containing UI strings used by the designer.
+            </summary>
+    </member>
+    <member name="T:C1.Design.UITypeEditorStrings">
+      <summary>
+            Static class containing UI strings used by the designer.
+            </summary>
+    </member>
     <member name="T:C1.Win.C1FlexGrid.ColumnFilter">
       <summary>
             Represents a filter that contains a <see cref="P:C1.Win.C1FlexGrid.ColumnFilter.ValueFilter" /> and a
@@ -139,6 +149,11 @@
     <member name="P:C1.Win.C1FlexGrid.ValueFilter.IsActive">
       <summary>
             Gets or sets a value that determines whether the filter is active.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1FlexGrid.Design.DesignStrings">
+      <summary>
+            Static class containing UI strings used by the designer.
             </summary>
     </member>
     <member name="T:C1.Win.C1FlexGrid.ComboBoxEditor">
@@ -710,11 +725,6 @@
             Gets a rectangle that defines the scrollable portion of the control.
             </summary>
     </member>
-    <member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.#ctor">
-      <summary>
-            Initializes a new instance of the <see cref="T:C1.Win.C1FlexGrid.C1FlexGridBase" /> class.
-            </summary>
-    </member>
     <member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.Dispose(System.Boolean)">
       <summary>
             Releases all resources used by the <see cref="T:System.Windows.Forms.Control" />.
@@ -731,6 +741,13 @@
       <summary>
             Signals the object that initialization is complete.
             </summary>
+    </member>
+    <member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.OnGetLocalizedString(C1.Win.C1FlexGrid.GetLocalizedStringEventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.C1FlexGrid.C1FlexGridBase.GetLocalizedString" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:C1.Win.C1FlexGrid.GetLocalizedStringEventArgs" /> that contains the event data.</param>
     </member>
     <member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.CreateAccessibilityInstance">
       <summary>
@@ -767,6 +784,12 @@
             </summary>
       <param name="e">A <see cref="T:C1.Win.C1FlexGrid.DragRowColEventArgs" /> that contains the event data.</param>
     </member>
+    <member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.OnDraggingRow(C1.Win.C1FlexGrid.DragRowColEventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.C1FlexGrid.C1FlexGridBase.DraggingRow" /> event.
+            </summary>
+      <param name="e">A <see cref="T:C1.Win.C1FlexGrid.DragRowColEventArgs" /> that contains the event data.</param>
+    </member>
     <member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.OnAfterDragRow(C1.Win.C1FlexGrid.DragRowColEventArgs)">
       <summary>
             Raises the <see cref="E:C1.Win.C1FlexGrid.C1FlexGridBase.AfterDragRow" /> event.
@@ -778,6 +801,12 @@
             Raises the <see cref="E:C1.Win.C1FlexGrid.C1FlexGridBase.BeforeDragColumn" /> event.
             </summary>
       <param name="e">A <see cref="T:C1.Win.C1FlexGrid.DragRowColEventArgs" /> that contains event data.</param>
+    </member>
+    <member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.OnDraggingColumn(C1.Win.C1FlexGrid.DragRowColEventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.C1FlexGrid.C1FlexGridBase.DraggingColumn" /> event.
+            </summary>
+      <param name="e">A <see cref="T:C1.Win.C1FlexGrid.DragRowColEventArgs" /> that contains the event data.</param>
     </member>
     <member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.OnAfterDragColumn(C1.Win.C1FlexGrid.DragRowColEventArgs)">
       <summary>
@@ -1388,6 +1417,16 @@
             To obtain the display value (which is always a string), use the <see cref="M:C1.Win.C1FlexGrid.C1FlexGridBase.GetDataDisplay(System.Int32,System.Int32)" /> 
             method instead.</para>
       </remarks>
+    </member>
+    <member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.GetData(System.Int32,System.Int32,System.Boolean)">
+      <summary>
+            Gets the value of a grid cell, taking into account the value returned by the <see cref="M:C1.Win.C1FlexGrid.C1FlexGridBase.GetCellCheck(System.Int32,System.Int32)" /> method.
+            </summary>
+      <param name="row">Row index.</param>
+      <param name="col">Column index.</param>
+      <param name="getCheck">Whether to take into account the value of the <see cref="M:C1.Win.C1FlexGrid.C1FlexGridBase.GetCellCheck(System.Int32,System.Int32)" /> method.</param>
+      <returns>
+      </returns>
     </member>
     <member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.GetData(System.Int32,System.String)">
       <summary>
@@ -2367,7 +2406,7 @@
             its original value. This will significantly improve performance.</para>
       </remarks>
       <example>
-            The code bellows adds 300 rows to the grid.
+            The code below adds 300 rows to the grid.
             <code>
             // suspend painting to improve performance
             bool redraw = flex.Redraw;
@@ -3394,10 +3433,112 @@
             Method invoked when the <see cref="P:C1.Win.C1FlexGrid.C1FlexGridBase.VisualStyle" /> property changes.
             </summary>
     </member>
+    <member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.Copy">
+      <summary>
+            Copies the current selection to the clipboard.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.Cut">
+      <summary>
+            Cuts the content of the current selection to the clipboard.
+            </summary>
+      <remarks>
+            This command copies the current selection to the clipboard, then deletes
+            the editable content within the selection.
+            </remarks>
+    </member>
+    <member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.Paste">
+      <summary>
+            Pastes the content of the clipboard onto the current selection.
+            </summary>
+    </member>
     <member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.ApplyFilters">
       <summary>
             Applies all column filters to the data on the grid.
             </summary>
+    </member>
+    <member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.EditFilter(System.Int32)">
+      <summary>
+            Edits the filter associated with a given column.
+            </summary>
+      <param name="col">Index of the column whose filter should be edited.</param>
+    </member>
+    <member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.EditFilter(C1.Win.C1FlexGrid.Column)">
+      <summary>
+            Edits the filter associated with a given column.
+            </summary>
+      <param name="col">
+        <see cref="T:C1.Win.C1FlexGrid.Column" /> whose filter should be edited.</param>
+    </member>
+    <member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.ClearFilter(System.Int32)">
+      <summary>
+            Clears the filter associated with a given column.
+            </summary>
+      <param name="col">Index of the column whose filter should be cleared.</param>
+    </member>
+    <member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.ClearFilter(C1.Win.C1FlexGrid.Column)">
+      <summary>
+            Clears the filter associated with a given column.
+            </summary>
+      <param name="col">
+        <see cref="T:C1.Win.C1FlexGrid.Column" /> whose filter should be cleared.</param>
+    </member>
+    <member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.ClearFilter">
+      <summary>
+            Clears all column filters.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1FlexGrid.C1FlexGridBase.GetLocalizedString">
+      <summary>
+            Occurs when the filter localizes a string in the user interface.
+            </summary>
+      <remarks>
+        <para>The <see cref="T:C1.Win.C1FlexGrid.C1FlexGrid" /> control automatically localizes the
+            column filter based on the system's current culture and in the setting
+            of the <see cref="P:C1.Win.C1FlexGrid.C1FlexGridBase.Language" /> property.</para>
+        <para>This event allows you to customize the filter strings or to
+            implement localization to languages that are not supported by the grid's
+            built-in localization mechanism.</para>
+        <para>To modify the content of any of the filter's UI elements, handle
+            this event and set the <b>e.Value</b> parameter to the text you would
+            like to display.</para>
+      </remarks>
+      <example>
+            The example below shows how you can change the strings in the filter
+            UI based on the string value and on the name of the controls being
+            localized:
+            <code>
+            void Initialize()
+            {
+              // enable filtering
+              _flex.AllowFiltering = true;
+              
+              // set GetLocalizedString handler
+              _flex.GetLocalizedString += _flex_GetLocalizedString;
+            }
+            void _flex_GetLocalizedString(object sender, C1.Win.C1FlexGrid.GetLocalizedStringEventArgs e)
+            {
+              // customize item based on text value
+              if (e.Value == "(Select All)")
+              {
+                e.Value = "(Select Everything)";
+              }
+              
+              // customize item based on component name
+              switch (e.ComponentName)
+              {
+                case "_btnApplyFilter":
+                  e.Value = "OK";
+                  break;
+                case "_btnClearFilter":
+                  e.Value = "Reset";
+                  break;
+                case "_btnCancel":
+                  e.Value = "Close";
+                  break;
+              }
+            }
+            </code></example>
     </member>
     <member name="E:C1.Win.C1FlexGrid.C1FlexGridBase.GridChanged">
       <summary>
@@ -3466,7 +3607,18 @@
     </member>
     <member name="E:C1.Win.C1FlexGrid.C1FlexGridBase.BeforeDragRow">
       <summary>
-            Fires before the user starts dragging a row.
+            Fires when the user starts dragging a row.
+            </summary>
+      <remarks>
+        <para>This event only fires when the user drags a row using the mouse.</para>
+        <para>It does not fire when a row is moved using the <see cref="M:C1.Win.C1FlexGrid.RowCollection.Move(System.Int32,System.Int32)" /> method.</para>
+        <para>You can prevent specific rows from being dragged by the user by setting their 
+            <see cref="P:C1.Win.C1FlexGrid.RowCol.AllowDragging" /> property to false.</para>
+      </remarks>
+    </member>
+    <member name="E:C1.Win.C1FlexGrid.C1FlexGridBase.DraggingRow">
+      <summary>
+            Fires as the user drags a row to a new position.
             </summary>
       <remarks>
         <para>This event only fires when the user drags a row using the mouse.</para>
@@ -3488,11 +3640,22 @@
     </member>
     <member name="E:C1.Win.C1FlexGrid.C1FlexGridBase.BeforeDragColumn">
       <summary>
-            Fires before the user starts dragging a column.
+            Fires when the user starts dragging a column.
             </summary>
       <remarks>
         <para>This event only fires when the user drags a column using the mouse.</para>
         <para>It is does not fire when a column is moved using the <see cref="M:C1.Win.C1FlexGrid.ColumnCollection.Move(System.Int32,System.Int32)" /> method.</para>
+        <para>You can prevent specific columns from being dragged by the user by setting their 
+            <see cref="P:C1.Win.C1FlexGrid.RowCol.AllowDragging" /> property to false.</para>
+      </remarks>
+    </member>
+    <member name="E:C1.Win.C1FlexGrid.C1FlexGridBase.DraggingColumn">
+      <summary>
+            Fires as the user drags a column to a new position.
+            </summary>
+      <remarks>
+        <para>This event only fires when the user drags a column using the mouse.</para>
+        <para>It does not fire when a row is moved using the <see cref="M:C1.Win.C1FlexGrid.ColumnCollection.Move(System.Int32,System.Int32)" /> method.</para>
         <para>You can prevent specific columns from being dragged by the user by setting their 
             <see cref="P:C1.Win.C1FlexGrid.RowCol.AllowDragging" /> property to false.</para>
       </remarks>
@@ -4252,7 +4415,7 @@
             and the user deletes one or more rows by pressing the DEL key. It does not fire 
             when rows are removed from the grid programmatically or through the grid's data source.</para>
         <para>When this event fires, the rows have already been removed from the grid, so the 
-            <b>Row</b> parameter is always set to –1.</para>
+            <b>Row</b> parameter is always set to E.</para>
       </remarks>
     </member>
     <member name="E:C1.Win.C1FlexGrid.C1FlexGridBase.GetCellErrorInfo">
@@ -4290,7 +4453,7 @@
     </member>
     <member name="E:C1.Win.C1FlexGrid.C1FlexGridBase.AfterFilter">
       <summary>
-            Fires before the column filters are applied to the grid.
+            Fires after the column filters have been applied to the grid.
             </summary>
     </member>
     <member name="P:C1.Win.C1FlexGrid.C1FlexGridBase.Item(System.Int32,System.Int32)">
@@ -5490,6 +5653,11 @@
             Gets or sets an XML string containing the current filter state.
             </summary>
     </member>
+    <member name="P:C1.Win.C1FlexGrid.C1FlexGridBase.Language">
+      <summary>
+            Gets or sets the language to use when localizing the column filters.
+            </summary>
+    </member>
     <member name="M:C1.Win.C1FlexGrid.C1FlexGrid.#ctor">
       <summary>
             Creates a new instance of the <see cref="T:C1.Win.C1FlexGrid.C1FlexGrid" /> control.
@@ -6205,6 +6373,12 @@
             Use themed headers for row and column headers.
             </summary>
     </member>
+    <member name="F:C1.Win.C1FlexGrid.ShowThemedHeadersEnum.SelectedOnly">
+      <summary>
+            Use themed headers to indicate selected rows and columns when VisualStyle 
+            is set to one of the Office styles.
+            </summary>
+    </member>
     <member name="T:C1.Win.C1FlexGrid.ScrollFlags">
       <summary>
             Specifies options that customize scrollbar behavior.
@@ -6324,7 +6498,7 @@
     </member>
     <member name="F:C1.Win.C1FlexGrid.SortFlags.Descending">
       <summary>
-            Sort in ascending order.
+            Sort in descending order.
             </summary>
     </member>
     <member name="F:C1.Win.C1FlexGrid.SortFlags.AsDisplayed">
@@ -6528,6 +6702,11 @@
             Exclude collapsed rows from the aggregate.
             </summary>
     </member>
+    <member name="F:C1.Win.C1FlexGrid.AggregateFlags.ExcludeHiddenRows">
+      <summary>
+            Exclude hidden rows from the aggregate.
+            </summary>
+    </member>
     <member name="T:C1.Win.C1FlexGrid.SubtotalPositionEnum">
       <summary>
             Specifies whether subtotals rows created with the <see cref="M:C1.Win.C1FlexGrid.C1FlexGridBase.Subtotal(C1.Win.C1FlexGrid.AggregateEnum,System.Int32,System.Int32,System.Int32,System.Int32,System.String)" /> method should be
@@ -6580,7 +6759,7 @@
             The grid has been invalidated and will be repainted.
             </summary>
     </member>
-    <member name="F:C1.Win.C1FlexGrid.GridChangedTypeEnum.RepaintCell">
+    <member name="F:C1.Win.C1FlexGrid.GridChangedTypeEnum.CellChanged">
       <summary>
             The value in a cell has changed.
             </summary>
@@ -7334,7 +7513,7 @@
     </member>
     <member name="F:C1.Win.C1FlexGrid.SortColEventArgs.Order">
       <summary>
-            Sets or sets a <see cref="T:C1.Win.C1FlexGrid.SortFlags" /> value that determines the sorting order.
+            Gets or sets a <see cref="T:C1.Win.C1FlexGrid.SortFlags" /> value that determines the sorting order.
             </summary>
     </member>
     <member name="F:C1.Win.C1FlexGrid.SortColEventArgs.Cancel">
@@ -7986,6 +8165,49 @@
       <param name="aggregateValue">Calculated aggregate value for the group.</param>
       <param name="style">
         <see cref="T:C1.Win.C1FlexGrid.CellStyle" /> to be applied to the new subotal row.</param>
+    </member>
+    <member name="T:C1.Win.C1FlexGrid.GetLocalizedStringEventHandler">
+      <summary>
+            Represents the method that will handle the <see cref="E:C1.Win.C1FlexGrid.C1FlexGridBase.GetLocalizedString" /> event.
+            </summary>
+      <param name="sender">
+        <see cref="T:C1.Win.C1FlexGrid.C1FlexGridBase" /> object that raised the event.</param>
+      <param name="e">
+        <see cref="T:C1.Win.C1FlexGrid.GetLocalizedStringEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="T:C1.Win.C1FlexGrid.GetLocalizedStringEventArgs">
+      <summary>
+            Provides data for the <see cref="E:C1.Win.C1FlexGrid.C1FlexGridBase.GetLocalizedString" /> event.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1FlexGrid.GetLocalizedStringEventArgs.Value">
+      <summary>
+            Gets or sets the value of the localized string.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1FlexGrid.GetLocalizedStringEventArgs.ComponentName">
+      <summary>
+            Gets the name of the component being localized.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1FlexGrid.GetLocalizedStringEventArgs.Parent">
+      <summary>
+            Parent of the component being localized.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1FlexGrid.GetLocalizedStringEventArgs.Component">
+      <summary>
+            Component being localized.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1FlexGrid.GetLocalizedStringEventArgs.#ctor(System.String,System.String,System.Windows.Forms.Control,System.ComponentModel.Component)">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.C1FlexGrid.GetLocalizedStringEventArgs" />.
+            </summary>
+      <param name="value">Value to be localized.</param>
+      <param name="componentName">Name of the component being localized.</param>
+      <param name="parent">Parent of the component being localized.</param>
+      <param name="component">Component being localized.</param>
     </member>
     <member name="T:C1.Win.C1FlexGrid.AllowFiltering">
       <summary>
@@ -9828,6 +10050,16 @@
             <see cref="M:C1.Win.C1FlexGrid.RowCollection.Add" />, <see cref="M:C1.Win.C1FlexGrid.RowCollection.Insert(System.Int32)" />, <see cref="M:C1.Win.C1FlexGrid.RowCollection.InsertRange(System.Int32,System.Int32)" />, and <see cref="M:C1.Win.C1FlexGrid.RowCollection.Remove(System.Int32)" /> methods.
             </remarks>
     </member>
+    <member name="P:C1.Win.C1FlexGrid.RowCollection.GlyphRow">
+      <summary>
+            Gets or sets the index of the row used to display the sorting and filtering glyphs.
+            </summary>
+      <remarks>
+            The default value is -1, which causes the sorting and filtering glyphs to be shown
+            on the last fixed row. If you set this property to a value larger than the number
+            of fixed rows, then the glyphs will not be displayed.
+            </remarks>
+    </member>
     <member name="P:C1.Win.C1FlexGrid.RowCollection.Fixed">
       <summary>
             Gets or sets the number of fixed rows in the collection.
@@ -9970,6 +10202,14 @@
       <param name="index">The index of the first column in the range that will be moved.</param>
       <param name="count">The number of columns that will be moved.</param>
       <param name="indexNew">New position for the first column in the range.</param>
+    </member>
+    <member name="M:C1.Win.C1FlexGrid.ColumnCollection.BuildString(System.Boolean)">
+      <summary>
+            Gets a string build a string that contains a complete description of 
+            the column collection, suitable for persisting the control state.
+            </summary>
+      <param name="includeDefault">Whether to include default values in the description.</param>
+      <returns>A string that describes the column collection.</returns>
     </member>
     <member name="M:C1.Win.C1FlexGrid.ColumnCollection.ParseString(C1.Win.C1FlexGrid.C1FlexGridBase,System.String)">
       <summary>
@@ -11657,27 +11897,145 @@
             a parameter (for example, <see cref="M:C1.Win.C1FlexGrid.GridTree.Sort(System.Int32,C1.Win.C1FlexGrid.SortFlags,System.Int32,System.Int32)" /> and <see cref="M:C1.Win.C1FlexGrid.GridTree.Show(System.Int32)" />).
             </remarks>
     </member>
-    <member name="T:C1.C1Excel.ReferenceMode">
+    <member name="T:C1.Win.C1FlexGrid.RuntimeStrings">
       <summary>
-            The reference mode.
+            Static class containing UI strings used by the designer.
             </summary>
     </member>
-    <member name="F:C1.C1Excel.ReferenceMode.R1C1">
-      <summary>R1C1 style, default by formulas.</summary>
-    </member>
-    <member name="F:C1.C1Excel.ReferenceMode.A1">
-      <summary>A1 style, default by spreadsheet.</summary>
-    </member>
-    <member name="T:C1.C1Excel.ReferenceType">
+    <member name="T:C1.Util.Localization.Language">
       <summary>
-            The reference type.
+            Specifies the language to be used for localizing the control.
             </summary>
     </member>
-    <member name="F:C1.C1Excel.ReferenceType.Absolute">
-      <summary>Absolute coordinates.</summary>
+    <member name="F:C1.Util.Localization.Language.Default">
+      <summary>
+            Localize the control to the language specified by the CurrentUICulture.
+            </summary>
     </member>
-    <member name="F:C1.C1Excel.ReferenceType.Relative">
-      <summary>Relative coordinates.</summary>
+    <member name="F:C1.Util.Localization.Language.Arabic">
+      <summary>
+            Localize the control to Arabic.
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.Czech">
+      <summary>
+            Localize the control to Czech.
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.Danish">
+      <summary>
+            Localize the control to Danish.
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.Dutch">
+      <summary>
+            Localize the control to Dutch.
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.English">
+      <summary>
+            Localize the control to English.
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.Finnish">
+      <summary>
+            Localize the control to Finnish.
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.French">
+      <summary>
+            Localize the control to French.
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.German">
+      <summary>
+            Localize the control to German.
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.Greek">
+      <summary>
+            Localize the control to Greek.
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.Hebrew">
+      <summary>
+            Localize the control to Hebrew.
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.Italian">
+      <summary>
+            Localize the control to Italian.
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.Japanese">
+      <summary>
+            Localize the control to Japanese.
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.Norwegian">
+      <summary>
+            Localize the control to Norwegian.
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.Polish">
+      <summary>
+            Localize the control to Polish.
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.Portuguese">
+      <summary>
+            Localize the control to Portuguese.
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.Russian">
+      <summary>
+            Localize the control to Russian.
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.Slovak">
+      <summary>
+            Localize the control to Slovak.
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.Spanish">
+      <summary>
+            Localize the control to Spanish.
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.Swedish">
+      <summary>
+            Localize the control to Swedish.
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.Chinese">
+      <summary>
+            Localize the control to Chinese (simplified, PRC and Singapore).
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.Turkish">
+      <summary>
+            Localize the control to Turkish.
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.Persian">
+      <summary>
+            Localize the control to Persian (Farsi).
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.Korean">
+      <summary>
+            Localize the control to Korean.
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.ChineseTraditional">
+      <summary>
+            Localize the control to Chinese (traditional, Taiwan, Hong Kong, and Macao).
+            </summary>
+    </member>
+    <member name="F:C1.Util.Localization.Language.Hungarian">
+      <summary>
+            Localize the control to Hungarian.
+            </summary>
     </member>
     <member name="T:C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum">
       <summary>
@@ -11744,6 +12102,21 @@
     <member name="F:C1.Win.C1FlexGrid.VisualStyle.Office2007Black">
       <summary>
             Render the control with an appearance based on the Office 2007 Black color scheme.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1FlexGrid.VisualStyle.Office2010Blue">
+      <summary>
+            Render the control with an appearance based on the Office 2010 Blue color scheme.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1FlexGrid.VisualStyle.Office2010Silver">
+      <summary>
+            Render the control with an appearance based on the Office 2010 Silver color scheme.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1FlexGrid.VisualStyle.Office2010Black">
+      <summary>
+            Render the control with an appearance based on the Office 2010 Black color scheme.
             </summary>
     </member>
     <member name="T:C1.Win.C1FlexGrid.C1FlexGridRenderer">
@@ -11823,6 +12196,11 @@
             Hot cells are cells currently under the mouse. If a renderer tracks the mouse,
             then it will be called as the mouse moves over the grid.
             </remarks>
+    </member>
+    <member name="P:C1.Win.C1FlexGrid.C1FlexGridRenderer.HeaderForeColor">
+      <summary>
+            Gets the foreground color of header cells in the normal state.
+            </summary>
     </member>
     <member name="T:C1.Win.C1FlexGrid.C1FlexGridRenderer.CellType">
       <summary>
@@ -12018,6 +12396,41 @@
             Initializes a new instance of a <see cref="T:C1.Win.C1FlexGrid.GridRendererOffice2007Black" />.
             </summary>
     </member>
+    <member name="T:C1.Win.C1FlexGrid.GridRendererOffice2010Blue">
+      <summary>
+        <see cref="T:C1.Win.C1FlexGrid.C1FlexGridRenderer" /> that implements the Office2010 Blue visual style.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1FlexGrid.GridRendererOffice2010Blue.#ctor">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.C1FlexGrid.GridRendererOffice2007Blue" />.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1FlexGrid.GridRendererOffice2010Silver">
+      <summary>
+        <see cref="T:C1.Win.C1FlexGrid.C1FlexGridRenderer" /> that implements the Office2010 Silver visual style.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1FlexGrid.GridRendererOffice2010Silver.#ctor">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.C1FlexGrid.GridRendererOffice2007Silver" />.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1FlexGrid.GridRendererOffice2010Black">
+      <summary>
+        <see cref="T:C1.Win.C1FlexGrid.C1FlexGridRenderer" /> that implements the Office2010 Black visual style.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1FlexGrid.GridRendererOffice2010Black.#ctor">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.C1FlexGrid.GridRendererOffice2007Black" />.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1FlexGrid.GridRendererOffice2010Black.HeaderForeColor">
+      <summary>
+            Gets the foreground color of header cells in the normal state.
+            </summary>
+    </member>
     <member name="T:C1.Win.C1FlexGrid.GridRendererSystem">
       <summary>
         <see cref="T:C1.Win.C1FlexGrid.C1FlexGridRenderer" /> that implements the System visual style.
@@ -12047,7 +12460,7 @@
     <member name="P:C1.Win.C1FlexGrid.GridRendererSystem.TracksSelection">
       <summary>
             Gets a value that determines whether this renderer tracks the selection to paint
-            highlighed column and row headers.
+            highlighted column and row headers.
             </summary>
     </member>
   </members>

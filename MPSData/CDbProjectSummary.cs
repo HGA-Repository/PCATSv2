@@ -285,6 +285,31 @@ namespace RSMPS
             return ds;
         }
 
+        public DataSet GetPMCustReport(int empID)
+        {
+            DataSet ds;
+            RSLib.CDbConnection cnn;
+            SqlDataAdapter da;
+            SqlCommand cmd;
+            SqlParameter prm;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spRPRT_PMReportCust1", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@EmployeeID", SqlDbType.Int);
+            prm.Value = empID;
+
+            da = new SqlDataAdapter();
+            ds = new DataSet();
+            da.SelectCommand = cmd;
+            da.Fill(ds);
+
+            cnn.CloseConnection();
+
+            return ds;
+        }
+
         public DataSet GetVarianceReport(int indx, int pmID)
         {
             DataSet ds;

@@ -30,14 +30,14 @@ namespace RSMPS
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FBudgetMain));
-            C1.Win.C1TrueDBGrid.Style style57 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style58 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style59 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style60 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style61 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style62 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style63 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style64 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style1 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style2 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style3 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style4 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style5 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style6 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style7 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style8 = new C1.Win.C1TrueDBGrid.Style();
             this.c1ToolBar1 = new C1.Win.C1Command.C1ToolBar();
             this.c1CommandHolder1 = new C1.Win.C1Command.C1CommandHolder();
             this.tlbbSaveRev = new C1.Win.C1Command.C1Command();
@@ -193,7 +193,7 @@ namespace RSMPS
             this.c1ToolBar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.c1ToolBar1.Size = new System.Drawing.Size(1142, 24);
             this.c1ToolBar1.Text = "c1ToolBar1";
-            this.c1ToolBar1.VisualStyleBase = C1.Win.C1Command.VisualStyle.OfficeXP;
+            this.c1ToolBar1.VisualStyleBase = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
             // c1CommandHolder1
             // 
@@ -211,17 +211,20 @@ namespace RSMPS
             this.c1CommandHolder1.Commands.Add(this.tlbbPrintAll);
             this.c1CommandHolder1.Commands.Add(this.tlbbSelectCodes);
             this.c1CommandHolder1.Owner = this;
+            this.c1CommandHolder1.VisualStyle = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
             // tlbbSaveRev
             // 
             this.tlbbSaveRev.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbSaveRev.Icon")));
             this.tlbbSaveRev.Name = "tlbbSaveRev";
+            this.tlbbSaveRev.ShortcutText = "";
             this.tlbbSaveRev.Text = "Save Revision";
             // 
             // tlbbNewRev
             // 
             this.tlbbNewRev.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbNewRev.Icon")));
             this.tlbbNewRev.Name = "tlbbNewRev";
+            this.tlbbNewRev.ShortcutText = "";
             this.tlbbNewRev.Text = "New Revision";
             this.tlbbNewRev.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbNewRev_Click);
             // 
@@ -229,6 +232,7 @@ namespace RSMPS
             // 
             this.tlbbExit.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbExit.Icon")));
             this.tlbbExit.Name = "tlbbExit";
+            this.tlbbExit.ShortcutText = "";
             this.tlbbExit.Text = "Exit";
             this.tlbbExit.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbExit_Click);
             // 
@@ -236,6 +240,7 @@ namespace RSMPS
             // 
             this.tlbbWorksheet.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbWorksheet.Icon")));
             this.tlbbWorksheet.Name = "tlbbWorksheet";
+            this.tlbbWorksheet.ShortcutText = "";
             this.tlbbWorksheet.Text = "Worksheet";
             this.tlbbWorksheet.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbWorksheet_Click);
             // 
@@ -244,6 +249,7 @@ namespace RSMPS
             this.tlbbMakeActive.Enabled = false;
             this.tlbbMakeActive.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbMakeActive.Icon")));
             this.tlbbMakeActive.Name = "tlbbMakeActive";
+            this.tlbbMakeActive.ShortcutText = "";
             this.tlbbMakeActive.Text = "Make Active";
             this.tlbbMakeActive.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbMakeActive_Click);
             // 
@@ -251,6 +257,7 @@ namespace RSMPS
             // 
             this.tlbbSummary.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbSummary.Icon")));
             this.tlbbSummary.Name = "tlbbSummary";
+            this.tlbbSummary.ShortcutText = "";
             this.tlbbSummary.Text = "Summary";
             this.tlbbSummary.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbSummary_Click);
             // 
@@ -258,6 +265,7 @@ namespace RSMPS
             // 
             this.tlbbPreviewDetails.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbPreviewDetails.Icon")));
             this.tlbbPreviewDetails.Name = "tlbbPreviewDetails";
+            this.tlbbPreviewDetails.ShortcutText = "";
             this.tlbbPreviewDetails.Text = "Details";
             this.tlbbPreviewDetails.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbPreviewDetails_Click);
             // 
@@ -265,6 +273,7 @@ namespace RSMPS
             // 
             this.tlbbMakeDefault.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbMakeDefault.Icon")));
             this.tlbbMakeDefault.Name = "tlbbMakeDefault";
+            this.tlbbMakeDefault.ShortcutText = "";
             this.tlbbMakeDefault.Text = "Make Default";
             this.tlbbMakeDefault.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbMakeDefault_Click);
             // 
@@ -272,6 +281,7 @@ namespace RSMPS
             // 
             this.tlbbJobStat.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbJobStat.Icon")));
             this.tlbbJobStat.Name = "tlbbJobStat";
+            this.tlbbJobStat.ShortcutText = "";
             this.tlbbJobStat.Text = "Job Stat";
             this.tlbbJobStat.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbJobStat_Click);
             // 
@@ -279,6 +289,7 @@ namespace RSMPS
             // 
             this.tlbbBudgetEntry.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbBudgetEntry.Icon")));
             this.tlbbBudgetEntry.Name = "tlbbBudgetEntry";
+            this.tlbbBudgetEntry.ShortcutText = "";
             this.tlbbBudgetEntry.Text = "Budget Entry";
             this.tlbbBudgetEntry.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbBudgetEntry_Click);
             // 
@@ -286,6 +297,7 @@ namespace RSMPS
             // 
             this.tlbbBudgetExport.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbBudgetExport.Icon")));
             this.tlbbBudgetExport.Name = "tlbbBudgetExport";
+            this.tlbbBudgetExport.ShortcutText = "";
             this.tlbbBudgetExport.Text = "Budget Export";
             this.tlbbBudgetExport.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbBudgetExport_Click);
             // 
@@ -293,6 +305,7 @@ namespace RSMPS
             // 
             this.tlbbPrintAll.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbPrintAll.Icon")));
             this.tlbbPrintAll.Name = "tlbbPrintAll";
+            this.tlbbPrintAll.ShortcutText = "";
             this.tlbbPrintAll.Text = "Print All";
             this.tlbbPrintAll.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbPrintAll_Click);
             // 
@@ -300,6 +313,7 @@ namespace RSMPS
             // 
             this.tlbbSelectCodes.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbSelectCodes.Icon")));
             this.tlbbSelectCodes.Name = "tlbbSelectCodes";
+            this.tlbbSelectCodes.ShortcutText = "";
             this.tlbbSelectCodes.Text = "Select Codes";
             this.tlbbSelectCodes.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbSelectCodes_Click);
             // 
@@ -452,7 +466,6 @@ namespace RSMPS
             this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.tabControl1.ContextMenuStrip = this.cmnuBudget;
             this.tabControl1.Controls.Add(this.tbpPCN);
-            //this.tabControl1.Controls.Add(this.tbpClarifications);
             this.tabControl1.ItemSize = new System.Drawing.Size(105, 30);
             this.tabControl1.Location = new System.Drawing.Point(165, 30);
             this.tabControl1.Multiline = true;
@@ -484,25 +497,25 @@ namespace RSMPS
             this.tdbdPCNStatus.AllowColSelect = true;
             this.tdbdPCNStatus.AllowRowSizing = C1.Win.C1TrueDBGrid.RowSizingEnum.AllRows;
             this.tdbdPCNStatus.AlternatingRows = false;
-            this.tdbdPCNStatus.CaptionStyle = style57;
+            this.tdbdPCNStatus.CaptionStyle = style1;
             this.tdbdPCNStatus.ColumnCaptionHeight = 17;
             this.tdbdPCNStatus.ColumnFooterHeight = 17;
-            this.tdbdPCNStatus.EvenRowStyle = style58;
+            this.tdbdPCNStatus.EvenRowStyle = style2;
             this.tdbdPCNStatus.FetchRowStyles = false;
-            this.tdbdPCNStatus.FooterStyle = style59;
-            this.tdbdPCNStatus.HeadingStyle = style60;
-            this.tdbdPCNStatus.HighLightRowStyle = style61;
+            this.tdbdPCNStatus.FooterStyle = style3;
+            this.tdbdPCNStatus.HeadingStyle = style4;
+            this.tdbdPCNStatus.HighLightRowStyle = style5;
             this.tdbdPCNStatus.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbdPCNStatus.Images"))));
             this.tdbdPCNStatus.Location = new System.Drawing.Point(26, 95);
             this.tdbdPCNStatus.Name = "tdbdPCNStatus";
-            this.tdbdPCNStatus.OddRowStyle = style62;
-            this.tdbdPCNStatus.RecordSelectorStyle = style63;
+            this.tdbdPCNStatus.OddRowStyle = style6;
+            this.tdbdPCNStatus.RecordSelectorStyle = style7;
             this.tdbdPCNStatus.RowDivider.Color = System.Drawing.Color.DarkGray;
             this.tdbdPCNStatus.RowDivider.Style = C1.Win.C1TrueDBGrid.LineStyleEnum.Single;
             this.tdbdPCNStatus.RowSubDividerColor = System.Drawing.Color.DarkGray;
             this.tdbdPCNStatus.ScrollTips = false;
             this.tdbdPCNStatus.Size = new System.Drawing.Size(297, 138);
-            this.tdbdPCNStatus.Style = style64;
+            this.tdbdPCNStatus.Style = style8;
             this.tdbdPCNStatus.TabIndex = 3;
             this.tdbdPCNStatus.TabStop = false;
             this.tdbdPCNStatus.Text = "c1TrueDBDropdown1";
@@ -806,10 +819,11 @@ namespace RSMPS
             this.c1FlexGrid1.ColumnInfo = resources.GetString("c1FlexGrid1.ColumnInfo");
             this.c1FlexGrid1.ContextMenuStrip = this.contextMenuStrip1;
             this.c1FlexGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.c1FlexGrid1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.c1FlexGrid1.Location = new System.Drawing.Point(0, 0);
             this.c1FlexGrid1.Name = "c1FlexGrid1";
             this.c1FlexGrid1.Rows.Count = 10;
-            this.c1FlexGrid1.Rows.DefaultSize = 17;
+            this.c1FlexGrid1.Rows.DefaultSize = 19;
             this.c1FlexGrid1.Size = new System.Drawing.Size(889, 397);
             this.c1FlexGrid1.StyleInfo = resources.GetString("c1FlexGrid1.StyleInfo");
             this.c1FlexGrid1.TabIndex = 2;
@@ -1053,10 +1067,11 @@ namespace RSMPS
             this.c1FlexGrid3.ColumnInfo = resources.GetString("c1FlexGrid3.ColumnInfo");
             this.c1FlexGrid3.ContextMenuStrip = this.contextMenuStrip1;
             this.c1FlexGrid3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.c1FlexGrid3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.c1FlexGrid3.Location = new System.Drawing.Point(0, 0);
             this.c1FlexGrid3.Name = "c1FlexGrid3";
             this.c1FlexGrid3.Rows.Count = 11;
-            this.c1FlexGrid3.Rows.DefaultSize = 17;
+            this.c1FlexGrid3.Rows.DefaultSize = 19;
             this.c1FlexGrid3.Size = new System.Drawing.Size(961, 433);
             this.c1FlexGrid3.StyleInfo = resources.GetString("c1FlexGrid3.StyleInfo");
             this.c1FlexGrid3.TabIndex = 3;
@@ -1076,10 +1091,11 @@ namespace RSMPS
             this.c1FlexGrid4.ColumnInfo = resources.GetString("c1FlexGrid4.ColumnInfo");
             this.c1FlexGrid4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.c1FlexGrid4.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw;
+            this.c1FlexGrid4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.c1FlexGrid4.Location = new System.Drawing.Point(0, 25);
             this.c1FlexGrid4.Name = "c1FlexGrid4";
             this.c1FlexGrid4.Rows.Count = 2;
-            this.c1FlexGrid4.Rows.DefaultSize = 17;
+            this.c1FlexGrid4.Rows.DefaultSize = 19;
             this.c1FlexGrid4.Size = new System.Drawing.Size(961, 190);
             this.c1FlexGrid4.StyleInfo = resources.GetString("c1FlexGrid4.StyleInfo");
             this.c1FlexGrid4.TabIndex = 2;
@@ -1219,7 +1235,7 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.tdbdPCNStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tdbgBudgetPCN)).EndInit();
             this.tbpClarifications.ResumeLayout(false);
-            //this.tbpClarifications.PerformLayout();
+            this.tbpClarifications.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).EndInit();

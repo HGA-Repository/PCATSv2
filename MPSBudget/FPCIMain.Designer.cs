@@ -213,9 +213,9 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDescription.Location = new System.Drawing.Point(7, 20);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
@@ -680,11 +680,13 @@
             this.c1CommandHolder1.Commands.Add(this.tlbbExit);
             this.c1CommandHolder1.Commands.Add(this.tlbbLockUnlock);
             this.c1CommandHolder1.Owner = this;
+            this.c1CommandHolder1.VisualStyle = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
             // tlbbNew
             // 
             this.tlbbNew.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbNew.Icon")));
             this.tlbbNew.Name = "tlbbNew";
+            this.tlbbNew.ShortcutText = "";
             this.tlbbNew.Text = "New";
             this.tlbbNew.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbNew_Click);
             // 
@@ -692,6 +694,7 @@
             // 
             this.tlbbSave.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbSave.Icon")));
             this.tlbbSave.Name = "tlbbSave";
+            this.tlbbSave.ShortcutText = "";
             this.tlbbSave.Text = "Save";
             this.tlbbSave.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbSave_Click);
             // 
@@ -699,6 +702,7 @@
             // 
             this.tlbbPrint.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbPrint.Icon")));
             this.tlbbPrint.Name = "tlbbPrint";
+            this.tlbbPrint.ShortcutText = "";
             this.tlbbPrint.Text = "Print";
             this.tlbbPrint.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbPrint_Click);
             // 
@@ -706,6 +710,7 @@
             // 
             this.tlbbExit.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbExit.Icon")));
             this.tlbbExit.Name = "tlbbExit";
+            this.tlbbExit.ShortcutText = "";
             this.tlbbExit.Text = "Exit";
             this.tlbbExit.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbExit_Click);
             // 
@@ -713,6 +718,7 @@
             // 
             this.tlbbLockUnlock.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbLockUnlock.Icon")));
             this.tlbbLockUnlock.Name = "tlbbLockUnlock";
+            this.tlbbLockUnlock.ShortcutText = "";
             this.tlbbLockUnlock.Text = "Unlocked";
             this.tlbbLockUnlock.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbLockUnlock_Click);
             // 
@@ -734,7 +740,7 @@
             this.c1ToolBar1.Name = "c1ToolBar1";
             this.c1ToolBar1.Size = new System.Drawing.Size(769, 24);
             this.c1ToolBar1.Text = "c1ToolBar1";
-            this.c1ToolBar1.VisualStyleBase = C1.Win.C1Command.VisualStyle.OfficeXP;
+            this.c1ToolBar1.VisualStyleBase = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
             // c1CommandLink1
             // 
@@ -865,8 +871,8 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Project Change Identification";
-            this.Load += new System.EventHandler(this.FPCIMain_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FPCIMain_FormClosing);
+            this.Load += new System.EventHandler(this.FPCIMain_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

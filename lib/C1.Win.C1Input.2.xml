@@ -4,10 +4,650 @@
     <name>C1.Win.C1Input.2</name>
   </assembly>
   <members>
+    <member name="T:C1.Framework.ElementWrapper">
+      <summary>
+            Public class that derives from <see cref="T:System.ComponentModel.Component" /> and wraps a C1Framework Element.
+            Add whatever object model you want, map to the inner Element as needed.
+            The <see cref="T:C1.Framework.XViewDesigner" /> class adds design-time support to controls that 
+            contain <see cref="T:C1.Framework.ElementWrapper" /> objects, so you can select and edit them using the 
+            property window. Serialization is also supported.
+            </summary>
+    </member>
+    <member name="T:C1.Framework.ElementWrapperCollection`1">
+      <summary>
+            Public collection of <see cref="T:C1.Framework.ElementWrapper" /> objects. 
+            The ElementWrapperCollection is a public wrapper for the Element.Children collection.
+            This class exposes methods that allow you to retrieve, add, and remove ElementWrappers
+            from the collection. Any changes made to this collection are automatically reflected
+            in the wrapped Element's Children collection.
+            </summary>
+    </member>
+    <member name="T:C1.Framework.ResourceLoader">
+      <summary>
+            Class with static methods used for enumerating and retrieving application
+            resources.
+            </summary>
+    </member>
+    <member name="M:C1.Framework.ResourceLoader.GetImages">
+      <summary>
+            Returns all images from the entry assembly. 
+            </summary>
+      <returns>A collection of name/image pairs.</returns>
+    </member>
+    <member name="M:C1.Framework.ResourceLoader.GetImages(System.Reflection.Assembly)">
+      <summary>
+            Returns all images from the specified assembly. 
+            </summary>
+      <param name="a">An <see cref="T:System.Reflection.Assembly" /> to load images from.</param>
+      <returns>A collection of name/image pairs.</returns>
+    </member>
+    <member name="M:C1.Framework.ResourceLoader.GetImage(System.String)">
+      <summary>
+            Loads an image from the entry assembly. 
+            </summary>
+      <param name="name">The case-insensitive name of the requested image.</param>
+      <returns>The <see cref="T:System.Drawing.Image" /> if it is found; null otherwise.</returns>
+    </member>
+    <member name="M:C1.Framework.ResourceLoader.GetImage(System.Reflection.Assembly,System.String)">
+      <summary>
+            Loads an image from the specified assembly. 
+            </summary>
+      <param name="a">An <see cref="T:System.Reflection.Assembly" /> to load image from.</param>
+      <param name="name">The case-insensitive name of the requested image.</param>
+      <returns>The <see cref="T:System.Drawing.Image" /> if it is found; null otherwise.</returns>
+    </member>
+    <member name="M:C1.Framework.ResourceLoader.GetStream(System.String)">
+      <summary>
+            Loads the specified manifest resource from the entry assembly. 
+            </summary>
+      <param name="name">The case-insensitive name of the manifest resource being requested.</param>
+      <returns>A <see cref="T:System.IO.Stream" /> representing this manifest resource.</returns>
+    </member>
+    <member name="M:C1.Framework.ResourceLoader.GetStream(System.Reflection.Assembly,System.String)">
+      <summary>
+            Loads the specified manifest resource from the specified assembly. 
+            </summary>
+      <param name="a">An <see cref="T:System.Reflection.Assembly" /> to load resource from.</param>
+      <param name="name">The case-insensitive name of the manifest resource being requested.</param>
+      <returns>A <see cref="T:System.IO.Stream" /> representing this manifest resource.</returns>
+    </member>
+    <member name="M:C1.Framework.ResourceLoader.DecodeImage(System.String)">
+      <summary>
+            Decodes an image from a base-64-encoded string.
+            </summary>
+      <param name="data">String that contains the encoded image data.</param>
+      <returns>The <see cref="T:System.Drawing.Image" /> encoded in the string.</returns>
+    </member>
+    <member name="T:C1.Framework.ScrollableControl">
+      <summary>
+            Defines an abstract base class for controls that support auto-scrolling behavior. 
+            </summary>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.#ctor">
+      <summary>
+            Initializes the <see cref="T:C1.Framework.ScrollableControl" /> properties.
+            </summary>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.OnScroll(System.Windows.Forms.ScrollBars)">
+      <summary>
+            Override this method to get notifications when the control scrolls.
+            </summary>
+      <param name="sb">
+      </param>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.BuildScrollableRectangle(System.Int32,System.Int32)">
+      <summary>
+            This method is used to set the scroll rectangle.
+            Override it to customize the scrolling behavior.
+            </summary>
+      <param name="dx">
+      </param>
+      <param name="dy">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.HandleScrollMessage(System.Windows.Forms.Message)">
+      <summary>
+            Handles scroll messages.
+            </summary>
+      <param name="m">
+      </param>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.SetClientSizeCore(System.Int32,System.Int32)">
+      <summary>
+            This member overrides <see cref="M:System.Windows.Forms.Control.SetClientSizeCore(System.Int32,System.Int32)" />.
+            Override this method to account for scrollbars size.
+            </summary>
+      <param name="x">
+      </param>
+      <param name="y">
+      </param>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.OnInvalidated(System.Windows.Forms.InvalidateEventArgs)">
+      <summary>
+            This member overrides <see cref="M:System.Windows.Forms.Control.OnInvalidated(System.Windows.Forms.InvalidateEventArgs)" />.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.OnPaint(System.Windows.Forms.PaintEventArgs)">
+      <summary>
+            This member overrides <see cref="M:System.Windows.Forms.Control.OnPaint(System.Windows.Forms.PaintEventArgs)" />.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.OnSizeChanged(System.EventArgs)">
+      <summary>
+            This member overrides <see cref="M:System.Windows.Forms.Control.OnSizeChanged(System.EventArgs)" />.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.OnMouseWheel(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+            This member overrides <see cref="M:System.Windows.Forms.Control.OnMouseWheel(System.Windows.Forms.MouseEventArgs)" />.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.WndProc(System.Windows.Forms.Message@)">
+      <summary>
+            This member overrides <see cref="M:System.Windows.Forms.Control.WndProc(System.Windows.Forms.Message@)" />.
+            </summary>
+      <param name="m">
+      </param>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.GetScrollSize(System.Int32)">
+      <summary>
+            Retrieves the specified scroll bar range.
+            </summary>
+      <param name="nBar">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.GetScrollPos(System.Int32)">
+      <summary>
+            Gets the scroll position of the specified scroll bar.
+            </summary>
+      <param name="nBar">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.GetTrackPos(System.Int32)">
+      <summary>
+            Gets the immediate position of the specified scroll box that the user is dragging.
+            </summary>
+      <param name="nBar">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Framework.ScrollableControl.SetScrollPos(System.Int32,System.Int32)">
+      <summary>
+            Sets the position of the specified scroll bar.
+            </summary>
+      <param name="nBar">
+      </param>
+      <param name="pos">Specifies the new position of the scroll box. 
+            The position must be within the scrolling range. </param>
+      <returns>The previous position of the scroll box indicates success. 
+            Zero indicates failure</returns>
+    </member>
+    <member name="P:C1.Framework.ScrollableControl.Text">
+      <summary>
+            Gets or sets the text associated with the control.
+            </summary>
+    </member>
+    <member name="P:C1.Framework.ScrollableControl.ScrollBars">
+      <summary>
+            Gets or sets which scroll bars should appear on the control.
+            </summary>
+    </member>
+    <member name="P:C1.Framework.ScrollableControl.ScrollPosition">
+      <summary>
+            Gets or sets the <see cref="T:System.Drawing.Point" /> value determining the current scroll position.
+            </summary>
+    </member>
+    <member name="P:C1.Framework.ScrollableControl.ScrollSize">
+      <summary>
+            Gets or sets the size of the document.
+            </summary>
+    </member>
+    <member name="P:C1.Framework.ScrollableControl.ScrollTrack">
+      <summary>
+            Gets or sets whether the control should scroll as the user drags the scrollbar thumb.
+            </summary>
+    </member>
+    <member name="P:C1.Framework.ScrollableControl.BorderStyle">
+      <summary>
+            Gets or sets the <see cref="P:C1.Framework.ScrollableControl.BorderStyle" /> value determining 
+            the type of border around the control.
+            </summary>
+    </member>
+    <member name="P:C1.Framework.ScrollableControl.Cursor">
+      <summary>
+            Gets or sets the <see cref="P:C1.Framework.ScrollableControl.Cursor" /> that appears when 
+            the mouse moves over the control.
+            </summary>
+    </member>
+    <member name="P:C1.Framework.ScrollableControl.ScrollableRectangle">
+      <summary>
+            This property is used to set the scroll page size.
+            Override it to customize the scrolling behavior.
+            </summary>
+    </member>
+    <member name="T:C1.Framework.XView">
+      <summary>
+        <para>Control that hosts X elements.</para>
+        <para>The control has an <see cref="P:C1.Framework.XView.Element" /> property that gets or
+            sets the element to be displayed.</para>
+        <para>The control is responsible for displaying the element, providing
+            scrolling, and routing mouse and keyboard events to the hosted element.</para>
+      </summary>
+    </member>
+    <member name="M:C1.Framework.XView.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:C1.Framework.XView" /> control.
+            </summary>
+    </member>
+    <member name="M:C1.Framework.XView.CreateGraphics">
+      <summary>
+            Creates a <see cref="T:System.Drawing.Graphics" /> object for the control.
+            </summary>
+      <returns>A <see cref="T:System.Drawing.Graphics" /> object for the control.</returns>
+      <remarks>
+            The <see cref="T:System.Drawing.Graphics" /> object returned by this method reflects the current
+            settings for the <see cref="P:C1.Framework.XView.SmoothingMode" /> and <see cref="P:C1.Framework.XView.TextRenderingHint" />
+            properties.
+            </remarks>
+    </member>
+    <member name="M:C1.Framework.XView.ScrollIntoView(System.Drawing.Point)">
+      <summary>
+            Scrolls a given point into view.
+            </summary>
+      <param name="pt">Point to scroll into view.</param>
+    </member>
+    <member name="M:C1.Framework.XView.ScrollIntoView(System.Drawing.Rectangle)">
+      <summary>
+            Scrolls a given rectangle into view.
+            </summary>
+      <param name="r">Rectangle to scroll into view.</param>
+    </member>
+    <member name="M:C1.Framework.XView.Dispose(System.Boolean)">
+      <summary>
+            Releases all resources used by the control. 
+            </summary>
+      <param name="disposing">
+      </param>
+    </member>
+    <member name="M:C1.Framework.XView.IsInputKey(System.Windows.Forms.Keys)">
+      <summary>
+            Determines whether the specified key is a regular input key or 
+            a special key that requires preprocessing.
+            </summary>
+      <param name="keyData">One of the <see cref="T:System.Windows.Forms.Keys" /> values.</param>
+      <returns>True if the specified key is a regular input key; otherwise, false.</returns>
+    </member>
+    <member name="M:C1.Framework.XView.OnGotFocus(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.GotFocus" /> event. 
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Framework.XView.OnLeave(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.Leave" /> event. 
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Framework.XView.OnValidating(System.ComponentModel.CancelEventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.Validating" /> event.
+            </summary>
+      <param name="e">A <see cref="T:System.ComponentModel.CancelEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Framework.XView.OnValidated(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.Validated" /> event.
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Framework.XView.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.KeyDown" /> event. 
+            </summary>
+      <param name="e">An <see cref="T:System.Windows.Forms.KeyEventArgs" /> 
+            that contains the event data.</param>
+    </member>
+    <member name="M:C1.Framework.XView.OnKeyUp(System.Windows.Forms.KeyEventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.KeyUp" /> event. 
+            </summary>
+      <param name="e">An <see cref="T:System.Windows.Forms.KeyEventArgs" /> 
+            that contains the event data.</param>
+    </member>
+    <member name="M:C1.Framework.XView.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.KeyPress" /> event. 
+            </summary>
+      <param name="e">An <see cref="T:System.Windows.Forms.KeyPressEventArgs" /> 
+            that contains the event data.</param>
+    </member>
+    <member name="M:C1.Framework.XView.OnMouseWheel(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.MouseWheel" /> event. 
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Framework.XView.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.MouseMove" /> event. 
+            </summary>
+      <param name="e">An <see cref="T:System.Windows.Forms.MouseEventArgs" /> 
+            that contains the event data.</param>
+    </member>
+    <member name="M:C1.Framework.XView.OnClick(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.Click" /> event. 
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Framework.XView.OnDoubleClick(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.DoubleClick" /> event. 
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Framework.XView.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.MouseDown" /> event. 
+            </summary>
+      <param name="e">An <see cref="T:System.Windows.Forms.MouseEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Framework.XView.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.MouseUp" /> event. 
+            </summary>
+      <param name="e">An <see cref="T:System.Windows.Forms.MouseEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Framework.XView.OnMouseEnter(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.MouseEnter" /> event. 
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Framework.XView.OnMouseLeave(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.MouseLeave" /> event. 
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Framework.XView.IsMouseInsideXView">
+      <summary>
+            Returns True if the mouse pointer is inside the XView control.
+            </summary>
+    </member>
+    <member name="M:C1.Framework.XView.OnPaint(System.Windows.Forms.PaintEventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.Paint" /> event. 
+            </summary>
+      <param name="e">An <see cref="T:System.Windows.Forms.PaintEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Framework.XView.OnInvalidated(System.Windows.Forms.InvalidateEventArgs)">
+      <summary>
+            Remove hosted controls that belong to elements which became invisible or
+            belong to a different control now.
+            </summary>
+      <remarks>
+        <para>The host element is responsible for restoring the control's Parent property
+            when it updates its position.</para>
+        <para>Note: <see cref="T:C1.Framework.XView" /> determines that a <see cref="T:System.Windows.Forms.Control" />belongs to an 
+            <see cref="P:C1.Framework.XView.Element" /> if the control's <see cref="P:System.Windows.Forms.Control.Tag" /> property contains 
+            a reference to a <see cref="T:System.Windows.Forms.Control" /> object.</para>
+      </remarks>
+      <param name="e">
+        <see cref="T:System.Windows.Forms.InvalidateEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Framework.XView.OnHandleDestroyed(System.EventArgs)">
+      <summary>
+            Remove hosted controls before disposing of the parent control.
+            </summary>
+      <remarks>
+        <para>This allows the host element to remain valid even if their parent view is disposed.
+            To dispose of the hosted control, call Dispose on the hosted control directly.</para>
+        <para>Note: <see cref="T:C1.Framework.XView" /> determines that a <see cref="T:System.Windows.Forms.Control" />belongs to an 
+            <see cref="P:C1.Framework.XView.Element" /> if the control's <see cref="P:System.Windows.Forms.Control.Tag" /> property contains 
+            a reference to a <see cref="T:System.Windows.Forms.Control" /> object.</para>
+      </remarks>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Framework.XView.BuildScrollableRectangle(System.Int32,System.Int32)">
+      <summary>
+             Sets the scroll rectangle.
+            </summary>
+      <param name="dx">Amount to scroll in the x direction, in pixels.</param>
+      <param name="dy">Amount to scroll in the y direction, in pixels.</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:C1.Win.C1Input.UIStringsItemEventHandler">
+      <summary>
+            Represents a handler for an <see cref="T:C1.Win.C1Input.UIStrings" /> item related event.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.UIStringsItemEventArgs">
+      <summary>
+            Provides data for an <see cref="T:C1.Win.C1Input.UIStrings" /> item related event.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.UIStringsItemEventArgs.Key">
+      <summary>
+            Gets key of the item being added or changed.
+            </summary>
+      <value>The key.</value>
+    </member>
+    <member name="P:C1.Win.C1Input.UIStringsItemEventArgs.Value">
+      <summary>
+            Gets the string value.
+            </summary>
+      <value>The value.</value>
+    </member>
+    <member name="P:C1.Win.C1Input.UIStringsItemEventArgs.IsDefault">
+      <summary>
+            Gets a value indicating whether this instance is default.
+            </summary>
+      <value>
+        <c>true</c> if this instance is default; otherwise, <c>false</c>.
+            </value>
+    </member>
+    <member name="P:C1.Win.C1Input.UIStringsItemEventArgs.Description">
+      <summary>
+            Gets the description.
+            </summary>
+      <value>The description.</value>
+    </member>
+    <member name="T:C1.Win.C1Input.UIStrings">
+      <summary>
+            Represents a collection of end user visible UI strings.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.UIStrings.Add(System.Object,System.Int32,System.String,System.String)">
+      <summary>
+            Adds a string to the collection, specifying the ordinal.
+            </summary>
+      <param name="key">The key of the string.</param>
+      <param name="ordinal">The ordinal of the string.</param>
+      <param name="value">The string.</param>
+      <param name="description">The description of the string.</param>
+    </member>
+    <member name="M:C1.Win.C1Input.UIStrings.Add(System.Object,System.String,System.String)">
+      <summary>
+            Adds a string to the collection in alphabetical order.
+            </summary>
+      <param name="key">The key of the string.</param>
+      <param name="value">The string.</param>
+      <param name="description">The description of the string.</param>
+    </member>
+    <member name="M:C1.Win.C1Input.UIStrings.AddInOrder(System.Object,System.String,System.String)">
+      <summary>
+            Adds a string to the collection, preserving the order.
+            </summary>
+      <param name="key">The key of the string.</param>
+      <param name="value">The string.</param>
+      <param name="description">The description of the string.</param>
+    </member>
+    <member name="M:C1.Win.C1Input.UIStrings.Reset">
+      <summary>
+            Sets all strings in collection to their default values.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.UIStrings.ShouldSerialize">
+      <summary>
+            Indicates whether any of the strings in the current collection
+            have non-default values.
+            </summary>
+      <returns>
+        <c>true</c> if any of the strings have non-default values, <c>false</c> otherwise.</returns>
+    </member>
+    <member name="M:C1.Win.C1Input.UIStrings.IsDefault(System.Object)">
+      <summary>
+            Tests whether a string in the collection has default value.
+            </summary>
+      <param name="key">The key of the string to test.</param>
+      <returns>
+        <c>true</c> if the string has default value, <c>false</c> otherwise.</returns>
+    </member>
+    <member name="M:C1.Win.C1Input.UIStrings.GetDescription(System.Object)">
+      <summary>
+            Returns the description of a string.
+            </summary>
+      <param name="key">The key of the string to get the description of.</param>
+      <returns>The string's description</returns>
+    </member>
+    <member name="M:C1.Win.C1Input.UIStrings.Reset(System.Object)">
+      <summary>
+            Resets a string to its default value.
+            </summary>
+      <param name="key">The key of the string to reset.</param>
+    </member>
+    <member name="M:C1.Win.C1Input.UIStrings.GetKeyAt(System.Int32)">
+      <summary>
+            Returns the key of an item with the specified index.
+            </summary>
+      <param name="index">The item index.</param>
+      <returns>The item's key.</returns>
+    </member>
+    <member name="M:C1.Win.C1Input.UIStrings.GetValueAt(System.Int32)">
+      <summary>
+            Gets the string by its index.
+            </summary>
+      <param name="index">The string index.</param>
+      <returns>The string.</returns>
+    </member>
+    <member name="M:C1.Win.C1Input.UIStrings.SetValueAt(System.Int32,System.String)">
+      <summary>
+            Sets the value of a string with the specified index.
+            </summary>
+      <param name="index">The string index.</param>
+      <param name="value">The new string value.</param>
+    </member>
+    <member name="M:C1.Win.C1Input.UIStrings.OnItemAdded(C1.Win.C1Input.UIStringsItemEventArgs)">
+      <summary>
+            Fires the <see cref="E:C1.Win.C1Input.UIStrings.ItemAdded" /> event.
+            </summary>
+      <param name="e">The event data.</param>
+    </member>
+    <member name="M:C1.Win.C1Input.UIStrings.OnItemChanged(C1.Win.C1Input.UIStringsItemEventArgs)">
+      <summary>
+            Fires the <see cref="E:C1.Win.C1Input.UIStrings.ItemChanged" /> event.
+            </summary>
+      <param name="e">The event data.</param>
+    </member>
+    <member name="M:C1.Win.C1Input.UIStrings.OnCollectionChanged(System.EventArgs)">
+      <summary>
+            Fires the <see cref="E:C1.Win.C1Input.UIStrings.CollectionChanged" /> event.
+            </summary>
+      <param name="e">The event data.</param>
+    </member>
+    <member name="P:C1.Win.C1Input.UIStrings.Count">
+      <summary>
+            Gets the number of elements contained in the collection.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.UIStrings.ItemAdded">
+      <summary>
+            Occurs when a new item is added to the collection.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.UIStrings.ItemChanged">
+      <summary>
+            Occurs when an item in the collection is changed.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.UIStrings.CollectionChanged">
+      <summary>
+            Occurs when the collection has been changed.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.UIStrings.TypeConverter">
+      <summary>
+            Provides type conversion for the <see cref="T:C1.Win.C1Input.UIStrings" /> type.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.UIStrings.TypeConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+      <summary>
+            For internal use.
+            </summary>
+      <param name="context">
+      </param>
+      <param name="culture">
+      </param>
+      <param name="value">
+      </param>
+      <param name="type">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.UIStrings.TypeConverter.GetProperties(System.ComponentModel.ITypeDescriptorContext,System.Object,System.Attribute[])">
+      <summary>
+            For internal use.
+            </summary>
+      <param name="context">
+      </param>
+      <param name="value">
+      </param>
+      <param name="attrFilter">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.UIStrings.TypeConverter.GetPropertiesSupported(System.ComponentModel.ITypeDescriptorContext)">
+      <summary>
+            For internal use.
+            </summary>
+      <param name="context">
+      </param>
+      <returns>
+      </returns>
+    </member>
     <member name="T:C1.Win.C1Input.C1Button">
       <summary>
             Represents a Windows button control supporting additional visual styles.
             </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.C1Button.Dispose(System.Boolean)">
+      <summary>
+            Releases the resources used by the C1TextBox.
+            </summary>
+      <param name="disposing">
+      </param>
     </member>
     <member name="M:C1.Win.C1Input.C1Button.ResetVisualStyle">
       <summary>
@@ -47,119 +687,77 @@
             Occurs when the VisualStyle property has changed.
             </summary>
     </member>
-    <member name="T:C1.Win.C1Input.NumericEditCalculator">
+    <member name="T:C1.Win.C1Input.C1CheckBox">
       <summary>
-            The calculator used as a dropdown in the C1NumericEdit control.
+            In addition to the standard CheckBox functionality, 
+            C1CheckBox supports data binding to data source fields of Boolean, String, or Integer types. 
+            C1CheckBox has BorderStyle and BorderColor properties.
+            C1CheckBox supports visual styles.
             </summary>
     </member>
-    <member name="M:C1.Win.C1Input.NumericEditCalculator.#ctor">
+    <member name="M:C1.Win.C1Input.C1CheckBox.#ctor">
       <summary>
-            Initializes a new instance of the NumericEditCalculator class.
+            Initializes a new instance of the C1CheckBox class. 
             </summary>
     </member>
-    <member name="M:C1.Win.C1Input.NumericEditCalculator.ResetVisualStyle">
-      <summary>
-            Resets <see cref="P:C1.Win.C1Input.NumericEditCalculator.VisualStyle" /> to the default value.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.NumericEditCalculator.ShouldSerializeVisualStyle">
-      <summary>
-            Tests whether <see cref="P:C1.Win.C1Input.NumericEditCalculator.VisualStyle" /> should be serialized.
-            </summary>
-      <returns>True if <see cref="P:C1.Win.C1Input.NumericEditCalculator.VisualStyle" /> should be serialized, false otherwise.</returns>
-    </member>
-    <member name="M:C1.Win.C1Input.NumericEditCalculator.OnVisualStyleChanged(System.EventArgs)">
+    <member name="M:C1.Win.C1Input.C1CheckBox.OnVisualStyleChanged(System.EventArgs)">
       <summary>
             Invokes the VisualStyleChanged event.
             </summary>
       <param name="e">The event arguments.</param>
     </member>
-    <member name="M:C1.Win.C1Input.NumericEditCalculator.ShouldSerializeUIStrings">
+    <member name="P:C1.Win.C1Input.C1CheckBox.DataSource">
       <summary>
-            This method is for internal use only.
-            </summary>
-      <returns>
-      </returns>
-    </member>
-    <member name="M:C1.Win.C1Input.NumericEditCalculator.ResetUIStrings">
-      <summary>
-            This method is for internal use only.
+            The data source object to which the control is bound.
             </summary>
     </member>
-    <member name="M:C1.Win.C1Input.NumericEditCalculator.OnPaint(System.Windows.Forms.PaintEventArgs)">
+    <member name="P:C1.Win.C1Input.C1CheckBox.DataField">
       <summary>
-            This method is for internal use only.
+            The field of the data source object to which the control is bound.
             </summary>
-      <param name="e">
-      </param>
     </member>
-    <member name="M:C1.Win.C1Input.NumericEditCalculator.OnResize(System.EventArgs)">
+    <member name="P:C1.Win.C1Input.C1CheckBox.DataType">
       <summary>
-            This method is for internal use only.
+            Type of the Value property.
             </summary>
-      <param name="e">
-      </param>
     </member>
-    <member name="M:C1.Win.C1Input.NumericEditCalculator.OnForeColorChanged(System.EventArgs)">
+    <member name="P:C1.Win.C1Input.C1CheckBox.DisableOnNoData">
       <summary>
-            This method is for internal use only.
+            Gets or sets whether the text box should be disabled when it is bound to an empty data source, i.e. CurrencyManager.Count = 0.
             </summary>
-      <param name="e">
-      </param>
     </member>
-    <member name="P:C1.Win.C1Input.NumericEditCalculator.VisualStyle">
+    <member name="P:C1.Win.C1Input.C1CheckBox.Value">
+      <summary>
+            The main bindable property of a C1Input control.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1CheckBox.TranslateValues">
+      <summary>
+            Translates between string values and check box states.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1CheckBox.VisualStyle">
       <summary>
             Gets or sets the visual style of the control.
             </summary>
     </member>
-    <member name="E:C1.Win.C1Input.NumericEditCalculator.VisualStyleChanged">
+    <member name="E:C1.Win.C1Input.C1CheckBox.VisualStyleChanged">
       <summary>
             Occurs when the VisualStyle property has changed.
             </summary>
     </member>
-    <member name="P:C1.Win.C1Input.NumericEditCalculator.ButtonFlatStyle">
+    <member name="P:C1.Win.C1Input.C1CheckBox.BorderColor">
       <summary>
-            Determines the style of the dropdown calculator buttons.
+            Gets or sets the border color of the control.
             </summary>
+      <remarks>
+        <para>Use the <b>BorderColor</b> property to specify the border color of the control. 
+            This property is set using a <see cref="T:System.Drawing.Color" /> object.</para>
+      </remarks>
     </member>
-    <member name="P:C1.Win.C1Input.NumericEditCalculator.DisplayFormat">
+    <member name="T:C1.Win.C1Input.C1ComboBox">
       <summary>
-            // patch: localization: added after StringTables.cs was created
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.NumericEditCalculator.StoredFormat">
-      <summary>
-            Custom format specifier used to format the stored value of the dropdown calculator.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.NumericEditCalculator.FormatOnClose">
-      <summary>
-            Gets or sets whether StoredFormat should be applied to the value entered in the dropdown calculator.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.NumericEditCalculator.RightToLeft">
-      <summary>
-            This property is for internal use only.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.NumericEditCalculator.UIStrings">
-      <summary>
-            The collection of user interface strings.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.NumericEditCalculator.ContextMenu">
-      <summary>
-            Gets or sets the shortcut menu associated with the control.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.NumericEditCalculator.UseStaticMemory">
-      <summary>
-            Gets or sets whether Static Memory context menu should appear for the dropdown calculator.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1Input.C1DateEdit">
-      <summary>
-            Displays and edits date and/or time values. Includes a dropdown calendar for easy input of datetime values.
+            Represents a composite control combining a textbox and a drop-down item list.
             </summary>
     </member>
     <member name="T:C1.Win.C1Input.C1DropDownControl">
@@ -470,6 +1068,18 @@
       <param name="e">
       </param>
     </member>
+    <member name="P:C1.Win.C1Input.C1TextBox.FlatSystemBorder">
+      <summary>
+            Makes Fixed3D borders old-style looking (flat) 
+            for System VisualStyle.
+            This property is only for compatibility with legacy applications only.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1TextBox.MarkEmpty">
+      <summary>
+            Draws a red dotted line if Value is empty.
+            </summary>
+    </member>
     <member name="P:C1.Win.C1Input.C1TextBox.BorderColor">
       <summary>
             Gets or sets the border color of the control.
@@ -604,6 +1214,11 @@
     <member name="P:C1.Win.C1Input.C1TextBox.WrapDateTimeFields">
       <summary>
             If this property is False the month will be automatically incremented when the user spins the date past the end of the month. The same about other parts of the date/time value.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1TextBox.LoopPosition">
+      <summary>
+            Gets or sets a value indicating whether the position of the caret is automatically moved to the first field when the last field is filled.
             </summary>
     </member>
     <member name="P:C1.Win.C1Input.C1TextBox.AutoChangePosition">
@@ -748,12 +1363,12 @@
     </member>
     <member name="P:C1.Win.C1Input.C1TextBox.VerticalAlign">
       <summary>
-            Vertical alignment of the contents in the control. Default: VerticalAlignEnum.Top.
+            Gets or sets the vertical alignment of the content in the control. The default is VerticalAlignEnum.Top.
             </summary>
     </member>
     <member name="P:C1.Win.C1Input.C1TextBox.Margins">
       <summary>
-            The spacing between the input control content and its edges, in pixels. Default: all margins are set to 0.
+            Gets or sets the spacing between the input control content and its edges, in pixels. Default: all margins are set to 0.
             </summary>
     </member>
     <member name="P:C1.Win.C1Input.C1TextBox.ValueChangedBehavior">
@@ -904,6 +1519,92 @@
             This method is for internal use only.
             </summary>
     </member>
+    <member name="M:C1.Win.C1Input.C1DropDownControl.OpenDropDown">
+      <summary>
+            Shows the dropdown.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.C1DropDownControl.CloseDropDown">
+      <summary>
+            Closes the dropdown.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.C1DropDownControl.CloseDropDown(System.Boolean)">
+      <summary>
+            Closes the dropdown.
+            </summary>
+      <param name="doPost">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1DropDownControl.OnDropDownOpening(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1DropDownControl.OnBeforeDropDownOpen(System.ComponentModel.CancelEventArgs)">
+      <summary>
+      </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1DropDownControl.OnDropDownOpened(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1DropDownControl.OnDropDownClosed(C1.Win.C1Input.DropDownClosedEventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1DropDownControl.OnUpDownButtonClick(C1.Win.C1Input.UpDownButtonClickEventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1DropDownControl.OnModalButtonClick(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1DropDownControl.OnCustomButtonClick(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1DropDownControl.OnDropDownFormAlignChanged(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1DropDownControl.OnDropDownAlignChanged(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1DropDownControl.OnButtonCursorChanged(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
     <member name="M:C1.Win.C1Input.C1DropDownControl.CalcSizeInternal">
       <summary>
             This method is for internal use only.
@@ -1037,82 +1738,51 @@
       <returns>
       </returns>
     </member>
-    <member name="M:C1.Win.C1Input.C1DropDownControl.OpenDropDown">
+    <member name="P:C1.Win.C1Input.C1DropDownControl.AutoOpen">
       <summary>
-            Shows the dropdown.
+            Gets or sets a value indicating whether to open the combo box when the control receives the focus.
             </summary>
     </member>
-    <member name="M:C1.Win.C1Input.C1DropDownControl.CloseDropDown">
+    <member name="P:C1.Win.C1Input.C1DropDownControl.DropDownStyle">
       <summary>
-            Closes the dropdown.
+            Gets or sets the style of the combo box.
+            </summary>
+      <remarks>
+            The DropDownStyle property specifies whether the text portion can be edited.
+            <para>
+            If the value is Default, the text is editable and the dropdown list is displayed by clicking the down arrow.
+            </para><para>
+            If the value is DropDownList, the text is not editable and the dropdown list is displayed by clicking any part of the control. 
+            </para></remarks>
+    </member>
+    <member name="P:C1.Win.C1Input.C1DropDownControl.Image">
+      <summary>
+            Gets or sets the button image.
             </summary>
     </member>
-    <member name="M:C1.Win.C1Input.C1DropDownControl.CloseDropDown(System.Boolean)">
+    <member name="P:C1.Win.C1Input.C1DropDownControl.ImageIndex">
       <summary>
-            Closes the dropdown.
+            Gets or sets the index of the button image in the ImageList.
             </summary>
-      <param name="doPost">
-      </param>
     </member>
-    <member name="M:C1.Win.C1Input.C1DropDownControl.OnDropDownOpening(System.EventArgs)">
+    <member name="P:C1.Win.C1Input.C1DropDownControl.ImageKey">
       <summary>
-            This method is for internal use only.
+            Gets or sets the key of the button image in the ImageList.
             </summary>
-      <param name="e">
-      </param>
     </member>
-    <member name="M:C1.Win.C1Input.C1DropDownControl.OnDropDownOpened(System.EventArgs)">
+    <member name="P:C1.Win.C1Input.C1DropDownControl.ImageList">
       <summary>
-            This method is for internal use only.
+            Gets or sets the ImageList to get the images to display in the drop down items.
             </summary>
-      <param name="e">
-      </param>
     </member>
-    <member name="M:C1.Win.C1Input.C1DropDownControl.OnDropDownClosed(C1.Win.C1Input.DropDownClosedEventArgs)">
+    <member name="P:C1.Win.C1Input.C1DropDownControl.ImagePadding">
       <summary>
-            This method is for internal use only.
+            Gets or sets the image padding.
             </summary>
-      <param name="e">
-      </param>
-    </member>
-    <member name="M:C1.Win.C1Input.C1DropDownControl.OnUpDownButtonClick(C1.Win.C1Input.UpDownButtonClickEventArgs)">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <param name="e">
-      </param>
-    </member>
-    <member name="M:C1.Win.C1Input.C1DropDownControl.OnModalButtonClick(System.EventArgs)">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <param name="e">
-      </param>
-    </member>
-    <member name="M:C1.Win.C1Input.C1DropDownControl.OnDropDownFormAlignChanged(System.EventArgs)">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <param name="e">
-      </param>
-    </member>
-    <member name="M:C1.Win.C1Input.C1DropDownControl.OnDropDownAlignChanged(System.EventArgs)">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <param name="e">
-      </param>
-    </member>
-    <member name="M:C1.Win.C1Input.C1DropDownControl.OnButtonCursorChanged(System.EventArgs)">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <param name="e">
-      </param>
     </member>
     <member name="P:C1.Win.C1Input.C1DropDownControl.VisibleButtons">
       <summary>
-            Enumeration specifying which buttons are visible. Default: (UpDown Or DropDown).
+            Gets or sets a value specifying which buttons are visible. The default is (UpDown Or DropDown).
             </summary>
     </member>
     <member name="P:C1.Win.C1Input.C1DropDownControl.ShowDropDownButton">
@@ -1126,6 +1796,11 @@
             </summary>
     </member>
     <member name="P:C1.Win.C1Input.C1DropDownControl.ShowModalButton">
+      <summary>
+            Determines if the modal button is visible.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1DropDownControl.ShowCustomButton">
       <summary>
             Determines if the modal button is visible.
             </summary>
@@ -1190,6 +1865,11 @@
             Occurs just before the dropdown is opened.
             </summary>
     </member>
+    <member name="E:C1.Win.C1Input.C1DropDownControl.BeforeDropDownOpen">
+      <summary>
+            Occurs just before the dropdown is opened.
+            </summary>
+    </member>
     <member name="E:C1.Win.C1Input.C1DropDownControl.DropDownOpened">
       <summary>
             Occurs after the dropdown is opened.
@@ -1210,6 +1890,11 @@
             Occurs when the Modal button is clicked.
             </summary>
     </member>
+    <member name="E:C1.Win.C1Input.C1DropDownControl.CustomButtonClick">
+      <summary>
+            Occurs when the Custom button is clicked.
+            </summary>
+    </member>
     <member name="E:C1.Win.C1Input.C1DropDownControl.DropDownFormAlignChanged">
       <summary>
             Occurs when the value of the DropDownFormAlign property has changed.
@@ -1223,6 +1908,1005 @@
     <member name="E:C1.Win.C1Input.C1DropDownControl.ButtonCursorChanged">
       <summary>
             Event fired when the value of ButtonCursor property is changed.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1ComboBox.ItemMode">
+      <summary>
+            Gets or sets the combobox item mode.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1ComboBox.HtmlPattern">
+      <summary>
+            Gets or sets the pattern to build HTML representation of combobox items.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1ComboBox.SelectedItem">
+      <summary>
+             Gets or sets currently selected item in the ComboBox.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1ComboBox.SelectedIndex">
+      <summary>
+             Gets or sets the index specifying the currently selected item.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1ComboBox.ItemsImageList">
+      <summary>
+            Gets or sets the ImageList to get the images to display in the combobox items.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1ComboBox.Style">
+      <summary>
+            Gets the style of the drop down form and combobox items.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1ComboBox.InitialSelectedIndex">
+      <summary>
+            Gets or sets the index of the initially selected item.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.ComboItemMode">
+      <summary>
+            Specifies how the visual representation of combo box items is building.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.ComboItemMode.Default">
+      <summary>
+            C1ComboBox displays text of combo box item in the drop drown list.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.ComboItemMode.Html">
+      <summary>
+            Each combo box item is fragment of HTML. <see cref="T:C1.Win.C1Input.C1ComboBox" /> parses the HTML fragment and displays it as the drop down items.
+            </summary>
+      <remakrs>
+            C1ComboBox uses the same subset of HTML as C1SuperLabel does. 
+            It does not support the full HTML features.
+            </remakrs>
+    </member>
+    <member name="F:C1.Win.C1Input.ComboItemMode.HtmlPattern">
+      <summary>
+            Each combo box item is fragment of HTML defined by <see cref="P:C1.Win.C1Input.C1ComboBox.HtmlPattern" /> property. 
+            <see cref="T:C1.Win.C1Input.C1ComboBox" /> parses the HTML pattern and replaces any of "{Text}" entires with the combo box item text.
+            </summary>
+      <remakrs>
+            C1ComboBox uses the same subset of HTML as C1SuperLabel does. 
+            It does not support the full HTML features.
+            </remakrs>
+    </member>
+    <member name="T:C1.Win.C1Input.DropDownStyle">
+      <summary>
+             Specifies the <see cref="T:C1.Win.C1Input.C1DropDownControl" /> style.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DropDownStyle.Default">
+      <summary>
+            Text portion of the drop down control is editable and the drop down is displayed by clicking 
+            the down arrow.
+            </summary>
+      <remarks>
+            This means that the user can enter a new value and is not limited to selecting an existing value.
+            </remarks>
+    </member>
+    <!-- Badly formed XML comment ignored for member "F:C1.Win.C1Input.DropDownStyle.DropDownList" -->
+    <member name="T:C1.Win.C1Input.DropDownForm">
+      <summary>
+            Base class for custom dropdown forms.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.DropDownForm.#ctor">
+      <summary>
+            Initializes a new instance of the DropDownForm class.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.DropDownForm.Dispose(System.Boolean)">
+      <summary>
+            Releases the resources used by the DropDownForm.
+            </summary>
+      <param name="disposing">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.DropDownForm.OnVisualStyleChanged(System.EventArgs)">
+      <summary>
+            Invokes the VisualStyleChanged event.
+            </summary>
+      <param name="e">The event arguments.</param>
+    </member>
+    <member name="M:C1.Win.C1Input.DropDownForm.PreFilterMessage(System.Windows.Forms.Message@)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="m">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.DropDownForm.OnPostChanges(System.EventArgs)">
+      <summary>
+            Fires the PostChanges event.
+            </summary>
+      <param name="e">Contains arguments describing the event.</param>
+    </member>
+    <member name="M:C1.Win.C1Input.DropDownForm.OnCancelChanges(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.DropDownForm.OnOpen(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.DropDownForm.OnOwnerControlTextChanged(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.DropDownForm.OnOwnerControlValueChanged(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.DropDownForm.OnActivated(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.DropDownForm.OnDeactivate(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.DropDownForm.CreateHandle">
+      <summary>
+            This method is for internal use only.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.DropDownForm.OnVisibleChanged(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.DropDownForm.WndProc(System.Windows.Forms.Message@)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="m">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.DropDownForm.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.DropDownForm.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.DropDownForm.CloseDropDown">
+      <summary>
+            Closes the dropdown form.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.DropDownForm.CloseDropDown(System.Boolean)">
+      <summary>
+            Closes the dropdown form.
+            </summary>
+      <param name="doPost">
+      </param>
+    </member>
+    <member name="P:C1.Win.C1Input.DropDownForm.ShouldApplyTheme">
+      <summary>
+            Gets a value indicating whether theme should be applied to dropdown form
+            when it applied to <see cref="T:C1.Win.C1Input.C1DropDownControl" />. This property returns <b>true</b>
+            by default.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.DropDownForm.BorderStyle">
+      <summary>
+            Determines the style of the control's border.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.DropDownForm.ClientSize">
+      <summary>
+            This property is for internal use only.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.DropDownForm.Options">
+      <summary>
+            Determine various behavioral options of the dropdown form.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.DropDownForm.FocusControl">
+      <summary>
+            Determines the control on the form that gets input focus when the form is shown.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.DropDownForm.DropDownAlign">
+      <summary>
+            Alignment of the dropdown form relative to the owner control.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.DropDownForm.OwnerControl">
+      <summary>
+            This property is for internal use only.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.DropDownForm.KeyPreview">
+      <summary>
+            This property is for internal use only.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.DropDownForm.PostChanges">
+      <summary>
+            Occurs when Value property of the OwnerControl is updated by the dropdown form.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.DropDownForm.CancelChanges">
+      <summary>
+            Occurs when changes made by dropdown form are cancelled.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.DropDownForm.Open">
+      <summary>
+            Occurs when dropdown form is opened.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.DropDownForm.OwnerControlTextChanged">
+      <summary>
+            Occurs when OwnerControl.Text property is changed.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.DropDownForm.OwnerControlValueChanged">
+      <summary>
+            Occurs when OwnerControl.Value property is changed.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.C1ComboBoxItemsForm.Dispose(System.Boolean)">
+      <summary>
+            Clean up any resources being used.
+            </summary>
+      <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+    </member>
+    <member name="T:C1.Win.C1Input.ComboBoxStyle">
+      <summary>
+             Style for drop down form and combobox items.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.ComboBoxStyle.DropDownBackColor">
+      <summary>
+            Background color of the drop down form.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.ComboBoxStyle.DropDownBorderColor">
+      <summary>
+            Color of border of the drop down form.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.ComboBoxStyle.Padding">
+      <summary>
+            Gets or sets padding within the drop down form.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.ComboBoxStyle.Font">
+      <summary>
+            Default font of the combo box items.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.ComboBoxStyle.TextSpacing">
+      <summary>
+            Space around the textual parts of the combo box items.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.ComboBoxStyle.DefaultItemForeColor">
+      <summary>
+            Default text color of the combo box items.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.ComboBoxStyle.HotItemForeColor">
+      <summary>
+            Text color of the combo box items in hot state.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.ComboBoxStyle.HotItemBorderColor">
+      <summary>
+            Border color of the combo box items in hot state.
+             </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.ComboBoxStyle.HotItemBackColor">
+      <summary>
+            Background color of the combo box items in hot state.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.DropDownControlButtonFlags">
+      <summary>
+            Used by C1DropDownControl.VisibleButtons properties.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DropDownControlButtonFlags.None">
+      <summary>
+            Show without any button
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DropDownControlButtonFlags.UpDown">
+      <summary>
+            Show up/down buttons.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DropDownControlButtonFlags.DropDown">
+      <summary>
+            Show dropdown button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DropDownControlButtonFlags.Modal">
+      <summary>
+            Show button to start a modal dialog.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DropDownControlButtonFlags.Custom">
+      <summary>
+            Show a custom button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DropDownControlButtonFlags.All">
+      <summary>
+            Show all buttons
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.UpDownButtonClickEventHandler">
+      <summary>
+            Represents the method that handles a UpDownButtonClick event.
+            </summary>
+      <param name="sender">The source of the event.</param>
+      <param name="e">An UpDownButtonClickEventArgs object that contains the event data.</param>
+    </member>
+    <member name="T:C1.Win.C1Input.UpDownButtonClickEventArgs">
+      <summary>
+            Provides data for a UpDownButtonClick event.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.UpDownButtonClickEventArgs.Delta">
+      <summary>
+            Set to 1 if Up button is pressed, to -1 if Down button is pressed.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.UpDownButtonClickEventArgs.Done">
+      <summary>
+            Set to true in the user's UpDownButtonClick event handler. No built-in processing is done. This allows the user to override the default behavior of the buttons.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.DropDownClosedEventArgs">
+      <summary>
+            Provides data for a DropDownClosed event.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DropDownClosedEventArgs.Selected">
+      <summary>
+            Returns True if a value is selected in dropdown dialog.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.DropDownClosedEventArgs.#ctor(System.Boolean)">
+      <summary>
+            Initializes a new instance of the DropDownClosedEventArgs class.
+            </summary>
+      <param name="selected">
+      </param>
+    </member>
+    <member name="T:C1.Win.C1Input.DropDownClosedEventHandler">
+      <summary>
+            Represents the method that handles a DropDownClosed event.
+            </summary>
+      <param name="sender">The source of the event</param>
+      <param name="e">A DropDownClosedEventArgs object that contains the event data.</param>
+    </member>
+    <member name="T:C1.Win.C1Input.ButtonImages">
+      <summary>
+            Images for C1DropDownControl buttons
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.ButtonImages.Reset">
+      <summary>
+            Clears all custom images and returns standard images for C1DropDownControl buttons. 
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.ButtonImages.HasImage">
+      <summary>
+            Returns True if any custom image is assigned
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.ButtonImages.ShouldSerializeUpImage">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.ButtonImages.ResetUpImage">
+      <summary>
+            This method is for internal use only.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.ButtonImages.ShouldSerializeDownImage">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.ButtonImages.ResetDownImage">
+      <summary>
+            This method is for internal use only.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.ButtonImages.ShouldSerializeDropImage">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.ButtonImages.ResetDropImage">
+      <summary>
+            This method is for internal use only.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.ButtonImages.ShouldSerializeModalImage">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.ButtonImages.ResetModalImage">
+      <summary>
+            This method is for internal use only.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.ButtonImages.ShouldSerializeCustomImage">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.ButtonImages.ResetCustomImage">
+      <summary>
+            This method is for internal use only.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.ButtonImages.UpImage">
+      <summary>
+            Image for Up button
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.ButtonImages.DownImage">
+      <summary>
+            Image for Down button
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.ButtonImages.DropImage">
+      <summary>
+            Image for DropDown button
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.ButtonImages.ModalImage">
+      <summary>
+            Image for Modal button
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.ButtonImages.CustomImage">
+      <summary>
+            Image for Custom button
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.ButtonImages.ButtonImagesTypeConverter">
+      <summary>
+            TypeConverter class for ButtonImages
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.ButtonImages.ButtonImagesTypeConverter.GetPropertiesSupported(System.ComponentModel.ITypeDescriptorContext)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="context">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.ButtonImages.ButtonImagesTypeConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="context">
+      </param>
+      <param name="culture">
+      </param>
+      <param name="value">
+      </param>
+      <param name="type">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:C1.Win.C1Input.DropDownFormOptionsFlags">
+      <summary>
+            Used by DropDownForm.Options property.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DropDownFormOptionsFlags.None">
+      <summary>
+            Indicates that none of the options are set.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DropDownFormOptionsFlags.Focusable">
+      <summary>
+            Indicates that DropDownForm can contain focus.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DropDownFormOptionsFlags.FixedWidth">
+      <summary>
+            The end users are not allowed to change the width of the dropdown form resizing it.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DropDownFormOptionsFlags.FixedHeight">
+      <summary>
+            The end users are not allowed to change the height of the dropdown form resizing it.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DropDownFormOptionsFlags.AlwaysPostChanges">
+      <summary>
+            If this flag is set, the changes to the control Value can only be cancelled explicitly, with Esc key 
+            or using the CloseDropDown method, and implicit cancellation (when the form is closed because it loses focus) is disabled.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DropDownFormOptionsFlags.NoCancelOnEscape">
+      <summary>
+            If this flag is set, pressing the Esc key does not close the form.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DropDownFormOptionsFlags.NoPostOnEnter">
+      <summary>
+            If this flag is set, pressing the Enter key does not close the form.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DropDownFormOptionsFlags.AutoResize">
+      <summary>
+            If set, the dropdown form width is automatically adjusted to the width of the owner control
+            before the form is shown.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DropDownFormOptionsFlags.FixedSize">
+      <summary>
+            = FixedWidth + FixedHeight
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.C1Label">
+      <summary>
+            Read-only data bound control displaying formatted data. C1Label supports all formatting features of the C1TextBox control.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.C1Label.#ctor">
+      <summary>
+            Initializes a new instance of the C1Label class.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.C1Label.Dispose(System.Boolean)">
+      <summary>
+            Releases the resources used by the C1Label.
+            </summary>
+      <param name="disposing">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1Label.OnBorderColorChanged(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.C1Input.C1Label.BorderColorChanged" /> event.
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+      <remarks>
+        <para>Raising an event invokes the event handler through a delegate. </para>
+        <para>The <b>OnBorderColorChanged</b> method also allows derived classes to handle the event without attaching a delegate. 
+            This is the preferred technique for handling the event in a derived class.</para>
+        <para>
+          <b>Notes to Inheritors.</b> When overriding <b>OnBorderColorChanged</b> in a derived class, 
+            be sure to call the base class's <b>OnBorderColorChanged</b> method so that registered delegates receive the event. 
+            </para>
+      </remarks>
+    </member>
+    <member name="M:C1.Win.C1Input.C1Label.OnFormatError(C1.Win.C1Input.FormatErrorEventArgs)">
+      <summary>
+            Invokes the <see cref="E:C1.Win.C1Input.C1Label.FormatError" /> event.
+            </summary>
+      <param name="e">An <see cref="T:C1.Win.C1Input.FormatErrorEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1Label.OnVisualStyleChanged(System.EventArgs)">
+      <summary>
+            Invokes the VisualStyleChanged event.
+            </summary>
+      <param name="e">The event arguments.</param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1Label.OnCultureInfoSetup(C1.Win.C1Input.CultureInfoSetupEventArgs)">
+      <summary>
+            Invokes the <see cref="E:C1.Win.C1Input.C1Label.CultureInfoSetup" /> event.
+            </summary>
+      <param name="e">An <see cref="T:C1.Win.C1Input.CultureInfoSetupEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1Label.OnFormatting(C1.Win.C1Input.FormatEventArgs)">
+      <summary>
+            Invokes the <see cref="E:C1.Win.C1Input.C1Label.Formatting" /> event.
+            </summary>
+      <param name="e">An <see cref="T:C1.Win.C1Input.FormatEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1Label.OnFormatted(C1.Win.C1Input.FormatEventArgs)">
+      <summary>
+            Invokes the <see cref="E:C1.Win.C1Input.C1Label.Formatted" /> event.
+            </summary>
+      <param name="e">An <see cref="T:C1.Win.C1Input.FormatEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1Label.OnDataTypeChanged(System.EventArgs)">
+      <summary>
+            Invokes the <see cref="E:C1.Win.C1Input.C1Label.DataTypeChanged" /> event.
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1Label.OnValueChanged(System.EventArgs)">
+      <summary>
+            Invokes the <see cref="E:C1.Win.C1Input.C1Label.ValueChanged" /> event.
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1Label.OnBindingFormatting(System.Windows.Forms.ConvertEventArgs)">
+      <summary>
+            Invokes the <see cref="E:C1.Win.C1Input.C1Label.BindingFormatting" /> event.
+            </summary>
+      <param name="e">An <see cref="T:System.Windows.Forms.ConvertEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.VisualStyle">
+      <summary>
+            Gets or sets the visual style of the control.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.BorderColor">
+      <summary>
+            Gets or sets the border color of the control.
+            </summary>
+      <remarks>
+        <para>Use the <b>BorderColor</b> property to specify the border color of the control. 
+            This property is set using a <see cref="T:System.Drawing.Color" /> object.</para>
+        <para>The <b>BorderColor</b> property has an effect only when the <see cref="P:C1.Win.C1Input.C1TextBox.BorderStyle" /> property is set to <b>FixedSingle</b>. </para>
+      </remarks>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.UseFieldStyle">
+      <summary>
+            Indicates whether to honor the ColumnStyle properties defined on the
+            C1ViewColumn object that this control is bound to.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.Culture">
+      <summary>
+            The culture ID.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.CultureName">
+      <summary>
+            The name selected for the Culture property in the Properties grid.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.UserCultureOverride">
+      <summary>
+            If True, current user regional settings override the selected culture.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.CultureInfo">
+      <summary>
+            The current CultureInfo object (available at runtime).
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.FormatInfo">
+      <summary>
+            Format used to display the value.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.MaskInfo">
+      <summary>
+            Edit mask settings.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.CaseSensitive">
+      <summary>
+            True if string comparisons are case-sensitive; otherwise, False.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.FormatType">
+      <summary>
+            Enumeration value determining the formatting metod, including standard .NET format specifiers, custom and programmatic formatting.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.CustomFormat">
+      <summary>
+            Custom format specifier used if FormatType = FormatTypeEnum.CustomFormat.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.NullText">
+      <summary>
+            String representing a DbNull value.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.EmptyAsNull">
+      <summary>
+            If True, empty strings are interpreted as null values (DbNull).
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.TrimStart">
+      <summary>
+            If True, leading spaces are removed.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.TrimEnd">
+      <summary>
+            If True, trailing spaces are removed.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.CurrentTimeZone">
+      <summary>
+            If True, the control’s stored Value is in current time zone; otherwise, the Value is adjusted to the time zone defined by the GMTOffset property.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.GMTOffset">
+      <summary>
+            The time zone of the Value property used if CurrentTimeZone = False.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.DaylightTimeAdjustment">
+      <summary>
+            The value specified in the GMTOffset property can be advanced or set back due to daylight-saving time changes (used only if CurrentTimeZone = False). 
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.Tag">
+      <summary>
+            Gets or sets the object that contains data about the control.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.ErrorProvider">
+      <summary>
+            Gets or sets an ErrorProvider object used to indicate error state of the control.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.Text">
+      <summary>
+            The current text in the control.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.TextDetached">
+      <summary>
+            Specifies whether the Value and Text properties can be set independently.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.DataSource">
+      <summary>
+            The data source object to which the control is bound.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.DataField">
+      <summary>
+            The field of the data source object to which the control is bound.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.DataType">
+      <summary>
+            Type of the Value property.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.ValueIsDbNull">
+      <summary>
+            Gets or sets a value indicating whether the Value is DbNull.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.Value">
+      <summary>
+            The main bindable property of a C1Input control.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1Label.Padding">
+      <summary>
+            Gets or sets the padding within the control.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.C1Label.BorderColorChanged">
+      <summary>
+            Occurs when the BorderColor property has changed.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.C1Label.VisualStyleChanged">
+      <summary>
+            Occurs when the VisualStyle property has changed.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.C1Label.CultureInfoSetup">
+      <summary>
+            CultureInfo can be set up (on startup) or has been changed.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.C1Label.FormatError">
+      <summary>
+            Error occured while formatting the stored value.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.C1Label.Formatting">
+      <summary>
+            Formatting the value programmatically.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.C1Label.Formatted">
+      <summary>
+            Occurs after the value has been formatted.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.C1Label.DataTypeChanged">
+      <summary>
+            Occurs when the DataType property changes.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.C1Label.ValueChanged">
+      <summary>
+            Occurs when the Value changes.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.C1Label.BindingFormatting">
+      <summary>
+            Occurs when Value is retrieved from the data source.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.Localization.Strings">
+      <summary>
+            The <see cref="T:C1.Win.C1Input.Localization.Strings" /> class contains static properties used for localization.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.Localization.Strings.ResourceManager">
+      <summary>
+            The <see cref="P:C1.Win.C1Input.Localization.Strings.ResourceManager" /> object used for lookup resources.
+            </summary>
+      <remarks>Set this property to the valid value if 
+            you define resources in a Custom Control assembly.</remarks>
+    </member>
+    <member name="P:C1.Win.C1Input.Localization.Strings.UICulture">
+      <summary>
+            Returns default <see cref="T:System.Globalization.CultureInfo" /> object used as fallback culture.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.NumericEditCalculator">
+      <summary>
+            The calculator used as a dropdown in the C1NumericEdit control.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.NumericEditCalculator.#ctor">
+      <summary>
+            Initializes a new instance of the NumericEditCalculator class.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.NumericEditCalculator.ResetVisualStyle">
+      <summary>
+            Resets <see cref="P:C1.Win.C1Input.NumericEditCalculator.VisualStyle" /> to the default value.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.NumericEditCalculator.ShouldSerializeVisualStyle">
+      <summary>
+            Tests whether <see cref="P:C1.Win.C1Input.NumericEditCalculator.VisualStyle" /> should be serialized.
+            </summary>
+      <returns>True if <see cref="P:C1.Win.C1Input.NumericEditCalculator.VisualStyle" /> should be serialized, false otherwise.</returns>
+    </member>
+    <member name="M:C1.Win.C1Input.NumericEditCalculator.OnVisualStyleChanged(System.EventArgs)">
+      <summary>
+            Invokes the VisualStyleChanged event.
+            </summary>
+      <param name="e">The event arguments.</param>
+    </member>
+    <member name="M:C1.Win.C1Input.NumericEditCalculator.ShouldSerializeUIStrings">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.NumericEditCalculator.ResetUIStrings">
+      <summary>
+            This method is for internal use only.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.NumericEditCalculator.OnPaint(System.Windows.Forms.PaintEventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.NumericEditCalculator.OnResize(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.NumericEditCalculator.OnForeColorChanged(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="P:C1.Win.C1Input.NumericEditCalculator.VisualStyle">
+      <summary>
+            Gets or sets the visual style of the control.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.NumericEditCalculator.VisualStyleChanged">
+      <summary>
+            Occurs when the VisualStyle property has changed.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.NumericEditCalculator.ButtonFlatStyle">
+      <summary>
+            Determines the style of the dropdown calculator buttons.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.NumericEditCalculator.DisplayFormat">
+      <summary>
+            // patch: localization: added after StringTables.cs was created
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.NumericEditCalculator.StoredFormat">
+      <summary>
+            Custom format specifier used to format the stored value of the dropdown calculator.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.NumericEditCalculator.FormatOnClose">
+      <summary>
+            Gets or sets whether StoredFormat should be applied to the value entered in the dropdown calculator.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.NumericEditCalculator.RightToLeft">
+      <summary>
+            This property is for internal use only.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.NumericEditCalculator.UIStrings">
+      <summary>
+            The collection of user interface strings.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.NumericEditCalculator.ContextMenu">
+      <summary>
+            Gets or sets the shortcut menu associated with the control.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.NumericEditCalculator.UseStaticMemory">
+      <summary>
+            Gets or sets whether Static Memory context menu should appear for the dropdown calculator.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.C1DateEdit">
+      <summary>
+            Displays and edits date and/or time values. Includes a dropdown calendar for easy input of datetime values.
             </summary>
     </member>
     <member name="M:C1.Win.C1Input.C1DateEdit.#ctor">
@@ -1250,6 +2934,11 @@
             </summary>
       <param name="propertyType">
       </param>
+    </member>
+    <member name="P:C1.Win.C1Input.C1DateEdit.RetainTimeOnDateChange">
+      <summary>
+            Gets or sets a value indicating whether to retain the current time value when the date is changed via the drop down calendar.
+            </summary>
     </member>
     <member name="P:C1.Win.C1Input.C1DateEdit.TypeRestriction">
       <summary>
@@ -1298,6 +2987,12 @@
       <summary>
             This method is for internal use only.
             </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.C1DbNavigator.OnTextChanged(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.C1Input.C1DbNavigator.TextChanged">TextChanged</see> event. 
+            </summary>
+      <param name="e">An EventArgs that contains event data.</param>
     </member>
     <member name="M:C1.Win.C1Input.C1DbNavigator.ResetVisualStyle">
       <summary>
@@ -1504,6 +3199,22 @@
             </summary>
       <param name="e">
       </param>
+    </member>
+    <member name="P:C1.Win.C1Input.C1DbNavigator.Text">
+      <summary>
+            Gets or sets value of the Position textbox.
+            </summary>
+      <remarks>
+        <para>If the Position textbox is not visible, it returns empty string.</para>
+        <para>If you set the Text property when the Position textbox is not visible, 
+            the action has no effect.</para>
+        <para>Changing the Text property causes the data source position change.</para>
+      </remarks>
+    </member>
+    <member name="E:C1.Win.C1Input.C1DbNavigator.TextChanged">
+      <summary>
+            Occurs when the <see cref="P:C1.Win.C1Input.C1DbNavigator.Text">Text</see> property value changes.
+            </summary>
     </member>
     <member name="P:C1.Win.C1Input.C1DbNavigator.VisualStyle">
       <summary>
@@ -1795,6 +3506,11 @@
             Refresh button.
             </summary>
     </member>
+    <member name="F:C1.Win.C1Input.NavigatorButtonEnum.Position">
+      <summary>
+            Position text box
+            </summary>
+    </member>
     <member name="T:C1.Win.C1Input.NavigatorBeforeActionEventHandler">
       <summary>
             Represents the method that handles a BeforeAction event.
@@ -2056,6 +3772,12 @@
       <summary>
             All buttons.
             </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.DateEditMonthCalendar.Dispose(System.Boolean)">
+      <summary> 
+            Clean up any resources being used.
+            </summary>
+      <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
     </member>
     <member name="M:C1.Win.C1Input.DateEditMonthCalendar.ResetVisualStyle">
       <summary>
@@ -2319,6 +4041,12 @@
             </summary>
       <param name="date">The date to be displayed in bold.</param>
     </member>
+    <member name="M:C1.Win.C1Input.DateEditMonthCalendar.AddDisabledDate(System.DateTime)">
+      <summary>
+            Adds a day to be disabled in the month calendar.
+            </summary>
+      <param name="date">The date to be disabled.</param>
+    </member>
     <member name="M:C1.Win.C1Input.DateEditMonthCalendar.AddMonthlyBoldedDate(System.DateTime)">
       <summary>
             Adds a day that is displayed in bold on a monthly basis in the month calendar.
@@ -2335,6 +4063,11 @@
             Removes all the nonrecurring bold dates.
             </summary>
     </member>
+    <member name="M:C1.Win.C1Input.DateEditMonthCalendar.RemoveAllDisabledDates">
+      <summary>
+            Removes the all disabled dates.
+            </summary>
+    </member>
     <member name="M:C1.Win.C1Input.DateEditMonthCalendar.RemoveAllMonthlyBoldedDates">
       <summary>
             Removes all the monthly bold dates.
@@ -2349,6 +4082,12 @@
     <member name="M:C1.Win.C1Input.DateEditMonthCalendar.RemoveBoldedDate(System.DateTime)">
       <summary>
             Removes the specified date from the list of nonrecurring bold dates.
+            </summary>
+      <param name="date">The date to remove from the date list.</param>
+    </member>
+    <member name="M:C1.Win.C1Input.DateEditMonthCalendar.RemoveDisabledDate(System.DateTime)">
+      <summary>
+            Removes the specified date from the list of disabled dates.
             </summary>
       <param name="date">The date to remove from the date list.</param>
     </member>
@@ -2405,11 +4144,12 @@
       <returns>A System.Windows.Forms.MonthCalendar.HitTestInfo that contains information
                 about the specified point on the month calendar.</returns>
     </member>
-    <member name="M:C1.Win.C1Input.DateEditMonthCalendar.Dispose(System.Boolean)">
-      <summary> 
-            Clean up any resources being used.
+    <member name="M:C1.Win.C1Input.DateEditMonthCalendar.OnPaint(System.Windows.Forms.PaintEventArgs)">
+      <summary>
+            This method is for internal use only.
             </summary>
-      <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+      <param name="e">
+      </param>
     </member>
     <member name="P:C1.Win.C1Input.DateEditMonthCalendar.CurrentMonthDisplayOffset">
       <summary>
@@ -2576,6 +4316,11 @@
             Gets or sets the array of System.DateTime objects that determine which monthly days to bold.
             </summary>
     </member>
+    <member name="P:C1.Win.C1Input.DateEditMonthCalendar.DisabledDates">
+      <summary>
+            Gets or sets the array of System.DateTime objects that determines which dates are disabled.
+            </summary>
+    </member>
     <member name="P:C1.Win.C1Input.DateEditMonthCalendar.ShowToday">
       <summary>
             Gets or sets a value indicating whether the date represented by the TodayDate property is displayed at the bottom of the control. 
@@ -2667,276 +4412,23 @@
             Occurs when the value of the RightToLeftLayout property changes.
             </summary>
     </member>
-    <member name="T:C1.Win.C1Input.C1Label">
+    <member name="E:C1.Win.C1Input.DateEditMonthCalendar.MonthChanged">
       <summary>
-            Read-only data bound control displaying formatted data. C1Label supports all formatting features of the C1TextBox control.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.C1Label.#ctor">
-      <summary>
-            Initializes a new instance of the C1Label class.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.C1Label.Dispose(System.Boolean)">
-      <summary>
-            Releases the resources used by the C1Label.
-            </summary>
-      <param name="disposing">
-      </param>
-    </member>
-    <member name="M:C1.Win.C1Input.C1Label.OnBorderColorChanged(System.EventArgs)">
-      <summary>
-            Raises the <see cref="E:C1.Win.C1Input.C1Label.BorderColorChanged" /> event.
-            </summary>
-      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
-      <remarks>
-        <para>Raising an event invokes the event handler through a delegate. </para>
-        <para>The <b>OnBorderColorChanged</b> method also allows derived classes to handle the event without attaching a delegate. 
-            This is the preferred technique for handling the event in a derived class.</para>
-        <para>
-          <b>Notes to Inheritors.</b> When overriding <b>OnBorderColorChanged</b> in a derived class, 
-            be sure to call the base class's <b>OnBorderColorChanged</b> method so that registered delegates receive the event. 
-            </para>
-      </remarks>
-    </member>
-    <member name="M:C1.Win.C1Input.C1Label.OnFormatError(C1.Win.C1Input.FormatErrorEventArgs)">
-      <summary>
-            Invokes the <see cref="E:C1.Win.C1Input.C1Label.FormatError" /> event.
-            </summary>
-      <param name="e">An <see cref="T:C1.Win.C1Input.FormatErrorEventArgs" /> that contains the event data.</param>
-    </member>
-    <member name="M:C1.Win.C1Input.C1Label.OnVisualStyleChanged(System.EventArgs)">
-      <summary>
-            Invokes the VisualStyleChanged event.
-            </summary>
-      <param name="e">The event arguments.</param>
-    </member>
-    <member name="M:C1.Win.C1Input.C1Label.OnCultureInfoSetup(C1.Win.C1Input.CultureInfoSetupEventArgs)">
-      <summary>
-            Invokes the <see cref="E:C1.Win.C1Input.C1Label.CultureInfoSetup" /> event.
-            </summary>
-      <param name="e">An <see cref="T:C1.Win.C1Input.CultureInfoSetupEventArgs" /> that contains the event data.</param>
-    </member>
-    <member name="M:C1.Win.C1Input.C1Label.OnFormatting(C1.Win.C1Input.FormatEventArgs)">
-      <summary>
-            Invokes the <see cref="E:C1.Win.C1Input.C1Label.Formatting" /> event.
-            </summary>
-      <param name="e">An <see cref="T:C1.Win.C1Input.FormatEventArgs" /> that contains the event data.</param>
-    </member>
-    <member name="M:C1.Win.C1Input.C1Label.OnFormatted(C1.Win.C1Input.FormatEventArgs)">
-      <summary>
-            Invokes the <see cref="E:C1.Win.C1Input.C1Label.Formatted" /> event.
-            </summary>
-      <param name="e">An <see cref="T:C1.Win.C1Input.FormatEventArgs" /> that contains the event data.</param>
-    </member>
-    <member name="M:C1.Win.C1Input.C1Label.OnDataTypeChanged(System.EventArgs)">
-      <summary>
-            Invokes the <see cref="E:C1.Win.C1Input.C1Label.DataTypeChanged" /> event.
-            </summary>
-      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
-    </member>
-    <member name="M:C1.Win.C1Input.C1Label.OnValueChanged(System.EventArgs)">
-      <summary>
-            Invokes the <see cref="E:C1.Win.C1Input.C1Label.ValueChanged" /> event.
-            </summary>
-      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
-    </member>
-    <member name="M:C1.Win.C1Input.C1Label.OnBindingFormatting(System.Windows.Forms.ConvertEventArgs)">
-      <summary>
-            Invokes the <see cref="E:C1.Win.C1Input.C1Label.BindingFormatting" /> event.
-            </summary>
-      <param name="e">An <see cref="T:System.Windows.Forms.ConvertEventArgs" /> that contains the event data.</param>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.VisualStyle">
-      <summary>
-            Gets or sets the visual style of the control.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.BorderColor">
-      <summary>
-            Gets or sets the border color of the control.
+            Handles the month change in the Dropdown calendar in C1DateEdit. 
+            Occurs when the value of the <see cref="P:C1.Win.C1Input.DateEditMonthCalendar.FirstMonth" /> or <see cref="P:C1.Win.C1Input.DateEditMonthCalendar.LastMonth" /> property changes.
             </summary>
       <remarks>
-        <para>Use the <b>BorderColor</b> property to specify the border color of the control. 
-            This property is set using a <see cref="T:System.Drawing.Color" /> object.</para>
-        <para>The <b>BorderColor</b> property has an effect only when the <see cref="P:C1.Win.C1Input.C1TextBox.BorderStyle" /> property is set to <b>FixedSingle</b>. </para>
-      </remarks>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.UseFieldStyle">
-      <summary>
-            Indicates whether to honor the ColumnStyle properties defined on the
-            C1ViewColumn object that this control is bound to.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.Culture">
-      <summary>
-            The culture ID.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.CultureName">
-      <summary>
-            The name selected for the Culture property in the Properties grid.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.UserCultureOverride">
-      <summary>
-            If True, current user regional settings override the selected culture.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.CultureInfo">
-      <summary>
-            The current CultureInfo object (available at runtime).
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.FormatInfo">
-      <summary>
-            Format used to display the value.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.MaskInfo">
-      <summary>
-            Edit mask settings.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.CaseSensitive">
-      <summary>
-            True if string comparisons are case-sensitive; otherwise, False.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.FormatType">
-      <summary>
-            Enumeration value determining the formatting metod, including standard .NET format specifiers, custom and programmatic formatting.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.CustomFormat">
-      <summary>
-            Custom format specifier used if FormatType = FormatTypeEnum.CustomFormat.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.NullText">
-      <summary>
-            String representing a DbNull value.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.EmptyAsNull">
-      <summary>
-            If True, empty strings are interpreted as null values (DbNull).
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.TrimStart">
-      <summary>
-            If True, leading spaces are removed.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.TrimEnd">
-      <summary>
-            If True, trailing spaces are removed.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.CurrentTimeZone">
-      <summary>
-            If True, the control’s stored Value is in current time zone; otherwise, the Value is adjusted to the time zone defined by the GMTOffset property.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.GMTOffset">
-      <summary>
-            The time zone of the Value property used if CurrentTimeZone = False.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.DaylightTimeAdjustment">
-      <summary>
-            The value specified in the GMTOffset property can be advanced or set back due to daylight-saving time changes (used only if CurrentTimeZone = False). 
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.Tag">
-      <summary>
-            Gets or sets the object that contains data about the control.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.ErrorProvider">
-      <summary>
-            Gets or sets an ErrorProvider object used to indicate error state of the control.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.Text">
-      <summary>
-            The current text in the control.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.TextDetached">
-      <summary>
-            Specifies whether the Value and Text properties can be set independently.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.DataSource">
-      <summary>
-            The data source object to which the control is bound.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.DataField">
-      <summary>
-            The field of the data source object to which the control is bound.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.DataType">
-      <summary>
-            Type of the Value property.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.ValueIsDbNull">
-      <summary>
-            Gets or sets a value indicating whether the Value is DbNull.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1Label.Value">
-      <summary>
-            The main bindable property of a C1Input control.
-            </summary>
-    </member>
-    <member name="E:C1.Win.C1Input.C1Label.BorderColorChanged">
-      <summary>
-            Occurs when the BorderColor property has changed.
-            </summary>
-    </member>
-    <member name="E:C1.Win.C1Input.C1Label.VisualStyleChanged">
-      <summary>
-            Occurs when the VisualStyle property has changed.
-            </summary>
-    </member>
-    <member name="E:C1.Win.C1Input.C1Label.CultureInfoSetup">
-      <summary>
-            CultureInfo can be set up (on startup) or has been changed.
-            </summary>
-    </member>
-    <member name="E:C1.Win.C1Input.C1Label.FormatError">
-      <summary>
-            Error occured while formatting the stored value.
-            </summary>
-    </member>
-    <member name="E:C1.Win.C1Input.C1Label.Formatting">
-      <summary>
-            Formatting the value programmatically.
-            </summary>
-    </member>
-    <member name="E:C1.Win.C1Input.C1Label.Formatted">
-      <summary>
-            Occurs after the value has been formatted.
-            </summary>
-    </member>
-    <member name="E:C1.Win.C1Input.C1Label.DataTypeChanged">
-      <summary>
-            Occurs when the DataType property changes.
-            </summary>
-    </member>
-    <member name="E:C1.Win.C1Input.C1Label.ValueChanged">
-      <summary>
-            Occurs when the Value changes.
-            </summary>
-    </member>
-    <member name="E:C1.Win.C1Input.C1Label.BindingFormatting">
-      <summary>
-            Occurs when Value is retrieved from the data source.
-            </summary>
+            Can be used to set some dates in the month to bold as user scrolls through the months.
+            </remarks>
+      <example>
+            This example sets a new bolded date in the selected month.
+            <code>
+            private void c1DateEdit1_Calendar_MonthChanged(object sender, EventArgs e)
+            {
+               DateTime dt = c1DateEdit1.Calendar.FirstMonth;
+               c1DateEdit1.Calendar.AddBoldedDate(new DateTime(dt.Year, dt.Month, dt.Month));
+            }
+            </code></example>
     </member>
     <member name="T:C1.Win.C1Input.C1NumericEdit">
       <summary>
@@ -3148,397 +4640,792 @@
             Occurs when the Image changes.
             </summary>
     </member>
-    <member name="T:C1.Win.C1Input.UIStringsItemEventHandler">
+    <member name="M:C1.Win.C1Input.DropDownItem.Dispose(System.Boolean)">
       <summary>
-            Represents a handler for an <see cref="T:C1.Win.C1Input.UIStrings" /> item related event.
+            Clean up any resources being used.
             </summary>
     </member>
-    <member name="T:C1.Win.C1Input.UIStringsItemEventArgs">
+    <member name="M:C1.Win.C1Input.DropDownItem.OnDropDownClosed(System.EventArgs)">
       <summary>
-            Provides data for an <see cref="T:C1.Win.C1Input.UIStrings" /> item related event.
+            Raises the <see cref="E:C1.Win.C1Input.DropDownItem.DropDownClosed" /> event.
             </summary>
     </member>
-    <member name="P:C1.Win.C1Input.UIStringsItemEventArgs.Key">
+    <member name="M:C1.Win.C1Input.DropDownItem.OnClick(System.EventArgs)">
       <summary>
-            Gets key of the item being added or changed.
-            </summary>
-      <value>The key.</value>
-    </member>
-    <member name="P:C1.Win.C1Input.UIStringsItemEventArgs.Value">
-      <summary>
-            Gets the string value.
-            </summary>
-      <value>The value.</value>
-    </member>
-    <member name="P:C1.Win.C1Input.UIStringsItemEventArgs.IsDefault">
-      <summary>
-            Gets a value indicating whether this instance is default.
-            </summary>
-      <value>
-        <c>true</c> if this instance is default; otherwise, <c>false</c>.
-            </value>
-    </member>
-    <member name="P:C1.Win.C1Input.UIStringsItemEventArgs.Description">
-      <summary>
-            Gets the description.
-            </summary>
-      <value>The description.</value>
-    </member>
-    <member name="T:C1.Win.C1Input.UIStrings">
-      <summary>
-            Represents a collection of end user visible UI strings.
+            Raises the <see cref="E:C1.Win.C1Input.DropDownItem.Click" /> event.
             </summary>
     </member>
-    <member name="M:C1.Win.C1Input.UIStrings.Add(System.Object,System.Int32,System.String,System.String)">
+    <member name="M:C1.Win.C1Input.DropDownItem.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
       <summary>
-            Adds a string to the collection, specifying the ordinal.
+            Raises the <see cref="E:C1.Win.C1Input.DropDownItem.KeyDown" /> event.
             </summary>
-      <param name="key">The key of the string.</param>
-      <param name="ordinal">The ordinal of the string.</param>
-      <param name="value">The string.</param>
-      <param name="description">The description of the string.</param>
+      <param name="e">
+        <see cref="T:System.Windows.Forms.KeyEventArgs" /> that contains the event data.</param>
     </member>
-    <member name="M:C1.Win.C1Input.UIStrings.Add(System.Object,System.String,System.String)">
+    <member name="M:C1.Win.C1Input.DropDownItem.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)">
       <summary>
-            Adds a string to the collection in alphabetical order.
+            Raises the <see cref="E:C1.Win.C1Input.DropDownItem.KeyPress" /> event.
             </summary>
-      <param name="key">The key of the string.</param>
-      <param name="value">The string.</param>
-      <param name="description">The description of the string.</param>
+      <param name="e">
+        <see cref="T:System.Windows.Forms.KeyPressEventArgs" /> that contains the event data.</param>
     </member>
-    <member name="M:C1.Win.C1Input.UIStrings.AddInOrder(System.Object,System.String,System.String)">
+    <member name="M:C1.Win.C1Input.DropDownItem.OnKeyUp(System.Windows.Forms.KeyEventArgs)">
       <summary>
-            Adds a string to the collection, preserving the order.
+            Raises the <see cref="E:C1.Win.C1Input.DropDownItem.KeyUp" /> event.
             </summary>
-      <param name="key">The key of the string.</param>
-      <param name="value">The string.</param>
-      <param name="description">The description of the string.</param>
+      <param name="e">
+        <see cref="T:System.Windows.Forms.KeyEventArgs" /> that contains the event data.</param>
     </member>
-    <member name="M:C1.Win.C1Input.UIStrings.Reset">
+    <member name="M:C1.Win.C1Input.DropDownItem.OnGotFocus(System.EventArgs)">
       <summary>
-            Sets all strings in collection to their default values.
+            Raises the <see cref="E:C1.Win.C1Input.DropDownItem.GotFocus" /> event.
             </summary>
     </member>
-    <member name="M:C1.Win.C1Input.UIStrings.ShouldSerialize">
+    <member name="M:C1.Win.C1Input.DropDownItem.OnLostFocus(System.EventArgs)">
       <summary>
-            Indicates whether any of the strings in the current collection
-            have non-default values.
-            </summary>
-      <returns>
-        <c>true</c> if any of the strings have non-default values, <c>false</c> otherwise.</returns>
-    </member>
-    <member name="M:C1.Win.C1Input.UIStrings.IsDefault(System.Object)">
-      <summary>
-            Tests whether a string in the collection has default value.
-            </summary>
-      <param name="key">The key of the string to test.</param>
-      <returns>
-        <c>true</c> if the string has default value, <c>false</c> otherwise.</returns>
-    </member>
-    <member name="M:C1.Win.C1Input.UIStrings.GetDescription(System.Object)">
-      <summary>
-            Returns the description of a string.
-            </summary>
-      <param name="key">The key of the string to get the description of.</param>
-      <returns>The string's description</returns>
-    </member>
-    <member name="M:C1.Win.C1Input.UIStrings.Reset(System.Object)">
-      <summary>
-            Resets a string to its default value.
-            </summary>
-      <param name="key">The key of the string to reset.</param>
-    </member>
-    <member name="M:C1.Win.C1Input.UIStrings.GetKeyAt(System.Int32)">
-      <summary>
-            Returns the key of an item with the specified index.
-            </summary>
-      <param name="index">The item index.</param>
-      <returns>The item's key.</returns>
-    </member>
-    <member name="M:C1.Win.C1Input.UIStrings.GetValueAt(System.Int32)">
-      <summary>
-            Gets the string by its index.
-            </summary>
-      <param name="index">The string index.</param>
-      <returns>The string.</returns>
-    </member>
-    <member name="M:C1.Win.C1Input.UIStrings.SetValueAt(System.Int32,System.String)">
-      <summary>
-            Sets the value of a string with the specified index.
-            </summary>
-      <param name="index">The string index.</param>
-      <param name="value">The new string value.</param>
-    </member>
-    <member name="M:C1.Win.C1Input.UIStrings.OnItemAdded(C1.Win.C1Input.UIStringsItemEventArgs)">
-      <summary>
-            Fires the <see cref="E:C1.Win.C1Input.UIStrings.ItemAdded" /> event.
-            </summary>
-      <param name="e">The event data.</param>
-    </member>
-    <member name="M:C1.Win.C1Input.UIStrings.OnItemChanged(C1.Win.C1Input.UIStringsItemEventArgs)">
-      <summary>
-            Fires the <see cref="E:C1.Win.C1Input.UIStrings.ItemChanged" /> event.
-            </summary>
-      <param name="e">The event data.</param>
-    </member>
-    <member name="M:C1.Win.C1Input.UIStrings.OnCollectionChanged(System.EventArgs)">
-      <summary>
-            Fires the <see cref="E:C1.Win.C1Input.UIStrings.CollectionChanged" /> event.
-            </summary>
-      <param name="e">The event data.</param>
-    </member>
-    <member name="P:C1.Win.C1Input.UIStrings.Item(System.Object)">
-      <summary>
-            Gets or sets the string value for the specified key.
-            </summary>
-      <param name="key">The key of the string.</param>
-      <returns>The string corresponding to the specified key.</returns>
-    </member>
-    <member name="P:C1.Win.C1Input.UIStrings.Count">
-      <summary>
-            Gets the number of elements contained in the collection.
+            Raises the <see cref="E:C1.Win.C1Input.DropDownItem.LostFocus" /> event.
             </summary>
     </member>
-    <member name="E:C1.Win.C1Input.UIStrings.ItemAdded">
+    <member name="M:C1.Win.C1Input.DropDownItem.OnDoubleClick(System.EventArgs)">
       <summary>
-            Occurs when a new item is added to the collection.
+            Raises the <see cref="E:C1.Win.C1Input.DropDownItem.DoubleClick" /> event.
             </summary>
     </member>
-    <member name="E:C1.Win.C1Input.UIStrings.ItemChanged">
+    <member name="P:C1.Win.C1Input.DropDownItem.SplitButton">
       <summary>
-            Occurs when an item in the collection is changed.
+            Gets the <see cref="T:C1.Win.C1Input.C1SplitButton" /> that this <see cref="T:C1.Win.C1Input.DropDownItem" /> belongs to.
             </summary>
     </member>
-    <member name="E:C1.Win.C1Input.UIStrings.CollectionChanged">
+    <member name="P:C1.Win.C1Input.DropDownItem.Items">
       <summary>
-            Occurs when the collection has been changed.
+            Gets the collection of child items in that is associated with this DropDownItem.
             </summary>
     </member>
-    <member name="T:C1.Win.C1Input.UIStrings.TypeConverter">
+    <member name="P:C1.Win.C1Input.DropDownItem.CheckOnClick">
       <summary>
-            Provides type conversion for the <see cref="T:C1.Win.C1Input.UIStrings" /> type.
+            Gets or sets a value that indicates whether the item should toggle its pressed state when it is clicked.
             </summary>
     </member>
-    <member name="M:C1.Win.C1Input.UIStrings.TypeConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+    <member name="P:C1.Win.C1Input.DropDownItem.Text">
       <summary>
-            For internal use.
-            </summary>
-      <param name="context">
-      </param>
-      <param name="culture">
-      </param>
-      <param name="value">
-      </param>
-      <param name="type">
-      </param>
-      <returns>
-      </returns>
-    </member>
-    <member name="M:C1.Win.C1Input.UIStrings.TypeConverter.GetProperties(System.ComponentModel.ITypeDescriptorContext,System.Object,System.Attribute[])">
-      <summary>
-            For internal use.
-            </summary>
-      <param name="context">
-      </param>
-      <param name="value">
-      </param>
-      <param name="attrFilter">
-      </param>
-      <returns>
-      </returns>
-    </member>
-    <member name="M:C1.Win.C1Input.UIStrings.TypeConverter.GetPropertiesSupported(System.ComponentModel.ITypeDescriptorContext)">
-      <summary>
-            For internal use.
-            </summary>
-      <param name="context">
-      </param>
-      <returns>
-      </returns>
-    </member>
-    <member name="T:C1.Win.C1Input.DropDownForm">
-      <summary>
-            Base class for custom dropdown forms.
+            Gets or sets the text associated with the component.
             </summary>
     </member>
-    <member name="M:C1.Win.C1Input.DropDownForm.#ctor">
+    <member name="P:C1.Win.C1Input.DropDownItem.Checked">
       <summary>
-            Initializes a new instance of the DropDownForm class.
+            Gets or sets a value that indicates whether the item is checked.
             </summary>
     </member>
-    <member name="M:C1.Win.C1Input.DropDownForm.Dispose(System.Boolean)">
+    <member name="P:C1.Win.C1Input.DropDownItem.DialogResult">
       <summary>
-            Releases the resources used by the DropDownForm.
+            Gets or sets the dialog-box result produced in a modal form by clicking the button.
             </summary>
-      <param name="disposing">
-      </param>
     </member>
-    <member name="M:C1.Win.C1Input.DropDownForm.OnVisualStyleChanged(System.EventArgs)">
+    <member name="P:C1.Win.C1Input.DropDownItem.Image">
       <summary>
-            Invokes the VisualStyleChanged event.
+            Gets or sets the image associated with the <see cref="!:InputButton" />.
             </summary>
-      <param name="e">The event arguments.</param>
     </member>
-    <member name="M:C1.Win.C1Input.DropDownForm.PreFilterMessage(System.Windows.Forms.Message@)">
+    <member name="P:C1.Win.C1Input.DropDownItem.ImageIndex">
       <summary>
-            This method is for internal use only.
+            Gets or sets the index of the image in the ImageList.
             </summary>
-      <param name="m">
-      </param>
-      <returns>
-      </returns>
     </member>
-    <member name="M:C1.Win.C1Input.DropDownForm.OnPostChanges(System.EventArgs)">
+    <member name="P:C1.Win.C1Input.DropDownItem.ImageKey">
       <summary>
-            Fires the PostChanges event.
+            Gets or sets the image key in the ImageList.
             </summary>
-      <param name="e">Contains arguments describing the event.</param>
     </member>
-    <member name="M:C1.Win.C1Input.DropDownForm.OnCancelChanges(System.EventArgs)">
+    <member name="P:C1.Win.C1Input.DropDownItem.ImageSize">
+      <summary>
+            Gets or sets the size of the image that will be displayed on the button.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.DropDownItem.ImageAlign">
+      <summary>
+            Gets or sets the alignment of the image within the bounds specified by the <see cref="P:C1.Win.C1Input.DropDownItem.ImageSize" /> property.
+            </summary>
+      <remarks>
+            The value of this property is only used if <see cref="P:C1.Win.C1Input.DropDownItem.ImageScaling" /> = Clip and <see cref="P:C1.Win.C1Input.DropDownItem.ImageSize" />
+            exceeds the original size of the image.
+            </remarks>
+    </member>
+    <member name="P:C1.Win.C1Input.DropDownItem.ImageScaling">
+      <summary>
+            Gets or sets how the image will be scaled to fit within the bounds specified by the <see cref="P:C1.Win.C1Input.DropDownItem.ImageSize" /> property.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.DropDownItem.Enabled">
+      <summary>
+            Gets or sets a value indicating whether the item can respond to user interaction.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.DropDownItem.Visible">
+      <summary>
+            Gets or sets a value indicating whether the item is visible.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.DropDownItem.Tag">
+      <summary>
+            Gets or sets the object that contains data about the item.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.DropDownItem.IsDisposed">
+      <summary>
+            Gets a value indicating whether the component has been disposed.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.DropDownItem.DropDown">
+      <summary>
+            Fires when the drop-down portion of this element is shown.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.DropDownItem.DropDownClosed">
+      <summary>
+            Indicates that the drop-down portion of this element has closed.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.DropDownItem.Click">
+      <summary>
+            Fires when the component is clicked.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.DropDownItem.KeyDown">
+      <summary>
+            Fires when a key is pressed while the component has focus. 
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.DropDownItem.KeyPress">
+      <summary>
+            Fires when a key is pressed while the component has focus. 
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.DropDownItem.KeyUp">
+      <summary>
+            Fires when a key is released while the component has focus. 
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.DropDownItem.GotFocus">
+      <summary>
+            Fires when the component receives the focus.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.DropDownItem.LostFocus">
+      <summary>
+            Fires when the component loses the focus.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.DropDownItem.DoubleClick">
+      <summary>
+            Fires when the component is double-clicked.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.C1SplitButton">
+      <summary>
+            Represents a composite button control supporting additional visual styles and drop down item list.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.C1SplitButton.OnDropDownClosed(C1.Win.C1Input.DropDownClosedEventArgs)">
       <summary>
             This method is for internal use only.
             </summary>
       <param name="e">
       </param>
     </member>
-    <member name="M:C1.Win.C1Input.DropDownForm.OnOpen(System.EventArgs)">
+    <member name="M:C1.Win.C1Input.C1SplitButton.OnDropDownOpened(System.EventArgs)">
       <summary>
             This method is for internal use only.
             </summary>
       <param name="e">
       </param>
     </member>
-    <member name="M:C1.Win.C1Input.DropDownForm.OnOwnerControlTextChanged(System.EventArgs)">
+    <member name="P:C1.Win.C1Input.C1SplitButton.Items">
       <summary>
-            This method is for internal use only.
-            </summary>
-      <param name="e">
-      </param>
-    </member>
-    <member name="M:C1.Win.C1Input.DropDownForm.OnOwnerControlValueChanged(System.EventArgs)">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <param name="e">
-      </param>
-    </member>
-    <member name="M:C1.Win.C1Input.DropDownForm.OnActivated(System.EventArgs)">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <param name="e">
-      </param>
-    </member>
-    <member name="M:C1.Win.C1Input.DropDownForm.OnDeactivate(System.EventArgs)">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <param name="e">
-      </param>
-    </member>
-    <member name="M:C1.Win.C1Input.DropDownForm.CreateHandle">
-      <summary>
-            This method is for internal use only.
+            Gets the collection of <see cref="T:C1.Win.C1Input.DropDownItem" /> components on this button.
             </summary>
     </member>
-    <member name="M:C1.Win.C1Input.DropDownForm.OnVisibleChanged(System.EventArgs)">
+    <member name="P:C1.Win.C1Input.C1SplitButton.DropDownImageList">
       <summary>
-            This method is for internal use only.
-            </summary>
-      <param name="e">
-      </param>
-    </member>
-    <member name="M:C1.Win.C1Input.DropDownForm.WndProc(System.Windows.Forms.Message@)">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <param name="m">
-      </param>
-    </member>
-    <member name="M:C1.Win.C1Input.DropDownForm.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <param name="e">
-      </param>
-    </member>
-    <member name="M:C1.Win.C1Input.DropDownForm.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <param name="e">
-      </param>
-    </member>
-    <member name="M:C1.Win.C1Input.DropDownForm.CloseDropDown">
-      <summary>
-            Closes the dropdown form.
+            The ImageList to get the images to display in the drop down items.
             </summary>
     </member>
-    <member name="M:C1.Win.C1Input.DropDownForm.CloseDropDown(System.Boolean)">
+    <member name="P:C1.Win.C1Input.C1SplitButton.DefaultItem">
       <summary>
-            Closes the dropdown form.
-            </summary>
-      <param name="doPost">
-      </param>
-    </member>
-    <member name="P:C1.Win.C1Input.DropDownForm.BorderStyle">
-      <summary>
-            Determines the style of the control's border.
+            Gets or sets the default drop down item.
             </summary>
     </member>
-    <member name="P:C1.Win.C1Input.DropDownForm.ClientSize">
+    <member name="E:C1.Win.C1Input.C1SplitButton.DropDownItemClicked">
       <summary>
-            This property is for internal use only.
+            Occurs when a <see cref="T:C1.Win.C1Input.DropDownItem" /> is clicked.
             </summary>
     </member>
-    <member name="P:C1.Win.C1Input.DropDownForm.Options">
+    <member name="E:C1.Win.C1Input.C1SplitButton.DropDownClosed">
       <summary>
-            Determine various behavioral options of the dropdown form.
+            Occurs when the dropdown has been closed.
             </summary>
     </member>
-    <member name="P:C1.Win.C1Input.DropDownForm.FocusControl">
+    <member name="E:C1.Win.C1Input.C1SplitButton.DropDownOpened">
       <summary>
-            Determines the control on the form that gets input focus when the form is shown.
+            Occurs after the dropdown is opened.
             </summary>
     </member>
-    <member name="P:C1.Win.C1Input.DropDownForm.DropDownAlign">
+    <member name="P:C1.Win.C1Input.C1SplitButton.DroppedDown">
       <summary>
-            Alignment of the dropdown form relative to the owner control.
+            Run-time read-only property indicating if the dropdown is currently open.
             </summary>
     </member>
-    <member name="P:C1.Win.C1Input.DropDownForm.OwnerControl">
+    <member name="M:C1.Win.C1Input.DropDownItemCollection.OnInsertComplete(System.Int32,System.Object)">
       <summary>
-            This property is for internal use only.
+            Performs additional custom processes after inserting an <see cref="!:InputComponent" />
+            into the <see cref="!:InputComponentCollection" /> instance.
             </summary>
     </member>
-    <member name="P:C1.Win.C1Input.DropDownForm.KeyPreview">
+    <member name="M:C1.Win.C1Input.DropDownItemCollection.OnRemoveComplete(System.Int32,System.Object)">
       <summary>
-            This property is for internal use only.
+            Performs additional custom processes after removing an <see cref="!:InputComponent" />
+            from the <see cref="!:InputComponentCollection" /> instance.
             </summary>
     </member>
-    <member name="E:C1.Win.C1Input.DropDownForm.PostChanges">
+    <member name="M:C1.Win.C1Input.DropDownItemCollection.OnSetComplete(System.Int32,System.Object,System.Object)">
       <summary>
-            Occurs when Value property of the OwnerControl is updated by the dropdown form.
+            Performs additional custom processes after setting an <see cref="!:InputComponent" />
+            in the <see cref="!:InputComponentCollection" /> instance.
             </summary>
     </member>
-    <member name="E:C1.Win.C1Input.DropDownForm.CancelChanges">
+    <member name="M:C1.Win.C1Input.DropDownItemCollection.OnClear">
       <summary>
-            Occurs when changes made by dropdown form are cancelled.
+            Performs additional custom processes when clearing the contents of
+            the <see cref="!:InputComponentCollection" /> instance.
             </summary>
     </member>
-    <member name="E:C1.Win.C1Input.DropDownForm.Open">
+    <member name="M:C1.Win.C1Input.DropDownItemCollection.OnClearComplete">
       <summary>
-            Occurs when dropdown form is opened.
+            Performs additional custom processes after clearing the contents of
+            the <see cref="!:InputComponentCollection" /> instance.
             </summary>
     </member>
-    <member name="E:C1.Win.C1Input.DropDownForm.OwnerControlTextChanged">
+    <member name="T:C1.Win.C1Input.Enums.BreakType">
       <summary>
-            Occurs when OwnerControl.Text property is changed.
+            Specifies whether the layout should break the flow after the component.
             </summary>
     </member>
-    <member name="E:C1.Win.C1Input.DropDownForm.OwnerControlValueChanged">
+    <member name="F:C1.Win.C1Input.Enums.BreakType.None">
       <summary>
-            Occurs when OwnerControl.Value property is changed.
+            The layout should not break the flow after the component.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.BreakType.Row">
+      <summary>
+            Causes next component to be placed in a new row within the flow.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.BreakType.Column">
+      <summary>
+            Creates a new column after this component.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.BreakType.Group">
+      <summary>
+            Creates a new row starting below the current component, at the left edge of the current group.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.Enums.ContentAlignment">
+      <summary>
+            Defines values for the content alignment within the <see cref="!:InputComponent" />.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.ContentAlignment.NotSet">
+      <summary>
+            Default value.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.ContentAlignment.Near">
+      <summary>
+            Near.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.ContentAlignment.Far">
+      <summary>
+            Far.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.ContentAlignment.Center">
+      <summary>
+            Center.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.ContentAlignment.Spread">
+      <summary>
+            Spread.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.Enums.InputAutoCompleteMode">
+      <summary>
+            Specifies the mode for the automatic completion feature used in the <see cref="!:InputComboBox" />.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputAutoCompleteMode.None">
+      <summary>
+            Disables the automatic completion feature.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputAutoCompleteMode.Suggest">
+      <summary>
+            Displays the auxiliary drop-down list associated with the edit control.
+            This drop-down is populated with one or more suggested completion strings.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputAutoCompleteMode.Append">
+      <summary>
+            Appends the remainder of the most likely candidate string to the existing
+            characters, highlighting the appended characters.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.Enums.InputComboBoxStyle">
+      <summary>
+            Determines whether the user can edit a value in the text portion of the <see cref="!:InputComboBox" />.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputComboBoxStyle.DropDown">
+      <summary>
+            The text portion is editable.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputComboBoxStyle.DropDownList">
+      <summary>
+            The user cannot directly edit the text portion.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.Enums.InputContentAlignment">
+      <summary>
+            Defines values for the content alignment within the <see cref="!:InputComponent" />.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputContentAlignment.NotSet">
+      <summary>
+            Default value.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputContentAlignment.Near">
+      <summary>
+            Near.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputContentAlignment.Far">
+      <summary>
+            Far.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputContentAlignment.Center">
+      <summary>
+            Center.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputContentAlignment.Spread">
+      <summary>
+            Spread.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.Enums.InputDateFormat">
+      <summary>
+            Selects a standard format pattern for the <see cref="!:InputDatePicker" />.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputDateFormat.ShortDate">
+      <summary>
+            The date is converted to a string using the format pattern for a short date value.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputDateFormat.LongDate">
+      <summary>
+            The date is converted to a string using the format pattern for a long date value.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputDateFormat.MonthDay">
+      <summary>
+            The date is converted to a string using the format pattern for a month and day value.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputDateFormat.YearMonth">
+      <summary>
+            The date is converted to a string using the format pattern for a year and month value.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputDateFormat.Custom">
+      <summary>
+            The date is converted to a string using the custom format pattern.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.Enums.InputElementType">
+      <summary>
+            Specifies the type of element whose bounds are returned from the <see cref="!:C1InputPanel.GetItemBounds(InputComponent, InputElementType)" /> method.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputElementType.ContentElement">
+      <summary>
+            Gets the size and location of the inner content element.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputElementType.ToolTippedElement">
+      <summary>
+            Gets the size and location of the inner element that shows a tooltip.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputElementType.WholeComponent">
+      <summary>
+            Gets the size and location of the whole input component (the outer element).
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.Enums.InputImageAlignment">
+      <summary>
+            Specifies the image alignment on the input components.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputImageAlignment.TopLeft">
+      <summary>
+            Image is vertically aligned at the top, 
+            and horizontally aligned on the left. 
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputImageAlignment.TopCenter">
+      <summary>
+            Image is vertically aligned at the top, 
+            and horizontally aligned at the center.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputImageAlignment.TopRight">
+      <summary>
+            Image is vertically aligned at the top, 
+            and horizontally aligned on the right. 
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputImageAlignment.MiddleLeft">
+      <summary>
+            Image is vertically aligned in the middle, 
+            and horizontally aligned on the left. 
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputImageAlignment.MiddleCenter">
+      <summary>
+            Image is vertically aligned in the middle, 
+            and horizontally aligned at the center. 
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputImageAlignment.MiddleRight">
+      <summary>
+            Image is vertically aligned in the middle, 
+            and horizontally aligned on the right. 
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputImageAlignment.BottomLeft">
+      <summary>
+            Image is vertically aligned at the bottom, 
+            and horizontally aligned on the left. 		
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputImageAlignment.BottomCenter">
+      <summary>
+            Image is vertically aligned at the bottom, 
+            and horizontally aligned at the center.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputImageAlignment.BottomRight">
+      <summary>
+            Image is vertically aligned at the bottom, 
+            and horizontally aligned on the right. 
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.Enums.InputImageLayout">
+      <summary>
+            Specifies the layout logic used to display the background image in a rich tooltip.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputImageLayout.None">
+      <summary>
+            The image is left-aligned at the top across the control's client rectangle.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputImageLayout.Tile">
+      <summary>
+            The image is tiled across the control's client rectangle.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputImageLayout.Center">
+      <summary>
+            The image is centered within the control's client rectangle.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputImageLayout.Stretch">
+      <summary>
+            The image is stretched across the control's client rectangle. 
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputImageLayout.Zoom">
+      <summary>
+            The image is enlarged within the control's client rectangle.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputImageLayout.TileStretch">
+      <summary>
+            The image is split into nine pieces and tiled within the control's client rectangle.
+            Center tiles are stretched, corner tiles are rendered with the original size.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.Enums.InputImageScaling">
+      <summary>
+            Specifies the image scaling on the input components.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputImageScaling.Clip">
+      <summary>
+            Use the image's original size, clipping it to the display area if necessary.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputImageScaling.Stretch">
+      <summary>
+            Stretch the image to fill the display area. 
+            This mode will usually change the image's aspect ratio.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputImageScaling.Scale">
+      <summary>
+            Scale the image to fit the display area. 
+            This mode may increase or reduce the size of the image while maintaining its aspect ratio.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputImageScaling.Tile">
+      <summary>
+            Tile the image to fill the display area.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputImageScaling.TileStretch">
+      <summary>
+            Tile the image into the 3x3 matrix and stretch it to fill the display area.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputImageScaling.TileStretchHorizontal">
+      <summary>
+            Tile the image into the row of 3 images and stretch it to fill the display area.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputImageScaling.TileStretchVertical">
+      <summary>
+            Tile the image into the column of 3 images and stretch it to fill the display area.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.Enums.InputNavigatorButton">
+      <summary>
+            A list of all available navigator buttons.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorButton.MoveFirst">
+      <summary>
+            The 'Move First' button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorButton.MovePrevious">
+      <summary>
+            The 'Move Previous' button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorButton.MoveNext">
+      <summary>
+            The 'Move Next' button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorButton.MoveLast">
+      <summary>
+            The 'Move Last' button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorButton.AddNew">
+      <summary>
+            The 'Add New' button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorButton.Delete">
+      <summary>
+            The 'Delete' button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorButton.Edit">
+      <summary>
+            The 'Edit' button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorButton.Apply">
+      <summary>
+            The 'Apply' button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorButton.Cancel">
+      <summary>
+            The 'Cancel' button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorButton.Save">
+      <summary>
+            The 'Save Data' button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorButton.Reload">
+      <summary>
+            The 'Reload Data' button
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.Enums.InputNavigatorItems">
+      <summary>
+            A set of navigator items.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorItems.None">
+      <summary>
+            No items are in the set.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorItems.MoveFirstButton">
+      <summary>
+            The 'Move First' button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorItems.MovePreviousButton">
+      <summary>
+            The 'Move Previous' button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorItems.PositionInputBox">
+      <summary>
+            The input box that changes the current position.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorItems.CountLabel">
+      <summary>
+            The text label that displays the total number of items.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorItems.MoveNextButton">
+      <summary>
+            The 'Move Next' button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorItems.MoveLastButton">
+      <summary>
+            The 'Move Last' button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorItems.AddNewButton">
+      <summary>
+            The 'Add New' button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorItems.DeleteButton">
+      <summary>
+            The 'Delete' button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorItems.ApplyButton">
+      <summary>
+            The 'Apply' button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorItems.CancelButton">
+      <summary>
+            The 'Cancel' button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNavigatorItems.All">
+      <summary>
+            Includes all available items.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.Enums.InputNumberFormat">
+      <summary>
+            Selects a standard format pattern for the <see cref="!:InputNumericBox" />.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNumberFormat.Currency">
+      <summary>
+            The number is converted to a string that represents a currency amount.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNumberFormat.Decimal">
+      <summary>
+            The number is converted to a string of decimal digits (0-9), prefixed by a minus sign if the number is negative.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNumberFormat.Scientific">
+      <summary>
+            The number is converted to exponential format, such as "-1.234e+15".
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNumberFormat.FixedPoint">
+      <summary>
+            The number is converted to a string of the form "-ddddd.ddd…".
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNumberFormat.General">
+      <summary>
+            The number is converted to the most compact of either fixed-point or scientific notation.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNumberFormat.Number">
+      <summary>
+            The number is converted to a string of the form "-d,ddd,ddd.ddddd…".
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNumberFormat.Percent">
+      <summary>
+            The number is converted to a string that represents a percent.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNumberFormat.Hexadecimal">
+      <summary>
+            The number is converted to a string of hexadecimal digits.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputNumberFormat.Custom">
+      <summary>
+            The number is converted to a string using the custom format pattern.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.Enums.InputTimeFormat">
+      <summary>
+            Selects a standard format pattern for the <see cref="!:InputTimePicker" />.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputTimeFormat.ShortTime">
+      <summary>
+            The time is converted to a string using the format pattern for a short time value.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputTimeFormat.LongTime">
+      <summary>
+            The time is converted to a string using the format pattern for a long time value.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.InputTimeFormat.Custom">
+      <summary>
+            The time is converted to a string using the custom format pattern.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.Enums.Visibility">
+      <summary>
+            Specifies the display state of a component.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.Visibility.Visible">
+      <summary>
+            Display the component.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.Visibility.Hidden">
+      <summary>
+            Do not display the element, but reserve space for the element in layout.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.Enums.Visibility.Collapsed">
+      <summary>
+            Do not display the element, and do not reserve space for it in layout.
             </summary>
     </member>
     <member name="M:C1.Win.C1Input.DropDownCalendar.OnPostChanges(System.EventArgs)">
@@ -3639,248 +5526,6 @@
             The calculator used in a DropDownCalculator form.
             </summary>
     </member>
-    <member name="T:C1.Win.C1Input.DropDownControlButtonFlags">
-      <summary>
-            Used by C1DropDownControl.VisibleButtons properties.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.DropDownControlButtonFlags.None">
-      <summary>
-            Show without any button
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.DropDownControlButtonFlags.UpDown">
-      <summary>
-            Show up/down buttons.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.DropDownControlButtonFlags.DropDown">
-      <summary>
-            Show dropdown button.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.DropDownControlButtonFlags.Modal">
-      <summary>
-            Show button to start a modal dialog.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.DropDownControlButtonFlags.All">
-      <summary>
-            Show all buttons
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1Input.ButtonImages">
-      <summary>
-            Images for C1DropDownControl buttons
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.ButtonImages.Reset">
-      <summary>
-            Clears all custom images and returns standard images for C1DropDownControl buttons. 
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.ButtonImages.HasImage">
-      <summary>
-            Returns True if any custom image is assigned
-            </summary>
-      <returns>
-      </returns>
-    </member>
-    <member name="M:C1.Win.C1Input.ButtonImages.ShouldSerializeUpImage">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <returns>
-      </returns>
-    </member>
-    <member name="M:C1.Win.C1Input.ButtonImages.ResetUpImage">
-      <summary>
-            This method is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.ButtonImages.ShouldSerializeDownImage">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <returns>
-      </returns>
-    </member>
-    <member name="M:C1.Win.C1Input.ButtonImages.ResetDownImage">
-      <summary>
-            This method is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.ButtonImages.ShouldSerializeDropImage">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <returns>
-      </returns>
-    </member>
-    <member name="M:C1.Win.C1Input.ButtonImages.ResetDropImage">
-      <summary>
-            This method is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.ButtonImages.ShouldSerializeModalImage">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <returns>
-      </returns>
-    </member>
-    <member name="M:C1.Win.C1Input.ButtonImages.ResetModalImage">
-      <summary>
-            This method is for internal use only.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.ButtonImages.UpImage">
-      <summary>
-            Image for Up button
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.ButtonImages.DownImage">
-      <summary>
-            Image for Down button
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.ButtonImages.DropImage">
-      <summary>
-            Image for DropDown button
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.ButtonImages.ModalImage">
-      <summary>
-            Image for Modal button
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1Input.ButtonImages.ButtonImagesTypeConverter">
-      <summary>
-            TypeConverter class for ButtonImages
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.ButtonImages.ButtonImagesTypeConverter.GetPropertiesSupported(System.ComponentModel.ITypeDescriptorContext)">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <param name="context">
-      </param>
-      <returns>
-      </returns>
-    </member>
-    <member name="M:C1.Win.C1Input.ButtonImages.ButtonImagesTypeConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <param name="context">
-      </param>
-      <param name="culture">
-      </param>
-      <param name="value">
-      </param>
-      <param name="type">
-      </param>
-      <returns>
-      </returns>
-    </member>
-    <member name="T:C1.Win.C1Input.UpDownButtonClickEventHandler">
-      <summary>
-            Represents the method that handles a UpDownButtonClick event.
-            </summary>
-      <param name="sender">The source of the event.</param>
-      <param name="e">An UpDownButtonClickEventArgs object that contains the event data.</param>
-    </member>
-    <member name="T:C1.Win.C1Input.UpDownButtonClickEventArgs">
-      <summary>
-            Provides data for a UpDownButtonClick event.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.UpDownButtonClickEventArgs.Delta">
-      <summary>
-            Set to 1 if Up button is pressed, to -1 if Down button is pressed.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.UpDownButtonClickEventArgs.Done">
-      <summary>
-            Set to true in the user's UpDownButtonClick event handler. No built-in processing is done. This allows the user to override the default behavior of the buttons.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1Input.DropDownClosedEventArgs">
-      <summary>
-            Provides data for a DropDownClosed event.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.DropDownClosedEventArgs.Selected">
-      <summary>
-            Returns True if a value is selected in dropdown dialog.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.DropDownClosedEventArgs.#ctor(System.Boolean)">
-      <summary>
-            Initializes a new instance of the DropDownClosedEventArgs class.
-            </summary>
-      <param name="selected">
-      </param>
-    </member>
-    <member name="T:C1.Win.C1Input.DropDownClosedEventHandler">
-      <summary>
-            Represents the method that handles a DropDownClosed event.
-            </summary>
-      <param name="sender">The source of the event</param>
-      <param name="e">A DropDownClosedEventArgs object that contains the event data.</param>
-    </member>
-    <member name="T:C1.Win.C1Input.DropDownFormOptionsFlags">
-      <summary>
-            Used by DropDownForm.Options property.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.DropDownFormOptionsFlags.None">
-      <summary>
-            Indicates that none of the options are set.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.DropDownFormOptionsFlags.Focusable">
-      <summary>
-            Indicates that DropDownForm can contain focus.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.DropDownFormOptionsFlags.FixedWidth">
-      <summary>
-            The end users are not allowed to change the width of the dropdown form resizing it.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.DropDownFormOptionsFlags.FixedHeight">
-      <summary>
-            The end users are not allowed to change the height of the dropdown form resizing it.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.DropDownFormOptionsFlags.AlwaysPostChanges">
-      <summary>
-            If this flag is set, the changes to the control Value can only be cancelled explicitly, with Esc key 
-            or using the CloseDropDown method, and implicit cancellation (when the form is closed because it loses focus) is disabled.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.DropDownFormOptionsFlags.NoCancelOnEscape">
-      <summary>
-            If this flag is set, pressing the Esc key does not close the form.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.DropDownFormOptionsFlags.NoPostOnEnter">
-      <summary>
-            If this flag is set, pressing the Enter key does not close the form.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.DropDownFormOptionsFlags.AutoResize">
-      <summary>
-            If set, the dropdown form width is automatically adjusted to the width of the owner control
-            before the form is shown.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.DropDownFormOptionsFlags.FixedSize">
-      <summary>
-            = FixedWidth + FixedHeight
-            </summary>
-    </member>
     <member name="T:C1.Win.C1Input.ErrorActionEnum">
       <summary>
             Used by ErrorInfo.ErrorAction property.
@@ -3966,6 +5611,11 @@
     <member name="P:C1.Win.C1Input.ErrorInfo.ErrorProvider">
       <summary>
             Gets or sets an ErrorProvider object used to indicate error state of the control.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.ErrorInfo.C1SuperErrorProvider">
+      <summary>
+            Gets or sets an C1SuperErrorProvider object used to indicate error state of the control.
             </summary>
     </member>
     <member name="P:C1.Win.C1Input.ErrorInfo.InnerException">
@@ -5455,7 +7105,7 @@
     </member>
     <member name="P:C1.Win.C1Input.PostValidation.Inherit">
       <summary>
-            Manages inheritance of the PreValidation properties from the host control properties.
+            Manages inheritance of the PostValidation properties from the host control properties.
             </summary>
     </member>
     <member name="P:C1.Win.C1Input.PostValidation.CaseSensitive">

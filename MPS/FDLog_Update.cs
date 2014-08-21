@@ -43,6 +43,16 @@ namespace RSMPS
 
         public bool SetToUseGroups
         {
+            //set
+            //{
+            //    mbUseGroup = true;
+            //    lblProjectLead.Visible = true;
+            //    txtProjectLead.Visible = true;
+            //    bttProjLead.Visible = true;
+            //    sbProjects.Text = "For Project Lead";
+            //    ttlbbSwitch.Enabled = false;
+
+            //}
             set
             {
                 if (value == true)
@@ -52,7 +62,7 @@ namespace RSMPS
                     txtProjectLead.Visible = true;
                     bttProjLead.Visible = true;
 
-                    sbProjects.Text = "for Project Lead";
+                    sbProjects.Text = "For Project Lead";
 
                     ttlbbSwitch.Enabled = false;
                 }

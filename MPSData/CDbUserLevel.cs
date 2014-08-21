@@ -43,6 +43,8 @@ namespace RSMPS
                 oVar.UserID = Convert.ToInt32(dr["UserID"]);
                 oVar.DepartmentID = Convert.ToInt32(dr["DepartmentID"]);
                 oVar.SecurityLevelID = Convert.ToInt32(dr["SecurityLevelID"]);
+                oVar.SecurityLevelIDJS = Convert.ToInt32(dr["SecurityLevelIDJS"]);
+                oVar.SecurityLevelIDDRW = Convert.ToInt32(dr["SecurityLevelIDDRW"]);
                 tmpStr = GetDataString();
             }
 
@@ -79,6 +81,10 @@ namespace RSMPS
             prm.Value = oVar.DepartmentID;
             prm = cmd.Parameters.Add("@SecurityLevelID", SqlDbType.Int);
             prm.Value = oVar.SecurityLevelID;
+            prm = cmd.Parameters.Add("@SecurityLevelIDJS", SqlDbType.Int);
+            prm.Value = oVar.SecurityLevelIDJS;
+            prm = cmd.Parameters.Add("@SecurityLevelIDDRW", SqlDbType.Int);
+            prm.Value = oVar.SecurityLevelIDDRW;
             cmd.ExecuteNonQuery();
 
             retVal = Convert.ToInt32(cmd.Parameters["@ID"].Value);
@@ -113,6 +119,10 @@ namespace RSMPS
             prm.Value = oVar.DepartmentID;
             prm = cmd.Parameters.Add("@SecurityLevelID", SqlDbType.Int);
             prm.Value = oVar.SecurityLevelID;
+            prm = cmd.Parameters.Add("@SecurityLevelIDJS", SqlDbType.Int);
+            prm.Value = oVar.SecurityLevelIDJS;
+            prm = cmd.Parameters.Add("@SecurityLevelIDDRW", SqlDbType.Int);
+            prm.Value = oVar.SecurityLevelIDDRW;
             cmd.ExecuteNonQuery();
 
             prm = null;
