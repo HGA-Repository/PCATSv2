@@ -104,6 +104,28 @@ namespace RSMPS
             tdbgExpense.Columns[16].Caption = "E170 Lodging";
             tdbgExpense.Columns[18].Caption = "E180 Per diem";
             tdbgExpense.Columns[19].Caption = "E190 Misc Exp";
+            tdbgExpense.Columns[20].Caption = "E281 1 Man Crew";
+            tdbgExpense.Columns[21].Caption = "E282 2 Man Crew";
+            tdbgExpense.Columns[22].Caption = "E283 3 Man Crew";
+            tdbgExpense.Columns[23].Caption = "E284 4 Man Crew";
+            tdbgExpense.Columns[24].Caption = "E290 Survey Supplies";
+            tdbgExpense.Columns[25].Caption = "E310 Eng. Services";
+            tdbgExpense.Columns[26].Caption = "E320 Surveying";
+            tdbgExpense.Columns[27].Caption = "E330 GeoTech Inv";
+            tdbgExpense.Columns[28].Caption = "E340 Environmental";
+            tdbgExpense.Columns[29].Caption = "E350 Spec Sub";
+            tdbgExpense.Columns[30].Caption = "E541 ATV";
+            tdbgExpense.Columns[31].Caption = "E542 ORUV";
+            tdbgExpense.Columns[32].Caption = "E543 Boat";
+            tdbgExpense.Columns[33].Caption = "E561 Digital Cam";
+            tdbgExpense.Columns[34].Caption = "E562 Cell Phone";
+            tdbgExpense.Columns[35].Caption = "E580 Field Comp";
+            tdbgExpense.Columns[36].Caption = "E591 Trimble R8 GPS";
+            tdbgExpense.Columns[37].Caption = "E592 Trimble GEO";
+            tdbgExpense.Columns[38].Caption = "E593 Total Station";
+            tdbgExpense.Columns[39].Caption = "E594 Laser Range";
+            tdbgExpense.Columns[40].Caption = "E595 Pipe Locator";
+
         }
 
         private void bttCancel_Click(object sender, EventArgs e)
@@ -222,6 +244,27 @@ namespace RSMPS
                 es.E170 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E170"]));
                 es.E180 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E180"]));
                 es.E190 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E190"]));
+                es.E281 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E281"]));
+                es.E282 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E282"]));
+                es.E283 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E283"]));
+                es.E284 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E284"]));
+                es.E290 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E290"]));
+                es.E310 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E310"]));
+                es.E320 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E320"]));
+                es.E330 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E330"]));
+                es.E340 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E340"]));
+                es.E350 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E350"]));
+                es.E541 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E541"]));
+                es.E542 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E542"]));
+                es.E543 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E543"]));
+                es.E561 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E561"]));
+                es.E562 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E562"]));
+                es.E580 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E580"]));
+                es.E591 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E591"]));
+                es.E592 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E592"]));
+                es.E593 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E593"]));
+                es.E594 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E594"]));
+                es.E595 = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E595"]));
 
                 es.Save();
 
@@ -302,6 +345,11 @@ namespace RSMPS
             //}
 
             bttOK.Enabled = true;
+        }
+
+        private void tdbgExpense_Click(object sender, EventArgs e)
+        {
+
         }
 
 

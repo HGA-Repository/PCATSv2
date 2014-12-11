@@ -501,9 +501,9 @@ namespace RSMPS
             Control pcn = this.tabControl1.Controls.Find("tbpPCN", false).First();
             this.tabControl1.Controls.Remove(pcn);
             this.tabControl1.Controls.Add(pcn);
-           // Control clarification = this.tabControl1.Controls.Find("tbpClarifications",false).First();
-           // this.tabControl1.Controls.Remove(clarification);
-           // this.tabControl1.Controls.Add(clarification);
+            Control clarification = this.tabControl1.Controls.Find("tbpClarification",false).First();
+            this.tabControl1.Controls.Remove(clarification);
+            this.tabControl1.Controls.Add(clarification);
         }
 
     }

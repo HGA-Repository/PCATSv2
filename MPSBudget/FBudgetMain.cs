@@ -681,7 +681,7 @@ namespace RSMPS
 
             ClearExpenseLines(group);
 
-            int travelFare, autoRental, tolls, fuel, mileage, meals, lodging, perdiem, miscExp;
+            int travelFare, autoRental, tolls, fuel, mileage, meals, lodging, perdiem, miscExp, survey1, survey2, survey3, survey4, survsup, engserv, surveying, geotinv, environ, specsub, atv, oruv, boat, digcam, cphone, fldcomp, trimbler8, trimblegeo, etotstat, lasrange, pipeloc;
             string rowCode;
 
             travelFare = 0;
@@ -693,6 +693,27 @@ namespace RSMPS
             lodging = 0;
             perdiem = 0;
             miscExp = 0;
+            survey1 = 0;
+            survey2 = 0;
+            survey3 = 0;
+            survey4 = 0;
+            survsup = 0;
+            engserv = 0;
+            surveying = 0;
+            geotinv = 0;
+            environ = 0;
+            specsub = 0;
+            atv = 0;
+            oruv = 0;
+            boat = 0;
+            digcam = 0;
+            cphone = 0;
+            fldcomp = 0;
+            trimbler8 = 0;
+            trimblegeo = 0;
+            etotstat = 0;
+            lasrange = 0;
+            pipeloc = 0;
 
             foreach (DataRow dr in mdsWS.Tables["Expenses"].Rows)
             {
@@ -706,6 +727,27 @@ namespace RSMPS
                 lodging += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E170"])) * quantity;
                 perdiem += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E180"])) * quantity;
                 miscExp += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E190"])) * quantity;
+                survey1 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E281"])) * quantity;
+                survey2 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E282"])) * quantity;
+                survey3 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E283"])) * quantity;
+                survey4 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E284"])) * quantity;
+                survsup += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E290"])) * quantity;
+                engserv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E310"])) * quantity;
+                surveying += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E320"])) * quantity;
+                geotinv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E330"])) * quantity;
+                environ += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E340"])) * quantity;
+                specsub += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E350"])) * quantity;
+                atv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E541"])) * quantity;
+                oruv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E542"])) * quantity;
+                boat += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E543"])) * quantity;
+                digcam += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E561"])) * quantity;
+                cphone += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E562"])) * quantity;
+                fldcomp += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E580"])) * quantity;
+                trimbler8 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E591"])) * quantity;
+                trimblegeo += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E592"])) * quantity;
+                etotstat += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E593"])) * quantity;
+                lasrange += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E594"])) * quantity;
+                pipeloc += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E595"])) * quantity;
             }
 
             foreach (C1.Win.C1FlexGrid.Row r in fgExp.Rows)
@@ -747,6 +789,90 @@ namespace RSMPS
                         break;
                     case "E190":
                         r[6] = miscExp;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E281":
+                        r[6] = survey1;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E282":
+                        r[6] = survey2;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E283":
+                        r[6] = survey3;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E284":
+                        r[6] = survey4;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E290":
+                        r[6] = survsup;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E310":
+                        r[6] = engserv;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E320":
+                        r[6] = surveying;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E330":
+                        r[6] = geotinv;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E340":
+                        r[6] = environ;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E350":
+                        r[6] = specsub;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E541":
+                        r[6] = atv;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E542":
+                        r[6] = oruv;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E543":
+                        r[6] = boat;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E561":
+                        r[6] = digcam;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E562":
+                        r[6] = cphone;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E580":
+                        r[6] = fldcomp;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E591":
+                        r[6] = trimbler8;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E592":
+                        r[6] = trimblegeo;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E593":
+                        r[6] = etotstat;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E594":
+                        r[6] = lasrange;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E595":
+                        r[6] = pipeloc;
                         fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
                         break;
                     default:
@@ -845,6 +971,94 @@ namespace RSMPS
                         fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
                         break;
                     case "E180":
+                        r[6] = 0;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E190":
+                        r[6] = 0;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E281":
+                        r[6] = 0;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E282":
+                        r[6] = 0;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E283":
+                        r[6] = 0;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E284":
+                        r[6] = 0;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E290":
+                        r[6] = 0;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E310":
+                        r[6] = 0;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E320":
+                        r[6] = 0;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E330":
+                        r[6] = 0;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E340":
+                        r[6] = 0;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E350":
+                        r[6] = 0;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E541":
+                        r[6] = 0;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E542":
+                        r[6] = 0;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E543":
+                        r[6] = 0;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E561":
+                        r[6] = 0;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E562":
+                        r[6] = 0;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E580":
+                        r[6] = 0;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E591":
+                        r[6] = 0;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E592":
+                        r[6] = 0;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E593":
+                        r[6] = 0;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E594":
+                        r[6] = 0;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E595":
                         r[6] = 0;
                         fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
                         break;
@@ -1253,7 +1467,7 @@ namespace RSMPS
             DoBudgetSelectChange();
         }
         
-        private void tbpClarifications_SelectedIndexChanged(object sender, EventArgs e)
+        private void tbpClarification_SelectedIndexChanged(object sender, EventArgs e)
         {
             DoBudgetSelectChange();
 
@@ -1559,8 +1773,10 @@ namespace RSMPS
             bl.Quantity = r[BUDCOL11].As<string>().ToInt() ?? 0;
             bl.HoursEach = r[BUDCOL12].As<string>().ToInt() ?? 0;
             bl.TotalHours = r[BUDCOL13].As<string>().ToInt() ?? 0;
-            bl.LoadedRate = r[BUDCOL14].As<string>().ToInt() ?? 0;
-            bl.TotalDollars = r[BUDCOL15].As<string>().ToInt() ?? 0;
+            bl.LoadedRate = r[BUDCOL14].As<string>().ToDecimal() ?? 0; // was ToInt()
+            bl.TotalDollars = r[BUDCOL15].As<string>().ToDecimal() ?? 0;
+            
+            
                     
 
 
@@ -1820,6 +2036,27 @@ namespace RSMPS
                 d["E170"] = dr["E170"];
                 d["E180"] = dr["E180"];
                 d["E190"] = dr["E190"];
+                d["E281"] = dr["E281"];
+                d["E282"] = dr["E282"];
+                d["E283"] = dr["E283"];
+                d["E284"] = dr["E284"];
+                d["E290"] = dr["E290"];
+                d["E310"] = dr["E310"];
+                d["E320"] = dr["E320"];
+                d["E330"] = dr["E330"];
+                d["E340"] = dr["E340"];
+                d["E350"] = dr["E350"];
+                d["E541"] = dr["E541"];
+                d["E542"] = dr["E542"];
+                d["E543"] = dr["E543"];
+                d["E561"] = dr["E561"];
+                d["E562"] = dr["E562"];
+                d["E580"] = dr["E580"];
+                d["E591"] = dr["E591"];
+                d["E592"] = dr["E592"];
+                d["E593"] = dr["E593"];
+                d["E594"] = dr["E594"];
+                d["E595"] = dr["E595"];
 
                 mdsWS[group].Tables["Expenses"].Rows.Add(d);
             }
@@ -2138,7 +2375,7 @@ namespace RSMPS
         {
             var group = _Default_Group;
 
-            int travelFare, autoRental, tolls, fuel, mileage, meals, lodging, perdiem, miscExp;
+            int travelFare, autoRental, tolls, fuel, mileage, meals, lodging, perdiem, miscExp, survey1, survey2, survey3, survey4, survsup, engserv, surveying, geotinv, environ, specsub, atv, oruv, boat, digcam, cphone, fldcomp, trimbler8, trimblegeo, etotstat, lasrange, pipeloc; 
             string rowCode;
 
             travelFare = 0;
@@ -2150,6 +2387,27 @@ namespace RSMPS
             lodging = 0;
             perdiem = 0;
             miscExp = 0;
+            survey1 = 0;
+            survey2 = 0;
+            survey3 = 0;
+            survey4 = 0;
+            survsup = 0;
+            engserv = 0;
+            surveying = 0;
+            geotinv = 0;
+            environ = 0;
+            specsub = 0;
+            atv = 0;
+            oruv = 0;
+            boat = 0;
+            digcam = 0;
+            cphone = 0;
+            fldcomp = 0;
+            trimbler8 = 0;
+            trimblegeo = 0;
+            etotstat = 0;
+            lasrange = 0;
+            pipeloc = 0;
 
             // find entries to make new worksheet line
             foreach (DataRow d in pcns.Tables["PCNExpenses"].Rows)
@@ -2186,6 +2444,69 @@ namespace RSMPS
                     case "E190":
                         miscExp += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
+                    case "E281":
+                        survey1 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E282":
+                        survey2 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E283":
+                        survey3 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E284":
+                        survey4 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E290":
+                        survsup  += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E310":
+                        engserv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E320":
+                        surveying += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E330":
+                        geotinv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E340":
+                        environ += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E350":
+                        specsub += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E541":
+                        atv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E542":
+                        oruv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E543":
+                        boat += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E561":
+                        digcam += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E562":
+                        cphone += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E580":
+                        fldcomp += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E591":
+                        trimbler8 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E592":
+                        trimblegeo += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E593":
+                        etotstat += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E594":
+                        lasrange += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E595":
+                        pipeloc += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
                     default:
                         AddPCNExpensesNonWorksheet(pcnID, rowCode, Convert.ToInt32(d["NumItems"]), Convert.ToDecimal(d["DlrsPerItem"]), Convert.ToDecimal(d["MUPerc"]));
                         break;
@@ -2216,6 +2537,27 @@ namespace RSMPS
             es.E170 = lodging;
             es.E180 = perdiem;
             es.E190 = miscExp;
+            es.E281 = survey1;
+            es.E282 = survey2;
+            es.E283 = survey3;
+            es.E284 = survey4;
+            es.E290 = survsup;
+            es.E310 = engserv;
+            es.E320 = surveying;
+            es.E330 = geotinv;
+            es.E340 = environ;
+            es.E350 = specsub;
+            es.E541 = atv;
+            es.E542 = oruv;
+            es.E543 = boat;
+            es.E561 = digcam;
+            es.E562 = cphone;
+            es.E580 = fldcomp;
+            es.E591 = trimbler8;
+            es.E592 = trimblegeo;
+            es.E593 = etotstat;
+            es.E594 = lasrange;
+            es.E595 = pipeloc;
 
             es.Save();
 
@@ -2238,6 +2580,27 @@ namespace RSMPS
             eRow["E170"] = lodging;
             eRow["E180"] = perdiem;
             eRow["E190"] = miscExp;
+            eRow["E281"] = survey1;
+            eRow["E282"] = survey2;
+            eRow["E283"] = survey3;
+            eRow["E284"] = survey4;
+            eRow["E290"] = survsup;
+            eRow["E310"] = engserv;
+            eRow["E320"] = surveying;
+            eRow["E330"] = geotinv;
+            eRow["E340"] = environ;
+            eRow["E350"] = specsub;
+            eRow["E541"] = atv;
+            eRow["E542"] = oruv;
+            eRow["E543"] = boat;
+            eRow["E561"] = digcam;
+            eRow["E562"] = cphone;
+            eRow["E580"] = fldcomp;
+            eRow["E591"] = trimbler8;
+            eRow["E592"] = trimblegeo;
+            eRow["E593"] = etotstat;
+            eRow["E594"] = lasrange;
+            eRow["E595"] = pipeloc;
 
             mdsWS[group].Tables["Expenses"].Rows.Add(eRow);
 
@@ -2250,7 +2613,7 @@ namespace RSMPS
 
             ClearExpenseLines(group);
 
-            int travelFare, autoRental, tolls, fuel, mileage, meals, lodging, perdiem, miscExp;
+            int travelFare, autoRental, tolls, fuel, mileage, meals, lodging, perdiem, miscExp, survey1, survey2, survey3, survey4, survsup, engserv, surveying, geotinv, environ, specsub, atv, oruv, boat, digcam, cphone, fldcomp, trimbler8, trimblegeo, etotstat, lasrange, pipeloc;
             string rowCode;
 
             travelFare = 0;
@@ -2262,6 +2625,27 @@ namespace RSMPS
             lodging = 0;
             perdiem = 0;
             miscExp = 0;
+            survey1 = 0;
+            survey2 = 0;
+            survey3 = 0;
+            survey4 = 0;
+            survsup = 0;
+            engserv = 0;
+            surveying = 0;
+            geotinv = 0;
+            environ = 0;
+            specsub = 0;
+            atv = 0;
+            oruv = 0;
+            boat = 0;
+            digcam = 0;
+            cphone = 0;
+            fldcomp = 0;
+            trimbler8 = 0;
+            trimblegeo = 0;
+            etotstat = 0;
+            lasrange = 0;
+            pipeloc = 0;
 
             foreach (DataRow dr in mdsWS[group].Tables["Expenses"].Rows)
             {
@@ -2274,6 +2658,27 @@ namespace RSMPS
                 lodging += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E170"]));
                 perdiem += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E180"]));
                 miscExp += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E190"]));
+                survey1 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E281"]));
+                survey2 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E282"]));
+                survey3 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E283"]));
+                survey4 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E284"]));
+                survsup += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E290"]));
+                engserv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E310"]));
+                surveying += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E320"]));
+                geotinv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E330"]));
+                environ += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E340"]));
+                specsub += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E350"]));
+                atv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E541"]));
+                oruv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E542"]));
+                boat += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E543"]));
+                digcam += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E561"]));
+                cphone += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E562"]));
+                fldcomp += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E580"]));
+                trimbler8 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E591"]));
+                trimblegeo += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E592"]));
+                etotstat += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E593"]));
+                lasrange += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E594"]));
+                pipeloc += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E595"]));
             }
 
             var fgExp = fgExpForGroup(group);
@@ -2316,6 +2721,90 @@ namespace RSMPS
                         break;
                     case "E190":
                         r[6] = miscExp;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E281":
+                        r[6] = survey1;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E282":
+                        r[6] = survey2;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E283":
+                        r[6] = survey3;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E284":
+                        r[6] = survey4;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E290":
+                        r[6] = survsup;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E310":
+                        r[6] = engserv;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E320":
+                        r[6] = surveying;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E330":
+                        r[6] = geotinv;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E340":
+                        r[6] = environ;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E350":
+                        r[6] = specsub;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E541":
+                        r[6] = atv;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E542":
+                        r[6] = oruv;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E543":
+                        r[6] = boat;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E561":
+                        r[6] = digcam;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E562":
+                        r[6] = cphone;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E580":
+                        r[6] = fldcomp;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E591":
+                        r[6] = trimbler8;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E592":
+                        r[6] = trimblegeo;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E593":
+                        r[6] = etotstat;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E594":
+                        r[6] = lasrange;
+                        fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
+                        break;
+                    case "E595":
+                        r[6] = pipeloc;
                         fgExp_AfterEdit(group, this, new RowColEventArgs(r.Index, 6));
                         break;
                     default:
@@ -2509,7 +2998,7 @@ namespace RSMPS
             rw = fg.Rows[fg.Row];
 
             if (RevSol.RSMath.IsInteger(rw[7]) == false || rw[7] == null)
-            {
+                            {
                 cmnuAddRow.Enabled = false;
                 deleteRowToolStripMenuItem.Enabled = false;
             }
@@ -2520,6 +3009,12 @@ namespace RSMPS
                     cmnuAddRow.Enabled = false;
                     deleteRowToolStripMenuItem.Enabled = false;
                 }
+                else
+                    if (moCurrBudget.IsActive == true)
+                    {
+                        cmnuAddRow.Enabled = false;
+                        deleteRowToolStripMenuItem.Enabled = false;
+                    }
                 else
                 {
                     cmnuAddRow.Enabled = true;
@@ -2659,21 +3154,6 @@ namespace RSMPS
             }
         }
 
-        //Private Sub ListBox1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles ListBox1.MouseMove
-        //    Dim MousePositionInClientCoords As Point = New Point(e.X, e.Y)
-        //    Dim indexUnderTheMouse As Integer = Me.ListBox1.IndexFromPoint(MousePositionInClientCoords)
-        //    If indexUnderTheMouse > -1 Then
-        //        Dim s As String = Me.ListBox1.Items(indexUnderTheMouse).ToString
-        //        Dim g As Graphics = Me.ListBox1.CreateGraphics
-        //        If g.MeasureString(s, Me.ListBox1.Font).Width > Me.ListBox1.ClientRectangle.Width Then
-        //            Me.ToolTip1.SetToolTip(Me.ListBox1, s)
-        //        Else
-        //            Me.ToolTip1.SetToolTip(Me.ListBox1, "")
-        //        End If
-        //        g.Dispose()
-        //    End If
-        //End Sub
-
         private bool IsLockedExpense(string val)
         {
             bool retVal;
@@ -2707,6 +3187,72 @@ namespace RSMPS
                 case "E190":
                     retVal = true;
                     break;
+                case "E281":
+                    retVal = true;
+                    break;
+                case "E282":
+                    retVal = true;
+                    break;
+                case "E283":
+                    retVal = true;
+                    break;
+                case "E284":
+                    retVal = true;
+                    break;
+                case "E290":
+                    retVal = true;
+                    break;
+                case "E310":
+                    retVal = true;
+                    break;
+                case "E320":
+                    retVal = true;
+                    break;
+                case "E330":
+                    retVal = true;
+                    break;
+                case "E340":
+                    retVal = true;
+                    break;
+                case "E350":
+                    retVal = true;
+                    break;
+                case "E541":
+                    retVal = true;
+                    break;
+                case "E542":
+                    retVal = true;
+                    break;
+                case "E543":
+                    retVal = true;
+                    break;
+                case "E561":
+                    retVal = true;
+                    break;
+                case "E562":
+                    retVal = true;
+                    break;
+                case "E580":
+                    retVal = true;
+                    break;
+                case "E591":
+                    retVal = true;
+                    break;
+                case "E592":
+                    retVal = true;
+                    break;
+                case "E593":
+                    retVal = true;
+                    break;
+                case "E594":
+                    retVal = true;
+                    break;
+                case "E595":
+                    retVal = true;
+                    break;
+
+
+
                 default:
                     retVal = false;
                     break;
@@ -2863,6 +3409,23 @@ namespace RSMPS
             CBBudget.CreateBudgetInJobStat(budgetID);
 
             this.Cursor = Cursors.Default;
+        }
+
+        private void button5_Click (object sender, EventArgs e)
+        {
+            CBBudget bud = new CBBudget();
+
+            bud.Clarification11000 = richTextBox1.Text;
+            bud.Clarification12000 = richTextBox2.Text;
+            bud.Clarification13000 = richTextBox3.Text;
+            bud.Clarification14000 = richTextBox4.Text;
+            bud.Clarification15000 = richTextBox5.Text;
+            bud.Clarification16000 = richTextBox6.Text;
+            bud.Clarification18000 = richTextBox7.Text;
+            bud.Clarification50000 = richTextBox8.Text;
+                               
+            
+            bud.Save();
         }
 
         private string GetProcurementDescription(int code, string descrip)
@@ -3129,5 +3692,6 @@ namespace RSMPS
             this.Close();
         }
 
+     
     }
 }

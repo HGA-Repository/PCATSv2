@@ -82,21 +82,22 @@ namespace RSMPS
             this.label1 = new System.Windows.Forms.Label();
             this.rtbClientFeed = new System.Windows.Forms.RichTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.c1ToolBar1 = new C1.Win.C1Command.C1ToolBar();
             this.c1CommandHolder1 = new C1.Win.C1Command.C1CommandHolder();
             this.tlbbSave = new C1.Win.C1Command.C1Command();
             this.tlbbPrint = new C1.Win.C1Command.C1Command();
+            this.tlbbPrintCust = new C1.Win.C1Command.C1Command();
             this.tlbbExit = new C1.Win.C1Command.C1Command();
             this.c1CommandLink1 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink2 = new C1.Win.C1Command.C1CommandLink();
+            this.c1CommandLink4 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink3 = new C1.Win.C1Command.C1CommandLink();
             this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components);
-            this.Client = new System.Windows.Forms.TextBox();
-            this.Job = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.Location = new System.Windows.Forms.TextBox();
-            this.tlbbPrintCust = new C1.Win.C1Command.C1Command();
-            this.c1CommandLink4 = new C1.Win.C1Command.C1CommandLink();
+            this.Job = new System.Windows.Forms.TextBox();
+            this.Client = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fgForecast)).BeginInit();
@@ -116,18 +117,20 @@ namespace RSMPS
             this.cmnuPMVals.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1SpellChecker1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox1.Controls.Add(this.bttRemoveProject);
             this.groupBox1.Controls.Add(this.bttAddProject);
             this.groupBox1.Controls.Add(this.lvwProjects);
             this.groupBox1.Location = new System.Drawing.Point(12, 30);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(130, 329);
+            this.groupBox1.Size = new System.Drawing.Size(130, 403);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Projects";
@@ -136,7 +139,7 @@ namespace RSMPS
             // 
             this.bttRemoveProject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bttRemoveProject.Enabled = false;
-            this.bttRemoveProject.Location = new System.Drawing.Point(25, 289);
+            this.bttRemoveProject.Location = new System.Drawing.Point(25, 350);
             this.bttRemoveProject.Name = "bttRemoveProject";
             this.bttRemoveProject.Size = new System.Drawing.Size(80, 30);
             this.bttRemoveProject.TabIndex = 2;
@@ -147,7 +150,7 @@ namespace RSMPS
             // bttAddProject
             // 
             this.bttAddProject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.bttAddProject.Location = new System.Drawing.Point(25, 253);
+            this.bttAddProject.Location = new System.Drawing.Point(25, 314);
             this.bttAddProject.Name = "bttAddProject";
             this.bttAddProject.Size = new System.Drawing.Size(80, 30);
             this.bttAddProject.TabIndex = 1;
@@ -168,7 +171,7 @@ namespace RSMPS
             this.lvwProjects.HideSelection = false;
             this.lvwProjects.Location = new System.Drawing.Point(6, 19);
             this.lvwProjects.Name = "lvwProjects";
-            this.lvwProjects.Size = new System.Drawing.Size(118, 228);
+            this.lvwProjects.Size = new System.Drawing.Size(118, 289);
             this.lvwProjects.TabIndex = 0;
             this.lvwProjects.UseCompatibleStateImageBehavior = false;
             this.lvwProjects.View = System.Windows.Forms.View.Details;
@@ -260,8 +263,7 @@ namespace RSMPS
             // 
             // groupBox5
             // 
-            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.rtbActHigh);
             this.groupBox5.Location = new System.Drawing.Point(6, 311);
@@ -290,8 +292,7 @@ namespace RSMPS
             // 
             // groupBox6
             // 
-            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.Controls.Add(this.rtbNeeds);
             this.groupBox6.Location = new System.Drawing.Point(6, 467);
@@ -320,8 +321,7 @@ namespace RSMPS
             // 
             // tbSummay
             // 
-            this.tbSummay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.tbSummay.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbSummay.Controls.Add(this.tbpProjStat);
             this.tbSummay.Controls.Add(this.tbpFeedback);
@@ -329,7 +329,7 @@ namespace RSMPS
             this.tbSummay.Location = new System.Drawing.Point(148, 30);
             this.tbSummay.Name = "tbSummay";
             this.tbSummay.SelectedIndex = 0;
-            this.tbSummay.Size = new System.Drawing.Size(751, 697);
+            this.tbSummay.Size = new System.Drawing.Size(751, 705);
             this.tbSummay.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tbSummay.TabIndex = 6;
             // 
@@ -344,15 +344,14 @@ namespace RSMPS
             this.tbpProjStat.Location = new System.Drawing.Point(4, 22);
             this.tbpProjStat.Name = "tbpProjStat";
             this.tbpProjStat.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpProjStat.Size = new System.Drawing.Size(743, 671);
+            this.tbpProjStat.Size = new System.Drawing.Size(743, 679);
             this.tbpProjStat.TabIndex = 0;
             this.tbpProjStat.Text = "Project Status";
             this.tbpProjStat.UseVisualStyleBackColor = true;
             // 
             // groupBox9
             // 
-            this.groupBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox9.Controls.Add(this.label8);
             this.groupBox9.Controls.Add(this.label7);
@@ -362,9 +361,9 @@ namespace RSMPS
             this.groupBox9.Controls.Add(this.label5);
             this.groupBox9.Controls.Add(this.PaidToDate);
             this.groupBox9.Controls.Add(this.Outstanding);
-            this.groupBox9.Location = new System.Drawing.Point(9, 639);
+            this.groupBox9.Location = new System.Drawing.Point(9, 635);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(731, 30);
+            this.groupBox9.Size = new System.Drawing.Size(731, 40);
             this.groupBox9.TabIndex = 16;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Financials";
@@ -372,7 +371,7 @@ namespace RSMPS
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(552, 2);
+            this.label8.Location = new System.Drawing.Point(552, 16);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(64, 13);
             this.label8.TabIndex = 23;
@@ -381,7 +380,7 @@ namespace RSMPS
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(374, 2);
+            this.label7.Location = new System.Drawing.Point(374, 16);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(66, 13);
             this.label7.TabIndex = 22;
@@ -390,7 +389,7 @@ namespace RSMPS
             // POAmt
             // 
             this.POAmt.ContextMenuStrip = this.cmnuSchedule;
-            this.POAmt.Location = new System.Drawing.Point(86, 2);
+            this.POAmt.Location = new System.Drawing.Point(86, 16);
             this.POAmt.Name = "POAmt";
             this.POAmt.Size = new System.Drawing.Size(100, 20);
             this.POAmt.TabIndex = 16;
@@ -398,7 +397,7 @@ namespace RSMPS
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(192, 2);
+            this.label6.Location = new System.Drawing.Point(192, 16);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 13);
             this.label6.TabIndex = 21;
@@ -407,7 +406,7 @@ namespace RSMPS
             // BilledToDate
             // 
             this.BilledToDate.ContextMenuStrip = this.cmnuSchedule;
-            this.BilledToDate.Location = new System.Drawing.Point(268, 2);
+            this.BilledToDate.Location = new System.Drawing.Point(268, 16);
             this.BilledToDate.Name = "BilledToDate";
             this.BilledToDate.Size = new System.Drawing.Size(100, 20);
             this.BilledToDate.TabIndex = 17;
@@ -415,7 +414,7 @@ namespace RSMPS
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(56, 2);
+            this.label5.Location = new System.Drawing.Point(56, 16);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(22, 13);
             this.label5.TabIndex = 20;
@@ -424,7 +423,7 @@ namespace RSMPS
             // PaidToDate
             // 
             this.PaidToDate.ContextMenuStrip = this.cmnuSchedule;
-            this.PaidToDate.Location = new System.Drawing.Point(446, 2);
+            this.PaidToDate.Location = new System.Drawing.Point(446, 16);
             this.PaidToDate.Name = "PaidToDate";
             this.PaidToDate.Size = new System.Drawing.Size(100, 20);
             this.PaidToDate.TabIndex = 18;
@@ -432,15 +431,14 @@ namespace RSMPS
             // Outstanding
             // 
             this.Outstanding.ContextMenuStrip = this.cmnuSchedule;
-            this.Outstanding.Location = new System.Drawing.Point(622, 2);
+            this.Outstanding.Location = new System.Drawing.Point(622, 16);
             this.Outstanding.Name = "Outstanding";
             this.Outstanding.Size = new System.Drawing.Size(100, 20);
             this.Outstanding.TabIndex = 19;
             // 
             // groupBox8
             // 
-            this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox8.Controls.Add(this.rtbCFeedBack);
             this.groupBox8.Location = new System.Drawing.Point(8, 563);
@@ -458,7 +456,7 @@ namespace RSMPS
             this.rtbCFeedBack.ContextMenuStrip = this.cmnuSchedule;
             this.rtbCFeedBack.Enabled = false;
             this.rtbCFeedBack.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.rtbCFeedBack.Location = new System.Drawing.Point(3, 11);
+            this.rtbCFeedBack.Location = new System.Drawing.Point(3, 13);
             this.rtbCFeedBack.Name = "rtbCFeedBack";
             this.rtbCFeedBack.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
             this.rtbCFeedBack.Size = new System.Drawing.Size(728, 56);
@@ -709,17 +707,6 @@ namespace RSMPS
             this.timer1.Interval = 250;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(37, 385);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // c1ToolBar1
             // 
             this.c1ToolBar1.AccessibleName = "Tool Bar";
@@ -765,6 +752,13 @@ namespace RSMPS
             this.tlbbPrint.Text = "Print";
             this.tlbbPrint.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbPrint_Click);
             // 
+            // tlbbPrintCust
+            // 
+            this.tlbbPrintCust.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbPrintCust.Icon")));
+            this.tlbbPrintCust.Name = "tlbbPrintCust";
+            this.tlbbPrintCust.ShortcutText = "";
+            this.tlbbPrintCust.Text = "Print Client";
+            // 
             // tlbbExit
             // 
             this.tlbbExit.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbExit.Icon")));
@@ -784,6 +778,12 @@ namespace RSMPS
             this.c1CommandLink2.Command = this.tlbbPrint;
             this.c1CommandLink2.SortOrder = 1;
             // 
+            // c1CommandLink4
+            // 
+            this.c1CommandLink4.ButtonLook = ((C1.Win.C1Command.ButtonLookFlags)((C1.Win.C1Command.ButtonLookFlags.Text | C1.Win.C1Command.ButtonLookFlags.Image)));
+            this.c1CommandLink4.Command = this.tlbbPrintCust;
+            this.c1CommandLink4.SortOrder = 2;
+            // 
             // c1CommandLink3
             // 
             this.c1CommandLink3.ButtonLook = ((C1.Win.C1Command.ButtonLookFlags)((C1.Win.C1Command.ButtonLookFlags.Text | C1.Win.C1Command.ButtonLookFlags.Image)));
@@ -791,56 +791,61 @@ namespace RSMPS
             this.c1CommandLink3.Delimiter = true;
             this.c1CommandLink3.SortOrder = 3;
             // 
-            // Client
+            // panel1
             // 
-            this.Client.Enabled = false;
-            this.Client.Location = new System.Drawing.Point(0, 414);
-            this.Client.Multiline = true;
-            this.Client.Name = "Client";
-            this.Client.Size = new System.Drawing.Size(136, 58);
-            this.Client.TabIndex = 8;
-            // 
-            // Job
-            // 
-            this.Job.Enabled = false;
-            this.Job.Location = new System.Drawing.Point(0, 488);
-            this.Job.Multiline = true;
-            this.Job.Name = "Job";
-            this.Job.Size = new System.Drawing.Size(136, 65);
-            this.Job.TabIndex = 9;
+            this.panel1.Controls.Add(this.Location);
+            this.panel1.Controls.Add(this.Job);
+            this.panel1.Controls.Add(this.Client);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Location = new System.Drawing.Point(12, 439);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(130, 288);
+            this.panel1.TabIndex = 12;
             // 
             // Location
             // 
             this.Location.Enabled = false;
-            this.Location.Location = new System.Drawing.Point(0, 571);
+            this.Location.Location = new System.Drawing.Point(1, 192);
             this.Location.Multiline = true;
             this.Location.Name = "Location";
-            this.Location.Size = new System.Drawing.Size(136, 43);
-            this.Location.TabIndex = 10;
+            this.Location.Size = new System.Drawing.Size(124, 58);
+            this.Location.TabIndex = 14;
             // 
-            // tlbbPrintCust
+            // Job
             // 
-            this.tlbbPrintCust.Icon = ((System.Drawing.Icon)(resources.GetObject("tlbbPrintCust.Icon")));
-            this.tlbbPrintCust.Name = "tlbbPrintCust";
-            this.tlbbPrintCust.ShortcutText = "";
-            this.tlbbPrintCust.Text = "Print Client";
+            this.Job.Enabled = false;
+            this.Job.Location = new System.Drawing.Point(1, 128);
+            this.Job.Multiline = true;
+            this.Job.Name = "Job";
+            this.Job.Size = new System.Drawing.Size(124, 58);
+            this.Job.TabIndex = 13;
             // 
-            // c1CommandLink4
+            // Client
             // 
-            this.c1CommandLink4.ButtonLook = ((C1.Win.C1Command.ButtonLookFlags)((C1.Win.C1Command.ButtonLookFlags.Text | C1.Win.C1Command.ButtonLookFlags.Image)));
-            this.c1CommandLink4.Command = this.tlbbPrintCust;
-            this.c1CommandLink4.SortOrder = 2;
+            this.Client.Enabled = false;
+            this.Client.Location = new System.Drawing.Point(1, 64);
+            this.Client.Multiline = true;
+            this.Client.Name = "Client";
+            this.Client.Size = new System.Drawing.Size(124, 58);
+            this.Client.TabIndex = 12;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(25, 17);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             // 
             // FManager_Summary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(908, 729);
-            this.Controls.Add(this.Location);
-            this.Controls.Add(this.Job);
-            this.Controls.Add(this.Client);
+            this.ClientSize = new System.Drawing.Size(908, 747);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.c1ToolBar1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.tbSummay);
             this.Controls.Add(this.groupBox1);
             this.MinimizeBox = false;
@@ -872,8 +877,9 @@ namespace RSMPS
             this.cmnuPMVals.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1SpellChecker1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -897,7 +903,6 @@ namespace RSMPS
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ColumnHeader colProjectID;
         private System.Windows.Forms.RichTextBox rtbClientFeed;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ContextMenuStrip cmnuSchedule;
         private System.Windows.Forms.ToolStripMenuItem scheduleBulletIndent;
         private System.Windows.Forms.ToolStripMenuItem scheduleBulletRemove;
@@ -943,9 +948,11 @@ namespace RSMPS
         internal System.Windows.Forms.TabPage tbpFeedback;
         private C1.Win.C1SpellChecker.C1SpellChecker c1SpellChecker1;
         private C1.Win.C1Command.C1Command tlbbPrintCust;
+        private C1.Win.C1Command.C1CommandLink c1CommandLink4;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox Location;
         private System.Windows.Forms.TextBox Job;
         private System.Windows.Forms.TextBox Client;
-        private C1.Win.C1Command.C1CommandLink c1CommandLink4;
+        private System.Windows.Forms.Button button1;
     }
 }

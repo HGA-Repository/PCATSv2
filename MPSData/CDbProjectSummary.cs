@@ -325,8 +325,7 @@ namespace RSMPS
                     cmd = new SqlCommand("spRPRT_ResourceVariance", cnn.GetConnection());
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandTimeout = 60 * 2;
-                    //prm = cmd.Parameters.Add("@IsPipeline", SqlDbType.Int);
-                    //prm.Value = 0;
+            
                     break;
                 case 1:     // pm
                     cmd = new SqlCommand("spRPRT_ResourceVarianceByPM", cnn.GetConnection());
@@ -339,22 +338,19 @@ namespace RSMPS
                     cmd = new SqlCommand("spRPRT_ResourceVarianceSummary", cnn.GetConnection());
                     cmd.CommandTimeout = 60 * 2;
                     cmd.CommandType = CommandType.StoredProcedure;
-                    //prm = cmd.Parameters.Add("@IsPipeline", SqlDbType.Int);
-                    //prm.Value = 0;
+                  
                     break;
                 case 3:     // all, pipeline
                     cmd = new SqlCommand("spRPRT_ResourceVarianceForPipeline", cnn.GetConnection());
                     cmd.CommandTimeout = 60 * 2;
                     cmd.CommandType = CommandType.StoredProcedure;
-                    //prm = cmd.Parameters.Add("@IsPipeline", SqlDbType.Int);
-                    //prm.Value = 1;
+                  
                     break;
                 case 4:    // summary, pipeline
                     cmd = new SqlCommand("spRPRT_ResourceVarianceSummaryForPipeline", cnn.GetConnection());
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandTimeout = 60 * 2;
-                    //prm = cmd.Parameters.Add("@IsPipeline", SqlDbType.Int);
-                    //prm.Value = 1;
+                   
                     break;
                 default:         // all Dept Groups
                     cmd = new SqlCommand("spRPRT_ResourceVarianceByDeptGroup", cnn.GetConnection());

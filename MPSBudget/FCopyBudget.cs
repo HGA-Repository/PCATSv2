@@ -33,7 +33,7 @@ namespace RSMPS
             txtRevision.Text = "";
 
             //SSS 20131105 SqlDataReader dr = CBProject.GetList();
-            SqlDataReader dr = CBProject.GetListProj();
+            SqlDataReader dr = CBProject.GetList();
 
             while (dr.Read())
             {
