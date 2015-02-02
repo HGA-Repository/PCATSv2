@@ -10,7 +10,7 @@ namespace RSMPS
     public class rprtBudgetSummaryEngineering : GrapeCity.ActiveReports.SectionReport
     {
         private int miTotalHours = 0;
-
+        
         public int TotalHours
         {
             get { return miTotalHours; }
@@ -28,6 +28,7 @@ namespace RSMPS
             InitializeComponent();
         }
 
+      
         private void Detail_Format(object sender, System.EventArgs eArgs)
         {
             if (Convert.ToInt32(txtMHrs.Value) != 0)
@@ -179,7 +180,6 @@ namespace RSMPS
             // 
             // Detail
             // 
-            this.Detail.ColumnSpacing = 0F;
             this.Detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.txtAcctCode,
             this.txtDescription,
@@ -542,7 +542,6 @@ namespace RSMPS
             this.Label1,
             this.Label2,
             this.Line25});
-            this.GroupFooter1.Height = 0.25F;
             this.GroupFooter1.Name = "GroupFooter1";
             this.GroupFooter1.Format += new System.EventHandler(this.GroupFooter1_Format);
             // 
@@ -751,11 +750,11 @@ namespace RSMPS
             this.Sections.Add(this.PageFooter);
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule(resources.GetString("$this.StyleSheet"), "Normal"));
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bo" +
-                        "ld; font-size: 16pt; font-size-adjust: inherit; font-stretch: inherit", "Heading1", "Normal"));
+            "ld; font-size: 16pt; font-size-adjust: inherit; font-stretch: inherit", "Heading1", "Normal"));
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-family: Times New Roman; font-style: italic; font-variant: inherit; font-wei" +
-                        "ght: bold; font-size: 14pt; font-size-adjust: inherit; font-stretch: inherit", "Heading2", "Normal"));
+            "ght: bold; font-size: 14pt; font-size-adjust: inherit; font-stretch: inherit", "Heading2", "Normal"));
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bo" +
-                        "ld; font-size: 13pt; font-size-adjust: inherit; font-stretch: inherit", "Heading3", "Normal"));
+            "ld; font-size: 13pt; font-size-adjust: inherit; font-stretch: inherit", "Heading3", "Normal"));
             ((System.ComponentModel.ISupportInitialize)(this.txtAcctCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLoadedDollars)).EndInit();

@@ -16,6 +16,7 @@ namespace RSMPS
             rprtBudgetSummary1 rprt = new rprtBudgetSummary1();
             DataSet ds;
 
+
             int totalHours;
             decimal totalHourDollars;
             decimal totalExpenses;
@@ -39,8 +40,13 @@ namespace RSMPS
 
             ds = CBBudget.GetBudgetSummaryForReport(budID, wbs);
 
-            if (proj.IsPipeline() == true)
-                rprt.MainReportTitle = "Pipeline Services Estimate Loaded Summary";
+          
+            if (proj.BusinessUnit() == 1) rprt.MainReportTitle = "Staffing Estimate Loaded Summary";
+            if (proj.BusinessUnit() == 2) rprt.MainReportTitle = "Engineering Estimate Loaded Summary";
+            if (proj.BusinessUnit() == 3) rprt.MainReportTitle = "Pipeline Services Estimate Loaded Summary";
+            if (proj.BusinessUnit() == 4) rprt.MainReportTitle = "Program Management Estimate Loaded Summary";
+            if (proj.BusinessUnit() == 5) rprt.MainReportTitle = "EPC Estimate Loaded Summary";
+
             rprt.SetTitles(proj.Number, proj.Description, bud.GetNumber(), cust.Name, loc.City + "," + state.Abbrev, wbs);
             rprt.TotalHours = totalHours;
             rprt.TotalHourDollars = totalHourDollars;
@@ -72,8 +78,12 @@ namespace RSMPS
 
             ds = CBBudget.GetBudgetDetailsForReport(budID, wbs);
 
-            if (proj.IsPipeline() == true)
-                rprt.MainReportTitle = "Pipeline Services Estimate Details";
+
+            if (proj.BusinessUnit() == 1) rprt.MainReportTitle = "Staffing Estimate Loaded Details";
+            if (proj.BusinessUnit() == 2) rprt.MainReportTitle = "Engineering Estimate Loaded Details";
+            if (proj.BusinessUnit() == 3) rprt.MainReportTitle = "Pipeline Services Estimate Loaded Details";
+            if (proj.BusinessUnit() == 4) rprt.MainReportTitle = "Program Management Estimate Loaded Details";
+            if (proj.BusinessUnit() == 5) rprt.MainReportTitle = "EPC Estimate Loaded Details";
 
             rprt.SetTitles(cust.Name + " / " + loc.City + "," + state.Abbrev, proj.Description, proj.Number, bud.GetNumber(), wbs);
             rprt.DataSource = ds;
@@ -239,8 +249,13 @@ namespace RSMPS
             contingency = CBBudget.GetContingencyForBudget(budID);
             ds = CBBudget.GetBudgetSummaryForReport(budID, wbs);
 
-            if (proj.IsPipeline() == true)
-                rprt.MainReportTitle = "Pipeline Services Estimate Loaded Summary";
+
+            if (proj.BusinessUnit() == 1) rprt.MainReportTitle = "Staffing Estimate Loaded Summary";
+            if (proj.BusinessUnit() == 2) rprt.MainReportTitle = "Engineering Estimate Loaded Summary";
+            if (proj.BusinessUnit() == 3) rprt.MainReportTitle = "Pipeline Services Estimate Loaded Summary";
+            if (proj.BusinessUnit() == 4) rprt.MainReportTitle = "Program Management Estimate Loaded Summary";
+            if (proj.BusinessUnit() == 5) rprt.MainReportTitle = "EPC Estimate Loaded Summary";
+
             rprt.SetTitles(proj.Number, proj.Description, bud.GetNumber(), cust.Name, loc.City + "," + state.Abbrev, wbs);
             rprt.TotalHours = totalHours;
             rprt.TotalHourDollars = totalHourDollars;
@@ -272,8 +287,12 @@ namespace RSMPS
 
             ds = CBBudget.GetBudgetDetailsForReport(budID, wbs);
 
-            if (proj.IsPipeline() == true)
-                rprt.MainReportTitle = "Pipeline Services Estimate Details";
+
+            if (proj.BusinessUnit() == 1) rprt.MainReportTitle = "Staffing Estimate Loaded Details";
+            if (proj.BusinessUnit() == 2) rprt.MainReportTitle = "Engineering Estimate Loaded Details";
+            if (proj.BusinessUnit() == 3) rprt.MainReportTitle = "Pipeline Services Estimate Loaded Details";
+            if (proj.BusinessUnit() == 4) rprt.MainReportTitle = "Program Management Estimate Loaded Details";
+            if (proj.BusinessUnit() == 5) rprt.MainReportTitle = "EPC Estimate Loaded Details";
 
             rprt.SetTitles(cust.Name + " / " + loc.City + "," + state.Abbrev, proj.Description, proj.Number, bud.GetNumber(), wbs);
             rprt.DataSource = ds;

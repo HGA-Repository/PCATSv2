@@ -202,6 +202,32 @@ namespace RSMPS
             return dbDt.GetListForMaster(masterNum);
         }
 
+        public int BusinessUnit()
+        {
+            // 1 = Staffing
+            // 2 = Engineering
+            // 3 = PLS
+            // 4 = Program Management
+            // 5 = EPC
+
+            if (base.Number.Substring(0, 2) == "0.") return 2;
+            if (base.Number.Substring(0, 2) == "1.") return 1;
+            if (base.Number.Substring(0, 2) == "2.") return 2;
+            if (base.Number.Substring(0, 2) == "3.") return 4;
+            if (base.Number.Substring(0, 2) == "6.") return 4;
+            if (base.Number.Substring(0, 2) == "7.") return 5;
+            if (base.Number.Substring(0, 2) == "8.") return 3;
+            if (base.Number.Substring(0, 3) == "P.0") return 2;
+            if (base.Number.Substring(0, 3) == "P.1") return 1;
+            if (base.Number.Substring(0, 3) == "P.2") return 2;
+            if (base.Number.Substring(0, 3) == "P.3") return 4;
+            if (base.Number.Substring(0, 3) == "P.6") return 4;
+            if (base.Number.Substring(0, 3) == "P.7") return 5;
+            if (base.Number.Substring(0, 3) == "P.8") return 3;
+            else return 2;
+
+
+        }
         public bool IsPipeline()
         {
             bool retVal = false;

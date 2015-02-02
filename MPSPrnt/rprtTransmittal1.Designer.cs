@@ -313,7 +313,6 @@ namespace RSMPS
             // 
             // detail
             // 
-            this.detail.ColumnSpacing = 0F;
             this.detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.textBox8,
             this.textBox9,
@@ -485,7 +484,7 @@ namespace RSMPS
             this.label13.Name = "label13";
             this.label13.Style = "font-size: 9pt; text-decoration: underline; ddo-char-set: 0";
             this.label13.Text = "Comments:";
-            this.label13.Top = 0.125F;
+            this.label13.Top = 0F;
             this.label13.Width = 0.75F;
             // 
             // label14
@@ -496,7 +495,7 @@ namespace RSMPS
             this.label14.Name = "label14";
             this.label14.Style = "font-size: 9pt; text-decoration: underline; ddo-char-set: 0";
             this.label14.Text = "Cc:";
-            this.label14.Top = 0.5625F;
+            this.label14.Top = 0.625F;
             this.label14.Width = 0.75F;
             // 
             // label15
@@ -507,7 +506,7 @@ namespace RSMPS
             this.label15.Name = "label15";
             this.label15.Style = "font-size: 9pt; ddo-char-set: 0";
             this.label15.Text = "Issued By:";
-            this.label15.Top = 1.125F;
+            this.label15.Top = 1.187F;
             this.label15.Width = 1F;
             // 
             // label16
@@ -518,7 +517,7 @@ namespace RSMPS
             this.label16.Name = "label16";
             this.label16.Style = "font-size: 9pt; ddo-char-set: 0";
             this.label16.Text = "Sent By:";
-            this.label16.Top = 1.125F;
+            this.label16.Top = 1.187F;
             this.label16.Width = 1F;
             // 
             // label17
@@ -540,7 +539,7 @@ namespace RSMPS
             this.label18.Name = "label18";
             this.label18.Style = "font-size: 9pt; text-align: center; ddo-char-set: 0";
             this.label18.Text = "Project Manager";
-            this.label18.Top = 1.3125F;
+            this.label18.Top = 1.3745F;
             this.label18.Width = 1F;
             // 
             // label19
@@ -551,7 +550,7 @@ namespace RSMPS
             this.label19.Name = "label19";
             this.label19.Style = "font-size: 9pt; text-align: center; ddo-char-set: 0";
             this.label19.Text = "Document Manager";
-            this.label19.Top = 1.3125F;
+            this.label19.Top = 1.3745F;
             this.label19.Width = 1.5F;
             // 
             // richTextBox1
@@ -563,7 +562,7 @@ namespace RSMPS
             this.richTextBox1.Left = 0.75F;
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.RTF = resources.GetString("richTextBox1.RTF");
-            this.richTextBox1.Top = 0.125F;
+            this.richTextBox1.Top = 0F;
             this.richTextBox1.Width = 6.625F;
             // 
             // richTextBox2
@@ -575,7 +574,7 @@ namespace RSMPS
             this.richTextBox2.Left = 0.75F;
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.RTF = resources.GetString("richTextBox2.RTF");
-            this.richTextBox2.Top = 0.5625F;
+            this.richTextBox2.Top = 0.625F;
             this.richTextBox2.Width = 6.625F;
             // 
             // line7
@@ -612,7 +611,7 @@ namespace RSMPS
             this.textBox6.Name = "textBox6";
             this.textBox6.Style = "font-size: 9pt; text-align: center; ddo-char-set: 0";
             this.textBox6.Text = "textBox2";
-            this.textBox6.Top = 1.125F;
+            this.textBox6.Top = 1.187F;
             this.textBox6.Width = 2.4375F;
             // 
             // textBox7
@@ -623,7 +622,7 @@ namespace RSMPS
             this.textBox7.Name = "textBox7";
             this.textBox7.Style = "font-size: 9pt; text-align: center; ddo-char-set: 0";
             this.textBox7.Text = "textBox2";
-            this.textBox7.Top = 1.125F;
+            this.textBox7.Top = 1.187F;
             this.textBox7.Width = 2.4375F;
             // 
             // groupHeader1

@@ -499,9 +499,9 @@ namespace RSMPS
             this.pageBreak1.Height = 0.01F;
             this.pageBreak1.Left = 0F;
             this.pageBreak1.Name = "pageBreak1";
-            this.pageBreak1.Size = new System.Drawing.SizeF(7.25F, 0.01F);
+            this.pageBreak1.Size = new System.Drawing.SizeF(6.5F, 0.01F);
             this.pageBreak1.Top = 7.5F;
-            this.pageBreak1.Width = 7.25F;
+            this.pageBreak1.Width = 6.5F;
             // 
             // label48
             // 
@@ -577,7 +577,7 @@ namespace RSMPS
             this.label52.Left = 0.5F;
             this.label52.Name = "label52";
             this.label52.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
-            this.label52.Text = "Estimated Engr. Hrs.:";
+            this.label52.Text = "Estimated Hrs.:";
             this.label52.Top = 2.312F;
             this.label52.Width = 1.6875F;
             // 
@@ -588,7 +588,7 @@ namespace RSMPS
             this.label53.Left = 0.5F;
             this.label53.Name = "label53";
             this.label53.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
-            this.label53.Text = "Estimated Engr. Cost:";
+            this.label53.Text = "Estimated Cost:";
             this.label53.Top = 2.562F;
             this.label53.Width = 1.6875F;
             // 
@@ -1345,7 +1345,7 @@ namespace RSMPS
             this.label5.Left = 0.0625F;
             this.label5.Name = "label5";
             this.label5.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
-            this.label5.Text = "HGA Job No. -";
+            this.label5.Text = "Job No. -";
             this.label5.Top = 0.69F;
             this.label5.Width = 1.4375F;
             // 
@@ -1576,11 +1576,11 @@ namespace RSMPS
             // 
             this.label2.Height = 0.22F;
             this.label2.HyperLink = null;
-            this.label2.Left = 0.0625F;
+            this.label2.Left = 0.062F;
             this.label2.Name = "label2";
             this.label2.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
-            this.label2.Text = "HGA Job No. -";
-            this.label2.Top = 0.6875F;
+            this.label2.Text = "Job No. -";
+            this.label2.Top = 0.6900001F;
             this.label2.Width = 1.4375F;
             // 
             // Picture

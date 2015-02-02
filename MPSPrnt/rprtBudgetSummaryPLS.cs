@@ -79,7 +79,6 @@ namespace RSMPS
             lblProject.Text = customer + "/" + location;
             lblRevision.Text = Desc;
         }
- 
 
         public int TotalHours
         {
@@ -123,7 +122,14 @@ namespace RSMPS
 
             //if (mbPipelineSvcs == true)
             //   rprtEngr.SubHeading = "Project Services";
-      
+            //if (BusinessUnit() == 1) rprtEngr.SubHeading = "Project Services";
+            //if (BusinessUnit() == 2) rprtEngr.SubHeading = "Engineering";
+            //if (BusinessUnit() == 3) rprtEngr.SubHeading = "Pipeline Services";
+            //if (BusinessUnit() == 4) rprtEngr.SubHeading = "Grant Management";
+            //if (BusinessUnit() == 5) rprtEngr.SubHeading = "Project Services";
+        
+
+
             rprtEngr.TotalHours = miTotalHours;
             rprtEngr.DataSource = this.DataSource;
             rprtEngr.DataMember = "Table2";

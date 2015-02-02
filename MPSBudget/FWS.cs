@@ -104,10 +104,10 @@ namespace RSMPS
             tdbgExpense.Columns[16].Caption = "E170 Lodging";
             tdbgExpense.Columns[18].Caption = "E180 Per diem";
             tdbgExpense.Columns[19].Caption = "E190 Misc Exp";
-            tdbgExpense.Columns[20].Caption = "E281 1 Man Crew";
-            tdbgExpense.Columns[21].Caption = "E282 2 Man Crew";
-            tdbgExpense.Columns[22].Caption = "E283 3 Man Crew";
-            tdbgExpense.Columns[23].Caption = "E284 4 Man Crew";
+            tdbgExpense.Columns[20].Caption = "E281 1-Man Crew";
+            tdbgExpense.Columns[21].Caption = "E282 2-Man Crew";
+            tdbgExpense.Columns[22].Caption = "E283 3-Man Crew";
+            tdbgExpense.Columns[23].Caption = "E284 4-Man Crew";
             tdbgExpense.Columns[24].Caption = "E290 Survey Supplies";
             tdbgExpense.Columns[25].Caption = "E310 Eng. Services";
             tdbgExpense.Columns[26].Caption = "E320 Surveying";

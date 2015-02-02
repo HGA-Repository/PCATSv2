@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MPS", "MPS\MPS.csproj", "{B8ADE3ED-9130-42AE-95A5-E147EB00BF51}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MPSLib", "MPSLib\MPSLib.csproj", "{442DCC3C-E62D-41E8-BBEF-BD7C38D002EF}"

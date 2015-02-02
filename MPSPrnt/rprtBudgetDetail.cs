@@ -406,7 +406,6 @@ namespace RSMPS
             // 
             // Detail
             // 
-            this.Detail.ColumnSpacing = 0F;
             this.Detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.TextBox,
             this.TextBox1,
@@ -568,7 +567,7 @@ namespace RSMPS
             this.Label.Left = 3.625F;
             this.Label.Name = "Label";
             this.Label.Style = "font-size: 9pt; font-weight: bold";
-            this.Label.Text = "Total Engineering Above";
+            this.Label.Text = "Total Above";
             this.Label.Top = 0.375F;
             this.Label.Width = 1.5625F;
             // 
@@ -921,7 +920,7 @@ namespace RSMPS
             this.lblMainTitle.Left = 0.002F;
             this.lblMainTitle.Name = "lblMainTitle";
             this.lblMainTitle.Style = "font-size: 12pt; font-weight: bold; text-align: left";
-            this.lblMainTitle.Text = "Engineering Estimate Details";
+            this.lblMainTitle.Text = "Estimate Details";
             this.lblMainTitle.Top = 0F;
             this.lblMainTitle.Width = 5F;
             // 
@@ -943,7 +942,6 @@ namespace RSMPS
             this.label9,
             this.textBox22,
             this.textBox23});
-            this.PageFooter.Height = 0.25F;
             this.PageFooter.Name = "PageFooter";
             // 
             // label8

@@ -62,6 +62,7 @@ namespace RSMPS
             proj.Load(msCurrProj);
 
             if (CheckForPipeline(msCurrProj) == true)
+           
                 grpNum = 1;
             else
                 grpNum = 0;
