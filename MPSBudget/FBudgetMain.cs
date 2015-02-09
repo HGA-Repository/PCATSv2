@@ -2927,7 +2927,7 @@ namespace RSMPS
             {
                 if (r[BUDCOL8] != null && RevSol.RSMath.IsInteger(r[BUDCOL8]) == true)
                 {
-                    hrsTot += Convert.ToInt32(r[BUDCOL13]);
+                    hrsTot += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(r[BUDCOL13]));
                     dlrsTot += Convert.ToDecimal(r[BUDCOL15]);
                 }
             }
