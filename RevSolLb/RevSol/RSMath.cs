@@ -14,7 +14,7 @@ namespace RevSol
 			bool result;
 			try
 			{
-				Convert.ToInt32(val);
+				RevSol.RSMath.IsIntegerEx(val);
 				result = true;
 			}
 			catch
@@ -24,9 +24,11 @@ namespace RevSol
 			return result;
 		}
 		public static int IsIntegerEx(object val)
-		{
-			//string value = RSMath.RemoveSpecialCharacters(val);
+		{   
+            
             string value = Convert.ToString(val);
+			 value = RSMath.RemoveSpecialCharacters(val);
+           
 			int result;
 			try
 			{
@@ -232,21 +234,21 @@ namespace RevSol
         //{
         //    return "Empty";
         //}
-        //public static string RemoveSpecialCharacters(object val)
-        //{
-        //    string text;
-        //    if (val == null)
-        //    {
-        //        text = "";
-        //    }
-        //    else
-        //    {
-        //        text = val.ToString();
-        //        text = text.Replace("$", "");
-        //        text = text.Replace(",", "");
-        //        text = text.Replace("#", "");
-        //    }
-        //    return text;
-        //}
+        public static string RemoveSpecialCharacters(object val)
+        {
+            string text;
+            if (val == null)
+            {
+                text = "";
+            }
+            else
+            {
+                text = val.ToString();
+                text = text.Replace("$", "");
+                text = text.Replace(",", "");
+                text = text.Replace("#", "");
+            }
+            return text;
+        }
 	}
 }
