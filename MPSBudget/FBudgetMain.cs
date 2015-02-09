@@ -1820,13 +1820,13 @@ namespace RSMPS
                     el.DeptGroup = group_int;
                     el.EntryLevel = 1;
                     el.Code = r[1].ToString();
-                    el.MarkUp = Convert.ToDecimal(r[2]));
+                    el.MarkUp = Convert.ToDecimal(r[2]);
                     el.Description = r[3].ToString();
-                    el.UOMID = Convert.ToInt32(r[10]));
+                    el.UOMID = Convert.ToInt32(r[10]);
                     el.DollarsEach = Convert.ToDecimal(r[5]);
-                    el.Quantity = Convert.ToInt32(r[6]));
-                    el.MarkupDollars = Convert.ToDecimal(r[7]));
-                    el.TotalDollars = Convert.ToDecimal(r[8]));
+                    el.Quantity = Convert.ToInt32(r[6]);
+                    el.MarkupDollars = Convert.ToDecimal(r[7]);
+                    el.TotalDollars = Convert.ToDecimal(r[8]);
 
                     el.Save();
 
@@ -2859,7 +2859,7 @@ namespace RSMPS
 
                 el = new CBBudgetExpenseLine();
 
-                el.ID = Convert.ToInt32(rw[9]));
+                el.ID = Convert.ToInt32(rw[9]);
                 el.BudgetID = moCurrBudget.ID;
                 el.DeptGroup = Int32.Parse(group);
                 el.EntryLevel = 1;
@@ -2868,8 +2868,8 @@ namespace RSMPS
                 el.Description = rw[3].ToString();
                 el.UOMID = Convert.ToInt32(rw[10]);
                 el.DollarsEach = Convert.ToDecimal(rw[5]);
-                el.Quantity = Convert.ToInt32(rw[6]));
-                el.MarkupDollars = Convert.ToDecimal(rw[7]));
+                el.Quantity = Convert.ToInt32(rw[6]);
+                el.MarkupDollars = Convert.ToDecimal(rw[7]);
                 el.TotalDollars = Convert.ToDecimal(rw[8]);
 
                 el.Save();
@@ -2936,7 +2936,7 @@ namespace RSMPS
             {
                 if (r[3].ToString() != "Description")
                 {
-                    expTot += Convert.ToDecimal(r[8]));
+                    expTot += Convert.ToDecimal(r[8]);
                 }
             }
 
