@@ -141,14 +141,14 @@ namespace RevSol
 		public void OpenConnection()
 		{
 			this.CloseConnection();
-			this.mCnn = new SqlConnection(this.mConnStr);
+            this.mCnn = new SqlConnection(this.mConnStr);
 			this.mCnn.Open();
 			this.mbCnnOpened = true;
 		}
 		public void OpenConnection(int altTimeout)
 		{
 			this.CloseConnection();
-			this.mCnn = new SqlConnection(this.mConnStr);
+            this.mCnn = new SqlConnection(this.mConnStr);
 			this.mCnn.Open();
 			this.mbCnnOpened = true;
 		}

@@ -230,9 +230,9 @@ namespace RSMPS
 
             decimal quantity, hrsPer, rate;
 
-            quantity = Convert.ToDecimal(tdbgHours.Columns[2].Value);
-            hrsPer = Convert.ToDecimal(tdbgHours.Columns[3].Value);
-            rate = Convert.ToDecimal(tdbgHours.Columns[4].Value);
+            quantity = RevSol.RSMath.IsDecimalEx(tdbgHours.Columns[2].Value);
+            hrsPer = RevSol.RSMath.IsDecimalEx(tdbgHours.Columns[3].Value);
+            rate = RevSol.RSMath.IsDecimalEx(tdbgHours.Columns[4].Value);
 
             decimal subHrs, subDlrs;
 
@@ -330,9 +330,9 @@ namespace RSMPS
             moPCN.ReasonDesignChange = chkDesignChange.Checked;
             moPCN.ReasonOther = chkOther.Checked;
             moPCN.OtherReasonDesc = txtOtherReason.Text;
-            moPCN.EstimatedEngrHrs = Convert.ToInt32(txtEstimatedHrs.Text);
-            moPCN.EstimatedEngrDlrs = Convert.ToDecimal(txtEstimatedDollars.Text);
-            moPCN.EstimatedTICDlrs = Convert.ToDecimal(txtEstimTIC.Text);
+            moPCN.EstimatedEngrHrs = RevSol.RSMath.IsIntegerEx(txtEstimatedHrs.Text);
+            moPCN.EstimatedEngrDlrs = RevSol.RSMath.IsDecimalEx(txtEstimatedDollars.Text);
+            moPCN.EstimatedTICDlrs = RevSol.RSMath.IsDecimalEx(txtEstimTIC.Text);
             moPCN.EstimateAccuracy = txtEstimateAccuracy.Text;
             moPCN.ScheduleImpact = txtScheduleImpact.Text;
             moPCN.IsApproved = chkApproved.Checked;
@@ -475,11 +475,11 @@ namespace RSMPS
 
             decimal dllrPerItem, numItems, percMU, markup, total;
 
-            dllrPerItem = Convert.ToDecimal(tdbgExpenses.Columns[2].Value);
-            numItems = Convert.ToDecimal(tdbgExpenses.Columns[3].Value);
-            percMU = Convert.ToDecimal(tdbgExpenses.Columns[4].Value);
-            markup = Convert.ToDecimal(tdbgExpenses.Columns[5].Value);
-            total = Convert.ToDecimal(tdbgExpenses.Columns[6].Value);
+            dllrPerItem = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[2].Value);
+            numItems = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[3].Value);
+            percMU = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[4].Value);
+            markup = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[5].Value);
+            total = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[6].Value);
 
             markup = dllrPerItem * numItems * (percMU / 100.0m);
             total = (dllrPerItem * numItems) + markup;

@@ -28,8 +28,7 @@ namespace RSMPS
         */
 
         private const int QUANTITYCOLUMN = 10;
-        //DEFAULTLABORRATE is not used
-       // private const decimal DEFAULTLABORRATE = 100.00m;
+        private const decimal DEFAULTLABORRATE = 100.00m;
         private const string DEFAULTDOLLARS = "#,##0.00";
         private const string DEFAULTINTEGER = "#,##0";
 
@@ -718,37 +717,37 @@ namespace RSMPS
 
             foreach (DataRow dr in mdsWS.Tables["Expenses"].Rows)
             {
-                var quantity = Convert.ToInt32(dr["TripQty"]);
-                travelFare += Convert.ToInt32(dr["E110"]) * quantity;
-                autoRental += Convert.ToInt32(dr["E120"]) * quantity;
-                tolls += Convert.ToInt32(dr["E130"]) * quantity;
-                fuel += Convert.ToInt32(dr["E140"]) * quantity;
-                mileage += Convert.ToInt32(dr["E150"]) * quantity;
-                meals += Convert.ToInt32(dr["E160"]) * quantity;
-                lodging += Convert.ToInt32(dr["E170"]) * quantity;
-                perdiem += Convert.ToInt32(dr["E180"]) * quantity;
-                miscExp += Convert.ToInt32(dr["E190"]) * quantity;
-                survey1 += Convert.ToInt32(dr["E281"]) * quantity;
-                survey2 += Convert.ToInt32(dr["E282"]) * quantity;
-                survey3 += Convert.ToInt32(dr["E283"]) * quantity;
-                survey4 += Convert.ToInt32(dr["E284"]) * quantity;
-                survsup += Convert.ToInt32(dr["E290"]) * quantity;
-                engserv += Convert.ToInt32(dr["E310"]) * quantity;
-                surveying += Convert.ToInt32(dr["E320"]) * quantity;
-                geotinv += Convert.ToInt32(dr["E330"]) * quantity;
-                environ += Convert.ToInt32(dr["E340"]) * quantity;
-                specsub += Convert.ToInt32(dr["E350"]) * quantity;
-                atv += Convert.ToInt32(dr["E541"]) * quantity;
-                oruv += Convert.ToInt32(dr["E542"]) * quantity;
-                boat += Convert.ToInt32(dr["E543"]) * quantity;
-                digcam += Convert.ToInt32(dr["E561"]) * quantity;
-                cphone += Convert.ToInt32(dr["E562"]) * quantity;
-                fldcomp += Convert.ToInt32(dr["E580"]) * quantity;
-                trimbler8 += Convert.ToInt32(dr["E591"]) * quantity;
-                trimblegeo += Convert.ToInt32(dr["E592"]) * quantity;
-                etotstat += Convert.ToInt32(dr["E593"]) * quantity;
-                lasrange += Convert.ToInt32(dr["E594"]) * quantity;
-                pipeloc += Convert.ToInt32(dr["E595"]) * quantity;
+                var quantity = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["TripQty"]));
+                travelFare += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E110"])) * quantity;
+                autoRental += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E120"])) * quantity;
+                tolls += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E130"])) * quantity;
+                fuel += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E140"])) * quantity;
+                mileage += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E150"])) * quantity;
+                meals += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E160"])) * quantity;
+                lodging += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E170"])) * quantity;
+                perdiem += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E180"])) * quantity;
+                miscExp += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E190"])) * quantity;
+                survey1 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E281"])) * quantity;
+                survey2 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E282"])) * quantity;
+                survey3 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E283"])) * quantity;
+                survey4 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E284"])) * quantity;
+                survsup += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E290"])) * quantity;
+                engserv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E310"])) * quantity;
+                surveying += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E320"])) * quantity;
+                geotinv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E330"])) * quantity;
+                environ += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E340"])) * quantity;
+                specsub += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E350"])) * quantity;
+                atv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E541"])) * quantity;
+                oruv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E542"])) * quantity;
+                boat += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E543"])) * quantity;
+                digcam += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E561"])) * quantity;
+                cphone += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E562"])) * quantity;
+                fldcomp += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E580"])) * quantity;
+                trimbler8 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E591"])) * quantity;
+                trimblegeo += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E592"])) * quantity;
+                etotstat += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E593"])) * quantity;
+                lasrange += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E594"])) * quantity;
+                pipeloc += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E595"])) * quantity;
             }
 
             foreach (C1.Win.C1FlexGrid.Row r in fgExp.Rows)
@@ -918,7 +917,7 @@ namespace RSMPS
                     else
                         test = 0;
 
-                    if (test == 2 &&  Convert.ToInt32(fg[i, BUDCOL11]) > 0)
+                    if (test == 2 && RevSol.RSMath.IsIntegerEx(fg[i, BUDCOL11]) > 0)
                     {
                         deleted.Add( CBBudgetLineFromFg( fg.Rows[i], group.ToInt().Value ));
                         CBBudgetLine.Delete(Convert.ToInt32(fg[i, BUDCOL16]));
@@ -1815,18 +1814,18 @@ namespace RSMPS
                 {
                     el = new CBBudgetExpenseLine();
 
-                    el.ID = Convert.ToInt32(r[9]);
+                    el.ID = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(r[9]));
                     el.BudgetID = moCurrBudget.ID;
                     el.DeptGroup = group_int;
                     el.EntryLevel = 1;
                     el.Code = r[1].ToString();
-                    el.MarkUp = Convert.ToDecimal(r[2]);
+                    el.MarkUp = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(r[2]));
                     el.Description = r[3].ToString();
-                    el.UOMID = Convert.ToInt32(r[10]);
-                    el.DollarsEach = Convert.ToDecimal(r[5]);
-                    el.Quantity = Convert.ToInt32(r[6]);
-                    el.MarkupDollars = Convert.ToDecimal(r[7]);
-                    el.TotalDollars = Convert.ToDecimal(r[8]);
+                    el.UOMID = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(r[10]));
+                    el.DollarsEach = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(r[5]));
+                    el.Quantity = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(r[6]));
+                    el.MarkupDollars = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(r[7]));
+                    el.TotalDollars = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(r[8]));
 
                     el.Save();
 
@@ -1843,18 +1842,18 @@ namespace RSMPS
 
             el = new CBBudgetExpenseLine();
 
-            el.ID = Convert.ToInt32(fgExp[row, 9]);
+            el.ID = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(fgExp[row, 9]));
             el.BudgetID = moCurrBudget.ID;
             el.DeptGroup = group_int;
             el.EntryLevel = 1;
             el.Code = fgExp[row, 1].ToString(); ;
-            el.MarkUp = Convert.ToDecimal(fgExp[row, 2]);
+            el.MarkUp = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(fgExp[row, 2]));
             el.Description = fgExp[row, 3].ToString(); ;
-            el.UOMID = Convert.ToInt32(fgExp[row, 10]);
-            el.DollarsEach = Convert.ToDecimal(fgExp[row, 5]);
-            el.Quantity = Convert.ToInt32(fgExp[row, 6]);
-            el.MarkupDollars = Convert.ToDecimal(fgExp[row, 7]);
-            el.TotalDollars = Convert.ToDecimal(fgExp[row, 8]);
+            el.UOMID = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(fgExp[row, 10]));
+            el.DollarsEach = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(fgExp[row, 5]));
+            el.Quantity = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(fgExp[row, 6]));
+            el.MarkupDollars = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(fgExp[row, 7]));
+            el.TotalDollars = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(fgExp[row, 8]));
 
             el.Save();
 
@@ -2419,94 +2418,94 @@ namespace RSMPS
                 switch (rowCode)
                 {
                     case "E110":
-                        travelFare += Convert.ToInt32(d["NumItems"]);
+                        travelFare += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E120":
-                        autoRental += Convert.ToInt32(d["NumItems"]);
+                        autoRental += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E130":
-                        tolls += Convert.ToInt32(d["NumItems"]);
+                        tolls += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E140":
-                        fuel += Convert.ToInt32(d["NumItems"]);
+                        fuel += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E150":
-                        mileage += Convert.ToInt32(d["NumItems"]);
+                        mileage += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E160":
-                        meals += Convert.ToInt32(d["NumItems"]);
+                        meals += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E170":
-                        lodging += Convert.ToInt32(d["NumItems"]);
+                        lodging += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E180":
-                        perdiem += Convert.ToInt32(d["NumItems"]);
+                        perdiem += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E190":
-                        miscExp += Convert.ToInt32(d["NumItems"]);
+                        miscExp += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E281":
-                        survey1 += Convert.ToInt32(d["NumItems"]);
+                        survey1 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E282":
-                        survey2 += Convert.ToInt32(d["NumItems"]);
+                        survey2 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E283":
-                        survey3 += Convert.ToInt32(d["NumItems"]);
+                        survey3 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E284":
-                        survey4 += Convert.ToInt32(d["NumItems"]);
+                        survey4 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E290":
-                        survsup  += Convert.ToInt32(d["NumItems"]);
+                        survsup  += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E310":
-                        engserv += Convert.ToInt32(d["NumItems"]);
+                        engserv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E320":
-                        surveying += Convert.ToInt32(d["NumItems"]);
+                        surveying += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E330":
-                        geotinv += Convert.ToInt32(d["NumItems"]);
+                        geotinv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E340":
-                        environ += Convert.ToInt32(d["NumItems"]);
+                        environ += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E350":
-                        specsub += Convert.ToInt32(d["NumItems"]);
+                        specsub += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E541":
-                        atv += Convert.ToInt32(d["NumItems"]);
+                        atv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E542":
-                        oruv += Convert.ToInt32(d["NumItems"]);
+                        oruv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E543":
-                        boat += Convert.ToInt32(d["NumItems"]);
+                        boat += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E561":
-                        digcam += Convert.ToInt32(d["NumItems"]);
+                        digcam += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E562":
-                        cphone += Convert.ToInt32(d["NumItems"]);
+                        cphone += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E580":
-                        fldcomp += Convert.ToInt32(d["NumItems"]);
+                        fldcomp += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E591":
-                        trimbler8 += Convert.ToInt32(d["NumItems"]);
+                        trimbler8 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E592":
-                        trimblegeo += Convert.ToInt32(d["NumItems"]);
+                        trimblegeo += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E593":
-                        etotstat += Convert.ToInt32(d["NumItems"]);
+                        etotstat += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E594":
-                        lasrange += Convert.ToInt32(d["NumItems"]);
+                        lasrange += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     case "E595":
-                        pipeloc += Convert.ToInt32(d["NumItems"]);
+                        pipeloc += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
                         break;
                     default:
                         AddPCNExpensesNonWorksheet(pcnID, rowCode, Convert.ToInt32(d["NumItems"]), Convert.ToDecimal(d["DlrsPerItem"]), Convert.ToDecimal(d["MUPerc"]));
@@ -2650,36 +2649,36 @@ namespace RSMPS
 
             foreach (DataRow dr in mdsWS[group].Tables["Expenses"].Rows)
             {
-                travelFare += Convert.ToInt32(dr["E110"]);
-                autoRental += Convert.ToInt32(dr["E120"]);
-                tolls += Convert.ToInt32(dr["E130"]);
-                fuel += Convert.ToInt32(dr["E140"]);
-                mileage += Convert.ToInt32(dr["E150"]);
-                meals += Convert.ToInt32(dr["E160"]);
-                lodging += Convert.ToInt32(dr["E170"]);
-                perdiem += Convert.ToInt32(dr["E180"]);
-                miscExp += Convert.ToInt32(dr["E190"]);
-                survey1 += Convert.ToInt32(dr["E281"]);
-                survey2 += Convert.ToInt32(dr["E282"]);
-                survey3 += Convert.ToInt32(dr["E283"]);
-                survey4 += Convert.ToInt32(dr["E284"]);
-                survsup += Convert.ToInt32(dr["E290"]);
-                engserv += Convert.ToInt32(dr["E310"]);
-                surveying += Convert.ToInt32(dr["E320"]);
-                geotinv += Convert.ToInt32(dr["E330"]);
-                environ += Convert.ToInt32(dr["E340"]);
-                specsub += Convert.ToInt32(dr["E350"]);
-                atv += Convert.ToInt32(dr["E541"]);
-                oruv += Convert.ToInt32(dr["E542"]);
-                boat += Convert.ToInt32(dr["E543"]);
-                digcam += Convert.ToInt32(dr["E561"]);
-                cphone += Convert.ToInt32(dr["E562"]);
-                fldcomp += Convert.ToInt32(dr["E580"]);
-                trimbler8 += Convert.ToInt32(dr["E591"]);
-                trimblegeo += Convert.ToInt32(dr["E592"]);
-                etotstat += Convert.ToInt32(dr["E593"]);
-                lasrange += Convert.ToInt32(dr["E594"]);
-                pipeloc += Convert.ToInt32(dr["E595"]);
+                travelFare += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E110"]));
+                autoRental += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E120"]));
+                tolls += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E130"]));
+                fuel += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E140"]));
+                mileage += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E150"]));
+                meals += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E160"]));
+                lodging += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E170"]));
+                perdiem += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E180"]));
+                miscExp += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E190"]));
+                survey1 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E281"]));
+                survey2 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E282"]));
+                survey3 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E283"]));
+                survey4 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E284"]));
+                survsup += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E290"]));
+                engserv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E310"]));
+                surveying += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E320"]));
+                geotinv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E330"]));
+                environ += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E340"]));
+                specsub += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E350"]));
+                atv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E541"]));
+                oruv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E542"]));
+                boat += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E543"]));
+                digcam += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E561"]));
+                cphone += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E562"]));
+                fldcomp += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E580"]));
+                trimbler8 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E591"]));
+                trimblegeo += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E592"]));
+                etotstat += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E593"]));
+                lasrange += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E594"]));
+                pipeloc += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E595"]));
             }
 
             var fgExp = fgExpForGroup(group);
@@ -2859,18 +2858,18 @@ namespace RSMPS
 
                 el = new CBBudgetExpenseLine();
 
-                el.ID = Convert.ToInt32(rw[9]);
+                el.ID = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(rw[9]));
                 el.BudgetID = moCurrBudget.ID;
                 el.DeptGroup = Int32.Parse(group);
                 el.EntryLevel = 1;
                 el.Code = rowCode;
                 el.MarkUp = mu;
                 el.Description = rw[3].ToString();
-                el.UOMID = Convert.ToInt32(rw[10]);
-                el.DollarsEach = Convert.ToDecimal(rw[5]);
-                el.Quantity = Convert.ToInt32(rw[6]);
-                el.MarkupDollars = Convert.ToDecimal(rw[7]);
-                el.TotalDollars = Convert.ToDecimal(rw[8]);
+                el.UOMID = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(rw[10]));
+                el.DollarsEach = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(rw[5]));
+                el.Quantity = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(rw[6]));
+                el.MarkupDollars = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(rw[7]));
+                el.TotalDollars = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(rw[8]));
 
                 el.Save();
 
@@ -2927,7 +2926,7 @@ namespace RSMPS
             {
                 if (r[BUDCOL8] != null && RevSol.RSMath.IsInteger(r[BUDCOL8]) == true)
                 {
-                    hrsTot += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(r[BUDCOL13]));
+                    hrsTot += Convert.ToInt32(r[BUDCOL13]);
                     dlrsTot += Convert.ToDecimal(r[BUDCOL15]);
                 }
             }
@@ -2936,7 +2935,7 @@ namespace RSMPS
             {
                 if (r[3].ToString() != "Description")
                 {
-                    expTot += Convert.ToDecimal(r[8]);
+                    expTot += Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(r[8]));
                 }
             }
 
@@ -2971,9 +2970,9 @@ namespace RSMPS
 
             foreach (var group in _Groups)
             {
-                hrsTot +=  Convert.ToDecimal(txtSumHrsForGroup(group.Code).Text);
-                dlrsTot += Convert.ToDecimal(txtSumDlrsForGroup(group.Code).Text);
-                expTot += Convert.ToDecimal(txtSumExpForGroup(group.Code).Text);
+                hrsTot += RevSol.RSMath.IsDecimalEx(txtSumHrsForGroup(group.Code).Text);
+                dlrsTot += RevSol.RSMath.IsDecimalEx(txtSumDlrsForGroup(group.Code).Text);
+                expTot += RevSol.RSMath.IsDecimalEx(txtSumExpForGroup(group.Code).Text);
             }
 
             txtTotalHrs.Text = hrsTot.ToString(DEFAULTINTEGER);
@@ -3033,7 +3032,7 @@ namespace RSMPS
             if (r[BUDCOL7] == null)
                 return;
 
-            if ( Convert.ToInt32(r[BUDCOL8]) == 2 && fg.Col != 13)
+            if (RevSol.RSMath.IsIntegerEx(r[BUDCOL8]) == 2 && fg.Col != 13)
             {
                 e.Cancel = true;
             }

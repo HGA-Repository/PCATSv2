@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RSDataServer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <DBServer>HL02110\SQLEXPRESS</DBServer>
-  <DBName>RSManpowerSchDbTest</DBName>
+  <DBServer>HGASQLSERVER</DBServer>
+  <DBName>RSManpowerSchDB</DBName>
   <UseWinAuth>false</UseWinAuth>
-  <Username>gDZ5HPXDW1zXlo2wmvgCbA==</Username>
-  <Password>dBjTGtrfmuXXQq/7x6MaOA==</Password>
+  <Username>RSMPUser</Username>
+  <Password>RSMPPass</Password>
 </RSDataServer>

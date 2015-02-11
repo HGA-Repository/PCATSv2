@@ -41,6 +41,7 @@ namespace RSMPS
         {
             get { return RSLib.COCryptography.DecryptString(msPassword, PWRDKEY, VECTOR); }
             set { msPassword = RSLib.COCryptography.EncryptString(value, PWRDKEY, VECTOR); }
+
         }
 
         public bool IsAdministrator
@@ -98,7 +99,8 @@ namespace RSMPS
 
         public string EncryptPassword(string pwrd)
         {
-            return RSLib.COCryptography.EncryptString(pwrd, PWRDKEY, VECTOR);
+            //end user password
+            return RSLib.COCryptography.EncryptStringPassword(pwrd, PWRDKEY, VECTOR);
         }
     }
 }

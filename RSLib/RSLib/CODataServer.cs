@@ -55,22 +55,28 @@ namespace RSLib
 		{
 			get
 			{
-				return this.DecryptString(this.msUsername);
+				//sql user
+                return this.msUsername;
+                //return this.DecryptString(this.msUsername);
 			}
 			set
 			{
-				this.msUsername = this.EncryptString(value);
+				//sql user
+                this.msUsername = value;
+               //this.msUsername = this.EncryptString(value);
 			}
 		}
 		public string Password
 		{
 			get
 			{
-				return this.DecryptString(this.msPassword);
+				return this.msPassword;
+                //return this.DecryptString(this.msPassword);
 			}
 			set
 			{
-				this.msPassword = this.EncryptString(value);
+				this.msPassword = value;
+                //this.msPassword = this.EncryptString(value);
 			}
 		}
 		public CODataServer()
@@ -123,42 +129,41 @@ namespace RSLib
 			{
 			}
 		}
-		private string EncryptString(string val)
-		{
-			string result;
-			try
-			{
-				COEncrypt cOEncrypt = new COEncrypt(EncryptionAlgorithm.TripleDes);
-				byte[] bytes = Encoding.ASCII.GetBytes(val);
-				byte[] bytes2 = Encoding.ASCII.GetBytes(this.PWRDKEY);
-				cOEncrypt.IV = Encoding.ASCII.GetBytes(this.VECTOR);
-				byte[] inArray = cOEncrypt.Encrypt(bytes, bytes2);
-				Encoding.ASCII.GetString(cOEncrypt.IV);
-				result = Convert.ToBase64String(inArray);
-			}
-			catch
-			{
-				result = val;
-			}
-			return result;
-		}
-		private string DecryptString(string val)
-		{
-			string vECTOR = this.VECTOR;
-			string result;
-			try
-			{
-				CODecrypt cODecrypt = new CODecrypt(EncryptionAlgorithm.TripleDes);
-				cODecrypt.IV = Encoding.ASCII.GetBytes(vECTOR);
-				byte[] bytes = Encoding.ASCII.GetBytes(this.PWRDKEY);
-				byte[] bytes2 = cODecrypt.Decrypt(Convert.FromBase64String(val), bytes);
-				result = Encoding.ASCII.GetString(bytes2);
-			}
-			catch
-			{
-				result = val;
-			}
-			return result;
-		}
-	}
+        private string EncryptString(string val)
+        {
+            string result;
+            try
+            {
+                COEncrypt cOEncrypt = new COEncrypt(EncryptionAlgorithm.TripleDes);
+                byte[] bytes = Encoding.ASCII.GetBytes(val);
+                byte[] bytes2 = Encoding.ASCII.GetBytes(this.PWRDKEY);
+                cOEncrypt.IV = Encoding.ASCII.GetBytes(this.VECTOR);
+                byte[] inArray = cOEncrypt.Encrypt(bytes, bytes2);
+                Encoding.ASCII.GetString(cOEncrypt.IV);
+                result = Convert.ToBase64String(inArray);
+            }
+            catch
+            {
+                result = val;
+            }
+            return result;
+        }
+        private string DecryptString(string val)
+        {
+            string vECTOR = this.VECTOR;
+            string result;
+            try
+            {
+                CODecrypt cODecrypt = new CODecrypt(EncryptionAlgorithm.TripleDes);
+                byte[] bytes = Encoding.ASCII.GetBytes(this.PWRDKEY);
+                byte[] bytes2 = cODecrypt.Decrypt(Convert.FromBase64String(val), bytes);
+                result = Encoding.ASCII.GetString(bytes2);
+            }
+            catch
+            {
+                result = val;
+            }
+            return result;
+        }
+    }
 }

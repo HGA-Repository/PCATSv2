@@ -48,7 +48,7 @@ namespace RSLib
 		public void OpenConnection()
 		{
 			this.CloseConnection();
-			this.m_Cnn = new SqlConnection(this.m_ConnStr);
+            this.m_Cnn = new SqlConnection(this.m_ConnStr);
 			this.m_Cnn.Open();
 			this.m_bCnnOpened = true;
 		}
