@@ -3,7 +3,8 @@ using System.IO;
 using System.Security.Cryptography;
 namespace RSLib
 {
-	public class COEncrypt
+	
+    public class COEncrypt
 	{
 		private CIEncrypt transformer;
 		private byte[] initVec;

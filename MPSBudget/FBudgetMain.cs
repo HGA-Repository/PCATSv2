@@ -19,7 +19,7 @@ namespace RSMPS
     public partial class FBudgetMain : Form
     {
         /*
-
+        Entry level
          * Line types for budget lines
          * 1 = manual entered
          * 2 = entered from worksheet
