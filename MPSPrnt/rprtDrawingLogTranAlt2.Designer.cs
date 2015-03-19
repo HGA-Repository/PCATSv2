@@ -68,8 +68,10 @@ namespace RSMPS
             this.line9 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.line10 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.label6 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.groupFooter1 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
             this.picture2 = new GrapeCity.ActiveReports.SectionReportModel.Picture();
+            this.groupFooter1 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
+            this.groupHeader2 = new GrapeCity.ActiveReports.SectionReportModel.GroupHeader();
+            this.groupFooter2 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
             ((System.ComponentModel.ISupportInitialize)(this.DrwgSpec)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDrawTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDrawingID)).BeginInit();
@@ -98,6 +100,7 @@ namespace RSMPS
             // 
             this.pageHeader.Height = 0F;
             this.pageHeader.Name = "pageHeader";
+            this.pageHeader.Visible = false;
             // 
             // detail
             // 
@@ -118,7 +121,7 @@ namespace RSMPS
             this.txtIssueFor,
             this.txtIssueDate,
             this.txtRevision});
-            this.detail.Height = 0.5F;
+            this.detail.Height = 0.5104166F;
             this.detail.KeepTogether = true;
             this.detail.Name = "detail";
             this.detail.Format += new System.EventHandler(this.detail_Format);
@@ -132,7 +135,7 @@ namespace RSMPS
             this.subReport1.Report = null;
             this.subReport1.ReportName = "subReport1";
             this.subReport1.Top = 0.0625F;
-            this.subReport1.Width = 4.75F;
+            this.subReport1.Width = 4.682F;
             // 
             // line5
             // 
@@ -190,7 +193,7 @@ namespace RSMPS
             // txtDrawTitle
             // 
             this.txtDrawTitle.DataField = "Title1";
-            this.txtDrawTitle.Height = 0.375F;
+            this.txtDrawTitle.Height = 0.3125F;
             this.txtDrawTitle.Left = 2.0625F;
             this.txtDrawTitle.Name = "txtDrawTitle";
             this.txtDrawTitle.Style = "font-size: 8pt";
@@ -321,11 +324,11 @@ namespace RSMPS
             // 
             this.txtRevision.DataField = "RevisionNumber";
             this.txtRevision.Height = 0.1875F;
-            this.txtRevision.Left = 5.6875F;
+            this.txtRevision.Left = 5.687F;
             this.txtRevision.Name = "txtRevision";
             this.txtRevision.Style = "font-size: 8pt; text-align: center";
             this.txtRevision.Text = "textBox6";
-            this.txtRevision.Top = 0.063F;
+            this.txtRevision.Top = 0.06200001F;
             this.txtRevision.Visible = false;
             this.txtRevision.Width = 0.625F;
             // 
@@ -333,9 +336,11 @@ namespace RSMPS
             // 
             this.pageFooter.Height = 0F;
             this.pageFooter.Name = "pageFooter";
+            this.pageFooter.Visible = false;
             // 
             // groupHeader1
             // 
+            this.groupHeader1.CanShrink = true;
             this.groupHeader1.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.shape1,
             this.lblTitle,
@@ -344,7 +349,6 @@ namespace RSMPS
             this.textBox3,
             this.textBox4,
             this.textBox5,
-            this.reportInfo1,
             this.reportInfo2,
             this.label4,
             this.label9,
@@ -357,11 +361,12 @@ namespace RSMPS
             this.line9,
             this.line10,
             this.label6,
-            this.picture2});
+            this.picture2,
+            this.reportInfo1});
             this.groupHeader1.DataField = "Department";
-            this.groupHeader1.GroupKeepTogether = GrapeCity.ActiveReports.SectionReportModel.GroupKeepTogether.All;
             this.groupHeader1.Height = 2F;
             this.groupHeader1.Name = "groupHeader1";
+            this.groupHeader1.NewPage = GrapeCity.ActiveReports.SectionReportModel.NewPage.BeforeAfter;
             this.groupHeader1.RepeatStyle = GrapeCity.ActiveReports.SectionReportModel.RepeatStyle.OnPage;
             // 
             // shape1
@@ -444,13 +449,13 @@ namespace RSMPS
             // 
             this.reportInfo1.FormatString = "Page {PageNumber} of {PageCount}";
             this.reportInfo1.Height = 0.1875F;
-            this.reportInfo1.Left = 8.437F;
+            this.reportInfo1.Left = 8.062F;
             this.reportInfo1.Name = "reportInfo1";
             this.reportInfo1.Style = "font-size: 8pt; font-weight: bold; text-align: right; ddo-char-set: 1";
-            this.reportInfo1.SummaryGroup = "groupHeader1";
-            this.reportInfo1.SummaryRunning = GrapeCity.ActiveReports.SectionReportModel.SummaryRunning.Group;
-            this.reportInfo1.Top = 0.8750001F;
-            this.reportInfo1.Width = 2F;
+            this.reportInfo1.SummaryGroup = "groupHeader2";
+            this.reportInfo1.SummaryRunning = GrapeCity.ActiveReports.SectionReportModel.SummaryRunning.All;
+            this.reportInfo1.Top = 0.812F;
+            this.reportInfo1.Width = 2.437F;
             // 
             // reportInfo2
             // 
@@ -488,7 +493,7 @@ namespace RSMPS
             // 
             // line1
             // 
-            this.line1.Height = 0.6249999F;
+            this.line1.Height = 0.625F;
             this.line1.Left = 2F;
             this.line1.LineWeight = 1F;
             this.line1.Name = "line1";
@@ -501,7 +506,7 @@ namespace RSMPS
             // 
             // line2
             // 
-            this.line2.Height = 0.6249999F;
+            this.line2.Height = 0.625F;
             this.line2.Left = 5.625F;
             this.line2.LineWeight = 1F;
             this.line2.Name = "line2";
@@ -547,7 +552,7 @@ namespace RSMPS
             // 
             // line8
             // 
-            this.line8.Height = 0.6249999F;
+            this.line8.Height = 0.625F;
             this.line8.Left = 6.375F;
             this.line8.LineWeight = 1F;
             this.line8.Name = "line8";
@@ -560,7 +565,7 @@ namespace RSMPS
             // 
             // line9
             // 
-            this.line9.Height = 0.6249999F;
+            this.line9.Height = 0.625F;
             this.line9.Left = 7.3125F;
             this.line9.LineWeight = 1F;
             this.line9.Name = "line9";
@@ -573,7 +578,7 @@ namespace RSMPS
             // 
             // line10
             // 
-            this.line10.Height = 0.6249999F;
+            this.line10.Height = 0.625F;
             this.line10.Left = 9.4375F;
             this.line10.LineWeight = 1F;
             this.line10.Name = "line10";
@@ -595,12 +600,6 @@ namespace RSMPS
             this.label6.Top = 1.625F;
             this.label6.Width = 1F;
             // 
-            // groupFooter1
-            // 
-            this.groupFooter1.Height = 0F;
-            this.groupFooter1.Name = "groupFooter1";
-            this.groupFooter1.NewPage = GrapeCity.ActiveReports.SectionReportModel.NewPage.After;
-            // 
             // picture2
             // 
             this.picture2.Height = 0.68F;
@@ -612,6 +611,27 @@ namespace RSMPS
             this.picture2.SizeMode = GrapeCity.ActiveReports.SectionReportModel.SizeModes.Zoom;
             this.picture2.Top = 0.062F;
             this.picture2.Width = 1.248F;
+            // 
+            // groupFooter1
+            // 
+            this.groupFooter1.Height = 1.490116E-08F;
+            this.groupFooter1.Name = "groupFooter1";
+            this.groupFooter1.NewPage = GrapeCity.ActiveReports.SectionReportModel.NewPage.After;
+            this.groupFooter1.Visible = false;
+            // 
+            // groupHeader2
+            // 
+            this.groupHeader2.DataField = "Project";
+            this.groupHeader2.Height = 0F;
+            this.groupHeader2.Name = "groupHeader2";
+            this.groupHeader2.NewPage = GrapeCity.ActiveReports.SectionReportModel.NewPage.BeforeAfter;
+            this.groupHeader2.Visible = false;
+            // 
+            // groupFooter2
+            // 
+            this.groupFooter2.Height = 3.72529E-09F;
+            this.groupFooter2.Name = "groupFooter2";
+            this.groupFooter2.Visible = false;
             // 
             // rprtDrawingLogTranAlt2
             // 
@@ -625,10 +645,13 @@ namespace RSMPS
             this.PageSettings.PaperWidth = 8.5F;
             this.PrintWidth = 10.5F;
             this.Sections.Add(this.pageHeader);
+            this.Sections.Add(this.groupHeader2);
             this.Sections.Add(this.groupHeader1);
             this.Sections.Add(this.detail);
             this.Sections.Add(this.groupFooter1);
+            this.Sections.Add(this.groupFooter2);
             this.Sections.Add(this.pageFooter);
+            this.ShowParameterUI = false;
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-family: Arial; font-style: normal; text-decoration: none; font-weight: norma" +
             "l; font-size: 10pt; color: Black", "Normal"));
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-size: 16pt; font-weight: bold", "Heading1", "Normal"));
@@ -713,7 +736,6 @@ namespace RSMPS
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox3;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox4;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox5;
-        private GrapeCity.ActiveReports.SectionReportModel.ReportInfo reportInfo1;
         private GrapeCity.ActiveReports.SectionReportModel.ReportInfo reportInfo2;
         private GrapeCity.ActiveReports.SectionReportModel.Label label4;
         private GrapeCity.ActiveReports.SectionReportModel.Label label9;
@@ -743,5 +765,8 @@ namespace RSMPS
         private GrapeCity.ActiveReports.SectionReportModel.TextBox txtIssueDate;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox txtRevision;
         private GrapeCity.ActiveReports.SectionReportModel.Picture picture2;
+        private GrapeCity.ActiveReports.SectionReportModel.GroupHeader groupHeader2;
+        private GrapeCity.ActiveReports.SectionReportModel.GroupFooter groupFooter2;
+        private GrapeCity.ActiveReports.SectionReportModel.ReportInfo reportInfo1;
     }
 }
