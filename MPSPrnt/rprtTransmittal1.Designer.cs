@@ -281,7 +281,7 @@ namespace RSMPS
             // 
             this.label11.Height = 0.3125F;
             this.label11.HyperLink = null;
-            this.label11.Left = 1.187F;
+            this.label11.Left = 1.6875F;
             this.label11.Name = "label11";
             this.label11.Style = "font-size: 15.75pt; font-weight: bold; text-align: right; ddo-char-set: 0";
             this.label11.Text = "Transmittal No.";
@@ -291,13 +291,13 @@ namespace RSMPS
             // textBox1
             // 
             this.textBox1.DataField = "TransmittalNumber";
-            this.textBox1.Height = 0.313F;
-            this.textBox1.Left = 3.187F;
+            this.textBox1.Height = 0.3125F;
+            this.textBox1.Left = 3.75F;
             this.textBox1.Name = "textBox1";
             this.textBox1.Style = "font-size: 15.75pt; font-weight: bold; ddo-char-set: 0";
             this.textBox1.Text = "textBox1";
             this.textBox1.Top = 1.462F;
-            this.textBox1.Width = 3F;
+            this.textBox1.Width = 2F;
             // 
             // Picture
             // 
