@@ -17,7 +17,7 @@ namespace RSMPS
         private CBBudgetPCN moPCN;
         private dsAccts mdsAccnts;
         private dsAccts mdsExpensAccts;
-
+       
         public event RevSol.ItemValueChangedHandler OnPCNChanged;
 
         public void StartNewPCN(int projID)
@@ -36,7 +36,35 @@ namespace RSMPS
 
             SetPCNSecurityLevel();
         }
+        public void CopyPCN(int projID, int pcnID)
+        {
+            ClearForm();
 
+            moProj = new CBProject();
+            moBudg = new CBBudget();
+
+            moPCN.LoadWithCopyData(pcnID);
+          
+            moProj.Load(moPCN.ProjectID);
+            moBudg.LoadByProject(moProj.ID);
+
+            LoadFromPCN();
+
+            this.Text = "PCN: Job-" + moProj.Number + " PCN-" + moPCN.PCNNumber;
+           
+            moProj.Load(projID);
+            moPCN.PCNNumber = moPCN.GetNextPCNNumber(projID);
+            moPCN.ProjectID = projID;
+
+            lblProjectNumber.Text = moProj.Number;
+            lblProjectTitle.Text = moProj.Description;
+
+            this.Text = "PCN: Job-" + moProj.Number + " PCN-" + moPCN.PCNNumber;
+
+            SetPCNSecurityLevel();
+            
+            
+        }
         public void EditPreviousPCN(int pcnID)
         {
             ClearForm();
@@ -311,6 +339,16 @@ namespace RSMPS
             LoadScreenToObject();
 
             moPCN.SaveWithData();
+        }
+
+       public void SaveCopyPCN()
+        {
+            tdbgHours.UpdateData();
+            tdbgExpenses.UpdateData();
+
+            LoadScreenToObject();
+
+            moPCN.SaveWithCopyData();
         }
 
         private void LoadScreenToObject()

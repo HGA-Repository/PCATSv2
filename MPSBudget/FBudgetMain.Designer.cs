@@ -30,14 +30,14 @@ namespace RSMPS
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FBudgetMain));
-            C1.Win.C1TrueDBGrid.Style style1 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style2 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style3 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style4 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style5 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style6 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style7 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style8 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style17 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style18 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style19 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style20 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style21 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style22 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style23 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style24 = new C1.Win.C1TrueDBGrid.Style();
             this.c1ToolBar1 = new C1.Win.C1Command.C1ToolBar();
             this.c1CommandHolder1 = new C1.Win.C1Command.C1CommandHolder();
             this.tlbbSaveRev = new C1.Win.C1Command.C1Command();
@@ -77,6 +77,7 @@ namespace RSMPS
             this.cancelToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbpPCN = new System.Windows.Forms.TabPage();
+            this.bttCopyPCN = new System.Windows.Forms.Button();
             this.tdbdPCNStatus = new C1.Win.C1TrueDBGrid.C1TrueDBDropdown();
             this.bttEditPCN = new System.Windows.Forms.Button();
             this.bttAddPCN = new System.Windows.Forms.Button();
@@ -480,6 +481,7 @@ namespace RSMPS
             // 
             // tbpPCN
             // 
+            this.tbpPCN.Controls.Add(this.bttCopyPCN);
             this.tbpPCN.Controls.Add(this.tdbdPCNStatus);
             this.tbpPCN.Controls.Add(this.bttEditPCN);
             this.tbpPCN.Controls.Add(this.bttAddPCN);
@@ -492,31 +494,41 @@ namespace RSMPS
             this.tbpPCN.Text = "PCN\'s";
             this.tbpPCN.UseVisualStyleBackColor = true;
             // 
+            // bttCopyPCN
+            // 
+            this.bttCopyPCN.Location = new System.Drawing.Point(178, 3);
+            this.bttCopyPCN.Name = "bttCopyPCN";
+            this.bttCopyPCN.Size = new System.Drawing.Size(80, 30);
+            this.bttCopyPCN.TabIndex = 4;
+            this.bttCopyPCN.Text = "Copy PCN";
+            this.bttCopyPCN.UseVisualStyleBackColor = true;
+            this.bttCopyPCN.Click += new System.EventHandler(this.bttCopyPCN_Click_1);
+            // 
             // tdbdPCNStatus
             // 
             this.tdbdPCNStatus.AllowColMove = true;
             this.tdbdPCNStatus.AllowColSelect = true;
             this.tdbdPCNStatus.AllowRowSizing = C1.Win.C1TrueDBGrid.RowSizingEnum.AllRows;
             this.tdbdPCNStatus.AlternatingRows = false;
-            this.tdbdPCNStatus.CaptionStyle = style1;
+            this.tdbdPCNStatus.CaptionStyle = style17;
             this.tdbdPCNStatus.ColumnCaptionHeight = 17;
             this.tdbdPCNStatus.ColumnFooterHeight = 17;
-            this.tdbdPCNStatus.EvenRowStyle = style2;
+            this.tdbdPCNStatus.EvenRowStyle = style18;
             this.tdbdPCNStatus.FetchRowStyles = false;
-            this.tdbdPCNStatus.FooterStyle = style3;
-            this.tdbdPCNStatus.HeadingStyle = style4;
-            this.tdbdPCNStatus.HighLightRowStyle = style5;
+            this.tdbdPCNStatus.FooterStyle = style19;
+            this.tdbdPCNStatus.HeadingStyle = style20;
+            this.tdbdPCNStatus.HighLightRowStyle = style21;
             this.tdbdPCNStatus.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbdPCNStatus.Images"))));
             this.tdbdPCNStatus.Location = new System.Drawing.Point(26, 95);
             this.tdbdPCNStatus.Name = "tdbdPCNStatus";
-            this.tdbdPCNStatus.OddRowStyle = style6;
-            this.tdbdPCNStatus.RecordSelectorStyle = style7;
+            this.tdbdPCNStatus.OddRowStyle = style22;
+            this.tdbdPCNStatus.RecordSelectorStyle = style23;
             this.tdbdPCNStatus.RowDivider.Color = System.Drawing.Color.DarkGray;
             this.tdbdPCNStatus.RowDivider.Style = C1.Win.C1TrueDBGrid.LineStyleEnum.Single;
             this.tdbdPCNStatus.RowSubDividerColor = System.Drawing.Color.DarkGray;
             this.tdbdPCNStatus.ScrollTips = false;
             this.tdbdPCNStatus.Size = new System.Drawing.Size(297, 138);
-            this.tdbdPCNStatus.Style = style8;
+            this.tdbdPCNStatus.Style = style24;
             this.tdbdPCNStatus.TabIndex = 3;
             this.tdbdPCNStatus.TabStop = false;
             this.tdbdPCNStatus.Text = "c1TrueDBDropdown1";
@@ -1368,5 +1380,6 @@ namespace RSMPS
         private System.Windows.Forms.Button bttClearClarification;
         private System.Windows.Forms.Button bttSaveClarification;
         private System.Windows.Forms.TabPage tbpClarification;
+        private System.Windows.Forms.Button bttCopyPCN;
     }
 }

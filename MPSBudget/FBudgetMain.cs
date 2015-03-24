@@ -65,6 +65,7 @@ namespace RSMPS
         private CBBudget moCurrBudget;
 
 
+
         private Dictionary<string, bool> mbLoaded = new Dictionary<string,bool>();
         private dsBudgetPCN mdsPCNs;
         private dsPCNStatus mdsPCNStatus;
@@ -2284,6 +2285,9 @@ namespace RSMPS
             pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNAdded);
         }
 
+
+
+
         void PCNAdded(int itmID, string name)
         {
             CBBudgetPCN pcn = new CBBudgetPCN();
@@ -2308,6 +2312,7 @@ namespace RSMPS
 
         private void bttEditPCN_Click(object sender, EventArgs e)
         {
+         
             FBudgetPCNAddition pcn = new FBudgetPCNAddition();
 
             DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
@@ -2330,6 +2335,25 @@ namespace RSMPS
             d["Description"] = pcn.PCNTitle;
             d["TotalHrs"] = CBBudgetPCN.TotalHours(itmID);
             d["TotalDlrs"] = CBBudgetPCN.TotalDollars(itmID);
+        }
+        private void bttCopyPCN_Click_1(object sender, EventArgs e)
+        {
+           
+            FBudgetPCNAddition pcn = new FBudgetPCNAddition();
+
+            DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
+            int currID = Convert.ToInt32(d["ID"]);
+
+
+            pcn.OnPCNChanged += new RevSol.ItemValueChangedHandler(PCNAdded);
+            pcn.CopyPCN(moCurrBudget.ProjectID, currID);
+            currID = 0; 
+            pcn.SaveCopyPCN();
+            pcn.ShowDialog();
+            pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNAdded);
+
+          
+
         }
 
         private void AddPCNToCurrentBudget(int pcnID)
@@ -3691,6 +3715,8 @@ namespace RSMPS
             this.ReloadForm = true;
             this.Close();
         }
+
+
 
      
     }
