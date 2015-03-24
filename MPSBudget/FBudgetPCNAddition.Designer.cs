@@ -123,6 +123,8 @@ namespace RSMPS
             this.c1CommandLink3 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink4 = new C1.Win.C1Command.C1CommandLink();
             this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components);
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtPCNNumber = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -374,6 +376,8 @@ namespace RSMPS
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtPCNNumber);
+            this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.dtpDateRequested);
             this.groupBox3.Controls.Add(this.txtRequestedBy);
             this.groupBox3.Controls.Add(this.dtpDateInitiated);
@@ -984,6 +988,23 @@ namespace RSMPS
             this.c1CommandLink4.Command = this.tlbbClose;
             this.c1CommandLink4.SortOrder = 3;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(382, 97);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(72, 13);
+            this.label11.TabIndex = 15;
+            this.label11.Text = "PCN Number:";
+            // 
+            // txtPCNNumber
+            // 
+            this.txtPCNNumber.Location = new System.Drawing.Point(476, 90);
+            this.txtPCNNumber.Name = "txtPCNNumber";
+            this.txtPCNNumber.Size = new System.Drawing.Size(250, 20);
+            this.txtPCNNumber.TabIndex = 16;
+            this.txtPCNNumber.TextChanged += new System.EventHandler(this.txtPCNNumber_TextChanged);
+            // 
             // FBudgetPCNAddition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1104,5 +1125,7 @@ namespace RSMPS
         private System.Windows.Forms.ToolStripMenuItem deleteLineInExpenses;
         private System.Windows.Forms.ToolStripMenuItem cancelToolStripMenuItem1;
         private C1.Win.C1SpellChecker.C1SpellChecker c1SpellChecker1;
+        private System.Windows.Forms.TextBox txtPCNNumber;
+        private System.Windows.Forms.Label label11;
     }
 }

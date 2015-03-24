@@ -31,6 +31,7 @@ namespace RSMPS
 
             lblProjectNumber.Text = moProj.Number;
             lblProjectTitle.Text = moProj.Description;
+            txtPCNNumber.Text = moPCN.PCNNumber;
 
             this.Text = "PCN: Job-" + moProj.Number + " PCN-" + moPCN.PCNNumber;
 
@@ -58,7 +59,7 @@ namespace RSMPS
 
             lblProjectNumber.Text = moProj.Number;
             lblProjectTitle.Text = moProj.Description;
-
+            txtPCNNumber.Text = moPCN.PCNNumber;
             this.Text = "PCN: Job-" + moProj.Number + " PCN-" + moPCN.PCNNumber;
 
             SetPCNSecurityLevel();
@@ -122,6 +123,7 @@ namespace RSMPS
             chkPrepareControlEstimate.Checked = false;
             txtProjMngr.Text = "";
             lblDateApproved.Text = "";
+            txtPCNNumber.Text  =  "";
 
             tdbgHours.SetDataBinding(moPCN.PCNData, "PCNHours", true);
             tdbgExpenses.SetDataBinding(moPCN.PCNData, "PCNExpenses", true);
@@ -377,7 +379,8 @@ namespace RSMPS
             moPCN.IsDisapproved = chkDisapproved.Checked;
             moPCN.PrepareControlEstimate = chkPrepareControlEstimate.Checked;
             moPCN.Comments = rtbComments.Rtf;
-
+            if (moPCN.PCNNumber != null) { moPCN.PCNNumber = txtPCNNumber.Text; }
+            else { moPCN.PCNNumber = moPCN.GetNextPCNNumber(moPCN.ProjectID); }
             moPCN.DateApproved = GetApprovedDate();
         }
 
@@ -631,6 +634,9 @@ namespace RSMPS
             chkApproved.Checked = moPCN.IsApproved;
             chkDisapproved.Checked = moPCN.IsDisapproved;
             chkPrepareControlEstimate.Checked = moPCN.PrepareControlEstimate;
+            if (moPCN.PCNNumber != null) { txtPCNNumber.Text = moPCN.PCNNumber; }
+            else { txtPCNNumber.Text = moPCN.GetNextPCNNumber(moPCN.ProjectID); }
+            
 
             if (moPCN.DateApproved == RevSol.RSUtility.DefaultDate())
                 lblDateApproved.Text = "";
@@ -890,6 +896,11 @@ namespace RSMPS
             {
                 tdbgExpenses.UpdateData();
             }
+        }
+
+        private void txtPCNNumber_TextChanged(object sender, EventArgs e)
+        {
+            SetAllowSave(true);
         }
     }
 }

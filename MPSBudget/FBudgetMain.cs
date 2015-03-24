@@ -2331,11 +2331,15 @@ namespace RSMPS
             pcn.Load(itmID);
 
             DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
-
+            
             d["Description"] = pcn.PCNTitle;
             d["TotalHrs"] = CBBudgetPCN.TotalHours(itmID);
             d["TotalDlrs"] = CBBudgetPCN.TotalDollars(itmID);
-        }
+            if (pcn.PCNNumber != null)
+            { d["PCNNumber"] = pcn.PCNNumber; }
+        
+            
+         }
         private void bttCopyPCN_Click_1(object sender, EventArgs e)
         {
            
