@@ -1612,9 +1612,11 @@ namespace RSMPS
                 d["Description"] = dr["Description"];
 
                 mdsPCNStatus.Tables["Statuss"].Rows.Add(d);
+                
             }
 
             tdbdPCNStatus.SetDataBinding(mdsPCNStatus, "Statuss", true);
+          
         }
 
         private void tlbbMakeActive_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
@@ -2317,11 +2319,16 @@ namespace RSMPS
 
             DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
             int currID = Convert.ToInt32(d["ID"]);
+            string stat = tdbgBudgetPCN.Columns["Status"].Value.ToString();
+            //Console.WriteLine("The Status is: " + stat);
+            if (stat == "Approved") { bttEditPCN.Enabled = false; }
+            else {             
+                pcn.OnPCNChanged += new RevSol.ItemValueChangedHandler(PCNChanged);
+                pcn.EditPreviousPCN(currID);
+                pcn.ShowDialog();
+                pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNChanged);
+                }
 
-            pcn.OnPCNChanged += new RevSol.ItemValueChangedHandler(PCNChanged);
-            pcn.EditPreviousPCN(currID);
-            pcn.ShowDialog();
-            pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNChanged);
         }
 
         void PCNChanged(int itmID, string name)
@@ -2909,12 +2916,27 @@ namespace RSMPS
 
         private void tdbgBudgetPCN_Click(object sender, EventArgs e)
         {
-            if (tdbgBudgetPCN.Bookmark >= 0) 
-                                {
-                bttEditPCN.Enabled = true;
-                }
 
-        }
+            if (tdbgBudgetPCN.Bookmark >= 0)
+            {
+                bttEditPCN.Enabled = true;
+            }
+      
+         
+            //string stat = tdbgBudgetPCN.Columns["Status"].Value.ToString();
+            ////Console.WriteLine("The Status is: " + stat);
+            //if (stat == "Approved")
+            //{
+            //   bttEditPCN.Enabled = false;
+               
+            //}
+            //else
+            //{
+            //    bttEditPCN.Enabled = true;
+            //}
+
+            
+  }
 
         private void tlbbSummary_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
@@ -3570,8 +3592,7 @@ namespace RSMPS
                 LoadBudget(group.Code);
             }
 
-            LoadPCNStatus();
-            LoadBudgetPCNs();
+
 
             mdsPCNs = new dsBudgetPCN();
             tdbgBudgetPCN.SetDataBinding(mdsPCNs, "PCNs", true);
