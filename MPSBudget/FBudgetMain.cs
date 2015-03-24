@@ -2922,7 +2922,7 @@ namespace RSMPS
                 bttEditPCN.Enabled = true;
             }
       
-         
+         //Causes action to be caried out on the next row. 
             //string stat = tdbgBudgetPCN.Columns["Status"].Value.ToString();
             ////Console.WriteLine("The Status is: " + stat);
             //if (stat == "Approved")
