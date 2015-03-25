@@ -2321,7 +2321,7 @@ namespace RSMPS
             int currID = Convert.ToInt32(d["ID"]);
             string stat = tdbgBudgetPCN.Columns["Status"].Value.ToString();
             //Console.WriteLine("The Status is: " + stat);
-            if (stat == "Approved") { bttEditPCN.Enabled = false; }
+            if (stat == "Approved" || stat == "Pending" || stat == "Disapprove" || stat == "Prepare Control Estimate" || stat != "Initiated") { bttEditPCN.Enabled = false; }
             else {             
                 pcn.OnPCNChanged += new RevSol.ItemValueChangedHandler(PCNChanged);
                 pcn.EditPreviousPCN(currID);
