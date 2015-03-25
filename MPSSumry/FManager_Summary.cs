@@ -558,6 +558,7 @@ namespace RSMPS
 
                 if (Convert.ToInt32(dr["ProjectID"]) > 0)
                 {
+                    psi.ID = Convert.ToInt32(dr["ID"]);
                     psi.ProjSumID = ps.ID;
                     psi.ProjectID = Convert.ToInt32(dr["ProjectID"]);
                     psi.Schedule = dr["Schedule"].ToString();
