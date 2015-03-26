@@ -94,7 +94,7 @@ namespace RevSol
 			{
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(RSDataServer));
 				//string path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\DataConfig.xml";
-                string path = Path.GetDirectoryName(DefaultXMLFilePath) + "\\DataConfig.xml";
+                string path = DefaultXMLFilePath + "\\DataConfig.xml";
                
 				TextReader textReader = new StreamReader(path);
 				RSDataServer rSDataServer = (RSDataServer)xmlSerializer.Deserialize(textReader);
@@ -119,7 +119,7 @@ namespace RevSol
 			{
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(RSDataServer));
                 //string path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + str;
-                string path = Path.GetDirectoryName(DefaultXMLFilePath) + str;
+                string path = DefaultXMLFilePath + str;
 				TextReader textReader = new StreamReader(path);
 				RSDataServer rSDataServer = (RSDataServer)xmlSerializer.Deserialize(textReader);
 				this.msDBServer = rSDataServer.DBServer;
