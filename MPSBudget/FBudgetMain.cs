@@ -2169,6 +2169,22 @@ namespace RSMPS
                 pcn.Save();
 
                 CBBudgetPCN.SetCurrentStatus(pcnID, pcn.PCNStatusID);
+                string msg;
+                RevSol.RSListItem li = (RevSol.RSListItem)lstBudgets.SelectedItem;
+
+                msg = "This will make " + li.Description + " the active project\nThis will also enter the information into the JobStat\nDo you wish to continue?";
+
+                if (MessageBox.Show(msg, "Make Project Active", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    CBBudget.MakeBudgetActive(li.ID);
+
+                    SetActiveInList();
+
+                    tlbbMakeActive.Enabled = false;
+                    makeActiveToolStripMenuItem.Enabled = false;
+
+                    MakeProjectActiveInJobStat(li.ID);
+                }
             }
 
             if (e.ColIndex == 2)
@@ -2206,7 +2222,11 @@ namespace RSMPS
                     FBudgetPCNApproval pa = new FBudgetPCNApproval();
 //SSS02192014
                     if (tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Approved" | tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Pending")
-                        pa.IsChangeOnly = false;
+                    {
+                        pa.IsChangeOnly = false; 
+                    
+                    
+                    }
                     else
                         pa.IsChangeOnly = true;
 
