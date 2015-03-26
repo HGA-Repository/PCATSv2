@@ -64,6 +64,7 @@ namespace RSMPS
             {
                 retVal = dbDt.SaveNew(tmpDat);
                 base.ID = retVal;
+
             }
 
             dbDt = null;

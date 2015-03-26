@@ -13,7 +13,8 @@ namespace RevSol
 		private string msDBName;
 		private bool mbUseWinAuth;
 		private string msUsername;
-		private string msPassword;
+		private string msPassword; 
+        public static readonly string DefaultXMLFilePath = Environment.GetEnvironmentVariable("temp");
 		public string DBServer
 		{
 			get
@@ -92,7 +93,9 @@ namespace RevSol
 			try
 			{
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(RSDataServer));
-				string path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\DataConfig.xml";
+				//string path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\DataConfig.xml";
+                string path = Path.GetDirectoryName(DefaultXMLFilePath) + "\\DataConfig.xml";
+               
 				TextReader textReader = new StreamReader(path);
 				RSDataServer rSDataServer = (RSDataServer)xmlSerializer.Deserialize(textReader);
 				this.msDBServer = rSDataServer.DBServer;
@@ -115,7 +118,8 @@ namespace RevSol
 			try
 			{
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(RSDataServer));
-				string path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + str;
+                //string path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + str;
+                string path = Path.GetDirectoryName(DefaultXMLFilePath) + str;
 				TextReader textReader = new StreamReader(path);
 				RSDataServer rSDataServer = (RSDataServer)xmlSerializer.Deserialize(textReader);
 				this.msDBServer = rSDataServer.DBServer;
@@ -151,7 +155,8 @@ namespace RevSol
 				//rSDataServer.Username = this.msUsername;
 				//rSDataServer.Password = this.msPassword;
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(RSDataServer));
-				TextWriter textWriter = new StreamWriter(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\DataConfig.xml");
+				//TextWriter textWriter = new StreamWriter(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\DataConfig.xml");
+                TextWriter textWriter = new StreamWriter(DefaultXMLFilePath + "\\DataConfig.xml");
 				xmlSerializer.Serialize(textWriter, rSDataServer);
 				textWriter.Close();
 			}
@@ -171,7 +176,8 @@ namespace RevSol
 				//rSDataServer.Username = this.msUsername;
 				//rSDataServer.Password = this.msPassword;
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(RSDataServer));
-				TextWriter textWriter = new StreamWriter(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\DataConfig.xml");
+				//TextWriter textWriter = new StreamWriter(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\DataConfig.xml");
+                TextWriter textWriter = new StreamWriter(DefaultXMLFilePath + "\\DataConfig.xml");
 				xmlSerializer.Serialize(textWriter, rSDataServer);
 				textWriter.Close();
 			}

@@ -11,6 +11,7 @@ namespace RSLib
 		private int miUserID;
 		private string msSessionSecurity;
 		private DateTime mdLoginTime;
+        public static readonly string DefaultXMLFilePath = Environment.GetEnvironmentVariable("temp");
 		public string SessionID
 		{
 			get
@@ -67,7 +68,8 @@ namespace RSLib
 			try
 			{
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(COSecurity));
-				TextReader textReader = new StreamReader(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\Secure.xml");
+                //TextReader textReader = new StreamReader(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\Secure.xml");
+                TextReader textReader = new StreamReader(DefaultXMLFilePath + "\\Secure.xml");
 				COSecurity cOSecurity = (COSecurity)xmlSerializer.Deserialize(textReader);
 				this.msSessionID = cOSecurity.SessionID;
 				this.miUserID = cOSecurity.UserID;
@@ -90,7 +92,8 @@ namespace RSLib
 				cOSecurity.LoginTime = this.mdLoginTime;
 				cOSecurity.SessionSecurity = this.msSessionSecurity;
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(COSecurity));
-				TextWriter textWriter = new StreamWriter(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\Secure.xml");
+				//TextWriter textWriter = new StreamWriter(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\Secure.xml");
+                TextWriter textWriter = new StreamWriter(DefaultXMLFilePath + "\\Secure.xml");
 				xmlSerializer.Serialize(textWriter, cOSecurity);
 				textWriter.Close();
 			}
@@ -100,7 +103,8 @@ namespace RSLib
 		}
 		public static void Delete()
 		{
-			string path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\Secure.xml";
+			//string path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\Secure.xml";
+            string path = Path.GetDirectoryName(DefaultXMLFilePath) + "\\Secure.xml";
 			File.Delete(path);
 		}
 	}

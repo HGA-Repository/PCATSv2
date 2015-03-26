@@ -16,6 +16,7 @@ namespace RSLib
 		private bool mbUseWinAuth;
 		private string msUsername;
 		private string msPassword;
+        public static readonly string DefaultXMLFilePath = Environment.GetEnvironmentVariable("temp");
 		public string DBServer
         
 		{
@@ -99,9 +100,10 @@ namespace RSLib
 		{
 			try
 			{
-				XmlSerializer xmlSerializer = new XmlSerializer(typeof(CODataServer));
-				TextReader textReader = new StreamReader(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\DataConfig.xml");
-				CODataServer cODataServer = (CODataServer)xmlSerializer.Deserialize(textReader);
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(CODataServer));
+                //TextReader textReader = new StreamReader(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\DataConfig.xml");
+                TextReader textReader = new StreamReader(DefaultXMLFilePath + "\\DataConfig.xml"); 
+                CODataServer cODataServer = (CODataServer)xmlSerializer.Deserialize(textReader);
 				this.msDBServer = cODataServer.DBServer;
 				this.msDBName = cODataServer.DBName;
 				this.mbUseWinAuth = cODataServer.UseWinAuth;
@@ -125,7 +127,8 @@ namespace RSLib
 				//cODataServer.Username = this.msUsername;
 				//cODataServer.Password = this.msPassword;
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(CODataServer));
-				TextWriter textWriter = new StreamWriter(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\DataConfig.xml");
+				//TextWriter textWriter = new StreamWriter(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\DataConfig.xml");
+                TextWriter textWriter = new StreamWriter(DefaultXMLFilePath + "\\DataConfig.xml"); 
 				xmlSerializer.Serialize(textWriter, cODataServer);
 				textWriter.Close();
 			}

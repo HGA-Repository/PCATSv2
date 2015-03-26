@@ -12,6 +12,7 @@ namespace RSLib
 		private int miWindowHt;
 		private int miWindowWid;
 		private bool mbUseSecurity;
+        public static readonly string DefaultXMLFilePath = Environment.GetEnvironmentVariable("temp");
 		public string LastUser
 		{
 			get
@@ -84,8 +85,10 @@ namespace RSLib
 			try
 			{
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(COAppSetting));
-				TextReader textReader = new StreamReader(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\AppConfig.xml");
+				//TextReader textReader = new StreamReader(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\AppConfig.xml");
+                TextReader textReader = new StreamReader(DefaultXMLFilePath + "\\AppConfig.xml"); 
 				COAppSetting cOAppSetting = (COAppSetting)xmlSerializer.Deserialize(textReader);
+                
 				this.msLastUser = cOAppSetting.LastUser;
 				this.mbWindowMax = cOAppSetting.WindowMax;
 				this.miWindowHt = cOAppSetting.WindowHt;
@@ -109,9 +112,12 @@ namespace RSLib
 				cOAppSetting.WindowWid = this.miWindowWid;
 				cOAppSetting.UseSecurity = this.mbUseSecurity;
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(COAppSetting));
-				TextWriter textWriter = new StreamWriter(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\AppConfig.xml");
+				//TextWriter textWriter = new StreamWriter(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\AppConfig.xml");
+                TextWriter textWriter = new StreamWriter(DefaultXMLFilePath + "\\AppConfig.xml"); 
+               
 				xmlSerializer.Serialize(textWriter, cOAppSetting);
 				textWriter.Close();
+                
 			}
 			catch
 			{

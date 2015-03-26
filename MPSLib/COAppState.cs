@@ -21,6 +21,7 @@ namespace RSMPS
         private bool mbSch_ViewFore;
         private bool mbSch_ViewActl;
         private string msSch_HrDisplay;
+        public static readonly string DefaultXMLFilePath = Environment.GetEnvironmentVariable("temp");
 
         #region Properties
 
@@ -104,7 +105,8 @@ namespace RSMPS
                 s = new XmlSerializer(typeof(COAppState));
 
 
-				tr = new StreamReader(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "\\AppState.xml");
+				//tr = new StreamReader(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "\\AppState.xml");
+                tr = new StreamReader(DefaultXMLFilePath + "\\AppState.xml");
 
                 oTmp = (COAppState)s.Deserialize(tr);
 
@@ -152,8 +154,8 @@ namespace RSMPS
 
                 s = new XmlSerializer(typeof(COAppState));
 
-				tw = new StreamWriter(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "\\AppState.xml");
-
+				//tw = new StreamWriter(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "\\AppState.xml");
+                tw = new StreamWriter(DefaultXMLFilePath + "\\AppState.xml");
                 s.Serialize(tw, oTmp);
 
                 tw.Close();

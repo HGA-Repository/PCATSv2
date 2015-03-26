@@ -39,6 +39,9 @@ namespace RSMPS
                 oVar = new COProjectSummaryInfo();
 
                 oVar.ID = Convert.ToInt32(dr["ID"]);
+                Console.WriteLine("The ID is: " + Convert.ToInt32(dr["ID"]));
+                Console.WriteLine("The lID is: " + lID);
+
                 oVar.ProjSumID = Convert.ToInt32(dr["ProjSumID"]);
                 oVar.ProjectID = Convert.ToInt32(dr["ProjectID"]);
                 oVar.Schedule = dr["Schedule"].ToString();

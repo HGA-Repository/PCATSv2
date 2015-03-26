@@ -13,13 +13,14 @@ namespace RSMPS
 
     public class COUtility
     {
+        public static readonly string DefaultXMLFilePath = Environment.GetEnvironmentVariable("temp");
         public string GetCurrentLocation()
         {
-            string currPath;
+            //string currPath;
 
-            currPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
-
-            return currPath;
+            //currPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
+          
+            return DefaultXMLFilePath;
         }
 
         public static DateTime GetWeekEndingForDate(DateTime currDate)
