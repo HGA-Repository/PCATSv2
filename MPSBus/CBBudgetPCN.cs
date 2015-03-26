@@ -241,7 +241,7 @@ namespace RSMPS
             CBBudgetPCNHour hr;
             CBBudgetPCNExpense exp;
 
-            foreach (DataRow dr in base.PCNData.PCNHours.Rows)
+            foreach (DataRow dr in base.PCNData.Tables["PCNHours"].Rows)
             {
                 hr = new CBBudgetPCNHour();
                 Console.WriteLine("The ID and the PCNID in the CBBudgetPCNfile are: ");
@@ -267,12 +267,12 @@ namespace RSMPS
                 }
             }
 
-            foreach (DataRow dr in base.PCNData.PCNHoursDeleted.Rows)
+            foreach (DataRow dr in base.PCNData.Tables["PCNHoursDeleted"].Rows)
             {
                 CBBudgetPCNHour.Delete(Convert.ToInt32(dr["ID"]));
             }
 
-            foreach (DataRow dr in base.PCNData.PCNExpenses.Rows)
+            foreach (DataRow dr in base.PCNData.Tables["PCNExpenses"].Rows)
             {
                 exp = new CBBudgetPCNExpense();
 
@@ -295,7 +295,7 @@ namespace RSMPS
                 }
             }
 
-            foreach (DataRow dr in base.PCNData.PCNExpensesDeleted.Rows)
+            foreach (DataRow dr in base.PCNData.Tables["PCNExpensesDeleted"].Rows)
             {
                 CBBudgetPCNExpense.Delete(Convert.ToInt32(dr["ID"]));
             }
@@ -310,7 +310,7 @@ namespace RSMPS
             CBBudgetPCNHour hr;
             CBBudgetPCNExpense exp;
 
-            foreach (DataRow dr in base.PCNData.PCNHours.Rows)
+            foreach (DataRow dr in base.PCNData.Tables["PCNHours"].Rows)
             {
                 hr = new CBBudgetPCNHour();
                 Console.WriteLine("The ID and the PCNID in the CBBudgetPCNfile are: ");
@@ -336,12 +336,12 @@ namespace RSMPS
                 }
             }
 
-            foreach (DataRow dr in base.PCNData.PCNHoursDeleted.Rows)
+            foreach (DataRow dr in base.PCNData.Tables["PCNHoursDeleted"].Rows)
             {
                 CBBudgetPCNHour.Delete(Convert.ToInt32(dr["ID"]));
             }
 
-            foreach (DataRow dr in base.PCNData.PCNExpenses.Rows)
+            foreach (DataRow dr in base.PCNData.Tables["PCNExpenses"].Rows)
             {
                 exp = new CBBudgetPCNExpense();
 
@@ -364,7 +364,7 @@ namespace RSMPS
                 }
             }
 
-            foreach (DataRow dr in base.PCNData.PCNExpensesDeleted.Rows)
+            foreach (DataRow dr in base.PCNData.Tables["PCNExpensesDeleted"].Rows)
             {
                 CBBudgetPCNExpense.Delete(Convert.ToInt32(dr["ID"]));
             }
