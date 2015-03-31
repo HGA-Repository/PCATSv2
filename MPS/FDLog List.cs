@@ -54,7 +54,9 @@ namespace RSMPS
             this.bttOpen.Enabled = true;
 
             miCurrUserID = u.ID;
-            if (passLvl != 3 || u.IsAdministrator == true || u.IsManager == true)
+            if (passLvl != 3 || u.IsAdministrator == true)
+                // SSS - Removing u.IsManager - will require Moderator Configuration
+                //if (passLvl != 3 || u.IsAdministrator == true || u.IsManager == true)
             {
                 // is a moderator for this department so enable some stuff
                 //mbIsModerator = true;

@@ -171,7 +171,8 @@ namespace RSMPS
             sec.InitAppSettings();
             u.Load(sec.UserID);
 
-            if (u.IsAdministrator == true || u.IsEngineerAdmin == true || u.IsManager == true)
+            if (u.IsAdministrator == true || u.IsEngineerAdmin == true)
+                //if (u.IsAdministrator == true || u.IsEngineerAdmin == true || u.IsManager == true)
             {
             }
             else

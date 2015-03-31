@@ -1330,7 +1330,8 @@ namespace RSMPS
 
 
             miCurrUserID = u.ID;
-            if (passLvl != 3 || u.IsAdministrator == true || u.IsManager == true)
+            if (passLvl != 3 || u.IsAdministrator == true)
+                //if (passLvl != 3 || u.IsAdministrator == true || u.IsManager == true)
             {
                 // is a moderator for this department so enable some stuff
                 mbIsModerator = true;

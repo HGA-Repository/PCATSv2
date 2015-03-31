@@ -192,7 +192,8 @@ namespace RSMPS
             sec.InitAppSettings();
             u.Load(sec.UserID);
 
-            if (u.IsAdministrator == true || u.IsEngineerAdmin == true)
+            if (u.IsAdministrator == true)
+                //if (u.IsAdministrator == true || u.IsEngineerAdmin == true)
             {
                 if (mbItemChanged == true && IsValid() == true)
                 {

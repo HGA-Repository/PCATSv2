@@ -193,9 +193,9 @@ namespace RSMPS
             this.chkEngineerAdmin.AutoSize = true;
             this.chkEngineerAdmin.Location = new System.Drawing.Point(15, 148);
             this.chkEngineerAdmin.Name = "chkEngineerAdmin";
-            this.chkEngineerAdmin.Size = new System.Drawing.Size(86, 17);
+            this.chkEngineerAdmin.Size = new System.Drawing.Size(120, 17);
             this.chkEngineerAdmin.TabIndex = 9;
-            this.chkEngineerAdmin.Text = "Administrator";
+            this.chkEngineerAdmin.Text = "Document Manager";
             this.chkEngineerAdmin.UseVisualStyleBackColor = true;
             this.chkEngineerAdmin.CheckedChanged += new System.EventHandler(this.chkEngineerAdmin_CheckedChanged);
             // 
