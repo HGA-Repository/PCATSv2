@@ -1987,6 +1987,11 @@
             Fires when position of ValueLabel was changed.
             </summary>
     </member>
+    <member name="E:C1.Win.C1Chart.ValueLabel.ValueChanging">
+      <summary>
+            Fires when the position of a ValueLabel is changing due to dragging the marker.
+            </summary>
+    </member>
     <member name="P:C1.Win.C1Chart.ValueLabel.Appearance">
       <summary>
             Gets or sets the appearance of ValueLabel.
@@ -2042,6 +2047,22 @@
       <summary>
             Gets or sets the axis value to be replaced by the ValueLabel using a DateTime value.
             </summary>
+    </member>
+    <member name="P:C1.Win.C1Chart.ValueLabel.MovingNumericValue">
+      <summary>
+            Gets the new ValueLabel Numeric value of a moving ValueLabel during a drag operation.
+            <remarks>
+            This value differs from the NumericValue property only while the ValueLabel is being dragged by the
+            mouse making it most useful in the ValueLabel.ValueChanging event.
+            </remarks></summary>
+    </member>
+    <member name="P:C1.Win.C1Chart.ValueLabel.MovingDateTimeValue">
+      <summary>
+            Gets the new ValueLabel DateTimeValue of a moving ValueLabel during a drag operation.
+            <remarks>
+            This value differs from the DateTimeValue property only while the ValueLabel is being dragged by
+            the mouse making it is most useful in the ValueLabel.ValueChanging event.
+            </remarks></summary>
     </member>
     <member name="T:C1.Win.C1Chart.ValueLabelsCollection">
       <summary>

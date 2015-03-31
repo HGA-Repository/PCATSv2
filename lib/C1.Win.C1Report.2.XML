@@ -34,6 +34,16 @@
             File save button.
             </summary>
     </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionEnum.Parameters">
+      <summary>
+            SSRS report parameters.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionEnum.PrintLayout">
+      <summary>
+            SSRS print layout mode.
+            </summary>
+    </member>
     <member name="F:C1.Win.C1Preview.C1PreviewActionEnum.PageSetup">
       <summary>
             Page setup button.
@@ -47,6 +57,11 @@
     <member name="F:C1.Win.C1Preview.C1PreviewActionEnum.Reflow">
       <summary>
             Document reflow button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionEnum.Stop">
+      <summary>
+            Stop long operation.
             </summary>
     </member>
     <member name="F:C1.Win.C1Preview.C1PreviewActionEnum.PageSingle">
@@ -67,6 +82,11 @@
     <member name="F:C1.Win.C1Preview.C1PreviewActionEnum.PageFacingContinuous">
       <summary>
             Facing continuous page view button.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionEnum.NavigationPane">
+      <summary>
+            Show Navigation pane.
             </summary>
     </member>
     <member name="F:C1.Win.C1Preview.C1PreviewActionEnum.GoFirst">
@@ -154,6 +174,41 @@
             Find text button.
             </summary>
     </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionEnum.SearchLabel">
+      <summary>
+            Find label ("Find:").
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionEnum.SearchText">
+      <summary>
+            Text to be searched.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionEnum.SearchNext">
+      <summary>
+            Find the next occurrence.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionEnum.SearchPrevious">
+      <summary>
+            Find the previous occurrence.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionEnum.MatchCase">
+      <summary>
+            Match case.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionEnum.MatchWholeWord">
+      <summary>
+            Match whole word.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionEnum.CloseSearch">
+      <summary>
+            Hide search toolbar.
+            </summary>
+    </member>
     <member name="T:C1.Win.C1Preview.C1PreviewActionFlags">
       <summary>
             Specifies flags that can be used to group, enable and disable
@@ -175,6 +230,16 @@
             File save.
             </summary>
     </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionFlags.Parameters">
+      <summary>
+            SSRS parameters.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionFlags.PrintLayout">
+      <summary>
+            SSRS report print layout mode.
+            </summary>
+    </member>
     <member name="F:C1.Win.C1Preview.C1PreviewActionFlags.PageSetup">
       <summary>
             Page setup.
@@ -190,10 +255,15 @@
             Reflow document.
             </summary>
     </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionFlags.Stop">
+      <summary>
+            Stop long operation.
+            </summary>
+    </member>
     <member name="F:C1.Win.C1Preview.C1PreviewActionFlags.File">
       <summary>
-            File operations (combination of <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.FileOpen" />, <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.FileSave" />,
-            <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.PageSetup" />, <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.Print" /> and <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.Reflow" />).
+            File operations (combination of <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.FileOpen" />, <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.FileSave" />, <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.Parameters" />, <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.PrintLayout" />,
+            <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.PageSetup" />, <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.Print" />, <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.Reflow" />, and <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.Stop" />).
             </summary>
     </member>
     <member name="F:C1.Win.C1Preview.C1PreviewActionFlags.PageSingle">
@@ -257,6 +327,11 @@
             Go back in history.
             </summary>
     </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionFlags.NavigationPane">
+      <summary>
+            Show Navigation pane.
+            </summary>
+    </member>
     <member name="F:C1.Win.C1Preview.C1PreviewActionFlags.Navigation">
       <summary>
             Navigation operations (combination of <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.GoFirst" />, <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.GoPrev" />,
@@ -316,10 +391,50 @@
             <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.SelectTextTool" /> and <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.Find" />).
             </summary>
     </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionFlags.SearchText">
+      <summary>
+            Text to be searched.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionFlags.StartSearch">
+      <summary>
+            Start search.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionFlags.SearchPrevious">
+      <summary>
+            Find the previous occurrence.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionFlags.SearchNext">
+      <summary>
+            Find the next occurrence.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionFlags.MatchCase">
+      <summary>
+            Match case.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionFlags.MatchWholeWord">
+      <summary>
+            Match whole word.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionFlags.CloseSearch">
+      <summary>
+            Hide search toolbar.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewActionFlags.Search">
+      <summary>
+            All operations related to search.
+            </summary>
+    </member>
     <member name="F:C1.Win.C1Preview.C1PreviewActionFlags.All">
       <summary>
-            All operations (combination of <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.File" />, <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.PageView" />,
-            <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.Navigation" />, <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.Zoom" /> and <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.Text" />).
+            All operations (combination of <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.File" />, <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.PageView" />, <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.Navigation" />,
+            <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.Zoom" />, <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.Text" />, and <see cref="F:C1.Win.C1Preview.C1PreviewActionFlags.Search" />).
             </summary>
     </member>
     <member name="T:C1.Win.C1Preview.C1PreviewAction">
@@ -1923,6 +2038,12 @@
             Occurs when the document action from preview forms should be executed.
             </summary>
     </member>
+    <member name="E:C1.Win.C1Preview.C1PreviewPane.QueryPageSettings">
+      <summary>
+            Fired from within the <see cref="E:System.Drawing.Printing.PrintDocument.QueryPageSettings" /> event handler of the <see cref="T:C1.C1Preview.C1PrintManager" />
+            used to change page settings. See <see cref="E:C1.C1Preview.C1PrintManager.QueryPageSettings" /> for details.
+            </summary>
+    </member>
     <member name="E:C1.Win.C1Preview.C1PreviewPane.AdjustPrintPage">
       <summary>
             Fired from within the <see cref="E:System.Drawing.Printing.PrintDocument.PrintPage" /> event handler of the <see cref="T:C1.C1Preview.C1PrintManager" />
@@ -1984,6 +2105,11 @@
     <member name="P:C1.Win.C1Preview.C1PreviewPane.CanSetPageSettings">
       <summary>
             Gets a value indicating whether the currently loaded document supports changing the page settings.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Preview.C1PreviewPane.ScaleChildren">
+      <summary>
+            For internal use.
             </summary>
     </member>
     <member name="P:C1.Win.C1Preview.C1PreviewPane.BackColor">
@@ -2694,12 +2820,11 @@
       <summary>
             For internal use.
             </summary>
-      <param name="msg">
-      </param>
-      <param name="keyData">
-      </param>
-      <returns>
-      </returns>
+    </member>
+    <member name="M:C1.Win.C1Preview.C1PreviewTextSearchPanel.OnVisibleChanged(System.EventArgs)">
+      <summary>
+            For internal use.
+            </summary>
     </member>
     <member name="M:C1.Win.C1Preview.C1PreviewTextSearchPanel.Dispose(System.Boolean)">
       <summary> 
@@ -3224,6 +3349,11 @@
       <param name="e">
       </param>
     </member>
+    <member name="P:C1.Win.C1Preview.C1PreviewThumbnailView.DefaultSize">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
     <member name="E:C1.Win.C1Preview.C1PreviewThumbnailView.PropertyChanged">
       <summary>
             Occurs when a property of the thumbnail view that is not inherited from the base class changes.
@@ -3283,6 +3413,21 @@
       <param name="m">
       </param>
     </member>
+    <member name="M:C1.Win.C1Preview.C1PrintPreviewControl.ScaleControl(System.Drawing.SizeF,System.Windows.Forms.BoundsSpecified)">
+      <summary>
+            Scales a control's location, size, padding and margin.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Preview.C1PrintPreviewControl.OnSizeChanged(System.EventArgs)">
+      <summary>
+            Raises the <c>SizeChanged</c> event.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Preview.C1PrintPreviewControl.OnLayout(System.Windows.Forms.LayoutEventArgs)">
+      <summary>
+            Raises the <c>Layout</c> event.
+            </summary>
+    </member>
     <member name="M:C1.Win.C1Preview.C1PrintPreviewControl.OnRightToLeftChanged(System.EventArgs)">
       <summary>
             Raises the <c>RightToLeftChanged</c> event.
@@ -3329,6 +3474,11 @@
     <member name="M:C1.Win.C1Preview.C1PrintPreviewControl.ResetToolBars">
       <summary>
             Resets the <see cref="P:C1.Win.C1Preview.C1PrintPreviewControl.ToolBars" /> property to its default value.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Preview.C1PrintPreviewControl.DefaultSize">
+      <summary>
+            Gets the default size for the control.
             </summary>
     </member>
     <member name="P:C1.Win.C1Preview.C1PrintPreviewControl.TopToolStripPanelVisible">
@@ -3409,6 +3559,11 @@
     <member name="P:C1.Win.C1Preview.C1PrintPreviewControl.TextSearchPanelVisible">
       <summary>
             Gets or sets a value indicating whether the text search panel should be visible in the preview.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Preview.C1PrintPreviewControl.TextSearchUIStyle">
+      <summary>
+            Gets or sets the type of UI used for text search.
             </summary>
     </member>
     <member name="P:C1.Win.C1Preview.C1PrintPreviewControl.ImageSet">
@@ -3526,6 +3681,17 @@
             Resets the Text property to its default value.
             </summary>
     </member>
+    <member name="M:C1.Win.C1Preview.C1PrintPreviewControl.PreviewToolBars.ShouldSerializeSearch">
+      <summary>
+            Indicates whether the Search property should be persisted. 
+            </summary>
+      <returns>true if the property value has changed from its default; otherwise, false.</returns>
+    </member>
+    <member name="M:C1.Win.C1Preview.C1PrintPreviewControl.PreviewToolBars.ResetSearch">
+      <summary>
+            Resets the Search property to its default value.
+            </summary>
+    </member>
     <member name="P:C1.Win.C1Preview.C1PrintPreviewControl.PreviewToolBars.Owner">
       <summary>
             Gets the owner of the toolbars.
@@ -3554,6 +3720,11 @@
     <member name="P:C1.Win.C1Preview.C1PrintPreviewControl.PreviewToolBars.Text">
       <summary>
             Gets the Text toolbar.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Preview.C1PrintPreviewControl.PreviewToolBars.Search">
+      <summary>
+            Gets the search toolbar.
             </summary>
     </member>
     <member name="T:C1.Win.C1Preview.C1PrintPreviewControl.PreviewToolBar">
@@ -3915,6 +4086,51 @@
     <member name="P:C1.Win.C1Preview.C1PrintPreviewControl.TextToolBar.Find">
       <summary>
             Gets the <b>Find</b> toolstrip button.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Preview.C1PrintPreviewControl.SearchToolBar">
+      <summary>
+            Represents the search toolbar.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Preview.C1PrintPreviewControl.SearchToolBar.PreviewAction">
+      <summary>
+            Gets <see cref="T:C1.Win.C1Preview.C1PreviewActionFlags" /> describing the content of this toolbar.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Preview.C1PrintPreviewControl.SearchToolBar.SearchLabel">
+      <summary>
+            Gets the "Find:" search toolstrip label.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Preview.C1PrintPreviewControl.SearchToolBar.SearchText">
+      <summary>
+            Gets the "Search Text" toolstrip text box.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Preview.C1PrintPreviewControl.SearchToolBar.SearchNext">
+      <summary>
+            Gets the <b>Search Next</b> toolstrip button.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Preview.C1PrintPreviewControl.SearchToolBar.SearchPrevious">
+      <summary>
+            Gets the <b>Search Previous</b> toolstrip button.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Preview.C1PrintPreviewControl.SearchToolBar.MatchCase">
+      <summary>
+            Gets the <b>Match Case</b> toolstrip button.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Preview.C1PrintPreviewControl.SearchToolBar.MatchWholeWord">
+      <summary>
+            Gets the <b>Match Whole Word</b> toolstrip button.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Preview.C1PrintPreviewControl.SearchToolBar.CloseSearch">
+      <summary>
+            Gets the <b>Close Search</b> toolstrip button.
             </summary>
     </member>
     <member name="T:C1.Win.C1Preview.C1TextFragment">
@@ -4368,6 +4584,11 @@
             Gets the preview progress bar.
             </summary>
     </member>
+    <member name="P:C1.Win.C1Preview.C1PrintPreviewDialog.DefaultMinimumSize">
+      <summary>
+            Gets the default minimum size of the control.
+            </summary>
+    </member>
     <member name="T:C1.Win.C1Preview.Design.C1PrintPreviewDialogDesigner">
       <summary>
             For internal use.
@@ -4387,6 +4608,11 @@
     <member name="F:C1.Win.C1Preview.C1PreviewToolsIntegrator.c_PreviewStatusLabelTag">
       <summary>
             Tag identifying the ToolStripStatusLabel used to show preview status text.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Preview.C1PreviewToolsIntegrator.c_PreviewSearchToolStripTag">
+      <summary>
+            Tag identifying the ToolStrip used to show search options.
             </summary>
     </member>
     <member name="M:C1.Win.C1Preview.C1PreviewToolsIntegrator.#ctor">
@@ -4495,6 +4721,16 @@
       <summary>
             Gets or sets the <see cref="T:C1.Win.C1Preview.C1PreviewThumbnailView" /> associated with the current
             <see cref="T:C1.Win.C1Preview.C1PreviewToolsIntegrator" />.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Preview.C1PreviewToolsIntegrator.TextSearchUIStyle">
+      <summary>
+            Gets or sets the type of UI used for text search.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Preview.C1PreviewToolsIntegrator.SearchToolBarVisible">
+      <summary>
+            Gets or sets a value indicating whether the search toolbar is visible.
             </summary>
     </member>
     <member name="P:C1.Win.C1Preview.C1PreviewToolsIntegrator.PreviewTextSearchPanel">
@@ -5526,6 +5762,21 @@
             Imperial units are used.
             </summary>
     </member>
+    <member name="T:C1.Win.C1Preview.TextSearchUIStyle">
+      <summary>
+            Specifies the type of UI used for text search.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Preview.TextSearchUIStyle.Panel">
+      <summary>
+            Use the default <see cref="T:C1.Win.C1Preview.C1PreviewTextSearchPanel" /> for text search.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Preview.TextSearchUIStyle.ToolBar">
+      <summary>
+            Use the new search toolbar for text search.
+            </summary>
+    </member>
     <member name="T:C1.Win.C1Preview.PageLayoutEnum">
       <summary>
             Describes the supported page view modes of the control.
@@ -5668,6 +5919,11 @@
     <member name="F:C1.Win.C1Preview.ImageSetEnum.Classic">
       <summary>
             Classic image set.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Preview.ImageSetEnum.Flat">
+      <summary>
+            Flat image set.
             </summary>
     </member>
     <member name="F:C1.Win.C1Preview.ImageSetEnum.XP">

@@ -4,6 +4,40 @@
     <name>C1.C1Report.2</name>
   </assembly>
   <members>
+    <member name="T:C1.C1Excel.XLUnderlineStyle">
+      <summary>
+            The Excel font underline style.
+            </summary>
+    </member>
+    <member name="F:C1.C1Excel.XLUnderlineStyle.None">
+      <summary>No underline.</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLUnderlineStyle.Single">
+      <summary>Single underline.</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLUnderlineStyle.Double">
+      <summary>Double underline.</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLUnderlineStyle.SingleAccounting">
+      <summary>Single accounting underline.</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLUnderlineStyle.DoubleAccounting">
+      <summary>Double accounting underline.</summary>
+    </member>
+    <member name="T:C1.C1Excel.XLFontScript">
+      <summary>
+            The Excel font superscript/subscript style.
+            </summary>
+    </member>
+    <member name="F:C1.C1Excel.XLFontScript.None">
+      <summary>Normal.</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLFontScript.Superscript">
+      <summary>Superscript.</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLFontScript.Subscript">
+      <summary>Subscript.</summary>
+    </member>
     <member name="T:C1.C1Excel.Strings">
       <summary>
             Static class containing UI strings used by the designer.
@@ -943,6 +977,13 @@
             </summary>
       <param name="width">The width to set.</param>
       <param name="height">The height to set.</param>
+    </member>
+    <member name="M:C1.C1Preview.C1PageSettings.IsSameLayout(C1.C1Preview.C1PageSettings)">
+      <summary>
+            Compares page layout specified by the current <see cref="T:C1.C1Preview.C1PageSettings" /> with layout of another <see cref="T:C1.C1Preview.C1PageSettings" /> object.
+            </summary>
+      <param name="other">The <see cref="T:C1.C1Preview.C1PageSettings" /> object to compare the current one to.</param>
+      <returns>True if the two objects define identical page layout, false otherwise.</returns>
     </member>
     <member name="M:C1.C1Preview.C1PageSettings.Compare(C1.C1Preview.C1PageSettings)">
       <summary>
@@ -6207,6 +6248,11 @@
       <param name="source">
       </param>
     </member>
+    <member name="P:C1.C1Preview.DictionaryItemLink.DataInt">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.DictionaryItemLink.Owner">
       <summary>
             Gets the owner of the current dictionary item.
@@ -6672,6 +6718,11 @@
       <param name="obj">The object to search for.</param>
       <returns>The index of the specified object within the current list, or -1 if none was found.</returns>
     </member>
+    <member name="P:C1.C1Preview.Util.FastList.InnerList">
+      <summary>
+            Gets the <see cref="T:System.Collections.Generic.List`1" /> used internally to store the elements of the current <see cref="T:C1.C1Preview.Util.FastList" />.
+            </summary>
+    </member>
     <member name="T:C1.C1Preview.EventCollection">
       <summary>
             Represents an <see cref="T:C1.C1Preview.OwnedCollection" /> that fires events when changing.
@@ -6966,7 +7017,8 @@
     </member>
     <member name="T:C1.C1Preview.PageNumberingChange">
       <summary>
-            Represents an absolute or relative page numbering change in a <see cref="T:C1.C1Preview.C1PrintDocument" />.
+            Represents an absolute or relative page numbering change in <see cref="T:C1.C1Preview.C1PrintDocument" />
+            or <see cref="T:C1.C1Preview.C1MultiDocument" />.
             </summary>
     </member>
     <member name="M:C1.C1Preview.PageNumberingChange.#ctor(C1.C1Preview.PageNumberingChangeModeEnum,System.Int32)">
@@ -9348,6 +9400,11 @@
             doc.EndDoc();
             </code></example></remarks>
     </member>
+    <member name="P:C1.C1Preview.RenderObject.m_Flags">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.RenderObject.FireProgressEvent">
       <summary>
             TBD:
@@ -9604,6 +9661,21 @@
       <summary>
             Gets or sets a value indicating the visibility of the current object.
             </summary>
+    </member>
+    <member name="P:C1.C1Preview.RenderObject.CalculatedValues">
+      <summary>
+            Gets the hashtable containing the calculated values.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.RenderObject.HasCalculatedValues">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.RenderObject.CalculatedValues" /> hashtable exists and is not empty.
+            </summary>
+      <remarks>
+            Because <see cref="P:C1.C1Preview.RenderObject.CalculatedValues" /> always returns a non-<b>null</b> hashtable,
+            initializing it if necessary, use this property to test the existence of <see cref="P:C1.C1Preview.RenderObject.CalculatedValues" /> 
+            without that side-effect.
+            </remarks>
     </member>
     <member name="P:C1.C1Preview.RenderObject.HasFragments">
       <summary>
@@ -12685,6 +12757,16 @@
     <member name="P:C1.C1Preview.ParagraphObject.UserData">
       <summary>
             Gets or sets arbitrary data associated with the current paragraph object.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.ParagraphObject.CalculatedValues">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.ParagraphObject.HasCalculatedValues">
+      <summary>
+            For internal use.
             </summary>
     </member>
     <member name="P:C1.C1Preview.ParagraphObject.FirstFragment">
@@ -20967,6 +21049,41 @@
       <returns>
         <b>true</b> if the two units are not equal, <b>false</b> otherwise.</returns>
     </member>
+    <member name="M:C1.C1Preview.Unit.op_Implicit(C1.C1Preview.Unit)~System.Double">
+      <summary>
+            Returns the absolute value of a <see cref="T:C1.C1Preview.Unit" /> expressed in <see cref="F:C1.C1Preview.UnitTypeEnum.Default" /> units.
+            <para>Throws exception if the operation cannot be performed.</para></summary>
+      <param name="value">The unit value to convert.</param>
+      <returns>The absolute value.</returns>
+    </member>
+    <member name="M:C1.C1Preview.Unit.op_Implicit(C1.C1Preview.Unit)~System.String">
+      <summary>
+            Converts a unit value to a string.
+            </summary>
+      <param name="value">The unit to convert.</param>
+      <returns>The string representing the unit value.</returns>
+    </member>
+    <member name="M:C1.C1Preview.Unit.op_Implicit(System.Double)~C1.C1Preview.Unit">
+      <summary>
+            Converts a <b>double</b> value to a <see cref="T:C1.C1Preview.Unit" /> using <see cref="F:C1.C1Preview.UnitTypeEnum.Default" /> units.
+            </summary>
+      <param name="value">The <b>double</b> value.</param>
+      <returns>The unit value.</returns>
+    </member>
+    <member name="M:C1.C1Preview.Unit.op_Implicit(System.Int32)~C1.C1Preview.Unit">
+      <summary>
+            Converts an integer value to a <see cref="T:C1.C1Preview.Unit" /> using <see cref="F:C1.C1Preview.UnitTypeEnum.Default" /> units.
+            </summary>
+      <param name="value">The integer value.</param>
+      <returns>The unit value.</returns>
+    </member>
+    <member name="M:C1.C1Preview.Unit.op_Implicit(System.String)~C1.C1Preview.Unit">
+      <summary>
+            Converts a string to a <see cref="T:C1.C1Preview.Unit" /> value (see <see cref="M:C1.C1Preview.Unit.#ctor(System.String)" />.
+            </summary>
+      <param name="value">The string to convert.</param>
+      <returns>The unit value.</returns>
+    </member>
     <member name="P:C1.C1Preview.Unit.IsEmpty">
       <summary>
             Gets a value indicating whether the current unit represents an empty value.
@@ -21337,6 +21454,15 @@
       <param name="toDpi">The target DPI (used if <paramref name="to" /> is <see cref="F:C1.C1Preview.UnitTypeEnum.Pixel" />).</param>
       <returns>
         <paramref name="value" /> converted to <paramref name="to" /> units.</returns>
+    </member>
+    <member name="M:C1.C1Preview.Utils.GetResourceImage(System.String)">
+      <summary>
+            For internal use.
+            </summary>
+      <param name="imageName">
+      </param>
+      <returns>
+      </returns>
     </member>
     <member name="M:C1.C1Preview.Utils.Round(C1.C1Preview.RectangleD)">
       <summary>
@@ -22246,6 +22372,12 @@
             Gets or sets a value indicating whether to use the old version of text filter (TextFilterClassic).
             </summary>
     </member>
+    <member name="P:C1.C1Report.CompatibilityOptions.IgnoreInvisibleFieldsInGrowShrinkSections">
+      <summary>
+            Gets or sets a value indicating whether invisible fields should be ignored
+            when calculating the heights of CanGrow/CanShrink sections.
+            </summary>
+    </member>
     <member name="T:C1.C1Report.DataProvider">
       <summary>
             Specifies the type of the data source.
@@ -22388,16 +22520,6 @@
             Sets the current cursor position to supplied value.
             </summary>
       <param name="bkmk">Index of record.</param>
-    </member>
-    <member name="P:C1.C1Report.DataSource.DataLink">
-      <summary>
-            For internal use.
-            </summary>
-    </member>
-    <member name="P:C1.C1Report.DataSource.DataSourceInfo">
-      <summary>
-            For internal use.
-            </summary>
     </member>
     <member name="P:C1.C1Report.DataSource.DataProvider">
       <summary>
@@ -23294,6 +23416,21 @@
             raw format, causing the browser to display it as "A&lt;B&gt;C" (the "C" would be bold).</para>
       </remarks>
     </member>
+    <member name="P:C1.C1Report.HtmlFilter.OwnerReport">
+      <summary>
+            Gets a reference to the <see cref="T:C1.C1Report.C1Report" /> that owns this filter.
+            </summary>
+    </member>
+    <member name="P:C1.C1Report.HtmlFilter.HtmlStreamWriter">
+      <summary>
+            Gets a reference to the <see cref="T:System.IO.StreamWriter" /> being used to create the HTML output.
+            </summary>
+    </member>
+    <member name="P:C1.C1Report.HtmlFilter.StylePrefix">
+      <summary>
+            Gets a string to be used as a prefix for style names.
+            </summary>
+    </member>
     <member name="T:C1.C1Report.HtmlTableFilter">
       <summary>
             Class is used with the <see cref="M:C1.C1Report.C1Report.RenderToFilter(C1.C1Report.ExportFilter)" /> method to render reports into 
@@ -23759,6 +23896,21 @@
             Gets or sets the format used to export images. 
             </summary>
       <seealso cref="T:C1.C1Report.RtfTargetEnum" />
+    </member>
+    <member name="P:C1.C1Report.RtfFilter.StreamWriter">
+      <summary>
+            Gets the <see cref="P:C1.C1Report.RtfFilter.StreamWriter" /> object used by filter.
+            </summary>
+    </member>
+    <member name="P:C1.C1Report.RtfFilter.MarginLeft">
+      <summary>
+            Gets the left margin of the page.
+            </summary>
+    </member>
+    <member name="P:C1.C1Report.RtfFilter.MarginTop">
+      <summary>
+            Gets the top margin of the page.
+            </summary>
     </member>
     <member name="T:C1.C1Report.RtfLabelFilter">
       <summary>
@@ -26391,6 +26543,21 @@
             This method is useful for providing <b>VBScript</b> syntax-checking in designer applications.
             </remarks>
     </member>
+    <member name="M:C1.C1Report.C1Report.ParseStatement(System.String,System.String,System.Boolean)">
+      <summary>
+            Parses a named <b>VBScript</b> statement in the current report context.
+            </summary>
+      <param name="statement">A string with a <b>VBScript</b> statement to be parsed.</param>
+      <param name="name">The name of the <paramref name="statement" />. 
+            A statement can contain named functions and procedures, in which case they are identified
+            by the statement name and function or procedure name pair.</param>
+      <param name="isGlobal">Indicates whether it is the <see cref="P:C1.C1Report.C1Report.GlobalScripts" /> that is being parsed.</param>
+      <returns>An <see cref="T:System.Exception" /> if the statement is invalid, or null if no errors
+            were detected.</returns>
+      <remarks>
+            This method is useful for providing <b>VBScript</b> syntax-checking in designer applications.
+            </remarks>
+    </member>
     <member name="M:C1.C1Report.C1Report.GetPageImages">
       <summary>
             Enumerates page images (represented by metafiles) of the generated report.
@@ -27018,6 +27185,13 @@
         <para>The VBScript handler in the property belongs to the report, and will be executed regardless of the application.
             For example, a report might contain a VBScript handler that changes the value of a field when an error occurs.</para>
       </remarks>
+    </member>
+    <member name="P:C1.C1Report.C1Report.GlobalScripts">
+      <summary>
+            Gets or sets the global <b>VBScript</b> module.
+            Functions and subroutines defined here (using the standard VBScript syntax) can be used in other scripts in the current report
+            like standard VBScript functions.
+            </summary>
     </member>
     <member name="P:C1.C1Report.C1Report.Page">
       <summary>
@@ -28014,6 +28188,21 @@
             </summary>
       <param name="font">The <see cref="P:C1.C1Report.Util.FontHolder.Font" /> object used to initialize the <b>FontHolder</b>.</param>
     </member>
+    <member name="M:C1.C1Report.Util.FontHolder.op_Implicit(C1.C1Report.Util.FontHolder)~System.Drawing.Font">
+      <summary>
+            Converts a <see cref="T:C1.C1Report.Util.FontHolder" /> object to a <see cref="P:C1.C1Report.Util.FontHolder.Font" /> object.
+            </summary>
+      <param name="fontHolder">The <see cref="T:C1.C1Report.Util.FontHolder" /> object.</param>
+      <returns>
+        <see cref="P:C1.C1Report.Util.FontHolder.Font" /> object.</returns>
+    </member>
+    <member name="M:C1.C1Report.Util.FontHolder.op_Implicit(System.Drawing.Font)~C1.C1Report.Util.FontHolder">
+      <summary>
+            Converts a <see cref="P:C1.C1Report.Util.FontHolder.Font" /> object to a <see cref="T:C1.C1Report.Util.FontHolder" /> object.
+            </summary>
+      <param name="f">The <see cref="P:C1.C1Report.Util.FontHolder.Font" /> object.</param>
+      <returns>New <see cref="T:C1.C1Report.Util.FontHolder" /> object whose <see cref="P:C1.C1Report.Util.FontHolder.Font" /> property is equal to supplied font object.</returns>
+    </member>
     <member name="M:C1.C1Report.Util.FontHolder.ToString">
       <summary>
             Gets a string that represents this <see cref="T:C1.C1Report.Util.FontHolder" />.
@@ -28106,6 +28295,13 @@
             A <see cref="T:C1.C1Report.Util.PictureHolder" /> object may contain an unbound image (from a file or URL),
             or the name of a database field that contains images.
             </remarks>
+    </member>
+    <member name="M:C1.C1Report.Util.PictureHolder.op_Implicit(C1.C1Report.Util.PictureHolder)~System.Drawing.Image">
+      <summary>
+            Converts a <see cref="T:C1.C1Report.Util.PictureHolder" /> object into an <see cref="P:C1.C1Report.Util.PictureHolder.Image" /> object.
+            </summary>
+      <param name="picHolder">The <see cref="T:C1.C1Report.Util.PictureHolder" /> object.</param>
+      <returns>An <see cref="P:C1.C1Report.Util.PictureHolder.Image" /> object.</returns>
     </member>
     <member name="M:C1.C1Report.Util.PictureHolder.GetDefaultPath">
       <summary>
@@ -28314,6 +28510,26 @@
       <returns>
       </returns>
     </member>
+    <member name="P:C1.C1Preview.Design.DropDownFormClassNameEditor.BaseFormClassName">
+      <summary>
+            When overridden in a derived type, should get the name of the base form type.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Design.DropDownFormClassNameEditor.NoneString">
+      <summary>
+            Gets the string identifying the empty value.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Design.DropDownFormClassNameEditor.IncludeNoneInList">
+      <summary>
+            Gets a value indicating whether to include the empty value in the dropdown list.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Design.DropDownFormClassNameEditor.IncludeBaseFormClassInList">
+      <summary>
+            Gets a value indicating whether to include the base form name in the dropdown list.
+            </summary>
+    </member>
     <member name="T:C1.C1Preview.Design.ScriptingOptionsSerializer">
       <summary>
             For internal use only.
@@ -28444,6 +28660,15 @@
             For other providers, returns <c>null</c>.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.Export.ExportProvider.ShouldEnsureGeneratedDocument">
+      <summary>
+            When overridden in a derived class, should return a value indicating
+            whether, if a <see cref="T:C1.C1Preview.C1PrintDocument" /> is to be exported,
+            it should be generated before exporting.
+            Exporters that do not need the document to be generated,
+            or might require custom generation, should return <b>false</b>.
+            </summary>
+    </member>
     <member name="M:C1.C1Preview.Export.C1dbExportProvider.CanExportObject(System.Object)">
       <summary>
             Tests whether the specified object represents a document that can be exported
@@ -28502,6 +28727,11 @@
       <summary>
             Gets the combination of flags indicating which fields of the <see cref="T:C1.C1Preview.DocumentInfo" /> class
             are supported by the current export format.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Export.C1dbExportProvider.ShouldEnsureGeneratedDocument">
+      <summary>
+            Returns false.
             </summary>
     </member>
     <member name="T:C1.C1Preview.Export.C1dbExporter">
@@ -28662,6 +28892,18 @@
             </summary>
       <returns>
         <b>true</b> if the dialog was displayed successfully and the user pressed <b>OK</b>, <b>false</b> otherwise.</returns>
+    </member>
+    <member name="P:C1.C1Preview.Export.Exporter.OutputFileName">
+      <summary>
+            Gets the output file name.
+            This property is set when the <see cref="M:C1.C1Preview.Export.Exporter.Export(System.String)" /> method is called.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Export.Exporter.OutputStream">
+      <summary>
+            Gets the output stream.
+            This property is set when the <see cref="M:C1.C1Preview.Export.Exporter.Export(System.IO.Stream)" /> method is called.
+            </summary>
     </member>
     <member name="E:C1.C1Preview.Export.Exporter.LongOperation">
       <summary>
@@ -29409,6 +29651,11 @@
             are supported by the current export format.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.Export.C1mdxExportProvider.ShouldEnsureGeneratedDocument">
+      <summary>
+            Returns false.
+            </summary>
+    </member>
     <member name="T:C1.C1Preview.Export.C1mdxExporter">
       <summary>
             Represents an object that can be used to export a document to C1MDX format.
@@ -29828,6 +30075,11 @@
       <summary>
             Gets the combination of flags indicating which fields of the <see cref="T:C1.C1Preview.DocumentInfo" /> class
             are supported by the current export format.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Export.C1dExportProvider.ShouldEnsureGeneratedDocument">
+      <summary>
+            Returns <b>false</b>.
             </summary>
     </member>
     <member name="T:C1.C1Preview.Export.C1dExporter">
@@ -31709,6 +31961,12 @@
             Gets a value indicating whether the current item is empty.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.C1MultiDocumentItem.PageNumberingChange">
+      <summary>
+            Gets or sets the <see cref="P:C1.C1Preview.C1MultiDocumentItem.PageNumberingChange" /> object which is
+            applied to the first page of this <see cref="T:C1.C1Preview.C1MultiDocumentItem" />.
+            </summary>
+    </member>
     <member name="T:C1.C1Preview.C1MultiDocumentItemCollection">
       <summary>
             Represents a collection of <see cref="T:C1.C1Preview.C1MultiDocumentItem" /> objects.
@@ -32227,6 +32485,11 @@
     <member name="M:C1.C1Rdl.Rdl2008.ReportElement.Clear">
       <summary>
             Clears the current object, sets all properties to their default values.
+            </summary>
+    </member>
+    <member name="P:C1.C1Rdl.Rdl2008.ReportElement.ScriptContextHostType">
+      <summary>
+            For internal use.
             </summary>
     </member>
     <member name="P:C1.C1Rdl.Rdl2008.ReportElement.Style">
@@ -34467,6 +34730,16 @@
         <b>true</b> if any of the children is clipped by the fragment's bounds,
             <b>false</b> otherwise.</returns>
     </member>
+    <member name="P:C1.C1Preview.RenderFragment.ChildrenAlwaysCanSplitHorz">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.RenderFragment.ChildrenAlwaysCanSplitVert">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.RenderFragment.TableFragment">
       <summary>
             Gets the most nested <see cref="T:C1.C1Preview.RenderTableFragment" /> containing the current fragment,
@@ -34711,6 +34984,17 @@
             Copies properties from another <see cref="T:C1.C1Rdl.Rdl2008.ReportElement" /> to the current object.
             </summary>
       <param name="source">The source object to copy properties from.</param>
+    </member>
+    <member name="P:C1.C1Rdl.Rdl2008.ReportItem.ScriptContextHostType">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Rdl.Rdl2008.ReportItem.Doc">
+      <summary>
+            Gets <see cref="T:C1.C1Preview.C1PrintDocument" /> object containing generated document.
+            This property can be used only during report generating.
+            </summary>
     </member>
     <member name="P:C1.C1Rdl.Rdl2008.ReportItem.Report">
       <summary>
@@ -40222,6 +40506,20 @@
             </summary>
       <param name="source">The source object to copy properties from.</param>
     </member>
+    <member name="M:C1.C1Rdl.Rdl2008.ChartCustomPaletteColor.op_Implicit(C1.C1Rdl.RdlColor)~C1.C1Rdl.Rdl2008.ChartCustomPaletteColor">
+      <summary>
+            Converts a <see cref="T:C1.C1Rdl.RdlColor" /> to a <see cref="T:C1.C1Rdl.Rdl2008.ChartCustomPaletteColor" />.
+            </summary>
+      <param name="value">The <see cref="T:C1.C1Rdl.RdlColor" /> to convert.</param>
+      <returns>The string representing the current object.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.Rdl2008.ChartCustomPaletteColor.op_Implicit(C1.C1Rdl.Rdl2008.ChartCustomPaletteColor)~C1.C1Rdl.RdlColor">
+      <summary>
+            Converts a <see cref="T:C1.C1Rdl.Rdl2008.ChartCustomPaletteColor" /> to a <see cref="T:C1.C1Rdl.RdlColor" />.
+            </summary>
+      <param name="value">The <see cref="T:C1.C1Rdl.Rdl2008.ChartCustomPaletteColor" /> to convert.</param>
+      <returns>The <see cref="T:C1.C1Rdl.RdlColor" />.</returns>
+    </member>
     <member name="P:C1.C1Rdl.Rdl2008.ChartCustomPaletteColor.Color">
       <summary>
             Gets <see cref="T:C1.C1Rdl.RdlColor" /> object representing value of this object.
@@ -40370,6 +40668,11 @@
             Copies properties from another <see cref="T:C1.C1Rdl.Rdl2008.Chart" /> to the current object.
             </summary>
       <param name="source">The source object to copy properties from.</param>
+    </member>
+    <member name="P:C1.C1Rdl.Rdl2008.Chart.ScriptContextHostType">
+      <summary>
+            For internal use.
+            </summary>
     </member>
     <member name="P:C1.C1Rdl.Rdl2008.Chart.SeriesHierarchy">
       <summary>
@@ -44177,6 +44480,44 @@
       <returns>
         <b>true</b> if the two size are not equal, <b>false</b> otherwise.</returns>
     </member>
+    <member name="M:C1.C1Rdl.ReportSize.op_Implicit(C1.C1Rdl.ReportSize)~System.String">
+      <summary>
+            Converts a size to its string representation.
+            </summary>
+      <param name="value">The size to convert.</param>
+      <returns>The string representing the size.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.ReportSize.op_Implicit(System.String)~C1.C1Rdl.ReportSize">
+      <summary>
+            Converts a string to the corresponding <see cref="T:C1.C1Rdl.ReportSize" /> value.
+            </summary>
+      <param name="value">The string to convert.</param>
+      <returns>The corresponding <see cref="T:C1.C1Rdl.ReportSize" />.</returns>
+      <seealso cref="M:C1.C1Rdl.ReportSize.#ctor(System.String)" />
+    </member>
+    <member name="M:C1.C1Rdl.ReportSize.op_Implicit(C1.C1Preview.Unit)~C1.C1Rdl.ReportSize">
+      <summary>
+            Converts a <see cref="T:C1.C1Preview.Unit" /> to a <see cref="T:C1.C1Rdl.ReportSize" />.
+            Note that the unit to be converted must be absolute and must not be expressed in pixels,
+            or an exception will be thrown.
+            </summary>
+      <param name="value">The <see cref="T:C1.C1Preview.Unit" /> to convert.</param>
+      <returns>The <see cref="T:C1.C1Rdl.ReportSize" /> representing <paramref name="value" />.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.ReportSize.op_Implicit(C1.C1Rdl.ReportSize)~C1.C1Preview.Unit">
+      <summary>
+            Converts a size to a <see cref="T:C1.C1Preview.Unit" /> structure.
+            </summary>
+      <param name="value">The size to convert.</param>
+      <returns>The <see cref="T:C1.C1Preview.Unit" /> representing the size.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.ReportSize.op_Implicit(C1.C1Rdl.ReportSize)~C1.C1Preview.LengthAbs">
+      <summary>
+            Converts a size to a <see cref="T:C1.C1Preview.LengthAbs" /> structure.
+            </summary>
+      <param name="value">The size to convert.</param>
+      <returns>The <see cref="T:C1.C1Preview.LengthAbs" /> representing the size.</returns>
+    </member>
     <member name="M:C1.C1Rdl.ReportSize.op_Addition(C1.C1Rdl.ReportSize,C1.C1Rdl.ReportSize)">
       <summary>
             Adds two sizes.
@@ -44446,6 +44787,34 @@
       <returns>
         <b>true</b> if s represents a valid <see cref="T:C1.C1Rdl.RdlColor" /> instance.</returns>
     </member>
+    <member name="M:C1.C1Rdl.RdlColor.op_Implicit(C1.C1Rdl.RdlColor)~System.String">
+      <summary>
+            Converts a <see cref="T:C1.C1Rdl.RdlColor" /> to a string.
+            </summary>
+      <param name="value">The <see cref="T:C1.C1Rdl.RdlColor" /> to convert.</param>
+      <returns>The string representing the current object.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlColor.op_Implicit(System.String)~C1.C1Rdl.RdlColor">
+      <summary>
+            Converts a string to a <see cref="T:C1.C1Rdl.RdlColor" /> (see <see cref="M:C1.C1Rdl.RdlColor.#ctor(System.String)" />.
+            </summary>
+      <param name="value">The string to convert.</param>
+      <returns>The <see cref="T:C1.C1Rdl.RdlColor" />.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlColor.op_Implicit(C1.C1Rdl.RdlColor)~System.Drawing.Color">
+      <summary>
+            Converts a <see cref="T:C1.C1Rdl.RdlColor" /> to a <see cref="T:System.Drawing.Color" />.
+            </summary>
+      <param name="value">The <see cref="T:C1.C1Rdl.RdlColor" /> to convert.</param>
+      <returns>The <see cref="T:System.Drawing.Color" /> if RdlColor contains color constant.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlColor.op_Implicit(System.Drawing.Color)~C1.C1Rdl.RdlColor">
+      <summary>
+            Converts a <see cref="T:System.Drawing.Color" /> to a <see cref="T:C1.C1Rdl.RdlColor" /> (see <see cref="M:C1.C1Rdl.RdlColor.#ctor(System.Drawing.Color)" />.
+            </summary>
+      <param name="value">The <see cref="T:System.Drawing.Color" /> to convert.</param>
+      <returns>The <see cref="T:C1.C1Rdl.RdlColor" />.</returns>
+    </member>
     <member name="M:C1.C1Rdl.RdlColor.op_Equality(C1.C1Rdl.RdlColor,C1.C1Rdl.RdlColor)">
       <summary>
             Tests whether the two <see cref="T:C1.C1Rdl.RdlColor" /> objects are equal.
@@ -44573,6 +44942,34 @@
       <returns>
         <b>true</b> if s represents a valid <see cref="T:C1.C1Rdl.RdlEnum`1" /> instance.</returns>
     </member>
+    <member name="M:C1.C1Rdl.RdlEnum`1.op_Implicit(C1.C1Rdl.RdlEnum{`0})~System.String">
+      <summary>
+            Converts an <see cref="T:C1.C1Rdl.RdlEnum`1" /> value to a string.
+            </summary>
+      <param name="value">The <see cref="T:C1.C1Rdl.RdlEnum`1" /> value to convert.</param>
+      <returns>The string representing the current object.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlEnum`1.op_Implicit(System.String)~C1.C1Rdl.RdlEnum{`0}">
+      <summary>
+            Converts a string to an <see cref="T:C1.C1Rdl.RdlEnum`1" /> value.
+            </summary>
+      <param name="value">The string to convert.</param>
+      <returns>The <see cref="T:C1.C1Rdl.RdlEnum`1" /> instance.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlEnum`1.op_Implicit(C1.C1Rdl.RdlEnum{`0})~`0">
+      <summary>
+            Converts an <see cref="T:C1.C1Rdl.RdlEnum`1" /> value to the corresponding enum value.
+            </summary>
+      <param name="value">The <see cref="T:C1.C1Rdl.RdlEnum`1" /> value to convert.</param>
+      <returns>The converted enum value.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlEnum`1.op_Implicit(`0)~C1.C1Rdl.RdlEnum{`0}">
+      <summary>
+            Converts an enum vaue to its <see cref="T:C1.C1Rdl.RdlEnum`1" /> representation.
+            </summary>
+      <param name="value">The enum value to convert.</param>
+      <returns>The <see cref="T:C1.C1Rdl.RdlEnum`1" /> instance.</returns>
+    </member>
     <member name="M:C1.C1Rdl.RdlEnum`1.op_Equality(C1.C1Rdl.RdlEnum{`0},C1.C1Rdl.RdlEnum{`0})">
       <summary>
             Tests whether two <see cref="T:C1.C1Rdl.RdlEnum`1" /> objects are equal.
@@ -44679,6 +45076,34 @@
       <param name="value">OUT: an instance of <see cref="T:C1.C1Rdl.ReportSize" /> if <paramref name="isExpression" /> is <b>false</b>, <b>null</b> otherwise.</param>
       <param name="expression">OUT: the expression string if <see paramref="isExpression" /> is <b>true</b>, <b>null</b> otherwise.</param>
       <returns>Returns <b>true</b> if <paramref name="s" /> represents a valid <see cref="T:C1.C1Rdl.RdlSize" /> instance.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlSize.op_Implicit(C1.C1Rdl.RdlSize)~System.String">
+      <summary>
+            Converts a <see cref="T:C1.C1Rdl.RdlSize" /> value to a string.
+            </summary>
+      <param name="value">The <see cref="T:C1.C1Rdl.RdlSize" /> to convert.</param>
+      <returns>The string representing the specified value.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlSize.op_Implicit(System.String)~C1.C1Rdl.RdlSize">
+      <summary>
+            Converts a string to an <see cref="T:C1.C1Rdl.RdlSize" /> instance.
+            </summary>
+      <param name="value">The string to convert.</param>
+      <returns>An <see cref="T:C1.C1Rdl.RdlSize" /> instance representing the converted value.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlSize.op_Implicit(C1.C1Rdl.RdlSize)~C1.C1Rdl.ReportSize">
+      <summary>
+            Converts an <see cref="T:C1.C1Rdl.RdlSize" /> to a <see cref="T:C1.C1Rdl.ReportSize" />.
+            </summary>
+      <param name="value">The <see cref="T:C1.C1Rdl.RdlSize" /> to convert.</param>
+      <returns>A <see cref="T:C1.C1Rdl.ReportSize" /> if <see cref="T:C1.C1Rdl.RdlSize" /> contains a constant, or <b>null</b>.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlSize.op_Implicit(C1.C1Rdl.ReportSize)~C1.C1Rdl.RdlSize">
+      <summary>
+            Converts a <see cref="T:C1.C1Rdl.ReportSize" /> to a <see cref="T:C1.C1Rdl.RdlSize" />.
+            </summary>
+      <param name="value">The <see cref="T:C1.C1Rdl.ReportSize" /> to convert.</param>
+      <returns>An <see cref="T:C1.C1Rdl.RdlSize" /> representing the converted value.</returns>
     </member>
     <member name="M:C1.C1Rdl.RdlSize.op_Equality(C1.C1Rdl.RdlSize,C1.C1Rdl.RdlSize)">
       <summary>
@@ -44793,6 +45218,20 @@
       <param name="isExpression">OUT: <b>true</b> if <paramref name="s" /> represents an expression.</param>
       <param name="value">OUT: the string value.</param>
     </member>
+    <member name="M:C1.C1Rdl.RdlString.op_Implicit(C1.C1Rdl.RdlString)~System.String">
+      <summary>
+            Converts an <see cref="T:C1.C1Rdl.RdlString" /> to a string.
+            </summary>
+      <param name="value">The <see cref="T:C1.C1Rdl.RdlString" /> to convert.</param>
+      <returns>The string representing the converted object.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlString.op_Implicit(System.String)~C1.C1Rdl.RdlString">
+      <summary>
+            Converts a string to an <see cref="T:C1.C1Rdl.RdlString" />.
+            </summary>
+      <param name="value">The string to convert.</param>
+      <returns>The <see cref="T:C1.C1Rdl.RdlString" /> representing the converted object.</returns>
+    </member>
     <member name="M:C1.C1Rdl.RdlString.op_Equality(C1.C1Rdl.RdlString,C1.C1Rdl.RdlString)">
       <summary>
             Tests whether two <see cref="T:C1.C1Rdl.RdlString" /> objects are equal.
@@ -44894,6 +45333,34 @@
       <param name="expression">OUT: the expression if <paramref name="isExpression" /> is <b>true</b>.</param>
       <returns>
         <b>true</b> if <paramref name="s" /> represents a valid <see cref="T:C1.C1Rdl.RdlInt" />, <b>false</b> otherwise.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlInt.op_Implicit(C1.C1Rdl.RdlInt)~System.String">
+      <summary>
+            Converts an <see cref="T:C1.C1Rdl.RdlInt" /> to a string.
+            </summary>
+      <param name="value">An <see cref="T:C1.C1Rdl.RdlInt" /> to convert.</param>
+      <returns>The string representing the converted object.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlInt.op_Implicit(System.String)~C1.C1Rdl.RdlInt">
+      <summary>
+            Converts a string to an <see cref="T:C1.C1Rdl.RdlInt" /> object.
+            </summary>
+      <param name="value">A string to convert.</param>
+      <returns>The <see cref="T:C1.C1Rdl.RdlInt" /> representing the converted string.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlInt.op_Implicit(C1.C1Rdl.RdlInt)~System.Int32">
+      <summary>
+            Converts an <see cref="T:C1.C1Rdl.RdlInt" /> to an integer.
+            </summary>
+      <param name="value">An <see cref="T:C1.C1Rdl.RdlInt" /> to convert.</param>
+      <returns>The integer value if <paramref name="value" /> contains a constant, <b>0</b> otherwise.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlInt.op_Implicit(System.Int32)~C1.C1Rdl.RdlInt">
+      <summary>
+            Converts an integer to an <see cref="T:C1.C1Rdl.RdlInt" /> object.
+            </summary>
+      <param name="value">An integer to convert.</param>
+      <returns>The <see cref="T:C1.C1Rdl.RdlInt" /> representing the converted value.</returns>
     </member>
     <member name="M:C1.C1Rdl.RdlInt.op_Equality(C1.C1Rdl.RdlInt,C1.C1Rdl.RdlInt)">
       <summary>
@@ -45001,6 +45468,34 @@
       <param name="expression">OUT: the expression if <paramref name="isExpression" /> is <b>true</b>.</param>
       <returns>
         <b>true</b> if <paramref name="s" /> represents a valid <see cref="T:C1.C1Rdl.RdlBool" />, <b>false</b> otherwise.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlBool.op_Implicit(C1.C1Rdl.RdlBool)~System.String">
+      <summary>
+            Converts an <see cref="T:C1.C1Rdl.RdlBool" /> to a string.
+            </summary>
+      <param name="value">An <see cref="T:C1.C1Rdl.RdlBool" /> to convert.</param>
+      <returns>A string representing the converted object.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlBool.op_Implicit(System.String)~C1.C1Rdl.RdlBool">
+      <summary>
+            Converts a string to an <see cref="T:C1.C1Rdl.RdlBool" /> instance.
+            </summary>
+      <param name="value">A string to convert.</param>
+      <returns>An <see cref="T:C1.C1Rdl.RdlBool" /> representing the converted value.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlBool.op_Implicit(C1.C1Rdl.RdlBool)~System.Boolean">
+      <summary>
+            Converts an <see cref="T:C1.C1Rdl.RdlBool" /> to a <b>bool</b>.
+            </summary>
+      <param name="value">A <see cref="T:C1.C1Rdl.RdlBool" /> to convert.</param>
+      <returns>The Boolean value if <paramref name="value" /> contains a constant, <b>false</b> if it is an expression.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlBool.op_Implicit(System.Boolean)~C1.C1Rdl.RdlBool">
+      <summary>
+            Converts a Boolean to an <see cref="T:C1.C1Rdl.RdlBool" />.
+            </summary>
+      <param name="value">A Boolean value to convert.</param>
+      <returns>The <see cref="T:C1.C1Rdl.RdlBool" /> representing the converted value.</returns>
     </member>
     <member name="M:C1.C1Rdl.RdlBool.op_Equality(C1.C1Rdl.RdlBool,C1.C1Rdl.RdlBool)">
       <summary>
@@ -45126,6 +45621,20 @@
       <param name="value">OUT: the object (string) if <paramref name="isExpression" /> is <b>false</b>.</param>
       <param name="expression">OUT: the expression if <paramref name="isExpression" /> is <b>true</b>.</param>
     </member>
+    <member name="M:C1.C1Rdl.RdlObject.op_Implicit(C1.C1Rdl.RdlObject)~System.String">
+      <summary>
+            Converts an <see cref="T:C1.C1Rdl.RdlObject" /> to a string.
+            </summary>
+      <param name="value">The <see cref="T:C1.C1Rdl.RdlObject" /> to convert.</param>
+      <returns>The string representing the converted object.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlObject.op_Implicit(System.String)~C1.C1Rdl.RdlObject">
+      <summary>
+            Converts a string to an <see cref="T:C1.C1Rdl.RdlObject" />.
+            </summary>
+      <param name="value">The string to convert.</param>
+      <returns>The converted <see cref="T:C1.C1Rdl.RdlObject" />.</returns>
+    </member>
     <member name="M:C1.C1Rdl.RdlObject.op_Equality(C1.C1Rdl.RdlObject,C1.C1Rdl.RdlObject)">
       <summary>
             Tests whether two <see cref="T:C1.C1Rdl.RdlObject" /> objects are equal.
@@ -45233,6 +45742,34 @@
       <param name="expression">OUT: the expression if <paramref name="isExpression" /> is <b>true</b>.</param>
       <returns>
         <b>true</b> if <paramref name="s" /> represents a valid <see cref="T:C1.C1Rdl.RdlFloat" />, <b>false</b> otherwise.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlFloat.op_Implicit(C1.C1Rdl.RdlFloat)~System.String">
+      <summary>
+            Converts an <see cref="T:C1.C1Rdl.RdlFloat" /> to a string.
+            </summary>
+      <param name="value">The <see cref="T:C1.C1Rdl.RdlFloat" /> to convert.</param>
+      <returns>The string representing the converted object.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlFloat.op_Implicit(System.String)~C1.C1Rdl.RdlFloat">
+      <summary>
+            Converts a string to an <see cref="T:C1.C1Rdl.RdlFloat" />.
+            </summary>
+      <param name="value">The string to convert.</param>
+      <returns>The <see cref="T:C1.C1Rdl.RdlFloat" /> representing the converted string.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlFloat.op_Implicit(C1.C1Rdl.RdlFloat)~System.Double">
+      <summary>
+            Converts an <see cref="T:C1.C1Rdl.RdlFloat" /> to a double.
+            </summary>
+      <param name="value">The <see cref="T:C1.C1Rdl.RdlFloat" /> to convert.</param>
+      <returns>The double value if <paramref name="value" /> contains a constant, <b>0</b> otherwise.</returns>
+    </member>
+    <member name="M:C1.C1Rdl.RdlFloat.op_Implicit(System.Int32)~C1.C1Rdl.RdlFloat">
+      <summary>
+            Converts a double to an <see cref="T:C1.C1Rdl.RdlFloat" />.
+            </summary>
+      <param name="value">The double value to convert.</param>
+      <returns>The <see cref="T:C1.C1Rdl.RdlFloat" /> representing the converted value.</returns>
     </member>
     <member name="M:C1.C1Rdl.RdlFloat.op_Equality(C1.C1Rdl.RdlFloat,C1.C1Rdl.RdlFloat)">
       <summary>
@@ -47534,6 +48071,41 @@
       <returns>
       </returns>
     </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.ScriptManagerBase`1.ScriptObjectBase.MultiDocument">
+      <summary>
+            For internal use only.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.ScriptManagerBase`1.ScriptObjectBase.Document">
+      <summary>
+            For internal use only.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.ScriptManagerBase`1.ScriptObjectBase.Tags">
+      <summary>
+            For internal use only.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.ScriptManagerBase`1.ScriptObjectBase.Page">
+      <summary>
+            For internal use only.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.ScriptManagerBase`1.ScriptObjectBase.UsageInfo">
+      <summary>
+            For internal use only.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.ScriptManagerBase`1.ScriptObjectBase.Globals">
+      <summary>
+            For internal use only.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.ScriptManagerBase`1.ScriptObjectBase.User">
+      <summary>
+            For internal use only.
+            </summary>
+    </member>
     <member name="M:C1.C1Preview.Scripting.NetScript.ExpressionBase`1.BuildScriptObject(System.CodeDom.CodeTypeDeclaration,System.String)">
       <summary>
             For internal use only.
@@ -47672,6 +48244,46 @@
             For internal use only.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.DocObjectExpression`1.ScriptObject.RenderObject">
+      <summary>
+            For internal use only.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.DocObjectExpression`1.ScriptObject.RenderFragment">
+      <summary>
+            For internal use only.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.DocObjectExpression`1.ScriptObject.PageNo">
+      <summary>
+            For internal use only.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.DocObjectExpression`1.ScriptObject.PageCount">
+      <summary>
+            For internal use only.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.DocObjectExpression`1.ScriptObject.PageX">
+      <summary>
+            For internal use only.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.DocObjectExpression`1.ScriptObject.PageY">
+      <summary>
+            For internal use only.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.DocObjectExpression`1.ScriptObject.PageXCount">
+      <summary>
+            For internal use only.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.DocObjectExpression`1.ScriptObject.PageYCount">
+      <summary>
+            For internal use only.
+            </summary>
+    </member>
     <member name="M:C1.C1Preview.Scripting.NetScript.TableCellExpression.GetScriptObjectType">
       <summary>
             For internal use only.
@@ -47685,6 +48297,51 @@
             </summary>
     </member>
     <member name="M:C1.C1Preview.Scripting.NetScript.TableCellExpression.ScriptObject.RowNumber">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.TableCellExpression.ScriptObject.RenderObject">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.TableCellExpression.ScriptObject.RenderFragment">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.TableCellExpression.ScriptObject.Aggregates">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.TableCellExpression.ScriptObject.DataBinding">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.TableCellExpression.ScriptObject.Fields">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.TableCellExpression.ScriptObject.RowDataBinding">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.TableCellExpression.ScriptObject.RowFields">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.TableCellExpression.ScriptObject.ColDataBinding">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.TableCellExpression.ScriptObject.ColFields">
       <summary>
             For internal use.
             </summary>
@@ -47711,6 +48368,31 @@
             For internal use.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.TableVectorExpression.ScriptObject.RenderObject">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.TableVectorExpression.ScriptObject.RenderFragment">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.TableVectorExpression.ScriptObject.Aggregates">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.TableVectorExpression.ScriptObject.DataBinding">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.TableVectorExpression.ScriptObject.Fields">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
     <member name="T:C1.C1Preview.Scripting.NetScript.TableVectorGroupExpression">
       <summary>
             For internal use only.
@@ -47733,6 +48415,31 @@
             For internal use.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.TableVectorGroupExpression.ScriptObject.RenderObject">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.TableVectorGroupExpression.ScriptObject.RenderFragment">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.TableVectorGroupExpression.ScriptObject.Aggregates">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.TableVectorGroupExpression.ScriptObject.DataBinding">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.TableVectorGroupExpression.ScriptObject.Fields">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
     <member name="T:C1.C1Preview.Scripting.NetScript.UserCellGroupExpression">
       <summary>
             For internal use only.
@@ -47751,6 +48458,31 @@
             </summary>
     </member>
     <member name="M:C1.C1Preview.Scripting.NetScript.UserCellGroupExpression.ScriptObject.RowNumber">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.UserCellGroupExpression.ScriptObject.RenderObject">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.UserCellGroupExpression.ScriptObject.RenderFragment">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.UserCellGroupExpression.ScriptObject.Aggregates">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.UserCellGroupExpression.ScriptObject.DataBinding">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.UserCellGroupExpression.ScriptObject.Fields">
       <summary>
             For internal use.
             </summary>
@@ -49258,6 +49990,11 @@
             are supported by the current export format.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.Export.C1dxExportProvider.ShouldEnsureGeneratedDocument">
+      <summary>
+            Returns false.
+            </summary>
+    </member>
     <member name="T:C1.C1Preview.Export.C1dxExporter">
       <summary>
             Represents an object that can be used to export a document to C1DX format.
@@ -49729,6 +50466,14 @@
       <summary>
             Gets the type of form which is used to edit export options by default.
             This implementation returns <see cref="T:C1.C1Preview.Export.HtmlOptionsForm" /> type.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Export.HtmlExportProvider.ShouldEnsureGeneratedDocument">
+      <summary>
+            Gets a value indicating
+            whether, if a <see cref="T:C1.C1Preview.C1PrintDocument" /> is to be exported,
+            it should be generated before exporting.
+            This implementation returns <b>true</b>.
             </summary>
     </member>
     <member name="T:C1.C1Preview.Export.HtmlExporter">
@@ -50309,6 +51054,21 @@
             For internal use only.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.DataBindingExpression.ScriptObject.DataBinding">
+      <summary>
+            For internal use only.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.DataBindingExpression.ScriptObject.Fields">
+      <summary>
+            For internal use only.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.DataBindingExpression.ScriptObject.Parent">
+      <summary>
+            For internal use only.
+            </summary>
+    </member>
     <member name="T:C1.C1Preview.Scripting.NetScript.DataSetFieldExpression">
       <summary>
             For internal use only.
@@ -50355,6 +51115,11 @@
             For internal use only.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.DataSetFieldExpression.ScriptObject.Fields">
+      <summary>
+            For internal use only.
+            </summary>
+    </member>
     <member name="T:C1.C1Preview.Scripting.NetScript.RenderFragmentExpression">
       <summary>
             For internal use.
@@ -50368,6 +51133,16 @@
       </returns>
     </member>
     <member name="T:C1.C1Preview.Scripting.NetScript.RenderFragmentExpression.ScriptObject">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.RenderFragmentExpression.ScriptObject.RenderObject">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.RenderFragmentExpression.ScriptObject.RenderFragment">
       <summary>
             For internal use.
             </summary>
@@ -50390,6 +51165,51 @@
             </summary>
     </member>
     <member name="M:C1.C1Preview.Scripting.NetScript.RenderObjectExpression.ScriptObject.RowNumber">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.RenderObjectExpression.ScriptObject.RenderObject">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.RenderObjectExpression.ScriptObject.RenderFragment">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.RenderObjectExpression.ScriptObject.Aggregates">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.RenderObjectExpression.ScriptObject.DataBinding">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.RenderObjectExpression.ScriptObject.Fields">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.RenderObjectExpression.ScriptObject.ColDataBinding">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.RenderObjectExpression.ScriptObject.ColFields">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.RenderObjectExpression.ScriptObject.RowDataBinding">
+      <summary>
+            For internal use.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Scripting.NetScript.RenderObjectExpression.ScriptObject.RowFields">
       <summary>
             For internal use.
             </summary>
@@ -50812,11 +51632,22 @@
       <param name="documentRange">The <see cref="T:C1.C1Preview.OutputRangeTypeEnum" /> to test.</param>
       <returns>True if the specified range can be exported, false otherwise.</returns>
     </member>
+    <member name="P:C1.C1Preview.Export.PagesExportProvider.ShouldEnsureGeneratedDocument">
+      <summary>
+            Gets the value indicating that the document must have been generated before being exported by the current export provider.
+            </summary>
+    </member>
     <member name="M:C1.C1Preview.Export.PdfExportProvider.NewExporter">
       <summary>
             Creates a new instance of the <see cref="T:C1.C1Preview.Export.PdfExporter" /> class.
             </summary>
       <returns>The newly created <see cref="T:C1.C1Preview.Export.PdfExporter" />.</returns>
+    </member>
+    <member name="P:C1.C1Preview.Export.PdfExportProvider.ShouldEnsureGeneratedDocument">
+      <summary>
+            Overridden.
+            Gets the value indicating that the document must have been generated before being exported by the current export provider.
+            </summary>
     </member>
     <member name="P:C1.C1Preview.Export.PdfExportProvider.PreferredOrdinal">
       <summary>
@@ -51704,6 +52535,12 @@
             Occurs when an external exception is thrown (e.g. while printing).
             </summary>
     </member>
+    <member name="E:C1.C1Preview.C1PrintManager.QueryPageSettings">
+      <summary>
+            Fired from within the <see cref="E:System.Drawing.Printing.PrintDocument.QueryPageSettings" /> event handler
+            of the current print manager. Allows to change page settings (e.g. changing PaperSize.)
+            </summary>
+    </member>
     <member name="E:C1.C1Preview.C1PrintManager.AdjustPrintPage">
       <summary>
             Fired from within the <see cref="E:System.Drawing.Printing.PrintDocument.PrintPage" /> event handler
@@ -51776,6 +52613,13 @@
       <param name="sender">The source of the event.</param>
       <param name="e">A <see cref="T:C1.C1Preview.AdjustPrintPageEventArgs" /> that contains event data.</param>
     </member>
+    <member name="T:C1.C1Preview.PrintQueryPageSettingsEventHandler">
+      <summary>
+            Represents a method that can handle a <see cref="E:C1.C1Preview.C1PrintManager.QueryPageSettings" /> event.
+            </summary>
+      <param name="sender">The source of the event.</param>
+      <param name="e">A <see cref="T:System.Drawing.Printing.QueryPageSettingsEventArgs" /> that contains event data.</param>
+    </member>
     <member name="T:C1.C1Preview.C1PrintOptions">
       <summary>
             Describes options controlling how a document's content
@@ -51842,6 +52686,13 @@
             Gets or sets the pen used to draw printable area bounds if <see cref="P:C1.C1Preview.C1PrintOptions.DrawPrintableAreaBounds" /> is <b>true</b>.
             If this value is <b>null</b> (which is the default), a single-pixel black pen is used.
             </summary>
+    </member>
+    <member name="P:C1.C1Preview.C1PrintOptions.AutoPaperSize">
+      <summary>
+            Gets or sets a value indicating whether the paper size is selected automatically.
+            <para>
+            The default value is <b>false</b>.
+            </para></summary>
     </member>
     <member name="P:C1.C1Preview.C1PrintOptions.MsPrintDocumentPrintEmfType">
       <summary>
@@ -52558,6 +53409,11 @@
       <summary>
             Gets the type of form which is used to edit export options by default.
             This implementation returns <see cref="T:C1.C1Preview.Export.RtfOptionsForm" /> type.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Export.RtfExportProvider.ShouldEnsureGeneratedDocument">
+      <summary>
+            Returns <b>false</b>.
             </summary>
     </member>
     <member name="T:C1.C1Preview.Export.DocxExportProvider">
@@ -53872,6 +54728,13 @@
       <returns>
         <b>true</b> if no error occurred, <b>false</b> otherwise.</returns>
     </member>
+    <member name="M:C1.C1Preview.OffsetsD.op_Implicit(C1.C1Preview.OffsetsI)~C1.C1Preview.OffsetsD">
+      <summary>
+            Converts an <see cref="T:C1.C1Preview.OffsetsI" /> to an <see cref="T:C1.C1Preview.OffsetsD" />.
+            </summary>
+      <param name="value">The value to convert.</param>
+      <returns>The converted value.</returns>
+    </member>
     <member name="P:C1.C1Preview.OffsetsD.Left">
       <summary>
             Gets or sets the left offset.
@@ -54054,6 +54917,27 @@
       <param name="sz">The <see cref="T:C1.C1Preview.SizeD" /> that is subtracted.</param>
       <returns>A <see cref="T:C1.C1Preview.PointD" /> representing the result of the subtraction.</returns>
     </member>
+    <member name="M:C1.C1Preview.PointD.op_Implicit(System.Drawing.Point)~C1.C1Preview.PointD">
+      <summary>
+            Converts a <see cref="T:System.Drawing.Point" /> to a <see cref="T:C1.C1Preview.PointD" />.
+            </summary>
+      <param name="value">The <see cref="T:System.Drawing.Point" /> to convert.</param>
+      <returns>The converted <see cref="T:C1.C1Preview.PointD" />.</returns>
+    </member>
+    <member name="M:C1.C1Preview.PointD.op_Implicit(System.Drawing.PointF)~C1.C1Preview.PointD">
+      <summary>
+            Converts a <see cref="T:System.Drawing.PointF" /> to a <see cref="T:C1.C1Preview.PointD" />.
+            </summary>
+      <param name="value">The <see cref="T:System.Drawing.PointF" /> to convert.</param>
+      <returns>The converted <see cref="T:C1.C1Preview.PointD" />.</returns>
+    </member>
+    <member name="M:C1.C1Preview.PointD.op_Explicit(C1.C1Preview.PointD)~C1.C1Preview.SizeD">
+      <summary>
+            Converts a <see cref="T:C1.C1Preview.PointD" /> to a <see cref="T:C1.C1Preview.SizeD" />.
+            </summary>
+      <param name="value">The <see cref="T:C1.C1Preview.PointD" /> to convert.</param>
+      <returns>The converted <see cref="T:C1.C1Preview.SizeD" />.</returns>
+    </member>
     <member name="M:C1.C1Preview.PointD.op_Addition(C1.C1Preview.PointD,C1.C1Preview.SizeD)">
       <summary>
             Adds a <see cref="T:C1.C1Preview.SizeD" /> to a <see cref="T:C1.C1Preview.PointD" />.
@@ -54142,6 +55026,27 @@
             width and height to integer values. 
             </summary>
       <returns>The <see cref="T:System.Drawing.Size" /> structure this method converts to.</returns>
+    </member>
+    <member name="M:C1.C1Preview.SizeD.op_Implicit(System.Drawing.Size)~C1.C1Preview.SizeD">
+      <summary>
+            Converts a <see cref="T:System.Drawing.Size" /> to a <see cref="T:C1.C1Preview.SizeD" />.
+            </summary>
+      <param name="value">The <see cref="T:System.Drawing.Size" /> to convert.</param>
+      <returns>The converted <see cref="T:C1.C1Preview.SizeD" />.</returns>
+    </member>
+    <member name="M:C1.C1Preview.SizeD.op_Implicit(System.Drawing.SizeF)~C1.C1Preview.SizeD">
+      <summary>
+            Converts a <see cref="T:System.Drawing.SizeF" /> to a <see cref="T:C1.C1Preview.SizeD" />.
+            </summary>
+      <param name="value">The <see cref="T:System.Drawing.SizeF" /> to convert.</param>
+      <returns>The converted <see cref="T:C1.C1Preview.SizeD" />.</returns>
+    </member>
+    <member name="M:C1.C1Preview.SizeD.op_Explicit(C1.C1Preview.SizeD)~C1.C1Preview.PointD">
+      <summary>
+            Converts a <see cref="T:C1.C1Preview.SizeD" /> to a <see cref="T:C1.C1Preview.PointD" />.
+            </summary>
+      <param name="value">The <see cref="T:C1.C1Preview.SizeD" /> to convert.</param>
+      <returns>The converted <see cref="T:C1.C1Preview.PointD" />.</returns>
     </member>
     <member name="M:C1.C1Preview.SizeD.Add(C1.C1Preview.SizeD,C1.C1Preview.SizeD)">
       <summary>
@@ -54311,6 +55216,20 @@
             Converts the current <see cref="T:C1.C1Preview.RectangleD" /> to a <see cref="T:System.Drawing.Rectangle" />.
             </summary>
       <returns>The converted <see cref="T:System.Drawing.Rectangle" /> structure.</returns>
+    </member>
+    <member name="M:C1.C1Preview.RectangleD.op_Implicit(System.Drawing.Rectangle)~C1.C1Preview.RectangleD">
+      <summary>
+            Converts a <see cref="T:System.Drawing.Rectangle" /> to a <see cref="T:C1.C1Preview.RectangleD" />.
+            </summary>
+      <param name="value">The <see cref="T:System.Drawing.Rectangle" /> to convert.</param>
+      <returns>The converted <see cref="T:C1.C1Preview.RectangleD" /> structure.</returns>
+    </member>
+    <member name="M:C1.C1Preview.RectangleD.op_Implicit(System.Drawing.RectangleF)~C1.C1Preview.RectangleD">
+      <summary>
+            Converts a <see cref="T:System.Drawing.RectangleF" /> to a <see cref="T:C1.C1Preview.RectangleD" />.
+            </summary>
+      <param name="value">The <see cref="T:System.Drawing.RectangleF" /> to convert.</param>
+      <returns>The converted <see cref="T:C1.C1Preview.RectangleD" /> structure.</returns>
     </member>
     <member name="M:C1.C1Preview.RectangleD.Parse(System.String,C1.C1Preview.RectangleD@,System.Boolean)">
       <summary>

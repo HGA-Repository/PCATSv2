@@ -1655,11 +1655,6 @@
             Setting the word list automatically saves the dictionary.
             </remarks>
     </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IHTMLCurrentStyle">
-      <summary>
-            This member is for internal use only.
-            </summary>
-    </member>
     <member name="P:C1.Win.C1SpellChecker.Interfaces.IHTMLCurrentStyle.color">
       <summary>
             This member is for internal use only.
@@ -1703,11 +1698,6 @@
     <member name="P:C1.Win.C1SpellChecker.Interfaces.IHTMLCurrentStyle.textDecoration">
       <summary>
             This member is for internal use only.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IHTMLElement2">
-      <summary>
-            This interface is for internal use only.
             </summary>
     </member>
     <member name="M:C1.Win.C1SpellChecker.Interfaces.IHTMLElement2.setCapture(System.Boolean)">
@@ -2295,11 +2285,6 @@
         <para>An original IDL definition of <c>readyStateValue</c> property was the following:  <c>long readyStateValue</c>;</para>
       </remarks>
     </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IHTMLInputElement">
-      <summary>
-            This interface is for internal use only.
-            </summary>
-    </member>
     <member name="M:C1.Win.C1SpellChecker.Interfaces.IHTMLInputElement.createTextRange">
       <summary>
             This member is for internal use only.
@@ -2475,11 +2460,6 @@
             This member is for internal use only.
             </summary>
     </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IHTMLTextAreaElement">
-      <summary>
-            This interface is for internal use only.
-            </summary>
-    </member>
     <member name="T:C1.Win.C1SpellChecker.Interfaces.tagPOINT">
       <summary>
             This type is for internal use only.
@@ -2561,11 +2541,6 @@
     <member name="F:C1.Win.C1SpellChecker.Interfaces._MARKUP_CONTEXT_TYPE.MARKUP_CONTEXT_TYPE_Max">
       <summary>
             This member is for internal use only.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IDisplayPointer">
-      <summary>
-            This interface is for internal use only.
             </summary>
     </member>
     <member name="M:C1.Win.C1SpellChecker.Interfaces.IDisplayPointer.moveToPoint(C1.Win.C1SpellChecker.Interfaces.tagPOINT,C1.Win.C1SpellChecker.Interfaces._COORD_SYSTEM,C1.Win.C1SpellChecker.Interfaces.IHTMLElement,System.UInt32,System.UInt32@)">
@@ -2663,11 +2638,6 @@
             This member is for internal use only.
             </summary>
     </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IDisplayServices">
-      <summary>
-            This interface is for internal use only.
-            </summary>
-    </member>
     <member name="M:C1.Win.C1SpellChecker.Interfaces.IDisplayServices.CreateDisplayPointer(C1.Win.C1SpellChecker.Interfaces.IDisplayPointer@)">
       <summary>
             This member is for internal use only.
@@ -2703,114 +2673,14 @@
             This member is for internal use only.
             </summary>
     </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IEnumUnknown">
-      <summary>
-            This interface is for internal use only.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IHighlightSegment">
-      <summary>
-            This interface is for internal use only.
-            </summary>
-    </member>
     <member name="M:C1.Win.C1SpellChecker.Interfaces.IHighlightSegment.GetPointers(C1.Win.C1SpellChecker.Interfaces.IMarkupPointer,C1.Win.C1SpellChecker.Interfaces.IMarkupPointer)">
       <summary>
             This member is for internal use only.
             </summary>
     </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IHTMLBodyElement">
-      <summary>
-            This interface is for internal use only.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IHTMLCaret">
-      <summary>
-            This interface is for internal use only.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IHTMLChangeSink">
-      <summary>
-            This interface is for internal use only.
-            </summary>
-    </member>
     <member name="M:C1.Win.C1SpellChecker.Interfaces.IHTMLChangeSink.Notify">
       <summary>
             This member is for internal use only.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IHTMLDocument2">
-      <summary>
-            This interface is for internal use only.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IHTMLDocument3">
-      <summary>
-            This interface is for internal use only.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IHTMLDocument4">
-      <summary>
-            This interface is for internal use only.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.HTMLDocumentEvents2">
-      <summary>
-            This interface is for internal use only.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IHTMLElement">
-      <summary>
-            This interface is for internal use only.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IHTMLEventObj">
-      <summary>
-            This interface is for internal use only.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IHTMLRenderStyle">
-      <summary>
-            This interface is for internal use only.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IHTMLSelectionObject">
-      <summary>
-            This interface is for internal use only.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IHTMLStyle">
-      <summary>
-            This interface is for internal use only.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IHTMLTxtRange">
-      <summary>
-            This interface is for internal use only.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.ILineInfo">
-      <summary>
-            This interface is for internal use only.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IMarkupContainer">
-      <summary>
-            This interface is for internal use only.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IMarkupContainer2">
-      <summary>
-            This interface is for internal use only.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IMarkupPointer">
-      <summary>
-            This interface is for internal use only.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1SpellChecker.Interfaces.IMarkupServices">
-      <summary>
-            This interface is for internal use only.
             </summary>
     </member>
     <member name="T:C1.Win.C1SpellChecker.WordList">

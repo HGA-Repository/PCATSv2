@@ -764,6 +764,10 @@
             Controls whether the text in the control can be changed or not.
             </summary>
     </member>
+    <member name="P:C1.Win.C1List.ComboBoxContainer.DefaultSize">
+      <summary>
+      </summary>
+    </member>
     <member name="P:C1.Win.C1List.ComboBoxContainer.AutoSize">
       <summary>
             Determines whether or not the combo height can be resized.
@@ -1875,6 +1879,11 @@
             Specifies the column where the incremental search is performed on.
             </summary>
     </member>
+    <member name="P:C1.Win.C1List.C1Combo.MatchCompare">
+      <summary>
+            Returns or sets the comparing mode for a search.
+            </summary>
+    </member>
     <member name="P:C1.Win.C1List.C1Combo.MatchEntry">
       <summary>
             Returns or sets a value indicating how the control performs searches based on user's input.
@@ -2555,6 +2564,10 @@
       <summary>
       </summary>
     </member>
+    <member name="P:C1.Win.C1List.C1TrueDBGridPrintOptionsFormDropDownEditor.BaseFormClassName">
+      <summary>
+      </summary>
+    </member>
     <member name="T:C1.Win.C1List.C1OwnerDrawPrint">
       <summary>
             Object to manage custom page headers and footers when printing and previewing.
@@ -2646,6 +2659,10 @@
       </param>
     </member>
     <member name="T:C1.Win.C1List.C1TrueDBGridPreviewFormDropDownEditor">
+      <summary>
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1List.C1TrueDBGridPreviewFormDropDownEditor.BaseFormClassName">
       <summary>
       </summary>
     </member>
@@ -3786,6 +3803,10 @@
             Determines whether a check box which can select/deselect all rows on header section is displayed in CheckBox selection mode.
             </summary>
     </member>
+    <member name="P:C1.Win.C1List.ListBase.Frame.CreateParams">
+      <summary>
+      </summary>
+    </member>
     <member name="P:C1.Win.C1List.ListBase.Frame.BorderStyle">
       <summary>
             Returns or sets the border style for the control.
@@ -4175,6 +4196,10 @@
       <returns>
       </returns>
     </member>
+    <member name="P:C1.Win.C1List.ListBase.View.AllowAddNew">
+      <summary>
+      </summary>
+    </member>
     <member name="T:C1.Win.C1List.RelationState">
       <summary>
             Defined the relationship of a column.
@@ -4256,6 +4281,19 @@
             Repopulates the specified data from the data source.
             </summary>
       <param name="row">The row to refetch.</param>
+    </member>
+    <member name="P:C1.Win.C1List.C1DataColumn.Level">
+      <summary>
+            Gets or sets the level of this column in a hierarchical data source.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1List.C1DataColumn.Relation">
+      <summary>
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1List.C1DataColumn.RelationState">
+      <summary>
+      </summary>
     </member>
     <member name="P:C1.Win.C1List.C1DataColumn.Caption">
       <summary>
@@ -4487,6 +4525,10 @@
       <summary>
             Gets the associted <see cref="T:C1.Win.C1List.C1DataColumn" /> associated with this object.
             </summary>
+    </member>
+    <member name="P:C1.Win.C1List.C1DisplayColumn.DCIdx">
+      <summary>
+      </summary>
     </member>
     <member name="P:C1.Win.C1List.C1DisplayColumn.Name">
       <summary>
@@ -5038,6 +5080,10 @@
             Returns a collection of Value/DisplayValue pairs.
             </summary>
     </member>
+    <member name="P:C1.Win.C1List.ValueItems.internalValues">
+      <summary>
+      </summary>
+    </member>
     <member name="T:C1.Win.C1List.ValueItemCollection">
       <summary>
             Represents a collection of <see cref="T:C1.Win.C1List.ValueItem" /> objects.
@@ -5110,6 +5156,14 @@
       <summary>
             Sets or retrieves the formatted (display) value of this item.
             </summary>
+    </member>
+    <member name="P:C1.Win.C1List.ValueItem.ImgIdx">
+      <summary>
+      </summary>
+    </member>
+    <member name="P:C1.Win.C1List.ValueItem.dispVal">
+      <summary>
+      </summary>
     </member>
     <member name="T:C1.Win.C1List.C1DataColumnCollection">
       <summary>

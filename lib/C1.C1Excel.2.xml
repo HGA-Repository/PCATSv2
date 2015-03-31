@@ -4,11 +4,6 @@
     <name>C1.C1Excel.2</name>
   </assembly>
   <members>
-    <member name="T:C1.C1Excel.Design.DesignStrings">
-      <summary>
-            Static class containing UI strings used by the designer.
-            </summary>
-    </member>
     <member name="T:C1.C1Excel.FileFormat">
       <summary>
             Specifies the file format to use when loading or saving workbooks.
@@ -317,6 +312,11 @@
     <member name="P:C1.C1Excel.C1XLBook.Author">
       <summary>
             Gets or sets the name of the person, company, or application that created this <see cref="T:C1.C1Excel.C1XLBook" />.
+            </summary>
+    </member>
+    <member name="P:C1.C1Excel.C1XLBook.UseTempStorage">
+      <summary>
+            Specifies whether the component should use temporary storage at saving to XLSX/XSLT files for minimization used memory.
             </summary>
     </member>
     <member name="P:C1.C1Excel.C1XLBook.CalculationMode">
@@ -1773,6 +1773,40 @@
       <summary>
             Gets a reference to the <see cref="T:C1.C1Excel.XLCommentShape" /> object with context.
             </summary>
+    </member>
+    <member name="T:C1.C1Excel.XLUnderlineStyle">
+      <summary>
+            The Excel font underline style.
+            </summary>
+    </member>
+    <member name="F:C1.C1Excel.XLUnderlineStyle.None">
+      <summary>No underline.</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLUnderlineStyle.Single">
+      <summary>Single underline.</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLUnderlineStyle.Double">
+      <summary>Double underline.</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLUnderlineStyle.SingleAccounting">
+      <summary>Single accounting underline.</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLUnderlineStyle.DoubleAccounting">
+      <summary>Double accounting underline.</summary>
+    </member>
+    <member name="T:C1.C1Excel.XLFontScript">
+      <summary>
+            The Excel font superscript/subscript style.
+            </summary>
+    </member>
+    <member name="F:C1.C1Excel.XLFontScript.None">
+      <summary>Normal.</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLFontScript.Superscript">
+      <summary>Superscript.</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLFontScript.Subscript">
+      <summary>Subscript.</summary>
     </member>
     <member name="T:C1.C1Excel.XLConditionalFormattingType">
       <summary>
@@ -4069,6 +4103,11 @@
     <member name="P:C1.C1Excel.XLStyle.DiagonalColor">
       <summary>
             Gets or sets the color used to draw the diagonal lines.
+            </summary>
+    </member>
+    <member name="T:C1.C1Excel.Design.DesignStrings">
+      <summary>
+            Static class containing UI strings used by the designer.
             </summary>
     </member>
   </members>

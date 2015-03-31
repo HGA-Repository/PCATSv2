@@ -412,6 +412,11 @@
       <returns>
       </returns>
     </member>
+    <member name="P:C1.Win.C1Command.C1Border.BorderTypeConverter.Text">
+      <summary>
+            This property is for internal use only.
+            </summary>
+    </member>
     <member name="T:C1.Win.C1Command.C1Command">
       <summary>
             The base for specialized commands such as button (a plain button, the only action is invoke),
@@ -850,6 +855,12 @@
             Event fired when the drop down arrow is clicked on the toolbar button.
             </summary>
     </member>
+    <member name="P:C1.Win.C1Command.C1Command.HasInputFocus">
+      <summary>
+            Returns true if the command has focus and "firmly" keeps it
+            (e.g. if it is C1CommandControl and user clicked inside the control).
+            </summary>
+    </member>
     <member name="T:C1.Win.C1Command.C1Command.TypeConverter">
       <summary>
             Provides a type converter to convert C1Command to and from various other representations.
@@ -1061,6 +1072,11 @@
     <member name="P:C1.Win.C1Command.C1CommandControl.HotFrame">
       <summary>
             Gets or sets the value indicating how the hot frame around the link is drawn.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1CommandControl.HasInputFocus">
+      <summary>
+            This method is for internal use only.
             </summary>
     </member>
     <member name="T:C1.Win.C1Command.C1CommandDock">
@@ -3895,6 +3911,11 @@
             Gets or sets a value indicating whether right-to-left mirror placement is turned on.
             </summary>
     </member>
+    <member name="P:C1.Win.C1Command.C1DockingTab.DefaultSize">
+      <summary>
+            This method is for internal use only.
+            </summary>
+    </member>
     <member name="P:C1.Win.C1Command.C1DockingTab.DisplayRectangle">
       <summary>
             This method is for internal use only.
@@ -4507,6 +4528,11 @@
       </param>
       <param name="count">
       </param>
+    </member>
+    <member name="P:C1.Win.C1Command.PagedControlsCollectionBase.Owner">
+      <summary>
+            This [method|property|class] is for internal use only.
+            </summary>
     </member>
     <member name="P:C1.Win.C1Command.PagedControlsCollectionBase.IsReadOnly">
       <summary>
@@ -5452,6 +5478,11 @@
             Occurs when the CloseButton property is changed.
             </summary>
     </member>
+    <member name="E:C1.Win.C1Command.C1NavBar.SelectedPanelChanging">
+      <summary>
+            Occurs when the currently selected panel is about to be changed. Allows to cancel changing the panel.
+            </summary>
+    </member>
     <member name="E:C1.Win.C1Command.C1NavBar.SelectedPanelChanged">
       <summary>
             Occurs when the selected panel is changed.
@@ -5520,6 +5551,11 @@
       </param>
       <returns>
       </returns>
+    </member>
+    <member name="P:C1.Win.C1Command.C1NavBarButton.NavBarButtonTypeConverter.Text">
+      <summary>
+            This property is for internal use only.
+            </summary>
     </member>
     <member name="M:C1.Win.C1Command.C1NavBarButton.ButtonCollection.AddNewButton">
       <summary>
@@ -7748,6 +7784,11 @@
       </param>
       <returns>
       </returns>
+    </member>
+    <member name="P:C1.Win.C1Command.C1SideCaption.SideCaptionTypeConverter.Text">
+      <summary>
+            This property is for internal use only.
+            </summary>
     </member>
     <member name="T:C1.Win.C1Command.C1TopicBar">
       <summary>

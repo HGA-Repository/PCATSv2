@@ -4,6 +4,40 @@
     <name>C1.Win.C1FlexGrid.2</name>
   </assembly>
   <members>
+    <member name="T:C1.C1Excel.XLUnderlineStyle">
+      <summary>
+            The Excel font underline style.
+            </summary>
+    </member>
+    <member name="F:C1.C1Excel.XLUnderlineStyle.None">
+      <summary>No underline.</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLUnderlineStyle.Single">
+      <summary>Single underline.</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLUnderlineStyle.Double">
+      <summary>Double underline.</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLUnderlineStyle.SingleAccounting">
+      <summary>Single accounting underline.</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLUnderlineStyle.DoubleAccounting">
+      <summary>Double accounting underline.</summary>
+    </member>
+    <member name="T:C1.C1Excel.XLFontScript">
+      <summary>
+            The Excel font superscript/subscript style.
+            </summary>
+    </member>
+    <member name="F:C1.C1Excel.XLFontScript.None">
+      <summary>Normal.</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLFontScript.Superscript">
+      <summary>Superscript.</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLFontScript.Subscript">
+      <summary>Subscript.</summary>
+    </member>
     <member name="T:C1.C1Excel.Strings">
       <summary>
             Static class containing UI strings used by the designer.
@@ -3539,6 +3573,11 @@
               }
             }
             </code></example>
+    </member>
+    <member name="P:C1.Win.C1FlexGrid.C1FlexGridBase.DefaultSize">
+      <summary>
+            Gets the default size of the control.
+            </summary>
     </member>
     <member name="E:C1.Win.C1FlexGrid.C1FlexGridBase.GridChanged">
       <summary>
@@ -10342,6 +10381,11 @@
     <member name="F:C1.Win.C1FlexGrid.FileFlags.OpenXml">
       <summary>
             Load or save file in OpenXml (Office 2007) format.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1FlexGrid.FileFlags.Outline">
+      <summary>
+            Save nodes as Excel groups when exporting to Excel.
             </summary>
     </member>
     <member name="T:C1.Win.C1FlexGrid.SelectionModeEnum">
