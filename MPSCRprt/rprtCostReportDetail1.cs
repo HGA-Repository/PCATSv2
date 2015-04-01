@@ -8,7 +8,7 @@ using GrapeCity.ActiveReports.Document;
 namespace RSMPS
 {
     public class rprtCostReportDetail1 : GrapeCity.ActiveReports.SectionReport
-	{
+    {
 
         private int printCnt;
 
@@ -97,7 +97,7 @@ namespace RSMPS
             }
         }
 
-		#region ActiveReports Designer generated code
+        #region ActiveReports Designer generated code
 
 
 
@@ -453,7 +453,7 @@ namespace RSMPS
             this.Shape12.Left = 6.125F;
             this.Shape12.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape12.Name = "Shape12";
-            this.Shape12.RoundingRadius = 9.999999F;
+            this.Shape12.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape12.Top = 0.0625F;
             this.Shape12.Width = 1.4375F;
             // 
@@ -464,7 +464,7 @@ namespace RSMPS
             this.Shape11.Left = 3.75F;
             this.Shape11.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape11.Name = "Shape11";
-            this.Shape11.RoundingRadius = 9.999999F;
+            this.Shape11.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape11.Top = 0.0625F;
             this.Shape11.Width = 1.625F;
             // 
@@ -475,7 +475,7 @@ namespace RSMPS
             this.Shape10.Left = 1.125F;
             this.Shape10.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape10.Name = "Shape10";
-            this.Shape10.RoundingRadius = 9.999999F;
+            this.Shape10.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape10.Top = 0.0625F;
             this.Shape10.Width = 0.75F;
             // 
@@ -767,7 +767,7 @@ namespace RSMPS
             this.Shape.Left = 0F;
             this.Shape.LineStyle = GrapeCity.ActiveReports.SectionReportModel.LineStyle.Transparent;
             this.Shape.Name = "Shape";
-            this.Shape.RoundingRadius = 9.999999F;
+            this.Shape.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape.Top = 0F;
             this.Shape.Width = 7.5625F;
             // 
@@ -938,7 +938,7 @@ namespace RSMPS
             this.Shape8.Height = 0.3125F;
             this.Shape8.Left = 6.125F;
             this.Shape8.Name = "Shape8";
-            this.Shape8.RoundingRadius = 9.999999F;
+            this.Shape8.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape8.Top = 0.8125F;
             this.Shape8.Width = 1.4375F;
             // 
@@ -960,7 +960,7 @@ namespace RSMPS
             this.Shape6.Height = 0.3125F;
             this.Shape6.Left = 3.75F;
             this.Shape6.Name = "Shape6";
-            this.Shape6.RoundingRadius = 9.999999F;
+            this.Shape6.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape6.Top = 0.8125F;
             this.Shape6.Width = 1.625F;
             // 
@@ -969,7 +969,7 @@ namespace RSMPS
             this.Shape7.Height = 0.3125F;
             this.Shape7.Left = 5.4375F;
             this.Shape7.Name = "Shape7";
-            this.Shape7.RoundingRadius = 9.999999F;
+            this.Shape7.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape7.Top = 0.8125F;
             this.Shape7.Width = 0.625F;
             // 
@@ -978,7 +978,7 @@ namespace RSMPS
             this.Shape5.Height = 0.3125F;
             this.Shape5.Left = 1.9375F;
             this.Shape5.Name = "Shape5";
-            this.Shape5.RoundingRadius = 9.999999F;
+            this.Shape5.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape5.Top = 0.8125F;
             this.Shape5.Width = 1.75F;
             // 
@@ -987,7 +987,7 @@ namespace RSMPS
             this.Shape4.Height = 0.3125F;
             this.Shape4.Left = 1.125F;
             this.Shape4.Name = "Shape4";
-            this.Shape4.RoundingRadius = 9.999999F;
+            this.Shape4.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape4.Top = 0.8125F;
             this.Shape4.Width = 0.75F;
             // 
@@ -1188,7 +1188,7 @@ namespace RSMPS
             this.Shape9.Left = 1.0625F;
             this.Shape9.LineStyle = GrapeCity.ActiveReports.SectionReportModel.LineStyle.Transparent;
             this.Shape9.Name = "Shape9";
-            this.Shape9.RoundingRadius = 9.999999F;
+            this.Shape9.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape9.Top = 1.0625F;
             this.Shape9.Width = 6.6875F;
             // 
@@ -1321,7 +1321,7 @@ namespace RSMPS
             this.Shape1.Left = 0F;
             this.Shape1.LineStyle = GrapeCity.ActiveReports.SectionReportModel.LineStyle.Transparent;
             this.Shape1.Name = "Shape1";
-            this.Shape1.RoundingRadius = 9.999999F;
+            this.Shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape1.Top = 0F;
             this.Shape1.Width = 7.5625F;
             // 
@@ -1369,7 +1369,7 @@ namespace RSMPS
             this.Shape15.Left = 0F;
             this.Shape15.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape15.Name = "Shape15";
-            this.Shape15.RoundingRadius = 9.999999F;
+            this.Shape15.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape15.Top = 0.0625F;
             this.Shape15.Width = 0.5F;
             // 
@@ -1380,7 +1380,7 @@ namespace RSMPS
             this.Shape2.Left = 6.125F;
             this.Shape2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape2.Name = "Shape2";
-            this.Shape2.RoundingRadius = 9.999999F;
+            this.Shape2.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape2.Top = 0.0625F;
             this.Shape2.Width = 1.4375F;
             // 
@@ -1391,7 +1391,7 @@ namespace RSMPS
             this.Shape3.Left = 3.75F;
             this.Shape3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape3.Name = "Shape3";
-            this.Shape3.RoundingRadius = 9.999999F;
+            this.Shape3.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape3.Top = 0.0625F;
             this.Shape3.Width = 1.625F;
             // 
@@ -1402,7 +1402,7 @@ namespace RSMPS
             this.Shape13.Left = 1.125F;
             this.Shape13.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape13.Name = "Shape13";
-            this.Shape13.RoundingRadius = 9.999999F;
+            this.Shape13.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape13.Top = 0.0625F;
             this.Shape13.Width = 0.75F;
             // 
@@ -1661,7 +1661,7 @@ namespace RSMPS
             this.Shape14.Left = 0F;
             this.Shape14.LineStyle = GrapeCity.ActiveReports.SectionReportModel.LineStyle.Transparent;
             this.Shape14.Name = "Shape14";
-            this.Shape14.RoundingRadius = 9.999999F;
+            this.Shape14.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape14.Top = 0F;
             this.Shape14.Width = 7.5625F;
             // 
@@ -1843,7 +1843,7 @@ namespace RSMPS
 
         }
 
-		#endregion
+        #endregion
 
         public GrapeCity.ActiveReports.Data.SqlDBDataSource ds;
         private PageHeader PageHeader;
@@ -1951,5 +1951,5 @@ namespace RSMPS
         private TextBox TextBox19;
         private Line Line;
         private PageFooter PageFooter;
-	}
+    }
 }

@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>GrapeCity.ActiveReports.Dashboard.v9</name>
+	</assembly>
+	<members>
+		<member name="T:GrapeCity.ActiveReports.Dashboard.Components.Bullet.BulletChart">
+			<summary>
+Provides the functionality of the Bullet chart.
+</summary>
+		</member>
+		<member name="T:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase">
+			<summary>
+Implements the boilerplate functionality of <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReportItem" />.
+</summary>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.GetService(System.Type)">
+			<summary>
+Gets the service object of the specified type.
+</summary>
+			<param name="serviceType">An object that specifies the type of service object to get.</param>
+			<returns>A service object of type serviceType.-or- null if there is no service object of type serviceType.</returns>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.Initialize(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IDataScope,GrapeCity.ActiveReports.Extensibility.Rendering.IPropertyBag)">
+			<summary>
+Initializes the report item.
+</summary>
+			<param name="dataContext">&gt;Data context associated with this report item.</param>
+			<param name="properties">Property bag associated with this report item.</param>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.GetRenderer(System.Type)">
+			<summary>
+Gets a renderer of the specified type that can render this component.
+</summary>
+			<param name="rendererType">The <see cref="T:System.Type" /> of the base class or interface that the returned renderer must implement.</param>
+			<returns>
+The instance of the renderer that that provides rendering services for this component.
+</returns>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.SetSize(GrapeCity.ActiveReports.Extensibility.Definition.Components.Length,GrapeCity.ActiveReports.Extensibility.Definition.Components.Length)">
+			<summary>
+Set the size of this report item.
+</summary>
+			<param name="width">Width of the report item.</param>
+			<param name="height">Height of the report item.</param>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.SetLocation(GrapeCity.ActiveReports.Extensibility.Definition.Components.Length,GrapeCity.ActiveReports.Extensibility.Definition.Components.Length)">
+			<!-- No matching elements were found for the following include tag -->
+			<include file="..\..\..\..\..\..\Source XML Docs\Dashboard\Components\ReportItemBase.slashdoc" path="/Libraries/Types/Type[@name=&quot;ReportItemBase&quot;]/Members/Member[@name=&quot;SetLocation&quot;]/Docs/*" />
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.OnClick(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReportItem,System.Int32,System.Int32,System.String,GrapeCity.ActiveReports.Extensibility.Rendering.Components.MouseButton)">
+			<summary>
+Wrapper for the OnClick event.
+</summary>
+			<param name="reportItem">The report item clicked.</param>
+			<param name="xPosition">The x position of the click.</param>
+			<param name="yPosition">The y position of the click.</param>
+			<param name="imageMapId">The image map ID.</param>
+			<param name="button">The button that was clicked.</param>
+			<returns>The resulting change of the button click.</returns>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.OnDoubleClick(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReportItem,System.Int32,System.Int32,System.String,GrapeCity.ActiveReports.Extensibility.Rendering.Components.MouseButton)">
+			<summary>
+Wrapper for the OnDoubleClick event.
+</summary>
+			<param name="reportItem">The report item double-clicked.</param>
+			<param name="xPosition">The x position of the double-click.</param>
+			<param name="yPosition">The y position of the double-click.</param>
+			<param name="imageMapId">The image map ID.</param>
+			<param name="button">The button that was double-clicked.</param>
+			<returns>The resulting change of the double-click.</returns>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.OnValueChange(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReportItem,GrapeCity.ActiveReports.Extensibility.Rendering.Components.IValueCollection)">
+			<summary>
+Wrapper for the ValueChange event.
+</summary>
+			<param name="reportItem">The report item that was changed.</param>
+			<param name="newValues">The new values for this report item.</param>
+			<returns>The resulting change of the new value assignment.</returns>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.OnMove(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReportItem,GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReportItem,System.Int32,System.Int32)">
+			<summary>
+Wrapper for the OnMove event
+</summary>
+			<param name="reportItem">The report item that was moved.</param>
+			<param name="target">The report item that this report item was moved into.</param>
+			<param name="xPosition">The x position of the move.</param>
+			<param name="yPosition">The y position of the move.</param>
+			<returns>The resulting change of the move.</returns>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.Parent">
+			<summary>
+Sets or returns a reference to this object's parent. If the parent is unavailable <c>null</c> is returned.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.RenderComponents">
+			<summary>
+Returns a collection of render components.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.Name">
+			<summary>
+The name of this report item.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.DataElementName">
+			<summary>
+The name to use for the data element or attribute for this report item when rendered via a data oriented rendering extension (e.g. XML).
+</summary>
+			<remarks>By default this is the name of this report item.</remarks>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.DataElementOutput">
+			<summary>
+Indicates how this item should appear when rendered with a data oriented rendering device.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.TopFromRootContainer">
+			<summary>
+The Top position relative to the report item's root container.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.Top">
+			<summary>
+The distance of the item from the top of the containing object.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.Left">
+			<summary>
+The distance of the item from the left of the containing object.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.Width">
+			<summary>
+Width of the item.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.Height">
+			<summary>
+Height of the item.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.Bookmark">
+			<summary>
+Specifies a bookmark that can be linked to via a Bookmark action.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.ToolTip">
+			<summary>
+Contains a textual label for the item.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.Label">
+			<summary>
+Provides a user friendly label for an instance of an item.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.ZIndex">
+			<summary>
+Specifies drawing order of the report item within the containing object.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.Style">
+			<summary>
+Returns style of the report item.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.Hidden">
+			<summary>
+Indicates if this report item should be hidden.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.OwnHidden">
+			<!-- No matching elements were found for the following include tag -->
+			<include file="..\..\..\..\..\..\Source XML Docs\Dashboard\Components\ReportItemBase.slashdoc" path="/Libraries/Types/Type[@name=&quot;ReportItemBase&quot;]/Members/Member[@name=&quot;OwnHidden&quot;]/Docs/*" />
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.Action">
+			<summary>
+The Action object of this report item.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.ToggleItem">
+			<summary>
+Specifies a report item that users can click toggle the visibility of this item.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.IsDynamicallyHidden">
+			<summary>
+			  Determines if this item has dynamic visiblity and is hidden.
+            </summary>
+			<summary>
+            Determines if this item has dynamic visiblity and is hidden
+            </summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.ReportItemBase.TargetDevice">
+			<summary>
+            Defines output kinds in which report item is present (Screen, Export tec.)
+            </summary>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Components.Bullet.BulletChart.GetRenderer(System.Type)">
+			<summary>
+Gets a renderer of the specified type that can render this component.
+</summary>
+			<param name="rendererType">The <see cref="T:System.Type" /> of the base class or interface that the returned renderer must implement.</param>
+			<returns>
+The instance of the renderer that that provides rendering services for this component.
+</returns>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Components.Bullet.BulletChart.Initialize(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IDataScope,GrapeCity.ActiveReports.Extensibility.Rendering.IPropertyBag)">
+			<summary>
+Initializes the report item.
+</summary>
+			<param name="dataContext">&gt;Data context associated with this report item.</param>
+			<param name="properties">Property bag associated with this report item.</param>
+		</member>
+		<member name="T:GrapeCity.ActiveReports.Dashboard.Components.Sparkline.SparklineChart">
+			<summary>
+Provides the functionality of the Sparkline chart.
+</summary>
+		</member>
+		<member name="T:GrapeCity.ActiveReports.Dashboard.Components.DataRegionBase">
+			<summary>
+Implements the boilerplate functionality of <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.IDataRegion" />.
+</summary>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Components.DataRegionBase.Initialize(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IDataScope,GrapeCity.ActiveReports.Extensibility.Rendering.IPropertyBag)">
+			<summary>
+Initializes the report item.
+</summary>
+			<param name="dataContext">&gt;Data context associated with this report item.</param>
+			<param name="properties">Property bag associated with this report item.</param>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.DataRegionBase.DataSetName">
+			<summary>
+Specifies which data set to use for this data region.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.DataRegionBase.NoRowsMessage">
+			<summary>
+Message to display in the DataRegion when no rows of data are available.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.DataRegionBase.NoRows">
+			<summary>
+Indicates if the DataRegion has no rows available.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.DataRegionBase.KeepTogether">
+			<summary>
+Indicates the entire data region should be kept together on one page if possible.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.DataRegionBase.PageBreakAtStart">
+			<summary>
+Indicates the report should page break at the start of the data region.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.DataRegionBase.PageBreakAtEnd">
+			<summary>
+Indicates the report should page break at the end of the data region.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.DataRegionBase.NoRowsTextBox">
+			<summary>
+Returns a renderable textbox suitable for displaying <see cref="P:GrapeCity.ActiveReports.Dashboard.Components.DataRegionBase.NoRowsMessage" /> for this instance.
+</summary>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Components.DataRegionBase.NewSection">
+			<!-- No matching elements were found for the following include tag -->
+			<include file="..\..\..\..\..\..\Source XML Docs\Dashboard\Components\DataRegionBase.slashdoc" path="/Libraries/Types/Type[@name=&quot;DataRegionBase&quot;]/Members/Member[@name=&quot;NewSection&quot;]/Docs/*" />
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Components.Sparkline.SparklineChart.GetRenderer(System.Type)">
+			<summary>
+Gets a renderer of the specified type that can render this component.
+</summary>
+			<param name="rendererType">The <see cref="T:System.Type" /> of the base class or interface that the returned renderer must implement.</param>
+			<returns>
+The instance of the renderer that that provides rendering services for this component.
+</returns>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Components.Sparkline.SparklineChart.Initialize(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IDataScope,GrapeCity.ActiveReports.Extensibility.Rendering.IPropertyBag)">
+			<summary>
+Initializes the report item.
+</summary>
+			<param name="dataContext">&gt;Data context associated with this report item.</param>
+			<param name="properties">Property bag associated with this report item.</param>
+		</member>
+		<member name="T:GrapeCity.ActiveReports.Dashboard.Design.BulletChartDesigner">
+			<summary>
+Represents the designer for <see cref="T:GrapeCity.ActiveReports.Dashboard.Components.Bullet.BulletChart" />.
+</summary>
+		</member>
+		<member name="T:GrapeCity.ActiveReports.Dashboard.Design.ReportItemDesignerBase">
+			<summary>
+Represents the base class for dashboard report item designers.
+</summary>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Design.ReportItemDesignerBase.Initialize(System.ComponentModel.IComponent)">
+			<summary>
+Initializes the designer component and adds the properties specified for it.
+</summary>
+			<param name="component"></param>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Design.ReportItemDesignerBase.PostFilterProperties(System.Collections.IDictionary)">
+			<summary>
+Adds the custom property collection to the property editor.
+</summary>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Design.BulletChartDesigner.Initialize(System.ComponentModel.IComponent)">
+			<summary>
+Initializes the designer with the specified component.
+</summary>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Design.BulletChartDesigner.CanAccept(System.Object)">
+			<summary>
+Checks if this composite designer can accept the specified data
+</summary>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Design.BulletChartDesigner.Add(System.Type,GrapeCity.ActiveReports.Design.DdrDesigner.Tools.DesignPoint,GrapeCity.ActiveReports.Design.DdrDesigner.Tools.DesignSize)">
+			<summary>
+Creates a new <see cref="T:GrapeCity.ActiveReports.Design.DdrDesigner.Designers.ReportItemDesigner" /> at a specified location 
+with specified size and adds it to the collection of children designers.
+</summary>
+			<remarks>We should override it because SupportsComposition was set to true, but report item is not a container.</remarks>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Design.BulletChartDesigner.Validate(GrapeCity.ActiveReports.PageReportModel.ValidationContext)">
+			<summary>
+Validates the current state of the BulletChart.
+</summary>
+			<param name="context">Provides context details during validation. </param>
+			<returns>
+Returns zero or more entries providing information about the validation warnings or failures.
+</returns>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Design.BulletChartDesigner.ControlGlyph">
+			<summary>
+Specifies a glyph for this component designer.
+</summary>
+		</member>
+		<member name="T:GrapeCity.ActiveReports.Dashboard.Design.SparklineChartDesigner">
+			<summary>
+Represents the designer for <see cref="T:GrapeCity.ActiveReports.Dashboard.Components.Sparkline.SparklineChart" />.
+</summary>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Design.SparklineChartDesigner.Initialize(System.ComponentModel.IComponent)">
+			<summary>
+Initializes the designer with the specified component.
+</summary>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Design.SparklineChartDesigner.CanAccept(System.Object)">
+			<summary>
+Checks if this composite designer can accept the specified data
+</summary>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Design.SparklineChartDesigner.Add(System.Type,GrapeCity.ActiveReports.Design.DdrDesigner.Tools.DesignPoint,GrapeCity.ActiveReports.Design.DdrDesigner.Tools.DesignSize)">
+			<summary>
+Creates a new <see cref="T:GrapeCity.ActiveReports.Design.DdrDesigner.Designers.ReportItemDesigner" /> at a specified location 
+with specified size and adds it to the collection of children designers.
+</summary>
+			<remarks>We should override it because SupportsComposition was set to true, but report item is not a container.</remarks>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Dashboard.Design.SparklineChartDesigner.Validate(GrapeCity.ActiveReports.PageReportModel.ValidationContext)">
+			<summary>
+Validates the current state of the Sparkline.
+</summary>
+			<param name="context">Provides context details during validation. </param>
+			<returns>
+Returns zero or more entries providing information about the validation warnings or failures.
+</returns>
+		</member>
+		<member name="P:GrapeCity.ActiveReports.Dashboard.Design.SparklineChartDesigner.ControlGlyph">
+			<summary>
+Specifies a glyph for this component designer.
+</summary>
+		</member>
+	</members>
+</doc>

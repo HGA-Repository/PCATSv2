@@ -30,6 +30,10 @@ namespace RSMPS
         {
             this.SuspendLayout();
             // 
+            // bttDelete
+            // 
+            this.bttDelete.Visible = false;
+            // 
             // FCust_List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

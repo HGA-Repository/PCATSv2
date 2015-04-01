@@ -8,7 +8,7 @@ using GrapeCity.ActiveReports.Document;
 namespace RSMPS
 {
     public class rprtBudgetSummary1 : GrapeCity.ActiveReports.SectionReport
-	{
+    {
         private int miTotalHours = 0;
         private decimal mdTotalHourDollars = 0;
         private decimal mdTotalExpenses = 0;
@@ -61,12 +61,12 @@ namespace RSMPS
         private Line line21;
         private Label label26;
         private Line line22;
-                  
-      
+
+
         public string MainReportTitle
         {
             get { return lblMainTitle.Text; }
-            set {lblMainTitle.Text = value; }
+            set { lblMainTitle.Text = value; }
         }
 
         public void SetTitles(string jobNumber, string Desc, string revision, string customer, string location, string wbs)
@@ -79,7 +79,7 @@ namespace RSMPS
             lblProject.Text = customer + "/" + location;
             lblRevision.Text = Desc;
         }
- 
+
 
         public int TotalHours
         {
@@ -123,7 +123,7 @@ namespace RSMPS
 
             //if (mbPipelineSvcs == true)
             //   rprtEngr.SubHeading = "Project Services";
-      
+
             rprtEngr.TotalHours = miTotalHours;
             rprtEngr.DataSource = this.DataSource;
             rprtEngr.DataMember = "Table2";
@@ -177,7 +177,7 @@ namespace RSMPS
             Document.Printer.PrinterName = "";
         }
 
-		#region ActiveReports Designer generated code
+        #region ActiveReports Designer generated code
 
 
 
@@ -453,7 +453,7 @@ namespace RSMPS
             this.Shape1.Height = 0.25F;
             this.Shape1.Left = 0.125F;
             this.Shape1.Name = "Shape1";
-            this.Shape1.RoundingRadius = 9.999999F;
+            this.Shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape1.Style = GrapeCity.ActiveReports.SectionReportModel.ShapeType.Ellipse;
             this.Shape1.Top = 0.78F;
             this.Shape1.Width = 0.6875F;
@@ -463,7 +463,7 @@ namespace RSMPS
             this.Shape2.Height = 0.3125F;
             this.Shape2.Left = 0.0625F;
             this.Shape2.Name = "Shape2";
-            this.Shape2.RoundingRadius = 9.999999F;
+            this.Shape2.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape2.Style = GrapeCity.ActiveReports.SectionReportModel.ShapeType.Ellipse;
             this.Shape2.Top = 1.4375F;
             this.Shape2.Width = 0.8125F;
@@ -797,7 +797,7 @@ namespace RSMPS
             this.Shape.Height = 0.5F;
             this.Shape.Left = 0F;
             this.Shape.Name = "Shape";
-            this.Shape.RoundingRadius = 9.999999F;
+            this.Shape.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape.Top = 1.233F;
             this.Shape.Width = 7.4375F;
             // 
@@ -1715,7 +1715,7 @@ namespace RSMPS
 
         }
 
-		#endregion
+        #endregion
 
         private void PageFooter_Format(object sender, EventArgs e)
         {
@@ -1784,5 +1784,5 @@ namespace RSMPS
         private PageFooter PageFooter;
         private Label Label28;
         private Label lblRateSchedule;
-	}
+    }
 }

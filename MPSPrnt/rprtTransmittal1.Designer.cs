@@ -273,7 +273,7 @@ namespace RSMPS
             this.shape1.Height = 0.313F;
             this.shape1.Left = 0F;
             this.shape1.Name = "shape1";
-            this.shape1.RoundingRadius = 9.999999F;
+            this.shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.shape1.Top = 1.462F;
             this.shape1.Width = 7.5F;
             // 
@@ -1063,7 +1063,7 @@ namespace RSMPS
             this.shape2.Height = 0.1875F;
             this.shape2.Left = 0F;
             this.shape2.Name = "shape2";
-            this.shape2.RoundingRadius = 9.999999F;
+            this.shape2.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.shape2.Top = 0F;
             this.shape2.Width = 7.5F;
             // 

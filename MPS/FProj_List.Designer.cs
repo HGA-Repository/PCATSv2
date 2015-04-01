@@ -52,6 +52,7 @@ namespace RSMPS
             // bttDelete
             // 
             this.bttDelete.Location = new System.Drawing.Point(510, 84);
+            this.bttDelete.Visible = false;
             // 
             // bttClose
             // 

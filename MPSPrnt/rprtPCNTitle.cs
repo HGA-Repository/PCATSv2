@@ -8,7 +8,7 @@ using GrapeCity.ActiveReports.Document;
 namespace RSMPS
 {
     public class rprtPCNTitle : GrapeCity.ActiveReports.SectionReport
-	{
+    {
         public rprtPCNTitle()
         {
             InitializeComponent();
@@ -19,7 +19,7 @@ namespace RSMPS
 
         }
 
-		#region ActiveReports Designer generated code
+        #region ActiveReports Designer generated code
 
 
 
@@ -184,7 +184,7 @@ namespace RSMPS
             this.Shape.Height = 0.5F;
             this.Shape.Left = 0F;
             this.Shape.Name = "Shape";
-            this.Shape.RoundingRadius = 9.999999F;
+            this.Shape.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape.Top = 0F;
             this.Shape.Width = 5.25F;
             // 
@@ -229,7 +229,7 @@ namespace RSMPS
 
         }
 
-		#endregion
+        #endregion
 
         private PageHeader PageHeader;
         private Shape Shape;
@@ -245,5 +245,5 @@ namespace RSMPS
         private SubReport subPCNHours;
         private SubReport subPCNExpenses;
         private PageFooter PageFooter;
-	}
+    }
 }

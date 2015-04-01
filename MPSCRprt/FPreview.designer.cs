@@ -46,8 +46,8 @@ namespace RSMPS
             this.viewer1.TabIndex = 0;
             //this.viewer1.TableOfContents.Text = "Table Of Contents";
             this.viewer1.TableOfContents.Width = 200;
-            this.viewer1.Toolbar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //this.viewer1.ToolClick += new DataDynamics.ActiveReports.Toolbar.ToolClickEventHandler(this.viewer1_ToolClick);
+            this.viewer1.Toolbar.ToolStrip.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //this.viewer1.ToolClick += new DataDynamics.ActiveReports.Toolbar.ToolStrip.ToolClickEventHandler(this.viewer1_ToolClick);
             // 
             // xlsExport1
             // 

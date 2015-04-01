@@ -8,7 +8,7 @@ using GrapeCity.ActiveReports.Document;
 namespace RSMPS
 {
     public class rprtPCNMain : GrapeCity.ActiveReports.SectionReport
-	{
+    {
         private decimal mdTotalHours = 0;
         private Label label1;
         private TextBox txtTotalChange;
@@ -132,7 +132,7 @@ namespace RSMPS
             txtTotalChange.Text = tot.ToString("$#,##0.00");
         }
 
-		#region ActiveReports Designer generated code
+        #region ActiveReports Designer generated code
 
 
 
@@ -1323,7 +1323,7 @@ namespace RSMPS
             this.shape2.Left = 0F;
             this.shape2.LineWeight = 3F;
             this.shape2.Name = "shape2";
-            this.shape2.RoundingRadius = 9.999999F;
+            this.shape2.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.shape2.Top = 0F;
             this.shape2.Width = 7.25F;
             // 
@@ -1717,7 +1717,7 @@ namespace RSMPS
 
         }
 
-		#endregion
+        #endregion
 
         private void PageHeader_Format(object sender, EventArgs e)
         {
@@ -1729,5 +1729,5 @@ namespace RSMPS
         private PageFooter PageFooter;
         private Label Label11;
         private Label Label12;
-	}
+    }
 }
