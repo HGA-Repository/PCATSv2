@@ -179,12 +179,13 @@ namespace RSMPS
                 label13.Text = "";
                 int f_Digit = Convert.ToInt16(first_jobNumber);
                 string t_Digit = "";
-                if (f_Digit == 7)
-                {
+                //if (f_Digit == 7)
+                //{
                     t_Digit = JNum.Substring(0, 3);
-                }
+                //}
 
-                else if (f_Digit == 1)
+                //else 
+                if (f_Digit == 1)
                 {
                     label18.Text = "Project Manager";
                     label20.Text = "Business Analyst";
@@ -1222,7 +1223,7 @@ namespace RSMPS
             this.label18.HyperLink = null;
             this.label18.Left = 0.125F;
             this.label18.Name = "label18";
-            this.label18.Style = "";
+            this.label18.Style = "font-weight: bold";
             this.label18.Text = "Project Management\r\n";
             this.label18.Top = 0.3F;
             this.label18.Width = 1.72F;
@@ -1244,11 +1245,11 @@ namespace RSMPS
             // 
             this.label19.Height = 0.2F;
             this.label19.HyperLink = null;
-            this.label19.Left = 5.438001F;
+            this.label19.Left = 5.42F;
             this.label19.Name = "label19";
-            this.label19.Style = "";
+            this.label19.Style = "font-weight: bold";
             this.label19.Text = "Date";
-            this.label19.Top = 0.3390002F;
+            this.label19.Top = 0.3F;
             this.label19.Width = 0.4700003F;
             // 
             // line14
@@ -1270,7 +1271,7 @@ namespace RSMPS
             this.label20.HyperLink = null;
             this.label20.Left = 0.125F;
             this.label20.Name = "label20";
-            this.label20.Style = "";
+            this.label20.Style = "font-weight: bold";
             this.label20.Text = "Business Development";
             this.label20.Top = 0.6F;
             this.label20.Width = 1.720001F;
@@ -1278,15 +1279,15 @@ namespace RSMPS
             // line15
             // 
             this.line15.Height = 0F;
-            this.line15.Left = 1.907F;
+            this.line15.Left = 1.925F;
             this.line15.LineWeight = 1F;
             this.line15.Name = "line15";
-            this.line15.Top = 0.8420002F;
+            this.line15.Top = 0.84F;
             this.line15.Width = 3.375F;
-            this.line15.X1 = 1.907F;
-            this.line15.X2 = 5.282F;
-            this.line15.Y1 = 0.8420002F;
-            this.line15.Y2 = 0.8420002F;
+            this.line15.X1 = 1.925F;
+            this.line15.X2 = 5.3F;
+            this.line15.Y1 = 0.84F;
+            this.line15.Y2 = 0.84F;
             // 
             // label21
             // 
@@ -1294,23 +1295,23 @@ namespace RSMPS
             this.label21.HyperLink = null;
             this.label21.Left = 5.42F;
             this.label21.Name = "label21";
-            this.label21.Style = "";
+            this.label21.Style = "font-weight: bold";
             this.label21.Text = "Date";
-            this.label21.Top = 0.6410003F;
+            this.label21.Top = 0.6F;
             this.label21.Width = 0.4700003F;
             // 
             // line17
             // 
             this.line17.Height = 0F;
-            this.line17.Left = 5.970001F;
+            this.line17.Left = 6F;
             this.line17.LineWeight = 1F;
             this.line17.Name = "line17";
-            this.line17.Top = 0.8420002F;
+            this.line17.Top = 0.84F;
             this.line17.Width = 0.9999986F;
-            this.line17.X1 = 5.970001F;
-            this.line17.X2 = 6.97F;
-            this.line17.Y1 = 0.8420002F;
-            this.line17.Y2 = 0.8420002F;
+            this.line17.X1 = 6F;
+            this.line17.X2 = 6.999999F;
+            this.line17.Y1 = 0.84F;
+            this.line17.Y2 = 0.84F;
             // 
             // label22
             // 
@@ -1318,7 +1319,7 @@ namespace RSMPS
             this.label22.HyperLink = null;
             this.label22.Left = 0.125F;
             this.label22.Name = "label22";
-            this.label22.Style = "";
+            this.label22.Style = "font-weight: bold";
             this.label22.Text = "Engineering";
             this.label22.Top = 0.9F;
             this.label22.Width = 1.720001F;
@@ -1326,15 +1327,15 @@ namespace RSMPS
             // line18
             // 
             this.line18.Height = 0F;
-            this.line18.Left = 1.907F;
+            this.line18.Left = 1.925F;
             this.line18.LineWeight = 1F;
             this.line18.Name = "line18";
-            this.line18.Top = 1.155F;
+            this.line18.Top = 1.14F;
             this.line18.Width = 3.375F;
-            this.line18.X1 = 1.907F;
-            this.line18.X2 = 5.282F;
-            this.line18.Y1 = 1.155F;
-            this.line18.Y2 = 1.155F;
+            this.line18.X1 = 1.925F;
+            this.line18.X2 = 5.3F;
+            this.line18.Y1 = 1.14F;
+            this.line18.Y2 = 1.14F;
             // 
             // label23
             // 
@@ -1342,23 +1343,23 @@ namespace RSMPS
             this.label23.HyperLink = null;
             this.label23.Left = 5.42F;
             this.label23.Name = "label23";
-            this.label23.Style = "";
+            this.label23.Style = "font-weight: bold";
             this.label23.Text = "Date";
-            this.label23.Top = 0.954F;
+            this.label23.Top = 0.9F;
             this.label23.Width = 0.4700003F;
             // 
             // line19
             // 
             this.line19.Height = 0F;
-            this.line19.Left = 5.970001F;
+            this.line19.Left = 5.988F;
             this.line19.LineWeight = 1F;
             this.line19.Name = "line19";
-            this.line19.Top = 1.155F;
+            this.line19.Top = 1.14F;
             this.line19.Width = 0.9999986F;
-            this.line19.X1 = 5.970001F;
-            this.line19.X2 = 6.97F;
-            this.line19.Y1 = 1.155F;
-            this.line19.Y2 = 1.155F;
+            this.line19.X1 = 5.988F;
+            this.line19.X2 = 6.987999F;
+            this.line19.Y1 = 1.14F;
+            this.line19.Y2 = 1.14F;
             // 
             // label24
             // 
@@ -1366,23 +1367,23 @@ namespace RSMPS
             this.label24.HyperLink = null;
             this.label24.Left = 0.125F;
             this.label24.Name = "label24";
-            this.label24.Style = "";
+            this.label24.Style = "font-weight: bold";
             this.label24.Text = "President";
-            this.label24.Top = 1.227F;
+            this.label24.Top = 1.2F;
             this.label24.Width = 1.720001F;
             // 
             // line20
             // 
             this.line20.Height = 0F;
-            this.line20.Left = 1.907F;
+            this.line20.Left = 1.925F;
             this.line20.LineWeight = 1F;
             this.line20.Name = "line20";
-            this.line20.Top = 1.467F;
+            this.line20.Top = 1.44F;
             this.line20.Width = 3.375F;
-            this.line20.X1 = 1.907F;
-            this.line20.X2 = 5.282F;
-            this.line20.Y1 = 1.467F;
-            this.line20.Y2 = 1.467F;
+            this.line20.X1 = 1.925F;
+            this.line20.X2 = 5.3F;
+            this.line20.Y1 = 1.44F;
+            this.line20.Y2 = 1.44F;
             // 
             // label25
             // 
@@ -1390,23 +1391,23 @@ namespace RSMPS
             this.label25.HyperLink = null;
             this.label25.Left = 5.42F;
             this.label25.Name = "label25";
-            this.label25.Style = "";
+            this.label25.Style = "font-weight: bold";
             this.label25.Text = "Date";
-            this.label25.Top = 1.266F;
+            this.label25.Top = 1.2F;
             this.label25.Width = 0.4700003F;
             // 
             // line21
             // 
             this.line21.Height = 0F;
-            this.line21.Left = 5.970001F;
+            this.line21.Left = 5.988F;
             this.line21.LineWeight = 1F;
             this.line21.Name = "line21";
-            this.line21.Top = 1.467F;
+            this.line21.Top = 1.44F;
             this.line21.Width = 0.9999986F;
-            this.line21.X1 = 5.970001F;
-            this.line21.X2 = 6.97F;
-            this.line21.Y1 = 1.467F;
-            this.line21.Y2 = 1.467F;
+            this.line21.X1 = 5.988F;
+            this.line21.X2 = 6.987999F;
+            this.line21.Y1 = 1.44F;
+            this.line21.Y2 = 1.44F;
             // 
             // label26
             // 
@@ -1414,44 +1415,44 @@ namespace RSMPS
             this.label26.HyperLink = null;
             this.label26.Left = 0.125F;
             this.label26.Name = "label26";
-            this.label26.Style = "";
+            this.label26.Style = "font-weight: bold";
             this.label26.Text = "Project Budget Signature Requirements\r\n";
-            this.label26.Top = 0.1F;
+            this.label26.Top = 0F;
             this.label26.Width = 3.812F;
             // 
             // label11
             // 
             this.label11.Height = 0.2F;
             this.label11.HyperLink = null;
-            this.label11.Left = 0.155F;
+            this.label11.Left = 0.125F;
             this.label11.Name = "label11";
-            this.label11.Style = "";
+            this.label11.Style = "font-weight: bold";
             this.label11.Text = "Engineering";
-            this.label11.Top = 1.467F;
+            this.label11.Top = 1.5F;
             this.label11.Width = 1.720001F;
             // 
             // line8
             // 
             this.line8.Height = 0F;
-            this.line8.Left = 1.937F;
+            this.line8.Left = 1.925F;
             this.line8.LineWeight = 1F;
             this.line8.Name = "line8";
-            this.line8.Top = 1.706999F;
-            this.line8.Width = 3.375001F;
-            this.line8.X1 = 1.937F;
-            this.line8.X2 = 5.312001F;
-            this.line8.Y1 = 1.706999F;
-            this.line8.Y2 = 1.706999F;
+            this.line8.Top = 1.74F;
+            this.line8.Width = 3.375F;
+            this.line8.X1 = 1.925F;
+            this.line8.X2 = 5.3F;
+            this.line8.Y1 = 1.74F;
+            this.line8.Y2 = 1.74F;
             // 
             // label12
             // 
             this.label12.Height = 0.2F;
             this.label12.HyperLink = null;
-            this.label12.Left = 5.45F;
+            this.label12.Left = 5.42F;
             this.label12.Name = "label12";
-            this.label12.Style = "";
+            this.label12.Style = "font-weight: bold";
             this.label12.Text = "Date";
-            this.label12.Top = 1.506F;
+            this.label12.Top = 1.5F;
             this.label12.Width = 0.4700003F;
             // 
             // line9
@@ -1460,46 +1461,46 @@ namespace RSMPS
             this.line9.Left = 6.000001F;
             this.line9.LineWeight = 1F;
             this.line9.Name = "line9";
-            this.line9.Top = 1.706999F;
+            this.line9.Top = 1.74F;
             this.line9.Width = 0.999999F;
             this.line9.X1 = 6.000001F;
             this.line9.X2 = 7F;
-            this.line9.Y1 = 1.706999F;
-            this.line9.Y2 = 1.706999F;
+            this.line9.Y1 = 1.74F;
+            this.line9.Y2 = 1.74F;
             // 
             // label13
             // 
             this.label13.Height = 0.2F;
             this.label13.HyperLink = null;
-            this.label13.Left = 0.155F;
+            this.label13.Left = 0.125F;
             this.label13.Name = "label13";
-            this.label13.Style = "";
+            this.label13.Style = "font-weight: bold";
             this.label13.Text = "President";
-            this.label13.Top = 1.778999F;
+            this.label13.Top = 1.8F;
             this.label13.Width = 1.720001F;
             // 
             // line10
             // 
             this.line10.Height = 0F;
-            this.line10.Left = 1.937F;
+            this.line10.Left = 1.925F;
             this.line10.LineWeight = 1F;
             this.line10.Name = "line10";
-            this.line10.Top = 2.019F;
-            this.line10.Width = 3.375001F;
-            this.line10.X1 = 1.937F;
-            this.line10.X2 = 5.312001F;
-            this.line10.Y1 = 2.019F;
-            this.line10.Y2 = 2.019F;
+            this.line10.Top = 2.04F;
+            this.line10.Width = 3.375F;
+            this.line10.X1 = 1.925F;
+            this.line10.X2 = 5.3F;
+            this.line10.Y1 = 2.04F;
+            this.line10.Y2 = 2.04F;
             // 
             // label14
             // 
             this.label14.Height = 0.2F;
             this.label14.HyperLink = null;
-            this.label14.Left = 5.45F;
+            this.label14.Left = 5.42F;
             this.label14.Name = "label14";
-            this.label14.Style = "";
+            this.label14.Style = "font-weight: bold";
             this.label14.Text = "Date";
-            this.label14.Top = 1.817999F;
+            this.label14.Top = 1.8F;
             this.label14.Width = 0.4700003F;
             // 
             // line16
@@ -1508,12 +1509,12 @@ namespace RSMPS
             this.line16.Left = 6.000001F;
             this.line16.LineWeight = 1F;
             this.line16.Name = "line16";
-            this.line16.Top = 2.019F;
+            this.line16.Top = 2.04F;
             this.line16.Width = 0.999999F;
             this.line16.X1 = 6.000001F;
             this.line16.X2 = 7F;
-            this.line16.Y1 = 2.019F;
-            this.line16.Y2 = 2.019F;
+            this.line16.Y1 = 2.04F;
+            this.line16.Y2 = 2.04F;
             // 
             // rprtBudgetSummary1
             // 
