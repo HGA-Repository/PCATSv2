@@ -202,7 +202,7 @@ namespace RSMPS
                     label18.Text = "Business Analyst";
                     label20.Text = "Project Manager";
                     label22.Text = "Relationship Manager";
-                    label24.Text = "PLS Manager";
+                    label24.Text = "VP of Program Management";
                     label11.Text = "Executive VP";
                     label13.Text = "President";
 
