@@ -225,7 +225,7 @@ namespace RSMPS
                     //if (total_Budget_Amount < 75000)
                     if (t_b_a < 75000)
                     {
-                        label18.Text = "Project Manager";
+                        label18.Text = "Project Management";
                         label20.Text = "Relationship Manager";
                         label22.Visible = false;
                         label24.Visible = false;
@@ -252,7 +252,7 @@ namespace RSMPS
                     }
 
                     // if (total_Budget_Amount > 75000 && total_Budget_Amount <= 250000)
-                    if (t_b_a > 75000 && t_b_a <= 250000)
+                    else if (t_b_a > 75000 && t_b_a <= 250000)
                     {
                         label18.Text = "Director of Projects";
                         label20.Text = "Engineering Manager";
@@ -277,7 +277,7 @@ namespace RSMPS
 
 
                     //if (total_Budget_Amount > 250000)
-                    if (t_b_a > 250000)
+                    else if (t_b_a > 250000)
                     {
                         label18.Text = "Director of Projects";
                         label20.Text = "Engineering Manager";

@@ -2339,15 +2339,15 @@ namespace RSMPS
 
             DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
             int currID = Convert.ToInt32(d["ID"]);
-            string stat = tdbgBudgetPCN.Columns["Status"].Value.ToString();
+        //    string stat = tdbgBudgetPCN.Columns["Status"].Value.ToString();
             //Console.WriteLine("The Status is: " + stat);
-            if (stat == "Approved" || stat == "Pending" || stat == "Disapprove" || stat == "Prepare Control Estimate" || stat != "Initiated") { bttEditPCN.Enabled = false; }
-            else {             
+           // if (stat == "Approved" || stat == "Pending" || stat == "Disapprove" || stat == "Prepare Control Estimate" || stat != "Initiated") { bttEditPCN.Enabled = false; }
+            //else {             
                 pcn.OnPCNChanged += new RevSol.ItemValueChangedHandler(PCNChanged);
                 pcn.EditPreviousPCN(currID);
                 pcn.ShowDialog();
                 pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNChanged);
-                }
+          //      }
 
         }
 

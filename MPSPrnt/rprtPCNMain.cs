@@ -46,15 +46,6 @@ namespace RSMPS
             set { txtTotalChange.Text = value; }
         }
 
-        
-
-
-        //public void SetTitles(string Total_Value)
-        //{
-        //    label23.Text = Total_Value;
-
-        //}
-
 
         public void SetInformation(CBBudgetPCN info)
         {
@@ -128,8 +119,6 @@ namespace RSMPS
                 string t_Digit = "";
                 t_Digit = JNum.Substring(0, 3);
 
-                //label19.Text = f_Digit_s;
-                //label20.Text = t_Digit;
 
 
                 if (f_Digit == 1)
@@ -178,7 +167,7 @@ namespace RSMPS
 
                     if (info.EstimatedEngrDlrs < 75000)
                     {
-                        label56.Text = "Project Manager";
+                        label56.Text = "Project Management";
                         label58.Text = "Relationship Manager";
                         label59.Visible = false;
                         label60.Visible = false;
@@ -205,7 +194,7 @@ namespace RSMPS
                     }
 
 
-                    if (info.EstimatedEngrDlrs > 75000 && info.EstimatedEngrDlrs <= 250000)
+                    else if (info.EstimatedEngrDlrs > 75000 && info.EstimatedEngrDlrs <= 250000)
                     {
                         label56.Text = "Director of Projects";
                         label58.Text = "Engineering Manager";
@@ -230,8 +219,8 @@ namespace RSMPS
 
 
 
-                    //if (info.EstimatedEngrDlrs > 250000)
-                    else
+                    else if (info.EstimatedEngrDlrs > 250000)
+                    
                     {
                         label56.Text = "Director of Projects";
                         label58.Text = "Engineering Manager";
