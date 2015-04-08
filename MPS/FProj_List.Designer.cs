@@ -61,6 +61,7 @@ namespace RSMPS
             // 
             // RadioButtonListProjects
             // 
+            this.RadioButtonListProjects.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.RadioButtonListProjects.AutoSize = true;
             this.RadioButtonListProjects.Checked = true;
             this.RadioButtonListProjects.Location = new System.Drawing.Point(791, 157);
@@ -74,6 +75,7 @@ namespace RSMPS
             // 
             // RadioButtonListProposals
             // 
+            this.RadioButtonListProposals.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.RadioButtonListProposals.AutoSize = true;
             this.RadioButtonListProposals.Location = new System.Drawing.Point(791, 181);
             this.RadioButtonListProposals.Name = "RadioButtonListProposals";
@@ -86,6 +88,7 @@ namespace RSMPS
             // 
             // RadioButtonListAll
             // 
+            this.RadioButtonListAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.RadioButtonListAll.AutoSize = true;
             this.RadioButtonListAll.Location = new System.Drawing.Point(791, 205);
             this.RadioButtonListAll.Name = "RadioButtonListAll";
@@ -98,6 +101,7 @@ namespace RSMPS
             // 
             // chkListAll
             // 
+            this.chkListAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkListAll.AutoSize = true;
             this.chkListAll.Location = new System.Drawing.Point(802, 130);
             this.chkListAll.Name = "chkListAll";
@@ -117,6 +121,7 @@ namespace RSMPS
             this.Controls.Add(this.RadioButtonListProposals);
             this.Controls.Add(this.RadioButtonListProjects);
             this.Controls.Add(this.chkListAll);
+            this.MaximizeBox = false;
             this.Name = "FProj_List";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
