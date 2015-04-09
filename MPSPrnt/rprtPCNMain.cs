@@ -471,6 +471,10 @@ namespace RSMPS
             this.label18 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.line9 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.line10 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.label24 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label25 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.line11 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.line12 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.PageHeader = new GrapeCity.ActiveReports.SectionReportModel.PageHeader();
             this.shape2 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
             this.label3 = new GrapeCity.ActiveReports.SectionReportModel.Label();
@@ -500,10 +504,6 @@ namespace RSMPS
             this.PageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
             this.Label11 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.Label12 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.label24 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.label25 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.line11 = new GrapeCity.ActiveReports.SectionReportModel.Line();
-            this.line12 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             ((System.ComponentModel.ISupportInitialize)(this.label48)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescOfChange)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label7)).BeginInit();
@@ -548,6 +548,8 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label25)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label6)).BeginInit();
@@ -569,8 +571,6 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label24)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label25)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -682,9 +682,9 @@ namespace RSMPS
             this.pageBreak1.Height = 0.01F;
             this.pageBreak1.Left = 0F;
             this.pageBreak1.Name = "pageBreak1";
-            this.pageBreak1.Size = new System.Drawing.SizeF(7.25F, 0.01F);
+            this.pageBreak1.Size = new System.Drawing.SizeF(6.5F, 0.01F);
             this.pageBreak1.Top = 7.573F;
-            this.pageBreak1.Width = 7.25F;
+            this.pageBreak1.Width = 6.5F;
             // 
             // label48
             // 
@@ -928,7 +928,7 @@ namespace RSMPS
     "";
             this.txtEngrHrs.Text = "textBox4";
             this.txtEngrHrs.Top = 2.312F;
-            this.txtEngrHrs.Width = 1F;
+            this.txtEngrHrs.Width = 1.385F;
             // 
             // txtEngrDlrs
             // 
@@ -939,33 +939,33 @@ namespace RSMPS
     "";
             this.txtEngrDlrs.Text = "textBox4";
             this.txtEngrDlrs.Top = 2.562F;
-            this.txtEngrDlrs.Width = 1F;
+            this.txtEngrDlrs.Width = 1.385F;
             // 
             // line33
             // 
-            this.line33.Height = 0F;
+            this.line33.Height = 0.0004999638F;
             this.line33.Left = 2.25F;
             this.line33.LineWeight = 1F;
             this.line33.Name = "line33";
-            this.line33.Top = 2.4995F;
-            this.line33.Width = 1.125F;
+            this.line33.Top = 2.499F;
+            this.line33.Width = 1.385F;
             this.line33.X1 = 2.25F;
-            this.line33.X2 = 3.375F;
+            this.line33.X2 = 3.635F;
             this.line33.Y1 = 2.4995F;
-            this.line33.Y2 = 2.4995F;
+            this.line33.Y2 = 2.499F;
             // 
             // line34
             // 
-            this.line34.Height = 0F;
+            this.line34.Height = 0.0004999638F;
             this.line34.Left = 2.25F;
             this.line34.LineWeight = 1F;
             this.line34.Name = "line34";
-            this.line34.Top = 2.7495F;
-            this.line34.Width = 1.125F;
+            this.line34.Top = 2.749F;
+            this.line34.Width = 1.385F;
             this.line34.X1 = 2.25F;
-            this.line34.X2 = 3.375F;
+            this.line34.X2 = 3.635F;
             this.line34.Y1 = 2.7495F;
-            this.line34.Y2 = 2.7495F;
+            this.line34.Y2 = 2.749F;
             // 
             // line35
             // 
@@ -1470,6 +1470,54 @@ namespace RSMPS
             this.line10.Y1 = 5.692503F;
             this.line10.Y2 = 5.692503F;
             // 
+            // label24
+            // 
+            this.label24.Height = 0.225F;
+            this.label24.HyperLink = null;
+            this.label24.Left = 0.08050001F;
+            this.label24.Name = "label24";
+            this.label24.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
+            this.label24.Text = "HGA Relationship Manager";
+            this.label24.Top = 5.770502F;
+            this.label24.Width = 2.6875F;
+            // 
+            // label25
+            // 
+            this.label25.Height = 0.225F;
+            this.label25.HyperLink = null;
+            this.label25.Left = 5.455498F;
+            this.label25.Name = "label25";
+            this.label25.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
+            this.label25.Text = "Date:";
+            this.label25.Top = 5.770502F;
+            this.label25.Width = 0.4375F;
+            // 
+            // line11
+            // 
+            this.line11.Height = 0F;
+            this.line11.Left = 2.143F;
+            this.line11.LineWeight = 1F;
+            this.line11.Name = "line11";
+            this.line11.Top = 6.020502F;
+            this.line11.Width = 3.249998F;
+            this.line11.X1 = 2.143F;
+            this.line11.X2 = 5.392998F;
+            this.line11.Y1 = 6.020502F;
+            this.line11.Y2 = 6.020502F;
+            // 
+            // line12
+            // 
+            this.line12.Height = 0F;
+            this.line12.Left = 5.955499F;
+            this.line12.LineWeight = 1F;
+            this.line12.Name = "line12";
+            this.line12.Top = 6.020502F;
+            this.line12.Width = 1.212501F;
+            this.line12.X1 = 5.955499F;
+            this.line12.X2 = 7.168F;
+            this.line12.Y1 = 6.020502F;
+            this.line12.Y2 = 6.020502F;
+            // 
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
@@ -1663,7 +1711,7 @@ namespace RSMPS
             this.txtProjectTitle.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.txtProjectTitle.Text = "textBox7";
             this.txtProjectTitle.Top = 0.47F;
-            this.txtProjectTitle.Width = 2.75F;
+            this.txtProjectTitle.Width = 5.5625F;
             // 
             // txtClient
             // 
@@ -1812,54 +1860,6 @@ namespace RSMPS
             this.Label12.Top = 0.375F;
             this.Label12.Width = 7.25F;
             // 
-            // label24
-            // 
-            this.label24.Height = 0.225F;
-            this.label24.HyperLink = null;
-            this.label24.Left = 0.08050001F;
-            this.label24.Name = "label24";
-            this.label24.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
-            this.label24.Text = "HGA Relationship Manager";
-            this.label24.Top = 5.770502F;
-            this.label24.Width = 2.6875F;
-            // 
-            // label25
-            // 
-            this.label25.Height = 0.225F;
-            this.label25.HyperLink = null;
-            this.label25.Left = 5.455498F;
-            this.label25.Name = "label25";
-            this.label25.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
-            this.label25.Text = "Date:";
-            this.label25.Top = 5.770502F;
-            this.label25.Width = 0.4375F;
-            // 
-            // line11
-            // 
-            this.line11.Height = 0F;
-            this.line11.Left = 2.143F;
-            this.line11.LineWeight = 1F;
-            this.line11.Name = "line11";
-            this.line11.Top = 6.020502F;
-            this.line11.Width = 3.249998F;
-            this.line11.X1 = 2.143F;
-            this.line11.X2 = 5.392998F;
-            this.line11.Y1 = 6.020502F;
-            this.line11.Y2 = 6.020502F;
-            // 
-            // line12
-            // 
-            this.line12.Height = 0F;
-            this.line12.Left = 5.955499F;
-            this.line12.LineWeight = 1F;
-            this.line12.Name = "line12";
-            this.line12.Top = 6.020502F;
-            this.line12.Width = 1.212501F;
-            this.line12.X1 = 5.955499F;
-            this.line12.X2 = 7.168F;
-            this.line12.Y1 = 6.020502F;
-            this.line12.Y2 = 6.020502F;
-            // 
             // rprtPCNMain
             // 
             this.MasterReport = false;
@@ -1925,6 +1925,8 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label25)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label6)).EndInit();
@@ -1946,8 +1948,6 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label24)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label25)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
