@@ -5,9 +5,9 @@ namespace RSMPS
     /// </summary>
     partial class rprtDrawingLogTranAlt1_SubRevs
     {
-        private GrapeCity.ActiveReports.SectionReportModel.PageHeader pageHeader;
-        private GrapeCity.ActiveReports.SectionReportModel.Detail detail;
-        private GrapeCity.ActiveReports.SectionReportModel.PageFooter pageFooter;
+        private DataDynamics.ActiveReports.PageHeader pageHeader;
+        private DataDynamics.ActiveReports.Detail detail;
+        private DataDynamics.ActiveReports.PageFooter pageFooter;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -28,13 +28,13 @@ namespace RSMPS
         private void InitializeComponent()
         {
             System.Resources.ResourceManager resources = new System.Resources.ResourceManager(typeof(rprtDrawingLogTranAlt1_SubRevs));
-            this.pageHeader = new GrapeCity.ActiveReports.SectionReportModel.PageHeader();
-            this.detail = new GrapeCity.ActiveReports.SectionReportModel.Detail();
-            this.txtRevision = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
-            this.txtIssueDate = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
-            this.txtIssueFor = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
-            this.txtTransNumber = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
-            this.pageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
+            this.pageHeader = new DataDynamics.ActiveReports.PageHeader();
+            this.detail = new DataDynamics.ActiveReports.Detail();
+            this.txtRevision = new DataDynamics.ActiveReports.TextBox();
+            this.txtIssueDate = new DataDynamics.ActiveReports.TextBox();
+            this.txtIssueFor = new DataDynamics.ActiveReports.TextBox();
+            this.txtTransNumber = new DataDynamics.ActiveReports.TextBox();
+            this.pageFooter = new DataDynamics.ActiveReports.PageFooter();
             ((System.ComponentModel.ISupportInitialize)(this.txtRevision)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIssueDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIssueFor)).BeginInit();
@@ -49,7 +49,7 @@ namespace RSMPS
             // detail
             // 
             this.detail.ColumnSpacing = 0F;
-            this.detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
+            this.detail.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
             this.txtRevision,
             this.txtIssueDate,
             this.txtIssueFor,
@@ -136,9 +136,9 @@ namespace RSMPS
         }
         #endregion
 
-        private GrapeCity.ActiveReports.SectionReportModel.TextBox txtRevision;
-        private GrapeCity.ActiveReports.SectionReportModel.TextBox txtIssueDate;
-        private GrapeCity.ActiveReports.SectionReportModel.TextBox txtIssueFor;
-        private GrapeCity.ActiveReports.SectionReportModel.TextBox txtTransNumber;
+        private DataDynamics.ActiveReports.TextBox txtRevision;
+        private DataDynamics.ActiveReports.TextBox txtIssueDate;
+        private DataDynamics.ActiveReports.TextBox txtIssueFor;
+        private DataDynamics.ActiveReports.TextBox txtTransNumber;
     }
 }

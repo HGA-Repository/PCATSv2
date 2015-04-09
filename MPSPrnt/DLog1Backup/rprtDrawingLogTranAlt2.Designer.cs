@@ -5,9 +5,9 @@ namespace RSMPS
     /// </summary>
     partial class rprtDrawingLogTranAlt2
     {
-        private GrapeCity.ActiveReports.SectionReportModel.PageHeader pageHeader;
-        private GrapeCity.ActiveReports.SectionReportModel.Detail detail;
-        private GrapeCity.ActiveReports.SectionReportModel.PageFooter pageFooter;
+
+
+
 
         /// <summary>
         /// Clean up any resources being used.
@@ -47,16 +47,15 @@ namespace RSMPS
             this.txtIssueDate = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.txtRevision = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.pageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
-            this.reportInfo1 = new GrapeCity.ActiveReports.SectionReportModel.ReportInfo();
             this.groupHeader1 = new GrapeCity.ActiveReports.SectionReportModel.GroupHeader();
             this.shape1 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
-            this.Picture1 = new GrapeCity.ActiveReports.SectionReportModel.Picture();
             this.lblTitle = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.textBox1 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox2 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox3 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox4 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox5 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.reportInfo1 = new GrapeCity.ActiveReports.SectionReportModel.ReportInfo();
             this.reportInfo2 = new GrapeCity.ActiveReports.SectionReportModel.ReportInfo();
             this.label4 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.label9 = new GrapeCity.ActiveReports.SectionReportModel.Label();
@@ -69,7 +68,10 @@ namespace RSMPS
             this.line9 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.line10 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.label6 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.picture2 = new GrapeCity.ActiveReports.SectionReportModel.Picture();
             this.groupFooter1 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
+            this.groupHeader2 = new GrapeCity.ActiveReports.SectionReportModel.GroupHeader();
+            this.groupFooter2 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
             ((System.ComponentModel.ISupportInitialize)(this.DrwgSpec)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDrawTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDrawingID)).BeginInit();
@@ -77,14 +79,13 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.txtIssueFor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIssueDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRevision)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reportInfo1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Picture1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportInfo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportInfo2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label9)).BeginInit();
@@ -92,16 +93,17 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // pageHeader
             // 
             this.pageHeader.Height = 0F;
             this.pageHeader.Name = "pageHeader";
+            this.pageHeader.Visible = false;
             // 
             // detail
             // 
-            this.detail.ColumnSpacing = 0F;
             this.detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.subReport1,
             this.line5,
@@ -119,7 +121,7 @@ namespace RSMPS
             this.txtIssueFor,
             this.txtIssueDate,
             this.txtRevision});
-            this.detail.Height = 0.5F;
+            this.detail.Height = 0.5104166F;
             this.detail.KeepTogether = true;
             this.detail.Name = "detail";
             this.detail.Format += new System.EventHandler(this.detail_Format);
@@ -133,7 +135,7 @@ namespace RSMPS
             this.subReport1.Report = null;
             this.subReport1.ReportName = "subReport1";
             this.subReport1.Top = 0.0625F;
-            this.subReport1.Width = 4.75F;
+            this.subReport1.Width = 4.682F;
             // 
             // line5
             // 
@@ -191,7 +193,7 @@ namespace RSMPS
             // txtDrawTitle
             // 
             this.txtDrawTitle.DataField = "Title1";
-            this.txtDrawTitle.Height = 0.375F;
+            this.txtDrawTitle.Height = 0.3125F;
             this.txtDrawTitle.Left = 2.0625F;
             this.txtDrawTitle.Name = "txtDrawTitle";
             this.txtDrawTitle.Style = "font-size: 8pt";
@@ -322,38 +324,25 @@ namespace RSMPS
             // 
             this.txtRevision.DataField = "RevisionNumber";
             this.txtRevision.Height = 0.1875F;
-            this.txtRevision.Left = 5.6875F;
+            this.txtRevision.Left = 5.687F;
             this.txtRevision.Name = "txtRevision";
             this.txtRevision.Style = "font-size: 8pt; text-align: center";
             this.txtRevision.Text = "textBox6";
-            this.txtRevision.Top = 0.063F;
+            this.txtRevision.Top = 0.06200001F;
             this.txtRevision.Visible = false;
             this.txtRevision.Width = 0.625F;
             // 
             // pageFooter
             // 
-            this.pageFooter.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
-            this.reportInfo1});
-            this.pageFooter.Height = 0.25F;
+            this.pageFooter.Height = 0F;
             this.pageFooter.Name = "pageFooter";
-            // 
-            // reportInfo1
-            // 
-            this.reportInfo1.FormatString = "Page {PageNumber} of {PageCount}";
-            this.reportInfo1.Height = 0.1875F;
-            this.reportInfo1.Left = 4.5F;
-            this.reportInfo1.Name = "reportInfo1";
-            this.reportInfo1.Style = "font-size: 8.25pt; font-weight: normal; text-align: center; ddo-char-set: 0";
-            this.reportInfo1.SummaryGroup = "groupHeader1";
-            this.reportInfo1.SummaryRunning = GrapeCity.ActiveReports.SectionReportModel.SummaryRunning.Group;
-            this.reportInfo1.Top = 0F;
-            this.reportInfo1.Width = 2F;
+            this.pageFooter.Visible = false;
             // 
             // groupHeader1
             // 
+            this.groupHeader1.CanShrink = true;
             this.groupHeader1.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.shape1,
-            this.Picture1,
             this.lblTitle,
             this.textBox1,
             this.textBox2,
@@ -371,11 +360,13 @@ namespace RSMPS
             this.line8,
             this.line9,
             this.line10,
-            this.label6});
+            this.label6,
+            this.picture2,
+            this.reportInfo1});
             this.groupHeader1.DataField = "Department";
-            this.groupHeader1.GroupKeepTogether = GrapeCity.ActiveReports.SectionReportModel.GroupKeepTogether.All;
-            this.groupHeader1.Height = 1.9F;
+            this.groupHeader1.Height = 2F;
             this.groupHeader1.Name = "groupHeader1";
+            this.groupHeader1.NewPage = GrapeCity.ActiveReports.SectionReportModel.NewPage.BeforeAfter;
             this.groupHeader1.RepeatStyle = GrapeCity.ActiveReports.SectionReportModel.RepeatStyle.OnPage;
             // 
             // shape1
@@ -385,97 +376,97 @@ namespace RSMPS
             this.shape1.Left = 0F;
             this.shape1.Name = "shape1";
             this.shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
-            this.shape1.Top = 1.22F;
+            this.shape1.Top = 1.375F;
             this.shape1.Width = 10.375F;
-            // 
-            // Picture1
-            // 
-            this.Picture1.Height = 0.68F;
-            this.Picture1.HyperLink = null;
-            this.Picture1.ImageData = ((System.IO.Stream)(resources.GetObject("Picture1.ImageData")));
-            this.Picture1.Left = 9.166F;
-            this.Picture1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Picture1.Name = "Picture1";
-            this.Picture1.SizeMode = GrapeCity.ActiveReports.SectionReportModel.SizeModes.Zoom;
-            this.Picture1.Top = 0F;
-            this.Picture1.Width = 1.248F;
             // 
             // lblTitle
             // 
-            this.lblTitle.Height = 0.2F;
+            this.lblTitle.Height = 0.3125F;
             this.lblTitle.HyperLink = null;
-            this.lblTitle.Left = 0F;
+            this.lblTitle.Left = 4F;
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Style = "font-size: 12pt; font-weight: bold; text-align: left; ddo-char-set: 0";
-            this.lblTitle.Text = "Drawing / Spec Log";
-            this.lblTitle.Top = 0F;
-            this.lblTitle.Width = 4F;
+            this.lblTitle.Style = "font-size: 14.25pt; font-weight: bold; text-align: center; ddo-char-set: 0";
+            this.lblTitle.Text = "DRAWING/SPEC LOG";
+            this.lblTitle.Top = 0.25F;
+            this.lblTitle.Width = 2.5F;
             // 
             // textBox1
             // 
             this.textBox1.DataField = "Company";
-            this.textBox1.Height = 0.2F;
+            this.textBox1.Height = 0.25F;
             this.textBox1.Left = 0F;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Style = "font-size: 9.75pt; font-weight: normal; ddo-char-set: 0";
+            this.textBox1.Style = "font-size: 10pt; font-weight: bold; ddo-char-set: 1";
             this.textBox1.Text = "textBox1";
-            this.textBox1.Top = 0.2F;
-            this.textBox1.Width = 4F;
+            this.textBox1.Top = 0F;
+            this.textBox1.Width = 2.375F;
             // 
             // textBox2
             // 
             this.textBox2.DataField = "CityStateZip";
-            this.textBox2.Height = 0.2F;
+            this.textBox2.Height = 0.25F;
             this.textBox2.Left = 0F;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Style = "font-size: 9.75pt; font-weight: normal; ddo-char-set: 0";
+            this.textBox2.Style = "font-size: 10pt; font-weight: bold; ddo-char-set: 1";
             this.textBox2.Text = "textBox1";
-            this.textBox2.Top = 0.4F;
-            this.textBox2.Width = 4F;
+            this.textBox2.Top = 0.25F;
+            this.textBox2.Width = 2.375F;
             // 
             // textBox3
             // 
             this.textBox3.DataField = "Project";
-            this.textBox3.Height = 0.2F;
+            this.textBox3.Height = 0.25F;
             this.textBox3.Left = 0F;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Style = "font-size: 9.75pt; font-weight: normal; text-align: left; ddo-char-set: 0";
+            this.textBox3.Style = "font-size: 10pt; font-weight: bold; text-align: left; ddo-char-set: 1";
             this.textBox3.Text = "textBox1";
-            this.textBox3.Top = 0.6F;
-            this.textBox3.Width = 4F;
+            this.textBox3.Top = 0.5F;
+            this.textBox3.Width = 3.5F;
             // 
             // textBox4
             // 
             this.textBox4.DataField = "ProjectNumber";
-            this.textBox4.Height = 0.2F;
+            this.textBox4.Height = 0.25F;
             this.textBox4.Left = 0F;
             this.textBox4.Name = "textBox4";
-            this.textBox4.Style = "font-size: 9.75pt; font-weight: normal; text-align: left; ddo-char-set: 0";
+            this.textBox4.Style = "font-size: 10pt; font-weight: bold; text-align: left; ddo-char-set: 1";
             this.textBox4.Text = "textBox1";
-            this.textBox4.Top = 1F;
-            this.textBox4.Width = 4F;
+            this.textBox4.Top = 0.813F;
+            this.textBox4.Width = 3.5F;
             // 
             // textBox5
             // 
             this.textBox5.DataField = "Department";
-            this.textBox5.Height = 0.2F;
+            this.textBox5.Height = 0.25F;
             this.textBox5.Left = 0F;
             this.textBox5.Name = "textBox5";
-            this.textBox5.Style = "font-size: 9.75pt; font-weight: normal; text-align: left; ddo-char-set: 0";
+            this.textBox5.Style = "font-size: 10pt; font-weight: bold; text-align: left; ddo-char-set: 1";
             this.textBox5.Text = "textBox1";
-            this.textBox5.Top = 0.8F;
-            this.textBox5.Width = 4F;
+            this.textBox5.Top = 1.062F;
+            this.textBox5.Width = 2.5F;
+            // 
+            // reportInfo1
+            // 
+            this.reportInfo1.FormatString = "Page {PageNumber} of {PageCount}";
+            this.reportInfo1.Height = 0.1875F;
+            this.reportInfo1.Left = 8.062F;
+            this.reportInfo1.Name = "reportInfo1";
+            this.reportInfo1.Style = "font-size: 8pt; font-weight: bold; text-align: right; ddo-char-set: 1";
+            this.reportInfo1.SummaryGroup = "groupHeader2";
+            this.reportInfo1.SummaryRunning = GrapeCity.ActiveReports.SectionReportModel.SummaryRunning.All;
+            this.reportInfo1.Top = 0.812F;
+            this.reportInfo1.Width = 2.437F;
             // 
             // reportInfo2
             // 
             this.reportInfo2.FormatString = "{RunDateTime:M/d/yyyy}";
             this.reportInfo2.Height = 0.1979167F;
-            this.reportInfo2.Left = 8.375F;
+            this.reportInfo2.Left = 8.437F;
             this.reportInfo2.Name = "reportInfo2";
-            this.reportInfo2.Style = "font-size: 8.25pt; font-weight: normal; text-align: right; ddo-char-set: 0";
+            this.reportInfo2.Style = "font-size: 8pt; font-weight: bold; text-align: right; ddo-char-set: 1";
             this.reportInfo2.SummaryGroup = "groupHeader1";
             this.reportInfo2.SummaryRunning = GrapeCity.ActiveReports.SectionReportModel.SummaryRunning.Group;
-            this.reportInfo2.Top = 0.955F;
+            this.reportInfo2.Top = 1.125F;
             this.reportInfo2.Width = 2F;
             // 
             // label4
@@ -486,7 +477,7 @@ namespace RSMPS
             this.label4.Name = "label4";
             this.label4.Style = "font-size: 9.75pt; font-weight: bold; ddo-char-set: 0";
             this.label4.Text = "Document #";
-            this.label4.Top = 1.47F;
+            this.label4.Top = 1.625F;
             this.label4.Width = 1F;
             // 
             // label9
@@ -497,7 +488,7 @@ namespace RSMPS
             this.label9.Name = "label9";
             this.label9.Style = "font-size: 9.75pt; font-weight: bold; text-align: center; ddo-char-set: 0";
             this.label9.Text = "Revision No.";
-            this.label9.Top = 1.2825F;
+            this.label9.Top = 1.4375F;
             this.label9.Width = 0.625F;
             // 
             // line1
@@ -506,12 +497,12 @@ namespace RSMPS
             this.line1.Left = 2F;
             this.line1.LineWeight = 1F;
             this.line1.Name = "line1";
-            this.line1.Top = 1.22F;
+            this.line1.Top = 1.375F;
             this.line1.Width = 0F;
             this.line1.X1 = 2F;
             this.line1.X2 = 2F;
-            this.line1.Y1 = 1.22F;
-            this.line1.Y2 = 1.845F;
+            this.line1.Y1 = 1.375F;
+            this.line1.Y2 = 2F;
             // 
             // line2
             // 
@@ -519,12 +510,12 @@ namespace RSMPS
             this.line2.Left = 5.625F;
             this.line2.LineWeight = 1F;
             this.line2.Name = "line2";
-            this.line2.Top = 1.22F;
+            this.line2.Top = 1.375F;
             this.line2.Width = 0F;
             this.line2.X1 = 5.625F;
             this.line2.X2 = 5.625F;
-            this.line2.Y1 = 1.22F;
-            this.line2.Y2 = 1.845F;
+            this.line2.Y1 = 1.375F;
+            this.line2.Y2 = 2F;
             // 
             // label2
             // 
@@ -534,7 +525,7 @@ namespace RSMPS
             this.label2.Name = "label2";
             this.label2.Style = "font-size: 9.75pt; font-weight: bold; ddo-char-set: 0";
             this.label2.Text = "Issue Date";
-            this.label2.Top = 1.2825F;
+            this.label2.Top = 1.4375F;
             this.label2.Width = 0.75F;
             // 
             // label3
@@ -545,7 +536,7 @@ namespace RSMPS
             this.label3.Name = "label3";
             this.label3.Style = "font-size: 9.75pt; font-weight: bold; ddo-char-set: 0";
             this.label3.Text = "Issued For";
-            this.label3.Top = 1.2825F;
+            this.label3.Top = 1.4375F;
             this.label3.Width = 0.75F;
             // 
             // label5
@@ -556,7 +547,7 @@ namespace RSMPS
             this.label5.Name = "label5";
             this.label5.Style = "font-size: 9.75pt; font-weight: bold; text-align: center; ddo-char-set: 0";
             this.label5.Text = "Transmittal No.";
-            this.label5.Top = 1.2825F;
+            this.label5.Top = 1.4375F;
             this.label5.Width = 0.8125F;
             // 
             // line8
@@ -565,12 +556,12 @@ namespace RSMPS
             this.line8.Left = 6.375F;
             this.line8.LineWeight = 1F;
             this.line8.Name = "line8";
-            this.line8.Top = 1.22F;
+            this.line8.Top = 1.375F;
             this.line8.Width = 0F;
             this.line8.X1 = 6.375F;
             this.line8.X2 = 6.375F;
-            this.line8.Y1 = 1.22F;
-            this.line8.Y2 = 1.845F;
+            this.line8.Y1 = 1.375F;
+            this.line8.Y2 = 2F;
             // 
             // line9
             // 
@@ -578,12 +569,12 @@ namespace RSMPS
             this.line9.Left = 7.3125F;
             this.line9.LineWeight = 1F;
             this.line9.Name = "line9";
-            this.line9.Top = 1.22F;
+            this.line9.Top = 1.375F;
             this.line9.Width = 0F;
             this.line9.X1 = 7.3125F;
             this.line9.X2 = 7.3125F;
-            this.line9.Y1 = 1.22F;
-            this.line9.Y2 = 1.845F;
+            this.line9.Y1 = 1.375F;
+            this.line9.Y2 = 2F;
             // 
             // line10
             // 
@@ -591,12 +582,12 @@ namespace RSMPS
             this.line10.Left = 9.4375F;
             this.line10.LineWeight = 1F;
             this.line10.Name = "line10";
-            this.line10.Top = 1.22F;
+            this.line10.Top = 1.375F;
             this.line10.Width = 0F;
             this.line10.X1 = 9.4375F;
             this.line10.X2 = 9.4375F;
-            this.line10.Y1 = 1.22F;
-            this.line10.Y2 = 1.845F;
+            this.line10.Y1 = 1.375F;
+            this.line10.Y2 = 2F;
             // 
             // label6
             // 
@@ -606,14 +597,41 @@ namespace RSMPS
             this.label6.Name = "label6";
             this.label6.Style = "font-size: 9.75pt; font-weight: bold; ddo-char-set: 0";
             this.label6.Text = "Drawing Title";
-            this.label6.Top = 1.47F;
+            this.label6.Top = 1.625F;
             this.label6.Width = 1F;
+            // 
+            // picture2
+            // 
+            this.picture2.Height = 0.68F;
+            this.picture2.HyperLink = null;
+            this.picture2.ImageData = ((System.IO.Stream)(resources.GetObject("picture2.ImageData")));
+            this.picture2.Left = 9.132F;
+            this.picture2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.picture2.Name = "picture2";
+            this.picture2.SizeMode = GrapeCity.ActiveReports.SectionReportModel.SizeModes.Zoom;
+            this.picture2.Top = 0.062F;
+            this.picture2.Width = 1.248F;
             // 
             // groupFooter1
             // 
-            this.groupFooter1.Height = 0.02083333F;
+            this.groupFooter1.Height = 1.490116E-08F;
             this.groupFooter1.Name = "groupFooter1";
             this.groupFooter1.NewPage = GrapeCity.ActiveReports.SectionReportModel.NewPage.After;
+            this.groupFooter1.Visible = false;
+            // 
+            // groupHeader2
+            // 
+            this.groupHeader2.DataField = "Project";
+            this.groupHeader2.Height = 0F;
+            this.groupHeader2.Name = "groupHeader2";
+            this.groupHeader2.NewPage = GrapeCity.ActiveReports.SectionReportModel.NewPage.BeforeAfter;
+            this.groupHeader2.Visible = false;
+            // 
+            // groupFooter2
+            // 
+            this.groupFooter2.Height = 3.72529E-09F;
+            this.groupFooter2.Name = "groupFooter2";
+            this.groupFooter2.Visible = false;
             // 
             // rprtDrawingLogTranAlt2
             // 
@@ -627,10 +645,13 @@ namespace RSMPS
             this.PageSettings.PaperWidth = 8.5F;
             this.PrintWidth = 10.5F;
             this.Sections.Add(this.pageHeader);
+            this.Sections.Add(this.groupHeader2);
             this.Sections.Add(this.groupHeader1);
             this.Sections.Add(this.detail);
             this.Sections.Add(this.groupFooter1);
+            this.Sections.Add(this.groupFooter2);
             this.Sections.Add(this.pageFooter);
+            this.ShowParameterUI = false;
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-family: Arial; font-style: normal; text-decoration: none; font-weight: norma" +
             "l; font-size: 10pt; color: Black", "Normal"));
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-size: 16pt; font-weight: bold", "Heading1", "Normal"));
@@ -644,14 +665,13 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.txtIssueFor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIssueDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRevision)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reportInfo1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Picture1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportInfo1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportInfo2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label9)).EndInit();
@@ -659,22 +679,63 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
         #endregion
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        private GrapeCity.ActiveReports.SectionReportModel.PageHeader pageHeader;
+        private GrapeCity.ActiveReports.SectionReportModel.Detail detail;
+        private GrapeCity.ActiveReports.SectionReportModel.PageFooter pageFooter;
         private GrapeCity.ActiveReports.SectionReportModel.GroupHeader groupHeader1;
         private GrapeCity.ActiveReports.SectionReportModel.GroupFooter groupFooter1;
         private GrapeCity.ActiveReports.SectionReportModel.Shape shape1;
-        private GrapeCity.ActiveReports.SectionReportModel.Picture Picture1;
         private GrapeCity.ActiveReports.SectionReportModel.Label lblTitle;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox1;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox2;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox3;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox4;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox5;
-        private GrapeCity.ActiveReports.SectionReportModel.ReportInfo reportInfo1;
         private GrapeCity.ActiveReports.SectionReportModel.ReportInfo reportInfo2;
         private GrapeCity.ActiveReports.SectionReportModel.Label label4;
         private GrapeCity.ActiveReports.SectionReportModel.Label label9;
@@ -703,5 +764,9 @@ namespace RSMPS
         private GrapeCity.ActiveReports.SectionReportModel.TextBox txtIssueFor;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox txtIssueDate;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox txtRevision;
+        private GrapeCity.ActiveReports.SectionReportModel.Picture picture2;
+        private GrapeCity.ActiveReports.SectionReportModel.GroupHeader groupHeader2;
+        private GrapeCity.ActiveReports.SectionReportModel.GroupFooter groupFooter2;
+        private GrapeCity.ActiveReports.SectionReportModel.ReportInfo reportInfo1;
     }
 }

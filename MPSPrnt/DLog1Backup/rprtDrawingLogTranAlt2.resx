@@ -120,7 +120,10 @@
   <data name="txtIssueDate.OutputFormat" xml:space="preserve">
     <value>M/d/yy</value>
   </data>
-  <data name="Picture1.ImageData" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="txtIssueDate.OutputFormat" xml:space="preserve">
+    <value>M/d/yy</value>
+  </data>
+  <data name="picture2.ImageData" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAEttc2NvcmxpYiwgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5l
         dXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAABZTeXN0ZW0uSU8uTWVtb3J5

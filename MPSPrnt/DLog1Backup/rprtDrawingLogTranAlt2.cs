@@ -81,8 +81,8 @@ namespace RSMPS
             {
                 rprtDrawingLogTranAlt1_SubRevs r = new rprtDrawingLogTranAlt1_SubRevs();
                 System.Data.DataView dv = new System.Data.DataView(((dsDrawingLog)this.DataSource).Tables["Revisions"]);
-
-                //SSS 12022013 Causing Error dv.RowFilter = "DrawingID = " + txtDrawingID.Text;
+                //dv.RowFilter = "DrawingID = " + txtDrawingID.Text;
+                //dv.RowFilter = Convert.ToInt32(txtDrawingID.Text);
                 dv.Sort = "IssuedDate DESC";
 
                 r.DataSource = dv;

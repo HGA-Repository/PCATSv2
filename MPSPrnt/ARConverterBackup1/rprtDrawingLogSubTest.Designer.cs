@@ -1,13 +1,13 @@
 namespace RSMPS
 {
     /// <summary>
-    /// Summary description for rprtDrawingLogTranAlt1_SubRevs2.
+    /// Summary description for rprtDrawingLogSubTest.
     /// </summary>
-    partial class rprtDrawingLogTranAlt1_SubRevs2
+    partial class rprtDrawingLogSubTest
     {
-        private GrapeCity.ActiveReports.SectionReportModel.PageHeader pageHeader;
-        private GrapeCity.ActiveReports.SectionReportModel.Detail detail;
-        private GrapeCity.ActiveReports.SectionReportModel.PageFooter pageFooter;
+        private DataDynamics.ActiveReports.PageHeader pageHeader;
+        private DataDynamics.ActiveReports.Detail detail;
+        private DataDynamics.ActiveReports.PageFooter pageFooter;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -27,13 +27,11 @@ namespace RSMPS
         /// </summary>
         private void InitializeComponent()
         {
-            System.Resources.ResourceManager resources = new System.Resources.ResourceManager(typeof(rprtDrawingLogTranAlt1_SubRevs2));
-            this.pageHeader = new GrapeCity.ActiveReports.SectionReportModel.PageHeader();
-            this.detail = new GrapeCity.ActiveReports.SectionReportModel.Detail();
-            this.label1 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.textBox1 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
-            this.pageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
-            ((System.ComponentModel.ISupportInitialize)(this.label1)).BeginInit();
+            System.Resources.ResourceManager resources = new System.Resources.ResourceManager(typeof(rprtDrawingLogSubTest));
+            this.pageHeader = new DataDynamics.ActiveReports.PageHeader();
+            this.detail = new DataDynamics.ActiveReports.Detail();
+            this.pageFooter = new DataDynamics.ActiveReports.PageFooter();
+            this.textBox1 = new DataDynamics.ActiveReports.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -45,45 +43,32 @@ namespace RSMPS
             // detail
             // 
             this.detail.ColumnSpacing = 0F;
-            this.detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
-            this.label1,
+            this.detail.Controls.AddRange(new DataDynamics.ActiveReports.ARControl[] {
             this.textBox1});
-            this.detail.Height = 0.2708333F;
+            this.detail.Height = 0.2916666F;
             this.detail.Name = "detail";
-            this.detail.Format += new System.EventHandler(this.detail_Format);
-            // 
-            // label1
-            // 
-            this.label1.Height = 0.2F;
-            this.label1.HyperLink = null;
-            this.label1.Left = 0F;
-            this.label1.Name = "label1";
-            this.label1.Style = "";
-            this.label1.Text = "Trying";
-            this.label1.Top = 0F;
-            this.label1.Width = 1F;
-            // 
-            // textBox1
-            // 
-            this.textBox1.DataField = "DrawingID";
-            this.textBox1.Height = 0.2F;
-            this.textBox1.Left = 1.167F;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Text = "textBox1";
-            this.textBox1.Top = 0F;
-            this.textBox1.Width = 1F;
             // 
             // pageFooter
             // 
             this.pageFooter.Height = 0F;
             this.pageFooter.Name = "pageFooter";
             // 
-            // rprtDrawingLogTranAlt1_SubRevs2
+            // textBox1
+            // 
+            this.textBox1.DataField = "RevisionNumber";
+            this.textBox1.Height = 0.2F;
+            this.textBox1.Left = 0F;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Text = "textBox1";
+            this.textBox1.Top = 0F;
+            this.textBox1.Width = 1F;
+            // 
+            // rprtDrawingLogSubTest
             // 
             this.MasterReport = false;
             this.PageSettings.PaperHeight = 11F;
             this.PageSettings.PaperWidth = 8.5F;
-            this.PrintWidth = 2.510417F;
+            this.PrintWidth = 2.28125F;
             this.Sections.Add(this.pageHeader);
             this.Sections.Add(this.detail);
             this.Sections.Add(this.pageFooter);
@@ -93,14 +78,12 @@ namespace RSMPS
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-family: Times New Roman; font-size: 14pt; font-weight: bold; font-style: ita" +
                         "lic", "Heading2", "Normal"));
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-size: 13pt; font-weight: bold", "Heading3", "Normal"));
-            ((System.ComponentModel.ISupportInitialize)(this.label1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
         #endregion
 
-        private GrapeCity.ActiveReports.SectionReportModel.Label label1;
-        private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox1;
+        private DataDynamics.ActiveReports.TextBox textBox1;
     }
 }
