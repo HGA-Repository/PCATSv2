@@ -75,10 +75,13 @@ namespace RSMPS
                 ul.UserID = uID;
                 ul.DepartmentID = Convert.ToInt32(dr["DeptID"]);
 
-                if (Convert.ToBoolean(dr["IsModerator"]) == true)
-                    ul.SecurityLevelID = 2;
-                else
-                    ul.SecurityLevelID = 3;
+                if (Convert.ToBoolean(dr["IsModerator"]) == true) ul.SecurityLevelID = 2;
+                else if (Convert.ToBoolean(dr["IsViewOnly"]) == true) ul.SecurityLevelID = 3;
+                else if (Convert.ToBoolean(dr["ModeratorJS"]) == true) ul.SecurityLevelIDJS = 4;
+                else if (Convert.ToBoolean(dr["ViewOnlyJS"]) == true) ul.SecurityLevelIDJS = 5;
+                else if (Convert.ToBoolean(dr["ModeratorDRW"]) == true) ul.SecurityLevelIDDRW = 6;
+                else if (Convert.ToBoolean(dr["ViewOnlyDRW"]) == true) ul.SecurityLevelIDDRW = 7;
+                    
 
                 ul.Save();
             }
@@ -138,14 +141,34 @@ namespace RSMPS
 
             switch (newVal)
             {
-                case "Moderator":
+                case "Mod MP":
                     {
                         dr["IsViewOnly"] = false;
                         break;
                     }
-                case "View Only":
+                case "VO MP":
                     {
                         dr["IsModerator"] = false;
+                        break;
+                    }
+                case "Mod JS":
+                    {
+                        dr["ViewOnlyJS"] = false;
+                        break;
+                    }
+                case "VO JS":
+                    {
+                        dr["ModeratorJS"] = false;
+                        break;
+                    }
+                case "Mod DRW":
+                    {
+                        dr["ViewOnlyDRW"] = false;
+                        break;
+                    }
+                case "VO DRW":
+                    {
+                        dr["ModeratorDRW"] = false;
                         break;
                     }
                 default:
@@ -164,6 +187,10 @@ namespace RSMPS
                     {
                         dr["IsModerator"] = true;
                         dr["IsViewOnly"] = false;
+                        dr["ModeratorJS"] = true;
+                        dr["ViewOnlyJS"] = false;
+                        dr["ModeratorDRW"] = true;
+                        dr["ViewOnlyDRW"] = false;
                     }
                 }
 
@@ -192,6 +219,10 @@ namespace RSMPS
                     {
                         dr["IsModerator"] = true;
                         dr["IsViewOnly"] = false;
+                        dr["ModeratorJS"] = true;
+                        dr["ViewOnlyJS"] = false;
+                        dr["ModeratorDRW"] = true;
+                        dr["ViewOnlyDRW"] = false;
                     }
                 }
 
@@ -212,17 +243,6 @@ namespace RSMPS
         {
             if (chkManager.Checked == true)
             {
-                //if (mdsDepts != null)
-                //{
-                //    // make admin in all departments
-                //    foreach (DataRow dr in mdsDepts.Tables[0].Rows)
-                //    {
-                //        dr["IsModerator"] = true;
-                //        dr["IsViewOnly"] = false;
-                //    }
-                //}
-                //2/13/14 - Changing code so that click Manager doesn't lock down depts screen.
-
                 chkEngineerAdmin.Checked = false;
                 chkEngineerAdmin.Enabled = false;
                 chkAdministrator.Checked = false;

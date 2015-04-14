@@ -3,18 +3,15 @@ using System.Drawing;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using GrapeCity.ActiveReports;
-using GrapeCity.ActiveReports.Controls;
-using GrapeCity.ActiveReports.SectionReportModel;
-using GrapeCity.ActiveReports.Document.Section;
-using GrapeCity.ActiveReports.Document;
+using DataDynamics.ActiveReports;
+using DataDynamics.ActiveReports.Document;
 
 namespace RSMPS
 {
     /// <summary>
     /// Summary description for rprtDrawingLogTranAlt2.
     /// </summary>
-    public partial class rprtDrawingLogTranAlt2 : GrapeCity.ActiveReports.SectionReport
+    public partial class rprtDrawingLogTranAlt2 : DataDynamics.ActiveReports.ActiveReport
     {
         private bool mbIsCustomer = false;
 
@@ -81,8 +78,7 @@ namespace RSMPS
             {
                 rprtDrawingLogTranAlt1_SubRevs r = new rprtDrawingLogTranAlt1_SubRevs();
                 System.Data.DataView dv = new System.Data.DataView(((dsDrawingLog)this.DataSource).Tables["Revisions"]);
-                //dv.RowFilter = "DrawingID = " + txtDrawingID.Text;
-                //dv.RowFilter = Convert.ToInt32(txtDrawingID.Text);
+                dv.RowFilter = "DrawingID = " + txtDrawingID.Text;
                 dv.Sort = "IssuedDate DESC";
 
                 r.DataSource = dv;

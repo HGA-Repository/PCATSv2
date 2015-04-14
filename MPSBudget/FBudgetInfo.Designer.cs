@@ -33,6 +33,7 @@ namespace RSMPS
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtContingency = new System.Windows.Forms.TextBox();
+
             this.label3 = new System.Windows.Forms.Label();
             this.bttOK = new System.Windows.Forms.Button();
             this.bttCancel = new System.Windows.Forms.Button();
