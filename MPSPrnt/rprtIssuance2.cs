@@ -4,11 +4,12 @@ using GrapeCity.ActiveReports.Controls;
 using GrapeCity.ActiveReports.SectionReportModel;
 using GrapeCity.ActiveReports.Document.Section;
 using GrapeCity.ActiveReports.Document;
+using GrapeCity.ActiveReports;
 
 namespace RSMPS
 {
     public class rprtIssuance2 : GrapeCity.ActiveReports.SectionReport
-	{
+    {
         public rprtIssuance2()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace RSMPS
             srDocs.Report = rdoc;
         }
 
-		#region ActiveReports Designer generated code
+        #region ActiveReports Designer generated code
 
 
 
@@ -1468,7 +1469,7 @@ namespace RSMPS
             this.Shape.Left = 3.625F;
             this.Shape.LineStyle = GrapeCity.ActiveReports.SectionReportModel.LineStyle.Transparent;
             this.Shape.Name = "Shape";
-            this.Shape.RoundingRadius = 9.999999F;
+            this.Shape.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape.Top = 0.5625F;
             this.Shape.Width = 0.6875F;
             // 
@@ -1504,7 +1505,7 @@ namespace RSMPS
             this.Shape1.Height = 0.25F;
             this.Shape1.Left = 0F;
             this.Shape1.Name = "Shape1";
-            this.Shape1.RoundingRadius = 9.999999F;
+            this.Shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape1.Top = 0F;
             this.Shape1.Width = 7.5F;
             // 
@@ -1692,7 +1693,7 @@ namespace RSMPS
             this.Detail.Format += new System.EventHandler(this.Detail_Format);
         }
 
-		#endregion
+        #endregion
 
         public GrapeCity.ActiveReports.Data.SqlDBDataSource ds;
         private PageHeader PageHeader;
@@ -1766,5 +1767,5 @@ namespace RSMPS
         private Line Line9;
         private Line Line10;
         private PageFooter PageFooter;
-	}
+    }
 }

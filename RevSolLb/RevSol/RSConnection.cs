@@ -9,6 +9,9 @@ namespace RevSol
 		private bool mbCnnOpened;
 		private SqlConnection mCnn;
 		private RSDataServer mDbSet;
+        private string dbUser = "RSMPUser";
+        private string dbPass = "RSMPPass";
+
 		public string ConnectionString
 		{
 			get
@@ -35,9 +38,9 @@ namespace RevSol
 			this.mConnStr = string.Concat(new string[]
 			{
 				"uid=",
-				this.mDbSet.Username,
+				 dbUser, //this.mDbSet.Username,
 				";pwd=",
-				this.mDbSet.Password,
+				 dbPass, //this.mDbSet.Password,
 				";Data Source=",
 				this.mDbSet.DBServer,
 				";Initial Catalog=",
@@ -64,9 +67,9 @@ namespace RevSol
 			this.mConnStr = string.Concat(new string[]
 			{
 				"uid=",
-				this.mDbSet.Username,
+				 dbUser, //this.mDbSet.Username,
 				";pwd=",
-				this.mDbSet.Password,
+				 dbPass, //this.mDbSet.Password,
 				";Data Source=",
 				this.mDbSet.DBServer,
 				";Initial Catalog=",
@@ -96,9 +99,9 @@ namespace RevSol
 			this.mConnStr = string.Concat(new string[]
 			{
 				"uid=",
-				this.mDbSet.Username,
+				 dbUser, //this.mDbSet.Username,
 				";pwd=",
-				this.mDbSet.Password,
+				 dbPass, //this.mDbSet.Password,
 				";Data Source=",
 				this.mDbSet.DBServer,
 				";Initial Catalog=",
@@ -128,9 +131,9 @@ namespace RevSol
 			this.mConnStr = string.Concat(new string[]
 			{
 				"uid=",
-				this.mDbSet.Username,
+				 dbUser, //this.mDbSet.Username,
 				";pwd=",
-				this.mDbSet.Password,
+				 dbPass, //this.mDbSet.Password,
 				";Data Source=",
 				this.mDbSet.DBServer,
 				";Initial Catalog=",
@@ -141,14 +144,14 @@ namespace RevSol
 		public void OpenConnection()
 		{
 			this.CloseConnection();
-			this.mCnn = new SqlConnection(this.mConnStr);
+            this.mCnn = new SqlConnection(this.mConnStr);
 			this.mCnn.Open();
 			this.mbCnnOpened = true;
 		}
 		public void OpenConnection(int altTimeout)
 		{
 			this.CloseConnection();
-			this.mCnn = new SqlConnection(this.mConnStr);
+            this.mCnn = new SqlConnection(this.mConnStr);
 			this.mCnn.Open();
 			this.mbCnnOpened = true;
 		}

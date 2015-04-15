@@ -8,13 +8,13 @@ using GrapeCity.ActiveReports.Document;
 namespace RSMPS
 {
     public class rprtIssuance4 : GrapeCity.ActiveReports.SectionReport
-	{
+    {
         public rprtIssuance4()
         {
             InitializeComponent();
         }
 
-		#region ActiveReports Designer generated code
+        #region ActiveReports Designer generated code
 
 
 
@@ -108,7 +108,7 @@ namespace RSMPS
             this.Shape.Height = 0.25F;
             this.Shape.Left = 0F;
             this.Shape.Name = "Shape";
-            this.Shape.RoundingRadius = 9.999999F;
+            this.Shape.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape.Top = 0F;
             this.Shape.Width = 7.5F;
             // 
@@ -412,7 +412,7 @@ namespace RSMPS
             this.ds = ((GrapeCity.ActiveReports.Data.SqlDBDataSource)(this.DataSource));
         }
 
-		#endregion
+        #endregion
 
         public GrapeCity.ActiveReports.Data.SqlDBDataSource ds;
         private PageHeader PageHeader;
@@ -432,5 +432,5 @@ namespace RSMPS
         private TextBox txtDateReleased;
         private Line Line6;
         private PageFooter PageFooter;
-	}
+    }
 }

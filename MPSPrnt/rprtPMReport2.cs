@@ -11,7 +11,7 @@ using GrapeCity.ActiveReports.Document;
 namespace RSMPS
 {
     public class rprtPMReport2 : GrapeCity.ActiveReports.SectionReport
-	{
+    {
         private string msAct;
         private string msSchedule;
         private string msStaffing;
@@ -88,7 +88,7 @@ namespace RSMPS
                 Label19.Visible = true;
                 Shape1.Visible = true;
             }
-  
+
             rprtPMReportSch rsch = new rprtPMReportSch();
             DataSet dssch = CBProjectBudget.GetSchByProject(Convert.ToInt32(TextBox27.Text), Convert.ToInt32(TextBox28.Text));
 
@@ -112,7 +112,7 @@ namespace RSMPS
                 Label30.Visible = true;
                 Shape2.Visible = true;
             }
-       
+
             // get cost summary
             LoadForecast(TextBox26.Text);
 
@@ -408,7 +408,7 @@ namespace RSMPS
         }
         private void groupFooter2_Format(object sender, System.EventArgs eArgs)
         {
-            
+
         }
 
         private void GroupHeader1_Format(object sender, System.EventArgs eArgs)
@@ -419,7 +419,7 @@ namespace RSMPS
                 GroupHeader1.NewPage = NewPage.Before;
         }
 
-		#region ActiveReports Designer generated code
+        #region ActiveReports Designer generated code
 
 
 
@@ -751,7 +751,7 @@ namespace RSMPS
             this.Shape.Height = 1.5625F;
             this.Shape.Left = 0.5F;
             this.Shape.Name = "Shape";
-            this.Shape.RoundingRadius = 9.999999F;
+            this.Shape.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape.Top = 0.375F;
             this.Shape.Width = 6.625F;
             // 
@@ -1704,7 +1704,7 @@ namespace RSMPS
             this.Shape1.Height = 0.25F;
             this.Shape1.Left = 0.5F;
             this.Shape1.Name = "Shape1";
-            this.Shape1.RoundingRadius = 9.999999F;
+            this.Shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape1.Top = 0.25F;
             this.Shape1.Width = 6.063001F;
             // 
@@ -1791,7 +1791,7 @@ namespace RSMPS
             this.Shape2.Height = 0.2F;
             this.Shape2.Left = 0.5F;
             this.Shape2.Name = "Shape2";
-            this.Shape2.RoundingRadius = 9.999999F;
+            this.Shape2.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape2.Top = 0.2299999F;
             this.Shape2.Width = 6.063001F;
             // 
@@ -1978,7 +1978,7 @@ namespace RSMPS
 
         }
 
-		#endregion
+        #endregion
 
         public GrapeCity.ActiveReports.Data.SqlDBDataSource ds;
         private PageHeader PageHeader;
@@ -2048,5 +2048,5 @@ namespace RSMPS
         private RichTextBox rtbActivities;
         private RichTextBox rtbStaffing;
         private PageFooter PageFooter;
-	}
+    }
 }

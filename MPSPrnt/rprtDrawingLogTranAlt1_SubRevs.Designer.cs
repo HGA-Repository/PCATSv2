@@ -5,9 +5,9 @@ namespace RSMPS
     /// </summary>
     partial class rprtDrawingLogTranAlt1_SubRevs
     {
-
-
-
+        private GrapeCity.ActiveReports.SectionReportModel.PageHeader pageHeader;
+        private GrapeCity.ActiveReports.SectionReportModel.Detail detail;
+        private GrapeCity.ActiveReports.SectionReportModel.PageFooter pageFooter;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -136,13 +136,6 @@ namespace RSMPS
         }
         #endregion
 
-
-
-
-
-        private GrapeCity.ActiveReports.SectionReportModel.PageHeader pageHeader;
-        private GrapeCity.ActiveReports.SectionReportModel.Detail detail;
-        private GrapeCity.ActiveReports.SectionReportModel.PageFooter pageFooter;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox txtRevision;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox txtIssueDate;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox txtIssueFor;

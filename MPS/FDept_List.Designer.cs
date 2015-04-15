@@ -44,10 +44,12 @@ namespace RSMPS
             // bttNew
             // 
             this.bttNew.Location = new System.Drawing.Point(464, 48);
+            this.bttNew.Visible = false;
             // 
             // bttDelete
             // 
             this.bttDelete.Location = new System.Drawing.Point(464, 84);
+            this.bttDelete.Visible = false;
             // 
             // bttClose
             // 

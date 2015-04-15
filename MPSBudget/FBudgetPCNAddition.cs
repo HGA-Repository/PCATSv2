@@ -17,7 +17,7 @@ namespace RSMPS
         private CBBudgetPCN moPCN;
         private dsAccts mdsAccnts;
         private dsAccts mdsExpensAccts;
-
+       
         public event RevSol.ItemValueChangedHandler OnPCNChanged;
 
         public void StartNewPCN(int projID)
@@ -31,12 +31,41 @@ namespace RSMPS
 
             lblProjectNumber.Text = moProj.Number;
             lblProjectTitle.Text = moProj.Description;
+            txtPCNNumber.Text = moPCN.PCNNumber;
 
             this.Text = "PCN: Job-" + moProj.Number + " PCN-" + moPCN.PCNNumber;
 
             SetPCNSecurityLevel();
         }
+        public void CopyPCN(int projID, int pcnID)
+        {
+            ClearForm();
 
+            moProj = new CBProject();
+            moBudg = new CBBudget();
+
+            moPCN.LoadWithCopyData(pcnID);
+          
+            moProj.Load(moPCN.ProjectID);
+            moBudg.LoadByProject(moProj.ID);
+
+            LoadFromPCN();
+
+            this.Text = "PCN: Job-" + moProj.Number + " PCN-" + moPCN.PCNNumber;
+           
+            moProj.Load(projID);
+            moPCN.PCNNumber = moPCN.GetNextPCNNumber(projID);
+            moPCN.ProjectID = projID;
+
+            lblProjectNumber.Text = moProj.Number;
+            lblProjectTitle.Text = moProj.Description;
+            txtPCNNumber.Text = moPCN.PCNNumber;
+            this.Text = "PCN: Job-" + moProj.Number + " PCN-" + moPCN.PCNNumber;
+
+            SetPCNSecurityLevel();
+            
+            
+        }
         public void EditPreviousPCN(int pcnID)
         {
             ClearForm();
@@ -94,6 +123,7 @@ namespace RSMPS
             chkPrepareControlEstimate.Checked = false;
             txtProjMngr.Text = "";
             lblDateApproved.Text = "";
+            txtPCNNumber.Text  =  "";
 
             tdbgHours.SetDataBinding(moPCN.PCNData, "PCNHours", true);
             tdbgExpenses.SetDataBinding(moPCN.PCNData, "PCNExpenses", true);
@@ -141,7 +171,8 @@ namespace RSMPS
             sec.InitAppSettings();
             u.Load(sec.UserID);
 
-            if (u.IsAdministrator == true || u.IsEngineerAdmin == true || u.IsManager == true)
+            if (u.IsAdministrator == true || u.IsEngineerAdmin == true)
+                //if (u.IsAdministrator == true || u.IsEngineerAdmin == true || u.IsManager == true)
             {
             }
             else
@@ -313,6 +344,16 @@ namespace RSMPS
             moPCN.SaveWithData();
         }
 
+       public void SaveCopyPCN()
+        {
+            tdbgHours.UpdateData();
+            tdbgExpenses.UpdateData();
+
+            LoadScreenToObject();
+
+            moPCN.SaveWithCopyData();
+        }
+
         private void LoadScreenToObject()
         {
             moPCN.PCNTitle = txtPCNTitle.Text;
@@ -339,7 +380,8 @@ namespace RSMPS
             moPCN.IsDisapproved = chkDisapproved.Checked;
             moPCN.PrepareControlEstimate = chkPrepareControlEstimate.Checked;
             moPCN.Comments = rtbComments.Rtf;
-
+            if (moPCN.PCNNumber != null) { moPCN.PCNNumber = txtPCNNumber.Text; }
+            else { moPCN.PCNNumber = moPCN.GetNextPCNNumber(moPCN.ProjectID); }
             moPCN.DateApproved = GetApprovedDate();
         }
 
@@ -593,6 +635,9 @@ namespace RSMPS
             chkApproved.Checked = moPCN.IsApproved;
             chkDisapproved.Checked = moPCN.IsDisapproved;
             chkPrepareControlEstimate.Checked = moPCN.PrepareControlEstimate;
+            if (moPCN.PCNNumber != null) { txtPCNNumber.Text = moPCN.PCNNumber; }
+            else { txtPCNNumber.Text = moPCN.GetNextPCNNumber(moPCN.ProjectID); }
+            
 
             if (moPCN.DateApproved == RevSol.RSUtility.DefaultDate())
                 lblDateApproved.Text = "";
@@ -852,6 +897,11 @@ namespace RSMPS
             {
                 tdbgExpenses.UpdateData();
             }
+        }
+
+        private void txtPCNNumber_TextChanged(object sender, EventArgs e)
+        {
+            SetAllowSave(true);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace RSMPS
     public delegate void ReportFinishedHandler(decimal totBud, decimal totSpent, decimal totRemn, decimal totFtoC, decimal totFore, decimal totOU);
 
     public class rprtExpenses1 : GrapeCity.ActiveReports.SectionReport
-	{
+    {
         private decimal mdTotBud;
         private decimal mdTotSpent;
         private decimal mdTotRemain;
@@ -159,7 +159,7 @@ namespace RSMPS
             mdExpForecast = 0;
         }
 
-		#region ActiveReports Designer generated code
+        #region ActiveReports Designer generated code
 
 
 
@@ -338,7 +338,7 @@ namespace RSMPS
             this.Shape13.Left = 1.125F;
             this.Shape13.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape13.Name = "Shape13";
-            this.Shape13.RoundingRadius = 9.999999F;
+            this.Shape13.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape13.Top = 0F;
             this.Shape13.Width = 0.75F;
             // 
@@ -377,7 +377,7 @@ namespace RSMPS
             this.Shape15.Left = 6.125F;
             this.Shape15.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape15.Name = "Shape15";
-            this.Shape15.RoundingRadius = 9.999999F;
+            this.Shape15.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape15.Top = 0F;
             this.Shape15.Width = 1.4375F;
             // 
@@ -396,7 +396,7 @@ namespace RSMPS
             this.Shape14.Left = 3.25F;
             this.Shape14.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape14.Name = "Shape14";
-            this.Shape14.RoundingRadius = 9.999999F;
+            this.Shape14.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape14.Top = 0F;
             this.Shape14.Width = 2.125F;
             // 
@@ -531,7 +531,7 @@ namespace RSMPS
             this.Shape2.Left = 1.125F;
             this.Shape2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape2.Name = "Shape2";
-            this.Shape2.RoundingRadius = 9.999999F;
+            this.Shape2.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape2.Top = 0F;
             this.Shape2.Width = 0.75F;
             // 
@@ -550,7 +550,7 @@ namespace RSMPS
             this.Shape.Left = 6.125F;
             this.Shape.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape.Name = "Shape";
-            this.Shape.RoundingRadius = 9.999999F;
+            this.Shape.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape.Top = 0F;
             this.Shape.Width = 1.4375F;
             // 
@@ -608,7 +608,7 @@ namespace RSMPS
             this.Shape1.Left = 3.25F;
             this.Shape1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape1.Name = "Shape1";
-            this.Shape1.RoundingRadius = 9.999999F;
+            this.Shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape1.Top = 0F;
             this.Shape1.Width = 2.125F;
             // 
@@ -742,7 +742,7 @@ namespace RSMPS
             this.Shape3.Left = 6.125F;
             this.Shape3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape3.Name = "Shape3";
-            this.Shape3.RoundingRadius = 9.999999F;
+            this.Shape3.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape3.Top = 0.1875F;
             this.Shape3.Width = 1.4375F;
             // 
@@ -854,7 +854,7 @@ namespace RSMPS
             this.ReportStart += new System.EventHandler(this.rprtExpenses1_ReportStart);
         }
 
-		#endregion
+        #endregion
 
         public GrapeCity.ActiveReports.Data.SqlDBDataSource ds;
         private ReportHeader ReportHeader;
@@ -888,5 +888,5 @@ namespace RSMPS
         private TextBox txtTotExpOU;
         private TextBox txtTotExpFTC;
         private TextBox txtTotExpForecast;
-	}
+    }
 }

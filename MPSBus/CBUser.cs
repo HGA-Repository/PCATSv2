@@ -30,9 +30,9 @@ namespace RSMPS
         {
             CDbUser dbDt = new CDbUser();
             string tmpDat;
-
-            tmpDat = dbDt.GetByUserPwrd(user, base.EncryptPassword(pwrd));
-
+            //end user
+             tmpDat = dbDt.GetByUserPwrd(user, base.EncryptPassword(pwrd));
+            
             Clear();
             if (tmpDat.Length > 0)
                 LoadVals(tmpDat);

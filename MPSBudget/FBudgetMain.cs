@@ -65,6 +65,7 @@ namespace RSMPS
         private CBBudget moCurrBudget;
 
 
+
         private Dictionary<string, bool> mbLoaded = new Dictionary<string,bool>();
         private dsBudgetPCN mdsPCNs;
         private dsPCNStatus mdsPCNStatus;
@@ -1279,6 +1280,15 @@ namespace RSMPS
                 budNew.PCNID = bud.PCNID;
                 budNew.Description = bud.Description;
                 budNew.Contingency = bud.Contingency;
+                budNew.Clarification11000 = bud.Clarification11000;
+                budNew.Clarification12000 = bud.Clarification12000;
+                budNew.Clarification13000 = bud.Clarification13000;
+                budNew.Clarification14000 = bud.Clarification14000;
+                budNew.Clarification15000 = bud.Clarification15000;
+                budNew.Clarification16000 = bud.Clarification16000;
+                budNew.Clarification17000 = bud.Clarification17000;
+                budNew.Clarification18000 = bud.Clarification18000;
+                budNew.Clarification50000 = bud.Clarification50000;
                 budNew.PreparedBy = bud.PreparedBy;
                 budNew.IsActive = false;
                 budNew.Save();
@@ -1352,6 +1362,15 @@ namespace RSMPS
             budNew.Revision = CBBudget.GetNextRevision(bud.ProjectID);
             budNew.IsActive = false;
             budNew.Contingency = bud.Contingency;
+            budNew.Clarification11000 = bud.Clarification11000;
+            budNew.Clarification12000 = bud.Clarification12000;
+            budNew.Clarification13000 = bud.Clarification13000;
+            budNew.Clarification14000 = bud.Clarification14000;
+            budNew.Clarification15000 = bud.Clarification15000;
+            budNew.Clarification16000 = bud.Clarification16000;
+            budNew.Clarification17000 = bud.Clarification17000;
+            budNew.Clarification18000 = bud.Clarification18000;
+            budNew.Clarification50000 = bud.Clarification50000;
             budNew.Description = bud.Description;
             budNew.Save();
             newBud = budNew.ID;
@@ -1611,9 +1630,11 @@ namespace RSMPS
                 d["Description"] = dr["Description"];
 
                 mdsPCNStatus.Tables["Statuss"].Rows.Add(d);
+                
             }
 
             tdbdPCNStatus.SetDataBinding(mdsPCNStatus, "Statuss", true);
+          
         }
 
         private void tlbbMakeActive_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
@@ -2166,6 +2187,22 @@ namespace RSMPS
                 pcn.Save();
 
                 CBBudgetPCN.SetCurrentStatus(pcnID, pcn.PCNStatusID);
+                string msg;
+                RevSol.RSListItem li = (RevSol.RSListItem)lstBudgets.SelectedItem;
+
+                msg = "This will make " + li.Description + " the active project\nThis will also enter the information into the JobStat\nDo you wish to continue?";
+
+                if (MessageBox.Show(msg, "Make Project Active", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    CBBudget.MakeBudgetActive(li.ID);
+
+                    SetActiveInList();
+
+                    tlbbMakeActive.Enabled = false;
+                    makeActiveToolStripMenuItem.Enabled = false;
+
+                    MakeProjectActiveInJobStat(li.ID);
+                }
             }
 
             if (e.ColIndex == 2)
@@ -2203,7 +2240,11 @@ namespace RSMPS
                     FBudgetPCNApproval pa = new FBudgetPCNApproval();
 //SSS02192014
                     if (tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Approved" | tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Pending")
-                        pa.IsChangeOnly = false;
+                    {
+                        pa.IsChangeOnly = false; 
+                    
+                    
+                    }
                     else
                         pa.IsChangeOnly = true;
 
@@ -2284,6 +2325,9 @@ namespace RSMPS
             pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNAdded);
         }
 
+
+
+
         void PCNAdded(int itmID, string name)
         {
             CBBudgetPCN pcn = new CBBudgetPCN();
@@ -2308,15 +2352,21 @@ namespace RSMPS
 
         private void bttEditPCN_Click(object sender, EventArgs e)
         {
+         
             FBudgetPCNAddition pcn = new FBudgetPCNAddition();
 
             DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
             int currID = Convert.ToInt32(d["ID"]);
+        //    string stat = tdbgBudgetPCN.Columns["Status"].Value.ToString();
+            //Console.WriteLine("The Status is: " + stat);
+           // if (stat == "Approved" || stat == "Pending" || stat == "Disapprove" || stat == "Prepare Control Estimate" || stat != "Initiated") { bttEditPCN.Enabled = false; }
+            //else {             
+                pcn.OnPCNChanged += new RevSol.ItemValueChangedHandler(PCNChanged);
+                pcn.EditPreviousPCN(currID);
+                pcn.ShowDialog();
+                pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNChanged);
+          //      }
 
-            pcn.OnPCNChanged += new RevSol.ItemValueChangedHandler(PCNChanged);
-            pcn.EditPreviousPCN(currID);
-            pcn.ShowDialog();
-            pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNChanged);
         }
 
         void PCNChanged(int itmID, string name)
@@ -2326,10 +2376,33 @@ namespace RSMPS
             pcn.Load(itmID);
 
             DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
-
+            
             d["Description"] = pcn.PCNTitle;
             d["TotalHrs"] = CBBudgetPCN.TotalHours(itmID);
             d["TotalDlrs"] = CBBudgetPCN.TotalDollars(itmID);
+            if (pcn.PCNNumber != null)
+            { d["PCNNumber"] = pcn.PCNNumber; }
+        
+            
+         }
+        private void bttCopyPCN_Click_1(object sender, EventArgs e)
+        {
+           
+            FBudgetPCNAddition pcn = new FBudgetPCNAddition();
+
+            DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
+            int currID = Convert.ToInt32(d["ID"]);
+
+
+            pcn.OnPCNChanged += new RevSol.ItemValueChangedHandler(PCNAdded);
+            pcn.CopyPCN(moCurrBudget.ProjectID, currID);
+            currID = 0; 
+            pcn.SaveCopyPCN();
+            pcn.ShowDialog();
+            pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNAdded);
+
+          
+
         }
 
         private void AddPCNToCurrentBudget(int pcnID)
@@ -2881,12 +2954,27 @@ namespace RSMPS
 
         private void tdbgBudgetPCN_Click(object sender, EventArgs e)
         {
-            if (tdbgBudgetPCN.Bookmark >= 0) 
-                                {
-                bttEditPCN.Enabled = true;
-                }
 
-        }
+            if (tdbgBudgetPCN.Bookmark >= 0)
+            {
+                bttEditPCN.Enabled = true;
+            }
+      
+         //Causes action to be caried out on the next row. 
+            //string stat = tdbgBudgetPCN.Columns["Status"].Value.ToString();
+            ////Console.WriteLine("The Status is: " + stat);
+            //if (stat == "Approved")
+            //{
+            //   bttEditPCN.Enabled = false;
+               
+            //}
+            //else
+            //{
+            //    bttEditPCN.Enabled = true;
+            //}
+
+            
+  }
 
         private void tlbbSummary_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
@@ -3542,8 +3630,7 @@ namespace RSMPS
                 LoadBudget(group.Code);
             }
 
-            LoadPCNStatus();
-            LoadBudgetPCNs();
+
 
             mdsPCNs = new dsBudgetPCN();
             tdbgBudgetPCN.SetDataBinding(mdsPCNs, "PCNs", true);
@@ -3691,6 +3778,8 @@ namespace RSMPS
             this.ReloadForm = true;
             this.Close();
         }
+
+
 
      
     }

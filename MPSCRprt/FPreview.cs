@@ -119,7 +119,8 @@ namespace RSMPS
             currDate = DateTime.Now.ToShortDateString();
             cnn = new RevSol.RSConnection("CR");
 
-            cmd = new SqlCommand("spRPRT_CostReport_ByDept_Vision", cnn.GetConnection());
+            //cmd = new SqlCommand("spRPRT_CostReport_ByDept_Vision", cnn.GetConnection());
+            cmd = new SqlCommand("spRPRT_CostReport_ByDept", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
             prm = cmd.Parameters.Add("@ProjXml", SqlDbType.Text);
@@ -163,11 +164,6 @@ namespace RSMPS
 
             cnn = new RevSol.RSConnection("CR");
 
-            //if (UseNewCodes(project) == true)
-            //    cmd = new SqlCommand("spRPRT_CostReport_NewAcct2", cnn.GetConnection());
-            //else
-            //    cmd = new SqlCommand("spRPRT_CostReport_OldAcct2", cnn.GetConnection());
-
             cmd = new SqlCommand("spRPRT_CostReport_DetailNew", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -209,11 +205,6 @@ namespace RSMPS
             currDate = DateTime.Now.ToShortDateString();
 
             cnn = new RevSol.RSConnection("CR");
-
-            //if (UseNewCodes(project) == true)
-            //    cmd = new SqlCommand("spRPRT_CostReport_NewAcct2", cnn.GetConnection());
-            //else
-            //    cmd = new SqlCommand("spRPRT_CostReport_OldAcct2", cnn.GetConnection());
 
             cmd = new SqlCommand("spRPRT_CostReport_Detail2", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;

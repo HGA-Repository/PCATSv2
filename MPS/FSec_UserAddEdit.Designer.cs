@@ -93,7 +93,7 @@ namespace RSMPS
             this.txtUsername.Location = new System.Drawing.Point(111, 12);
             this.txtUsername.MaxLength = 50;
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(464, 20);
+            this.txtUsername.Size = new System.Drawing.Size(216, 20);
             this.txtUsername.TabIndex = 1;
             // 
             // txtPassword
@@ -104,7 +104,7 @@ namespace RSMPS
             this.txtPassword.MaxLength = 100;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(464, 20);
+            this.txtPassword.Size = new System.Drawing.Size(216, 20);
             this.txtPassword.TabIndex = 5;
             // 
             // txtConfirm
@@ -115,13 +115,13 @@ namespace RSMPS
             this.txtConfirm.MaxLength = 100;
             this.txtConfirm.Name = "txtConfirm";
             this.txtConfirm.PasswordChar = '*';
-            this.txtConfirm.Size = new System.Drawing.Size(464, 20);
+            this.txtConfirm.Size = new System.Drawing.Size(216, 20);
             this.txtConfirm.TabIndex = 7;
             // 
             // bttCancel
             // 
             this.bttCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bttCancel.Location = new System.Drawing.Point(497, 369);
+            this.bttCancel.Location = new System.Drawing.Point(249, 369);
             this.bttCancel.Name = "bttCancel";
             this.bttCancel.Size = new System.Drawing.Size(78, 30);
             this.bttCancel.TabIndex = 14;
@@ -148,7 +148,7 @@ namespace RSMPS
             this.tdbgDepartments.PreviewInfo.Size = new System.Drawing.Size(0, 0);
             this.tdbgDepartments.PreviewInfo.ZoomFactor = 75D;
             this.tdbgDepartments.PrintInfo.PageSettings = ((System.Drawing.Printing.PageSettings)(resources.GetObject("tdbgDepartments.PrintInfo.PageSettings")));
-            this.tdbgDepartments.Size = new System.Drawing.Size(560, 164);
+            this.tdbgDepartments.Size = new System.Drawing.Size(312, 164);
             this.tdbgDepartments.TabIndex = 12;
             this.tdbgDepartments.Text = "c1TrueDBGrid1";
             this.tdbgDepartments.AfterColEdit += new C1.Win.C1TrueDBGrid.ColEventHandler(this.tdbgDepartments_AfterColEdit);
@@ -157,7 +157,7 @@ namespace RSMPS
             // bttOK
             // 
             this.bttOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bttOK.Location = new System.Drawing.Point(413, 369);
+            this.bttOK.Location = new System.Drawing.Point(165, 369);
             this.bttOK.Name = "bttOK";
             this.bttOK.Size = new System.Drawing.Size(78, 30);
             this.bttOK.TabIndex = 13;
@@ -176,7 +176,7 @@ namespace RSMPS
             this.txtDescription.Location = new System.Drawing.Point(111, 38);
             this.txtDescription.MaxLength = 100;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(464, 20);
+            this.txtDescription.Size = new System.Drawing.Size(216, 20);
             this.txtDescription.TabIndex = 3;
             // 
             // label4
@@ -193,9 +193,9 @@ namespace RSMPS
             this.chkEngineerAdmin.AutoSize = true;
             this.chkEngineerAdmin.Location = new System.Drawing.Point(15, 148);
             this.chkEngineerAdmin.Name = "chkEngineerAdmin";
-            this.chkEngineerAdmin.Size = new System.Drawing.Size(86, 17);
+            this.chkEngineerAdmin.Size = new System.Drawing.Size(120, 17);
             this.chkEngineerAdmin.TabIndex = 9;
-            this.chkEngineerAdmin.Text = "Administrator";
+            this.chkEngineerAdmin.Text = "Document Manager";
             this.chkEngineerAdmin.UseVisualStyleBackColor = true;
             this.chkEngineerAdmin.CheckedChanged += new System.EventHandler(this.chkEngineerAdmin_CheckedChanged);
             // 
@@ -214,7 +214,7 @@ namespace RSMPS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(586, 413);
+            this.ClientSize = new System.Drawing.Size(338, 413);
             this.ControlBox = false;
             this.Controls.Add(this.chkManager);
             this.Controls.Add(this.tdbgDepartments);

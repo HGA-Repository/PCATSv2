@@ -24,7 +24,7 @@ namespace RSMPS
             string tmpStr = "";
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spBudget_ByID2", cnn.GetConnection());
+            cmd = new SqlCommand("spBudget_ByID", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -78,7 +78,7 @@ namespace RSMPS
             string tmpStr = "";
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spBudget_ByProjectID2", cnn.GetConnection());
+            cmd = new SqlCommand("spBudget_ByProjectID", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -134,7 +134,7 @@ namespace RSMPS
             LoadVals(strXml);
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spBudget_Insert2", cnn.GetConnection());
+            cmd = new SqlCommand("spBudget_Insert", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 

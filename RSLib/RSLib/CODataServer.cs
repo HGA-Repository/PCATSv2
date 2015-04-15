@@ -16,6 +16,7 @@ namespace RSLib
 		private bool mbUseWinAuth;
 		private string msUsername;
 		private string msPassword;
+        public static readonly string DefaultXMLFilePath = Environment.GetEnvironmentVariable("temp");
 		public string DBServer
         
 		{
@@ -51,28 +52,38 @@ namespace RSLib
 				this.mbUseWinAuth = value;
 			}
 		}
-		public string Username
-		{
-			get
-			{
-				return this.DecryptString(this.msUsername);
-			}
-			set
-			{
-				this.msUsername = this.EncryptString(value);
-			}
-		}
-		public string Password
-		{
-			get
-			{
-				return this.DecryptString(this.msPassword);
-			}
-			set
-			{
-				this.msPassword = this.EncryptString(value);
-			}
-		}
+        //User name and password for sql dtabase now hard coded int CDbConnection.cs
+        //public string Username
+        //{
+        //    get
+        //    {
+        //        //sql user
+               
+        //        string decUser = this.DecryptString(this.msUsername);
+        //        return decUser;
+        //    }
+        //    set
+        //    {
+        //        //sql user
+               
+        //        this.msUsername = this.EncryptString(value);
+        //    }
+        //}
+        //public string Password
+        //{
+        //    get
+        //    {
+        //        //sql password
+				
+        //        string decPassword = this.DecryptString(this.msPassword);
+        //        return decPassword;
+        //    }
+        //    set
+        //    {
+				
+        //        this.msPassword = this.EncryptString(value);
+        //    }
+        //}
 		public CODataServer()
 		{
 			this.Clear();
@@ -89,14 +100,15 @@ namespace RSLib
 		{
 			try
 			{
-				XmlSerializer xmlSerializer = new XmlSerializer(typeof(CODataServer));
-				TextReader textReader = new StreamReader(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\DataConfig.xml");
-				CODataServer cODataServer = (CODataServer)xmlSerializer.Deserialize(textReader);
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(CODataServer));
+                TextReader textReader = new StreamReader(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\DataConfig.xml");
+         
+                CODataServer cODataServer = (CODataServer)xmlSerializer.Deserialize(textReader);
 				this.msDBServer = cODataServer.DBServer;
 				this.msDBName = cODataServer.DBName;
 				this.mbUseWinAuth = cODataServer.UseWinAuth;
-				this.msUsername = cODataServer.Username;
-				this.msPassword = cODataServer.Password;
+				//this.msUsername = cODataServer.Username;
+				//this.msPassword = cODataServer.Password;
 				textReader.Close();
 			}
 			catch
@@ -112,8 +124,8 @@ namespace RSLib
 				cODataServer.DBServer = this.msDBServer;
 				cODataServer.DBName = this.msDBName;
 				cODataServer.UseWinAuth = this.mbUseWinAuth;
-				cODataServer.Username = this.msUsername;
-				cODataServer.Password = this.msPassword;
+				//cODataServer.Username = this.msUsername;
+				//cODataServer.Password = this.msPassword;
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(CODataServer));
 				TextWriter textWriter = new StreamWriter(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\DataConfig.xml");
 				xmlSerializer.Serialize(textWriter, cODataServer);
@@ -123,42 +135,41 @@ namespace RSLib
 			{
 			}
 		}
-		private string EncryptString(string val)
-		{
-			string result;
-			try
-			{
-				COEncrypt cOEncrypt = new COEncrypt(EncryptionAlgorithm.TripleDes);
-				byte[] bytes = Encoding.ASCII.GetBytes(val);
-				byte[] bytes2 = Encoding.ASCII.GetBytes(this.PWRDKEY);
-				cOEncrypt.IV = Encoding.ASCII.GetBytes(this.VECTOR);
-				byte[] inArray = cOEncrypt.Encrypt(bytes, bytes2);
-				Encoding.ASCII.GetString(cOEncrypt.IV);
-				result = Convert.ToBase64String(inArray);
-			}
-			catch
-			{
-				result = val;
-			}
-			return result;
-		}
-		private string DecryptString(string val)
-		{
-			string vECTOR = this.VECTOR;
-			string result;
-			try
-			{
-				CODecrypt cODecrypt = new CODecrypt(EncryptionAlgorithm.TripleDes);
-				cODecrypt.IV = Encoding.ASCII.GetBytes(vECTOR);
-				byte[] bytes = Encoding.ASCII.GetBytes(this.PWRDKEY);
-				byte[] bytes2 = cODecrypt.Decrypt(Convert.FromBase64String(val), bytes);
-				result = Encoding.ASCII.GetString(bytes2);
-			}
-			catch
-			{
-				result = val;
-			}
-			return result;
-		}
-	}
+        private string EncryptString(string val)
+        {
+            string result;
+            try
+            {
+                COEncrypt cOEncrypt = new COEncrypt(EncryptionAlgorithm.TripleDes);
+                byte[] bytes = Encoding.ASCII.GetBytes(val);
+                byte[] bytes2 = Encoding.ASCII.GetBytes(this.PWRDKEY);
+                cOEncrypt.IV = Encoding.ASCII.GetBytes(this.VECTOR);
+                byte[] inArray = cOEncrypt.Encrypt(bytes, bytes2);
+                Encoding.ASCII.GetString(cOEncrypt.IV);
+                result = Convert.ToBase64String(inArray);
+            }
+            catch
+            {
+                result = val;
+            }
+            return result;
+        }
+        private string DecryptString(string val)
+        {
+            string vECTOR = this.VECTOR;
+            string result;
+            try
+            {
+                CODecrypt cODecrypt = new CODecrypt(EncryptionAlgorithm.TripleDes);
+                byte[] bytes = Encoding.ASCII.GetBytes(this.PWRDKEY);
+                byte[] bytes2 = cODecrypt.Decrypt(Convert.FromBase64String(val), bytes);
+                result = Encoding.ASCII.GetString(bytes2);
+            }
+            catch
+            {
+                result = val;
+            }
+            return result;
+        }
+    }
 }

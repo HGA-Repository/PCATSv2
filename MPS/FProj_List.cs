@@ -44,16 +44,16 @@ namespace RSMPS
 
             mbLeaveOpen = leaveOpen;
         }
-
+// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
         private void SetListForm()
         {
             lvwItems.Columns.Clear();
 
             lvwItems.Columns.Add("colID", "ID", 0);
             lvwItems.Columns.Add("colNumber", "Number", 90);
-            lvwItems.Columns.Add("colDesc", "Description", 139);
-            lvwItems.Columns.Add("colCust", "Customer", 75);
-            lvwItems.Columns.Add("colLoc", "Location", 75);
+            lvwItems.Columns.Add("colDesc", "Description", 300);
+            lvwItems.Columns.Add("colCust", "Customer", 200);
+            lvwItems.Columns.Add("colLoc", "Location", 200);
 
             sbPanStatus.Text = "0 project(s)";
         }
@@ -309,7 +309,8 @@ namespace RSMPS
             sec.InitAppSettings();
             u.Load(sec.UserID);
 
-            if (u.IsAdministrator == true || u.IsManager == true)
+            if (u.IsAdministrator == true || u.IsEngineerAdmin == true)
+                //if (u.IsAdministrator == true || u.IsManager == true)
             {
                 mbAllowEdit = true;
             }

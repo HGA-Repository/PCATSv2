@@ -9,8 +9,11 @@ namespace RSLib
 		private bool m_bCnnOpened;
 		private SqlConnection m_Cnn;
 		private CODataServer mDBSet;
-		public string ConnectionString
-		{
+        private string dbUser = "RSMPUser";
+        private string dbPass = "RSMPPass";
+
+        public string ConnectionString
+        {
 			get
 			{
 				return this.m_ConnStr;
@@ -35,9 +38,9 @@ namespace RSLib
 			this.m_ConnStr = string.Concat(new string[]
 			{
 				"uid=",
-				this.mDBSet.Username,
+				 dbUser, // this.mDBSet.Username,
 				";pwd=",
-				this.mDBSet.Password,
+				dbPass, //this.mDBSet.Password,
 				";Data Source=",
 				this.mDBSet.DBServer,
 				";Initial Catalog=",
@@ -48,7 +51,7 @@ namespace RSLib
 		public void OpenConnection()
 		{
 			this.CloseConnection();
-			this.m_Cnn = new SqlConnection(this.m_ConnStr);
+            this.m_Cnn = new SqlConnection(this.m_ConnStr);
 			this.m_Cnn.Open();
 			this.m_bCnnOpened = true;
 		}

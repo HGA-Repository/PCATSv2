@@ -105,6 +105,70 @@ namespace RSMPS
             }
 
             dr.Close();
+           
+        }
+
+        public void LoadWithCopyData(int iID)
+        {
+            CDbBudgetPCN dbDt = new CDbBudgetPCN();
+            string tmpDat;
+
+            tmpDat = dbDt.GetByID(iID);
+
+            Clear();
+            if (tmpDat.Length > 0)
+                LoadVals(tmpDat);
+
+            dbDt = null;
+
+            base.PCNData = new dsPCN();
+
+            SqlDataReader dr;
+            DataRow d;
+
+            dr = CBBudgetPCNHour.GetListByPCN(iID);
+
+            while (dr.Read())
+            {
+                d = base.PCNData.Tables["PCNHours"].NewRow();
+
+                d["ID"] = 0;
+                d["PCNID"] = dr["PCNID"];
+                d["Code"] = dr["Code"];
+                d["WBS"] = dr["WBS"];
+                d["Description"] = dr["Description"];
+                d["Quantity"] = dr["Quantity"];
+                d["HoursPerItem"] = dr["HoursPerItem"];
+                d["Rate"] = dr["Rate"];
+                d["SubtotalHrs"] = dr["SubtotalHrs"];
+                d["SubtotalDlrs"] = dr["SubtotalDlrs"];
+
+                base.PCNData.Tables["PCNHours"].Rows.Add(d);
+            }
+
+            dr.Close();
+
+            dr = CBBudgetPCNExpense.GetListByPCN(iID);
+
+            while (dr.Read())
+            {
+                d = base.PCNData.Tables["PCNExpenses"].NewRow();
+
+                d["ID"] = 0;
+                d["PCNID"] = dr["PCNID"];
+                d["Code"] = dr["Code"];
+                d["Description"] = dr["Description"];
+                d["DlrsPerItem"] = dr["DlrsPerItem"];
+                d["NumItems"] = dr["NumItems"];
+                d["MUPerc"] = dr["MUPerc"];
+                d["MarkUp"] = dr["MarkUp"];
+                d["TotalCost"] = dr["TotalCost"];
+
+                base.PCNData.Tables["PCNExpenses"].Rows.Add(d);
+            }
+
+            dr.Close();
+
         }
 
         public void LoadVals(string strXml)
@@ -134,6 +198,8 @@ namespace RSMPS
             int retVal;
 
             tmpDat = GetDataString();
+
+            
             if (base.ID > 0)
             {
                 dbDt.SavePrev(tmpDat);
@@ -150,6 +216,24 @@ namespace RSMPS
             return retVal;
         }
 
+        public int InitialCopySave()
+        {
+            //Saves the new line it can now be edited
+
+            CDbBudgetPCN dbDt = new CDbBudgetPCN();
+            string tmpDat;
+            int retVal;
+
+            tmpDat = GetDataString();
+
+            retVal = dbDt.SaveNew(tmpDat);
+            base.ID = retVal;
+            dbDt = null;
+
+            return retVal;
+
+        }
+
         public int SaveWithData()
         {
             int retVal = Save();
@@ -157,12 +241,14 @@ namespace RSMPS
             CBBudgetPCNHour hr;
             CBBudgetPCNExpense exp;
 
-            foreach (DataRow dr in base.PCNData.PCNHours.Rows)
+            foreach (DataRow dr in base.PCNData.Tables["PCNHours"].Rows)
             {
                 hr = new CBBudgetPCNHour();
-
+                Console.WriteLine("The ID and the PCNID in the CBBudgetPCNfile are: ");
                 hr.ID = Convert.ToInt32(dr["ID"]);
+                Console.WriteLine(hr.ID);
                 hr.PCNID = retVal;
+                Console.WriteLine(hr.PCNID);
                 hr.Code = dr["Code"].ToString();
                 hr.WBS = dr["WBS"].ToString();
                 hr.Description = dr["Description"].ToString();
@@ -181,12 +267,12 @@ namespace RSMPS
                 }
             }
 
-            foreach (DataRow dr in base.PCNData.PCNHoursDeleted.Rows)
+            foreach (DataRow dr in base.PCNData.Tables["PCNHoursDeleted"].Rows)
             {
                 CBBudgetPCNHour.Delete(Convert.ToInt32(dr["ID"]));
             }
 
-            foreach (DataRow dr in base.PCNData.PCNExpenses.Rows)
+            foreach (DataRow dr in base.PCNData.Tables["PCNExpenses"].Rows)
             {
                 exp = new CBBudgetPCNExpense();
 
@@ -209,7 +295,76 @@ namespace RSMPS
                 }
             }
 
-            foreach (DataRow dr in base.PCNData.PCNExpensesDeleted.Rows)
+            foreach (DataRow dr in base.PCNData.Tables["PCNExpensesDeleted"].Rows)
+            {
+                CBBudgetPCNExpense.Delete(Convert.ToInt32(dr["ID"]));
+            }
+
+            return retVal;
+        }
+
+        public int SaveWithCopyData()
+        {
+            int retVal = InitialCopySave();
+
+            CBBudgetPCNHour hr;
+            CBBudgetPCNExpense exp;
+
+            foreach (DataRow dr in base.PCNData.Tables["PCNHours"].Rows)
+            {
+                hr = new CBBudgetPCNHour();
+                Console.WriteLine("The ID and the PCNID in the CBBudgetPCNfile are: ");
+                hr.ID = Convert.ToInt32(dr["ID"]);
+                Console.WriteLine(hr.ID);
+                hr.PCNID = retVal;
+                Console.WriteLine(hr.PCNID);
+                hr.Code = dr["Code"].ToString();
+                hr.WBS = dr["WBS"].ToString();
+                hr.Description = dr["Description"].ToString();
+                hr.Quantity = Convert.ToInt32(dr["Quantity"]);
+                hr.HoursPerItem = Convert.ToInt32(dr["HoursPerItem"]);
+                hr.Rate = Convert.ToDecimal(dr["Rate"]);
+                hr.SubtotalHrs = Convert.ToInt32(dr["SubtotalHrs"]);
+                hr.SubtotalDlrs = Convert.ToDecimal(dr["SubtotalDlrs"]);
+
+                hr.Save();
+
+                if (Convert.ToInt32(dr["ID"]) < 1)
+                {
+                    dr["ID"] = hr.ID;
+                    dr["PCNID"] = retVal;
+                }
+            }
+
+            foreach (DataRow dr in base.PCNData.Tables["PCNHoursDeleted"].Rows)
+            {
+                CBBudgetPCNHour.Delete(Convert.ToInt32(dr["ID"]));
+            }
+
+            foreach (DataRow dr in base.PCNData.Tables["PCNExpenses"].Rows)
+            {
+                exp = new CBBudgetPCNExpense();
+
+                exp.ID = Convert.ToInt32(dr["ID"]);
+                exp.PCNID = retVal;
+                exp.Code = dr["Code"].ToString();
+                exp.Description = dr["Description"].ToString();
+                exp.DlrsPerItem = Convert.ToDecimal(dr["DlrsPerItem"]);
+                exp.NumItems = Convert.ToInt32(dr["NumItems"]);
+                exp.MUPerc = Convert.ToDecimal(dr["MUPerc"]);
+                exp.MarkUp = Convert.ToDecimal(dr["MarkUp"]);
+                exp.TotalCost = Convert.ToDecimal(dr["TotalCost"]);
+
+                exp.Save();
+
+                if (Convert.ToInt32(dr["ID"]) < 1)
+                {
+                    dr["ID"] = exp.ID;
+                    dr["PCNID"] = retVal;
+                }
+            }
+
+            foreach (DataRow dr in base.PCNData.Tables["PCNExpensesDeleted"].Rows)
             {
                 CBBudgetPCNExpense.Delete(Convert.ToInt32(dr["ID"]));
             }
@@ -316,5 +471,7 @@ namespace RSMPS
 
             return db.GetBudgetsWithPCN(pcnID);
         }
+
+       
     }
 }

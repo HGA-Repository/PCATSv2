@@ -46,7 +46,7 @@ namespace RSMPS
             }
         }
 
-		#region ActiveReports Designer generated code
+        #region ActiveReports Designer generated code
 
 
 
@@ -179,7 +179,7 @@ namespace RSMPS
             this.Shape.Left = 5.8125F;
             this.Shape.LineStyle = GrapeCity.ActiveReports.SectionReportModel.LineStyle.Transparent;
             this.Shape.Name = "Shape";
-            this.Shape.RoundingRadius = 9.999999F;
+            this.Shape.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
             this.Shape.Top = 0F;
             this.Shape.Width = 1.625F;
             // 
@@ -984,7 +984,7 @@ namespace RSMPS
 
         }
 
-		#endregion
+        #endregion
 
         private PageHeader PageHeader;
         private GroupHeader GroupHeader1;
@@ -1027,5 +1027,5 @@ namespace RSMPS
         private Label Label2;
         private Line Line25;
         private PageFooter PageFooter;
-	}
+    }
 }

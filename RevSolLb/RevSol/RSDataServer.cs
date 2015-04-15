@@ -13,7 +13,8 @@ namespace RevSol
 		private string msDBName;
 		private bool mbUseWinAuth;
 		private string msUsername;
-		private string msPassword;
+		private string msPassword; 
+        
 		public string DBServer
 		{
 			get
@@ -47,28 +48,34 @@ namespace RevSol
 				this.mbUseWinAuth = value;
 			}
 		}
-		public string Username
-		{
-			get
-			{
-				return this.DecryptString(this.msUsername);
-			}
-			set
-			{
-				this.msUsername = this.EncryptString(value);
-			}
-		}
-		public string Password
-		{
-			get
-			{
-				return this.DecryptString(this.msPassword);
-			}
-			set
-			{
-				this.msPassword = this.EncryptString(value);
-			}
-		}
+        ////User name and password for sql dtabase now hard coded int RSConnection.cs
+        //public string Username
+        //{
+        //    get
+        //    {
+			
+        //        return this.DecryptString(this.msUsername);
+        //    }
+        //    set
+        //    {
+				
+        //        this.msUsername = this.EncryptString(value);
+        //    }
+        //}
+        //public string Password
+        //{
+        //    get
+        //    {
+				
+        //        return this.DecryptString(this.msPassword);
+        //    }
+        //    set
+        //    {
+               
+        //        this.msPassword = this.EncryptString(value);
+
+        //    }
+        //}
 		public RSDataServer()
 		{
 			this.Clear();
@@ -87,13 +94,14 @@ namespace RevSol
 			{
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(RSDataServer));
 				string path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\DataConfig.xml";
+                
 				TextReader textReader = new StreamReader(path);
 				RSDataServer rSDataServer = (RSDataServer)xmlSerializer.Deserialize(textReader);
 				this.msDBServer = rSDataServer.DBServer;
 				this.msDBName = rSDataServer.DBName;
 				this.mbUseWinAuth = rSDataServer.UseWinAuth;
-				this.msUsername = rSDataServer.Username;
-				this.msPassword = rSDataServer.Password;
+				//this.msUsername = rSDataServer.Username;
+				//this.msPassword = rSDataServer.Password;
 				textReader.Close();
 			}
 			catch (Exception ex)
@@ -109,14 +117,15 @@ namespace RevSol
 			try
 			{
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(RSDataServer));
-				string path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + str;
+                string path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + str;
+               
 				TextReader textReader = new StreamReader(path);
 				RSDataServer rSDataServer = (RSDataServer)xmlSerializer.Deserialize(textReader);
 				this.msDBServer = rSDataServer.DBServer;
 				this.msDBName = rSDataServer.DBName;
 				this.mbUseWinAuth = rSDataServer.UseWinAuth;
-				this.msUsername = rSDataServer.Username;
-				this.msPassword = rSDataServer.Password;
+				//this.msUsername = rSDataServer.Username;
+				//this.msPassword = rSDataServer.Password;
 				textReader.Close();
 			}
 			catch (Exception ex)
@@ -142,10 +151,11 @@ namespace RevSol
 				rSDataServer.DBServer = this.msDBServer;
 				rSDataServer.DBName = this.msDBName;
 				rSDataServer.UseWinAuth = this.mbUseWinAuth;
-				rSDataServer.Username = this.msUsername;
-				rSDataServer.Password = this.msPassword;
+				//rSDataServer.Username = this.msUsername;
+				//rSDataServer.Password = this.msPassword;
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(RSDataServer));
 				TextWriter textWriter = new StreamWriter(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\DataConfig.xml");
+                
 				xmlSerializer.Serialize(textWriter, rSDataServer);
 				textWriter.Close();
 			}
@@ -162,10 +172,11 @@ namespace RevSol
 				rSDataServer.DBServer = this.msDBServer;
 				rSDataServer.DBName = this.msDBName;
 				rSDataServer.UseWinAuth = this.mbUseWinAuth;
-				rSDataServer.Username = this.msUsername;
-				rSDataServer.Password = this.msPassword;
+				//rSDataServer.Username = this.msUsername;
+				//rSDataServer.Password = this.msPassword;
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(RSDataServer));
 				TextWriter textWriter = new StreamWriter(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\DataConfig.xml");
+                
 				xmlSerializer.Serialize(textWriter, rSDataServer);
 				textWriter.Close();
 			}

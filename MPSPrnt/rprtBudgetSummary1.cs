@@ -8,7 +8,7 @@ using GrapeCity.ActiveReports.Document;
 namespace RSMPS
 {
     public class rprtBudgetSummary1 : GrapeCity.ActiveReports.SectionReport
-	{
+    {
         private int miTotalHours = 0;
         private decimal mdTotalHourDollars = 0;
         private decimal mdTotalExpenses = 0;
@@ -18,31 +18,6 @@ namespace RSMPS
         private TextBox textBox1;
         private TextBox textBox2;
         private Label lblPrintDate;
-        private decimal mdContingency = 0;
-        private Label label50;
-        private Line line9;
-        private Line line16;
-        private Line line38;
-        private Line line39;
-        private Line line40;
-        private Line line41;
-        private Line line42;
-        private Label label11;
-        private Label label12;
-        private Label label13;
-        private Label label14;
-        private Label label15;
-        private Label label29;
-        private Label label31;
-        private Label label33;
-        private Label label46;
-        private Label label49;
-        private Line line8;
-        private Label label51;
-        private Label label53;
-        private Label label54;
-        private Label label55;
-        private Label label56;
         private Label label18;
         private Line line13;
         private Label label19;
@@ -60,26 +35,43 @@ namespace RSMPS
         private Label label25;
         private Line line21;
         private Label label26;
-        private Line line22;
-                  
-      
+        private Label label11;
+        private Line line8;
+        private Label label12;
+        private Line line9;
+        private Label label13;
+        private Line line10;
+        private Label label14;
+        private Line line16;
+        private decimal mdContingency = 0;
+        private decimal t_b_a;
+        
+
+
+
         public string MainReportTitle
         {
             get { return lblMainTitle.Text; }
-            set {lblMainTitle.Text = value; }
+            set { lblMainTitle.Text = value; }
+        }
+
+        public string JNum
+        {
+            get { return lblJobNumber.Text;}
+            set { lblJobNumber.Text = value; }
         }
 
         public void SetTitles(string jobNumber, string Desc, string revision, string customer, string location, string wbs)
         {
             if (wbs.Length > 0)
-                lblJobNumber.Text = jobNumber + " - WBS: " + wbs + " - Revision:" + revision;
+                lblJobNumber.Text = jobNumber + " - WBS (Hello): " + wbs + " - Revision:" + revision;
             else
-                lblJobNumber.Text = jobNumber + " - Revision:" + revision;
+                lblJobNumber.Text = jobNumber + " - Revision (Bye):" + revision;
 
             lblProject.Text = customer + "/" + location;
             lblRevision.Text = Desc;
+
         }
- 
 
         public int TotalHours
         {
@@ -123,7 +115,7 @@ namespace RSMPS
 
             //if (mbPipelineSvcs == true)
             //   rprtEngr.SubHeading = "Project Services";
-      
+
             rprtEngr.TotalHours = miTotalHours;
             rprtEngr.DataSource = this.DataSource;
             rprtEngr.DataMember = "Table2";
@@ -170,6 +162,147 @@ namespace RSMPS
             }
 
             txtTotalDollars.Value = mdTotalHourDollars + mdTotalExpenses + mdContingency;
+
+            string first_jobNumber = JNum.Substring(0, 1);
+
+            t_b_a = Convert.ToDecimal(mdContingency + mdTotalExpenses + mdTotalHourDollars);
+
+            //if (t_b_a < 75000)
+            //label18.Text = "less than 75000";
+            try
+            {
+                label18.Text = "";
+                label20.Text = "";
+                label22.Text = "";
+                label24.Text = "";
+                label11.Text = "";
+                label13.Text = "";
+                int f_Digit = Convert.ToInt16(first_jobNumber);
+                string t_Digit = "";
+                //if (f_Digit == 7)
+                //{
+                    t_Digit = JNum.Substring(0, 3);
+                //}
+
+                //else 
+                if (f_Digit == 1)
+                {
+                    label18.Text = "Project Manager";
+                    label20.Text = "Business Analyst";
+                    label22.Text = "General Manager";
+                    label24.Text = "Executive VP";
+                    label11.Text = "President";
+                    label13.Visible = false;
+                    label14.Visible = false;
+                    line10.Visible = false;
+                    line16.Visible = false;
+                }
+
+                else if (f_Digit == 3 || f_Digit == 6)
+                {
+                    label18.Text = "Business Analyst";
+                    label20.Text = "Project Manager";
+                    label22.Text = "Relationship Manager";
+                    label24.Text = "VP of Program Management";
+                    label11.Text = "Executive VP";
+                    label13.Text = "President";
+
+                }
+
+                else if (f_Digit == 8 || t_Digit == "7.J")
+                {
+                    label18.Text = "Business Analyst";
+                    label20.Text = "Project Manager";
+                    label22.Text = "Director of Projects";
+                    label24.Text = "PLS Manager";
+                    label11.Text = "Executive VP";
+                    label13.Text = "President";
+
+                }
+                else if (f_Digit == 0 || f_Digit == 2 || f_Digit == 4 || t_Digit == "7.R")
+                {
+
+                    //if (total_Budget_Amount < 75000)
+                    if (t_b_a < 75000)
+                    {
+                        label18.Text = "Project Management";
+                        label20.Text = "Relationship Manager";
+                        label22.Visible = false;
+                        label24.Visible = false;
+                        label11.Visible = false;
+                        label13.Visible = false;
+
+                        line18.Visible = false;
+                        line20.Visible = false;
+                        line8.Visible = false;
+                        line10.Visible = false;
+
+
+                        label23.Visible = false;
+                        label25.Visible = false;
+                        label12.Visible = false;
+                        label14.Visible = false;
+
+                        line19.Visible = false;
+                        line21.Visible = false;
+                        line9.Visible = false;
+                        line16.Visible = false;
+
+
+                    }
+
+                    // if (total_Budget_Amount > 75000 && total_Budget_Amount <= 250000)
+                    else if (t_b_a > 75000 && t_b_a <= 250000)
+                    {
+                        label18.Text = "Director of Projects";
+                        label20.Text = "Engineering Manager";
+                        label22.Text = "Vice President of Sales";
+                        label24.Visible = false;
+                        label11.Visible = false;
+                        label13.Visible = false;
+
+                        line20.Visible = false;
+                        line8.Visible = false;
+                        line10.Visible = false;
+
+                        label25.Visible = false;
+                        label12.Visible = false;
+                        label14.Visible = false;
+
+                        line21.Visible = false;
+                        line9.Visible = false;
+                        line16.Visible = false;
+                    }
+
+
+
+                    //if (total_Budget_Amount > 250000)
+                    else if (t_b_a > 250000)
+                    {
+                        label18.Text = "Director of Projects";
+                        label20.Text = "Engineering Manager";
+                        label22.Text = "Vice President of Sales";
+                        label24.Text = "President";
+                        label11.Visible = false;
+                        label13.Visible = false;
+
+                        line8.Visible = false;
+                        line10.Visible = false;
+
+                        label12.Visible = false;
+                        label14.Visible = false;
+
+                        line9.Visible = false;
+                        line16.Visible = false;
+                    }
+                }
+
+
+            }
+
+            catch { Label28.Text = "###########################"; }
+
+
         }
 
         private void rprtBudgetSummary1_PageStart(object sender, System.EventArgs eArgs)
@@ -177,7 +310,7 @@ namespace RSMPS
             Document.Printer.PrinterName = "";
         }
 
-		#region ActiveReports Designer generated code
+        #region ActiveReports Designer generated code
 
 
 
@@ -307,30 +440,6 @@ namespace RSMPS
             this.PageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
             this.Label28 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.lblRateSchedule = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.label50 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.line9 = new GrapeCity.ActiveReports.SectionReportModel.Line();
-            this.line16 = new GrapeCity.ActiveReports.SectionReportModel.Line();
-            this.line38 = new GrapeCity.ActiveReports.SectionReportModel.Line();
-            this.line39 = new GrapeCity.ActiveReports.SectionReportModel.Line();
-            this.line40 = new GrapeCity.ActiveReports.SectionReportModel.Line();
-            this.line41 = new GrapeCity.ActiveReports.SectionReportModel.Line();
-            this.line42 = new GrapeCity.ActiveReports.SectionReportModel.Line();
-            this.label11 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.label12 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.label13 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.label14 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.label15 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.label29 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.label31 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.label33 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.label46 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.label49 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.line8 = new GrapeCity.ActiveReports.SectionReportModel.Line();
-            this.label51 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.label53 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.label54 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.label55 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.label56 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.label18 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.line13 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.label19 = new GrapeCity.ActiveReports.SectionReportModel.Label();
@@ -348,7 +457,14 @@ namespace RSMPS
             this.label25 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.line21 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.label26 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.line22 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.label11 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.line8 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.label12 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.line9 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.label13 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.line10 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.label14 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.line16 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             ((System.ComponentModel.ISupportInitialize)(this.Label7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEngrLoadedDollars)).BeginInit();
@@ -386,22 +502,6 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.lblPrintDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label28)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblRateSchedule)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label50)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label29)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label31)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label33)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label46)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label49)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label51)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label53)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label54)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label55)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label56)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label20)).BeginInit();
@@ -411,6 +511,10 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label25)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label26)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -453,7 +557,7 @@ namespace RSMPS
             this.Shape1.Height = 0.25F;
             this.Shape1.Left = 0.125F;
             this.Shape1.Name = "Shape1";
-            this.Shape1.RoundingRadius = 9.999999F;
+            this.Shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape1.Style = GrapeCity.ActiveReports.SectionReportModel.ShapeType.Ellipse;
             this.Shape1.Top = 0.78F;
             this.Shape1.Width = 0.6875F;
@@ -463,7 +567,7 @@ namespace RSMPS
             this.Shape2.Height = 0.3125F;
             this.Shape2.Left = 0.0625F;
             this.Shape2.Name = "Shape2";
-            this.Shape2.RoundingRadius = 9.999999F;
+            this.Shape2.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape2.Style = GrapeCity.ActiveReports.SectionReportModel.ShapeType.Ellipse;
             this.Shape2.Top = 1.4375F;
             this.Shape2.Width = 0.8125F;
@@ -797,7 +901,7 @@ namespace RSMPS
             this.Shape.Height = 0.5F;
             this.Shape.Left = 0F;
             this.Shape.Name = "Shape";
-            this.Shape.RoundingRadius = 9.999999F;
+            this.Shape.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape.Top = 1.233F;
             this.Shape.Width = 7.4375F;
             // 
@@ -1062,30 +1166,6 @@ namespace RSMPS
             this.PageFooter.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.Label28,
             this.lblRateSchedule,
-            this.label50,
-            this.line9,
-            this.line16,
-            this.line38,
-            this.line39,
-            this.line40,
-            this.line41,
-            this.line42,
-            this.label11,
-            this.label12,
-            this.label13,
-            this.label14,
-            this.label15,
-            this.label29,
-            this.label31,
-            this.label33,
-            this.label46,
-            this.label49,
-            this.line8,
-            this.label51,
-            this.label53,
-            this.label54,
-            this.label55,
-            this.label56,
             this.label18,
             this.line13,
             this.label19,
@@ -1103,8 +1183,15 @@ namespace RSMPS
             this.label25,
             this.line21,
             this.label26,
-            this.line22});
-            this.PageFooter.Height = 4.262F;
+            this.label11,
+            this.line8,
+            this.label12,
+            this.line9,
+            this.label13,
+            this.line10,
+            this.label14,
+            this.line16});
+            this.PageFooter.Height = 2.5F;
             this.PageFooter.Name = "PageFooter";
             this.PageFooter.Format += new System.EventHandler(this.PageFooter_Format);
             // 
@@ -1116,7 +1203,7 @@ namespace RSMPS
             this.Label28.Name = "Label28";
             this.Label28.Style = "";
             this.Label28.Text = "Rate Schedule:";
-            this.Label28.Top = 4.062F;
+            this.Label28.Top = 2.019F;
             this.Label28.Width = 1.125F;
             // 
             // lblRateSchedule
@@ -1127,298 +1214,18 @@ namespace RSMPS
             this.lblRateSchedule.Name = "lblRateSchedule";
             this.lblRateSchedule.Style = "";
             this.lblRateSchedule.Text = "Standard";
-            this.lblRateSchedule.Top = 4.062F;
+            this.lblRateSchedule.Top = 2.019F;
             this.lblRateSchedule.Width = 2.6875F;
-            // 
-            // label50
-            // 
-            this.label50.Height = 0.2F;
-            this.label50.HyperLink = null;
-            this.label50.Left = 3.22F;
-            this.label50.Name = "label50";
-            this.label50.Style = "text-align: center";
-            this.label50.Text = "VP Sales / Bus. Dev. Director";
-            this.label50.Top = 1.25F;
-            this.label50.Width = 2.208F;
-            // 
-            // line9
-            // 
-            this.line9.Height = 0F;
-            this.line9.Left = 0.157F;
-            this.line9.LineWeight = 1F;
-            this.line9.Name = "line9";
-            this.line9.Top = 1.125F;
-            this.line9.Width = 7.843F;
-            this.line9.X1 = 0.157F;
-            this.line9.X2 = 8F;
-            this.line9.Y1 = 1.125F;
-            this.line9.Y2 = 1.125F;
-            // 
-            // line16
-            // 
-            this.line16.Height = 0F;
-            this.line16.Left = 0.157F;
-            this.line16.LineWeight = 1F;
-            this.line16.Name = "line16";
-            this.line16.Top = 1.563F;
-            this.line16.Width = 7.843F;
-            this.line16.X1 = 0.157F;
-            this.line16.X2 = 8F;
-            this.line16.Y1 = 1.563F;
-            this.line16.Y2 = 1.563F;
-            // 
-            // line38
-            // 
-            this.line38.Height = 0F;
-            this.line38.Left = 0.157F;
-            this.line38.LineWeight = 1F;
-            this.line38.Name = "line38";
-            this.line38.Top = 2.063F;
-            this.line38.Width = 7.843F;
-            this.line38.X1 = 0.157F;
-            this.line38.X2 = 8F;
-            this.line38.Y1 = 2.063F;
-            this.line38.Y2 = 2.063F;
-            // 
-            // line39
-            // 
-            this.line39.Height = 0F;
-            this.line39.Left = 0.157F;
-            this.line39.LineWeight = 1F;
-            this.line39.Name = "line39";
-            this.line39.Top = 2.500001F;
-            this.line39.Width = 7.843F;
-            this.line39.X1 = 0.157F;
-            this.line39.X2 = 8F;
-            this.line39.Y1 = 2.500001F;
-            this.line39.Y2 = 2.500001F;
-            // 
-            // line40
-            // 
-            this.line40.Height = 2.200001F;
-            this.line40.Left = 3.157F;
-            this.line40.LineWeight = 1F;
-            this.line40.Name = "line40";
-            this.line40.Top = 0.3F;
-            this.line40.Width = 0F;
-            this.line40.X1 = 3.157F;
-            this.line40.X2 = 3.157F;
-            this.line40.Y1 = 0.3F;
-            this.line40.Y2 = 2.500001F;
-            // 
-            // line41
-            // 
-            this.line41.Height = 2.200001F;
-            this.line41.Left = 1.532F;
-            this.line41.LineWeight = 1F;
-            this.line41.Name = "line41";
-            this.line41.Top = 0.3129997F;
-            this.line41.Width = 0F;
-            this.line41.X1 = 1.532F;
-            this.line41.X2 = 1.532F;
-            this.line41.Y1 = 0.3129997F;
-            this.line41.Y2 = 2.513001F;
-            // 
-            // line42
-            // 
-            this.line42.Height = 2.200001F;
-            this.line42.Left = 5.47F;
-            this.line42.LineWeight = 1F;
-            this.line42.Name = "line42";
-            this.line42.Top = 0.3129997F;
-            this.line42.Width = 0F;
-            this.line42.X1 = 5.47F;
-            this.line42.X2 = 5.47F;
-            this.line42.Y1 = 0.3129997F;
-            this.line42.Y2 = 2.513001F;
-            // 
-            // label11
-            // 
-            this.label11.Height = 0.2F;
-            this.label11.HyperLink = null;
-            this.label11.Left = 1.907F;
-            this.label11.Name = "label11";
-            this.label11.Style = "font-size: 9.75pt; font-weight: bold";
-            this.label11.Text = "$0 - $75,000";
-            this.label11.Top = 0.388F;
-            this.label11.Width = 1F;
-            // 
-            // label12
-            // 
-            this.label12.Height = 0.2F;
-            this.label12.HyperLink = null;
-            this.label12.Left = 3.845F;
-            this.label12.Name = "label12";
-            this.label12.Style = "font-size: 9.75pt; font-weight: bold";
-            this.label12.Text = "$75,000 - $250,000";
-            this.label12.Top = 0.3879998F;
-            this.label12.Width = 1.5F;
-            // 
-            // label13
-            // 
-            this.label13.Height = 0.2F;
-            this.label13.HyperLink = null;
-            this.label13.Left = 5.845F;
-            this.label13.Name = "label13";
-            this.label13.Style = "font-size: 9.75pt; font-weight: bold";
-            this.label13.Text = "> $250,000";
-            this.label13.Top = 0.3879998F;
-            this.label13.Width = 1F;
-            // 
-            // label14
-            // 
-            this.label14.Height = 0.3119999F;
-            this.label14.HyperLink = null;
-            this.label14.Left = 0.155F;
-            this.label14.Name = "label14";
-            this.label14.Style = "font-size: 9.75pt; font-weight: bold";
-            this.label14.Text = "Project Management";
-            this.label14.Top = 0.7500001F;
-            this.label14.Width = 1.313F;
-            // 
-            // label15
-            // 
-            this.label15.Height = 0.2F;
-            this.label15.HyperLink = null;
-            this.label15.Left = 0.155F;
-            this.label15.Name = "label15";
-            this.label15.Style = "font-size: 9.75pt; font-weight: bold";
-            this.label15.Text = "Business Development";
-            this.label15.Top = 1.238F;
-            this.label15.Width = 1F;
-            // 
-            // label29
-            // 
-            this.label29.Height = 0.2F;
-            this.label29.HyperLink = null;
-            this.label29.Left = 0.155F;
-            this.label29.Name = "label29";
-            this.label29.Style = "font-size: 9.75pt; font-weight: bold";
-            this.label29.Text = "Engineering";
-            this.label29.Top = 1.688F;
-            this.label29.Width = 1F;
-            // 
-            // label31
-            // 
-            this.label31.Height = 0.2F;
-            this.label31.HyperLink = null;
-            this.label31.Left = 0.155F;
-            this.label31.Name = "label31";
-            this.label31.Style = "font-size: 9.75pt; font-weight: bold";
-            this.label31.Text = "President";
-            this.label31.Top = 2.188F;
-            this.label31.Width = 1F;
-            // 
-            // label33
-            // 
-            this.label33.Height = 0.2F;
-            this.label33.HyperLink = null;
-            this.label33.Left = 1.72F;
-            this.label33.Name = "label33";
-            this.label33.Style = "";
-            this.label33.Text = "Lead PM / Mgr. Proj";
-            this.label33.Top = 0.813F;
-            this.label33.Width = 1.375F;
-            // 
-            // label46
-            // 
-            this.label46.Height = 0.2F;
-            this.label46.HyperLink = null;
-            this.label46.Left = 1.783F;
-            this.label46.Name = "label46";
-            this.label46.Style = "";
-            this.label46.Text = "Relationship Mgr";
-            this.label46.Top = 1.25F;
-            this.label46.Width = 1.187F;
-            // 
-            // label49
-            // 
-            this.label49.Height = 0.375F;
-            this.label49.HyperLink = null;
-            this.label49.Left = 3.22F;
-            this.label49.Name = "label49";
-            this.label49.Style = "text-align: center";
-            this.label49.Text = "Director of Projects / Regional Operations Mgr";
-            this.label49.Top = 0.737F;
-            this.label49.Width = 2.208F;
-            // 
-            // line8
-            // 
-            this.line8.Height = 2.980232E-07F;
-            this.line8.Left = 0.157F;
-            this.line8.LineWeight = 1F;
-            this.line8.Name = "line8";
-            this.line8.Top = 0.6779997F;
-            this.line8.Width = 7.843F;
-            this.line8.X1 = 0.157F;
-            this.line8.X2 = 8F;
-            this.line8.Y1 = 0.678F;
-            this.line8.Y2 = 0.6779997F;
-            // 
-            // label51
-            // 
-            this.label51.Height = 0.3749999F;
-            this.label51.HyperLink = null;
-            this.label51.Left = 3.187F;
-            this.label51.Name = "label51";
-            this.label51.Style = "text-align: center";
-            this.label51.Text = "Ruston Engineering Ops Manager";
-            this.label51.Top = 1.612F;
-            this.label51.Width = 2F;
-            // 
-            // label53
-            // 
-            this.label53.Height = 0.375F;
-            this.label53.HyperLink = null;
-            this.label53.Left = 5.533F;
-            this.label53.Name = "label53";
-            this.label53.Style = "text-align: center";
-            this.label53.Text = "Director of Projects / Regional Operations Mgr";
-            this.label53.Top = 0.737F;
-            this.label53.Width = 1.967F;
-            // 
-            // label54
-            // 
-            this.label54.Height = 0.2F;
-            this.label54.HyperLink = null;
-            this.label54.Left = 5.646F;
-            this.label54.Name = "label54";
-            this.label54.Style = "text-align: center";
-            this.label54.Text = "Executive Vice President";
-            this.label54.Top = 1.25F;
-            this.label54.Width = 1.729F;
-            // 
-            // label55
-            // 
-            this.label55.Height = 0.3749999F;
-            this.label55.HyperLink = null;
-            this.label55.Left = 5.5F;
-            this.label55.Name = "label55";
-            this.label55.Style = "text-align: center";
-            this.label55.Text = "Ruston Engineering Ops Manager";
-            this.label55.Top = 1.612F;
-            this.label55.Width = 2.03F;
-            // 
-            // label56
-            // 
-            this.label56.Height = 0.2F;
-            this.label56.HyperLink = null;
-            this.label56.Left = 5.845F;
-            this.label56.Name = "label56";
-            this.label56.Style = "text-align: center";
-            this.label56.Text = "President";
-            this.label56.Top = 2.188F;
-            this.label56.Width = 1F;
             // 
             // label18
             // 
             this.label18.Height = 0.2F;
             this.label18.HyperLink = null;
-            this.label18.Left = 0.143F;
+            this.label18.Left = 0.125F;
             this.label18.Name = "label18";
-            this.label18.Style = "";
+            this.label18.Style = "font-weight: bold";
             this.label18.Text = "Project Management\r\n";
-            this.label18.Top = 2.698F;
+            this.label18.Top = 0.3F;
             this.label18.Width = 1.72F;
             // 
             // line13
@@ -1427,22 +1234,22 @@ namespace RSMPS
             this.line13.Left = 1.925F;
             this.line13.LineWeight = 1F;
             this.line13.Name = "line13";
-            this.line13.Top = 2.938F;
+            this.line13.Top = 0.5400002F;
             this.line13.Width = 3.375F;
             this.line13.X1 = 1.925F;
             this.line13.X2 = 5.3F;
-            this.line13.Y1 = 2.938F;
-            this.line13.Y2 = 2.938F;
+            this.line13.Y1 = 0.5400002F;
+            this.line13.Y2 = 0.5400002F;
             // 
             // label19
             // 
             this.label19.Height = 0.2F;
             this.label19.HyperLink = null;
-            this.label19.Left = 5.438001F;
+            this.label19.Left = 5.42F;
             this.label19.Name = "label19";
-            this.label19.Style = "";
+            this.label19.Style = "font-weight: bold";
             this.label19.Text = "Date";
-            this.label19.Top = 2.737F;
+            this.label19.Top = 0.3F;
             this.label19.Width = 0.4700003F;
             // 
             // line14
@@ -1451,12 +1258,12 @@ namespace RSMPS
             this.line14.Left = 5.988001F;
             this.line14.LineWeight = 1F;
             this.line14.Name = "line14";
-            this.line14.Top = 2.938F;
+            this.line14.Top = 0.5400002F;
             this.line14.Width = 1F;
             this.line14.X1 = 5.988001F;
             this.line14.X2 = 6.988001F;
-            this.line14.Y1 = 2.938F;
-            this.line14.Y2 = 2.938F;
+            this.line14.Y1 = 0.5400002F;
+            this.line14.Y2 = 0.5400002F;
             // 
             // label20
             // 
@@ -1464,23 +1271,23 @@ namespace RSMPS
             this.label20.HyperLink = null;
             this.label20.Left = 0.125F;
             this.label20.Name = "label20";
-            this.label20.Style = "";
+            this.label20.Style = "font-weight: bold";
             this.label20.Text = "Business Development";
-            this.label20.Top = 3F;
+            this.label20.Top = 0.6F;
             this.label20.Width = 1.720001F;
             // 
             // line15
             // 
             this.line15.Height = 0F;
-            this.line15.Left = 1.907F;
+            this.line15.Left = 1.925F;
             this.line15.LineWeight = 1F;
             this.line15.Name = "line15";
-            this.line15.Top = 3.24F;
+            this.line15.Top = 0.84F;
             this.line15.Width = 3.375F;
-            this.line15.X1 = 1.907F;
-            this.line15.X2 = 5.282F;
-            this.line15.Y1 = 3.24F;
-            this.line15.Y2 = 3.24F;
+            this.line15.X1 = 1.925F;
+            this.line15.X2 = 5.3F;
+            this.line15.Y1 = 0.84F;
+            this.line15.Y2 = 0.84F;
             // 
             // label21
             // 
@@ -1488,23 +1295,23 @@ namespace RSMPS
             this.label21.HyperLink = null;
             this.label21.Left = 5.42F;
             this.label21.Name = "label21";
-            this.label21.Style = "";
+            this.label21.Style = "font-weight: bold";
             this.label21.Text = "Date";
-            this.label21.Top = 3.039F;
+            this.label21.Top = 0.6F;
             this.label21.Width = 0.4700003F;
             // 
             // line17
             // 
             this.line17.Height = 0F;
-            this.line17.Left = 5.970001F;
+            this.line17.Left = 6F;
             this.line17.LineWeight = 1F;
             this.line17.Name = "line17";
-            this.line17.Top = 3.24F;
+            this.line17.Top = 0.84F;
             this.line17.Width = 0.9999986F;
-            this.line17.X1 = 5.970001F;
-            this.line17.X2 = 6.97F;
-            this.line17.Y1 = 3.24F;
-            this.line17.Y2 = 3.24F;
+            this.line17.X1 = 6F;
+            this.line17.X2 = 6.999999F;
+            this.line17.Y1 = 0.84F;
+            this.line17.Y2 = 0.84F;
             // 
             // label22
             // 
@@ -1512,23 +1319,23 @@ namespace RSMPS
             this.label22.HyperLink = null;
             this.label22.Left = 0.125F;
             this.label22.Name = "label22";
-            this.label22.Style = "";
+            this.label22.Style = "font-weight: bold";
             this.label22.Text = "Engineering";
-            this.label22.Top = 3.313F;
+            this.label22.Top = 0.9F;
             this.label22.Width = 1.720001F;
             // 
             // line18
             // 
             this.line18.Height = 0F;
-            this.line18.Left = 1.907F;
+            this.line18.Left = 1.925F;
             this.line18.LineWeight = 1F;
             this.line18.Name = "line18";
-            this.line18.Top = 3.553F;
+            this.line18.Top = 1.14F;
             this.line18.Width = 3.375F;
-            this.line18.X1 = 1.907F;
-            this.line18.X2 = 5.282F;
-            this.line18.Y1 = 3.553F;
-            this.line18.Y2 = 3.553F;
+            this.line18.X1 = 1.925F;
+            this.line18.X2 = 5.3F;
+            this.line18.Y1 = 1.14F;
+            this.line18.Y2 = 1.14F;
             // 
             // label23
             // 
@@ -1536,23 +1343,23 @@ namespace RSMPS
             this.label23.HyperLink = null;
             this.label23.Left = 5.42F;
             this.label23.Name = "label23";
-            this.label23.Style = "";
+            this.label23.Style = "font-weight: bold";
             this.label23.Text = "Date";
-            this.label23.Top = 3.352F;
+            this.label23.Top = 0.9F;
             this.label23.Width = 0.4700003F;
             // 
             // line19
             // 
             this.line19.Height = 0F;
-            this.line19.Left = 5.970001F;
+            this.line19.Left = 5.988F;
             this.line19.LineWeight = 1F;
             this.line19.Name = "line19";
-            this.line19.Top = 3.553F;
+            this.line19.Top = 1.14F;
             this.line19.Width = 0.9999986F;
-            this.line19.X1 = 5.970001F;
-            this.line19.X2 = 6.97F;
-            this.line19.Y1 = 3.553F;
-            this.line19.Y2 = 3.553F;
+            this.line19.X1 = 5.988F;
+            this.line19.X2 = 6.987999F;
+            this.line19.Y1 = 1.14F;
+            this.line19.Y2 = 1.14F;
             // 
             // label24
             // 
@@ -1560,23 +1367,23 @@ namespace RSMPS
             this.label24.HyperLink = null;
             this.label24.Left = 0.125F;
             this.label24.Name = "label24";
-            this.label24.Style = "";
+            this.label24.Style = "font-weight: bold";
             this.label24.Text = "President";
-            this.label24.Top = 3.625F;
+            this.label24.Top = 1.2F;
             this.label24.Width = 1.720001F;
             // 
             // line20
             // 
             this.line20.Height = 0F;
-            this.line20.Left = 1.907F;
+            this.line20.Left = 1.925F;
             this.line20.LineWeight = 1F;
             this.line20.Name = "line20";
-            this.line20.Top = 3.865F;
+            this.line20.Top = 1.44F;
             this.line20.Width = 3.375F;
-            this.line20.X1 = 1.907F;
-            this.line20.X2 = 5.282F;
-            this.line20.Y1 = 3.865F;
-            this.line20.Y2 = 3.865F;
+            this.line20.X1 = 1.925F;
+            this.line20.X2 = 5.3F;
+            this.line20.Y1 = 1.44F;
+            this.line20.Y2 = 1.44F;
             // 
             // label25
             // 
@@ -1584,23 +1391,23 @@ namespace RSMPS
             this.label25.HyperLink = null;
             this.label25.Left = 5.42F;
             this.label25.Name = "label25";
-            this.label25.Style = "";
+            this.label25.Style = "font-weight: bold";
             this.label25.Text = "Date";
-            this.label25.Top = 3.664F;
+            this.label25.Top = 1.2F;
             this.label25.Width = 0.4700003F;
             // 
             // line21
             // 
             this.line21.Height = 0F;
-            this.line21.Left = 5.970001F;
+            this.line21.Left = 5.988F;
             this.line21.LineWeight = 1F;
             this.line21.Name = "line21";
-            this.line21.Top = 3.865F;
+            this.line21.Top = 1.44F;
             this.line21.Width = 0.9999986F;
-            this.line21.X1 = 5.970001F;
-            this.line21.X2 = 6.97F;
-            this.line21.Y1 = 3.865F;
-            this.line21.Y2 = 3.865F;
+            this.line21.X1 = 5.988F;
+            this.line21.X2 = 6.987999F;
+            this.line21.Y1 = 1.44F;
+            this.line21.Y2 = 1.44F;
             // 
             // label26
             // 
@@ -1608,23 +1415,106 @@ namespace RSMPS
             this.label26.HyperLink = null;
             this.label26.Left = 0.125F;
             this.label26.Name = "label26";
-            this.label26.Style = "";
+            this.label26.Style = "font-weight: bold";
             this.label26.Text = "Project Budget Signature Requirements\r\n";
             this.label26.Top = 0F;
             this.label26.Width = 3.812F;
             // 
-            // line22
+            // label11
             // 
-            this.line22.Height = 2.980232E-07F;
-            this.line22.Left = 0.157F;
-            this.line22.LineWeight = 1F;
-            this.line22.Name = "line22";
-            this.line22.Top = 0.3129997F;
-            this.line22.Width = 7.843F;
-            this.line22.X1 = 0.157F;
-            this.line22.X2 = 8F;
-            this.line22.Y1 = 0.313F;
-            this.line22.Y2 = 0.3129997F;
+            this.label11.Height = 0.2F;
+            this.label11.HyperLink = null;
+            this.label11.Left = 0.125F;
+            this.label11.Name = "label11";
+            this.label11.Style = "font-weight: bold";
+            this.label11.Text = "Engineering";
+            this.label11.Top = 1.5F;
+            this.label11.Width = 1.720001F;
+            // 
+            // line8
+            // 
+            this.line8.Height = 0F;
+            this.line8.Left = 1.925F;
+            this.line8.LineWeight = 1F;
+            this.line8.Name = "line8";
+            this.line8.Top = 1.74F;
+            this.line8.Width = 3.375F;
+            this.line8.X1 = 1.925F;
+            this.line8.X2 = 5.3F;
+            this.line8.Y1 = 1.74F;
+            this.line8.Y2 = 1.74F;
+            // 
+            // label12
+            // 
+            this.label12.Height = 0.2F;
+            this.label12.HyperLink = null;
+            this.label12.Left = 5.42F;
+            this.label12.Name = "label12";
+            this.label12.Style = "font-weight: bold";
+            this.label12.Text = "Date";
+            this.label12.Top = 1.5F;
+            this.label12.Width = 0.4700003F;
+            // 
+            // line9
+            // 
+            this.line9.Height = 0F;
+            this.line9.Left = 6.000001F;
+            this.line9.LineWeight = 1F;
+            this.line9.Name = "line9";
+            this.line9.Top = 1.74F;
+            this.line9.Width = 0.999999F;
+            this.line9.X1 = 6.000001F;
+            this.line9.X2 = 7F;
+            this.line9.Y1 = 1.74F;
+            this.line9.Y2 = 1.74F;
+            // 
+            // label13
+            // 
+            this.label13.Height = 0.2F;
+            this.label13.HyperLink = null;
+            this.label13.Left = 0.125F;
+            this.label13.Name = "label13";
+            this.label13.Style = "font-weight: bold";
+            this.label13.Text = "President";
+            this.label13.Top = 1.8F;
+            this.label13.Width = 1.720001F;
+            // 
+            // line10
+            // 
+            this.line10.Height = 0F;
+            this.line10.Left = 1.925F;
+            this.line10.LineWeight = 1F;
+            this.line10.Name = "line10";
+            this.line10.Top = 2.04F;
+            this.line10.Width = 3.375F;
+            this.line10.X1 = 1.925F;
+            this.line10.X2 = 5.3F;
+            this.line10.Y1 = 2.04F;
+            this.line10.Y2 = 2.04F;
+            // 
+            // label14
+            // 
+            this.label14.Height = 0.2F;
+            this.label14.HyperLink = null;
+            this.label14.Left = 5.42F;
+            this.label14.Name = "label14";
+            this.label14.Style = "font-weight: bold";
+            this.label14.Text = "Date";
+            this.label14.Top = 1.8F;
+            this.label14.Width = 0.4700003F;
+            // 
+            // line16
+            // 
+            this.line16.Height = 0F;
+            this.line16.Left = 6.000001F;
+            this.line16.LineWeight = 1F;
+            this.line16.Name = "line16";
+            this.line16.Top = 2.04F;
+            this.line16.Width = 0.999999F;
+            this.line16.X1 = 6.000001F;
+            this.line16.X2 = 7F;
+            this.line16.Y1 = 2.04F;
+            this.line16.Y2 = 2.04F;
             // 
             // rprtBudgetSummary1
             // 
@@ -1686,22 +1576,6 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.lblPrintDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label28)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblRateSchedule)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label50)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label29)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label31)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label33)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label46)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label49)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label51)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label53)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label54)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label55)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label56)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label20)).EndInit();
@@ -1711,11 +1585,15 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label25)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label26)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
 
-		#endregion
+        #endregion
 
         private void PageFooter_Format(object sender, EventArgs e)
         {
@@ -1784,5 +1662,5 @@ namespace RSMPS
         private PageFooter PageFooter;
         private Label Label28;
         private Label lblRateSchedule;
-	}
+    }
 }

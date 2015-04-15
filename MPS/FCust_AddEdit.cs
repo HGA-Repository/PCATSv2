@@ -120,6 +120,7 @@ namespace RSMPS
             u.Load(sec.UserID);
 
             if (u.IsAdministrator == true || u.IsEngineerAdmin)
+                // System Administrators and Document Managers can update customers in PCATS
             {
                 if (mbItemChanged == true && IsValid() == true)
                 {
@@ -299,6 +300,7 @@ namespace RSMPS
             u.Load(sec.UserID);
 
             if (u.IsAdministrator == true || u.IsEngineerAdmin)
+            // System Administrators and Document Managers can update customers in PCATS
             {
                 if (mbItemChanged == true && IsValid() == true)
                 {

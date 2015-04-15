@@ -7,6 +7,7 @@ namespace RevSol
 {
 	public class RSUtility
 	{
+        public static readonly string DefaultXMLFilePath = Environment.GetEnvironmentVariable("temp");
 		public static DateTime DefaultDate()
 		{
 			return new DateTime(1900, 1, 1);
@@ -41,7 +42,8 @@ namespace RevSol
 		}
 		public static string GetLocation()
 		{
-			return Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+			//return Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            return DefaultXMLFilePath;
 		}
 		public static string GetComputerName()
 		{

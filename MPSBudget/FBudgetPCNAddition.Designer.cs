@@ -29,23 +29,23 @@ namespace RSMPS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            C1.Win.C1TrueDBGrid.Style style1 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style2 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style3 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style4 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style5 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style65 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style66 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style67 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style68 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style69 = new C1.Win.C1TrueDBGrid.Style();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FBudgetPCNAddition));
-            C1.Win.C1TrueDBGrid.Style style6 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style7 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style8 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style9 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style10 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style11 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style12 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style13 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style14 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style15 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style16 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style70 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style71 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style72 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style73 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style74 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style75 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style76 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style77 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style78 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style79 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style80 = new C1.Win.C1TrueDBGrid.Style();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -69,6 +69,8 @@ namespace RSMPS
             this.label15 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtPCNNumber = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.dtpDateRequested = new System.Windows.Forms.DateTimePicker();
             this.txtRequestedBy = new System.Windows.Forms.TextBox();
             this.dtpDateInitiated = new System.Windows.Forms.DateTimePicker();
@@ -374,6 +376,8 @@ namespace RSMPS
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtPCNNumber);
+            this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.dtpDateRequested);
             this.groupBox3.Controls.Add(this.txtRequestedBy);
             this.groupBox3.Controls.Add(this.dtpDateInitiated);
@@ -395,6 +399,23 @@ namespace RSMPS
             this.groupBox3.Size = new System.Drawing.Size(744, 119);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
+            // 
+            // txtPCNNumber
+            // 
+            this.txtPCNNumber.Location = new System.Drawing.Point(476, 90);
+            this.txtPCNNumber.Name = "txtPCNNumber";
+            this.txtPCNNumber.Size = new System.Drawing.Size(250, 20);
+            this.txtPCNNumber.TabIndex = 16;
+            this.txtPCNNumber.TextChanged += new System.EventHandler(this.txtPCNNumber_TextChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(382, 97);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(72, 13);
+            this.label11.TabIndex = 15;
+            this.label11.Text = "PCN Number:";
             // 
             // dtpDateRequested
             // 
@@ -710,25 +731,25 @@ namespace RSMPS
             this.tdbdActivities.AllowColSelect = false;
             this.tdbdActivities.AllowRowSizing = C1.Win.C1TrueDBGrid.RowSizingEnum.AllRows;
             this.tdbdActivities.AlternatingRows = false;
-            this.tdbdActivities.CaptionStyle = style1;
+            this.tdbdActivities.CaptionStyle = style65;
             this.tdbdActivities.ColumnCaptionHeight = 17;
             this.tdbdActivities.ColumnFooterHeight = 17;
-            this.tdbdActivities.EvenRowStyle = style2;
+            this.tdbdActivities.EvenRowStyle = style66;
             this.tdbdActivities.FetchRowStyles = false;
-            this.tdbdActivities.FooterStyle = style3;
-            this.tdbdActivities.HeadingStyle = style4;
-            this.tdbdActivities.HighLightRowStyle = style5;
+            this.tdbdActivities.FooterStyle = style67;
+            this.tdbdActivities.HeadingStyle = style68;
+            this.tdbdActivities.HighLightRowStyle = style69;
             this.tdbdActivities.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbdActivities.Images"))));
             this.tdbdActivities.Location = new System.Drawing.Point(23, 56);
             this.tdbdActivities.Name = "tdbdActivities";
-            this.tdbdActivities.OddRowStyle = style6;
-            this.tdbdActivities.RecordSelectorStyle = style7;
+            this.tdbdActivities.OddRowStyle = style70;
+            this.tdbdActivities.RecordSelectorStyle = style71;
             this.tdbdActivities.RowDivider.Color = System.Drawing.Color.DarkGray;
             this.tdbdActivities.RowDivider.Style = C1.Win.C1TrueDBGrid.LineStyleEnum.Single;
             this.tdbdActivities.RowSubDividerColor = System.Drawing.Color.DarkGray;
             this.tdbdActivities.ScrollTips = false;
             this.tdbdActivities.Size = new System.Drawing.Size(275, 288);
-            this.tdbdActivities.Style = style8;
+            this.tdbdActivities.Style = style72;
             this.tdbdActivities.TabIndex = 1;
             this.tdbdActivities.TabStop = false;
             this.tdbdActivities.Text = "c1TrueDBDropdown1";
@@ -752,7 +773,7 @@ namespace RSMPS
             this.tdbgHours.PreviewInfo.Size = new System.Drawing.Size(0, 0);
             this.tdbgHours.PreviewInfo.ZoomFactor = 75D;
             this.tdbgHours.PrintInfo.PageSettings = ((System.Drawing.Printing.PageSettings)(resources.GetObject("tdbgHours.PrintInfo.PageSettings")));
-            this.tdbgHours.Size = new System.Drawing.Size(848, 552);
+            this.tdbgHours.Size = new System.Drawing.Size(858, 552);
             this.tdbgHours.TabIndex = 0;
             this.tdbgHours.Text = "c1TrueDBGrid1";
             this.tdbgHours.WrapCellPointer = true;
@@ -803,27 +824,27 @@ namespace RSMPS
             this.tdbdExpenseAccts.AllowColSelect = false;
             this.tdbdExpenseAccts.AllowRowSizing = C1.Win.C1TrueDBGrid.RowSizingEnum.AllRows;
             this.tdbdExpenseAccts.AlternatingRows = false;
-            this.tdbdExpenseAccts.CaptionStyle = style9;
+            this.tdbdExpenseAccts.CaptionStyle = style73;
             this.tdbdExpenseAccts.ColumnCaptionHeight = 17;
             this.tdbdExpenseAccts.ColumnFooterHeight = 17;
             this.tdbdExpenseAccts.Cursor = System.Windows.Forms.Cursors.Default;
             this.tdbdExpenseAccts.DisplayMember = "Code";
-            this.tdbdExpenseAccts.EvenRowStyle = style10;
+            this.tdbdExpenseAccts.EvenRowStyle = style74;
             this.tdbdExpenseAccts.FetchRowStyles = false;
-            this.tdbdExpenseAccts.FooterStyle = style11;
-            this.tdbdExpenseAccts.HeadingStyle = style12;
-            this.tdbdExpenseAccts.HighLightRowStyle = style13;
+            this.tdbdExpenseAccts.FooterStyle = style75;
+            this.tdbdExpenseAccts.HeadingStyle = style76;
+            this.tdbdExpenseAccts.HighLightRowStyle = style77;
             this.tdbdExpenseAccts.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbdExpenseAccts.Images"))));
             this.tdbdExpenseAccts.Location = new System.Drawing.Point(30, 44);
             this.tdbdExpenseAccts.Name = "tdbdExpenseAccts";
-            this.tdbdExpenseAccts.OddRowStyle = style14;
-            this.tdbdExpenseAccts.RecordSelectorStyle = style15;
+            this.tdbdExpenseAccts.OddRowStyle = style78;
+            this.tdbdExpenseAccts.RecordSelectorStyle = style79;
             this.tdbdExpenseAccts.RowDivider.Color = System.Drawing.Color.DarkGray;
             this.tdbdExpenseAccts.RowDivider.Style = C1.Win.C1TrueDBGrid.LineStyleEnum.Single;
             this.tdbdExpenseAccts.RowSubDividerColor = System.Drawing.Color.DarkGray;
             this.tdbdExpenseAccts.ScrollTips = false;
             this.tdbdExpenseAccts.Size = new System.Drawing.Size(375, 288);
-            this.tdbdExpenseAccts.Style = style16;
+            this.tdbdExpenseAccts.Style = style80;
             this.tdbdExpenseAccts.TabIndex = 1;
             this.tdbdExpenseAccts.TabStop = false;
             this.tdbdExpenseAccts.Text = "c1TrueDBDropdown1";
@@ -1104,5 +1125,7 @@ namespace RSMPS
         private System.Windows.Forms.ToolStripMenuItem deleteLineInExpenses;
         private System.Windows.Forms.ToolStripMenuItem cancelToolStripMenuItem1;
         private C1.Win.C1SpellChecker.C1SpellChecker c1SpellChecker1;
+        private System.Windows.Forms.TextBox txtPCNNumber;
+        private System.Windows.Forms.Label label11;
     }
 }

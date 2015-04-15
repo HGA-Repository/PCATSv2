@@ -25,6 +25,7 @@ namespace RSMPS
             txtDescription.Text = bud.Description;
             txtPreparedBy.Text = bud.PreparedBy;
             txtContingency.Text = bud.Contingency.ToString("#,##0.00");
+
         }
 
         public FBudgetInfo()

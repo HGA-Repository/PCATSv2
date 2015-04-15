@@ -37,32 +37,34 @@ namespace RSMPS
             // lvwItems
             // 
             this.lvwItems.AllowColumnReorder = true;
-            this.lvwItems.Size = new System.Drawing.Size(466, 422);
+            this.lvwItems.Size = new System.Drawing.Size(754, 422);
             this.lvwItems.SelectedIndexChanged += new System.EventHandler(this.lvwItems_SelectedIndexChanged);
             // 
             // bttOpen
             // 
-            this.bttOpen.Location = new System.Drawing.Point(510, 12);
+            this.bttOpen.Location = new System.Drawing.Point(801, 12);
             this.bttOpen.Click += new System.EventHandler(this.bttOpen_Click_1);
             // 
             // bttNew
             // 
-            this.bttNew.Location = new System.Drawing.Point(510, 48);
+            this.bttNew.Location = new System.Drawing.Point(801, 48);
             // 
             // bttDelete
             // 
-            this.bttDelete.Location = new System.Drawing.Point(510, 84);
+            this.bttDelete.Location = new System.Drawing.Point(801, 84);
+            this.bttDelete.Visible = false;
             // 
             // bttClose
             // 
-            this.bttClose.Location = new System.Drawing.Point(510, 404);
+            this.bttClose.Location = new System.Drawing.Point(801, 404);
             this.bttClose.TabIndex = 5;
             // 
             // RadioButtonListProjects
             // 
+            this.RadioButtonListProjects.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.RadioButtonListProjects.AutoSize = true;
             this.RadioButtonListProjects.Checked = true;
-            this.RadioButtonListProjects.Location = new System.Drawing.Point(495, 157);
+            this.RadioButtonListProjects.Location = new System.Drawing.Point(791, 157);
             this.RadioButtonListProjects.Name = "RadioButtonListProjects";
             this.RadioButtonListProjects.Size = new System.Drawing.Size(82, 17);
             this.RadioButtonListProjects.TabIndex = 8;
@@ -73,8 +75,9 @@ namespace RSMPS
             // 
             // RadioButtonListProposals
             // 
+            this.RadioButtonListProposals.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.RadioButtonListProposals.AutoSize = true;
-            this.RadioButtonListProposals.Location = new System.Drawing.Point(495, 181);
+            this.RadioButtonListProposals.Location = new System.Drawing.Point(791, 181);
             this.RadioButtonListProposals.Name = "RadioButtonListProposals";
             this.RadioButtonListProposals.Size = new System.Drawing.Size(90, 17);
             this.RadioButtonListProposals.TabIndex = 9;
@@ -85,8 +88,9 @@ namespace RSMPS
             // 
             // RadioButtonListAll
             // 
+            this.RadioButtonListAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.RadioButtonListAll.AutoSize = true;
-            this.RadioButtonListAll.Location = new System.Drawing.Point(495, 205);
+            this.RadioButtonListAll.Location = new System.Drawing.Point(791, 205);
             this.RadioButtonListAll.Name = "RadioButtonListAll";
             this.RadioButtonListAll.Size = new System.Drawing.Size(55, 17);
             this.RadioButtonListAll.TabIndex = 10;
@@ -99,7 +103,7 @@ namespace RSMPS
             // 
             this.chkListAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkListAll.AutoSize = true;
-            this.chkListAll.Location = new System.Drawing.Point(506, 130);
+            this.chkListAll.Location = new System.Drawing.Point(802, 130);
             this.chkListAll.Name = "chkListAll";
             this.chkListAll.Size = new System.Drawing.Size(56, 17);
             this.chkListAll.TabIndex = 4;
@@ -112,11 +116,12 @@ namespace RSMPS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(597, 466);
+            this.ClientSize = new System.Drawing.Size(888, 466);
             this.Controls.Add(this.RadioButtonListAll);
             this.Controls.Add(this.RadioButtonListProposals);
             this.Controls.Add(this.RadioButtonListProjects);
             this.Controls.Add(this.chkListAll);
+            this.MaximizeBox = false;
             this.Name = "FProj_List";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
