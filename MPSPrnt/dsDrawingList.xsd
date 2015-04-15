@@ -4,91 +4,89 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="RSManpowerSchDBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="RSManpowerSchDBConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.RSMPS.Properties.Settings.GlobalReference.Default.RSManpowerSchDBConnectionString" Provider="System.Data.SqlClient">
-          </Connection>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="RSManpowerSchDBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="RSManpowerSchDBConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.RSMPS.Properties.Settings.GlobalReference.Default.RSManpowerSchDBConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
-        <Tables>
-        </Tables>
-        <Sources>
-        </Sources>
+        <Tables />
+        <Sources />
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="dsDrawingList" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsDrawingList" msprop:Generator_DataSetName="dsDrawingList">
+  <xs:element name="dsDrawingList" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="dsDrawingList" msprop:Generator_UserDSName="dsDrawingList">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="spRPRT_DrawingLogList" msprop:Generator_UserTableName="spRPRT_DrawingLogList" msprop:Generator_RowDeletedName="spRPRT_DrawingLogListRowDeleted" msprop:Generator_RowChangedName="spRPRT_DrawingLogListRowChanged" msprop:Generator_RowClassName="spRPRT_DrawingLogListRow" msprop:Generator_RowChangingName="spRPRT_DrawingLogListRowChanging" msprop:Generator_RowEvArgName="spRPRT_DrawingLogListRowChangeEvent" msprop:Generator_RowEvHandlerName="spRPRT_DrawingLogListRowChangeEventHandler" msprop:Generator_TableClassName="spRPRT_DrawingLogListDataTable" msprop:Generator_TableVarName="tablespRPRT_DrawingLogList" msprop:Generator_RowDeletingName="spRPRT_DrawingLogListRowDeleting" msprop:Generator_TablePropName="spRPRT_DrawingLogList">
+        <xs:element name="spRPRT_DrawingLogList" msprop:Generator_UserTableName="spRPRT_DrawingLogList" msprop:Generator_RowEvArgName="spRPRT_DrawingLogListRowChangeEvent" msprop:Generator_TableVarName="tablespRPRT_DrawingLogList" msprop:Generator_TablePropName="spRPRT_DrawingLogList" msprop:Generator_RowDeletingName="spRPRT_DrawingLogListRowDeleting" msprop:Generator_RowChangingName="spRPRT_DrawingLogListRowChanging" msprop:Generator_RowDeletedName="spRPRT_DrawingLogListRowDeleted" msprop:Generator_RowEvHandlerName="spRPRT_DrawingLogListRowChangeEventHandler" msprop:Generator_TableClassName="spRPRT_DrawingLogListDataTable" msprop:Generator_RowChangedName="spRPRT_DrawingLogListRowChanged" msprop:Generator_RowClassName="spRPRT_DrawingLogListRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Dept" msprop:Generator_UserColumnName="Dept" msprop:Generator_ColumnPropNameInRow="Dept" msprop:Generator_ColumnVarNameInTable="columnDept" msprop:Generator_ColumnPropNameInTable="DeptColumn" minOccurs="0">
+              <xs:element name="Dept" msprop:Generator_ColumnVarNameInTable="columnDept" msprop:Generator_ColumnPropNameInRow="Dept" msprop:Generator_ColumnPropNameInTable="DeptColumn" msprop:Generator_UserColumnName="Dept" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Project" msprop:Generator_UserColumnName="Project" msprop:Generator_ColumnPropNameInRow="Project" msprop:Generator_ColumnVarNameInTable="columnProject" msprop:Generator_ColumnPropNameInTable="ProjectColumn" minOccurs="0">
+              <xs:element name="Project" msprop:Generator_ColumnVarNameInTable="columnProject" msprop:Generator_ColumnPropNameInRow="Project" msprop:Generator_ColumnPropNameInTable="ProjectColumn" msprop:Generator_UserColumnName="Project" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Customer" msprop:Generator_UserColumnName="Customer" msprop:Generator_ColumnPropNameInRow="Customer" msprop:Generator_ColumnVarNameInTable="columnCustomer" msprop:Generator_ColumnPropNameInTable="CustomerColumn" minOccurs="0">
+              <xs:element name="Customer" msprop:Generator_ColumnVarNameInTable="columnCustomer" msprop:Generator_ColumnPropNameInRow="Customer" msprop:Generator_ColumnPropNameInTable="CustomerColumn" msprop:Generator_UserColumnName="Customer" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Location" msprop:Generator_UserColumnName="Location" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnVarNameInTable="columnLocation" msprop:Generator_ColumnPropNameInTable="LocationColumn" minOccurs="0">
+              <xs:element name="Location" msprop:Generator_ColumnVarNameInTable="columnLocation" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnPropNameInTable="LocationColumn" msprop:Generator_UserColumnName="Location" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Lead" msprop:Generator_UserColumnName="Lead" msprop:Generator_ColumnPropNameInRow="Lead" msprop:Generator_ColumnVarNameInTable="columnLead" msprop:Generator_ColumnPropNameInTable="LeadColumn" minOccurs="0">
+              <xs:element name="Lead" msprop:Generator_ColumnVarNameInTable="columnLead" msprop:Generator_ColumnPropNameInRow="Lead" msprop:Generator_ColumnPropNameInTable="LeadColumn" msprop:Generator_UserColumnName="Lead" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="HGANumber" msprop:Generator_UserColumnName="HGANumber" msprop:Generator_ColumnPropNameInRow="HGANumber" msprop:Generator_ColumnVarNameInTable="columnHGANumber" msprop:Generator_ColumnPropNameInTable="HGANumberColumn" minOccurs="0">
+              <xs:element name="HGANumber" msprop:Generator_ColumnVarNameInTable="columnHGANumber" msprop:Generator_ColumnPropNameInRow="HGANumber" msprop:Generator_ColumnPropNameInTable="HGANumberColumn" msprop:Generator_UserColumnName="HGANumber" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CadNumber" msprop:Generator_UserColumnName="CadNumber" msprop:Generator_ColumnPropNameInRow="CadNumber" msprop:Generator_ColumnVarNameInTable="columnCadNumber" msprop:Generator_ColumnPropNameInTable="CadNumberColumn" minOccurs="0">
+              <xs:element name="CadNumber" msprop:Generator_ColumnVarNameInTable="columnCadNumber" msprop:Generator_ColumnPropNameInRow="CadNumber" msprop:Generator_ColumnPropNameInTable="CadNumberColumn" msprop:Generator_UserColumnName="CadNumber" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ActivityCode" msprop:Generator_UserColumnName="ActivityCode" msprop:Generator_ColumnPropNameInRow="ActivityCode" msprop:Generator_ColumnVarNameInTable="columnActivityCode" msprop:Generator_ColumnPropNameInTable="ActivityCodeColumn" type="xs:string" minOccurs="0" />
-              <xs:element name="IsTask" msprop:Generator_UserColumnName="IsTask" msprop:Generator_ColumnPropNameInRow="IsTask" msprop:Generator_ColumnVarNameInTable="columnIsTask" msprop:Generator_ColumnPropNameInTable="IsTaskColumn" type="xs:boolean" />
-              <xs:element name="DwgSize" msprop:Generator_UserColumnName="DwgSize" msprop:Generator_ColumnPropNameInRow="DwgSize" msprop:Generator_ColumnVarNameInTable="columnDwgSize" msprop:Generator_ColumnPropNameInTable="DwgSizeColumn" minOccurs="0">
+              <xs:element name="ActivityCode" msprop:Generator_ColumnVarNameInTable="columnActivityCode" msprop:Generator_ColumnPropNameInRow="ActivityCode" msprop:Generator_ColumnPropNameInTable="ActivityCodeColumn" msprop:Generator_UserColumnName="ActivityCode" type="xs:string" minOccurs="0" />
+              <xs:element name="IsTask" msprop:Generator_ColumnVarNameInTable="columnIsTask" msprop:Generator_ColumnPropNameInRow="IsTask" msprop:Generator_ColumnPropNameInTable="IsTaskColumn" msprop:Generator_UserColumnName="IsTask" type="xs:boolean" />
+              <xs:element name="DwgSize" msprop:Generator_ColumnVarNameInTable="columnDwgSize" msprop:Generator_ColumnPropNameInRow="DwgSize" msprop:Generator_ColumnPropNameInTable="DwgSizeColumn" msprop:Generator_UserColumnName="DwgSize" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="BudgetHrs" msprop:Generator_UserColumnName="BudgetHrs" msprop:Generator_ColumnPropNameInRow="BudgetHrs" msprop:Generator_ColumnVarNameInTable="columnBudgetHrs" msprop:Generator_ColumnPropNameInTable="BudgetHrsColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="PercentComplete" msprop:Generator_UserColumnName="PercentComplete" msprop:Generator_ColumnPropNameInRow="PercentComplete" msprop:Generator_ColumnVarNameInTable="columnPercentComplete" msprop:Generator_ColumnPropNameInTable="PercentCompleteColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="RemainingHrs" msprop:Generator_UserColumnName="RemainingHrs" msprop:Generator_ColumnPropNameInRow="RemainingHrs" msprop:Generator_ColumnVarNameInTable="columnRemainingHrs" msprop:Generator_ColumnPropNameInTable="RemainingHrsColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="EarnedHrs" msprop:Generator_UserColumnName="EarnedHrs" msprop:Generator_ColumnPropNameInRow="EarnedHrs" msprop:Generator_ColumnVarNameInTable="columnEarnedHrs" msprop:Generator_ColumnPropNameInTable="EarnedHrsColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Title" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Title" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_ColumnPropNameInTable="TitleColumn" minOccurs="0">
+              <xs:element name="BudgetHrs" msprop:Generator_ColumnVarNameInTable="columnBudgetHrs" msprop:Generator_ColumnPropNameInRow="BudgetHrs" msprop:Generator_ColumnPropNameInTable="BudgetHrsColumn" msprop:Generator_UserColumnName="BudgetHrs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PercentComplete" msprop:Generator_ColumnVarNameInTable="columnPercentComplete" msprop:Generator_ColumnPropNameInRow="PercentComplete" msprop:Generator_ColumnPropNameInTable="PercentCompleteColumn" msprop:Generator_UserColumnName="PercentComplete" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RemainingHrs" msprop:Generator_ColumnVarNameInTable="columnRemainingHrs" msprop:Generator_ColumnPropNameInRow="RemainingHrs" msprop:Generator_ColumnPropNameInTable="RemainingHrsColumn" msprop:Generator_UserColumnName="RemainingHrs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="EarnedHrs" msprop:Generator_ColumnVarNameInTable="columnEarnedHrs" msprop:Generator_ColumnPropNameInRow="EarnedHrs" msprop:Generator_ColumnPropNameInTable="EarnedHrsColumn" msprop:Generator_UserColumnName="EarnedHrs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Title" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_UserColumnName="Title" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="201" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
