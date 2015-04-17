@@ -512,6 +512,15 @@ namespace RSMPS
             LoadPCNStatus();
 
             SetBudgetUserLevel();
+            
+            richTextBox1.Text = moCurrBudget.Clarification11000.ToString();
+            richTextBox2.Text = moCurrBudget.Clarification12000.ToString();
+            richTextBox3.Text = moCurrBudget.Clarification13000.ToString();
+            richTextBox4.Text = moCurrBudget.Clarification14000.ToString();
+            richTextBox5.Text = moCurrBudget.Clarification15000.ToString();
+            richTextBox6.Text = moCurrBudget.Clarification16000.ToString();
+            richTextBox7.Text = moCurrBudget.Clarification18000.ToString();
+            richTextBox8.Text = moCurrBudget.Clarification50000.ToString();
         }
 
         private void SetBudgetUserLevel()
@@ -3501,19 +3510,16 @@ namespace RSMPS
 
         private void button5_Click (object sender, EventArgs e)
         {
-            CBBudget bud = new CBBudget();
 
-            bud.Clarification11000 = richTextBox1.Text;
-            bud.Clarification12000 = richTextBox2.Text;
-            bud.Clarification13000 = richTextBox3.Text;
-            bud.Clarification14000 = richTextBox4.Text;
-            bud.Clarification15000 = richTextBox5.Text;
-            bud.Clarification16000 = richTextBox6.Text;
-            bud.Clarification18000 = richTextBox7.Text;
-            bud.Clarification50000 = richTextBox8.Text;
-                               
-            
-            bud.Save();
+            moCurrBudget.Clarification11000 = richTextBox1.Text;
+            moCurrBudget.Clarification12000 = richTextBox2.Text;
+            moCurrBudget.Clarification13000 = richTextBox3.Text;
+            moCurrBudget.Clarification14000 = richTextBox4.Text;
+            moCurrBudget.Clarification15000 = richTextBox5.Text;
+            moCurrBudget.Clarification16000 = richTextBox6.Text;
+            moCurrBudget.Clarification18000 = richTextBox7.Text;
+            moCurrBudget.Clarification50000 = richTextBox8.Text;
+            moCurrBudget.Save();
         }
 
         private string GetProcurementDescription(int code, string descrip)

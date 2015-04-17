@@ -30,14 +30,14 @@ namespace RSMPS
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FBudgetMain));
-            C1.Win.C1TrueDBGrid.Style style17 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style18 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style19 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style20 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style21 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style22 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style23 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style24 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style1 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style2 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style3 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style4 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style5 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style6 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style7 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style8 = new C1.Win.C1TrueDBGrid.Style();
             this.c1ToolBar1 = new C1.Win.C1Command.C1ToolBar();
             this.c1CommandHolder1 = new C1.Win.C1Command.C1CommandHolder();
             this.tlbbSaveRev = new C1.Win.C1Command.C1Command();
@@ -83,7 +83,6 @@ namespace RSMPS
             this.bttAddPCN = new System.Windows.Forms.Button();
             this.tdbgBudgetPCN = new C1.Win.C1TrueDBGrid.C1TrueDBGrid();
             this.tbpClarification = new System.Windows.Forms.TabPage();
-            this.bttClearClarification = new System.Windows.Forms.Button();
             this.bttSaveClarification = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.richTextBox8 = new System.Windows.Forms.RichTextBox();
@@ -403,60 +402,60 @@ namespace RSMPS
             this.toolStripMenuItem2,
             this.cancelToolStripMenuItem1});
             this.cmnuBudget.Name = "cmnuBudget";
-            this.cmnuBudget.Size = new System.Drawing.Size(172, 164);
+            this.cmnuBudget.Size = new System.Drawing.Size(192, 164);
             this.cmnuBudget.Opening += new System.ComponentModel.CancelEventHandler(this.cmnuBudget_Opening);
             // 
             // newBlankBudgetToolStripMenuItem
             // 
             this.newBlankBudgetToolStripMenuItem.Name = "newBlankBudgetToolStripMenuItem";
-            this.newBlankBudgetToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.newBlankBudgetToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.newBlankBudgetToolStripMenuItem.Text = "New Blank Budget";
             this.newBlankBudgetToolStripMenuItem.Click += new System.EventHandler(this.newBlankBudgetToolStripMenuItem_Click);
             // 
             // makeDefaultToolStripMenuItem
             // 
             this.makeDefaultToolStripMenuItem.Name = "makeDefaultToolStripMenuItem";
-            this.makeDefaultToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.makeDefaultToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.makeDefaultToolStripMenuItem.Text = "Make Default";
             this.makeDefaultToolStripMenuItem.Click += new System.EventHandler(this.makeDefaultToolStripMenuItem_Click);
             // 
             // makeActiveToolStripMenuItem
             // 
             this.makeActiveToolStripMenuItem.Name = "makeActiveToolStripMenuItem";
-            this.makeActiveToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.makeActiveToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.makeActiveToolStripMenuItem.Text = "Make Active";
             this.makeActiveToolStripMenuItem.Click += new System.EventHandler(this.makeActiveToolStripMenuItem_Click);
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.removeToolStripMenuItem.Text = "Remove Entire Budget";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
             // lockToolStripMenuItem
             // 
             this.lockToolStripMenuItem.Name = "lockToolStripMenuItem";
-            this.lockToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.lockToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.lockToolStripMenuItem.Text = "Lock";
             this.lockToolStripMenuItem.Click += new System.EventHandler(this.lockToolStripMenuItem_Click);
             // 
             // propertiesToolStripMenuItem
             // 
             this.propertiesToolStripMenuItem.Name = "propertiesToolStripMenuItem";
-            this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.propertiesToolStripMenuItem.Text = "Properties";
             this.propertiesToolStripMenuItem.Click += new System.EventHandler(this.propertiesToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(168, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(188, 6);
             // 
             // cancelToolStripMenuItem1
             // 
             this.cancelToolStripMenuItem1.Name = "cancelToolStripMenuItem1";
-            this.cancelToolStripMenuItem1.Size = new System.Drawing.Size(171, 22);
+            this.cancelToolStripMenuItem1.Size = new System.Drawing.Size(191, 22);
             this.cancelToolStripMenuItem1.Text = "Cancel";
             // 
             // tabControl1
@@ -510,25 +509,25 @@ namespace RSMPS
             this.tdbdPCNStatus.AllowColSelect = true;
             this.tdbdPCNStatus.AllowRowSizing = C1.Win.C1TrueDBGrid.RowSizingEnum.AllRows;
             this.tdbdPCNStatus.AlternatingRows = false;
-            this.tdbdPCNStatus.CaptionStyle = style17;
+            this.tdbdPCNStatus.CaptionStyle = style1;
             this.tdbdPCNStatus.ColumnCaptionHeight = 17;
             this.tdbdPCNStatus.ColumnFooterHeight = 17;
-            this.tdbdPCNStatus.EvenRowStyle = style18;
+            this.tdbdPCNStatus.EvenRowStyle = style2;
             this.tdbdPCNStatus.FetchRowStyles = false;
-            this.tdbdPCNStatus.FooterStyle = style19;
-            this.tdbdPCNStatus.HeadingStyle = style20;
-            this.tdbdPCNStatus.HighLightRowStyle = style21;
+            this.tdbdPCNStatus.FooterStyle = style3;
+            this.tdbdPCNStatus.HeadingStyle = style4;
+            this.tdbdPCNStatus.HighLightRowStyle = style5;
             this.tdbdPCNStatus.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbdPCNStatus.Images"))));
             this.tdbdPCNStatus.Location = new System.Drawing.Point(26, 95);
             this.tdbdPCNStatus.Name = "tdbdPCNStatus";
-            this.tdbdPCNStatus.OddRowStyle = style22;
-            this.tdbdPCNStatus.RecordSelectorStyle = style23;
+            this.tdbdPCNStatus.OddRowStyle = style6;
+            this.tdbdPCNStatus.RecordSelectorStyle = style7;
             this.tdbdPCNStatus.RowDivider.Color = System.Drawing.Color.DarkGray;
             this.tdbdPCNStatus.RowDivider.Style = C1.Win.C1TrueDBGrid.LineStyleEnum.Single;
             this.tdbdPCNStatus.RowSubDividerColor = System.Drawing.Color.DarkGray;
             this.tdbdPCNStatus.ScrollTips = false;
             this.tdbdPCNStatus.Size = new System.Drawing.Size(297, 138);
-            this.tdbdPCNStatus.Style = style24;
+            this.tdbdPCNStatus.Style = style8;
             this.tdbdPCNStatus.TabIndex = 3;
             this.tdbdPCNStatus.TabStop = false;
             this.tdbdPCNStatus.Text = "c1TrueDBDropdown1";
@@ -584,7 +583,6 @@ namespace RSMPS
             // 
             // tbpClarification
             // 
-            this.tbpClarification.Controls.Add(this.bttClearClarification);
             this.tbpClarification.Controls.Add(this.bttSaveClarification);
             this.tbpClarification.Controls.Add(this.label10);
             this.tbpClarification.Controls.Add(this.richTextBox8);
@@ -610,15 +608,6 @@ namespace RSMPS
             this.tbpClarification.TabIndex = 6;
             this.tbpClarification.Text = "Clarifications";
             this.tbpClarification.UseVisualStyleBackColor = true;
-            // 
-            // bttClearClarification
-            // 
-            this.bttClearClarification.Location = new System.Drawing.Point(162, 702);
-            this.bttClearClarification.Name = "bttClearClarification";
-            this.bttClearClarification.Size = new System.Drawing.Size(81, 31);
-            this.bttClearClarification.TabIndex = 20;
-            this.bttClearClarification.Text = "Cancel";
-            this.bttClearClarification.UseVisualStyleBackColor = true;
             // 
             // bttSaveClarification
             // 
@@ -1377,7 +1366,6 @@ namespace RSMPS
         private System.Windows.Forms.RichTextBox richTextBox3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.Button bttClearClarification;
         private System.Windows.Forms.Button bttSaveClarification;
         private System.Windows.Forms.TabPage tbpClarification;
         private System.Windows.Forms.Button bttCopyPCN;

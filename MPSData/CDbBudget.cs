@@ -199,7 +199,7 @@ namespace RSMPS
             LoadVals(strXml);
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spBudget_Update2", cnn.GetConnection());
+            cmd = new SqlCommand("spBudget_Update", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
