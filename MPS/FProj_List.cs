@@ -281,7 +281,7 @@ namespace RSMPS
 
                 lvwItems.Items.Add(lvi);
             }
-
+            lvwItems.ColumnClick += new ColumnClickEventHandler(lvwItems_ColumnClick);
             dr.Close();
             dr = null;
 

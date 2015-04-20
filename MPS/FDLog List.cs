@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 
 
+using System.Collections; //****************************** Added, MZ
 using System.Data.SqlClient;
 
 
@@ -30,14 +31,40 @@ namespace RSMPS
         private void SetListForm()
         {
             lvwItems.Columns.Clear();
-
+            //*************************************************************************These values are changed********** MZ
             lvwItems.Columns.Add("colID", "ID", 0);
-            lvwItems.Columns.Add("colNumber", "Number", 85);
-            lvwItems.Columns.Add("colDesc", "Description", 139);
-            lvwItems.Columns.Add("colCust", "Customer", 75);
-            lvwItems.Columns.Add("colLoc", "Location", 75);
+            lvwItems.Columns.Add("colNumber", "Number", 90);
+            lvwItems.Columns.Add("colDesc", "Description", 300);
+            lvwItems.Columns.Add("colCust", "Customer", 200);
+            lvwItems.Columns.Add("colLoc", "Location", 200);
 
             sbPanStatus.Text = "0 project(s)";
+        }
+
+        //***************************************** Added, ************************MZ
+        private void lvwItems_ColumnClick(object o, ColumnClickEventArgs e)
+        {
+            lvwItems.ListViewItemSorter = new ListViewItemComparer(e.Column);
+        }
+
+        //***************************************************Added************************************MZ
+        public class ListViewItemComparer : IComparer
+        {
+            private int col;
+            public ListViewItemComparer()
+            {
+                col = 0;
+            }
+            public ListViewItemComparer(int column)
+            {
+                col = column;
+            }
+            public int Compare(object x, object y)
+            {
+                return String.Compare(((ListViewItem)x).SubItems[col].Text, ((ListViewItem)y).SubItems[col].Text);
+
+            }
+
         }
 
         private void SetAccessForSecurityLevel(int deptID)
@@ -107,7 +134,7 @@ namespace RSMPS
 
                 lvwItems.Items.Add(lvi);
             }
-
+            lvwItems.ColumnClick += new ColumnClickEventHandler(lvwItems_ColumnClick);
             dr.Close();
             dr = null;
 

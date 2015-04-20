@@ -51,7 +51,7 @@ namespace RSMPS
             this.lvwItems.HideSelection = false;
             this.lvwItems.Location = new System.Drawing.Point(12, 12);
             this.lvwItems.Name = "lvwItems";
-            this.lvwItems.Size = new System.Drawing.Size(423, 297);
+            this.lvwItems.Size = new System.Drawing.Size(786, 422);
             this.lvwItems.TabIndex = 0;
             this.lvwItems.UseCompatibleStateImageBehavior = false;
             this.lvwItems.View = System.Windows.Forms.View.Details;
@@ -62,9 +62,9 @@ namespace RSMPS
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sbPanStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 319);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 444);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(525, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(888, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "0 Items";
             // 
@@ -78,7 +78,7 @@ namespace RSMPS
             // 
             this.bttOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bttOpen.Enabled = false;
-            this.bttOpen.Location = new System.Drawing.Point(441, 12);
+            this.bttOpen.Location = new System.Drawing.Point(804, 12);
             this.bttOpen.Name = "bttOpen";
             this.bttOpen.Size = new System.Drawing.Size(78, 30);
             this.bttOpen.TabIndex = 2;
@@ -89,7 +89,7 @@ namespace RSMPS
             // bttClose
             // 
             this.bttClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bttClose.Location = new System.Drawing.Point(441, 279);
+            this.bttClose.Location = new System.Drawing.Point(804, 404);
             this.bttClose.Name = "bttClose";
             this.bttClose.Size = new System.Drawing.Size(78, 30);
             this.bttClose.TabIndex = 5;
@@ -105,7 +105,7 @@ namespace RSMPS
             // 
             this.bttUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bttUpdate.Enabled = false;
-            this.bttUpdate.Location = new System.Drawing.Point(441, 48);
+            this.bttUpdate.Location = new System.Drawing.Point(804, 48);
             this.bttUpdate.Name = "bttUpdate";
             this.bttUpdate.Size = new System.Drawing.Size(78, 30);
             this.bttUpdate.TabIndex = 3;
@@ -116,7 +116,7 @@ namespace RSMPS
             // bttUpdateByPL
             // 
             this.bttUpdateByPL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bttUpdateByPL.Location = new System.Drawing.Point(441, 84);
+            this.bttUpdateByPL.Location = new System.Drawing.Point(804, 84);
             this.bttUpdateByPL.Name = "bttUpdateByPL";
             this.bttUpdateByPL.Size = new System.Drawing.Size(78, 30);
             this.bttUpdateByPL.TabIndex = 4;
@@ -127,7 +127,7 @@ namespace RSMPS
             // bttPrint
             // 
             this.bttPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bttPrint.Location = new System.Drawing.Point(441, 149);
+            this.bttPrint.Location = new System.Drawing.Point(804, 149);
             this.bttPrint.Name = "bttPrint";
             this.bttPrint.Size = new System.Drawing.Size(78, 30);
             this.bttPrint.TabIndex = 6;
@@ -139,7 +139,7 @@ namespace RSMPS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 341);
+            this.ClientSize = new System.Drawing.Size(888, 466);
             this.ControlBox = false;
             this.Controls.Add(this.bttPrint);
             this.Controls.Add(this.bttUpdateByPL);
