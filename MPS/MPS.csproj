@@ -350,6 +350,7 @@
     <Compile Include="FWeekCount.Designer.cs">
       <DependentUpon>FWeekCount.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListViewColumnSorter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FPnt_JobStat_Customer.resx">

@@ -162,6 +162,7 @@ namespace RSMPS
         #endregion
 
         private System.Windows.Forms.ListView lvwItems;
+        //private System.Windows.Forms.ListViewColumnSorter lvwItems;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel sbPanStatus;
         private System.Windows.Forms.Button bttOpen;

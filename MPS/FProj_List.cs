@@ -18,6 +18,7 @@ namespace RSMPS
 
         private bool mbAllowEdit = false;
         private bool mbLeaveOpen = false;
+        private int sortColumn = -1; //****************************Added****MZ
 
         public FProj_List()
         {
@@ -60,7 +61,35 @@ namespace RSMPS
 
         private void lvwItems_ColumnClick(object o, ColumnClickEventArgs e)
         {
-            lvwItems.ListViewItemSorter = new ListViewItemComparer(e.Column);
+           // lvwItems.ListViewItemSorter = new ListViewItemComparer(e.Column);
+            //************************** This Method is changed******************************MZ
+            // Determine whether the column is the same as the last column clicked.
+            if (e.Column != sortColumn)
+            {
+                // Set the sort column to the new column.
+                sortColumn = e.Column;
+                // Set the sort order to ascending by default.
+                lvwItems.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            }
+            else
+            {
+                // Determine what the last sort order was and change it.
+                if (lvwItems.Sorting == System.Windows.Forms.SortOrder.Ascending)
+                    lvwItems.Sorting = System.Windows.Forms.SortOrder.Descending;
+                else
+                    lvwItems.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            }
+
+            // Call the sort method to manually sort.
+            lvwItems.Sort();
+            // Set the ListViewItemSorter property to a new ListViewItemComparer
+            // object.
+            this.lvwItems.ListViewItemSorter = new ListViewItemComparer(e.Column,
+                                                              lvwItems.Sorting);
+
+
+            //*********************************************************************************
+
         }
         protected override void bttOpen_Click(object sender, EventArgs e)
         {
@@ -358,20 +387,56 @@ namespace RSMPS
         }
         public class ListViewItemComparer : IComparer
         {
+            //private int col;
+            //public ListViewItemComparer()
+            //{
+            //    col = 0;
+            //}
+            //public ListViewItemComparer(int column)
+            //{
+            //    col = column;
+            //}
+            //public int Compare(object x, object y)
+            //{
+            //    return String.Compare(((ListViewItem)x).SubItems[col].Text, ((ListViewItem)y).SubItems[col].Text);
+
+            //}
+            //***************************************** Changed to this Class****** MZ
             private int col;
+            private System.Windows.Forms.SortOrder order;
+
             public ListViewItemComparer()
             {
                 col = 0;
+                order = System.Windows.Forms.SortOrder.Ascending;
+
             }
             public ListViewItemComparer(int column)
             {
                 col = column;
             }
-            public int Compare(object x, object y)
+            public ListViewItemComparer(int column, System.Windows.Forms.SortOrder order)
             {
-                return String.Compare(((ListViewItem)x).SubItems[col].Text, ((ListViewItem)y).SubItems[col].Text);
+                col = column;
+                this.order = order;
 
             }
+
+            public int Compare(object x, object y)
+            {
+                //return String.Compare(((ListViewItem)x).SubItems[col].Text, ((ListViewItem)y).SubItems[col].Text);
+                int returnVal = -1;
+                returnVal = String.Compare(((ListViewItem)x).SubItems[col].Text,
+                                        ((ListViewItem)y).SubItems[col].Text);
+                // Determine whether the sort order is descending.
+                if (order == System.Windows.Forms.SortOrder.Descending)
+                    // Invert the value returned by String.Compare.
+                    returnVal *= -1;
+                return returnVal;
+
+
+            }
+
            
                 }
 
