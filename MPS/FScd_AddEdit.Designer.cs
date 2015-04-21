@@ -376,6 +376,7 @@ namespace RSMPS
             // fgSchedule
             // 
             this.fgSchedule.AllowDragging = C1.Win.C1FlexGrid.AllowDraggingEnum.None;
+            this.fgSchedule.AllowFiltering = true;
             this.fgSchedule.AllowFreezing = C1.Win.C1FlexGrid.AllowFreezingEnum.Columns;
             this.fgSchedule.AllowSorting = C1.Win.C1FlexGrid.AllowSortingEnum.None;
             this.fgSchedule.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 

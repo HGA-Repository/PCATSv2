@@ -197,9 +197,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(6, 22);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(137, 13);
+            this.label10.Size = new System.Drawing.Size(135, 13);
             this.label10.TabIndex = 0;
-            this.label10.Text = "Estimiated Engr. hrs. (OOM)";
+            this.label10.Text = "Estimated Engr. hrs. (OOM)";
             // 
             // groupBox1
             // 
@@ -668,9 +668,9 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(298, 22);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(71, 13);
+            this.label15.Size = new System.Drawing.Size(76, 13);
             this.label15.TabIndex = 2;
-            this.label15.Text = "Etimated TIC:";
+            this.label15.Text = "Estimated TIC:";
             // 
             // c1CommandHolder1
             // 
