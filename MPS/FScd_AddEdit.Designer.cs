@@ -101,6 +101,7 @@ namespace RSMPS
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.bttTest = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -131,7 +132,7 @@ namespace RSMPS
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.groupBox1.Location = new System.Drawing.Point(12, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(918, 51);
+            this.groupBox1.Size = new System.Drawing.Size(1160, 51);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Department";
@@ -143,7 +144,7 @@ namespace RSMPS
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Location = new System.Drawing.Point(279, 8);
+            this.groupBox4.Location = new System.Drawing.Point(521, 8);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(631, 36);
             this.groupBox4.TabIndex = 15;
@@ -391,7 +392,7 @@ namespace RSMPS
             this.fgSchedule.Rows.Count = 2;
             this.fgSchedule.Rows.DefaultSize = 17;
             this.fgSchedule.ShowSortPosition = C1.Win.C1FlexGrid.ShowSortPositionEnum.None;
-            this.fgSchedule.Size = new System.Drawing.Size(918, 528);
+            this.fgSchedule.Size = new System.Drawing.Size(1160, 528);
             this.fgSchedule.TabIndex = 10;
             this.fgSchedule.RowColChange += new System.EventHandler(this.fgSchedule_RowColChange);
             this.fgSchedule.SelChange += new System.EventHandler(this.fgSchedule_SelChange);
@@ -581,7 +582,7 @@ namespace RSMPS
             this.tbcGroupBy.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tbcGroupBy.Controls.Add(this.tbpEmployee);
             this.tbcGroupBy.Controls.Add(this.tbpProject);
-            this.tbcGroupBy.Location = new System.Drawing.Point(618, 108);
+            this.tbcGroupBy.Location = new System.Drawing.Point(860, 108);
             this.tbcGroupBy.Multiline = true;
             this.tbcGroupBy.Name = "tbcGroupBy";
             this.tbcGroupBy.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -691,7 +692,7 @@ namespace RSMPS
             this.tsbClose});
             this.tsSchedule.Location = new System.Drawing.Point(0, 0);
             this.tsSchedule.Name = "tsSchedule";
-            this.tsSchedule.Size = new System.Drawing.Size(942, 25);
+            this.tsSchedule.Size = new System.Drawing.Size(1184, 25);
             this.tsSchedule.TabIndex = 13;
             this.tsSchedule.Text = "toolStrip1";
             // 
@@ -843,20 +844,35 @@ namespace RSMPS
             // 
             // bttTest
             // 
+            this.bttTest.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.bttTest.Location = new System.Drawing.Point(586, 97);
             this.bttTest.Name = "bttTest";
             this.bttTest.Size = new System.Drawing.Size(75, 23);
             this.bttTest.TabIndex = 14;
             this.bttTest.Text = "Test";
-            this.bttTest.UseVisualStyleBackColor = true;
+            this.bttTest.UseVisualStyleBackColor = false;
             this.bttTest.Visible = false;
             this.bttTest.Click += new System.EventHandler(this.bttTest_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Engineering",
+            "Program Management",
+            "Pipeline Services",
+            "Staffing"});
+            this.comboBox1.Location = new System.Drawing.Point(675, 91);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(108, 21);
+            this.comboBox1.TabIndex = 15;
             // 
             // FScd_AddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 674);
+            this.ClientSize = new System.Drawing.Size(1184, 674);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.bttTest);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.fgSchedule);
@@ -961,5 +977,6 @@ namespace RSMPS
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
