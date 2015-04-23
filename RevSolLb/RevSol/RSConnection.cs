@@ -9,9 +9,6 @@ namespace RevSol
 		private bool mbCnnOpened;
 		private SqlConnection mCnn;
 		private RSDataServer mDbSet;
-        private string dbUser = "RSMPUser";
-        private string dbPass = "RSMPPass";
-
 		public string ConnectionString
 		{
 			get
@@ -38,9 +35,9 @@ namespace RevSol
 			this.mConnStr = string.Concat(new string[]
 			{
 				"uid=",
-				 dbUser, //this.mDbSet.Username,
+				this.mDbSet.Username,
 				";pwd=",
-				 dbPass, //this.mDbSet.Password,
+				this.mDbSet.Password,
 				";Data Source=",
 				this.mDbSet.DBServer,
 				";Initial Catalog=",
@@ -67,9 +64,9 @@ namespace RevSol
 			this.mConnStr = string.Concat(new string[]
 			{
 				"uid=",
-				 dbUser, //this.mDbSet.Username,
+				this.mDbSet.Username,
 				";pwd=",
-				 dbPass, //this.mDbSet.Password,
+				this.mDbSet.Password,
 				";Data Source=",
 				this.mDbSet.DBServer,
 				";Initial Catalog=",
@@ -99,9 +96,9 @@ namespace RevSol
 			this.mConnStr = string.Concat(new string[]
 			{
 				"uid=",
-				 dbUser, //this.mDbSet.Username,
+				this.mDbSet.Username,
 				";pwd=",
-				 dbPass, //this.mDbSet.Password,
+				this.mDbSet.Password,
 				";Data Source=",
 				this.mDbSet.DBServer,
 				";Initial Catalog=",
@@ -131,9 +128,9 @@ namespace RevSol
 			this.mConnStr = string.Concat(new string[]
 			{
 				"uid=",
-				 dbUser, //this.mDbSet.Username,
+				this.mDbSet.Username,
 				";pwd=",
-				 dbPass, //this.mDbSet.Password,
+				this.mDbSet.Password,
 				";Data Source=",
 				this.mDbSet.DBServer,
 				";Initial Catalog=",

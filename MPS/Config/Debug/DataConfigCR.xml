@@ -3,6 +3,6 @@
   <DBServer>HGASQLSERVER</DBServer>
   <DBName>RSManpowerSchDbTest</DBName>
   <UseWinAuth>false</UseWinAuth>
-  <Username>jgCDXCZw90hVoIXhdaM4fg==</Username>
-  <Password>gq7WZRSPB32QAbO4NzutJw==</Password>
+  <Username>RSMPUser</Username>
+  <Password>RSMPPass</Password>
 </RSDataServer>
