@@ -39,8 +39,9 @@ namespace RSMPS
 
         public string Password
         {
-            get { return RSLib.COCryptography.DecryptString(msPassword, PWRDKEY, VECTOR); }
-            set { msPassword = RSLib.COCryptography.EncryptString(value, PWRDKEY, VECTOR); }
+            get { return RSLib.COCryptography.DecryptStringPassword(msPassword, PWRDKEY, VECTOR); }
+            set { msPassword = RSLib.COCryptography.EncryptStringPassword(value, PWRDKEY, VECTOR); }
+            //Scott Change
 
         }
 
@@ -101,6 +102,7 @@ namespace RSMPS
         {
             //end user password
             return RSLib.COCryptography.EncryptStringPassword(pwrd, PWRDKEY, VECTOR);
+            //return RSLib.COCryptography.EncryptString(pwrd, PWRDKEY, VECTOR);
         }
     }
 }
