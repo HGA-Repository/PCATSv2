@@ -48,33 +48,34 @@ namespace RevSol
 				this.mbUseWinAuth = value;
 			}
 		}
-		public string Username
-		{
-			get
-			{
-				return this.msUsername;
-                //return this.DecryptString(this.msUsername);
-			}
-			set
-			{
-				this.msUsername = value;
-                //this.msUsername = this.EncryptString(value);
-			}
-		}
-		public string Password
-		{
-			get
-			{
-				return this.msPassword;
-                //return this.DecryptString(this.msPassword);
-			}
-			set
-			{
-                this.msPassword = value;
-				//this.msPassword = this.EncryptString(value);
+        ////User name and password for sql dtabase now hard coded int RSConnection.cs
+        //public string Username
+        //{
+        //    get
+        //    {
+			
+        //        return this.DecryptString(this.msUsername);
+        //    }
+        //    set
+        //    {
+				
+        //        this.msUsername = this.EncryptString(value);
+        //    }
+        //}
+        //public string Password
+        //{
+        //    get
+        //    {
+				
+        //        return this.DecryptString(this.msPassword);
+        //    }
+        //    set
+        //    {
+               
+        //        this.msPassword = this.EncryptString(value);
 
-			}
-		}
+        //    }
+        //}
 		public RSDataServer()
 		{
 			this.Clear();
@@ -99,8 +100,8 @@ namespace RevSol
 				this.msDBServer = rSDataServer.DBServer;
 				this.msDBName = rSDataServer.DBName;
 				this.mbUseWinAuth = rSDataServer.UseWinAuth;
-				this.msUsername = rSDataServer.Username;
-				this.msPassword = rSDataServer.Password;
+				//this.msUsername = rSDataServer.Username;
+				//this.msPassword = rSDataServer.Password;
 				textReader.Close();
 			}
 			catch (Exception ex)
@@ -123,8 +124,8 @@ namespace RevSol
 				this.msDBServer = rSDataServer.DBServer;
 				this.msDBName = rSDataServer.DBName;
 				this.mbUseWinAuth = rSDataServer.UseWinAuth;
-				this.msUsername = rSDataServer.Username;
-				this.msPassword = rSDataServer.Password;
+				//this.msUsername = rSDataServer.Username;
+				//this.msPassword = rSDataServer.Password;
 				textReader.Close();
 			}
 			catch (Exception ex)
@@ -150,8 +151,8 @@ namespace RevSol
 				rSDataServer.DBServer = this.msDBServer;
 				rSDataServer.DBName = this.msDBName;
 				rSDataServer.UseWinAuth = this.mbUseWinAuth;
-				rSDataServer.Username = this.msUsername;
-				rSDataServer.Password = this.msPassword;
+				//rSDataServer.Username = this.msUsername;
+				//rSDataServer.Password = this.msPassword;
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(RSDataServer));
 				TextWriter textWriter = new StreamWriter(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\DataConfig.xml");
                 
@@ -171,8 +172,8 @@ namespace RevSol
 				rSDataServer.DBServer = this.msDBServer;
 				rSDataServer.DBName = this.msDBName;
 				rSDataServer.UseWinAuth = this.mbUseWinAuth;
-				rSDataServer.Username = this.msUsername;
-				rSDataServer.Password = this.msPassword;
+				//rSDataServer.Username = this.msUsername;
+				//rSDataServer.Password = this.msPassword;
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(RSDataServer));
 				TextWriter textWriter = new StreamWriter(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\DataConfig.xml");
                 

@@ -52,34 +52,38 @@ namespace RSLib
 				this.mbUseWinAuth = value;
 			}
 		}
-		public string Username
-		{
-			get
-			{
-				//sql user
-                return this.msUsername;
-                //return this.DecryptString(this.msUsername);
-			}
-			set
-			{
-				//sql user
-                this.msUsername = value;
-               //this.msUsername = this.EncryptString(value);
-			}
-		}
-		public string Password
-		{
-			get
-			{
-				return this.msPassword;
-                //return this.DecryptString(this.msPassword);
-			}
-			set
-			{
-				this.msPassword = value;
-                //this.msPassword = this.EncryptString(value);
-			}
-		}
+        //User name and password for sql dtabase now hard coded int CDbConnection.cs
+        //public string Username
+        //{
+        //    get
+        //    {
+        //        //sql user
+               
+        //        string decUser = this.DecryptString(this.msUsername);
+        //        return decUser;
+        //    }
+        //    set
+        //    {
+        //        //sql user
+               
+        //        this.msUsername = this.EncryptString(value);
+        //    }
+        //}
+        //public string Password
+        //{
+        //    get
+        //    {
+        //        //sql password
+				
+        //        string decPassword = this.DecryptString(this.msPassword);
+        //        return decPassword;
+        //    }
+        //    set
+        //    {
+				
+        //        this.msPassword = this.EncryptString(value);
+        //    }
+        //}
 		public CODataServer()
 		{
 			this.Clear();
@@ -103,8 +107,8 @@ namespace RSLib
 				this.msDBServer = cODataServer.DBServer;
 				this.msDBName = cODataServer.DBName;
 				this.mbUseWinAuth = cODataServer.UseWinAuth;
-				this.msUsername = cODataServer.Username;
-				this.msPassword = cODataServer.Password;
+				//this.msUsername = cODataServer.Username;
+				//this.msPassword = cODataServer.Password;
 				textReader.Close();
 			}
 			catch
@@ -120,8 +124,8 @@ namespace RSLib
 				cODataServer.DBServer = this.msDBServer;
 				cODataServer.DBName = this.msDBName;
 				cODataServer.UseWinAuth = this.mbUseWinAuth;
-				cODataServer.Username = this.msUsername;
-				cODataServer.Password = this.msPassword;
+				//cODataServer.Username = this.msUsername;
+				//cODataServer.Password = this.msPassword;
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(CODataServer));
 				TextWriter textWriter = new StreamWriter(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\DataConfig.xml");
 				xmlSerializer.Serialize(textWriter, cODataServer);
