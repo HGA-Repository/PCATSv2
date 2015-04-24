@@ -81,11 +81,7 @@ namespace RSMPS
             {
                 rprtDrawingLogTranAlt1_SubRevs r = new rprtDrawingLogTranAlt1_SubRevs();
                 System.Data.DataView dv = new System.Data.DataView(((dsDrawingLog)this.DataSource).Tables["Revisions"]);
-                try
-                {
-                    dv.RowFilter = "DrawingID = " + txtDrawingID.Text;
-                }
-                catch { }
+                dv.RowFilter = "DrawingID = " + txtDrawingID.Text;
                 dv.Sort = "IssuedDate DESC";
 
                 r.DataSource = dv;

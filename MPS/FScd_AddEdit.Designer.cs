@@ -847,7 +847,6 @@ namespace RSMPS
             // 
             // bttTest
             // 
-            this.bttTest.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.bttTest.Location = new System.Drawing.Point(586, 97);
             this.bttTest.Name = "bttTest";
             this.bttTest.Size = new System.Drawing.Size(75, 23);
