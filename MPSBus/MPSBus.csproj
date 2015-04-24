@@ -72,6 +72,7 @@
     <Compile Include="CBBudgetWorksheet.cs" />
     <Compile Include="CBCostSummary.cs" />
     <Compile Include="CBCustomer.cs" />
+    <Compile Include="CBBusiness_Unit.cs" />
     <Compile Include="CBDepartment.cs" />
     <Compile Include="CBDocumentReleaseType.cs" />
     <Compile Include="CBDrawingLog.cs" />

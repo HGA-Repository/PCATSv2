@@ -89,6 +89,7 @@
     <Compile Include="COBudgetWorksheet.cs" />
     <Compile Include="COCostSummary.cs" />
     <Compile Include="COCustomer.cs" />
+    <Compile Include="COBusiness_Unit.cs" />
     <Compile Include="CODepartment.cs" />
     <Compile Include="CODocumentReleaseType.cs" />
     <Compile Include="CODrawingLog.cs" />

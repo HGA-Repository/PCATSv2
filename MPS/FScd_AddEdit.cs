@@ -18,7 +18,8 @@ namespace RSMPS
         private enum SchdSortType
         {
             enProjectSort,
-            enEmployeeSort
+            enEmployeeSort,
+            
         }
 
         private const int WEEKCOLSTART = 8;
@@ -53,6 +54,8 @@ namespace RSMPS
 
         private DataSet mdsWeeks;
         private int miCurrDept;
+        private int miBus_Unit;//*****************************MZ
+        //private int miBus_Unit = 5;
         private int miCurrSort;
         private SchdSortType meCurrSort;
         private int miStartWeekID;
@@ -147,7 +150,6 @@ namespace RSMPS
 
             dl.Close();
         }
-
         void dl_OnItemSelected(int itmID)
         {
             CBDepartment d = new CBDepartment();
@@ -160,6 +162,35 @@ namespace RSMPS
 
             SetAccessForSecurityLevel(miCurrDept);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FBusiness_Unit_List dl = new FBusiness_Unit_List();
+
+            dl.OnItemSelected += new RSLib.ListItemAction(dl_OnItemSelected_2);
+            dl.IsSelectOnly = true;
+            dl.ShowDialog();
+
+            dl.Close();
+        }
+        void dl_OnItemSelected_2(int itmID)
+        {
+            CBBusiness_Unit d = new CBBusiness_Unit();
+
+            d.Load(itmID);
+            textBox1.Text = d.Description;
+            miBus_Unit = itmID; //*****************************MZ
+
+            LoadTheGrid();
+            SetAccessForSecurityLevel(miCurrDept);
+        }
+
+
+
+
+
+
+
 
         private void SetGridByDateRange(DateTime sDate, DateTime eDate)
         {
@@ -202,8 +233,25 @@ namespace RSMPS
             fgSchedule.Cols[0].AllowMerging = true;
             fgSchedule.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter;
             fgSchedule.AutoSizeCols(WEEKCOLSTART, fgSchedule.Cols.Count - 1, 15);
+            //***************************************************************************Added*************MZ
+            //LoadGridByRange(miCurrDept, sDate, eDate);
+            //LoadGridByRangeENG(miCurrDept, sDate, eDate);
+            //LoadGridByRangePGM(miCurrDept, sDate, eDate);
+           // LoadGridByRangePLS(miCurrDept, sDate, eDate);
+            //LoadGridByRangeSTAFF(miCurrDept, sDate, eDate);
 
-            LoadGridByRange(miCurrDept, sDate, eDate);
+            
+           // LoadGridByRange(miCurrDept, sDate, eDate);
+            
+            if (miBus_Unit == 1)   LoadGridByRangeENG(miCurrDept, sDate, eDate);
+            else if(miBus_Unit==2)  LoadGridByRangePGM(miCurrDept, sDate, eDate);
+            else if(miBus_Unit==3)  LoadGridByRangePLS(miCurrDept, sDate, eDate);
+            else if (miBus_Unit == 4) LoadGridByRangeSTAFF(miCurrDept, sDate, eDate);
+            else LoadGridByRange(miCurrDept, sDate, eDate);
+
+
+
+
 
             SetMinimumTimeWidths();
 
@@ -690,6 +738,13 @@ namespace RSMPS
 
             //dr = CBScheduleHour.GetListByRange(deptID, sDate, eDate);
             dr = CBProjectEmployee.GetListActiveWithHours(deptID, sDate, eDate);
+            
+            //*******************************************************MZ
+
+            //dr = CBProjectEmployee.GetListActiveWithHoursENG(deptID, sDate, eDate);
+            //dr = CBProjectEmployee.GetListActiveWithHoursPGM(deptID, sDate, eDate);
+            //dr = CBProjectEmployee.GetListActiveWithHoursPLS(deptID, sDate, eDate);
+           // dr = CBProjectEmployee.GetListActiveWithHoursSTAFF(deptID, sDate, eDate);
 
             this.Cursor = Cursors.WaitCursor;
 
@@ -741,6 +796,280 @@ namespace RSMPS
 
             this.Cursor = Cursors.Default;
         }
+        private void LoadGridByRangeENG(int deptID, DateTime sDate, DateTime eDate)
+        {
+            SqlDataReader dr;
+            Row rw;
+            int wkID;
+            string lineCode;
+            string tmpCode;
+
+            //dr = CBScheduleHour.GetListByRange(deptID, sDate, eDate);
+           // dr = CBProjectEmployee.GetListActiveWithHours(deptID, sDate, eDate);
+            //*******************************************************MZ
+
+            dr = CBProjectEmployee.GetListActiveWithHoursENG(deptID, sDate, eDate);
+            //dr = CBProjectEmployee.GetListActiveWithHoursPGM(deptID, sDate, eDate);
+            //dr = CBProjectEmployee.GetListActiveWithHoursPLS(deptID, sDate, eDate);
+            // dr = CBProjectEmployee.GetListActiveWithHoursSTAFF(deptID, sDate, eDate);
+
+            this.Cursor = Cursors.WaitCursor;
+
+            ClearCurrentGrid();
+            lineCode = "";
+            rw = fgSchedule.Rows[0];
+
+            while (dr.Read())
+            {
+                tmpCode = dr["ProjectID"].ToString() + "-" + dr["EmployeeID"].ToString();
+
+                if (lineCode != tmpCode)
+                {
+                    lineCode = tmpCode;
+                    rw = fgSchedule.Rows.Add();
+
+                    if (miCurrSort == 1)
+                    {
+                        rw[1] = dr["ProjectNumber"].ToString();
+                        rw[2] = dr["ProjectDescription"].ToString();
+                        rw[3] = dr["EmployeeName"].ToString();
+                        rw[4] = dr["ProjectID"].ToString();
+                        rw[5] = dr["EmployeeID"].ToString();
+                    }
+                    else
+                    {
+                        rw[1] = dr["EmployeeName"].ToString();
+                        rw[2] = dr["ProjectNumber"].ToString();
+                        rw[3] = dr["ProjectDescription"].ToString();
+                        rw[4] = dr["ProjectID"].ToString();
+                        rw[5] = dr["EmployeeID"].ToString();
+                    }
+                }
+
+                wkID = Convert.ToInt32(dr["WeekID"]);
+                if (wkID > 0)
+                {
+                    SetScheduleValue(rw.Index, wkID, Convert.ToDecimal(dr["PHrs"]), Convert.ToInt32(dr["PWarn"]), Convert.ToDecimal(dr["FHrs"]), Convert.ToInt32(dr["FWarn"]), Convert.ToDecimal(dr["AHrs"]));
+                }
+            }
+
+            dr.Close();
+
+            SumAllRowHours();
+
+            fgSchedule.Subtotal(AggregateEnum.Clear);
+            fgSchedule.Sort(SortFlags.Ascending, 1);
+            CreateSubtotals();
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void LoadGridByRangePGM(int deptID, DateTime sDate, DateTime eDate)
+        {
+            SqlDataReader dr;
+            Row rw;
+            int wkID;
+            string lineCode;
+            string tmpCode;
+
+            //dr = CBScheduleHour.GetListByRange(deptID, sDate, eDate);
+            // dr = CBProjectEmployee.GetListActiveWithHours(deptID, sDate, eDate);
+            //*******************************************************MZ
+
+            //dr = CBProjectEmployee.GetListActiveWithHoursENG(deptID, sDate, eDate);
+            dr = CBProjectEmployee.GetListActiveWithHoursPGM(deptID, sDate, eDate);
+            //dr = CBProjectEmployee.GetListActiveWithHoursPLS(deptID, sDate, eDate);
+            // dr = CBProjectEmployee.GetListActiveWithHoursSTAFF(deptID, sDate, eDate);
+
+            this.Cursor = Cursors.WaitCursor;
+
+            ClearCurrentGrid();
+            lineCode = "";
+            rw = fgSchedule.Rows[0];
+
+            while (dr.Read())
+            {
+                tmpCode = dr["ProjectID"].ToString() + "-" + dr["EmployeeID"].ToString();
+
+                if (lineCode != tmpCode)
+                {
+                    lineCode = tmpCode;
+                    rw = fgSchedule.Rows.Add();
+
+                    if (miCurrSort == 1)
+                    {
+                        rw[1] = dr["ProjectNumber"].ToString();
+                        rw[2] = dr["ProjectDescription"].ToString();
+                        rw[3] = dr["EmployeeName"].ToString();
+                        rw[4] = dr["ProjectID"].ToString();
+                        rw[5] = dr["EmployeeID"].ToString();
+                    }
+                    else
+                    {
+                        rw[1] = dr["EmployeeName"].ToString();
+                        rw[2] = dr["ProjectNumber"].ToString();
+                        rw[3] = dr["ProjectDescription"].ToString();
+                        rw[4] = dr["ProjectID"].ToString();
+                        rw[5] = dr["EmployeeID"].ToString();
+                    }
+                }
+
+                wkID = Convert.ToInt32(dr["WeekID"]);
+                if (wkID > 0)
+                {
+                    SetScheduleValue(rw.Index, wkID, Convert.ToDecimal(dr["PHrs"]), Convert.ToInt32(dr["PWarn"]), Convert.ToDecimal(dr["FHrs"]), Convert.ToInt32(dr["FWarn"]), Convert.ToDecimal(dr["AHrs"]));
+                }
+            }
+
+            dr.Close();
+
+            SumAllRowHours();
+
+            fgSchedule.Subtotal(AggregateEnum.Clear);
+            fgSchedule.Sort(SortFlags.Ascending, 1);
+            CreateSubtotals();
+
+            this.Cursor = Cursors.Default;
+        }
+
+
+        private void LoadGridByRangePLS(int deptID, DateTime sDate, DateTime eDate)
+        {
+            SqlDataReader dr;
+            Row rw;
+            int wkID;
+            string lineCode;
+            string tmpCode;
+
+            //dr = CBScheduleHour.GetListByRange(deptID, sDate, eDate);
+            // dr = CBProjectEmployee.GetListActiveWithHours(deptID, sDate, eDate);
+            //*******************************************************MZ
+
+           // dr = CBProjectEmployee.GetListActiveWithHoursENG(deptID, sDate, eDate);
+            //dr = CBProjectEmployee.GetListActiveWithHoursPGM(deptID, sDate, eDate);
+            dr = CBProjectEmployee.GetListActiveWithHoursPLS(deptID, sDate, eDate);
+            // dr = CBProjectEmployee.GetListActiveWithHoursSTAFF(deptID, sDate, eDate);
+
+            this.Cursor = Cursors.WaitCursor;
+
+            ClearCurrentGrid();
+            lineCode = "";
+            rw = fgSchedule.Rows[0];
+
+            while (dr.Read())
+            {
+                tmpCode = dr["ProjectID"].ToString() + "-" + dr["EmployeeID"].ToString();
+
+                if (lineCode != tmpCode)
+                {
+                    lineCode = tmpCode;
+                    rw = fgSchedule.Rows.Add();
+
+                    if (miCurrSort == 1)
+                    {
+                        rw[1] = dr["ProjectNumber"].ToString();
+                        rw[2] = dr["ProjectDescription"].ToString();
+                        rw[3] = dr["EmployeeName"].ToString();
+                        rw[4] = dr["ProjectID"].ToString();
+                        rw[5] = dr["EmployeeID"].ToString();
+                    }
+                    else
+                    {
+                        rw[1] = dr["EmployeeName"].ToString();
+                        rw[2] = dr["ProjectNumber"].ToString();
+                        rw[3] = dr["ProjectDescription"].ToString();
+                        rw[4] = dr["ProjectID"].ToString();
+                        rw[5] = dr["EmployeeID"].ToString();
+                    }
+                }
+
+                wkID = Convert.ToInt32(dr["WeekID"]);
+                if (wkID > 0)
+                {
+                    SetScheduleValue(rw.Index, wkID, Convert.ToDecimal(dr["PHrs"]), Convert.ToInt32(dr["PWarn"]), Convert.ToDecimal(dr["FHrs"]), Convert.ToInt32(dr["FWarn"]), Convert.ToDecimal(dr["AHrs"]));
+                }
+            }
+
+            dr.Close();
+
+            SumAllRowHours();
+
+            fgSchedule.Subtotal(AggregateEnum.Clear);
+            fgSchedule.Sort(SortFlags.Ascending, 1);
+            CreateSubtotals();
+
+            this.Cursor = Cursors.Default;
+        }
+
+
+        private void LoadGridByRangeSTAFF(int deptID, DateTime sDate, DateTime eDate)
+        {
+            SqlDataReader dr;
+            Row rw;
+            int wkID;
+            string lineCode;
+            string tmpCode;
+
+            //dr = CBScheduleHour.GetListByRange(deptID, sDate, eDate);
+            // dr = CBProjectEmployee.GetListActiveWithHours(deptID, sDate, eDate);
+            //*******************************************************MZ
+
+            //dr = CBProjectEmployee.GetListActiveWithHoursENG(deptID, sDate, eDate);
+            //dr = CBProjectEmployee.GetListActiveWithHoursPGM(deptID, sDate, eDate);
+            //dr = CBProjectEmployee.GetListActiveWithHoursPLS(deptID, sDate, eDate);
+             dr = CBProjectEmployee.GetListActiveWithHoursSTAFF(deptID, sDate, eDate);
+
+            this.Cursor = Cursors.WaitCursor;
+
+            ClearCurrentGrid();
+            lineCode = "";
+            rw = fgSchedule.Rows[0];
+
+            while (dr.Read())
+            {
+                tmpCode = dr["ProjectID"].ToString() + "-" + dr["EmployeeID"].ToString();
+
+                if (lineCode != tmpCode)
+                {
+                    lineCode = tmpCode;
+                    rw = fgSchedule.Rows.Add();
+
+                    if (miCurrSort == 1)
+                    {
+                        rw[1] = dr["ProjectNumber"].ToString();
+                        rw[2] = dr["ProjectDescription"].ToString();
+                        rw[3] = dr["EmployeeName"].ToString();
+                        rw[4] = dr["ProjectID"].ToString();
+                        rw[5] = dr["EmployeeID"].ToString();
+                    }
+                    else
+                    {
+                        rw[1] = dr["EmployeeName"].ToString();
+                        rw[2] = dr["ProjectNumber"].ToString();
+                        rw[3] = dr["ProjectDescription"].ToString();
+                        rw[4] = dr["ProjectID"].ToString();
+                        rw[5] = dr["EmployeeID"].ToString();
+                    }
+                }
+
+                wkID = Convert.ToInt32(dr["WeekID"]);
+                if (wkID > 0)
+                {
+                    SetScheduleValue(rw.Index, wkID, Convert.ToDecimal(dr["PHrs"]), Convert.ToInt32(dr["PWarn"]), Convert.ToDecimal(dr["FHrs"]), Convert.ToInt32(dr["FWarn"]), Convert.ToDecimal(dr["AHrs"]));
+                }
+            }
+
+            dr.Close();
+
+            SumAllRowHours();
+
+            fgSchedule.Subtotal(AggregateEnum.Clear);
+            fgSchedule.Sort(SortFlags.Ascending, 1);
+            CreateSubtotals();
+
+            this.Cursor = Cursors.Default;
+        }
+
 
         private void SumAllRowHours()
         {
@@ -1730,5 +2059,49 @@ namespace RSMPS
         {
 
         }
+
+        private void txtDepartment_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+
+        //}
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    FBusiness_Unit_List dl = new FBusiness_Unit_List();
+
+        //    dl.OnItemSelected += new RSLib.ListItemAction(dl_OnItemSelected_2);
+        //    dl.IsSelectOnly = true;
+        //    dl.ShowDialog();
+
+        //    dl.Close();
+        //}
+
+
+        //void dl_OnItemSelected_2(int itmID)
+        //{
+        //    CBBusiness_Unit d = new CBBusiness_Unit();
+
+        //    d.Load(itmID);
+        //    textBox1.Text = d.Description;
+        //    miBus_Unit = itmID; //*****************************MZ
+
+        //    LoadTheGrid();
+
+        //    SetAccessForSecurityLevel(miCurrDept);
+        //}
+
+
+
+
     }
 }

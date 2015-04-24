@@ -136,6 +136,45 @@ namespace RSMPS
 
             return dbDt.GetListActiveWithHours(deptID, startDate, endDate);
         }
+
+        //********************************************************Added*********MZ
+        public static SqlDataReader GetListActiveWithHoursENG(int deptID, DateTime startDate, DateTime endDate)
+        {
+            CDbProjectEmployee dbDt = new CDbProjectEmployee();
+
+            return dbDt.GetListActiveWithHoursENG(deptID, startDate, endDate);
+        }
+
+        public static SqlDataReader GetListActiveWithHoursPGM(int deptID, DateTime startDate, DateTime endDate)
+        {
+            CDbProjectEmployee dbDt = new CDbProjectEmployee();
+
+            return dbDt.GetListActiveWithHoursPGM(deptID, startDate, endDate);
+        }
+        
+        public static SqlDataReader GetListActiveWithHoursPLS(int deptID, DateTime startDate, DateTime endDate)
+        {
+            CDbProjectEmployee dbDt = new CDbProjectEmployee();
+
+            return dbDt.GetListActiveWithHoursPLS(deptID, startDate, endDate);
+        }
+
+        public static SqlDataReader GetListActiveWithHoursSTAFF(int deptID, DateTime startDate, DateTime endDate)
+        {
+            CDbProjectEmployee dbDt = new CDbProjectEmployee();
+
+            return dbDt.GetListActiveWithHoursSTAFF(deptID, startDate, endDate);
+        }
+
+
+
+
+
+
+
+
+
+
         public static SqlDataReader GetListActiveWithHoursAllDept(DateTime startDate, DateTime endDate)
         {
             CDbProjectEmployee dbDt = new CDbProjectEmployee();

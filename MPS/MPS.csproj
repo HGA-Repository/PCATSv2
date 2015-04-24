@@ -122,6 +122,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FBusiness_Unit_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FBusiness_Unit_List.Designer.cs">
+      <DependentUpon>FBusiness_Unit_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FBusiness_Unit_AddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FBusiness_Unit_AddEdit.Designer.cs">
+      <DependentUpon>FBusiness_Unit_AddEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="FPnt_JobStat_Customer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -353,6 +365,14 @@
     <Compile Include="ListViewColumnSorter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FBusiness_Unit_List.resx">
+      <DependentUpon>FBusiness_Unit_List.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FBusiness_Unit_AddEdit.resx">
+      <DependentUpon>FBusiness_Unit_AddEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="FPnt_JobStat_Customer.resx">
       <DependentUpon>FPnt_JobStat_Customer.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -548,6 +568,7 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

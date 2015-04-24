@@ -72,6 +72,7 @@
     <Compile Include="CDbBudgetWorksheet.cs" />
     <Compile Include="CDbCostSummary.cs" />
     <Compile Include="CDbCustomer.cs" />
+    <Compile Include="CDbBusiness_Unit.cs" />
     <Compile Include="CDbDepartment.cs" />
     <Compile Include="CDbDocumentReleaseType.cs" />
     <Compile Include="CDbDrawingLog.cs" />
