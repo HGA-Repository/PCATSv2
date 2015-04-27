@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
+
+using System.Collections; ///// ***********Added**********MZ
 using System.Data.SqlClient;
 
 namespace RSMPS
@@ -23,6 +25,7 @@ namespace RSMPS
         public event RSLib.ListItemAction OnItemSelected;
 
         private bool mbAllowEdit = false;
+        private int sortColumn = -1; //****************************Added****MZ
 
         protected override void bttOpen_Click(object sender, EventArgs e)
         {
@@ -157,7 +160,7 @@ namespace RSMPS
 
                 lvwItems.Items.Add(lvi);
             }
-
+            lvwItems.ColumnClick += new ColumnClickEventHandler(lvwItems_ColumnClick);
             dr.Close();
             dr = null;
 
@@ -175,6 +178,76 @@ namespace RSMPS
                 bttDelete.Enabled = false;
             }
         }
+
+
+        // Also this Method is Added to: ********************************MZ
+// private void lvwItems_ColumnClick(object o, ColumnClickEventArgs e)
+
+        private void lvwItems_ColumnClick(object o, ColumnClickEventArgs e)
+        {        //lvwItems.ListViewItemSorter = new ListViewItemComparer(e.Column);
+            //*************************************************************
+            // Determine whether the column is the same as the last column clicked.
+            if (e.Column != sortColumn)
+            { // Set the sort column to the new column.
+                sortColumn = e.Column;
+                // Set the sort order to ascending by default.
+                lvwItems.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            }
+            else
+            {
+                // Determine what the last sort order was and change it.
+                if (lvwItems.Sorting == System.Windows.Forms.SortOrder.Ascending)
+                    lvwItems.Sorting = System.Windows.Forms.SortOrder.Descending;
+                else lvwItems.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            }
+            // Call the sort method to manually sort.
+            lvwItems.Sort();
+            // Set the ListViewItemSorter property to a new ListViewItemComparer
+            // object.
+            this.lvwItems.ListViewItemSorter = new ListViewItemComparer(e.Column,
+                                          lvwItems.Sorting);
+        }
+
+
+
+
+
+        //***********************This Class is Added **************** MZ
+        public class ListViewItemComparer : IComparer
+        {
+            private int col;
+            private System.Windows.Forms.SortOrder order;
+
+            public ListViewItemComparer()
+            {
+                col = 0;
+                order = System.Windows.Forms.SortOrder.Ascending;
+            }
+            public ListViewItemComparer(int column)
+            {
+                col = column;
+            }
+            public ListViewItemComparer(int column, System.Windows.Forms.SortOrder order)
+            {
+                col = column;
+                this.order = order;
+            }
+
+            public int Compare(object x, object y)
+            { //return String.Compare(((ListViewItem)x).SubItems[col].Text, ((ListViewItem)y).SubItems[col].Text);
+                int returnVal = -1;
+                returnVal = String.Compare(((ListViewItem)x).SubItems[col].Text,
+                                        ((ListViewItem)y).SubItems[col].Text);
+                // Determine whether the sort order is descending.
+                if (order == System.Windows.Forms.SortOrder.Descending)
+                    // Invert the value returned by String.Compare.
+                    returnVal *= -1;
+                return returnVal;
+            }
+        }
+
+
+
 
         private void SetSecurityAccessLevel()
         {
