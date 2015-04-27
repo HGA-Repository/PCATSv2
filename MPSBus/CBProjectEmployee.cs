@@ -167,7 +167,12 @@ namespace RSMPS
         }
 
 
+        public static SqlDataReader GetListActiveWithHoursProp(int deptID, DateTime startDate, DateTime endDate)
+        {
+            CDbProjectEmployee dbDt = new CDbProjectEmployee();
 
+            return dbDt.GetListActiveWithHoursProp(deptID, startDate, endDate);
+        }
 
 
 
