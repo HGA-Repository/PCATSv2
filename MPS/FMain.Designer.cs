@@ -31,12 +31,7 @@ namespace RSMPS
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMain));
             this.tsMain = new System.Windows.Forms.ToolStrip();
-            this.tsbSchedule = new System.Windows.Forms.ToolStripButton();
-            this.tsbProject = new System.Windows.Forms.ToolStripButton();
-            this.tsbCustomer = new System.Windows.Forms.ToolStripButton();
-            this.tsbEmployee = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbExit = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFileChangePassword = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,6 +64,7 @@ namespace RSMPS
             this.manageIssueReleaseFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.issueANewTransmittalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageReleaseTransmittalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewMPPlanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuReports = new System.Windows.Forms.ToolStripMenuItem();
             this.drawingLogToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.drawingLogForCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -114,6 +110,12 @@ namespace RSMPS
             this.tssStatus2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssProgress = new System.Windows.Forms.ToolStripProgressBar();
             this.tmrClose = new System.Windows.Forms.Timer(this.components);
+            this.viewMPPlan2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsbSchedule = new System.Windows.Forms.ToolStripButton();
+            this.tsbProject = new System.Windows.Forms.ToolStripButton();
+            this.tsbCustomer = new System.Windows.Forms.ToolStripButton();
+            this.tsbEmployee = new System.Windows.Forms.ToolStripButton();
+            this.tsbExit = new System.Windows.Forms.ToolStripButton();
             this.tsMain.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -134,65 +136,10 @@ namespace RSMPS
             this.tsMain.TabIndex = 0;
             this.tsMain.Text = "toolStrip1";
             // 
-            // tsbSchedule
-            // 
-            this.tsbSchedule.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbSchedule.Image = ((System.Drawing.Image)(resources.GetObject("tsbSchedule.Image")));
-            this.tsbSchedule.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSchedule.Name = "tsbSchedule";
-            this.tsbSchedule.Size = new System.Drawing.Size(23, 22);
-            this.tsbSchedule.Text = "toolStripButton1";
-            this.tsbSchedule.ToolTipText = "Update Manpower Plan";
-            this.tsbSchedule.Click += new System.EventHandler(this.tsbSchedule_Click);
-            // 
-            // tsbProject
-            // 
-            this.tsbProject.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbProject.Image = ((System.Drawing.Image)(resources.GetObject("tsbProject.Image")));
-            this.tsbProject.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbProject.Name = "tsbProject";
-            this.tsbProject.Size = new System.Drawing.Size(23, 22);
-            this.tsbProject.Text = "toolStripButton2";
-            this.tsbProject.ToolTipText = "Projects";
-            this.tsbProject.Click += new System.EventHandler(this.tsbProject_Click);
-            // 
-            // tsbCustomer
-            // 
-            this.tsbCustomer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbCustomer.Image = ((System.Drawing.Image)(resources.GetObject("tsbCustomer.Image")));
-            this.tsbCustomer.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbCustomer.Name = "tsbCustomer";
-            this.tsbCustomer.Size = new System.Drawing.Size(23, 22);
-            this.tsbCustomer.Text = "toolStripButton3";
-            this.tsbCustomer.ToolTipText = "Customers";
-            this.tsbCustomer.Click += new System.EventHandler(this.tsbCustomer_Click);
-            // 
-            // tsbEmployee
-            // 
-            this.tsbEmployee.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbEmployee.Image = ((System.Drawing.Image)(resources.GetObject("tsbEmployee.Image")));
-            this.tsbEmployee.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEmployee.Name = "tsbEmployee";
-            this.tsbEmployee.Size = new System.Drawing.Size(23, 22);
-            this.tsbEmployee.Text = "toolStripButton4";
-            this.tsbEmployee.ToolTipText = "Employees";
-            this.tsbEmployee.Click += new System.EventHandler(this.tsbEmployee_Click);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsbExit
-            // 
-            this.tsbExit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbExit.Image = ((System.Drawing.Image)(resources.GetObject("tsbExit.Image")));
-            this.tsbExit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbExit.Name = "tsbExit";
-            this.tsbExit.Size = new System.Drawing.Size(23, 22);
-            this.tsbExit.Text = "toolStripButton5";
-            this.tsbExit.ToolTipText = "Exit MPS";
-            this.tsbExit.Click += new System.EventHandler(this.tsbExit_Click);
             // 
             // menuStrip1
             // 
@@ -264,7 +211,9 @@ namespace RSMPS
             this.updateMPPlanToolStripMenuItem,
             this.updateJobStatToolStripMenuItem,
             this.pCIManagerToolStripMenuItem,
-            this.mnuToolsDocRelease});
+            this.mnuToolsDocRelease,
+            this.viewMPPlanToolStripMenuItem,
+            this.viewMPPlan2ToolStripMenuItem});
             this.mnuTools.Name = "mnuTools";
             this.mnuTools.Size = new System.Drawing.Size(48, 20);
             this.mnuTools.Text = "&Tools";
@@ -468,6 +417,13 @@ namespace RSMPS
             this.manageReleaseTransmittalToolStripMenuItem.Size = new System.Drawing.Size(284, 22);
             this.manageReleaseTransmittalToolStripMenuItem.Text = "Manage Issue Release Form/Transmittal";
             this.manageReleaseTransmittalToolStripMenuItem.Click += new System.EventHandler(this.manageReleaseTransmittalToolStripMenuItem_Click);
+            // 
+            // viewMPPlanToolStripMenuItem
+            // 
+            this.viewMPPlanToolStripMenuItem.Name = "viewMPPlanToolStripMenuItem";
+            this.viewMPPlanToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.viewMPPlanToolStripMenuItem.Text = "View MP Plan";
+            this.viewMPPlanToolStripMenuItem.Click += new System.EventHandler(this.viewMPPlanToolStripMenuItem_Click);
             // 
             // mnuReports
             // 
@@ -832,6 +788,68 @@ namespace RSMPS
             // 
             this.tmrClose.Tick += new System.EventHandler(this.tmrClose_Tick);
             // 
+            // viewMPPlan2ToolStripMenuItem
+            // 
+            this.viewMPPlan2ToolStripMenuItem.Name = "viewMPPlan2ToolStripMenuItem";
+            this.viewMPPlan2ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.viewMPPlan2ToolStripMenuItem.Text = "View MP Plan2";
+            this.viewMPPlan2ToolStripMenuItem.Click += new System.EventHandler(this.viewMPPlan2ToolStripMenuItem_Click);
+            // 
+            // tsbSchedule
+            // 
+            this.tsbSchedule.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbSchedule.Image = ((System.Drawing.Image)(resources.GetObject("tsbSchedule.Image")));
+            this.tsbSchedule.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSchedule.Name = "tsbSchedule";
+            this.tsbSchedule.Size = new System.Drawing.Size(23, 22);
+            this.tsbSchedule.Text = "toolStripButton1";
+            this.tsbSchedule.ToolTipText = "Update Manpower Plan";
+            this.tsbSchedule.Click += new System.EventHandler(this.tsbSchedule_Click);
+            // 
+            // tsbProject
+            // 
+            this.tsbProject.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbProject.Image = ((System.Drawing.Image)(resources.GetObject("tsbProject.Image")));
+            this.tsbProject.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbProject.Name = "tsbProject";
+            this.tsbProject.Size = new System.Drawing.Size(23, 22);
+            this.tsbProject.Text = "toolStripButton2";
+            this.tsbProject.ToolTipText = "Projects";
+            this.tsbProject.Click += new System.EventHandler(this.tsbProject_Click);
+            // 
+            // tsbCustomer
+            // 
+            this.tsbCustomer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbCustomer.Image = ((System.Drawing.Image)(resources.GetObject("tsbCustomer.Image")));
+            this.tsbCustomer.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCustomer.Name = "tsbCustomer";
+            this.tsbCustomer.Size = new System.Drawing.Size(23, 22);
+            this.tsbCustomer.Text = "toolStripButton3";
+            this.tsbCustomer.ToolTipText = "Customers";
+            this.tsbCustomer.Click += new System.EventHandler(this.tsbCustomer_Click);
+            // 
+            // tsbEmployee
+            // 
+            this.tsbEmployee.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEmployee.Image = ((System.Drawing.Image)(resources.GetObject("tsbEmployee.Image")));
+            this.tsbEmployee.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEmployee.Name = "tsbEmployee";
+            this.tsbEmployee.Size = new System.Drawing.Size(23, 22);
+            this.tsbEmployee.Text = "toolStripButton4";
+            this.tsbEmployee.ToolTipText = "Employees";
+            this.tsbEmployee.Click += new System.EventHandler(this.tsbEmployee_Click);
+            // 
+            // tsbExit
+            // 
+            this.tsbExit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbExit.Image = ((System.Drawing.Image)(resources.GetObject("tsbExit.Image")));
+            this.tsbExit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbExit.Name = "tsbExit";
+            this.tsbExit.Size = new System.Drawing.Size(23, 22);
+            this.tsbExit.Text = "toolStripButton5";
+            this.tsbExit.ToolTipText = "Exit MPS";
+            this.tsbExit.Click += new System.EventHandler(this.tsbExit_Click);
+            // 
             // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -945,6 +963,8 @@ namespace RSMPS
         private System.Windows.Forms.ToolStripMenuItem programManagementForecastRemainingToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem viewMPPlanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewMPPlan2ToolStripMenuItem;
     }
 }
 

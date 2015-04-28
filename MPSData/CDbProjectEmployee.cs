@@ -439,6 +439,33 @@ namespace RSMPS
             return dr;
         }
 
+        public SqlDataReader GetListActiveWithHoursProject(int Proj_ID, DateTime sDate, DateTime eDate)
+        {
+            SqlDataReader dr;
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spProjectEmployee_ListActiveWithHoursProject", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@ProjectID", SqlDbType.Int);
+            prm.Value = Proj_ID;
+            prm = cmd.Parameters.Add("@StartDate", SqlDbType.SmallDateTime);
+            prm.Value = sDate.ToShortDateString();
+            prm = cmd.Parameters.Add("@EndDate", SqlDbType.SmallDateTime);
+            prm.Value = eDate.ToShortDateString();
+
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            cmd = null;
+
+            return dr;
+        }
+
+
+
+
 
 
 
