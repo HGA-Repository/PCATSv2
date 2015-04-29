@@ -45,7 +45,7 @@ namespace RSMPS
                                                                     private const int EMPLOYEEFTOTCOL = 7;
 
                                                                     /*********************************************************************/
-        private const int WEEKCOLSTART = 9;
+        private const int WEEKCOLSTART = 9; // was 8
         private const int WEEKCOLOFFSET = 5;
         private const int ROWTOTALCOLUMNS = 2;
         private const int TOTALCOLS = 0;
@@ -1892,7 +1892,7 @@ namespace RSMPS
             tsbAddProject.Enabled = true;
             tsbAddEmployye.Enabled = true;
             cmnuSchedule.Enabled = true;
-            fgSchedule.AllowEditing = true;
+            fgSchedule.AllowEditing = false; //true;
 
 
             miCurrUserID = u.ID;

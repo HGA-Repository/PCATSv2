@@ -99,14 +99,14 @@ namespace RSMPS
             this.tsbHoursDisp = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.bttTest = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.fgSchedule = new C1.Win.C1FlexGrid.C1FlexGrid();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -836,6 +836,26 @@ namespace RSMPS
             this.tsbClose.ToolTipText = "Close the schedule";
             this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Visible = false;
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Visible = false;
+            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -891,6 +911,7 @@ namespace RSMPS
             // fgSchedule
             // 
             this.fgSchedule.AllowDragging = C1.Win.C1FlexGrid.AllowDraggingEnum.None;
+            this.fgSchedule.AllowEditing = false;
             this.fgSchedule.AllowFiltering = true;
             this.fgSchedule.AllowFreezing = C1.Win.C1FlexGrid.AllowFreezingEnum.Columns;
             this.fgSchedule.AllowSorting = C1.Win.C1FlexGrid.AllowSortingEnum.None;
@@ -912,26 +933,6 @@ namespace RSMPS
             this.fgSchedule.StyleInfo = resources.GetString("fgSchedule.StyleInfo");
             this.fgSchedule.TabIndex = 10;
             this.fgSchedule.VisualStyle = C1.Win.C1FlexGrid.VisualStyle.Office2007Blue;
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Visible = false;
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
-            this.toolStripButton2.Visible = false;
             // 
             // FScd_AddEdit_View_MPP
             // 
