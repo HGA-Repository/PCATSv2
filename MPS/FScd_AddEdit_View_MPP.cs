@@ -662,10 +662,13 @@ namespace RSMPS
             tsbShowSummary.Enabled = true;
         }
 
+        /***********************************************************4/29*******************MZ
+
         private void fgSchedule_Click(object sender, EventArgs e)
         {
 
         }
+         * **********/
 
         //private void fgSchedule_SelChange(object sender, EventArgs e)
         //{
@@ -1923,10 +1926,10 @@ namespace RSMPS
 
             el.Close();
         }
-
+        /**************************************************************************Commented, MZ, 4/29
         private void fgSchedule_AfterDataRefresh(object sender, ListChangedEventArgs e)
         {
-        }
+        }*/
 
         private void bttTest_Click(object sender, EventArgs e)
         {
@@ -2270,7 +2273,7 @@ namespace RSMPS
             }
 
         }
-
+/******************************************************************************************************************4/29****MZ
         private void fgSchedule_BeforeEdit(object sender, RowColEventArgs e)
         {
             if (e.Col < 1)
@@ -2283,7 +2286,7 @@ namespace RSMPS
                 e.Cancel = true;
             }
         }
-
+        */
         private void dtpStart_ValueChanged(object sender, EventArgs e)
         {
 

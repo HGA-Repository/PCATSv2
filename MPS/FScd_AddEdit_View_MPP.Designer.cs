@@ -105,6 +105,8 @@ namespace RSMPS
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.fgSchedule = new C1.Win.C1FlexGrid.C1FlexGrid();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -334,6 +336,7 @@ namespace RSMPS
             this.txtDepartment.ReadOnly = true;
             this.txtDepartment.Size = new System.Drawing.Size(64, 20);
             this.txtDepartment.TabIndex = 1;
+            this.txtDepartment.Visible = false;
             this.txtDepartment.TextChanged += new System.EventHandler(this.txtDepartment_TextChanged);
             // 
             // bttDept
@@ -345,6 +348,7 @@ namespace RSMPS
             this.bttDept.TabIndex = 0;
             this.bttDept.Text = "...";
             this.bttDept.UseVisualStyleBackColor = true;
+            this.bttDept.Visible = false;
             this.bttDept.Click += new System.EventHandler(this.bttDept_Click);
             // 
             // label6
@@ -589,6 +593,7 @@ namespace RSMPS
             this.tbcGroupBy.Size = new System.Drawing.Size(312, 100);
             this.tbcGroupBy.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tbcGroupBy.TabIndex = 11;
+            this.tbcGroupBy.Visible = false;
             this.tbcGroupBy.SelectedIndexChanged += new System.EventHandler(this.tbcGroupBy_SelectedIndexChanged);
             // 
             // tbpEmployee
@@ -687,7 +692,9 @@ namespace RSMPS
             this.toolStripLabel1,
             this.tsbHoursDisp,
             this.toolStripSeparator2,
-            this.tsbClose});
+            this.tsbClose,
+            this.toolStripButton1,
+            this.toolStripButton2});
             this.tsSchedule.Location = new System.Drawing.Point(0, 0);
             this.tsSchedule.Name = "tsSchedule";
             this.tsSchedule.Size = new System.Drawing.Size(1500, 25);
@@ -703,6 +710,7 @@ namespace RSMPS
             this.tsbAddProject.Size = new System.Drawing.Size(23, 22);
             this.tsbAddProject.Text = "toolStripButton1";
             this.tsbAddProject.ToolTipText = "Add a new project to the list";
+            this.tsbAddProject.Visible = false;
             this.tsbAddProject.Click += new System.EventHandler(this.tsbAddProject_Click);
             // 
             // tsbAddEmployye
@@ -715,6 +723,7 @@ namespace RSMPS
             this.tsbAddEmployye.Size = new System.Drawing.Size(23, 22);
             this.tsbAddEmployye.Text = "toolStripButton2";
             this.tsbAddEmployye.ToolTipText = "Add an employee to a project";
+            this.tsbAddEmployye.Visible = false;
             this.tsbAddEmployye.Click += new System.EventHandler(this.tsbAddEmployye_Click);
             // 
             // tsbRefresh
@@ -758,6 +767,7 @@ namespace RSMPS
             this.tsbExpand.Name = "tsbExpand";
             this.tsbExpand.Size = new System.Drawing.Size(23, 22);
             this.tsbExpand.Text = "Expand projects";
+            this.tsbExpand.Visible = false;
             this.tsbExpand.Click += new System.EventHandler(this.tsbExpand_Click);
             // 
             // tsbCollapse
@@ -768,6 +778,7 @@ namespace RSMPS
             this.tsbCollapse.Name = "tsbCollapse";
             this.tsbCollapse.Size = new System.Drawing.Size(23, 22);
             this.tsbCollapse.Text = "Collapse Projects";
+            this.tsbCollapse.Visible = false;
             this.tsbCollapse.Click += new System.EventHandler(this.tsbCollapse_Click);
             // 
             // tsbShowSummary
@@ -779,6 +790,7 @@ namespace RSMPS
             this.tsbShowSummary.Size = new System.Drawing.Size(23, 22);
             this.tsbShowSummary.Text = "toolStripButton1";
             this.tsbShowSummary.ToolTipText = "Show project summary";
+            this.tsbShowSummary.Visible = false;
             this.tsbShowSummary.Click += new System.EventHandler(this.tsbShowSummary_Click);
             // 
             // toolStripSeparator1
@@ -849,28 +861,31 @@ namespace RSMPS
             this.bttTest.TabIndex = 14;
             this.bttTest.Text = "Test";
             this.bttTest.UseVisualStyleBackColor = false;
+            this.bttTest.Visible = false;
             this.bttTest.Click += new System.EventHandler(this.bttTest_Click);
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.textBox1.Location = new System.Drawing.Point(789, 108);
+            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox1.Location = new System.Drawing.Point(667, 108);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
+            this.textBox1.Size = new System.Drawing.Size(46, 20);
             this.textBox1.TabIndex = 17;
+            this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Highlight;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button1.Location = new System.Drawing.Point(995, 108);
+            this.button1.Location = new System.Drawing.Point(720, 85);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 20);
+            this.button1.Size = new System.Drawing.Size(64, 43);
             this.button1.TabIndex = 16;
             this.button1.Text = "Select Business Unit";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // fgSchedule
@@ -897,12 +912,26 @@ namespace RSMPS
             this.fgSchedule.StyleInfo = resources.GetString("fgSchedule.StyleInfo");
             this.fgSchedule.TabIndex = 10;
             this.fgSchedule.VisualStyle = C1.Win.C1FlexGrid.VisualStyle.Office2007Blue;
-            this.fgSchedule.RowColChange += new System.EventHandler(this.fgSchedule_RowColChange);
-            //this.fgSchedule.SelChange += new System.EventHandler(this.fgSchedule_SelChange);
-            this.fgSchedule.BeforeEdit += new C1.Win.C1FlexGrid.RowColEventHandler(this.fgSchedule_BeforeEdit);
-            this.fgSchedule.AfterEdit += new C1.Win.C1FlexGrid.RowColEventHandler(this.fgSchedule_AfterEdit);
-            this.fgSchedule.AfterDataRefresh += new System.ComponentModel.ListChangedEventHandler(this.fgSchedule_AfterDataRefresh);
-            this.fgSchedule.Click += new System.EventHandler(this.fgSchedule_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Visible = false;
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Visible = false;
             // 
             // FScd_AddEdit_View_MPP
             // 
@@ -1019,5 +1048,7 @@ namespace RSMPS
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button2;
         private C1.Win.C1FlexGrid.C1FlexGrid fgSchedule;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
     }
 }
