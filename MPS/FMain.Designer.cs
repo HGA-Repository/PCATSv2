@@ -131,7 +131,7 @@ namespace RSMPS
             this.tsbExit});
             this.tsMain.Location = new System.Drawing.Point(0, 24);
             this.tsMain.Name = "tsMain";
-            this.tsMain.Size = new System.Drawing.Size(992, 25);
+            this.tsMain.Size = new System.Drawing.Size(1584, 25);
             this.tsMain.TabIndex = 0;
             this.tsMain.Text = "toolStrip1";
             // 
@@ -207,7 +207,7 @@ namespace RSMPS
             this.mnuTest});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(992, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1584, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -797,7 +797,7 @@ namespace RSMPS
             this.tssProgress});
             this.statusStrip1.Location = new System.Drawing.Point(0, 640);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(992, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(1584, 26);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -808,7 +808,7 @@ namespace RSMPS
             this.tssStatus1.BorderStyle = System.Windows.Forms.Border3DStyle.Bump;
             this.tssStatus1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tssStatus1.Name = "tssStatus1";
-            this.tssStatus1.Size = new System.Drawing.Size(768, 21);
+            this.tssStatus1.Size = new System.Drawing.Size(1360, 21);
             this.tssStatus1.Spring = true;
             this.tssStatus1.Text = "Ready";
             this.tssStatus1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -845,7 +845,7 @@ namespace RSMPS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(992, 666);
+            this.ClientSize = new System.Drawing.Size(1584, 666);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tsMain);
             this.Controls.Add(this.menuStrip1);

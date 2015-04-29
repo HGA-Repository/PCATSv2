@@ -139,7 +139,7 @@ namespace RSMPS
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.groupBox1.Location = new System.Drawing.Point(12, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1476, 51);
+            this.groupBox1.Size = new System.Drawing.Size(1560, 51);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Project";
@@ -170,7 +170,7 @@ namespace RSMPS
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Location = new System.Drawing.Point(837, 8);
+            this.groupBox4.Location = new System.Drawing.Point(921, 8);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(631, 36);
             this.groupBox4.TabIndex = 15;
@@ -584,7 +584,7 @@ namespace RSMPS
             this.tbcGroupBy.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tbcGroupBy.Controls.Add(this.tbpEmployee);
             this.tbcGroupBy.Controls.Add(this.tbpProject);
-            this.tbcGroupBy.Location = new System.Drawing.Point(1176, 97);
+            this.tbcGroupBy.Location = new System.Drawing.Point(1260, 97);
             this.tbcGroupBy.Multiline = true;
             this.tbcGroupBy.Name = "tbcGroupBy";
             this.tbcGroupBy.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -697,7 +697,7 @@ namespace RSMPS
             this.toolStripButton2});
             this.tsSchedule.Location = new System.Drawing.Point(0, 0);
             this.tsSchedule.Name = "tsSchedule";
-            this.tsSchedule.Size = new System.Drawing.Size(1500, 25);
+            this.tsSchedule.Size = new System.Drawing.Size(1584, 25);
             this.tsSchedule.TabIndex = 13;
             this.tsSchedule.Text = "toolStrip1";
             // 
@@ -929,7 +929,7 @@ namespace RSMPS
             this.fgSchedule.Rows.Count = 2;
             this.fgSchedule.Rows.DefaultSize = 19;
             this.fgSchedule.ShowSortPosition = C1.Win.C1FlexGrid.ShowSortPositionEnum.Top;
-            this.fgSchedule.Size = new System.Drawing.Size(1488, 528);
+            this.fgSchedule.Size = new System.Drawing.Size(1572, 528);
             this.fgSchedule.StyleInfo = resources.GetString("fgSchedule.StyleInfo");
             this.fgSchedule.TabIndex = 10;
             this.fgSchedule.VisualStyle = C1.Win.C1FlexGrid.VisualStyle.Office2007Blue;
@@ -938,7 +938,7 @@ namespace RSMPS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1500, 674);
+            this.ClientSize = new System.Drawing.Size(1584, 674);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.bttTest);
@@ -953,7 +953,7 @@ namespace RSMPS
             this.MinimizeBox = false;
             this.Name = "FScd_AddEdit_View_MPP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Manpower Plan";
+            this.Text = "View Manpower Plan";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FScd_AddEdit_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
