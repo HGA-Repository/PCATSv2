@@ -149,13 +149,13 @@ namespace RSMPS
             this.textBox2.Location = new System.Drawing.Point(9, 16);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(165, 20);
+            this.textBox2.Size = new System.Drawing.Size(314, 20);
             this.textBox2.TabIndex = 17;
             // 
             // button2
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button2.Location = new System.Drawing.Point(180, 15);
+            this.button2.Location = new System.Drawing.Point(329, 15);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(25, 20);
             this.button2.TabIndex = 16;
@@ -237,10 +237,10 @@ namespace RSMPS
             // 
             // txtForecast
             // 
-            this.txtForecast.Location = new System.Drawing.Point(738, 19);
+            this.txtForecast.Location = new System.Drawing.Point(765, 19);
             this.txtForecast.Name = "txtForecast";
             this.txtForecast.ReadOnly = true;
-            this.txtForecast.Size = new System.Drawing.Size(60, 20);
+            this.txtForecast.Size = new System.Drawing.Size(33, 20);
             this.txtForecast.TabIndex = 11;
             this.txtForecast.Text = "0";
             this.txtForecast.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -248,10 +248,10 @@ namespace RSMPS
             // 
             // txtPlanned
             // 
-            this.txtPlanned.Location = new System.Drawing.Point(615, 19);
+            this.txtPlanned.Location = new System.Drawing.Point(688, 19);
             this.txtPlanned.Name = "txtPlanned";
             this.txtPlanned.ReadOnly = true;
-            this.txtPlanned.Size = new System.Drawing.Size(60, 20);
+            this.txtPlanned.Size = new System.Drawing.Size(27, 20);
             this.txtPlanned.TabIndex = 10;
             this.txtPlanned.Text = "0";
             this.txtPlanned.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -259,10 +259,10 @@ namespace RSMPS
             // 
             // txtBudget
             // 
-            this.txtBudget.Location = new System.Drawing.Point(494, 19);
+            this.txtBudget.Location = new System.Drawing.Point(602, 19);
             this.txtBudget.Name = "txtBudget";
             this.txtBudget.ReadOnly = true;
-            this.txtBudget.Size = new System.Drawing.Size(60, 20);
+            this.txtBudget.Size = new System.Drawing.Size(25, 20);
             this.txtBudget.TabIndex = 9;
             this.txtBudget.Text = "0";
             this.txtBudget.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -270,10 +270,10 @@ namespace RSMPS
             // 
             // txtProjects
             // 
-            this.txtProjects.Location = new System.Drawing.Point(394, 19);
+            this.txtProjects.Location = new System.Drawing.Point(516, 19);
             this.txtProjects.Name = "txtProjects";
             this.txtProjects.ReadOnly = true;
-            this.txtProjects.Size = new System.Drawing.Size(35, 20);
+            this.txtProjects.Size = new System.Drawing.Size(23, 20);
             this.txtProjects.TabIndex = 8;
             this.txtProjects.Text = "1";
             this.txtProjects.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -282,7 +282,7 @@ namespace RSMPS
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(435, 23);
+            this.label5.Location = new System.Drawing.Point(552, 23);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 13);
             this.label5.TabIndex = 6;
@@ -302,7 +302,7 @@ namespace RSMPS
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(681, 23);
+            this.label3.Location = new System.Drawing.Point(721, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 4;
@@ -312,7 +312,7 @@ namespace RSMPS
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(560, 23);
+            this.label2.Location = new System.Drawing.Point(633, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 3;
@@ -322,7 +322,7 @@ namespace RSMPS
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(326, 23);
+            this.label1.Location = new System.Drawing.Point(462, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 2;
@@ -331,10 +331,10 @@ namespace RSMPS
             // 
             // txtDepartment
             // 
-            this.txtDepartment.Location = new System.Drawing.Point(212, 20);
+            this.txtDepartment.Location = new System.Drawing.Point(387, 20);
             this.txtDepartment.Name = "txtDepartment";
             this.txtDepartment.ReadOnly = true;
-            this.txtDepartment.Size = new System.Drawing.Size(64, 20);
+            this.txtDepartment.Size = new System.Drawing.Size(38, 20);
             this.txtDepartment.TabIndex = 1;
             this.txtDepartment.Visible = false;
             this.txtDepartment.TextChanged += new System.EventHandler(this.txtDepartment_TextChanged);
@@ -342,7 +342,7 @@ namespace RSMPS
             // bttDept
             // 
             this.bttDept.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.bttDept.Location = new System.Drawing.Point(287, 19);
+            this.bttDept.Location = new System.Drawing.Point(431, 19);
             this.bttDept.Name = "bttDept";
             this.bttDept.Size = new System.Drawing.Size(25, 20);
             this.bttDept.TabIndex = 0;

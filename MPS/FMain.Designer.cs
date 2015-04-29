@@ -274,7 +274,7 @@ namespace RSMPS
             // mnuToolsEmpTitle
             // 
             this.mnuToolsEmpTitle.Name = "mnuToolsEmpTitle";
-            this.mnuToolsEmpTitle.Size = new System.Drawing.Size(178, 22);
+            this.mnuToolsEmpTitle.Size = new System.Drawing.Size(202, 22);
             this.mnuToolsEmpTitle.Text = "Employee title";
             this.mnuToolsEmpTitle.Visible = false;
             this.mnuToolsEmpTitle.Click += new System.EventHandler(this.mnuToolEmpTitle_Click);
@@ -282,7 +282,7 @@ namespace RSMPS
             // mnuToolsDept
             // 
             this.mnuToolsDept.Name = "mnuToolsDept";
-            this.mnuToolsDept.Size = new System.Drawing.Size(178, 22);
+            this.mnuToolsDept.Size = new System.Drawing.Size(202, 22);
             this.mnuToolsDept.Text = "Departments";
             this.mnuToolsDept.Visible = false;
             this.mnuToolsDept.Click += new System.EventHandler(this.mnuToolDept_Click);
@@ -290,7 +290,7 @@ namespace RSMPS
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(175, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(199, 6);
             this.toolStripMenuItem1.Visible = false;
             // 
             // mnuToolsOptions
@@ -298,7 +298,7 @@ namespace RSMPS
             this.mnuToolsOptions.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuToolsOptionsUsers});
             this.mnuToolsOptions.Name = "mnuToolsOptions";
-            this.mnuToolsOptions.Size = new System.Drawing.Size(178, 22);
+            this.mnuToolsOptions.Size = new System.Drawing.Size(202, 22);
             this.mnuToolsOptions.Text = "Options";
             this.mnuToolsOptions.Visible = false;
             // 
@@ -312,7 +312,7 @@ namespace RSMPS
             // mnuToolsTest
             // 
             this.mnuToolsTest.Name = "mnuToolsTest";
-            this.mnuToolsTest.Size = new System.Drawing.Size(178, 22);
+            this.mnuToolsTest.Size = new System.Drawing.Size(202, 22);
             this.mnuToolsTest.Text = "Test";
             this.mnuToolsTest.Visible = false;
             this.mnuToolsTest.Click += new System.EventHandler(this.mnuToolsTest_Click);
@@ -323,7 +323,7 @@ namespace RSMPS
             this.drawingLogToolStripMenuItem,
             this.importBudgetToolStripMenuItem});
             this.logToolStripMenuItem.Name = "logToolStripMenuItem";
-            this.logToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.logToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.logToolStripMenuItem.Text = "Logs";
             this.logToolStripMenuItem.Visible = false;
             // 
@@ -346,7 +346,7 @@ namespace RSMPS
             // projectSummaryToolStripMenuItem
             // 
             this.projectSummaryToolStripMenuItem.Name = "projectSummaryToolStripMenuItem";
-            this.projectSummaryToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.projectSummaryToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.projectSummaryToolStripMenuItem.Text = "Weekly PM Report";
             this.projectSummaryToolStripMenuItem.Visible = false;
             this.projectSummaryToolStripMenuItem.Click += new System.EventHandler(this.projectSummaryToolStripMenuItem_Click);
@@ -354,7 +354,7 @@ namespace RSMPS
             // costSummaryToolStripMenuItem
             // 
             this.costSummaryToolStripMenuItem.Name = "costSummaryToolStripMenuItem";
-            this.costSummaryToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.costSummaryToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.costSummaryToolStripMenuItem.Text = "Cost Summary";
             this.costSummaryToolStripMenuItem.Visible = false;
             this.costSummaryToolStripMenuItem.Click += new System.EventHandler(this.costSummaryToolStripMenuItem_Click);
@@ -362,7 +362,7 @@ namespace RSMPS
             // costReportsToolStripMenuItem
             // 
             this.costReportsToolStripMenuItem.Name = "costReportsToolStripMenuItem";
-            this.costReportsToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.costReportsToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.costReportsToolStripMenuItem.Text = "Forecasting Reports";
             this.costReportsToolStripMenuItem.Visible = false;
             this.costReportsToolStripMenuItem.Click += new System.EventHandler(this.costReportsToolStripMenuItem_Click);
@@ -370,28 +370,28 @@ namespace RSMPS
             // testBudgetToolStripMenuItem
             // 
             this.testBudgetToolStripMenuItem.Name = "testBudgetToolStripMenuItem";
-            this.testBudgetToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.testBudgetToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.testBudgetToolStripMenuItem.Text = "Budget Manager";
             this.testBudgetToolStripMenuItem.Click += new System.EventHandler(this.testBudgetToolStripMenuItem_Click);
             // 
             // updateMPPlanToolStripMenuItem
             // 
             this.updateMPPlanToolStripMenuItem.Name = "updateMPPlanToolStripMenuItem";
-            this.updateMPPlanToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.updateMPPlanToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.updateMPPlanToolStripMenuItem.Text = "Update MP Plan";
             this.updateMPPlanToolStripMenuItem.Click += new System.EventHandler(this.updateMPPlanToolStripMenuItem_Click);
             // 
             // updateJobStatToolStripMenuItem
             // 
             this.updateJobStatToolStripMenuItem.Name = "updateJobStatToolStripMenuItem";
-            this.updateJobStatToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.updateJobStatToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.updateJobStatToolStripMenuItem.Text = "Update JobStat";
             this.updateJobStatToolStripMenuItem.Click += new System.EventHandler(this.updateJobStatToolStripMenuItem_Click);
             // 
             // pCIManagerToolStripMenuItem
             // 
             this.pCIManagerToolStripMenuItem.Name = "pCIManagerToolStripMenuItem";
-            this.pCIManagerToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.pCIManagerToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.pCIManagerToolStripMenuItem.Text = "PCI Manager";
             this.pCIManagerToolStripMenuItem.Click += new System.EventHandler(this.pCIManagerToolStripMenuItem_Click);
             // 
@@ -407,7 +407,7 @@ namespace RSMPS
             this.issueANewTransmittalToolStripMenuItem,
             this.manageReleaseTransmittalToolStripMenuItem});
             this.mnuToolsDocRelease.Name = "mnuToolsDocRelease";
-            this.mnuToolsDocRelease.Size = new System.Drawing.Size(178, 22);
+            this.mnuToolsDocRelease.Size = new System.Drawing.Size(202, 22);
             this.mnuToolsDocRelease.Text = "Issue Documents";
             // 
             // mnuToolsTransmittalList
@@ -474,8 +474,8 @@ namespace RSMPS
             // viewMPPlanToolStripMenuItem
             // 
             this.viewMPPlanToolStripMenuItem.Name = "viewMPPlanToolStripMenuItem";
-            this.viewMPPlanToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.viewMPPlanToolStripMenuItem.Text = "View MP Plan";
+            this.viewMPPlanToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.viewMPPlanToolStripMenuItem.Text = "View MP Plan by Project";
             this.viewMPPlanToolStripMenuItem.Click += new System.EventHandler(this.viewMPPlanToolStripMenuItem_Click);
             // 
             // mnuReports

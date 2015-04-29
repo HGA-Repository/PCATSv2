@@ -22,7 +22,7 @@ namespace RSMPS
             
         }
              
-                                                                    /***************************************************************
+                                                                    //***************************************************************
                                                                     private const int WEEKCOLSTART = 8;
                                                                     private const int WEEKCOLOFFSET = 5;
                                                                     private const int ROWTOTALCOLUMNS = 2;
@@ -44,28 +44,28 @@ namespace RSMPS
                                                                     private const int EMPLOYEEPTOTCOL = 6;
                                                                     private const int EMPLOYEEFTOTCOL = 7;
 
-                                                                    /*********************************************************************/
-        private const int WEEKCOLSTART = 9; // was 8
-        private const int WEEKCOLOFFSET = 5;
-        private const int ROWTOTALCOLUMNS = 2;
-        private const int TOTALCOLS = 0;
-        private const string PLANCOLTITLE = "P";
-        private const string FORECOLTITLE = "F";
-        private const string ACTLCOLTITLE = "A";
+                                                                    //*********************************************************************/
+        //private const int WEEKCOLSTART = 9; // was 8
+        //private const int WEEKCOLOFFSET = 5;
+        //private const int ROWTOTALCOLUMNS = 2;
+        //private const int TOTALCOLS = 0;
+        //private const string PLANCOLTITLE = "P";
+        //private const string FORECOLTITLE = "F";
+        //private const string ACTLCOLTITLE = "A";
 
-        private const string CELLSTYLEUNDER = "CellStyleUnder";
-        private const string CELLSTYLEOVER = "CellStyleOver";
-        private const string CELLSTYLEMAX = "CellStyleMax"; 
-        private const string CELLSTYLEREG = "CellStyleReg";
+        //private const string CELLSTYLEUNDER = "CellStyleUnder";
+        //private const string CELLSTYLEOVER = "CellStyleOver";
+        //private const string CELLSTYLEMAX = "CellStyleMax"; 
+        //private const string CELLSTYLEREG = "CellStyleReg";
 
-        private const int PROJECTCOLUMN = 1;
-        private const int DEPARTMENTCOLUMN = 2;
-        private const int PROJECTDESCCOLUMN = 3;
-        private const int EMPLOYEECOLUMN = 4;
-        private const int PROJECTIDCOLUMN = 5;
-        private const int EMPLOYEEIDCOLUMN = 6;
-        private const int EMPLOYEEPTOTCOL = 7;
-        private const int EMPLOYEEFTOTCOL = 8;
+        //private const int PROJECTCOLUMN = 1;
+        //private const int DEPARTMENTCOLUMN = 2;
+        //private const int PROJECTDESCCOLUMN = 3;
+        //private const int EMPLOYEECOLUMN = 4;
+        //private const int PROJECTIDCOLUMN = 5;
+        //private const int EMPLOYEEIDCOLUMN = 6;
+        //private const int EMPLOYEEPTOTCOL = 7;
+        //private const int EMPLOYEEFTOTCOL = 8;
 
 
 
@@ -202,7 +202,7 @@ namespace RSMPS
         {
             CBProject d3 = new CBProject();
             d3.Load(itmID);
-            textBox2.Text = d3.Description;
+            textBox2.Text = d3.Number + ":" + d3.Description;
             miProj_Number = itmID; //**************4/27***************MZ
             LoadTheGrid();
             SetAccessForSecurityLevel(miCurrDept);
@@ -1259,16 +1259,18 @@ namespace RSMPS
                     
                         // 
                         rw[1] = dr["ProjectID"].ToString();
-                        rw[2] = dr["ProjectNumber"].ToString();
-                        rw[3] = dr["ProjectDescription"].ToString();
-                        rw[4] = dr["EmployeeName"].ToString();
-                        //rw[4] = dr["ProjectID"].ToString();
+                       
+                        //rw[3] = dr["ProjectDescription"].ToString();
+                        rw[2] = dr["EmployeeName"].ToString();
+                        
                         //rw[4] = dr["WeekID"].ToString();
                         // rw[4] = dr["PHrs"].ToString();
                         //rw[5] = dr["PWarn"].ToString();
-                        rw[5] = dr["Department Name"].ToString();
-                        rw[6] = dr["EmployeeID"].ToString();
-                        //rw[6] = dr["Department Name"].ToString();
+                        rw[3] = dr["Department Name"].ToString();
+                        rw[4] = dr["EmployeeID"].ToString();
+                         rw[5] = dr["ProjectNumber"].ToString();
+                    
+                    //rw[6] = dr["Department Name"].ToString();
                     
                    
 

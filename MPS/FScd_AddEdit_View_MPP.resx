@@ -268,7 +268,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAa
-        DAAAAk1TRnQBSQFMAgEBBQEAAWwBAQFsAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        DAAAAk1TRnQBSQFMAgEBBQEAAYwBAQGMAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAASADAAEBAQABCAYAAQgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -326,7 +326,7 @@
     <value>435, 17</value>
   </metadata>
   <data name="fgSchedule.ColumnInfo" xml:space="preserve">
-    <value>9,1,0,0,0,85,Columns:0{Width:16;}	1{Caption:"Project ID";Visible:False;AllowEditing:False;}	2{Caption:"Project Number";AllowEditing:False;}	3{Caption:"Description";Visible:False;AllowEditing:False;}	4{Caption:"Employee";AllowEditing:False;}	5{Caption:"Department";AllowEditing:False;}	6{Caption:"EmpID";Visible:False;AllowEditing:False;}	7{Caption:"P Tot";AllowEditing:False;}	8{Caption:"F Tot";AllowEditing:False;}	</value>
+    <value>8,1,0,0,0,85,Columns:0{Width:16;}	1{Caption:"Project ID";Visible:False;AllowEditing:False;}	2{Width:106;Caption:"Employee Name";AllowEditing:False;}	3{Width:98;Caption:"Department";AllowEditing:False;}	4{Caption:"Employee";Visible:False;AllowEditing:False;}	5{Caption:"EmpID";Visible:False;AllowEditing:False;}	6{Caption:"P Tot";AllowEditing:False;}	7{Caption:"F Tot";AllowEditing:False;}	</value>
   </data>
   <data name="fgSchedule.StyleInfo" xml:space="preserve">
     <value>Normal{Font:Microsoft Sans Serif, 8.25pt;BackColor:Window;}	Alternate{}	Fixed{BackColor:Control;ForeColor:ControlText;Border:Flat,1,ControlDark,Both;BackgroundImageLayout:Hide;}	Highlight{BackColor:Highlight;ForeColor:HighlightText;}	Focus{}	Editor{}	Search{BackColor:Highlight;ForeColor:HighlightText;}	Frozen{BackColor:Beige;}	NewRow{ForeColor:GrayText;}	EmptyArea{BackColor:AppWorkspace;Border:Flat,1,ControlDarkDark,Both;}	SelectedColumnHeader{}	SelectedRowHeader{}	GrandTotal{BackColor:Black;ForeColor:White;}	Subtotal0{BackColor:ControlDarkDark;ForeColor:White;}	Subtotal1{BackColor:ControlDarkDark;ForeColor:White;}	Subtotal2{BackColor:ControlDarkDark;ForeColor:White;}	Subtotal3{BackColor:ControlDarkDark;ForeColor:White;}	Subtotal4{BackColor:ControlDarkDark;ForeColor:White;}	Subtotal5{BackColor:ControlDarkDark;ForeColor:White;}	FilterEditor{}	FirstCustomStyle{}	</value>

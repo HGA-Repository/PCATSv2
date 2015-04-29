@@ -847,18 +847,19 @@ namespace RSMPS
             // 
             // bttTest
             // 
-            this.bttTest.Location = new System.Drawing.Point(586, 97);
+            this.bttTest.Location = new System.Drawing.Point(558, 97);
             this.bttTest.Name = "bttTest";
-            this.bttTest.Size = new System.Drawing.Size(75, 23);
+            this.bttTest.Size = new System.Drawing.Size(57, 23);
             this.bttTest.TabIndex = 14;
             this.bttTest.Text = "Test";
             this.bttTest.UseVisualStyleBackColor = false;
+            this.bttTest.Visible = false;
             this.bttTest.Click += new System.EventHandler(this.bttTest_Click);
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.textBox1.Location = new System.Drawing.Point(789, 108);
+            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox1.Location = new System.Drawing.Point(628, 108);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(200, 20);
@@ -869,7 +870,7 @@ namespace RSMPS
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Highlight;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button1.Location = new System.Drawing.Point(995, 108);
+            this.button1.Location = new System.Drawing.Point(830, 108);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 20);
             this.button1.TabIndex = 16;
