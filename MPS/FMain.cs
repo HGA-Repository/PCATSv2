@@ -908,20 +908,7 @@ namespace RSMPS
             }
         }
 
-        private void viewMPPlan2ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FScd_AddEdit_View_MPP2 s;
 
-            if (CheckIfScheduleOpen() == false)
-            {
-                s = new FScd_AddEdit_View_MPP2();
-                tsMain.Visible = false;
-                s.MdiParent = this;
-                s.OnScheduleClose += new EventHandler(s_OnScheduleClose);
-                s.Show();
-                s.WindowState = FormWindowState.Maximized;
-            }
-        }
 
         //SSS 20131209 - Removing from Menu
         //private void mnuReportByDepartment_Click(object sender, EventArgs e)

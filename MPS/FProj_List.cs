@@ -50,7 +50,7 @@ namespace RSMPS
         {
             lvwItems.Columns.Clear();
 
-            lvwItems.Columns.Add("colID", "ID", 10);
+            lvwItems.Columns.Add("colID", "ID", 0);
             lvwItems.Columns.Add("colNumber", "Number", 90);
             lvwItems.Columns.Add("colDesc", "Description", 300);
             lvwItems.Columns.Add("colCust", "Customer", 200);

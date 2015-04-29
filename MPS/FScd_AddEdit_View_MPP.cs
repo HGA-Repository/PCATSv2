@@ -21,8 +21,31 @@ namespace RSMPS
             enEmployeeSort,
             
         }
+             
+                                                                    /***************************************************************
+                                                                    private const int WEEKCOLSTART = 8;
+                                                                    private const int WEEKCOLOFFSET = 5;
+                                                                    private const int ROWTOTALCOLUMNS = 2;
+                                                                    private const int TOTALCOLS = 0;
+                                                                    private const string PLANCOLTITLE = "P";
+                                                                    private const string FORECOLTITLE = "F";
+                                                                    private const string ACTLCOLTITLE = "A";
 
-        private const int WEEKCOLSTART = 8;
+                                                                    private const string CELLSTYLEUNDER = "CellStyleUnder";
+                                                                    private const string CELLSTYLEOVER = "CellStyleOver";
+                                                                    private const string CELLSTYLEMAX = "CellStyleMax";
+                                                                    private const string CELLSTYLEREG = "CellStyleReg";
+
+                                                                    private const int PROJECTCOLUMN = 1;
+                                                                    private const int PROJECTDESCCOLUMN = 2;
+                                                                    private const int EMPLOYEECOLUMN = 3;
+                                                                    private const int PROJECTIDCOLUMN = 4;
+                                                                    private const int EMPLOYEEIDCOLUMN = 5;
+                                                                    private const int EMPLOYEEPTOTCOL = 6;
+                                                                    private const int EMPLOYEEFTOTCOL = 7;
+
+                                                                    /*********************************************************************/
+        private const int WEEKCOLSTART = 9;
         private const int WEEKCOLOFFSET = 5;
         private const int ROWTOTALCOLUMNS = 2;
         private const int TOTALCOLS = 0;
@@ -32,16 +55,21 @@ namespace RSMPS
 
         private const string CELLSTYLEUNDER = "CellStyleUnder";
         private const string CELLSTYLEOVER = "CellStyleOver";
-        private const string CELLSTYLEMAX = "CellStyleMax";
+        private const string CELLSTYLEMAX = "CellStyleMax"; 
         private const string CELLSTYLEREG = "CellStyleReg";
 
         private const int PROJECTCOLUMN = 1;
-        private const int PROJECTDESCCOLUMN = 2;
-        private const int EMPLOYEECOLUMN = 3;
-        private const int PROJECTIDCOLUMN = 4;
-        private const int EMPLOYEEIDCOLUMN = 5;
-        private const int EMPLOYEEPTOTCOL = 6;
-        private const int EMPLOYEEFTOTCOL = 7;
+        private const int DEPARTMENTCOLUMN = 2;
+        private const int PROJECTDESCCOLUMN = 3;
+        private const int EMPLOYEECOLUMN = 4;
+        private const int PROJECTIDCOLUMN = 5;
+        private const int EMPLOYEEIDCOLUMN = 6;
+        private const int EMPLOYEEPTOTCOL = 7;
+        private const int EMPLOYEEFTOTCOL = 8;
+
+
+
+
 
         private String HOURDISPLAYFORMAT = "#,##0";
 
@@ -239,12 +267,16 @@ namespace RSMPS
 
             fgSchedule.Cols[PROJECTCOLUMN].Width = 80;
             fgSchedule.Cols.Frozen = PROJECTCOLUMN;
+            
             fgSchedule.Cols[PROJECTDESCCOLUMN].Width = 150;
             fgSchedule.Cols.Frozen = PROJECTDESCCOLUMN;
+            
             fgSchedule.Cols[EMPLOYEECOLUMN].Width = 150;
             fgSchedule.Cols.Frozen = EMPLOYEECOLUMN;
+            
             fgSchedule.Cols[6].Width = 40;
             fgSchedule.Cols.Frozen = 6;
+            
             fgSchedule.Cols[7].Width = 40;
             fgSchedule.Cols.Frozen = 7;
 
@@ -260,11 +292,6 @@ namespace RSMPS
             
             //LoadGridByRange(miCurrDept, sDate, eDate);
                      LoadGridByRangeProject(miProj_Number, sDate, eDate);
-
-
-
-
-
 
                                                                         
                                                                         //LoadGridByRangeENG(miCurrDept, sDate, eDate);
@@ -508,7 +535,7 @@ namespace RSMPS
             ape.Close();
         }
 
-        void ape_OnProjectAdd(int projID, int empID)
+        void ape_OnProjectAdd(int projID, int empID) // ***************************************Watch !!!!
         {
             CBProject p = new CBProject();
             CBEmployee e = new CBEmployee();
@@ -546,7 +573,7 @@ namespace RSMPS
             }
 
             CreateSubtotals();
-        }
+        }   
 
         private void tmrInit_Tick(object sender, EventArgs e)
         {
@@ -640,22 +667,22 @@ namespace RSMPS
 
         }
 
-        private void fgSchedule_SelChange(object sender, EventArgs e)
-        {
-            if (fgSchedule.Row >= 0)
-            {
-                int projID = Convert.ToInt32(fgSchedule[fgSchedule.Row, PROJECTIDCOLUMN]);
+        //private void fgSchedule_SelChange(object sender, EventArgs e)
+        //{
+        //    if (fgSchedule.Row >= 0)
+        //    {
+        //        int projID = Convert.ToInt32(fgSchedule[fgSchedule.Row, PROJECTIDCOLUMN]);
 
-                if (projID > 0 && mbIsModerator == true)
-                    tsbAddEmployye.Enabled = true;
-                else
-                    tsbAddEmployye.Enabled = false;
-            }
-            else
-            {
-                tsbAddEmployye.Enabled = false;
-            }
-        }
+        //        if (projID > 0 && mbIsModerator == true)
+        //            tsbAddEmployye.Enabled = true;
+        //        else
+        //            tsbAddEmployye.Enabled = false;
+        //    }
+        //    else
+        //    {
+        //        tsbAddEmployye.Enabled = false;
+        //    }
+        //}
 
         private void fgSchedule_RowColChange(object sender, EventArgs e)
         {
@@ -754,6 +781,9 @@ namespace RSMPS
             if (OnScheduleClose != null)
                 OnScheduleClose(this, null);
         }
+
+
+
 
         private void LoadGridByRange(int deptID, DateTime sDate, DateTime eDate)
         {
@@ -1182,13 +1212,9 @@ namespace RSMPS
 
             //dr = CBScheduleHour.GetListByRange(deptID, sDate, eDate);
             // dr = CBProjectEmployee.GetListActiveWithHours(deptID, sDate, eDate);
-            // dr = CBProjectEmployee.GetListActiveWithHours(Proj_ID, sDate, eDate);
+           
                                                 //*******************************************************MZ************4/27
-                                                //dr = CBProjectEmployee.GetListActiveWithHoursENG(deptID, sDate, eDate);
-                                                //dr = CBProjectEmployee.GetListActiveWithHoursPGM(deptID, sDate, eDate);
-                                                //dr = CBProjectEmployee.GetListActiveWithHoursPLS(deptID, sDate, eDate);
-                                                // dr = CBProjectEmployee.GetListActiveWithHoursSTAFF(deptID, sDate, eDate);
-                                                //dr = CBProjectEmployee.GetListActiveWithHoursProp(deptID, sDate, eDate);
+                                                
             dr = CBProjectEmployee.GetListActiveWithHoursProject(Proj_ID, sDate, eDate);
 
             this.Cursor = Cursors.WaitCursor;
@@ -1206,22 +1232,58 @@ namespace RSMPS
                     lineCode = tmpCode;
                     rw = fgSchedule.Rows.Add();
 
-                    if (miCurrSort == 1)
-                    {
-                        rw[1] = dr["ProjectNumber"].ToString();
-                        rw[2] = dr["ProjectDescription"].ToString();
-                        rw[3] = dr["EmployeeName"].ToString();
-                        rw[4] = dr["ProjectID"].ToString();
-                        rw[5] = dr["EmployeeID"].ToString();
-                    }
-                    else
-                    {
-                        rw[1] = dr["EmployeeName"].ToString();
+                    //if (miCurrSort == 1)
+                    //{
+                    //    rw[1] = dr["ProjectNumber"].ToString();
+                    //    rw[2] = dr["ProjectDescription"].ToString();
+                    //    rw[3] = dr["EmployeeName"].ToString();
+                    //    rw[4] = dr["ProjectID"].ToString();
+                    //    rw[5] = dr["EmployeeID"].ToString();
+                    //}
+                    //else
+                    //{
+                    //    rw[1] = dr["EmployeeName"].ToString();
+                    //    rw[2] = dr["ProjectNumber"].ToString();
+                    //    rw[3] = dr["ProjectDescription"].ToString();
+                    //    rw[4] = dr["ProjectID"].ToString();
+                    //    rw[5] = dr["EmployeeID"].ToString();
+                    //}
+                    //****************************************************************************************MZ
+
+
+
+
+                    
+                        // 
+                        rw[1] = dr["ProjectID"].ToString();
                         rw[2] = dr["ProjectNumber"].ToString();
                         rw[3] = dr["ProjectDescription"].ToString();
-                        rw[4] = dr["ProjectID"].ToString();
-                        rw[5] = dr["EmployeeID"].ToString();
-                    }
+                        rw[4] = dr["EmployeeName"].ToString();
+                        //rw[4] = dr["ProjectID"].ToString();
+                        //rw[4] = dr["WeekID"].ToString();
+                        // rw[4] = dr["PHrs"].ToString();
+                        //rw[5] = dr["PWarn"].ToString();
+                        rw[5] = dr["Department Name"].ToString();
+                        rw[6] = dr["EmployeeID"].ToString();
+                        //rw[6] = dr["Department Name"].ToString();
+                    
+                   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 }
 
                 wkID = Convert.ToInt32(dr["WeekID"]);

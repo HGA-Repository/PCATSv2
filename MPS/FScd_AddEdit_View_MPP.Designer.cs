@@ -55,7 +55,6 @@ namespace RSMPS
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.fgSchedule = new C1.Win.C1FlexGrid.C1FlexGrid();
             this.cmnuSchedule = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuSch_AddProject = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSch_RmvProject = new System.Windows.Forms.ToolStripMenuItem();
@@ -105,14 +104,15 @@ namespace RSMPS
             this.bttTest = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.fgSchedule = new C1.Win.C1FlexGrid.C1FlexGrid();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fgSchedule)).BeginInit();
             this.cmnuSchedule.SuspendLayout();
             this.tbcGroupBy.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tsSchedule.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fgSchedule)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -398,34 +398,6 @@ namespace RSMPS
             this.label7.Size = new System.Drawing.Size(29, 13);
             this.label7.TabIndex = 8;
             this.label7.Text = "End:";
-            // 
-            // fgSchedule
-            // 
-            this.fgSchedule.AllowDragging = C1.Win.C1FlexGrid.AllowDraggingEnum.None;
-            this.fgSchedule.AllowFiltering = true;
-            this.fgSchedule.AllowFreezing = C1.Win.C1FlexGrid.AllowFreezingEnum.Columns;
-            this.fgSchedule.AllowSorting = C1.Win.C1FlexGrid.AllowSortingEnum.None;
-            this.fgSchedule.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.fgSchedule.AutoClipboard = true;
-            this.fgSchedule.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.Light3D;
-            this.fgSchedule.ColumnInfo = resources.GetString("fgSchedule.ColumnInfo");
-            this.fgSchedule.ContextMenuStrip = this.cmnuSchedule;
-            this.fgSchedule.KeyActionTab = C1.Win.C1FlexGrid.KeyActionEnum.MoveAcross;
-            this.fgSchedule.Location = new System.Drawing.Point(12, 141);
-            this.fgSchedule.Name = "fgSchedule";
-            this.fgSchedule.Rows.Count = 2;
-            this.fgSchedule.Rows.DefaultSize = 17;
-            this.fgSchedule.ShowSortPosition = C1.Win.C1FlexGrid.ShowSortPositionEnum.Top;
-            this.fgSchedule.Size = new System.Drawing.Size(1476, 528);
-            this.fgSchedule.TabIndex = 10;
-            this.fgSchedule.RowColChange += new System.EventHandler(this.fgSchedule_RowColChange);
-            this.fgSchedule.SelChange += new System.EventHandler(this.fgSchedule_SelChange);
-            this.fgSchedule.BeforeEdit += new C1.Win.C1FlexGrid.RowColEventHandler(this.fgSchedule_BeforeEdit);
-            this.fgSchedule.AfterEdit += new C1.Win.C1FlexGrid.RowColEventHandler(this.fgSchedule_AfterEdit);
-            this.fgSchedule.AfterDataRefresh += new System.ComponentModel.ListChangedEventHandler(this.fgSchedule_AfterDataRefresh);
-            this.fgSchedule.Click += new System.EventHandler(this.fgSchedule_Click);
             // 
             // cmnuSchedule
             // 
@@ -870,6 +842,7 @@ namespace RSMPS
             // 
             // bttTest
             // 
+            this.bttTest.BackColor = System.Drawing.SystemColors.Info;
             this.bttTest.Location = new System.Drawing.Point(586, 97);
             this.bttTest.Name = "bttTest";
             this.bttTest.Size = new System.Drawing.Size(75, 23);
@@ -900,6 +873,37 @@ namespace RSMPS
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // fgSchedule
+            // 
+            this.fgSchedule.AllowDragging = C1.Win.C1FlexGrid.AllowDraggingEnum.None;
+            this.fgSchedule.AllowFiltering = true;
+            this.fgSchedule.AllowFreezing = C1.Win.C1FlexGrid.AllowFreezingEnum.Columns;
+            this.fgSchedule.AllowSorting = C1.Win.C1FlexGrid.AllowSortingEnum.None;
+            this.fgSchedule.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.fgSchedule.AutoClipboard = true;
+            this.fgSchedule.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.Light3D;
+            this.fgSchedule.ColumnInfo = resources.GetString("fgSchedule.ColumnInfo");
+            this.fgSchedule.ContextMenuStrip = this.cmnuSchedule;
+            this.fgSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.fgSchedule.KeyActionTab = C1.Win.C1FlexGrid.KeyActionEnum.MoveAcross;
+            this.fgSchedule.Location = new System.Drawing.Point(12, 141);
+            this.fgSchedule.Name = "fgSchedule";
+            this.fgSchedule.Rows.Count = 2;
+            this.fgSchedule.Rows.DefaultSize = 19;
+            this.fgSchedule.ShowSortPosition = C1.Win.C1FlexGrid.ShowSortPositionEnum.Top;
+            this.fgSchedule.Size = new System.Drawing.Size(1488, 528);
+            this.fgSchedule.StyleInfo = resources.GetString("fgSchedule.StyleInfo");
+            this.fgSchedule.TabIndex = 10;
+            this.fgSchedule.VisualStyle = C1.Win.C1FlexGrid.VisualStyle.Office2007Blue;
+            this.fgSchedule.RowColChange += new System.EventHandler(this.fgSchedule_RowColChange);
+            //this.fgSchedule.SelChange += new System.EventHandler(this.fgSchedule_SelChange);
+            this.fgSchedule.BeforeEdit += new C1.Win.C1FlexGrid.RowColEventHandler(this.fgSchedule_BeforeEdit);
+            this.fgSchedule.AfterEdit += new C1.Win.C1FlexGrid.RowColEventHandler(this.fgSchedule_AfterEdit);
+            this.fgSchedule.AfterDataRefresh += new System.ComponentModel.ListChangedEventHandler(this.fgSchedule_AfterDataRefresh);
+            this.fgSchedule.Click += new System.EventHandler(this.fgSchedule_Click);
+            // 
             // FScd_AddEdit_View_MPP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -926,13 +930,13 @@ namespace RSMPS
             this.groupBox4.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fgSchedule)).EndInit();
             this.cmnuSchedule.ResumeLayout(false);
             this.tbcGroupBy.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.tsSchedule.ResumeLayout(false);
             this.tsSchedule.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fgSchedule)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -958,7 +962,6 @@ namespace RSMPS
         private System.Windows.Forms.DateTimePicker dtpEnd;
         private System.Windows.Forms.DateTimePicker dtpStart;
         private System.Windows.Forms.Label label7;
-        private C1.Win.C1FlexGrid.C1FlexGrid fgSchedule;
         private System.Windows.Forms.TabControl tbcGroupBy;
         private System.Windows.Forms.TabPage tbpEmployee;
         private System.Windows.Forms.TabPage tbpProject;
@@ -1015,5 +1018,6 @@ namespace RSMPS
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button2;
+        private C1.Win.C1FlexGrid.C1FlexGrid fgSchedule;
     }
 }
