@@ -115,7 +115,6 @@ namespace RSMPS
             this.tssStatus2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssProgress = new System.Windows.Forms.ToolStripProgressBar();
             this.tmrClose = new System.Windows.Forms.Timer(this.components);
-            this.mPPlanTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMain.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -267,8 +266,7 @@ namespace RSMPS
             this.updateJobStatToolStripMenuItem,
             this.pCIManagerToolStripMenuItem,
             this.mnuToolsDocRelease,
-            this.viewMPPlanToolStripMenuItem,
-            this.mPPlanTestToolStripMenuItem});
+            this.viewMPPlanToolStripMenuItem});
             this.mnuTools.Name = "mnuTools";
             this.mnuTools.Size = new System.Drawing.Size(48, 20);
             this.mnuTools.Text = "&Tools";
@@ -843,13 +841,6 @@ namespace RSMPS
             // 
             this.tmrClose.Tick += new System.EventHandler(this.tmrClose_Tick);
             // 
-            // mPPlanTestToolStripMenuItem
-            // 
-            this.mPPlanTestToolStripMenuItem.Name = "mPPlanTestToolStripMenuItem";
-            this.mPPlanTestToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.mPPlanTestToolStripMenuItem.Text = "MP Plan Test";
-            this.mPPlanTestToolStripMenuItem.Click += new System.EventHandler(this.mPPlanTestToolStripMenuItem_Click_1);
-            // 
             // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -964,7 +955,6 @@ namespace RSMPS
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem viewMPPlanToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mPPlanTestToolStripMenuItem;
     }
 }
 
