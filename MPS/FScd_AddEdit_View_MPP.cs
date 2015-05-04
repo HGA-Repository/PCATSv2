@@ -202,7 +202,7 @@ namespace RSMPS
         {
             CBProject d3 = new CBProject();
             d3.Load(itmID);
-            textBox2.Text = d3.Number + ":" + d3.Description;
+            textBox2.Text = d3.Number + " : " + d3.Description;
             miProj_Number = itmID; //**************4/27***************MZ
             LoadTheGrid();
             SetAccessForSecurityLevel(miCurrDept);
@@ -1772,6 +1772,11 @@ namespace RSMPS
                 "Manpower Scheduling: " + txtDepartment.Text + "\t\t" + DateTime.Now.ToShortDateString(), "\t\tPage {0} of {1}");
         }
 
+
+
+        /****************************************************
+         //********************************* Commented, because it was throwing exception ,MZ*****************
+
         private void InitPopupMenu()
         {
             int currProj;
@@ -1841,11 +1846,11 @@ namespace RSMPS
             //    mnuMoveEmpOut.Enabled = false;
             //    mnuMoveAllEmpTime.Enabled = false;
             //}
-        }
+        }   */
 
         private void cmnuSchedule_Opening(object sender, CancelEventArgs e)
         {
-            InitPopupMenu();
+            //InitPopupMenu();
         }
 
         private void tsbSaveAsExcel_Click(object sender, EventArgs e)
@@ -1893,7 +1898,8 @@ namespace RSMPS
             // enable everything in case of change
             tsbAddProject.Enabled = true;
             tsbAddEmployye.Enabled = true;
-            cmnuSchedule.Enabled = true;
+           // cmnuSchedule.Enabled = true; ***********************MZ
+            //cmnuSchedule.Enabled = false;
             fgSchedule.AllowEditing = false; //true;
 
 
@@ -1910,7 +1916,8 @@ namespace RSMPS
 
                 tsbAddProject.Enabled = false;
                 tsbAddEmployye.Enabled = false;
-                cmnuSchedule.Enabled = false;
+                // cmnuSchedule.Enabled = true; ***********************MZ
+                //cmnuSchedule.Enabled = false;
 
                 fgSchedule.AllowEditing = false;
             }

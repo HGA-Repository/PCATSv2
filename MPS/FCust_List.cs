@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-
+//using C:\Users\mzaman\Documents\GitHub\PCATSv2\MPS\ListViewItemComparer.class
 using System.Collections; ///// ***********Added**********MZ
 using System.Data.SqlClient;
 
@@ -204,6 +204,8 @@ namespace RSMPS
             lvwItems.Sort();
             // Set the ListViewItemSorter property to a new ListViewItemComparer
             // object.
+
+            //ListViewItemComparer lc = new ListViewItemComparer();
             this.lvwItems.ListViewItemSorter = new ListViewItemComparer(e.Column,
                                           lvwItems.Sorting);
         }
@@ -213,6 +215,13 @@ namespace RSMPS
 
 
         //***********************This Class is Added **************** MZ
+
+
+
+
+
+
+        
         public class ListViewItemComparer : IComparer
         {
             private int col;
@@ -245,7 +254,7 @@ namespace RSMPS
                 return returnVal;
             }
         }
-
+        
 
 
 

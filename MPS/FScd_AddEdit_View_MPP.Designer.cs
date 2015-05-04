@@ -55,7 +55,6 @@ namespace RSMPS
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.cmnuSchedule = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuSch_AddProject = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSch_RmvProject = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
@@ -110,7 +109,6 @@ namespace RSMPS
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.cmnuSchedule.SuspendLayout();
             this.tbcGroupBy.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tsSchedule.SuspendLayout();
@@ -402,24 +400,6 @@ namespace RSMPS
             this.label7.Size = new System.Drawing.Size(29, 13);
             this.label7.TabIndex = 8;
             this.label7.Text = "End:";
-            // 
-            // cmnuSchedule
-            // 
-            this.cmnuSchedule.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuSch_AddProject,
-            this.mnuSch_RmvProject,
-            this.toolStripMenuItem1,
-            this.mnuSch_AddEmployee,
-            this.mnuSch_RmvEmployee,
-            this.mnuSch_SwapEmployee,
-            this.mnuMoveEmpOut,
-            this.mnuMoveAllEmpTime,
-            this.toolStripMenuItem2,
-            this.mnuSch_ProjSummary,
-            this.mnuShowProjAllDepts});
-            this.cmnuSchedule.Name = "cmnuSchedule";
-            this.cmnuSchedule.Size = new System.Drawing.Size(232, 214);
-            this.cmnuSchedule.Opening += new System.ComponentModel.CancelEventHandler(this.cmnuSchedule_Opening);
             // 
             // mnuSch_AddProject
             // 
@@ -921,7 +901,6 @@ namespace RSMPS
             this.fgSchedule.AutoClipboard = true;
             this.fgSchedule.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.Light3D;
             this.fgSchedule.ColumnInfo = resources.GetString("fgSchedule.ColumnInfo");
-            this.fgSchedule.ContextMenuStrip = this.cmnuSchedule;
             this.fgSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.fgSchedule.KeyActionTab = C1.Win.C1FlexGrid.KeyActionEnum.MoveAcross;
             this.fgSchedule.Location = new System.Drawing.Point(12, 141);
@@ -960,7 +939,6 @@ namespace RSMPS
             this.groupBox4.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.cmnuSchedule.ResumeLayout(false);
             this.tbcGroupBy.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -999,7 +977,7 @@ namespace RSMPS
         private System.Windows.Forms.CheckBox chkActual;
         private System.Windows.Forms.CheckBox chkForcast;
         private System.Windows.Forms.CheckBox chkPlan;
-        private System.Windows.Forms.ContextMenuStrip cmnuSchedule;
+       // private System.Windows.Forms.ContextMenuStrip cmnuSchedule; *********************************MZ
         private System.Windows.Forms.ToolStripMenuItem mnuSch_AddProject;
         private System.Windows.Forms.ToolStripMenuItem mnuSch_AddEmployee;
         private System.Windows.Forms.Timer tmrInit;

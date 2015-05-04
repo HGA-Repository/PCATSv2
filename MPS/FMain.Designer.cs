@@ -115,6 +115,7 @@ namespace RSMPS
             this.tssStatus2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssProgress = new System.Windows.Forms.ToolStripProgressBar();
             this.tmrClose = new System.Windows.Forms.Timer(this.components);
+            this.mPPlanTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMain.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -131,7 +132,7 @@ namespace RSMPS
             this.tsbExit});
             this.tsMain.Location = new System.Drawing.Point(0, 24);
             this.tsMain.Name = "tsMain";
-            this.tsMain.Size = new System.Drawing.Size(1584, 25);
+            this.tsMain.Size = new System.Drawing.Size(1184, 25);
             this.tsMain.TabIndex = 0;
             this.tsMain.Text = "toolStrip1";
             // 
@@ -207,7 +208,7 @@ namespace RSMPS
             this.mnuTest});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1584, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1184, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -266,7 +267,8 @@ namespace RSMPS
             this.updateJobStatToolStripMenuItem,
             this.pCIManagerToolStripMenuItem,
             this.mnuToolsDocRelease,
-            this.viewMPPlanToolStripMenuItem});
+            this.viewMPPlanToolStripMenuItem,
+            this.mPPlanTestToolStripMenuItem});
             this.mnuTools.Name = "mnuTools";
             this.mnuTools.Size = new System.Drawing.Size(48, 20);
             this.mnuTools.Text = "&Tools";
@@ -797,7 +799,7 @@ namespace RSMPS
             this.tssProgress});
             this.statusStrip1.Location = new System.Drawing.Point(0, 640);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1584, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(1184, 26);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -841,11 +843,18 @@ namespace RSMPS
             // 
             this.tmrClose.Tick += new System.EventHandler(this.tmrClose_Tick);
             // 
+            // mPPlanTestToolStripMenuItem
+            // 
+            this.mPPlanTestToolStripMenuItem.Name = "mPPlanTestToolStripMenuItem";
+            this.mPPlanTestToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.mPPlanTestToolStripMenuItem.Text = "MP Plan Test";
+            this.mPPlanTestToolStripMenuItem.Click += new System.EventHandler(this.mPPlanTestToolStripMenuItem_Click_1);
+            // 
             // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1584, 666);
+            this.ClientSize = new System.Drawing.Size(1184, 666);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tsMain);
             this.Controls.Add(this.menuStrip1);
@@ -955,6 +964,7 @@ namespace RSMPS
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem viewMPPlanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mPPlanTestToolStripMenuItem;
     }
 }
 

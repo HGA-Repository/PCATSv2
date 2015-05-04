@@ -908,6 +908,36 @@ namespace RSMPS
             }
         }
 
+        private void mPPlanTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FScd_AddEdit_View_MPP s;
+
+            if (CheckIfScheduleOpen() == false)
+            {
+                s = new FScd_AddEdit_View_MPP();
+                tsMain.Visible = false;
+                s.MdiParent = this;
+                s.OnScheduleClose += new EventHandler(s_OnScheduleClose);
+                s.Show();
+                s.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void mPPlanTestToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FScd_AddEdit_Test s;
+
+            if (CheckIfScheduleOpen() == false)
+            {
+                s = new FScd_AddEdit_Test();
+                tsMain.Visible = false;
+                s.MdiParent = this;
+                s.OnScheduleClose += new EventHandler(s_OnScheduleClose);
+                s.Show();
+                s.WindowState = FormWindowState.Maximized;
+            }
+        }
+
 
 
         //SSS 20131209 - Removing from Menu
