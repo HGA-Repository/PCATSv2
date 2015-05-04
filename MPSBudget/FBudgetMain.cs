@@ -2963,7 +2963,8 @@ namespace RSMPS
 
         private void tdbgBudgetPCN_Click(object sender, EventArgs e)
         {
-
+            /*
+             * *****************************************Before
             if (tdbgBudgetPCN.Bookmark >= 0)
             {
                 bttEditPCN.Enabled = true;
@@ -2981,7 +2982,35 @@ namespace RSMPS
             //{
             //    bttEditPCN.Enabled = true;
             //}
+            */
+            //*************************************************************************After 5/4*****MZ
+            
+            //if (tdbgBudgetPCN.Bookmark >= 0)
+            //{
+            //    //bttEditPCN.Enabled = true; //**********************************5/4**********MZ
+            //}
 
+            //Causes action to be caried out on the next row. 
+            string stat = tdbgBudgetPCN.Columns["Status"].Value.ToString();
+            Console.WriteLine("The Status is: " + stat);
+            //********************5/4 *******************Uncommented below
+            if (stat == "Approved")
+            {
+                bttEditPCN.Enabled = false;
+                bttAddPCN.Enabled = false;
+                bttCopyPCN.Enabled = false;
+                tdbgBudgetPCN.Columns["Status"].DropDown.AllowDrop = false;
+
+            }
+            else
+            {
+                bttEditPCN.Enabled = true;
+                bttAddPCN.Enabled = true;
+                bttCopyPCN.Enabled = true;
+            }
+
+
+            
             
   }
 
