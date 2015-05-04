@@ -45,6 +45,7 @@ namespace RSMPS
             this.label13 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.label14 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.line1 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.textBox7 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.detail = new GrapeCity.ActiveReports.SectionReportModel.Detail();
             this.textBox3 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox6 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
@@ -66,7 +67,6 @@ namespace RSMPS
             this.line2 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.txtPerCompProj = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.txtEarnedProj = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
-            this.textBox7 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Picture1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).BeginInit();
@@ -82,6 +82,7 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTask)).BeginInit();
@@ -96,7 +97,6 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.txtRmnProj)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPerCompProj)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEarnedProj)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // pageHeader
@@ -299,6 +299,18 @@ namespace RSMPS
             this.line1.X2 = 10.38F;
             this.line1.Y1 = 1.375F;
             this.line1.Y2 = 1.375F;
+            // 
+            // textBox7
+            // 
+            this.textBox7.DataField = "TitleDesc";
+            this.textBox7.Height = 0.2F;
+            this.textBox7.Left = 3.854F;
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Style = "font-size: 9.75pt; font-weight: normal; text-align: left; ddo-char-set: 0";
+            this.textBox7.Text = "textBox1";
+            this.textBox7.Top = 0.4F;
+            this.textBox7.Visible = false;
+            this.textBox7.Width = 5F;
             // 
             // detail
             // 
@@ -536,17 +548,6 @@ namespace RSMPS
             this.txtEarnedProj.Top = 0.0625F;
             this.txtEarnedProj.Width = 0.625F;
             // 
-            // textBox7
-            // 
-            this.textBox7.DataField = "TitleDesc";
-            this.textBox7.Height = 0.2F;
-            this.textBox7.Left = 3.854F;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Style = "font-size: 9.75pt; font-weight: normal; text-align: left; ddo-char-set: 0";
-            this.textBox7.Text = "textBox1";
-            this.textBox7.Top = 0.4F;
-            this.textBox7.Width = 5F;
-            // 
             // rprtJobStat1
             // 
             this.MasterReport = false;
@@ -586,6 +587,7 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTask)).EndInit();
@@ -600,7 +602,6 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.txtRmnProj)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPerCompProj)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEarnedProj)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
