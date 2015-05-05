@@ -2229,6 +2229,7 @@ namespace RSMPS
 
         private void tdbgBudgetPCN_BeforeColUpdate(object sender, C1.Win.C1TrueDBGrid.BeforeColUpdateEventArgs e)
         {
+            //MessageBox.Show("Please Hit enter to Change PCN Status");
             tdbgBudgetPCN.Tag = true;
 
             if (e.Column.Name == "Status")
@@ -2247,12 +2248,12 @@ namespace RSMPS
                 else
                 {
                     FBudgetPCNApproval pa = new FBudgetPCNApproval();
-//SSS02192014
+                    //SSS02192014
                     if (tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Approved" | tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Pending")
                     {
-                        pa.IsChangeOnly = false; 
-                    
-                    
+                        pa.IsChangeOnly = false;
+
+
                     }
                     else
                         pa.IsChangeOnly = true;
@@ -2963,56 +2964,79 @@ namespace RSMPS
 
         private void tdbgBudgetPCN_Click(object sender, EventArgs e)
         {
-            /*
-             * *****************************************Before
-            if (tdbgBudgetPCN.Bookmark >= 0)
-            {
-                bttEditPCN.Enabled = true;
-            }
-      
-         //Causes action to be caried out on the next row. 
-            //string stat = tdbgBudgetPCN.Columns["Status"].Value.ToString();
-            ////Console.WriteLine("The Status is: " + stat);
-            //if (stat == "Approved")
+            string stat = tdbgBudgetPCN.Columns["Status"].Value.ToString();
+
+            //Console.WriteLine("The Status is: " + stat);
+
+
+            //DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
+            //string st = Convert.ToString(d["PCNStatus"]);
+            //MessageBox.Show(st); 
+
+
+            //********************5/4 *******************Uncommented below
+            //if (stat == "Initiated")
             //{
-            //   bttEditPCN.Enabled = false;
-               
+            //    bttEditPCN.Enabled = true;
+            //    tdbgBudgetPCN.Columns["Status"].DropDown.AllowDrop = false;
             //}
             //else
             //{
-            //    bttEditPCN.Enabled = true;
+            //    bttEditPCN.Enabled = false;
             //}
-            */
-            //*************************************************************************After 5/4*****MZ
-            
-            //if (tdbgBudgetPCN.Bookmark >= 0)
-            //{
-            //    //bttEditPCN.Enabled = true; //**********************************5/4**********MZ
-            //}
-
-            //Causes action to be caried out on the next row. 
-            string stat = tdbgBudgetPCN.Columns["Status"].Value.ToString();
-            Console.WriteLine("The Status is: " + stat);
-            //********************5/4 *******************Uncommented below
-            if (stat == "Approved")
-            {
-                bttEditPCN.Enabled = false;
-                bttAddPCN.Enabled = false;
-                bttCopyPCN.Enabled = false;
-                tdbgBudgetPCN.Columns["Status"].DropDown.AllowDrop = false;
-
-            }
-            else
-            {
-                bttEditPCN.Enabled = true;
-                bttAddPCN.Enabled = true;
-                bttCopyPCN.Enabled = true;
-            }
-
-
-            
+                
             
   }
+
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            DataRow d_New = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
+            string st = Convert.ToString(d_New["PCNStatus"]);
+            MessageBox.Show(st);
+
+        }
+
+        private void tdbgBudgetPCN_SelChange(object sender, C1.Win.C1TrueDBGrid.CancelEventArgs e)
+        {
+            MessageBox.Show("********************************");
+        }
+
+        private void tdbgBudgetPCN_Change(object sender, EventArgs e)
+        {
+            MessageBox.Show("Please Hit Enter to Change PCN");
+            
+                    }
+
+        private void tdbgBudgetPCN_MouseClick(object sender, MouseEventArgs e)
+        {
+            DataRow d_MC = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
+            string st = Convert.ToString(d_MC["PCNStatus"]);
+            //MessageBox.Show(st);
+
+
+            if (st == "Approved")
+            {
+                bttEditPCN.Enabled = false;
+                MessageBox.Show("Can not Edit   " + st + " PCN");
+                //tdbgBudgetPCN.Columns["Status"].DropDown.AllowDrop = false;
+            }
+            
+            
+            else  if (st == "Initiated")
+            {
+                bttEditPCN.Enabled = true;
+                //tdbgBudgetPCN.Columns["Status"].DropDown.AllowDrop = false;
+            }
+            
+            else
+            {
+                bttEditPCN.Enabled = false;
+                //MessageBox.Show("Can not Edit   " + st +" PCN");
+               
+            }
+
+        }
 
         private void tlbbSummary_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
@@ -3813,6 +3837,13 @@ namespace RSMPS
             this.ReloadForm = true;
             this.Close();
         }
+
+       
+
+        
+        
+
+       
 
 
 
