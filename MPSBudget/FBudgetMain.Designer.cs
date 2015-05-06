@@ -576,7 +576,9 @@ namespace RSMPS
             this.tdbgBudgetPCN.TabIndex = 0;
             this.tdbgBudgetPCN.Text = "c1TrueDBGrid1";
             this.tdbgBudgetPCN.BeforeColUpdate += new C1.Win.C1TrueDBGrid.BeforeColUpdateEventHandler(this.tdbgBudgetPCN_BeforeColUpdate);
+            
             this.tdbgBudgetPCN.Change += new System.EventHandler(this.tdbgBudgetPCN_Change);
+            
             this.tdbgBudgetPCN.AfterColEdit += new C1.Win.C1TrueDBGrid.ColEventHandler(this.tdbgBudgetPCN_AfterColEdit);
             this.tdbgBudgetPCN.Click += new System.EventHandler(this.tdbgBudgetPCN_Click);
             this.tdbgBudgetPCN.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tdbgBudgetPCN_KeyUp);

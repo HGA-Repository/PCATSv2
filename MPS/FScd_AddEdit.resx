@@ -118,13 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="fgSchedule.ColumnInfo" xml:space="preserve">
-    <value>8,1,0,0,0,85,Columns:0{Width:16;}	1{Caption:"Project";AllowEditing:False;}	2{Caption:"Description";AllowEditing:False;}	3{Caption:"Employee";AllowEditing:False;}
-    4{Caption:"ProjID";Visible:False;}	5{Caption:"EmpID";Visible:False;}	6{Caption:"P Tot";AllowEditing:False;}	7{Caption:"F Tot";AllowEditing:False;}	      </value>
-  
+    <value>8,1,0,0,0,85,Columns:0{Width:16;}	1{Caption:"Project";AllowEditing:False;}	2{Caption:"Description";AllowEditing:False;}	3{Caption:"Employee";AllowEditing:False;}	4{Caption:"ProjID";Visible:False;}	5{Caption:"EmpID";Visible:False;}	6{Caption:"P Tot";AllowEditing:False;}	7{Caption:"F Tot";AllowEditing:False;}	</value>
   </data>
-  
-  
-  
   <metadata name="cmnuSchedule.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -246,7 +241,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAa
-        DAAAAk1TRnQBSQFMAgEBBQEAAVwBAQFcAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        DAAAAk1TRnQBSQFMAgEBBQEAAWQBAQFkAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAASADAAEBAQABCAYAAQgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
