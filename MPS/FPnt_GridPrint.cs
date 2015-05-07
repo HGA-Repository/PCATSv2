@@ -541,6 +541,28 @@ namespace RSMPS
             System.Drawing.Printing.PrintDocument pd;
             string currSort;
 
+            //*******************************************Added*****5/7
+            if (IsDepartmentSelected() == false)
+            {
+                MessageBox.Show("Please select at least one Department", "Search Again", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (IsProjectSelected() == false)
+            {
+                MessageBox.Show("Please select at least one Lead", "Search Again", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (IsDepartmentAllChecked() == true && IsProjectLeadAllChecked() == true)
+            {
+                MessageBox.Show("Please limit your search, selecting all departments and projects will return too large a result set", "Search Limit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            //*************************************************************
+
+
             if (lstDepartments.CheckedIndices.Contains(0) == false && lstProjects.CheckedIndices.Contains(0) == true)
                 LoadTheGridForDept();
             else if (lstDepartments.CheckedIndices.Contains(0) == true && lstProjects.CheckedIndices.Contains(0) == false)
@@ -580,6 +602,27 @@ namespace RSMPS
         {
             System.Drawing.Printing.PrintDocument pd;
             string currSort;
+
+            //*******************************************Added*****5/7
+            if (IsDepartmentSelected() == false)
+            {
+                MessageBox.Show("Please select at least one Department", "Search Again", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (IsProjectSelected() == false)
+            {
+                MessageBox.Show("Please select at least one Lead", "Search Again", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (IsDepartmentAllChecked() == true && IsProjectLeadAllChecked() == true)
+            {
+                MessageBox.Show("Please limit your search, selecting all departments and projects will return too large a result set", "Search Limit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            //*************************************************************
 
             if (lstDepartments.CheckedIndices.Contains(0) == false && lstProjects.CheckedIndices.Contains(0) == true)
                 LoadTheGridForDept();
@@ -689,5 +732,77 @@ namespace RSMPS
                 e.NewValue = CheckState.Checked;
             }
         }
+
+
+        //*******************************************Added*****5/7
+
+        private bool IsDepartmentAllChecked()
+        {
+            bool retVal;
+
+            if (lstDepartments.CheckedItems.Count > 0)
+            {
+                if (((RSLib.COListItem)lstDepartments.CheckedItems[0]).ID == 0)
+                {
+                    retVal = true;
+                }
+                else
+                {
+                    retVal = false;
+                }
+            }
+            else
+            {
+                retVal = false;
+            }
+
+            return retVal;
+        }
+
+        private bool IsProjectLeadAllChecked()
+        {
+            bool retVal;
+            if (lstProjects.CheckedItems.Count > 0)
+            {
+                if (((RSLib.COListItem)lstProjects.CheckedItems[0]).ID == 0)
+                {retVal = true;
+                }
+                    else
+                    {retVal = false;
+                    }
+            }
+            else
+            { retVal = false;
+            }
+
+            return retVal;
+        }
+        private bool IsDepartmentSelected()
+        {
+            bool retVal;
+            if ( lstDepartments.CheckedItems.Count > 0)
+                retVal = true;
+            else retVal = false;
+            return retVal;
+        }
+        private bool IsProjectSelected()
+        {
+            bool retVal;
+            if (lstProjects.CheckedItems.Count > 0)
+                retVal = true;
+            else retVal = false;
+            return retVal;
+        }
+        //*******************************************
+
+
+
+
+
+
+
+
+
+
     }
 }
