@@ -456,34 +456,38 @@ namespace RSMPS
 
             while (dr.Read())
             {
-                lvi = new ListViewItem();
-                DataRow d = mdsProjInfos.Tables["ProjectInfos"].NewRow();
+                try
+                {
+                    lvi = new ListViewItem();
+                    DataRow d = mdsProjInfos.Tables["ProjectInfos"].NewRow();
 
-                d["ID"] = dr["ID"];
-                d["ProjSumID"] = dr["ProjSumID"];
-                d["ProjectID"] = dr["ProjectID"];
-                d["Schedule"] = dr["Schedule"];
-                d["ActHigh"] = dr["ActHigh"];
-                d["StaffNeeds"] = dr["StaffNeeds"];
-                d["CFeedBack"] = dr["CFeedBack"];
-                d["POAmt"] = dr["POAmt"];
-                d["BilledtoDate"] = dr["BilledToDate"];
-                d["PaidtoDate"] = dr["PaidToDate"];
-                d["Outstanding"] = dr["Outstanding"];
-                d["Client"] = dr["Client"];
-                d["Job"] = dr["Job"];
-                d["Location"] = dr["Location"];
+                    d["ID"] = dr["ID"];
+                    d["ProjSumID"] = dr["ProjSumID"];
+                    d["ProjectID"] = dr["ProjectID"];
+                    d["Schedule"] = dr["Schedule"];
+                    d["ActHigh"] = dr["ActHigh"];
+                    d["StaffNeeds"] = dr["StaffNeeds"];
+                    d["CFeedBack"] = dr["CFeedBack"];
+                    d["POAmt"] = dr["POAmt"];
+                    d["BilledtoDate"] = dr["BilledToDate"];
+                    d["PaidtoDate"] = dr["PaidToDate"];
+                    d["Outstanding"] = dr["Outstanding"];
+                    d["Client"] = dr["Client"];
+                    d["Job"] = dr["Job"];
+                    d["Location"] = dr["Location"];
 
-                mdsProjInfos.Tables["ProjectInfos"].Rows.Add(d);
+                    mdsProjInfos.Tables["ProjectInfos"].Rows.Add(d);
 
-                lvi.Text = dr["ID"].ToString();
+                    lvi.Text = dr["ID"].ToString();
 
-                p.Load(Convert.ToInt32(dr["ProjectID"]));
-                lvi.SubItems.Add(p.Number);
-                lvi.SubItems.Add(moProjSum.ID.ToString());
-                lvi.SubItems.Add(p.ID.ToString());
+                    p.Load(Convert.ToInt32(dr["ProjectID"]));
+                    lvi.SubItems.Add(p.Number);
+                    lvi.SubItems.Add(moProjSum.ID.ToString());
+                    lvi.SubItems.Add(p.ID.ToString());
 
-                lvwProjects.Items.Add(lvi);
+                    lvwProjects.Items.Add(lvi);
+                }
+                catch { }
             }
 
             dr.Close();

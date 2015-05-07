@@ -79,13 +79,17 @@ namespace RSMPS
 
             if (mbIsCustomer == false)
             {
-                rprtDrawingLogTranAlt1_SubRevs r = new rprtDrawingLogTranAlt1_SubRevs();
-                System.Data.DataView dv = new System.Data.DataView(((dsDrawingLog)this.DataSource).Tables["Revisions"]);
-                dv.RowFilter = "DrawingID = " + txtDrawingID.Text;
-                dv.Sort = "IssuedDate DESC";
+                try    //**********************added 5/7*************
+                {
+                    rprtDrawingLogTranAlt1_SubRevs r = new rprtDrawingLogTranAlt1_SubRevs();
+                    System.Data.DataView dv = new System.Data.DataView(((dsDrawingLog)this.DataSource).Tables["Revisions"]);
+                    dv.RowFilter = "DrawingID = " + txtDrawingID.Text;
+                    dv.Sort = "IssuedDate DESC";
 
-                r.DataSource = dv;
-                subReport1.Report = r;
+                    r.DataSource = dv;
+                    subReport1.Report = r;
+                }
+                catch { } //************************* added 5/7
             }
             else
             {

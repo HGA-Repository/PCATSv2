@@ -348,40 +348,24 @@ namespace RSMPS
                 //    PrintDrawingLogWithProjects(true, GetSortCode());
 
                 if (mbIsJobStat == true && chkJobStat.Checked == false)
-                {
-                    PrintJobStatWithProjects(true, GetSortCode());
-                }
-                else if (mbIsJobStat == true && chkJobStat.Checked == true)
-                {
-                    PrintDrawingLogWithProjects(true, GetSortCode(), PRINTDRAWINGLOG);
-                }
-                else if (mbIsJobStat == false && chkJobStat.Checked == true)
-                {
-                    PrintJobStatWithProjects(true, GetSortCode());
-                }
-                else
-                {
-                    PrintDrawingLogWithProjects(true, GetSortCode(), PRINTDRAWINGLOG);
-                }
-            }
+                {                PrintJobStatWithProjects(true, GetSortCode());}
+                                else if (mbIsJobStat == true && chkJobStat.Checked == true)
+                                        {PrintDrawingLogWithProjects(true, GetSortCode(), PRINTDRAWINGLOG);}
+                                else if (mbIsJobStat == false && chkJobStat.Checked == true)
+                                        {PrintJobStatWithProjects(true, GetSortCode());}
+                                else
+                                        { PrintDrawingLogWithProjects(true, GetSortCode(), PRINTDRAWINGLOG);}
+                 }
             else
             {
-                if (mbIsJobStat == true && chkJobStat.Checked == false)
-                {
-                    PrintJobStatWithLeads(true, GetSortCode());
-                }
-                else if (mbIsJobStat == true && chkJobStat.Checked == true)
-                {
-                    PrintDrawingLogWithLeads(true, GetSortCode(), PRINTDRAWINGLOG);
-                }
-                else if (mbIsJobStat == false && chkJobStat.Checked == true)
-                {
-                    PrintJobStatWithLeads(true, GetSortCode());
-                }
-                else
-                {
-                    PrintDrawingLogWithLeads(true, GetSortCode(), PRINTDRAWINGLOG);
-                }
+                            if (mbIsJobStat == true && chkJobStat.Checked == false)
+                                { PrintJobStatWithLeads(true, GetSortCode());}
+                            else if (mbIsJobStat == true && chkJobStat.Checked == true)
+                                {PrintDrawingLogWithLeads(true, GetSortCode(), PRINTDRAWINGLOG); }
+                            else if (mbIsJobStat == false && chkJobStat.Checked == true)
+                                { PrintJobStatWithLeads(true, GetSortCode());  }
+                            else
+                                { PrintDrawingLogWithLeads(true, GetSortCode(), PRINTDRAWINGLOG);  }
             }
         }
 
@@ -440,7 +424,21 @@ namespace RSMPS
         }
 
         private void PrintJobStatWithProjects(bool isPreview, int sortCode)
-        {
+        {   //**********************************I am adding here*******************
+            if (IsDepartmentSelected() == false)
+            {
+                MessageBox.Show("Please select at least one Department", "Search Again", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (IsProjectSelected() == false)
+            {
+                MessageBox.Show("Please select at least one Project", "Search Again", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            //************************************************************
+           
+
             if (IsDepartmentAllChecked() == true && IsProjectLeadAllChecked() == true)
             {
                 MessageBox.Show("Please limit your search, selecting all departments and projects will return too large a result set", "Search Limit", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -470,7 +468,25 @@ namespace RSMPS
         }
 
         private void PrintJobStatWithLeads(bool isPreview, int sortCode)
-        {
+        {   //*******************************************Added*****5/7
+            if (IsDepartmentSelected() == false)
+            {
+                MessageBox.Show("Please select at least one Department", "Search Again", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (IsProjectSelected() == false)
+            {
+                MessageBox.Show("Please select at least one Lead", "Search Again", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            //*************************************************************
+
+
+
+
+
+
             if (IsDepartmentAllChecked() == true)
             {
                 MessageBox.Show("Unable to print project leads in multiple departments", "Multiple Departments", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -488,6 +504,26 @@ namespace RSMPS
 
         private void PrintDrawingLogWithProjects(bool isPreview, int sortCode, int drwgSpec)
         {
+            //*******************************************Added*****5/7
+            if (IsDepartmentSelected() == false)
+            {
+                MessageBox.Show("Please select at least one Department", "Search Again", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (IsProjectSelected() == false)
+            {
+                MessageBox.Show("Please select at least one Project", "Search Again", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            //*************************************************************
+
+
+
+
+
+
+
             if (IsDepartmentAllChecked() == true && IsProjectLeadAllChecked() == true)
             {
                 MessageBox.Show("Please limit your search, selecting all departments and projects will return too large a result set", "Search Limit", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -518,6 +554,26 @@ namespace RSMPS
 
         private void PrintDrawingLogWithLeads(bool isPreview, int sortCode, int drwgSpec)
         {
+
+            //*******************************************Added*****5/7
+            if (IsDepartmentSelected() == false)
+            {
+                MessageBox.Show("Please select at least one Department", "Search Again", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (IsProjectSelected() == false)
+            {
+                MessageBox.Show("Please select at least one Lead", "Search Again", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            //*************************************************************
+
+
+
+
+
+
             if (IsDepartmentAllChecked() == true)
             {
                 MessageBox.Show("Unable to print project leads in multiple departments", "Multiple Departments", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -578,6 +634,26 @@ namespace RSMPS
 
             return retVal;
         }
+
+        private bool IsDepartmentSelected()
+        {
+            bool retVal;
+            if (clstDepartments.CheckedItems.Count > 0)
+                retVal = true;
+            else retVal = false;
+            return retVal;
+        }
+        private bool IsProjectSelected()
+        {
+            bool retVal;
+            if (clstProjects.CheckedItems.Count > 0)
+                retVal = true;
+            else retVal = false;
+            return retVal;
+        }
+
+
+
 
         private void FPnt_JobStat_Load(object sender, EventArgs e)
         {

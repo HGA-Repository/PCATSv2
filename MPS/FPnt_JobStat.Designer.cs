@@ -62,24 +62,26 @@ namespace RSMPS
             // bttPrint
             // 
             this.bttPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bttPrint.BackColor = System.Drawing.SystemColors.Control;
             this.bttPrint.Location = new System.Drawing.Point(413, 102);
             this.bttPrint.Name = "bttPrint";
             this.bttPrint.Size = new System.Drawing.Size(101, 30);
             this.bttPrint.TabIndex = 5;
             this.bttPrint.Text = "Print";
-            this.bttPrint.UseVisualStyleBackColor = true;
+            this.bttPrint.UseVisualStyleBackColor = false;
             this.bttPrint.Visible = false;
             this.bttPrint.Click += new System.EventHandler(this.bttPrint_Click);
             // 
             // bttPreview
             // 
             this.bttPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bttPreview.BackColor = System.Drawing.SystemColors.Control;
             this.bttPreview.Location = new System.Drawing.Point(413, 18);
             this.bttPreview.Name = "bttPreview";
             this.bttPreview.Size = new System.Drawing.Size(101, 30);
             this.bttPreview.TabIndex = 4;
             this.bttPreview.Text = "Print Drawing";
-            this.bttPreview.UseVisualStyleBackColor = true;
+            this.bttPreview.UseVisualStyleBackColor = false;
             this.bttPreview.Click += new System.EventHandler(this.bttPreview_Click);
             // 
             // groupBox1
