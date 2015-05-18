@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Picture.ImageData" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="Picture1.ImageData" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAEAQAAABZTeXN0ZW0uSU8uTWVtb3J5U3RyZWFtCgAAAAdfYnVmZmVyB19v
         cmlnaW4JX3Bvc2l0aW9uB19sZW5ndGgJX2NhcGFjaXR5C19leHBhbmRhYmxlCV93cml0YWJsZQpfZXhw
@@ -463,6 +463,30 @@
         TpOCMQu6/G97SBtbO03zxsEu/xsAAADbi4nACJ9HLYNMG7cQz4+J9Z/ZfwMAAGB7sdbzmGWQr977/xOt
         0I1J3cHqAAAAAElFTkSuQmCCCw==
 </value>
+  </data>
+  <data name="txtBud.OutputFormat" xml:space="preserve">
+    <value>#,##0.00;(#,##0.00)</value>
+  </data>
+  <data name="txtPercComp.OutputFormat" xml:space="preserve">
+    <value>#,##0.00;(#,##0.00)</value>
+  </data>
+  <data name="txtErnd.OutputFormat" xml:space="preserve">
+    <value>#,##0.00;(#,##0.00)</value>
+  </data>
+  <data name="txtRmn.OutputFormat" xml:space="preserve">
+    <value>#,##0.00;(#,##0.00)</value>
+  </data>
+  <data name="txtBudProj.OutputFormat" xml:space="preserve">
+    <value>#,##0.00;(#,##0.00)</value>
+  </data>
+  <data name="txtRmnProj.OutputFormat" xml:space="preserve">
+    <value>#,##0.00;(#,##0.00)</value>
+  </data>
+  <data name="txtPerCompProj.OutputFormat" xml:space="preserve">
+    <value>#,##0.00;(#,##0.00)</value>
+  </data>
+  <data name="txtEarnedProj.OutputFormat" xml:space="preserve">
+    <value>#,##0.00;(#,##0.00)</value>
   </data>
   <metadata name="$this.ScriptEditorPositionForUndo" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 0</value>

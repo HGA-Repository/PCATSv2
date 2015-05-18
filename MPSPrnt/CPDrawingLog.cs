@@ -11,7 +11,8 @@ namespace RSMPS
         public void PrintDrawingLog(int deptID, int projID)
         {
             FPreviewAR pv;
-            rprtDrawingLogTranAlt2 rprt = new rprtDrawingLogTranAlt2();
+            //rprtDrawingLogTranAlt2 rprt = new rprtDrawingLogTranAlt2();
+            rprtDrawingLogTranAlt2_Test rprt = new rprtDrawingLogTranAlt2_Test();// ******Addted**5/10***For Test
             dsDrawingLog ds;
 
             ds = CBDrawingLog.GetDrawingLogForRprt(deptID, projID);
@@ -26,7 +27,8 @@ namespace RSMPS
         public void PrintJobStat(int deptID, int projID)
         {
             FPreviewAR pv;
-            rprtJobStat1 rprt = new rprtJobStat1();
+            //rprtJobStat1 rprt = new rprtJobStat1();
+            rprtJobStat_Test rprt = new rprtJobStat_Test(); // ******Addted**5/10***For Test
             DataSet ds;
 
             ds = CBDrawingLog.GetJobStatForRprt(deptID, projID);
@@ -42,7 +44,8 @@ namespace RSMPS
         public void PrintJobStatList(int deptID, bool isPreview, int sortCode)
         {
             FPreviewAR pv;
-            rprtJobStat1 rprt = new rprtJobStat1();
+            //rprtJobStat1 rprt = new rprtJobStat1();
+            rprtJobStat_Test rprt = new rprtJobStat_Test(); // ******Addted**5/10***For Test
             DataSet ds;
 
             ds = CBDrawingLog.GetJobStatListByDeptID(deptID, sortCode);
@@ -66,7 +69,8 @@ namespace RSMPS
         public void PrintJobStatList(string xml, bool isDept, bool isPreview, int sortCode)
         {
             FPreviewAR pv;
-            rprtJobStat1 rprt = new rprtJobStat1();
+            //rprtJobStat1 rprt = new rprtJobStat1();
+            rprtJobStat_Test rprt = new rprtJobStat_Test(); // ******Addted**5/10***For Test
             DataSet ds;
 
             if (isDept == true)
@@ -97,7 +101,8 @@ namespace RSMPS
         public void PrintJobStatList(string deptXml, string projXml, bool isPreview, int sortCode)
         {
             FPreviewAR pv;
-            rprtJobStat1 rprt = new rprtJobStat1();
+           // rprtJobStat1 rprt = new rprtJobStat1();
+            rprtJobStat_Test rprt = new rprtJobStat_Test(); // ******Addted**5/10***For Test
             DataSet ds;
 
             ds = CBDrawingLog.GetJobStatListByDeptListProjList(deptXml, projXml, sortCode);
@@ -121,7 +126,8 @@ namespace RSMPS
         public void PrintJobStatList(string deptXml, string leadXml, bool isLead, bool isPreview, int sortCode)
         {
             FPreviewAR pv;
-            rprtJobStat1 rprt = new rprtJobStat1();
+           // rprtJobStat1 rprt = new rprtJobStat1();
+            rprtJobStat_Test rprt = new rprtJobStat_Test(); // ******Addted**5/10***For Test
             DataSet ds;
 
             ds = CBDrawingLog.GetJobStatListByLeadList(deptXml, leadXml, sortCode);
@@ -165,7 +171,8 @@ namespace RSMPS
         public void PrintDrawingLogList(string xml, bool isDept, bool isPreview, int sortCode, int drwgSpec)
         {
             FPreviewAR pv;
-            rprtDrawingLogTranAlt2 rprt = new rprtDrawingLogTranAlt2();
+           // rprtDrawingLogTranAlt2 rprt = new rprtDrawingLogTranAlt2();
+            rprtDrawingLogTranAlt2_Test rprt = new rprtDrawingLogTranAlt2_Test();// ******Addted**5/10***For Test
             dsDrawingLog dl;
 
             if (isDept == true)
@@ -197,7 +204,8 @@ namespace RSMPS
         public void PrintDrawingLogList(string deptXml, string projXml, bool isPreview, int sortCode, int drwgSpec)
         {
             FPreviewAR pv;
-            rprtDrawingLogTranAlt2 rprt = new rprtDrawingLogTranAlt2();
+            //rprtDrawingLogTranAlt2 rprt = new rprtDrawingLogTranAlt2();
+            rprtDrawingLogTranAlt2_Test rprt = new rprtDrawingLogTranAlt2_Test();// ******Addted**5/10***For Test
             dsDrawingLog dl;
 
             dl = CBDrawingLog.GetDrawingLogMainByDeptListProjList(deptXml, projXml, sortCode, drwgSpec);
@@ -222,7 +230,8 @@ namespace RSMPS
         public void PrintDrawingLogList(string deptXml, string leadXml, bool isLead, bool isPreview, int sortCode, int drwgSpec)
         {
             FPreviewAR pv;
-            rprtDrawingLogTranAlt2 rprt = new rprtDrawingLogTranAlt2();
+            //rprtDrawingLogTranAlt2 rprt = new rprtDrawingLogTranAlt2();
+            rprtDrawingLogTranAlt2_Test rprt = new rprtDrawingLogTranAlt2_Test();// ******Addted**5/10***For Test
             dsDrawingLog dl;
 
             dl = CBDrawingLog.GetDrawingLogMainByLeadList(deptXml, leadXml, sortCode, drwgSpec);

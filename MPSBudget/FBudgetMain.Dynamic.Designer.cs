@@ -294,6 +294,8 @@ namespace RSMPS
         {
             var btt = new System.Windows.Forms.Button();
             btt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            btt.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+                      
             btt.Font = new System.Drawing.Font("Marlett", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             btt.Location = new System.Drawing.Point(936, 0);
             btt.Name = "btt" + group + "Show";
@@ -310,6 +312,7 @@ namespace RSMPS
         {
             var btt = new System.Windows.Forms.Button();
             btt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            btt.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             btt.Font = new System.Drawing.Font("Marlett", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             btt.Location = new System.Drawing.Point(911, 0);
             btt.Name = "btt" + group + "Hide";

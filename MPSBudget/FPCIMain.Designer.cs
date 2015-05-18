@@ -593,6 +593,7 @@
             this.txtEstimatedCost.Size = new System.Drawing.Size(100, 20);
             this.txtEstimatedCost.TabIndex = 5;
             this.txtEstimatedCost.TextChanged += new System.EventHandler(this.txtEstimatedCost_TextChanged);
+            this.txtEstimatedCost.MouseMove += new System.Windows.Forms.MouseEventHandler(this.txtEstimatedCost_MouseMove);
             // 
             // label12
             // 
@@ -610,6 +611,7 @@
             this.txtEstimatedAccuracy.Size = new System.Drawing.Size(100, 20);
             this.txtEstimatedAccuracy.TabIndex = 7;
             this.txtEstimatedAccuracy.TextChanged += new System.EventHandler(this.txtEstEngrTIC_TextChanged);
+            this.txtEstimatedAccuracy.MouseLeave += new System.EventHandler(this.txtEstimatedAccuracy_MouseLeave);
             // 
             // label11
             // 
@@ -636,6 +638,7 @@
             this.txtEstimatedTIC.Size = new System.Drawing.Size(100, 20);
             this.txtEstimatedTIC.TabIndex = 3;
             this.txtEstimatedTIC.TextChanged += new System.EventHandler(this.txtEstimatedDollars_TextChanged);
+            this.txtEstimatedTIC.MouseLeave += new System.EventHandler(this.txtEstimatedTIC_MouseLeave);
             // 
             // txtEstimatedHrs
             // 
@@ -644,6 +647,7 @@
             this.txtEstimatedHrs.Size = new System.Drawing.Size(100, 20);
             this.txtEstimatedHrs.TabIndex = 1;
             this.txtEstimatedHrs.TextChanged += new System.EventHandler(this.txtEstimatedHrs_TextChanged);
+            this.txtEstimatedHrs.MouseLeave += new System.EventHandler(this.txtEstimatedHrs_MouseLeave);
             // 
             // label17
             // 
@@ -961,6 +965,7 @@
         private C1.Win.C1Command.C1Command tlbbLockUnlock;
         private C1.Win.C1Command.C1CommandLink c1CommandLink5;
         private System.Windows.Forms.TextBox txtEstimatedAccuracy;
+       // private System.Windows.Forms.MaskedTextBox txtEstimatedAccuracy; //***** Edited on 5/18
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.RadioButton rdoScopeDeletion;
         private System.Windows.Forms.TextBox txtEstimatedCost;

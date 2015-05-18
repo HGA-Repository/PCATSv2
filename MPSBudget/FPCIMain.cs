@@ -588,11 +588,62 @@ namespace RSMPS
 
         private void txtEstimatedCost_TextChanged(object sender, EventArgs e)
         {
+            
             EnablePCISave();
         }
 
         private void FPCIMain_FormClosing(object sender, FormClosingEventArgs e)
         {
+        }
+
+
+        private void txtEstimatedHrs_MouseLeave(object sender, EventArgs e)
+        {
+            //double inputNumber;
+            //bool isNumber = double.TryParse(txtEstimatedHrs.Text, out inputNumber);
+            //if (!isNumber)
+            //{
+            //    MessageBox.Show("Please Insert Number for Estimated Hrs");
+            //    return;
+            //}
+            //string withCommas = inputNumber.ToString("#,##0");
+            //txtEstimatedHrs.Text = withCommas;
+        }
+        private void txtEstimatedHrs_LostFocus(object sender, EventArgs e)
+        {
+
+            // MessageBox.Show("Please Insert Number for Estimated Hrs");
+            
+        }
+
+        private void txtEstimatedTIC_MouseLeave(object sender, EventArgs e)
+        {
+            //                    //double inputNumber;
+            //                    //bool isNumber = double.TryParse(txtEstimatedTIC.Text, out inputNumber);
+            //                    //if (!isNumber)
+            //                    //{
+            //                    //    MessageBox.Show("Please Insert Number for Estimated TIC");
+            //                    //    return;
+            //                    //}
+
+            //Decimal val;
+            //if (Decimal.TryParse(txtEstimatedTIC.Text, out val))
+
+            //    txtEstimatedTIC.Text = val.ToString("C");
+
+        }
+
+        private void txtEstimatedCost_MouseMove(object sender, MouseEventArgs e)
+        {
+            //Decimal val;
+            //if (Decimal.TryParse(txtEstimatedCost.Text, out val))
+
+            //    txtEstimatedCost.Text = val.ToString("C");
+        }
+
+        private void txtEstimatedAccuracy_MouseLeave(object sender, EventArgs e)
+        {
+            //txtEstimatedAccuracy.Text = txtEstimatedAccuracy.Text + " %";
         }
     }
 }

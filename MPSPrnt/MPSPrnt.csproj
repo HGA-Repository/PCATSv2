@@ -171,6 +171,12 @@
     <Compile Include="rprtDrawingLogTranAlt1_SubRevs2.Designer.cs">
       <DependentUpon>rprtDrawingLogTranAlt1_SubRevs2.cs</DependentUpon>
     </Compile>
+    <Compile Include="rprtDrawingLogTranAlt2_Test.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtDrawingLogTranAlt2_Test.Designer.cs">
+      <DependentUpon>rprtDrawingLogTranAlt2_Test.cs</DependentUpon>
+    </Compile>
     <Compile Include="rprtDrawingLogTranAlt2.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -194,6 +200,12 @@
     </Compile>
     <Compile Include="rprtIssuance4.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtJobStat_Test.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtJobStat_Test.Designer.cs">
+      <DependentUpon>rprtJobStat_Test.cs</DependentUpon>
     </Compile>
     <Compile Include="rprtJobStat1.cs">
       <SubType>Component</SubType>
@@ -369,6 +381,9 @@
     <EmbeddedResource Include="rprtDrawingLogTranAlt1_SubRevs2.resx">
       <DependentUpon>rprtDrawingLogTranAlt1_SubRevs2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="rprtDrawingLogTranAlt2_Test.resx">
+      <DependentUpon>rprtDrawingLogTranAlt2_Test.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="rprtDrawingLogTranAlt2.resx">
       <DependentUpon>rprtDrawingLogTranAlt2.cs</DependentUpon>
     </EmbeddedResource>
@@ -390,6 +405,9 @@
     <EmbeddedResource Include="rprtIssuance4.resx">
       <DependentUpon>rprtIssuance4.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtJobStat_Test.resx">
+      <DependentUpon>rprtJobStat_Test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rprtJobStat1.resx">
       <DependentUpon>rprtJobStat1.cs</DependentUpon>

@@ -899,6 +899,8 @@ namespace RSMPS
             return ds;
         }
 
+
+
         public dsDrawingLog GetDrawingLogMainByDeptList(string dXml, int sortCode, int drwgSpec)
         {
             RSLib.CDbConnection cnn;
@@ -1046,7 +1048,8 @@ namespace RSMPS
             int drawingID = 0;
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spRPRT_DrawingLogMainByDeptListProjList_FromTrans", cnn.GetConnection());
+            //cmd = new SqlCommand("spRPRT_DrawingLogMainByDeptListProjList_FromTrans", cnn.GetConnection()); ********Changed on 5/11 for Test
+            cmd = new SqlCommand("spRPRT_DrawingLogMainByDeptListProjList_FromTrans_Test", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
             prm = cmd.Parameters.Add("@DeptXML", SqlDbType.Text);

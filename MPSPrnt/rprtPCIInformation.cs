@@ -68,10 +68,19 @@ namespace RSMPS
             chkProjAdmin.Checked = info.AffectedProjAdmin;
             chkProcess.Checked = info.AffectedProcess;
             chkElectInst.Checked = info.AffectedEandI;
-            txtEngrHrs.Text = info.EstimatedEngrHrs.ToString();
-            txtEngrCost.Text = info.EstimatedEngrDlrs.ToString("#,##0");
-            txtEngrTIC.Text = info.EstimatedEngrTIC.ToString("#,##0");
-            txtEngAcc.Text = info.EstimatedAccuracy;
+           // txtEngrHrs.Text = info.EstimatedEngrHrs.ToString();
+            txtEngrHrs.Text = info.EstimatedEngrHrs.ToString("#,##0"); // *************Edited 5/18
+            
+            //txtEngrCost.Text = info.EstimatedEngrDlrs.ToString("#,##0");
+            txtEngrCost.Text = info.EstimatedEngrDlrs.ToString("C2");     // *************Edited 5/18
+           
+            // txtEngrTIC.Text = info.EstimatedEngrTIC.ToString("#,##0");
+            txtEngrTIC.Text = info.EstimatedEngrTIC.ToString("C2");  // *************Edited 5/18
+
+            //txtEngAcc.Text = info.EstimatedAccuracy;
+             txtEngAcc.Text = info.EstimatedAccuracy.ToString() + " %";  // *************Edited 5/18
+
+
             txtScheduleImpact.Text = info.ScheduleImpact;
             chkApprovedProceed.Checked = info.ApprovedProceed;
             chkApprovedTrack.Checked = info.ApprovedTrack;
