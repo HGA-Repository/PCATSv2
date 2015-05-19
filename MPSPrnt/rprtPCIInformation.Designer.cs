@@ -266,7 +266,7 @@ namespace RSMPS
             this.shape1.Left = 0F;
             this.shape1.LineWeight = 3F;
             this.shape1.Name = "shape1";
-            this.shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.shape1.Top = 0F;
             this.shape1.Width = 7.5F;
             // 
@@ -753,7 +753,7 @@ namespace RSMPS
     "";
             this.txtEngrHrs.Text = "textBox4";
             this.txtEngrHrs.Top = 5.1875F;
-            this.txtEngrHrs.Width = 0.8125F;
+            this.txtEngrHrs.Width = 1F;
             // 
             // txtEngrTIC
             // 
@@ -883,9 +883,9 @@ namespace RSMPS
             this.line11.LineWeight = 1F;
             this.line11.Name = "line11";
             this.line11.Top = 5.4375F;
-            this.line11.Width = 1F;
+            this.line11.Width = 1.3005F;
             this.line11.X1 = 2.4375F;
-            this.line11.X2 = 3.4375F;
+            this.line11.X2 = 3.738F;
             this.line11.Y1 = 5.4375F;
             this.line11.Y2 = 5.4375F;
             // 
@@ -1045,7 +1045,7 @@ namespace RSMPS
     "";
             this.txtEngrCost.Text = "textBox4";
             this.txtEngrCost.Top = 5.5F;
-            this.txtEngrCost.Width = 0.75F;
+            this.txtEngrCost.Width = 1F;
             // 
             // line2
             // 
@@ -1054,9 +1054,9 @@ namespace RSMPS
             this.line2.LineWeight = 1F;
             this.line2.Name = "line2";
             this.line2.Top = 5.75F;
-            this.line2.Width = 1F;
+            this.line2.Width = 1.3005F;
             this.line2.X1 = 2.4375F;
-            this.line2.X2 = 3.4375F;
+            this.line2.X2 = 3.738F;
             this.line2.Y1 = 5.75F;
             this.line2.Y2 = 5.75F;
             // 
@@ -1139,7 +1139,6 @@ namespace RSMPS
             // 
             // detail
             // 
-            this.detail.ColumnSpacing = 0F;
             this.detail.Height = 0F;
             this.detail.Name = "detail";
             // 
