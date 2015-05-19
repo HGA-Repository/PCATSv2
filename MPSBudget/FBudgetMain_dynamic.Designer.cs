@@ -89,9 +89,7 @@ namespace RSMPS {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 9,1,0,0,0,85,Columns:0{Width:21;}	1{Width:60;Caption:&quot;Code&quot;;}	2{Width:50;Caption:&quot;Mkup&quot;;}	
-        ///    3{Width:359;Caption:&quot;Description&quot;;}	4{Width:50;Caption:&quot;UOM&quot;;}	5{Width:65;Caption:&quot;$ Per Item&quot;;}	6{Width:65;Caption:&quot;# Items&quot;;}	
-        ///    7{Width:90;Caption:&quot;Markup $&quot;;}	8{Width:90;Caption:&quot;Total $&quot;;}	.
+        ///   Looks up a localized string similar to 9,1,0,0,0,85,Columns:0{Width:21;}	1{Width:60;Caption:&quot;Code&quot;;}	2{Width:50;Caption:&quot;Mkup&quot;;}	3{Width:359;Caption:&quot;Description&quot;;}	4{Width:50;Caption:&quot;UOM&quot;;}	5{Width:65;Caption:&quot;$ Per Item&quot;;}	6{Width:65;Caption:&quot;# Items&quot;;}	7{Width:90;Caption:&quot;Markup $&quot;;}	8{Width:90;Caption:&quot;Total $&quot;;}	.
         /// </summary>
         public static string c1FlexGrid2_ColumnInfo {
             get {
@@ -118,10 +116,7 @@ namespace RSMPS {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 11,1,0,0,0,85,Columns:0{Width:21;}	1{Width:60;Caption:&quot;Code&quot;;AllowDragging:False;AllowEditing:False;}	
-        ///    2{Width:50;Caption:&quot;Mkup&quot;;AllowDragging:False;}	3{Width:359;Caption:&quot;Description&quot;;AllowDragging:False;AllowEditing:False;}	
-        ///    4{Width:50;Caption:&quot;UOM&quot;;AllowDragging:False;}	5{Width:65;Caption:&quot;$ Per Item&quot;;AllowDragging:False;}	6{Width:65;Caption:&quot;# Items&quot;;AllowDragging:False;}	
-        ///    7{Width:90;Caption:&quot;Markup $&quot;;AllowDragging:False;}	8{Width:90;Caption:&quot;Total $&quot;;AllowDragging:False;AllowEditing:Fal [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to 11,1,0,0,0,85,Columns:0{Width:21;}	1{Width:60;Caption:&quot;Code&quot;;AllowDragging:False;AllowEditing:False;}	2{Width:50;Caption:&quot;Mkup&quot;;AllowDragging:False;}	3{Width:359;Caption:&quot;Description&quot;;AllowDragging:False;AllowEditing:False;}	4{Width:50;Caption:&quot;UOM&quot;;AllowDragging:False;}	5{Width:65;Caption:&quot;$ Per Item&quot;;AllowDragging:False;}	6{Width:65;Caption:&quot;# Items&quot;;AllowDragging:False;}	7{Width:90;Caption:&quot;Markup $&quot;;AllowDragging:False;}	8{Width:90;Caption:&quot;Total $&quot;;AllowDragging:False;AllowEditing:False;}	9{Caption:&quot;Li [rest of string was truncated]&quot;;.
         /// </summary>
         public static string c1FlexGrid4_ColumnInfo {
             get {
@@ -197,11 +192,7 @@ namespace RSMPS {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 11,1,0,0,0,85,Columns:0{Width:21;}	
-        ///    1{Width:60;Caption:&quot;Code&quot;;AllowDragging:False;AllowEditing:False;}	2{Width:50;Caption:&quot;Mkup&quot;;AllowDragging:False;}	
-        ///    3{Width:359;Caption:&quot;Description&quot;;AllowDragging:False;AllowEditing:False;}	4{Width:50;Caption:&quot;UOM&quot;;AllowDragging:False;Style:&quot;ComboList:&quot;&quot;Hour|Each|Lot&quot;&quot;;&quot;;}
-        ///    5{Width:65;Caption:&quot;$ Per Item&quot;;AllowDragging:False;}	6{Width:65;Caption:&quot;# Items&quot;;AllowDragging:False;}	7{Width:90;Caption:&quot;Markup $&quot;;AllowDragging:False;}	
-        ///    8{Width:90;Caption:&quot;Tot [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to 11,1,0,0,0,85,Columns:0{Width:21;}	1{Width:60;Caption:&quot;Code&quot;;AllowDragging:False;AllowEditing:False;}	2{Width:50;Caption:&quot;Mkup&quot;;AllowDragging:False;}	3{Width:359;Caption:&quot;Description&quot;;AllowDragging:False;AllowEditing:False;}	4{Width:50;Caption:&quot;UOM&quot;;AllowDragging:False;Style:&quot;ComboList:&quot;&quot;Hour|Each|Lot&quot;&quot;;&quot;;}	5{Width:65;Caption:&quot;$ Per Item&quot;;AllowDragging:False;}	6{Width:65;Caption:&quot;# Items&quot;;AllowDragging:False;}	7{Width:90;Caption:&quot;Markup $&quot;;AllowDragging:False;}	8{Width:90;Caption:&quot;Total $&quot;;AllowDragging:Fal [rest of string was truncated]&quot;;.
         /// </summary>
         public static string fgExp_ColumnInfo {
             get {

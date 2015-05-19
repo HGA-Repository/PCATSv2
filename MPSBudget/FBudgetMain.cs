@@ -3928,11 +3928,6 @@ namespace RSMPS
             this.Close();
         }
 
-        private void tdbdPCNStatus_Click(object sender, EventArgs e)
-        {
-
-        }
-
        
 
         
