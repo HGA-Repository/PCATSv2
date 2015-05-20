@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FTransmittal_AddEdit));
+            this.components = new System.ComponentModel.Container(); // *************** Added 5/20
             this.c1ToolBar1 = new C1.Win.C1Command.C1ToolBar();
             this.c1CommandHolder1 = new C1.Win.C1Command.C1CommandHolder();
             this.tlbbNew = new C1.Win.C1Command.C1Command();
@@ -97,6 +98,8 @@
             this.groupBox1.SuspendLayout();
             this.tbpDocs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tdbgTransmittals)).BeginInit();
+            this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components); //**********************Added 5/20
+            ((System.ComponentModel.ISupportInitialize)(this.c1SpellChecker1)).BeginInit();
             this.SuspendLayout();
             // 
             // c1ToolBar1
@@ -227,6 +230,7 @@
             this.txtGeneralDescription.Name = "txtGeneralDescription";
             this.txtGeneralDescription.Size = new System.Drawing.Size(577, 20);
             this.txtGeneralDescription.TabIndex = 1;
+            this.c1SpellChecker1.SetSpellChecking(this.txtGeneralDescription, true); // **********************Added 5/20
             // 
             // label11
             // 
@@ -261,6 +265,7 @@
             this.rtbComments.Size = new System.Drawing.Size(623, 50);
             this.rtbComments.TabIndex = 3;
             this.rtbComments.Text = "";
+            this.c1SpellChecker1.SetSpellChecking(this.rtbComments, true); // **********************Added 5/20
             // 
             // label7
             // 
@@ -703,6 +708,7 @@
             this.groupBox1.PerformLayout();
             this.tbpDocs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tdbgTransmittals)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1SpellChecker1)).EndInit(); //**************Added 5/20
             this.ResumeLayout(false);
 
         }
@@ -767,5 +773,6 @@
         private System.Windows.Forms.TextBox txtRelOther;
         private System.Windows.Forms.TextBox txtGeneralDescription;
         private System.Windows.Forms.Label label11;
+        private C1.Win.C1SpellChecker.C1SpellChecker c1SpellChecker1; //*****************Added 5/20
     }
 }

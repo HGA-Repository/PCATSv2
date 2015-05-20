@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRelease_AddEdit));
+            this.components = new System.ComponentModel.Container(); // *************** Added 5/20
             this.c1ToolBar1 = new C1.Win.C1Command.C1ToolBar();
             this.c1CommandHolder1 = new C1.Win.C1Command.C1CommandHolder();
             this.tlbbSave = new C1.Win.C1Command.C1Command();
@@ -130,6 +131,8 @@
             this.tbpRelease.SuspendLayout();
             this.tbpDocuments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tdbgReleaseDrwgs)).BeginInit();
+            this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components); //**********************Added 5/20
+            ((System.ComponentModel.ISupportInitialize)(this.c1SpellChecker1)).BeginInit();
             this.SuspendLayout();
             // 
             // c1ToolBar1
@@ -823,6 +826,7 @@
             this.rtbComments.Size = new System.Drawing.Size(560, 96);
             this.rtbComments.TabIndex = 3;
             this.rtbComments.Text = "";
+            this.c1SpellChecker1.SetSpellChecking(this.rtbComments, true); // **********************Added 5/20
             // 
             // txtGeneralDesc
             // 
@@ -830,6 +834,7 @@
             this.txtGeneralDesc.Name = "txtGeneralDesc";
             this.txtGeneralDesc.Size = new System.Drawing.Size(560, 20);
             this.txtGeneralDesc.TabIndex = 1;
+            this.c1SpellChecker1.SetSpellChecking(this.txtGeneralDesc, true); // **********************Added 5/20
             // 
             // label5
             // 
@@ -1044,6 +1049,7 @@
             this.tbpDocuments.ResumeLayout(false);
             this.tbpDocuments.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tdbgReleaseDrwgs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1SpellChecker1)).EndInit(); //**************Added 5/20
             this.ResumeLayout(false);
 
         }
@@ -1135,5 +1141,6 @@
         private System.Windows.Forms.CheckBox chkFTPDwf;
         private System.Windows.Forms.TextBox txtEmailOther;
         private System.Windows.Forms.CheckBox chkSendThirdDay;
+        private C1.Win.C1SpellChecker.C1SpellChecker c1SpellChecker1; //*****************Added 5/20
     }
 }

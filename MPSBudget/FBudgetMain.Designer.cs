@@ -163,6 +163,9 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid3)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid4)).BeginInit();
+            this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components); //**********************Added 5/20
+            ((System.ComponentModel.ISupportInitialize)(this.c1SpellChecker1)).BeginInit();
+
             this.panel7.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.SuspendLayout();
@@ -640,6 +643,7 @@ namespace RSMPS
             this.richTextBox8.Size = new System.Drawing.Size(900, 50);
             this.richTextBox8.TabIndex = 17;
             this.richTextBox8.Text = "";
+            this.c1SpellChecker1.SetSpellChecking(this.richTextBox8, true); // **********************Added 5/20
             // 
             // label9
             // 
@@ -658,6 +662,7 @@ namespace RSMPS
             this.richTextBox7.Size = new System.Drawing.Size(900, 50);
             this.richTextBox7.TabIndex = 15;
             this.richTextBox7.Text = "";
+            this.c1SpellChecker1.SetSpellChecking(this.richTextBox7, true); // **********************Added 5/20
             // 
             // label8
             // 
@@ -676,6 +681,7 @@ namespace RSMPS
             this.richTextBox6.Size = new System.Drawing.Size(900, 50);
             this.richTextBox6.TabIndex = 13;
             this.richTextBox6.Text = "";
+            this.c1SpellChecker1.SetSpellChecking(this.richTextBox6, true); // **********************Added 5/20
             // 
             // label7
             // 
@@ -694,6 +700,7 @@ namespace RSMPS
             this.richTextBox5.Size = new System.Drawing.Size(900, 50);
             this.richTextBox5.TabIndex = 11;
             this.richTextBox5.Text = "";
+            this.c1SpellChecker1.SetSpellChecking(this.richTextBox5, true); // **********************Added 5/20
             // 
             // label6
             // 
@@ -712,6 +719,7 @@ namespace RSMPS
             this.richTextBox4.Size = new System.Drawing.Size(900, 50);
             this.richTextBox4.TabIndex = 9;
             this.richTextBox4.Text = "";
+            this.c1SpellChecker1.SetSpellChecking(this.richTextBox4, true); // **********************Added 5/20
             // 
             // label5
             // 
@@ -730,6 +738,7 @@ namespace RSMPS
             this.richTextBox3.Size = new System.Drawing.Size(900, 50);
             this.richTextBox3.TabIndex = 7;
             this.richTextBox3.Text = "";
+            this.c1SpellChecker1.SetSpellChecking(this.richTextBox3, true); // **********************Added 5/20
             // 
             // label4
             // 
@@ -748,6 +757,7 @@ namespace RSMPS
             this.richTextBox2.Size = new System.Drawing.Size(900, 50);
             this.richTextBox2.TabIndex = 5;
             this.richTextBox2.Text = "";
+            this.c1SpellChecker1.SetSpellChecking(this.richTextBox2, true); // **********************Added 5/20
             // 
             // label1
             // 
@@ -766,6 +776,8 @@ namespace RSMPS
             this.richTextBox1.Size = new System.Drawing.Size(750, 50);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
+            this.c1SpellChecker1.SetSpellChecking(this.richTextBox1, true); // **********************Added 5/20
+
             // 
             // contextMenuStrip1
             // 
@@ -1256,6 +1268,7 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid3)).EndInit();
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1SpellChecker1)).EndInit(); //**************Added 5/20
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.tabControl2.ResumeLayout(false);
@@ -1373,5 +1386,6 @@ namespace RSMPS
         private System.Windows.Forms.TabPage tbpClarification;
         private System.Windows.Forms.Button bttCopyPCN;
         private System.Windows.Forms.Button bttSaveClarification;
+        private C1.Win.C1SpellChecker.C1SpellChecker c1SpellChecker1; //*****************Added 5/20
     }
 }

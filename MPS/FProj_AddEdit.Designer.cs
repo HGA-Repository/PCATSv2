@@ -28,7 +28,9 @@ namespace RSMPS
         /// </summary>
         private void InitializeComponent()
         {
+           
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FProj_AddEdit));
+            this.components = new System.ComponentModel.Container();    //*****************Added 5/20
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -76,12 +78,15 @@ namespace RSMPS
             this.label5 = new System.Windows.Forms.Label();
             this.bttCancel = new System.Windows.Forms.Button();
             this.bttOK = new System.Windows.Forms.Button();
+            this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tdbgBudget)).BeginInit();
             this.groupBox4.SuspendLayout();
+            this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components); //**********************Added 5/20
+            ((System.ComponentModel.ISupportInitialize)(this.c1SpellChecker1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -197,6 +202,7 @@ namespace RSMPS
             this.rtbNotes.TabIndex = 0;
             this.rtbNotes.Text = "";
             this.rtbNotes.TextChanged += new System.EventHandler(this.rtbNotes_TextChanged);
+            this.c1SpellChecker1.SetSpellChecking(this.rtbNotes, true); // **********************Added 5/20
             // 
             // dtpStart
             // 
@@ -667,6 +673,7 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.tdbgBudget)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1SpellChecker1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -720,5 +727,6 @@ namespace RSMPS
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox cboManagerLead;
+        private C1.Win.C1SpellChecker.C1SpellChecker c1SpellChecker1; //*****************Added 5/20
     }
 }

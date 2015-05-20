@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FPCIMain));
+            this.components = new System.ComponentModel.Container(); // *************** Added 5/20
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -108,6 +109,8 @@
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).BeginInit();
+            this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components); //**********************Added 5/20
+            ((System.ComponentModel.ISupportInitialize)(this.c1SpellChecker1)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -222,6 +225,7 @@
             this.txtDescription.Size = new System.Drawing.Size(731, 47);
             this.txtDescription.TabIndex = 0;
             this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
+            this.c1SpellChecker1.SetSpellChecking(this.txtDescription, true); // **********************Added 5/20
             // 
             // groupBox2
             // 
@@ -628,6 +632,7 @@
             this.txtScheduleImpact.Size = new System.Drawing.Size(726, 41);
             this.txtScheduleImpact.TabIndex = 10;
             this.txtScheduleImpact.TextChanged += new System.EventHandler(this.txtScheduleImpact_TextChanged);
+            this.c1SpellChecker1.SetSpellChecking(this.txtScheduleImpact, true); // **********************Added 5/20
             // 
             // txtEstimatedTIC
             // 
@@ -884,6 +889,7 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1SpellChecker1)).EndInit(); //**************Added 5/20
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
@@ -965,5 +971,6 @@
         private System.Windows.Forms.RadioButton rdoScopeDeletion;
         private System.Windows.Forms.TextBox txtEstimatedCost;
         private System.Windows.Forms.Label label12;
+        private C1.Win.C1SpellChecker.C1SpellChecker c1SpellChecker1; //*****************Added 5/20
     }
 }

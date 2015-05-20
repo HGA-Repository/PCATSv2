@@ -28,6 +28,7 @@ namespace RSMPS
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container(); // *************** Added 5/20
             this.fgHours = new C1.Win.C1FlexGrid.C1FlexGrid();
             this.fgDollars = new C1.Win.C1FlexGrid.C1FlexGrid();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,6 +53,8 @@ namespace RSMPS
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
+            this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components); //**********************Added 5/20
+            ((System.ComponentModel.ISupportInitialize)(this.c1SpellChecker1)).BeginInit();
             // 
             // fgHours
             // 
@@ -189,6 +192,7 @@ namespace RSMPS
             this.rtbComments.Size = new System.Drawing.Size(916, 160);
             this.rtbComments.TabIndex = 0;
             this.rtbComments.Text = "";
+            this.c1SpellChecker1.SetSpellChecking(this.rtbComments, true); // **********************Added 5/20
             // 
             // bttPreview
             // 
@@ -247,6 +251,7 @@ namespace RSMPS
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.c1SpellChecker1)).EndInit(); //**************Added 5/20
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,5 +276,6 @@ namespace RSMPS
         private System.Windows.Forms.Button bttPreview;
         private System.Windows.Forms.Button bttPrint;
         private System.Windows.Forms.Button bttClose;
+        private C1.Win.C1SpellChecker.C1SpellChecker c1SpellChecker1; //*****************Added 5/20
     }
 }
