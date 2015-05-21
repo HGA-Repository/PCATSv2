@@ -252,12 +252,12 @@ namespace RSMPS
                         PaidToDate.Text += Convert.ToInt32(dr["PaidToDate"]);
                     if (dr["Outstanding"].ToString().Length > 0) 
                         Outstanding.Text += Convert.ToInt32(dr["Outstanding"]);
-                    if (dr["Client"].ToString().Length > 0)
-                        Client.Text = dr["Client"].ToString();
-                    if (dr["Job"].ToString().Length > 0)
-                        Job.Text = dr["Job"].ToString();
-                    if (dr["Location"].ToString().Length > 0)
-                        Location.Text = dr["Location"].ToString();
+                    //if (dr["Client"].ToString().Length > 0)
+                    //    Client.Text = dr["Client"].ToString();
+                    //if (dr["Job"].ToString().Length > 0)
+                    //    Job.Text = dr["Job"].ToString();
+                    //if (dr["Location"].ToString().Length > 0)
+                    //    Location.Text = dr["Location"].ToString();
                     
                     break;
                 }
@@ -472,9 +472,9 @@ namespace RSMPS
                     d["BilledtoDate"] = dr["BilledToDate"];
                     d["PaidtoDate"] = dr["PaidToDate"];
                     d["Outstanding"] = dr["Outstanding"];
-                    d["Client"] = dr["Client"];
-                    d["Job"] = dr["Job"];
-                    d["Location"] = dr["Location"];
+                    //d["Client"] = dr["Client"];
+                    //d["Job"] = dr["Job"];
+                    //d["Location"] = dr["Location"];
 
                     mdsProjInfos.Tables["ProjectInfos"].Rows.Add(d);
 

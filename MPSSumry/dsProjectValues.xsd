@@ -12,7 +12,7 @@
   <xs:element name="dsProjectValues" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="dsProjectValues" msprop:Generator_UserDSName="dsProjectValues">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ProjectInfos" msprop:Generator_TableClassName="ProjectInfosDataTable" msprop:Generator_RowEvArgName="ProjectInfosRowChangeEvent" msprop:Generator_TableVarName="tableProjectInfos" msprop:Generator_TablePropName="ProjectInfos" msprop:Generator_RowDeletingName="ProjectInfosRowDeleting" msprop:Generator_RowChangingName="ProjectInfosRowChanging" msprop:Generator_RowEvHandlerName="ProjectInfosRowChangeEventHandler" msprop:Generator_RowDeletedName="ProjectInfosRowDeleted" msprop:Generator_RowChangedName="ProjectInfosRowChanged" msprop:Generator_UserTableName="ProjectInfos" msprop:Generator_RowClassName="ProjectInfosRow">
+        <xs:element name="ProjectInfos" msprop:Generator_TableClassName="ProjectInfosDataTable" msprop:Generator_RowEvArgName="ProjectInfosRowChangeEvent" msprop:Generator_TableVarName="tableProjectInfos" msprop:Generator_TablePropName="ProjectInfos" msprop:Generator_RowDeletingName="ProjectInfosRowDeleting" msprop:Generator_RowChangingName="ProjectInfosRowChanging" msprop:Generator_RowEvHandlerName="ProjectInfosRowChangeEventHandler" msprop:Generator_RowDeletedName="ProjectInfosRowDeleted" msprop:Generator_UserTableName="ProjectInfos" msprop:Generator_RowChangedName="ProjectInfosRowChanged" msprop:Generator_RowClassName="ProjectInfosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" default="0" minOccurs="0" />
@@ -26,9 +26,6 @@
               <xs:element name="BilledToDate" msprop:Generator_ColumnVarNameInTable="columnBilledToDate" msprop:Generator_ColumnPropNameInRow="BilledToDate" msprop:Generator_ColumnPropNameInTable="BilledToDateColumn" msprop:Generator_UserColumnName="BilledToDate" type="xs:decimal" minOccurs="0" />
               <xs:element name="PaidToDate" msprop:Generator_ColumnVarNameInTable="columnPaidToDate" msprop:Generator_ColumnPropNameInRow="PaidToDate" msprop:Generator_ColumnPropNameInTable="PaidToDateColumn" msprop:Generator_UserColumnName="PaidToDate" type="xs:decimal" minOccurs="0" />
               <xs:element name="Outstanding" msprop:Generator_ColumnVarNameInTable="columnOutstanding" msprop:Generator_ColumnPropNameInRow="Outstanding" msprop:Generator_ColumnPropNameInTable="OutstandingColumn" msprop:Generator_UserColumnName="Outstanding" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Client" msprop:Generator_ColumnVarNameInTable="columnClient" msprop:Generator_ColumnPropNameInRow="Client" msprop:Generator_ColumnPropNameInTable="ClientColumn" msprop:Generator_UserColumnName="Client" type="xs:string" minOccurs="0" />
-              <xs:element name="Job" msprop:Generator_ColumnVarNameInTable="columnJob" msprop:Generator_ColumnPropNameInRow="Job" msprop:Generator_ColumnPropNameInTable="JobColumn" msprop:Generator_UserColumnName="Job" type="xs:string" minOccurs="0" />
-              <xs:element name="Location" msprop:Generator_ColumnVarNameInTable="columnLocation" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnPropNameInTable="LocationColumn" msprop:Generator_UserColumnName="Location" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
