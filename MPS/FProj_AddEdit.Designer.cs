@@ -78,7 +78,7 @@ namespace RSMPS
             this.label5 = new System.Windows.Forms.Label();
             this.bttCancel = new System.Windows.Forms.Button();
             this.bttOK = new System.Windows.Forms.Button();
-            this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components);
+            //this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
