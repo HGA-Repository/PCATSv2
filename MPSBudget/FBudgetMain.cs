@@ -3928,6 +3928,19 @@ namespace RSMPS
             this.Close();
         }
 
+        private void bttSaveClarification_Click(object sender, EventArgs e) //***************************Added 5/21
+        {
+            moCurrBudget.Clarification11000 = richTextBox1.Text;
+            moCurrBudget.Clarification12000 = richTextBox2.Text;
+            moCurrBudget.Clarification13000 = richTextBox3.Text;
+            moCurrBudget.Clarification14000 = richTextBox4.Text;
+            moCurrBudget.Clarification15000 = richTextBox5.Text;
+            moCurrBudget.Clarification16000 = richTextBox6.Text;
+            moCurrBudget.Clarification18000 = richTextBox7.Text;
+            moCurrBudget.Clarification50000 = richTextBox8.Text;
+            moCurrBudget.Save();
+        }
+
        
 
         
