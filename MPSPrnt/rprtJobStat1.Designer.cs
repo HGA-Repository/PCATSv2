@@ -6,6 +6,19 @@ namespace RSMPS
     partial class rprtJobStat1
     {
 
+        //public string Client_Text
+        //{
+        //    get { return textBox1.Text; }
+        //    set { textBox1.Text = value; }
+        //}
+
+        //public string Location_Text
+        //{
+        //    get { return textBox2.Text; }
+        //    set { textBox2.Text = value; }
+        //}
+
+
 
 
 
@@ -45,6 +58,7 @@ namespace RSMPS
             this.label13 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.label14 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.line1 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.textBox10 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox7 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.detail = new GrapeCity.ActiveReports.SectionReportModel.Detail();
             this.textBox3 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
@@ -67,6 +81,7 @@ namespace RSMPS
             this.line2 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.txtPerCompProj = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.txtEarnedProj = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.pageBreak1 = new GrapeCity.ActiveReports.SectionReportModel.PageBreak();
             ((System.ComponentModel.ISupportInitialize)(this.Picture1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).BeginInit();
@@ -82,6 +97,7 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox6)).BeginInit();
@@ -118,8 +134,9 @@ namespace RSMPS
             this.label13,
             this.label14,
             this.line1,
+            this.textBox10,
             this.textBox7});
-            this.pageHeader.Height = 1.5F;
+            this.pageHeader.Height = 1.500833F;
             this.pageHeader.Name = "pageHeader";
             // 
             // Picture1
@@ -152,19 +169,20 @@ namespace RSMPS
             this.textBox1.Name = "textBox1";
             this.textBox1.Style = "font-size: 9.75pt; font-weight: normal; text-align: left; ddo-char-set: 0";
             this.textBox1.Text = "textBox1";
-            this.textBox1.Top = 0.6F;
-            this.textBox1.Width = 5F;
+            this.textBox1.Top = 0.8F;
+            this.textBox1.Width = 2.373F;
             // 
             // textBox2
             // 
             this.textBox2.DataField = "Location";
             this.textBox2.Height = 0.2F;
-            this.textBox2.Left = 0F;
+            this.textBox2.Left = 7.192F;
             this.textBox2.Name = "textBox2";
             this.textBox2.Style = "font-size: 9.75pt; font-weight: normal; text-align: left; ddo-char-set: 0";
             this.textBox2.Text = "textBox1";
-            this.textBox2.Top = 0.8F;
-            this.textBox2.Width = 5F;
+            this.textBox2.Top = 0.86F;
+            this.textBox2.Visible = false;
+            this.textBox2.Width = 3.188F;
             // 
             // textBox4
             // 
@@ -175,7 +193,7 @@ namespace RSMPS
             this.textBox4.Style = "font-size: 9.75pt; font-weight: normal; text-align: left; ddo-char-set: 0";
             this.textBox4.Text = "textBox1";
             this.textBox4.Top = 0.4F;
-            this.textBox4.Width = 5F;
+            this.textBox4.Width = 2F;
             // 
             // textBox5
             // 
@@ -186,105 +204,105 @@ namespace RSMPS
             this.textBox5.Style = "font-size: 9.75pt; font-weight: normal; text-align: left; ddo-char-set: 0";
             this.textBox5.Text = "textBox1";
             this.textBox5.Top = 0.2F;
-            this.textBox5.Width = 5F;
+            this.textBox5.Width = 2F;
             // 
             // label6
             // 
             this.label6.Height = 0.1979167F;
             this.label6.HyperLink = null;
-            this.label6.Left = 1.625F;
+            this.label6.Left = 1.6245F;
             this.label6.Name = "label6";
             this.label6.Style = "font-size: 8pt; font-weight: bold; ddo-char-set: 1";
             this.label6.Text = "Alt. Doc #";
-            this.label6.Top = 1.125F;
+            this.label6.Top = 1.185F;
             this.label6.Width = 0.8125F;
             // 
             // label7
             // 
             this.label7.Height = 0.1979167F;
             this.label7.HyperLink = null;
-            this.label7.Left = 0.0625F;
+            this.label7.Left = 0.062F;
             this.label7.Name = "label7";
             this.label7.Style = "font-size: 8pt; font-weight: bold; ddo-char-set: 1";
             this.label7.Text = "Document #";
-            this.label7.Top = 1.125F;
+            this.label7.Top = 1.185F;
             this.label7.Width = 1.125F;
             // 
             // label8
             // 
             this.label8.Height = 0.1875F;
             this.label8.HyperLink = null;
-            this.label8.Left = 2.9375F;
+            this.label8.Left = 2.937F;
             this.label8.Name = "label8";
             this.label8.Style = "font-size: 8pt; font-weight: bold; ddo-char-set: 1";
             this.label8.Text = "Type";
-            this.label8.Top = 1.125F;
+            this.label8.Top = 1.185F;
             this.label8.Width = 0.4375F;
             // 
             // label9
             // 
             this.label9.Height = 0.1979167F;
             this.label9.HyperLink = null;
-            this.label9.Left = 3.375F;
+            this.label9.Left = 3.3745F;
             this.label9.Name = "label9";
             this.label9.Style = "font-size: 8pt; font-weight: bold; ddo-char-set: 1";
             this.label9.Text = "Title / Description";
-            this.label9.Top = 1.125F;
+            this.label9.Top = 1.185F;
             this.label9.Width = 1.5F;
             // 
             // label10
             // 
             this.label10.Height = 0.1979167F;
             this.label10.HyperLink = null;
-            this.label10.Left = 7.1875F;
+            this.label10.Left = 7.187F;
             this.label10.Name = "label10";
             this.label10.Style = "font-size: 8pt; font-weight: bold; ddo-char-set: 1";
             this.label10.Text = "Activity";
-            this.label10.Top = 1.125F;
+            this.label10.Top = 1.185F;
             this.label10.Width = 0.625F;
             // 
             // label11
             // 
             this.label11.Height = 0.1979167F;
             this.label11.HyperLink = null;
-            this.label11.Left = 7.8125F;
+            this.label11.Left = 7.812F;
             this.label11.Name = "label11";
             this.label11.Style = "font-size: 8pt; font-weight: bold; text-align: center; ddo-char-set: 1";
             this.label11.Text = "Budget";
-            this.label11.Top = 1.125F;
+            this.label11.Top = 1.185F;
             this.label11.Width = 0.625F;
             // 
             // label12
             // 
             this.label12.Height = 0.1875F;
             this.label12.HyperLink = null;
-            this.label12.Left = 8.4375F;
+            this.label12.Left = 8.437F;
             this.label12.Name = "label12";
             this.label12.Style = "font-size: 8pt; font-weight: bold; text-align: center; ddo-char-set: 1";
             this.label12.Text = "% Comp";
-            this.label12.Top = 1.125F;
+            this.label12.Top = 1.185F;
             this.label12.Width = 0.625F;
             // 
             // label13
             // 
             this.label13.Height = 0.1979167F;
             this.label13.HyperLink = null;
-            this.label13.Left = 9.0625F;
+            this.label13.Left = 9.062F;
             this.label13.Name = "label13";
             this.label13.Style = "font-size: 8pt; font-weight: bold; text-align: center; ddo-char-set: 1";
             this.label13.Text = "Earned";
-            this.label13.Top = 1.125F;
+            this.label13.Top = 1.185F;
             this.label13.Width = 0.625F;
             // 
             // label14
             // 
             this.label14.Height = 0.1875F;
             this.label14.HyperLink = null;
-            this.label14.Left = 9.6875F;
+            this.label14.Left = 9.687F;
             this.label14.Name = "label14";
             this.label14.Style = "font-size: 8pt; font-weight: bold; text-align: center; ddo-char-set: 1";
             this.label14.Text = "Remaining";
-            this.label14.Top = 1.125F;
+            this.label14.Top = 1.185F;
             this.label14.Width = 0.6875F;
             // 
             // line1
@@ -293,24 +311,33 @@ namespace RSMPS
             this.line1.Left = 0F;
             this.line1.LineWeight = 3F;
             this.line1.Name = "line1";
-            this.line1.Top = 1.375F;
+            this.line1.Top = 1.48F;
             this.line1.Width = 10.38F;
             this.line1.X1 = 0F;
             this.line1.X2 = 10.38F;
-            this.line1.Y1 = 1.375F;
-            this.line1.Y2 = 1.375F;
+            this.line1.Y1 = 1.48F;
+            this.line1.Y2 = 1.48F;
+            // 
+            // textBox10
+            // 
+            this.textBox10.DataField = "Description";
+            this.textBox10.Height = 0.2F;
+            this.textBox10.Left = 0F;
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Style = "font-size: 9.75pt; font-weight: normal; text-align: left; ddo-char-set: 0";
+            this.textBox10.Text = "Description";
+            this.textBox10.Top = 0.6F;
+            this.textBox10.Width = 5F;
             // 
             // textBox7
             // 
-            this.textBox7.DataField = "TitleDesc";
+            this.textBox7.DataField = "Location";
             this.textBox7.Height = 0.2F;
-            this.textBox7.Left = 3.854F;
+            this.textBox7.Left = 0F;
             this.textBox7.Name = "textBox7";
-            this.textBox7.Style = "font-size: 9.75pt; font-weight: normal; text-align: left; ddo-char-set: 0";
-            this.textBox7.Text = "textBox1";
-            this.textBox7.Top = 0.4F;
-            this.textBox7.Visible = false;
-            this.textBox7.Width = 5F;
+            this.textBox7.Text = "Location";
+            this.textBox7.Top = 1F;
+            this.textBox7.Width = 4F;
             // 
             // detail
             // 
@@ -318,7 +345,6 @@ namespace RSMPS
             this.textBox3,
             this.textBox6,
             this.txtTask,
-            this.textBox7,
             this.textBox8,
             this.textBox9,
             this.txtBud,
@@ -476,7 +502,8 @@ namespace RSMPS
             this.txtRmnProj,
             this.line2,
             this.txtPerCompProj,
-            this.txtEarnedProj});
+            this.txtEarnedProj,
+            this.pageBreak1});
             this.groupFooter2.Height = 0.34375F;
             this.groupFooter2.Name = "groupFooter2";
             this.groupFooter2.Format += new System.EventHandler(this.groupFooter2_Format);
@@ -548,6 +575,15 @@ namespace RSMPS
             this.txtEarnedProj.Top = 0.0625F;
             this.txtEarnedProj.Width = 0.625F;
             // 
+            // pageBreak1
+            // 
+            this.pageBreak1.Height = 0.2F;
+            this.pageBreak1.Left = 0F;
+            this.pageBreak1.Name = "pageBreak1";
+            this.pageBreak1.Size = new System.Drawing.SizeF(6.5F, 0.2F);
+            this.pageBreak1.Top = 0.26F;
+            this.pageBreak1.Width = 6.5F;
+            // 
             // rprtJobStat1
             // 
             this.MasterReport = false;
@@ -587,6 +623,7 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox6)).EndInit();
@@ -680,6 +717,8 @@ namespace RSMPS
         private GrapeCity.ActiveReports.SectionReportModel.TextBox txtPerCompProj;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox txtEarnedProj;
         private GrapeCity.ActiveReports.SectionReportModel.ReportInfo reportInfo1;
+        private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox10;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox7;
+        private GrapeCity.ActiveReports.SectionReportModel.PageBreak pageBreak1;
     }
 }

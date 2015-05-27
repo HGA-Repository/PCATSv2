@@ -476,6 +476,30 @@
   <data name="txtRmn.OutputFormat" xml:space="preserve">
     <value>#,##0.00;(#,##0.00)</value>
   </data>
+  <data name="txtBud.OutputFormat" xml:space="preserve">
+    <value>#,##0.00;(#,##0.00)</value>
+  </data>
+  <data name="txtPercComp.OutputFormat" xml:space="preserve">
+    <value>#,##0.00;(#,##0.00)</value>
+  </data>
+  <data name="txtErnd.OutputFormat" xml:space="preserve">
+    <value>#,##0.00;(#,##0.00)</value>
+  </data>
+  <data name="txtRmn.OutputFormat" xml:space="preserve">
+    <value>#,##0.00;(#,##0.00)</value>
+  </data>
+  <data name="txtBudProj.OutputFormat" xml:space="preserve">
+    <value>#,##0.00;(#,##0.00)</value>
+  </data>
+  <data name="txtRmnProj.OutputFormat" xml:space="preserve">
+    <value>#,##0.00;(#,##0.00)</value>
+  </data>
+  <data name="txtPerCompProj.OutputFormat" xml:space="preserve">
+    <value>#,##0.00;(#,##0.00)</value>
+  </data>
+  <data name="txtEarnedProj.OutputFormat" xml:space="preserve">
+    <value>#,##0.00;(#,##0.00)</value>
+  </data>
   <data name="txtBudProj.OutputFormat" xml:space="preserve">
     <value>#,##0.00;(#,##0.00)</value>
   </data>

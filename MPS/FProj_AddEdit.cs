@@ -426,6 +426,7 @@ namespace RSMPS
                     if (OnNewItem != null)
                         OnNewItem(moProj.ID);
                 }
+                else return; // **************** Added 5/26
             }
 
             this.Close();
@@ -506,7 +507,10 @@ namespace RSMPS
             }
 
             if (retVal == false)
+            
                 MessageBox.Show(msg, "Incompelete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                         
 
             return retVal;
         }
