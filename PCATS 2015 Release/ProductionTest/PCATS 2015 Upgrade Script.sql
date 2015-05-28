@@ -1,0 +1,35 @@
+:setvar path "C:\Users\administrator.HGA\Documents\SQL Server Management Studio\Scripts\PCATS 2015 Release\ProductionTest"
+:r $(path)\CreateTable_DT_Business_Unit.sql
+:r $(path)\AddFieldstoDT_BudgetExpenseSheets.sql
+:r $(path)\spBudgetExpenseSheet_ByID.sql
+:r $(path)\spBudgetExpenseSheet_Insert.sql
+:r $(path)\spBudgetExpenseSheet_ListAll.sql
+:r $(path)\spBudgetExpenseSheet_ListAllByBudgetGroup.sql
+:r $(path)\spBudgetExpenseSheet_Update.sql
+:r $(path)\spBudgetExpenseSheet_CopyToNewID.sql
+:r $(path)\spBudget_ByID.sql
+:r $(path)\spBudget_ByProjectID.sql
+:r $(path)\spBudget_CopyBudgettoProjectID.sql
+:r $(path)\spBudget_Insert.sql
+:r $(path)\spBudget_ListAll.sql
+:r $(path)\spBudget_ListByProject.sql
+:r $(path)\spBudget_Update.sql
+:r $(path)\spRPRT_CostReport_ByDept.sql
+:r $(path)\spRPRT_DrawingLogByDept.sql
+:r $(path)\spRPRT_DrawingLogByDeptList.sql
+:r $(path)\spRPRT_DrawingLogByDeptListLeadList.sql
+:r $(path)\spRPRT_DrawingLogByDeptListProjList.sql
+:r $(path)\spRPRT_DrawingLogMainByDeptListProj.sql
+:r $(path)\spRPRT_DrawingLogMainByDeptListProjList_FromTrans.sql
+:r $(path)\spRPRT_DrawingLogMainByDeptProjList.sql
+:r $(path)\spRPRT_DrawingLogByProjList.sql
+:r $(path)\spBusiness_Unit_ListForDisp.sql
+:r $(path)\spBusiness_Unit_ListAll.sql
+:r $(path)\spBusiness_Unit_ByID.sql
+:r $(path)\spProjectEmployee_ListActiveWithHoursSTAFF.sql
+:r $(path)\spProjectEmployee_ListActiveWithHoursProp.sql
+:r $(path)\spProjectEmployee_ListActiveWithHoursProject.sql
+:r $(path)\spProjectEmployee_ListActiveWithHoursPLS.sql
+:r $(path)\spProjectEmployee_ListActiveWithHoursPGM.sql
+:r $(path)\spProjectEmployee_ListActiveWithHoursENG.sql
+
