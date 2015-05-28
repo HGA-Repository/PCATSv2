@@ -3946,6 +3946,7 @@ namespace RSMPS
             FBudgetPCNAddition pcn = new FBudgetPCNAddition();
             
             pcn.ViewForm();
+            
             DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
             int currID = Convert.ToInt32(d["ID"]);
             //    string stat = tdbgBudgetPCN.Columns["Status"].Value.ToString();

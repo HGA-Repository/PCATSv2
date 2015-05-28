@@ -326,7 +326,7 @@ namespace RSMPS
 
             if (moProjSum.EmployeeID > 0)
                 tlbbPrint.Enabled = true;
-            tlbbPrintCust.Enabled = true;
+            // tlbbPrintCust.Enabled = true; //*************Commented 5/28
 
             tlbbSave.Enabled = false;
             mbChanged = false;
@@ -1020,7 +1020,7 @@ namespace RSMPS
 
             tlbbSave.Enabled = false;
             tlbbPrint.Enabled = true;
-            tlbbPrintCust.Enabled = true;
+            //tlbbPrintCust.Enabled = true; //******************** Commented 5/28
         }
 
         private void rtbSchedule_TextChanged(object sender, EventArgs e)
@@ -1061,7 +1061,8 @@ namespace RSMPS
         {
             mbChanged = true;
             tlbbSave.Enabled = true;
-            tlbbPrint.Enabled = false;
+            //tlbbPrint.Enabled = false;
+            tlbbPrint.Enabled = true; //*************************5/28
             tlbbPrintCust.Enabled = false;
         }
 
@@ -1161,16 +1162,56 @@ namespace RSMPS
             }
         }
 
+        //private void tlbbPrint_Click(object sender, C1.Win.C1Command.ClickEventArgs e) //********************************reWritten 5/28
+        //{         
+            
+        //    CPSummary pmS = new CPSummary();
+
+        //    this.Cursor = Cursors.WaitCursor;
+
+        //    pmS.PrintPMSummary(moProjSum.EmployeeID);
+
+        //    this.Cursor = Cursors.Default;
+        //}
+
         private void tlbbPrint_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
-            CPSummary pmS = new CPSummary();
+           // DialogResult dialogResult = MessageBox.Show("Please Save Before Printing", "Print Report", MessageBoxButtons.YesNo);
+            //if (dialogResult == DialogResult.Yes)
+           // {
+                //do something
 
-            this.Cursor = Cursors.WaitCursor;
+                tdbgPCNs.UpdateData();
+                tdbgSchedule.UpdateData();
 
-            pmS.PrintPMSummary(moProjSum.EmployeeID);
+                if (lvwProjects.SelectedItems.Count > 0)
+                    SaveCurrentProject();
 
-            this.Cursor = Cursors.Default;
+                if (lvwProjects.Items.Count > 0)
+                    SaveCurrentSummary();
+
+                CPSummary pmS = new CPSummary();
+
+                this.Cursor = Cursors.WaitCursor;
+
+                pmS.PrintPMSummary(moProjSum.EmployeeID);
+
+                this.Cursor = Cursors.Default;
+
+           // }
+           // else if (dialogResult == DialogResult.No)
+          //  {
+                //do something else
+                //MessageBox.Show("Data is not saved");
+                //return;
+
+           // }
+
+            
         }
+
+
+
 
         private void tlbbPrintCust_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
