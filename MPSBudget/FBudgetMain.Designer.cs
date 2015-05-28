@@ -30,14 +30,14 @@ namespace RSMPS
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FBudgetMain));
-            C1.Win.C1TrueDBGrid.Style style1 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style2 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style3 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style4 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style5 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style6 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style7 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style8 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style25 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style26 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style27 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style28 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style29 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style30 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style31 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style32 = new C1.Win.C1TrueDBGrid.Style();
             this.c1ToolBar1 = new C1.Win.C1Command.C1ToolBar();
             this.c1CommandHolder1 = new C1.Win.C1Command.C1CommandHolder();
             this.tlbbSaveRev = new C1.Win.C1Command.C1Command();
@@ -146,6 +146,7 @@ namespace RSMPS
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components);
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).BeginInit();
             this.cmnuBudget.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -482,6 +483,7 @@ namespace RSMPS
             // 
             // tbpPCN
             // 
+            this.tbpPCN.Controls.Add(this.button5);
             this.tbpPCN.Controls.Add(this.bttCopyPCN);
             this.tbpPCN.Controls.Add(this.tdbdPCNStatus);
             this.tbpPCN.Controls.Add(this.bttEditPCN);
@@ -511,25 +513,25 @@ namespace RSMPS
             this.tdbdPCNStatus.AllowColSelect = true;
             this.tdbdPCNStatus.AllowRowSizing = C1.Win.C1TrueDBGrid.RowSizingEnum.AllRows;
             this.tdbdPCNStatus.AlternatingRows = false;
-            this.tdbdPCNStatus.CaptionStyle = style1;
+            this.tdbdPCNStatus.CaptionStyle = style25;
             this.tdbdPCNStatus.ColumnCaptionHeight = 17;
             this.tdbdPCNStatus.ColumnFooterHeight = 17;
-            this.tdbdPCNStatus.EvenRowStyle = style2;
+            this.tdbdPCNStatus.EvenRowStyle = style26;
             this.tdbdPCNStatus.FetchRowStyles = false;
-            this.tdbdPCNStatus.FooterStyle = style3;
-            this.tdbdPCNStatus.HeadingStyle = style4;
-            this.tdbdPCNStatus.HighLightRowStyle = style5;
+            this.tdbdPCNStatus.FooterStyle = style27;
+            this.tdbdPCNStatus.HeadingStyle = style28;
+            this.tdbdPCNStatus.HighLightRowStyle = style29;
             this.tdbdPCNStatus.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbdPCNStatus.Images"))));
             this.tdbdPCNStatus.Location = new System.Drawing.Point(26, 95);
             this.tdbdPCNStatus.Name = "tdbdPCNStatus";
-            this.tdbdPCNStatus.OddRowStyle = style6;
-            this.tdbdPCNStatus.RecordSelectorStyle = style7;
+            this.tdbdPCNStatus.OddRowStyle = style30;
+            this.tdbdPCNStatus.RecordSelectorStyle = style31;
             this.tdbdPCNStatus.RowDivider.Color = System.Drawing.Color.DarkGray;
             this.tdbdPCNStatus.RowDivider.Style = C1.Win.C1TrueDBGrid.LineStyleEnum.Single;
             this.tdbdPCNStatus.RowSubDividerColor = System.Drawing.Color.DarkGray;
             this.tdbdPCNStatus.ScrollTips = false;
             this.tdbdPCNStatus.Size = new System.Drawing.Size(297, 138);
-            this.tdbdPCNStatus.Style = style8;
+            this.tdbdPCNStatus.Style = style32;
             this.tdbdPCNStatus.TabIndex = 3;
             this.tdbdPCNStatus.TabStop = false;
             this.tdbdPCNStatus.Text = "c1TrueDBDropdown1";
@@ -1223,6 +1225,16 @@ namespace RSMPS
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(282, 3);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(127, 30);
+            this.button5.TabIndex = 5;
+            this.button5.Text = "View/Print PCN";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click_1);
+            // 
             // FBudgetMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1383,6 +1395,7 @@ namespace RSMPS
         private System.Windows.Forms.TabPage tbpClarification;
         private System.Windows.Forms.Button bttCopyPCN;
         private System.Windows.Forms.Button bttSaveClarification;
-        private C1.Win.C1SpellChecker.C1SpellChecker c1SpellChecker1; //*****************Added 5/20
+        private C1.Win.C1SpellChecker.C1SpellChecker c1SpellChecker1;
+        private System.Windows.Forms.Button button5; //*****************Added 5/20
     }
 }

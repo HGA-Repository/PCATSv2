@@ -89,6 +89,52 @@ namespace RSMPS
             InitializeComponent();
         }
 
+        public void ViewForm() //*******************Added 5/28
+        {
+            moPCN = new CBBudgetPCN();
+            //moPCN.Clear();
+
+            txtInitiatedBy.Enabled = false;
+            lblProjectNumber.Enabled = false;
+            lblProjectTitle.Enabled = false;
+            txtPCNTitle.Enabled = false;
+
+            dtpDateInitiated.Enabled = false;
+            txtRequestedBy.Enabled = false;
+            dtpDateRequested.Enabled = false;
+            txtDescription.Enabled = false;
+            chkDesignError.Enabled = false;
+            chkVendorError.Enabled = false;
+            chkEstimatingError.Enabled = false;
+            chkContractorError.Enabled = false;
+            chkScheduleDelay.Enabled = false;
+            chkScopeAdd.Enabled = false;
+            chkScopeDel.Enabled = false;
+            chkDesignChange.Enabled = false;
+            chkOther.Enabled = false;
+            txtOtherReason.Enabled = false;
+            txtOtherReason.Enabled = false;
+            txtEstimatedHrs.Enabled = false;
+            txtEstimatedDollars.Enabled = false;
+            txtEstimTIC.Enabled = false;
+            txtEstimateAccuracy.Enabled = false;
+            txtScheduleImpact.Enabled = false;
+            chkApproved.Enabled = false;
+            chkDisapproved.Enabled = false;
+            chkPrepareControlEstimate.Enabled = false;
+            txtProjMngr.Enabled = false;
+            lblDateApproved.Enabled = false;
+            txtPCNNumber.Enabled = false;
+            tdbgHours.Enabled = false;
+            tdbgExpenses.Enabled = false;
+            rtbComments.Enabled = false;
+            //c1CommandLink1.Enabled = false;
+            tlbbClear.Enabled = false;
+            tlbbSave.Enabled = false;
+                    }
+
+
+
         public void ClearForm()
         {
             moPCN = new CBBudgetPCN();
