@@ -386,19 +386,22 @@ namespace RSMPS
         public static int GetRprtCase(string proj)
         {
             int caseVal = 0;
-
-            if (proj.Substring(0, 2) == "8.")
+            try
             {
-                caseVal = 1;
+                if (proj.Substring(0, 2) == "8.")
+                {
+                    caseVal = 1;
+                }
+                else if (proj.Substring(0, 3) == "P.8")
+                {
+                    caseVal = 1;
+                }
+                else
+                {
+                    caseVal = 0;
+                }
             }
-            else if (proj.Substring(0, 3) == "P.8")
-            {
-                caseVal = 1;
-            }
-            else
-            {
-                caseVal = 0;
-            }
+            catch { }//**************** try/catch added 6/1
 
             CBProject p = new CBProject();
             p.Load(proj);
