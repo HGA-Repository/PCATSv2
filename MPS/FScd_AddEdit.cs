@@ -181,7 +181,7 @@ namespace RSMPS
             textBox1.Text = d2.Description;
             miBus_Unit = itmID; //*****************************MZ
 
-            LoadTheGrid();
+            LoadTheGrid_Bus();
             SetAccessForSecurityLevel(miCurrDept);
         }
 
@@ -241,14 +241,14 @@ namespace RSMPS
             //LoadGridByRangeSTAFF(miCurrDept, sDate, eDate);
 
             
-           // LoadGridByRange(miCurrDept, sDate, eDate);
-            
-            if (miBus_Unit == 1)   LoadGridByRangeENG(miCurrDept, sDate, eDate);
-            else if(miBus_Unit==2)  LoadGridByRangePGM(miCurrDept, sDate, eDate);
-            else if(miBus_Unit==3)  LoadGridByRangePLS(miCurrDept, sDate, eDate);
-            else if (miBus_Unit == 4) LoadGridByRangeSTAFF(miCurrDept, sDate, eDate);
-            else if (miBus_Unit == 5) LoadGridByRangeProp(miCurrDept, sDate, eDate);
-            else LoadGridByRange(miCurrDept, sDate, eDate);
+           LoadGridByRange(miCurrDept, sDate, eDate); // ******************
+         //********************************************************************** this part is  commented on 6/1  ************MZ 
+            //if (miBus_Unit == 1)   LoadGridByRangeENG(miCurrDept, sDate, eDate);
+            //else if(miBus_Unit==2)  LoadGridByRangePGM(miCurrDept, sDate, eDate);
+            //else if(miBus_Unit==3)  LoadGridByRangePLS(miCurrDept, sDate, eDate);
+            //else if (miBus_Unit == 4) LoadGridByRangeSTAFF(miCurrDept, sDate, eDate);
+            //else if (miBus_Unit == 5) LoadGridByRangeProp(miCurrDept, sDate, eDate);
+            //else LoadGridByRange(miCurrDept, sDate, eDate);
 
 
 
@@ -258,6 +258,76 @@ namespace RSMPS
 
             fgSchedule.Redraw = true;
         }
+
+
+        private void SetGridByDateRange_Bus(DateTime sDate, DateTime eDate)
+        {
+            int numWeeks;
+            int numWeekCols;
+
+            fgSchedule.Redraw = false;
+
+            mdsWeeks = CBWeekList.GetList(sDate, eDate);
+
+            // initialize
+            fgSchedule.Styles.Normal.WordWrap = true;
+            //numWeeks = RSLib.COUtility.NumberWeeksInRange(sDate, eDate);
+            numWeeks = mdsWeeks.Tables[0].Rows.Count;
+            numWeekCols = numWeeks * 3;
+
+            fgSchedule.Cols.Count = WEEKCOLSTART + numWeekCols + TOTALCOLS;
+            fgSchedule.Rows.Fixed = 2;
+            fgSchedule.AllowMerging = AllowMergingEnum.FixedOnly;
+
+            // create row headers
+            fgSchedule.Rows[0].AllowMerging = true;
+
+            fgSchedule.Tree.Column = 0;
+            fgSchedule.Tree.Style = TreeStyleFlags.Simple;
+
+            fgSchedule.Cols[PROJECTCOLUMN].Width = 80;
+            fgSchedule.Cols.Frozen = PROJECTCOLUMN;
+            fgSchedule.Cols[PROJECTDESCCOLUMN].Width = 150;
+            fgSchedule.Cols.Frozen = PROJECTDESCCOLUMN;
+            fgSchedule.Cols[EMPLOYEECOLUMN].Width = 150;
+            fgSchedule.Cols.Frozen = EMPLOYEECOLUMN;
+            fgSchedule.Cols[6].Width = 40;
+            fgSchedule.Cols.Frozen = 6;
+            fgSchedule.Cols[7].Width = 40;
+            fgSchedule.Cols.Frozen = 7;
+
+            CreateWeekHeaders();
+
+            fgSchedule.Cols[0].AllowMerging = true;
+            fgSchedule.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter;
+            fgSchedule.AutoSizeCols(WEEKCOLSTART, fgSchedule.Cols.Count - 1, 15);
+            //***************************************************************************Added*************MZ
+            //LoadGridByRange(miCurrDept, sDate, eDate);
+            //LoadGridByRangeENG(miCurrDept, sDate, eDate);
+            //LoadGridByRangePGM(miCurrDept, sDate, eDate);
+            // LoadGridByRangePLS(miCurrDept, sDate, eDate);
+            //LoadGridByRangeSTAFF(miCurrDept, sDate, eDate);
+
+
+           // LoadGridByRange(miCurrDept, sDate, eDate); // ******************
+            //********************************************************************** this part is  commented on 6/1  ************MZ 
+            if (miBus_Unit == 1) LoadGridByRangeENG(miCurrDept, sDate, eDate);
+            else if (miBus_Unit == 2) LoadGridByRangePGM(miCurrDept, sDate, eDate);
+            else if (miBus_Unit == 3) LoadGridByRangePLS(miCurrDept, sDate, eDate);
+            else if (miBus_Unit == 4) LoadGridByRangeSTAFF(miCurrDept, sDate, eDate);
+            else if (miBus_Unit == 5) LoadGridByRangeProp(miCurrDept, sDate, eDate);
+            else LoadGridByRange(miCurrDept, sDate, eDate);
+            SetMinimumTimeWidths();
+
+            fgSchedule.Redraw = true;
+        }
+
+
+
+
+
+
+
 
         private void CreateWeekHeaders()
         {
@@ -1334,6 +1404,37 @@ namespace RSMPS
             chkForcast.Checked = mbShowForecast;
             chkActual.Checked = mbShowActual;
         }
+
+        private void LoadTheGrid_Bus()
+        {
+            DateTime s;
+            DateTime ed;
+
+            mbShowPlanned = chkPlan.Checked;
+            mbShowForecast = chkForcast.Checked;
+            mbShowActual = chkActual.Checked;
+
+            chkPlan.Checked = true;
+            chkForcast.Checked = true;
+            chkActual.Checked = true;
+
+            s = dtpStart.Value;
+            ed = dtpEnd.Value;
+
+            if (ed < s)
+            {
+                dtpEnd.Value = s.AddMonths(1);
+                ed = s.AddMonths(1);
+            }
+
+            SetGridByDateRange_Bus(s, ed);
+
+            chkPlan.Checked = mbShowPlanned;
+            chkForcast.Checked = mbShowForecast;
+            chkActual.Checked = mbShowActual;
+        }
+
+
 
         private void tsbHoursDisp_SelectedIndexChanged(object sender, EventArgs e)
         {
