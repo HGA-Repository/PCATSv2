@@ -173,16 +173,16 @@ namespace RSMPS
 
             d2.Close();
         }
-        void d2_OnItemSelected_2(int itmID)
+        void d2_OnItemSelected_2(int itmID2)
         {
             CBBusiness_Unit d2 = new CBBusiness_Unit();
 
-            d2.Load(itmID);
+            d2.Load(itmID2);
             textBox1.Text = d2.Description;
-            miBus_Unit = itmID; //*****************************MZ
+            miBus_Unit = itmID2; //*****************************MZ
 
             LoadTheGrid_Bus();
-            SetAccessForSecurityLevel(miCurrDept);
+            //SetAccessForSecurityLevel(miCurrDept);
         }
 
 
