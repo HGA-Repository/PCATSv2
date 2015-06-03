@@ -8,6 +8,14 @@ using System.Windows.Forms;
 
 using System.Data.SqlClient;
 
+using System.Threading;
+using Common.Extentions;
+using System.Linq;
+using System.Resources;
+using System.Reflection;
+
+
+
 namespace RSMPS
 {
     public partial class FBudgetPCNAddition : Form
@@ -17,6 +25,9 @@ namespace RSMPS
         private CBBudgetPCN moPCN;
         private dsAccts mdsAccnts;
         private dsAccts mdsExpensAccts;
+
+
+        //private CBBudget moCurrBudget; added 6/3/15 ***************Commented
        
         public event RevSol.ItemValueChangedHandler OnPCNChanged;
 
@@ -949,5 +960,31 @@ namespace RSMPS
         {
             SetAllowSave(true);
         }
+
+
+        private void tlbbHourExport_Click(object sender, C1.Win.C1Command.ClickEventArgs e) //************************Added 6/3/15
+        {
+           // CBudgetExport be = new CBudgetExport();
+            CHourExport he = new CHourExport();
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+               he.ExportBudgetForPrimavera(saveFileDialog1.FileName, moPCN.ID);
+            }
+        }
+
+        private void tlbbExpenseExport_Click(object sender, C1.Win.C1Command.ClickEventArgs e) //************************Added 6/3/15
+        {
+            
+            CExpenseExport ee = new CExpenseExport();
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+               ee.ExportBudgetForPrimavera(saveFileDialog1.FileName, moPCN.ID);
+            }
+        }
+
+
+
     }
 }

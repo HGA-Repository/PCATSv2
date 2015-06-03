@@ -413,6 +413,47 @@ namespace RSMPS
             return dr;
         }
 
+        public SqlDataReader GetExportList_Hour_PCN(int PCNID) //****************************Added 6/3/15
+        {
+            SqlDataReader dr;
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+
+            cnn = new RSLib.CDbConnection();
+           // cmd = new SqlCommand("spRPRT_BudgetExcelExport1", cnn.GetConnection());
+            cmd = new SqlCommand("spBudgetPCNHour_ListAllByPCN", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+            prm = cmd.Parameters.Add("@PCNID", SqlDbType.Int);
+            prm.Value = PCNID;
+
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            cmd = null;
+
+            return dr;
+        }
+        public SqlDataReader GetExportList_Expense_PCN(int PCNID) //****************************Added 6/3/15
+        {
+            SqlDataReader dr;
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+
+            cnn = new RSLib.CDbConnection();
+
+            cmd = new SqlCommand("spBudgetPCNExpense_ListAllByPCN", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+            prm = cmd.Parameters.Add("@PCNID", SqlDbType.Int);
+            prm.Value = PCNID;
+
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            cmd = null;
+
+            return dr;
+        }
+
+
+
         public SqlDataReader GetWBSListByBudget(int budID)
         {
             SqlDataReader dr;

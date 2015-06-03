@@ -153,11 +153,43 @@ namespace RSMPS
             return dbDt.GetExportListByBudget(budID);
         }
 
+
+        public static SqlDataReader GetExportList_Hour_ByPCNID(int PCNID) //*********************Added 6/3/15
+        {
+            CDbBudgetLine dbDt = new CDbBudgetLine();
+
+            return dbDt.GetExportList_Hour_PCN(PCNID);
+        }
+
+
+
+        public static SqlDataReader GetExportList_Expense_ByPCNID(int PCNID) //*********************Added 6/3/15
+        {
+            CDbBudgetLine dbDt = new CDbBudgetLine();
+
+            return dbDt.GetExportList_Expense_PCN(PCNID);
+        }
+
+
+
+
+
+
+
+
+
         public static SqlDataReader GetWBSListByBudget(int budID)
         {
             CDbBudgetLine dbDt = new CDbBudgetLine();
 
             return dbDt.GetWBSListByBudget(budID);
         }
+
+       
+
+
+
+
+
     }
 }

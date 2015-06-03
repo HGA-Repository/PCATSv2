@@ -96,6 +96,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CBudgetExport.cs" />
+    <Compile Include="CExpenseExport.cs" />
+    <Compile Include="CHourExport.cs" />
     <Compile Include="CodeGroupSelector.cs">
       <SubType>Form</SubType>
     </Compile>
