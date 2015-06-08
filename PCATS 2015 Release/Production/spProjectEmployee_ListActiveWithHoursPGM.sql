@@ -1,7 +1,7 @@
-USE [RSManpowerSchDbTest]
+USE [RSManpowerSchDbBeta2]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spProjectEmployee_ListActiveWithHoursProject]    Script Date: 5/22/2015 8:10:28 AM ******/
+/****** Object:  StoredProcedure [dbo].[spProjectEmployee_ListActiveWithHoursPGM]    Script Date: 6/4/2015 2:56:11 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -10,16 +10,14 @@ GO
 
 
 
-CREATE PROCEDURE [dbo].[spProjectEmployee_ListActiveWithHoursProject]
-@ProjectID	int,
+CREATE PROCEDURE [dbo].[spProjectEmployee_ListActiveWithHoursPGM]
+@DepartmentID	int,
 @StartDate	smalldatetime,
 @EndDate	smalldatetime
 AS
 SELECT
 	pe.[Deleted] AS pedel,
 	pg.[ID] AS ProjectID,
-	--pe.DepartmentID AS DepartmentID, --new column
-	dpt.Name AS [Department Name], --mew column
 	pg.[Number] AS ProjectNumber,
 	pg.[Description] AS ProjectDescription,
 	emp.[ID] AS EmployeeID,
@@ -43,8 +41,6 @@ SELECT
 FROM
 	DT_ProjectEmployees pe
 	LEFT JOIN
-	DT_Departments dpt ON dpt.id = pe.DepartmentID
-	LEFT JOIN
 	DT_Projects pg ON pe.[ProjectID] = pg.[ID]
 	LEFT JOIN
 	DT_Employees emp ON pe.[EmployeeID] = emp.[ID]
@@ -66,8 +62,8 @@ FROM
 		wl.[EndOfWeek] >= @StartDate
 		AND
 		wl.[StartOfWeek] <= @EndDate
-		--AND
-		--sh.[DepartmentID] = @DepartmentID	
+		AND
+		sh.[DepartmentID] = @DepartmentID	
 		AND
 		sh.[Deleted] = 0
 	)  wkHrs ON pe.[ProjectID] = wkHrs.[ProjectID] AND pe.[EmployeeID] = wkHrs.[EmployeeID] AND pe.[DepartmentID] = wkHrs.[DepartmentID]
@@ -100,27 +96,26 @@ FROM
 		AND
 		p.[Deleted] = 0
 		AND
-		p.[IsActive] = 1
+		(p.[IsActive] = 1 or p.[IsProposal] = 1)
 	GROUP BY
 		sh.[EmployeeID], sh.[WeekID]
 	) sumWkHrs ON pe.[EmployeeID] = sumWkHrs.[EmployeeID] AND wkHrs.[WeekID] = sumWkHrs.[WeekID]
 WHERE
-	pg.[IsActive] = 1
+	(pg.[IsActive] = 1 or pg.[IsProposal] = 1)
 	AND
-	pg.[ID] = @ProjectID
+	(Left(pg.Number,2) = '3.' or Left(pg.Number,2) = '6.' or Left(pg.Number,3) = '5.M')
 	AND
 	pg.[Deleted] = 0
 	AND
 	emp.[Deleted] = 0
 	AND
 	pe.[Deleted] = 0
-	--AND
-	--pe.[DepartmentID] = @DepartmentID
+	AND
+	pe.[DepartmentID] = @DepartmentID
 ORDER BY
-	dpt.ID ASC, emp.[Name] ASC
+	pg.[Number] ASC, emp.[Name] ASC
 
 
 
 GO
-
 

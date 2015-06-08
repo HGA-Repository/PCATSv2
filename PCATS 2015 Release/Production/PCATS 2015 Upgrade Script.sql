@@ -26,6 +26,7 @@
 :r $(path)\spBusiness_Unit_ListForDisp.sql
 :r $(path)\spBusiness_Unit_ListAll.sql
 :r $(path)\spBusiness_Unit_ByID.sql
+:r $(path)\spProjectEmployee_ListActiveWithHours.sql
 :r $(path)\spProjectEmployee_ListActiveWithHoursSTAFF.sql
 :r $(path)\spProjectEmployee_ListActiveWithHoursProp.sql
 :r $(path)\spProjectEmployee_ListActiveWithHoursProject.sql

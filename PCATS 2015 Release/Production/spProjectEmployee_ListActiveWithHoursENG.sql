@@ -1,4 +1,7 @@
-/****** Object:  StoredProcedure [dbo].[spProjectEmployee_ListActiveWithHoursPGM]    Script Date: 5/22/2015 8:09:08 AM ******/
+USE [RSManpowerSchDbBeta2]
+GO
+
+/****** Object:  StoredProcedure [dbo].[spProjectEmployee_ListActiveWithHoursENG]    Script Date: 6/4/2015 2:55:53 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -6,7 +9,9 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 
-CREATE PROCEDURE [dbo].[spProjectEmployee_ListActiveWithHoursPGM]
+
+
+CREATE PROCEDURE [dbo].[spProjectEmployee_ListActiveWithHoursENG]
 @DepartmentID	int,
 @StartDate	smalldatetime,
 @EndDate	smalldatetime
@@ -92,14 +97,14 @@ FROM
 		AND
 		p.[Deleted] = 0
 		AND
-		p.[IsActive] = 1
+		(p.[IsActive] = 1 or p.[IsProposal] = 1)
 	GROUP BY
 		sh.[EmployeeID], sh.[WeekID]
 	) sumWkHrs ON pe.[EmployeeID] = sumWkHrs.[EmployeeID] AND wkHrs.[WeekID] = sumWkHrs.[WeekID]
 WHERE
-	pg.[IsActive] = 1
+	(pg.[IsActive] = 1 or pg.[IsProposal] = 1)
 	AND
-	(Left(pg.Number,2) = '3.' or Left(pg.Number,2) = '6.')
+	(Left(pg.Number,2) = '0.' or Left(pg.Number,2) = '4.' OR Left(pg.Number,3) = '2.D' or Left(pg.Number,3) = '7.R' or Left(pg.Number,3) = '5.E')
 	AND
 	pg.[Deleted] = 0
 	AND
@@ -112,6 +117,7 @@ ORDER BY
 	pg.[Number] ASC, emp.[Name] ASC
 
 
-GO
 
+
+GO
 

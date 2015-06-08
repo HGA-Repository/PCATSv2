@@ -1,7 +1,7 @@
-USE [RSManpowerSchDbTest]
+USE [RSManpowerSchDbBeta2]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spProjectEmployee_ListActiveWithHoursProp]    Script Date: 5/22/2015 8:11:13 AM ******/
+/****** Object:  StoredProcedure [dbo].[spProjectEmployee_ListActiveWithHoursSTAFF]    Script Date: 6/4/2015 2:56:43 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -10,7 +10,9 @@ GO
 
 
 
-CREATE PROCEDURE [dbo].[spProjectEmployee_ListActiveWithHoursProp]
+
+
+CREATE PROCEDURE [dbo].[spProjectEmployee_ListActiveWithHoursSTAFF]
 @DepartmentID	int,
 @StartDate	smalldatetime,
 @EndDate	smalldatetime
@@ -96,18 +98,14 @@ FROM
 		AND
 		p.[Deleted] = 0
 		AND
-		p.[IsActive] = 0
-		AND
-		P.[IsProposal] = 1
+		(p.[IsActive] = 1 or p.[IsProposal] = 1)
 	GROUP BY
 		sh.[EmployeeID], sh.[WeekID]
 	) sumWkHrs ON pe.[EmployeeID] = sumWkHrs.[EmployeeID] AND wkHrs.[WeekID] = sumWkHrs.[WeekID]
 WHERE
-	pg.[IsActive] = 0
+	(pg.[IsActive] = 1 or pg.[IsProposal] = 1)
 	AND
-	pg.[IsProposal] = 1
-	AND
-	Left(pg.Number,2) = 'P.'
+	(Left(pg.Number,2) = '1.')
 	AND
 	pg.[Deleted] = 0
 	AND
@@ -121,6 +119,7 @@ ORDER BY
 
 
 
-GO
 
+
+GO
 
