@@ -37,7 +37,7 @@ namespace RSMPS
 
             version = Application.ProductVersion;
 
-            lblVersion.Text = "Version: 3.07.2014";// +version;
+            lblVersion.Text = "Version: PCATS 2015";// +version;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

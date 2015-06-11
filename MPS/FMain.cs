@@ -373,39 +373,56 @@ namespace RSMPS
             else
             {
                 if (u.IsManager == true)
-                {
-                    forecastRemainingToolStripMenuItem.Visible = false;
-                    manageReleaseTransmittalToolStripMenuItem.Visible = false;
+                {  //Updated by Scott Shelton on 6/11/2015
                     mnuNavigate.Enabled = true;
-
+                    forecastRemainingToolStripMenuItem.Visible = false;
+                    pipelineForecastRemainingToolStripMenuItem.Visible = false;
+                    programManagementForecastRemainingToolStripMenuItem.Visible = false;
+                    manageReleaseTransmittalToolStripMenuItem.Visible = false;
+                    tsbProject.Visible = false;
+                    tsbCustomer.Visible = false;
+                    tsbEmployee.Visible = false;
+                    mnuNavCust.Enabled = false;
+                    mnuNavEmp.Enabled = false;
+                    mnuNavProjects.Visible = false;
+                    mnuNavProjects.Enabled = false;                                 
+                    mnuNavCust.Visible = false;
+                    mnuNavEmp.Visible = false;                                     
                     employeeTitlesToolStripMenuItem.Visible = false;
                     departmentsToolStripMenuItem.Visible = false;
                     systemUsersToolStripMenuItem.Visible = false;
 
-                    //resourceVarianceToolStripMenuItem.Visible = true;
-                    //resourceVarianceSummaryToolStripMenuItem.Visible = true;
+    
                 }
                 else
                 {
-                    forecastRemainingToolStripMenuItem.Visible = false;
-                    manageReleaseTransmittalToolStripMenuItem.Visible = false;
-                    mnuNavigate.Visible = false;
-                    systemUsersToolStripMenuItem.Visible = false;
-                    tsbProject.Visible = false;
-                    tsbCustomer.Visible = false;
-                    tsbEmployee.Visible = false;
-
-                    costSummaryToolStripMenuItem.Visible = false;
-                    costSummaryToolStripMenuItem1.Visible = false;
-                    projectForecastingToolStripMenuItem.Visible = false;
-                    weeklyPMReportsToolStripMenuItem.Visible = false;
-                    pCNLogToolStripMenuItem.Visible = false;
                     resourceVarianceToolStripMenuItem.Visible = true;
                     resourceVarianceSummaryToolStripMenuItem.Visible = true;
-                    projectForecastingReportRollupToolStripMenuItem.Visible = false;
+
+                    mnuNavigate.Visible = false;
                     forecastRemainingToolStripMenuItem.Visible = false;
                     pipelineForecastRemainingToolStripMenuItem.Visible = false;
                     programManagementForecastRemainingToolStripMenuItem.Visible = false;
+                    manageReleaseTransmittalToolStripMenuItem.Visible = false;
+                    tsbProject.Visible = false;
+                    tsbCustomer.Visible = false;
+                    tsbEmployee.Visible = false;
+                    mnuNavCust.Enabled = false;
+                    mnuNavEmp.Enabled = false;
+                    mnuNavProjects.Visible = false;
+                    mnuNavProjects.Enabled = false;
+                    mnuNavCust.Visible = false;
+                    mnuNavEmp.Visible = false;
+                    employeeTitlesToolStripMenuItem.Visible = false;
+                    departmentsToolStripMenuItem.Visible = false;
+                    systemUsersToolStripMenuItem.Visible = false;
+                    costSummaryToolStripMenuItem.Visible = false;
+                    costSummaryToolStripMenuItem1.Visible = false;
+                    projectForecastingToolStripMenuItem.Visible = false;
+                    projectForecastingReportRollupToolStripMenuItem.Visible = false;
+                    weeklyPMReportsToolStripMenuItem.Visible = false;
+                    pCNLogToolStripMenuItem.Visible = false;
+                    
                 }
             }
         }
