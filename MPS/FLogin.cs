@@ -92,5 +92,10 @@ namespace RSMPS
             timer1.Enabled = false;
             txtPassword.Focus();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

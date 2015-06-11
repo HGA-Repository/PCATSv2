@@ -43,19 +43,19 @@ namespace RSMPS
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(339, 70);
+            this.pictureBox1.Size = new System.Drawing.Size(322, 283);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 89);
+            this.label1.Location = new System.Drawing.Point(28, 172);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 0;
@@ -64,7 +64,7 @@ namespace RSMPS
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 115);
+            this.label2.Location = new System.Drawing.Point(28, 198);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 2;
@@ -72,7 +72,7 @@ namespace RSMPS
             // 
             // bttOK
             // 
-            this.bttOK.Location = new System.Drawing.Point(142, 147);
+            this.bttOK.Location = new System.Drawing.Point(142, 230);
             this.bttOK.Name = "bttOK";
             this.bttOK.Size = new System.Drawing.Size(78, 30);
             this.bttOK.TabIndex = 4;
@@ -83,7 +83,7 @@ namespace RSMPS
             // bttCancel
             // 
             this.bttCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bttCancel.Location = new System.Drawing.Point(226, 147);
+            this.bttCancel.Location = new System.Drawing.Point(226, 230);
             this.bttCancel.Name = "bttCancel";
             this.bttCancel.Size = new System.Drawing.Size(78, 30);
             this.bttCancel.TabIndex = 5;
@@ -93,14 +93,14 @@ namespace RSMPS
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(90, 86);
+            this.txtUser.Location = new System.Drawing.Point(90, 169);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(214, 20);
             this.txtUser.TabIndex = 1;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(90, 112);
+            this.txtPassword.Location = new System.Drawing.Point(90, 195);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(214, 20);
@@ -116,7 +116,7 @@ namespace RSMPS
             this.AcceptButton = this.bttOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(339, 197);
+            this.ClientSize = new System.Drawing.Size(322, 283);
             this.ControlBox = false;
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUser);

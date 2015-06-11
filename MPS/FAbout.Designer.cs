@@ -47,7 +47,7 @@ namespace RSMPS
             // bttOK
             // 
             this.bttOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bttOK.Location = new System.Drawing.Point(325, 262);
+            this.bttOK.Location = new System.Drawing.Point(325, 338);
             this.bttOK.Name = "bttOK";
             this.bttOK.Size = new System.Drawing.Size(78, 30);
             this.bttOK.TabIndex = 1;
@@ -58,7 +58,7 @@ namespace RSMPS
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 77);
+            this.label2.Location = new System.Drawing.Point(12, 157);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(153, 26);
             this.label2.TabIndex = 3;
@@ -71,7 +71,7 @@ namespace RSMPS
             this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.lblVersion);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(-1, 115);
+            this.panel1.Location = new System.Drawing.Point(-1, 194);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(434, 76);
             this.panel1.TabIndex = 4;
@@ -114,13 +114,14 @@ namespace RSMPS
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(260, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Copyright 2006 - 2014 Hunt, Guillot && Associates, LLC";
+            this.label1.Text = "Copyright 2006 - 2015 Hunt, Guillot && Associates, LLC";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 207);
+            this.label4.Location = new System.Drawing.Point(9, 283);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(394, 52);
             this.label4.TabIndex = 5;
@@ -131,7 +132,7 @@ namespace RSMPS
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(425, 70);
+            this.pictureBox1.Size = new System.Drawing.Size(425, 140);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -145,7 +146,7 @@ namespace RSMPS
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(424, 301);
+            this.ClientSize = new System.Drawing.Size(424, 377);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);

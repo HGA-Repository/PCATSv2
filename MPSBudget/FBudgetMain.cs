@@ -553,8 +553,8 @@ namespace RSMPS
             {
                 tlbbNewRev.Enabled = true;
                 tlbbMakeDefault.Enabled = true;
-                tlbbMakeActive.Visible = false;
-                makeActiveToolStripMenuItem.Visible = false;
+                tlbbMakeActive.Visible = true;
+                makeActiveToolStripMenuItem.Visible = true;
                 tlbbWorksheet.Enabled = true;
                 tlbbSummary.Enabled = true;
                 tlbbPreviewDetails.Enabled = true;
@@ -567,9 +567,6 @@ namespace RSMPS
             else if (u.IsManager == true)
             {
                 tlbbNewRev.Enabled = true;
-                tlbbMakeDefault.Enabled = true;
-                tlbbMakeActive.Visible = false;
-                makeActiveToolStripMenuItem.Visible = false;
                 tlbbWorksheet.Enabled = true;
                 tlbbSummary.Enabled = true;
                 tlbbPreviewDetails.Enabled = true;
@@ -578,20 +575,32 @@ namespace RSMPS
                 tlbbPrintAll.Enabled = true;
                 tlbbBudgetEntry.Enabled = true;
                 tlbbBudgetExport.Enabled = true;
+                tlbbMakeDefault.Enabled = false;
+                tlbbMakeDefault.Visible = false;
+                tlbbMakeActive.Visible = false;
+                tlbbMakeActive.Visible = false;
+                makeActiveToolStripMenuItem.Visible = false;
+                
             }
             else
             {
                 tlbbNewRev.Enabled = true;
+                tlbbWorksheet.Enabled = true;
                 tlbbMakeDefault.Enabled = false;
+                tlbbMakeDefault.Visible = false;
                 tlbbMakeActive.Visible = false;
                 makeActiveToolStripMenuItem.Visible = false;
-                tlbbWorksheet.Enabled = true;
                 tlbbSummary.Enabled = false;
-                tlbbPreviewDetails.Enabled = true;
+                tlbbSummary.Visible = false;
+                tlbbPreviewDetails.Enabled = false;
+                tlbbPreviewDetails.Visible = false;
                 tlbbJobStat.Enabled = true;
                 tlbbBudgetEntry.Enabled = false;
+                tlbbBudgetEntry.Visible = false;
                 tlbbPrintAll.Enabled = false;
+                tlbbPrintAll.Visible = false;
                 tlbbBudgetExport.Enabled = false;
+                tlbbBudgetExport.Visible = false;
 
                 // hide dollars for non-admin
                 foreach (var group in _Groups)
