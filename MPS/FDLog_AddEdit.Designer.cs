@@ -88,9 +88,9 @@ namespace RSMPS
             this.label13 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.txtEarnedHrs = new System.Windows.Forms.TextBox();
-            this.txtRemainingHrs = new System.Windows.Forms.TextBox();
+            this.txtRemainingHrs = new System.Windows.Forms.MaskedTextBox();
             this.txtPercentComplete = new System.Windows.Forms.TextBox();
-            this.txtBudgetHrs = new System.Windows.Forms.TextBox();
+            this.txtBudgetHrs = new System.Windows.Forms.MaskedTextBox();
             this.cboDrawingSizes = new System.Windows.Forms.ComboBox();
             this.txtCADNumber = new System.Windows.Forms.TextBox();
             this.txtClientNumber = new System.Windows.Forms.TextBox();
@@ -789,9 +789,11 @@ namespace RSMPS
             // txtRemainingHrs
             // 
             this.txtRemainingHrs.Location = new System.Drawing.Point(86, 248);
+            this.txtRemainingHrs.Mask = "00000";
             this.txtRemainingHrs.Name = "txtRemainingHrs";
             this.txtRemainingHrs.Size = new System.Drawing.Size(121, 20);
             this.txtRemainingHrs.TabIndex = 14;
+            this.txtRemainingHrs.ValidatingType = typeof(int);
             this.txtRemainingHrs.TextChanged += new System.EventHandler(this.txtRemainingHrs_TextChanged);
             // 
             // txtPercentComplete
@@ -807,9 +809,11 @@ namespace RSMPS
             // txtBudgetHrs
             // 
             this.txtBudgetHrs.Location = new System.Drawing.Point(86, 202);
+            this.txtBudgetHrs.Mask = "00000";
             this.txtBudgetHrs.Name = "txtBudgetHrs";
             this.txtBudgetHrs.Size = new System.Drawing.Size(121, 20);
             this.txtBudgetHrs.TabIndex = 10;
+            this.txtBudgetHrs.ValidatingType = typeof(int);
             this.txtBudgetHrs.TextChanged += new System.EventHandler(this.txtBudgetHrs_TextChanged);
             // 
             // cboDrawingSizes
@@ -1109,9 +1113,13 @@ namespace RSMPS
         private System.Windows.Forms.DateTimePicker dtpDateRevised;
         private System.Windows.Forms.TextBox txtRevision;
         private System.Windows.Forms.TextBox txtEarnedHrs;
-        private System.Windows.Forms.TextBox txtRemainingHrs;
+        //private System.Windows.Forms.TextBox txtRemainingHrs;
+
+        private System.Windows.Forms.MaskedTextBox txtRemainingHrs;   //***********Edited 6/11/15*************MZ
+
         private System.Windows.Forms.TextBox txtPercentComplete;
-        private System.Windows.Forms.TextBox txtBudgetHrs;
+       // private System.Windows.Forms.TextBox txtBudgetHrs;
+        private System.Windows.Forms.MaskedTextBox txtBudgetHrs;
         private System.Windows.Forms.ComboBox cboDrawingSizes;
         private System.Windows.Forms.TextBox txtCADNumber;
         private System.Windows.Forms.TextBox txtClientNumber;

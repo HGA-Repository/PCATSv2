@@ -316,6 +316,31 @@ namespace RSMPS
             if (e.ColIndex < 3 || e.ColIndex > 5)
                 return;
 
+
+            if (tdbgHours.Columns[2].Text == "")      //**************6/11/15*************MZ
+            {
+                MessageBox.Show("Item Qty Field cannot be Empty");
+                return;
+            }
+
+            if (tdbgHours.Columns[3].Text == "")      //**************6/11/15*************MZ
+            {
+                MessageBox.Show("Hours/Item Field cannot be Empty");
+                return;
+            }
+
+            if (tdbgHours.Columns[4].Text == "")      //**************6/11/15*************MZ
+            {
+                MessageBox.Show("Rate Field cannot be Empty");
+                return;
+            }
+
+
+
+
+
+
+
             decimal quantity, hrsPer, rate;
 
             quantity = RevSol.RSMath.IsDecimalEx(tdbgHours.Columns[2].Value);
@@ -344,6 +369,13 @@ namespace RSMPS
             }
             else
                 tlbbSave.Enabled = true;
+
+            //if (tdbgHours.Columns[2].Text == "" || tdbgHours.Columns[3].Text == "" || tdbgHours.Columns[4].Text == "")      //**************6/11/15*************MZ
+            //{
+            //    MessageBox.Show("Fields Cannot be Empty");
+            //    return;
+            //}
+
                 TotalHoursGrid();
                 
                 
@@ -537,7 +569,10 @@ namespace RSMPS
 
         private void tlbbSave_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
+           
+            
             SaveCurrentPCN();
+           // MessageBox.Show("Saved");
 
             tlbbSave.Enabled = false;
         }
@@ -572,6 +607,26 @@ namespace RSMPS
             if (e.ColIndex < 2)
                 return;
 
+            if (tdbgExpenses.Columns[2].Text == "")      //**************6/11/15*************MZ
+            {
+                MessageBox.Show("Per Item Field cannot be Empty");
+                return;
+            }
+
+            if (tdbgExpenses.Columns[3].Text == "")      //**************6/11/15*************MZ
+            {
+                MessageBox.Show("#Item Field cannot be Empty");
+                return;
+            }
+
+            if (tdbgExpenses.Columns[4].Text == "")      //**************6/11/15*************MZ
+            {
+                MessageBox.Show("MarkUp Field cannot be Empty");
+                return;
+            }
+
+
+
             decimal dllrPerItem, numItems, percMU, markup, total;
 
             dllrPerItem = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[2].Value);
@@ -589,6 +644,7 @@ namespace RSMPS
 
         private void tdbgExpenses_AfterUpdate(object sender, EventArgs e)
         {
+            
             TotalExpenseGrid();
 
             tlbbSave.Enabled = true;

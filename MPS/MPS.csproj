@@ -297,11 +297,13 @@
     <Compile Include="FScd_AddEdit_View_MPP.Designer.cs">
       <DependentUpon>FScd_AddEdit_View_MPP.cs</DependentUpon>
     </Compile>
-    <Compile Include="FScd_AddEdit.cs">
+    <Compile Include="..\..\..\..\Visual Studio 2013\Projects\PROJ_MPS_ALL CODES\For Tools Update MP Plan\FScd_AddEdit.cs">
       <SubType>Form</SubType>
+      <Link>FScd_AddEdit.cs</Link>
     </Compile>
-    <Compile Include="FScd_AddEdit.Designer.cs">
+    <Compile Include="..\..\..\..\Visual Studio 2013\Projects\PROJ_MPS_ALL CODES\For Tools Update MP Plan\FScd_AddEdit.Designer.cs">
       <DependentUpon>FScd_AddEdit.cs</DependentUpon>
+      <Link>FScd_AddEdit.Designer.cs</Link>
     </Compile>
     <Compile Include="FScd_AddProjEmp.cs">
       <SubType>Form</SubType>
@@ -471,9 +473,10 @@
       <DependentUpon>FScd_AddEdit_View_MPP.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FScd_AddEdit.resx">
+    <EmbeddedResource Include="..\..\..\..\Visual Studio 2013\Projects\PROJ_MPS_ALL CODES\For Tools Update MP Plan\FScd_AddEdit.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FScd_AddEdit.cs</DependentUpon>
+      <Link>FScd_AddEdit.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="FScd_AddProjEmp.resx">
       <SubType>Designer</SubType>

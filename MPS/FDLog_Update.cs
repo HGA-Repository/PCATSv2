@@ -430,9 +430,15 @@ namespace RSMPS
 
             tmpID = Convert.ToInt32(dr["ID"]);
             bHrs = Convert.ToDecimal(dr["BudgetHrs"]);
-            rHrs = Convert.ToDecimal(dr["RemainingHrs"]);
+            try                     //******************Try Catch block added 6/11/2015
+            {
+                rHrs = Convert.ToDecimal(dr["RemainingHrs"]);
 
-
+            }
+            catch 
+            { MessageBox.Show("Field Cannot be empty, default value=0");
+            return;
+            }
             int tmpID2 = Convert.ToInt32(dr2["ID"]);
             decimal bHrs2 = Convert.ToDecimal(dr2["BudgetHrs"]);
             decimal rHrs2 = Convert.ToDecimal(dr2["RemainingHrs"]);

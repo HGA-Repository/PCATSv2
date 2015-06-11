@@ -7,7 +7,8 @@ using System.Xml.Serialization;
 
 using System.Data;
 using System.Data.SqlClient;
-
+using System.Drawing;
+//using System.Windows.Forms; //***************Added 6/11/15*****MZ
 namespace RSMPS
 {
     public class CBBudgetPCN : COBudgetPCN
@@ -252,9 +253,15 @@ namespace RSMPS
                 hr.Code = dr["Code"].ToString();
                 hr.WBS = dr["WBS"].ToString();
                 hr.Description = dr["Description"].ToString();
-                hr.Quantity = Convert.ToInt32(dr["Quantity"]);
-                hr.HoursPerItem = Convert.ToInt32(dr["HoursPerItem"]);
-                hr.Rate = Convert.ToDecimal(dr["Rate"]);
+                try                                 //*********************Added 6/11/15*************MZ
+                {
+                    hr.Quantity = Convert.ToInt32(dr["Quantity"]);
+                    hr.HoursPerItem = Convert.ToInt32(dr["HoursPerItem"]);
+                    hr.Rate = Convert.ToDecimal(dr["Rate"]);
+                }
+                catch { 
+                    
+                }
                 hr.SubtotalHrs = Convert.ToInt32(dr["SubtotalHrs"]);
                 hr.SubtotalDlrs = Convert.ToDecimal(dr["SubtotalDlrs"]);
 
@@ -280,9 +287,14 @@ namespace RSMPS
                 exp.PCNID = retVal;
                 exp.Code = dr["Code"].ToString();
                 exp.Description = dr["Description"].ToString();
-                exp.DlrsPerItem = Convert.ToDecimal(dr["DlrsPerItem"]);
-                exp.NumItems = Convert.ToInt32(dr["NumItems"]);
-                exp.MUPerc = Convert.ToDecimal(dr["MUPerc"]);
+                try                             //*********************Added 6/11/15*************MZ
+                {
+                    exp.DlrsPerItem = Convert.ToDecimal(dr["DlrsPerItem"]);
+                    exp.NumItems = Convert.ToInt32(dr["NumItems"]);
+                    exp.MUPerc = Convert.ToDecimal(dr["MUPerc"]);
+                }
+                catch { 
+                }
                 exp.MarkUp = Convert.ToDecimal(dr["MarkUp"]);
                 exp.TotalCost = Convert.ToDecimal(dr["TotalCost"]);
 
