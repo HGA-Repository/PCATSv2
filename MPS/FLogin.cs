@@ -15,11 +15,17 @@ namespace RSMPS
         public FLogin()
         {
             InitializeComponent();
+            moLog = new CBLog();
         }
 
 
         public event LoginSuccessful OnSuccessLogin;
         public event EventHandler OnCancelLogin;
+
+        //private CBEmployeeTitle moTitle;
+        private CBLog moLog;
+        public String UserName;
+       
 
 
         private void bttCancel_Click(object sender, EventArgs e)
@@ -72,6 +78,14 @@ namespace RSMPS
                 if (OnSuccessLogin != null)
                     OnSuccessLogin(user.ID, sec.SessionID);
 
+               // MessageBox.Show("Loading User");
+                LoadScreenToObject();
+               // MessageBox.Show(moLog.Name);
+
+                moLog.Save();
+               
+                UserName =txtUser.Text ;
+               
                 this.Close();
             }
             else
@@ -81,6 +95,18 @@ namespace RSMPS
                 txtPassword.Focus();
             }
         }
+
+        private void LoadScreenToObject()
+        {
+            moLog.Name = txtUser.Text;
+        }
+
+        //private void LoadObjectToScreen()
+        //{
+        //    txtUser.Text = moLog.Name;
+        //    MessageBox.Show("Load Object");
+        //    MessageBox.Show(txtUser.Text);
+        //}
 
         private void button1_Click(object sender, EventArgs e)
         {

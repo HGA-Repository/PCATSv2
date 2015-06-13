@@ -10,9 +10,14 @@ namespace RSMPS
 {
     public partial class FMain : Form
     {
+        public String UserName; //*****************Added 6/12/15************MZ
+        private CBLog moLog;
+
         public FMain()
         {
             InitializeComponent();
+            moLog = new CBLog();
+
 #if TEST
             this.BackgroundImage = global::RSMPS.Properties.Resources.testing;
 #endif
@@ -28,6 +33,7 @@ namespace RSMPS
             fl.ShowDialog();
             fl.OnSuccessLogin -= new LoginSuccessful(fl_OnSuccessLogin);
             fl.OnCancelLogin -= new EventHandler(fl_OnCancelLogin);
+            this.UserName = fl.UserName; //*****************Added 6/12/15************MZ
             fl.Close();
             
         }
@@ -323,6 +329,7 @@ namespace RSMPS
         private void FMain_Load(object sender, EventArgs e)
         {
             InitApplication();
+            MessageBox.Show(UserName + "Has Logged in");
         }
 
         private void SetAccessForSecurityLevel()
@@ -431,6 +438,10 @@ namespace RSMPS
         {
             CloseAllOpenWindows();
             this.Hide();
+            //*****************************Added 6/12/15
+            moLog.Name = this.UserName;
+            //moLog.Save();
+            moLog.Save_LogOff();
             
             // redo the login
             FLogin fl = new FLogin();

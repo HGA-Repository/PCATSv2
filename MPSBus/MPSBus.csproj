@@ -82,6 +82,7 @@
     <Compile Include="CBEmployeeTitle.cs" />
     <Compile Include="CBHoursWarning.cs" />
     <Compile Include="CBLocation.cs" />
+    <Compile Include="CBLog.cs" />
     <Compile Include="CBPCIInfo.cs" />
     <Compile Include="CBPCNStatus.cs" />
     <Compile Include="CBProject.cs" />

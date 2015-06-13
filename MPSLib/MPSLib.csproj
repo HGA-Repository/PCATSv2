@@ -98,6 +98,7 @@
     <Compile Include="COEmployeeDepartment.cs" />
     <Compile Include="COEmployeeTitle.cs" />
     <Compile Include="COLocation.cs" />
+    <Compile Include="COLog.cs" />
     <Compile Include="COPCIInfo.cs" />
     <Compile Include="COPCNStatus.cs" />
     <Compile Include="COProject.cs" />

@@ -111,6 +111,7 @@
     <Compile Include="CDbVisionExport.cs" />
     <Compile Include="CDbWeekList.cs" />
     <Compile Include="CDbActivityCodeDisc.cs" />
+    <Compile Include="CDbLog.cs" />
     <Compile Include="FtcCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
