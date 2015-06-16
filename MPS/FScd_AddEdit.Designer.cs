@@ -859,7 +859,7 @@ namespace RSMPS
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.Location = new System.Drawing.Point(236, 46);
+            this.textBox1.Location = new System.Drawing.Point(236, 47);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(123, 20);
@@ -870,7 +870,7 @@ namespace RSMPS
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Highlight;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button1.Location = new System.Drawing.Point(367, 47);
+            this.button1.Location = new System.Drawing.Point(367, 48);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 20);
             this.button1.TabIndex = 16;

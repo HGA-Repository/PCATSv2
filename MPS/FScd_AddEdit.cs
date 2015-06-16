@@ -19,7 +19,7 @@ namespace RSMPS
         {
             enProjectSort,
             enEmployeeSort,
-            
+
         }
 
         private const int WEEKCOLSTART = 8;
@@ -124,7 +124,7 @@ namespace RSMPS
             li.Description = "0";
             li.Meta = "#,##0";
             tsbHoursDisp.Items.Add(li);
-            
+
             li = new RSLib.COListItem();
             li.ID = 0;
             li.Description = "0.0";
@@ -237,12 +237,12 @@ namespace RSMPS
             //LoadGridByRange(miCurrDept, sDate, eDate);
             //LoadGridByRangeENG(miCurrDept, sDate, eDate);
             //LoadGridByRangePGM(miCurrDept, sDate, eDate);
-           // LoadGridByRangePLS(miCurrDept, sDate, eDate);
+            // LoadGridByRangePLS(miCurrDept, sDate, eDate);
             //LoadGridByRangeSTAFF(miCurrDept, sDate, eDate);
 
-            
-           LoadGridByRange(miCurrDept, sDate, eDate); // ******************
-         //********************************************************************** this part is  commented on 6/1  ************MZ 
+
+            LoadGridByRange(miCurrDept, sDate, eDate); // ******************
+            //********************************************************************** this part is  commented on 6/1  ************MZ 
             //if (miBus_Unit == 1)   LoadGridByRangeENG(miCurrDept, sDate, eDate);
             //else if(miBus_Unit==2)  LoadGridByRangePGM(miCurrDept, sDate, eDate);
             //else if(miBus_Unit==3)  LoadGridByRangePLS(miCurrDept, sDate, eDate);
@@ -309,7 +309,7 @@ namespace RSMPS
             //LoadGridByRangeSTAFF(miCurrDept, sDate, eDate);
 
 
-           // LoadGridByRange(miCurrDept, sDate, eDate); // ******************
+            // LoadGridByRange(miCurrDept, sDate, eDate); // ******************
             //********************************************************************** this part is  commented on 6/1  ************MZ 
             if (miBus_Unit == 1) LoadGridByRangeENG(miCurrDept, sDate, eDate);
             else if (miBus_Unit == 2) LoadGridByRangePGM(miCurrDept, sDate, eDate);
@@ -350,7 +350,7 @@ namespace RSMPS
                 wkDisp = dr["DisplayVal"].ToString();
                 rng.Data = wkDisp;
                 rng.UserData = dr["ID"].ToString();
-                
+
                 fgSchedule.Cols[tmpCol].Name = dr["ID"].ToString() + "-" + PLANCOLTITLE;
                 fgSchedule.Cols[tmpCol].UserData = dr["ID"].ToString();
                 fgSchedule.Cols[tmpCol + 1].Name = dr["ID"].ToString() + "-" + FORECOLTITLE;
@@ -419,7 +419,7 @@ namespace RSMPS
 
             for (int i = 0; i < tmpTot; i++)
             {
-                fgSchedule.Subtotal(AggregateEnum.Sum, 0, 1, i + WEEKCOLSTART-2);
+                fgSchedule.Subtotal(AggregateEnum.Sum, 0, 1, i + WEEKCOLSTART - 2);
             }
         }
 
@@ -430,7 +430,7 @@ namespace RSMPS
 
         private void fgSchedule_AfterEdit(object sender, RowColEventArgs e)
         {
-            SaveTimeChange(e.Row,e.Col);
+            SaveTimeChange(e.Row, e.Col);
             CreateSubtotals();
             SumRowHours(e.Row);
         }
@@ -442,10 +442,18 @@ namespace RSMPS
 
             foreach (Column c in fgSchedule.Cols)
             {
-                if (Convert.ToString(c[1]) == PLANCOLTITLE)
-                    totP += Convert.ToDecimal(fgSchedule[currRow, c.Index]);
-                else if (Convert.ToString(c[1]) == FORECOLTITLE)
-                    totF += Convert.ToDecimal(fgSchedule[currRow, c.Index]);
+                try             ////******************Try Catch block added 6/11/2015
+                {
+                    if (Convert.ToString(c[1]) == PLANCOLTITLE)
+                        totP += Convert.ToDecimal(fgSchedule[currRow, c.Index]);
+                    else if (Convert.ToString(c[1]) == FORECOLTITLE)
+                        totF += Convert.ToDecimal(fgSchedule[currRow, c.Index]);
+                }
+                catch
+                {
+                    MessageBox.Show("Field cannot be empty, please enter default value 0");
+                    return;
+                }
             }
 
             fgSchedule[currRow, EMPLOYEEPTOTCOL] = totP.ToString(HOURDISPLAYFORMAT);
@@ -544,7 +552,7 @@ namespace RSMPS
         {
             FScd_AddProjEmp ape;
 
-            ape = new FScd_AddProjEmp(miCurrDept,itmID);
+            ape = new FScd_AddProjEmp(miCurrDept, itmID);
             ape.OnProjectAdd += new ProjectEmployeeSelect(ape_OnProjectAdd);
             ape.ShowDialog();
             ape.OnProjectAdd -= new ProjectEmployeeSelect(ape_OnProjectAdd);
@@ -562,7 +570,10 @@ namespace RSMPS
             bool addEmp = IsClearToAdd(projID, empID);
 
             if (addEmp == false)        // employee already exist for this project so do not add
+            {
+                MessageBox.Show("This employee already exist in this project."); //**********************Added 6/4/15
                 return;
+            }
 
             p.Load(projID);
             e.Load(empID);
@@ -711,9 +722,9 @@ namespace RSMPS
                     return;     // not in a valid area so exit
 
                 int projID = Convert.ToInt32(fgSchedule[row, PROJECTIDCOLUMN]);
-                CellRange rng = fgSchedule.GetCellRange(0,fgSchedule.Col);
+                CellRange rng = fgSchedule.GetCellRange(0, fgSchedule.Col);
                 int weekID = Convert.ToInt32(rng.UserData);
-                
+
                 decimal tmpP, tmpF, tmpA;
                 CBScheduleHour sh = new CBScheduleHour();
                 tmpP = tmpF = tmpA = 0;
@@ -735,8 +746,16 @@ namespace RSMPS
             c = fgSchedule.Cols[colIndx];
             weekID = Convert.ToInt32(c.UserData);
             colTitle = fgSchedule[1, colIndx].ToString();           // second row in grid should contain values for hour type
-            val = Convert.ToInt32(fgSchedule[rowIndx, colIndx]);
-
+            try                             //******************Try Catch block added 6/11/2015
+            {
+                val = Convert.ToInt32(fgSchedule[rowIndx, colIndx]);
+            }
+            catch
+            {
+                MessageBox.Show("Field cannot be empty, default value=0");
+                //********************TEst
+                return;
+            }
             //SaveTimeChange(projID, empID, weekID, HourTypeEnum.enPlanning, );
             CBScheduleHour sh = new CBScheduleHour();
 
@@ -809,13 +828,13 @@ namespace RSMPS
 
             //dr = CBScheduleHour.GetListByRange(deptID, sDate, eDate);
             dr = CBProjectEmployee.GetListActiveWithHours(deptID, sDate, eDate);
-            
+
             //*******************************************************MZ
 
             //dr = CBProjectEmployee.GetListActiveWithHoursENG(deptID, sDate, eDate);
             //dr = CBProjectEmployee.GetListActiveWithHoursPGM(deptID, sDate, eDate);
             //dr = CBProjectEmployee.GetListActiveWithHoursPLS(deptID, sDate, eDate);
-           // dr = CBProjectEmployee.GetListActiveWithHoursSTAFF(deptID, sDate, eDate);
+            // dr = CBProjectEmployee.GetListActiveWithHoursSTAFF(deptID, sDate, eDate);
 
             this.Cursor = Cursors.WaitCursor;
 
@@ -876,7 +895,7 @@ namespace RSMPS
             string tmpCode;
 
             //dr = CBScheduleHour.GetListByRange(deptID, sDate, eDate);
-           // dr = CBProjectEmployee.GetListActiveWithHours(deptID, sDate, eDate);
+            // dr = CBProjectEmployee.GetListActiveWithHours(deptID, sDate, eDate);
             //*******************************************************MZ
 
             dr = CBProjectEmployee.GetListActiveWithHoursENG(deptID, sDate, eDate);
@@ -1016,7 +1035,7 @@ namespace RSMPS
             // dr = CBProjectEmployee.GetListActiveWithHours(deptID, sDate, eDate);
             //*******************************************************MZ
 
-           // dr = CBProjectEmployee.GetListActiveWithHoursENG(deptID, sDate, eDate);
+            // dr = CBProjectEmployee.GetListActiveWithHoursENG(deptID, sDate, eDate);
             //dr = CBProjectEmployee.GetListActiveWithHoursPGM(deptID, sDate, eDate);
             dr = CBProjectEmployee.GetListActiveWithHoursPLS(deptID, sDate, eDate);
             // dr = CBProjectEmployee.GetListActiveWithHoursSTAFF(deptID, sDate, eDate);
@@ -1088,7 +1107,7 @@ namespace RSMPS
             //dr = CBProjectEmployee.GetListActiveWithHoursENG(deptID, sDate, eDate);
             //dr = CBProjectEmployee.GetListActiveWithHoursPGM(deptID, sDate, eDate);
             //dr = CBProjectEmployee.GetListActiveWithHoursPLS(deptID, sDate, eDate);
-             dr = CBProjectEmployee.GetListActiveWithHoursSTAFF(deptID, sDate, eDate);
+            dr = CBProjectEmployee.GetListActiveWithHoursSTAFF(deptID, sDate, eDate);
 
             this.Cursor = Cursors.WaitCursor;
 
@@ -1512,7 +1531,7 @@ namespace RSMPS
                 prjCnt = fgSchedule.FindRow(projID.ToString(), prjCnt + 1, PROJECTIDCOLUMN, false);
 
                 if (prjCnt >= 0)
-                    empCnt = Convert.ToInt32(fgSchedule[prjCnt,EMPLOYEEIDCOLUMN]);
+                    empCnt = Convert.ToInt32(fgSchedule[prjCnt, EMPLOYEEIDCOLUMN]);
 
                 if (empCnt == empID)
                 {
@@ -1549,6 +1568,8 @@ namespace RSMPS
 
             el.IsSelectOnly = true;
             el.DeptFilter = miCurrDept;
+
+
             el.OnItemSelected += new RSLib.ListItemAction(el_OnItemSelected);
             el.ShowDialog();
             el.OnItemSelected -= new RSLib.ListItemAction(el_OnItemSelected);
@@ -1568,7 +1589,10 @@ namespace RSMPS
             bool addEmp = IsClearToAdd(projID, itmID);
 
             if (addEmp == false)        // employee already exist for this project so do not add
+            {
+                MessageBox.Show("This employee already exist in this project"); //*****************Added 6/4/15
                 return;
+            }
 
             p.Load(projID);
             e.Load(itmID);
@@ -1679,11 +1703,11 @@ namespace RSMPS
             if (miCurrSort == 1)
             {
                 fgSchedule[fgSchedule.Row, EMPLOYEECOLUMN] = e.Name;
-                fgSchedule[fgSchedule.Row,EMPLOYEEIDCOLUMN] = e.ID.ToString();
+                fgSchedule[fgSchedule.Row, EMPLOYEEIDCOLUMN] = e.ID.ToString();
             }
             else
             {
-                fgSchedule[fgSchedule.Row,1] = e.Name;
+                fgSchedule[fgSchedule.Row, 1] = e.Name;
                 fgSchedule[fgSchedule.Row, EMPLOYEEIDCOLUMN] = e.ID.ToString();
             }
 
@@ -1700,8 +1724,8 @@ namespace RSMPS
             pd.DefaultPageSettings.Margins.Right = 75;
             pd.DefaultPageSettings.Margins.Top = 75;
             pd.DefaultPageSettings.Margins.Bottom = 75;
-            
-            fgSchedule.PrintGrid("Test Print", 
+
+            fgSchedule.PrintGrid("Test Print",
                 PrintGridFlags.ShowPreviewDialog | PrintGridFlags.FitToPageWidth | PrintGridFlags.ShowPageSetupDialog,
                 "Manpower Scheduling: " + txtDepartment.Text + "\t\t" + DateTime.Now.ToShortDateString(), "\t\tPage {0} of {1}");
         }
@@ -1717,7 +1741,7 @@ namespace RSMPS
 
             Column c = fgSchedule.Cols[fgSchedule.Col];
             weekID = Convert.ToInt32(c.UserData);
-            currProj = Convert.ToInt32(fgSchedule[fgSchedule.Row,PROJECTIDCOLUMN]);
+            currProj = Convert.ToInt32(fgSchedule[fgSchedule.Row, PROJECTIDCOLUMN]);
             currEmp = Convert.ToInt32(fgSchedule[fgSchedule.Row, EMPLOYEEIDCOLUMN]);
 
             if (miCurrSort == 1)
@@ -1833,7 +1857,7 @@ namespace RSMPS
 
             miCurrUserID = u.ID;
             if (passLvl != 3 || u.IsAdministrator == true)
-                //if (passLvl != 3 || u.IsAdministrator == true || u.IsManager == true)
+            //if (passLvl != 3 || u.IsAdministrator == true || u.IsManager == true)
             {
                 // is a moderator for this department so enable some stuff
                 mbIsModerator = true;
@@ -1870,7 +1894,7 @@ namespace RSMPS
         private void bttTest_Click(object sender, EventArgs e)
         {
             //fgSchedule.Sort(SortFlags.Ascending, 1);
-            fgSchedule.Tree.Sort(0, SortFlags.Ascending, 1 , 1);
+            fgSchedule.Tree.Sort(0, SortFlags.Ascending, 1, 1);
         }
 
         private void mnuShowProjAllDepts_Click(object sender, EventArgs e)
