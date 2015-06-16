@@ -116,6 +116,12 @@
     <Compile Include="FCRMain.Designer.cs">
       <DependentUpon>FCRMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FCRMain_Roll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCRMain_Roll.Designer.cs">
+      <DependentUpon>FCRMain_Roll.cs</DependentUpon>
+    </Compile>
     <Compile Include="FPreview.cs">
       <SubType>Form</SubType>
     </Compile>

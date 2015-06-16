@@ -857,7 +857,7 @@ namespace RSMPS
 
         private void projectForecastingReportRollupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RSMPS.FCRMain crm = new FCRMain();
+            RSMPS.FCRMain_Roll crm = new FCRMain_Roll();
 
             crm.LoadMasters();
             crm.ShowDialog();
