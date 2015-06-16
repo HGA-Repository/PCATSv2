@@ -329,7 +329,7 @@ namespace RSMPS
         private void FMain_Load(object sender, EventArgs e)
         {
             InitApplication();
-            MessageBox.Show(UserName + "Has Logged in");
+           // MessageBox.Show(UserName + "Has Logged in");
         }
 
         private void SetAccessForSecurityLevel()

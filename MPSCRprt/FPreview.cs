@@ -131,19 +131,25 @@ namespace RSMPS
             da = new SqlDataAdapter();
             ds = new DataSet();
             da.SelectCommand = cmd;
-            da.Fill(ds);
+            try
+            {
 
-            cnn.CloseConnection();
+                da.Fill(ds);
 
-            rprtCostReport1 rprt = new rprtCostReport1();
+                cnn.CloseConnection();
 
-            rprt.CutoffDate = currDate;
-            rprt.NoExpenses();
-            rprt.DataSource = ds;
-            rprt.DataMember = "Table";
-            viewer1.Document = rprt.Document;
-            rprt.Run();
+                rprtCostReport1 rprt = new rprtCostReport1();
 
+                rprt.CutoffDate = currDate;
+                rprt.NoExpenses();
+                rprt.DataSource = ds;
+                rprt.DataMember = "Table";
+                viewer1.Document = rprt.Document;
+                rprt.Run();
+            }
+            catch {
+                MessageBox.Show("Exception");
+            }
             this.Cursor = Cursors.Default;
         }
 
