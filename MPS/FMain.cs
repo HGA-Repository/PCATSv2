@@ -118,9 +118,9 @@ namespace RSMPS
 
         private void mnuFileExit_Click(object sender, EventArgs e)   //*****************************Added 6/12/15
         {
-            CloseAllOpenWindows();
-                moLog.Name = this.UserName;
-                moLog.Save_LogOff();
+            //CloseAllOpenWindows();
+            //    moLog.Name = this.UserName;
+            //    moLog.Save_LogOff();
                 this.Close();
            
         }
