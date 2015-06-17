@@ -103,6 +103,11 @@ namespace RSMPS
                 aps.SaveAppSettings();
 
                 RSLib.COSecurity.Delete();
+            //*****************************Added 6/16/15 *****************MZ
+                moLog.Name = this.UserName;
+                moLog.Save_LogOff();
+            //*************************************************************
+
             //}
             //else;
             //{
@@ -111,11 +116,13 @@ namespace RSMPS
             //}
         }
 
-        private void mnuFileExit_Click(object sender, EventArgs e)
+        private void mnuFileExit_Click(object sender, EventArgs e)   //*****************************Added 6/12/15
         {
-            {
-               this.Close();
-            }
+            CloseAllOpenWindows();
+                moLog.Name = this.UserName;
+                moLog.Save_LogOff();
+                this.Close();
+           
         }
 
         #region Testing List
