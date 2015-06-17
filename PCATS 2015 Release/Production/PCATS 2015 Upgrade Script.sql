@@ -1,5 +1,6 @@
 :setvar path "C:\Users\administrator.HGA\Documents\SQL Server Management Studio\Scripts\PCATS 2015 Release\ProductionTest"
 :r $(path)\CreateTable_DT_Business_Unit.sql
+:r $(path)\CreateTable_DT_UserLoginInfo.sql
 :r $(path)\AddFieldstoDT_BudgetExpenseSheets.sql
 :r $(path)\spBudgetExpenseSheet_ByID.sql
 :r $(path)\spBudgetExpenseSheet_Insert.sql
@@ -33,4 +34,6 @@
 :r $(path)\spProjectEmployee_ListActiveWithHoursPLS.sql
 :r $(path)\spProjectEmployee_ListActiveWithHoursPGM.sql
 :r $(path)\spProjectEmployee_ListActiveWithHoursENG.sql
+:r $(path)\spLogin_Insert.sql
+:r $(path)\spLogOff.sql
 
