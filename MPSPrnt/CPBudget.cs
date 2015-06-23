@@ -1,10 +1,29 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
-
-
+using System.Windows.Forms;
 using System.Data;
+using System.Drawing;
+
+
+using System.Threading;
+using Common.Extentions;
+using System.Linq;
+using System.Resources;
+using System.Reflection;
+
+
+//using DataDynamics.ActiveReports.Interop;
+//using DataDynamics.ActiveReports;
+using GrapeCity.ActiveReports;
+ //using DataDynamics.ActiveReports.Export.Pdf.PdfDocumentOptions
+using DataDynamics.ActiveReports;
+
+using System.Net;
+using System.Runtime.Serialization.Json;
+using MFiles.Mfws.Structs;
 
 namespace RSMPS
 {
@@ -92,6 +111,178 @@ namespace RSMPS
             pv.ViewReport(rprt);
             pv.ShowDialog();
         }
+
+        public void SavePDF_BudgetDetails(int budID, string wbs)    //**************************Added 6/22/15
+        {
+            FPreviewAR pv = new FPreviewAR();
+            rprtBudgetDetail rprt = new rprtBudgetDetail();
+            DataSet ds;
+            CBBudget bud = new CBBudget();
+            CBProject proj = new CBProject();
+            CBCustomer cust = new CBCustomer();
+            CBLocation loc = new CBLocation();
+            CBState state = new CBState();
+
+            bud.Load(budID);
+            proj.Load(bud.ProjectID);
+            cust.Load(proj.CustomerID);
+            loc.Load(proj.LocationID);
+            state.Load(loc.StateID);
+
+            ds = CBBudget.GetBudgetDetailsForReport(budID, wbs);
+
+
+            if (proj.BusinessUnit() == 1) rprt.MainReportTitle = "Staffing Estimate Loaded Details";
+            if (proj.BusinessUnit() == 2) rprt.MainReportTitle = "Engineering Estimate Loaded Details";
+            if (proj.BusinessUnit() == 3) rprt.MainReportTitle = "Pipeline Services Estimate Loaded Details";
+            if (proj.BusinessUnit() == 4) rprt.MainReportTitle = "Program Management Estimate Loaded Details";
+            if (proj.BusinessUnit() == 5) rprt.MainReportTitle = "EPC Estimate Loaded Details";
+
+            rprt.SetTitles(cust.Name + " / " + loc.City + "," + state.Abbrev, proj.Description, proj.Number, bud.GetNumber(), wbs);
+            rprt.DataSource = ds;
+            rprt.DataMember = "Table";
+
+            //pv.ViewReport(rprt);
+            //pv.ShowDialog();
+
+                                    //try
+                                    //{
+                                    //    // Export the Report to Response stream in PDF format and file name Customers
+
+                                    //    pv.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, true, "ABC");
+                                    //    // There are other format options available such as Word, Excel, CVS, and HTML in the ExportFormatType Enum given by crystal reports
+                                    //}
+                                    //catch (Exception ex)
+                                    //{
+                                    //    Console.WriteLine(ex.Message);
+                                    //    ex = null;
+                                    //}
+
+            GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport PDFEx = new GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport();
+            //*********************************
+                    //rptDataDynamics rpt = new rptDataDynamics();
+                    //DataDynamics.ActiveReports.Export.Pdf.PdfExport p = new DataDynamics.ActiveReports.Export.Pdf.PdfExport();
+            PDFEx.Options.Application = "Mortimer's Reporting Software";
+            PDFEx.Options.Author = "Mortimer";
+            PDFEx.Options.CenterWindow = true;
+                    //PDFEx.Options.DisplayMode = GrapeCity.ActiveReports.Export.Pdf.DisplayMode.Thumbs;
+
+            PDFEx.Options.DisplayTitle = true;
+            PDFEx.Options.FitWindow = true;
+                    //PDFEx.HideMenubar = true;
+            PDFEx.Options.HideToolbar = true;
+            PDFEx.Options.HideWindowUI = true;
+            PDFEx.Options.Keywords = "annual, report, 2003";
+            PDFEx.Options.Subject = "Sales report for 2003";
+            PDFEx.Options.Title = "Annual Report";
+            rprt.Run();
+                    //this.arv.Document = rprt.Document;
+           // PDFEx.Export(rprt.Document, Application.StartupPath + "\\p.pdf");
+            
+          // PDFEx.Export(rprt.Document,  "C:\\Users\\mzaman\\Documents\\GitHub\\PCATSv2\\PCATSv2\\MPS\\bin\\Debug\\4.pdf");
+           SaveFileDialog sv1 = new SaveFileDialog();
+           sv1.Filter = "PDF Files | *.pdf";
+           sv1.DefaultExt = "pdf";
+
+
+                                    if (sv1.ShowDialog() == DialogResult.OK)
+                                    {
+                                    //    ee.ExportBudgetForPrimavera(saveFileDialog1.FileName, moPCN.ID);
+                                        PDFEx.Export(rprt.Document, sv1.FileName);
+
+
+                                    }
+
+
+
+            //pv.Export(PDFEx, new System.IO.FileInfo(Application.StartupPath + "\\outputPDF.pdf"));
+            //rprt.Export(PDFEx, new System.IO.FileInfo("\\outputPDF.pdf"));
+            //GrapeCity.ActiveReports.Export.Pdf.PdfExport p = new GrapeCity.ActiveReports.Export.Pdf.PdfExport();
+
+        }
+
+
+
+        public void SaveMFile_BudgetDetails(int budID, string wbs)    //**************************Added 6/22/15
+        {
+            FPreviewAR pv = new FPreviewAR();
+            rprtBudgetDetail rprt = new rprtBudgetDetail();
+            DataSet ds;
+            CBBudget bud = new CBBudget();
+            CBProject proj = new CBProject();
+            CBCustomer cust = new CBCustomer();
+            CBLocation loc = new CBLocation();
+            CBState state = new CBState();
+
+            bud.Load(budID);
+            proj.Load(bud.ProjectID);
+            cust.Load(proj.CustomerID);
+            loc.Load(proj.LocationID);
+            state.Load(loc.StateID);
+
+            ds = CBBudget.GetBudgetDetailsForReport(budID, wbs);
+
+
+            if (proj.BusinessUnit() == 1) rprt.MainReportTitle = "Staffing Estimate Loaded Details";
+            if (proj.BusinessUnit() == 2) rprt.MainReportTitle = "Engineering Estimate Loaded Details";
+            if (proj.BusinessUnit() == 3) rprt.MainReportTitle = "Pipeline Services Estimate Loaded Details";
+            if (proj.BusinessUnit() == 4) rprt.MainReportTitle = "Program Management Estimate Loaded Details";
+            if (proj.BusinessUnit() == 5) rprt.MainReportTitle = "EPC Estimate Loaded Details";
+
+            rprt.SetTitles(cust.Name + " / " + loc.City + "," + state.Abbrev, proj.Description, proj.Number, bud.GetNumber(), wbs);
+            rprt.DataSource = ds;
+            rprt.DataMember = "Table";
+
+            //pv.ViewReport(rprt);
+            //pv.ShowDialog();
+
+            
+
+            GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport PDFEx = new GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport();
+            //*********************************
+          
+                                //PDFEx.Options.Application = "Mortimer's Reporting Software";
+                                //PDFEx.Options.Author = "Mortimer";
+                                //PDFEx.Options.CenterWindow = true;
+                                ////PDFEx.Options.DisplayMode = GrapeCity.ActiveReports.Export.Pdf.DisplayMode.Thumbs;
+
+                                //PDFEx.Options.DisplayTitle = true;
+                                //PDFEx.Options.FitWindow = true;
+                                ////PDFEx.HideMenubar = true;
+                                //PDFEx.Options.HideToolbar = true;
+                                //PDFEx.Options.HideWindowUI = true;
+                                //PDFEx.Options.Keywords = "annual, report, 2003";
+                                //PDFEx.Options.Subject = "Sales report for 2003";
+                                //PDFEx.Options.Title = "Annual Report";
+            
+            rprt.Run();
+            
+            SaveFileDialog sv1 = new SaveFileDialog();
+            sv1.Filter = "PDF Files | *.pdf";
+            sv1.DefaultExt = "pdf";
+
+            //PDFEx.FileFormat = GrapeCity.ActiveReports.Export.Pdf.Section.FileFormat.Xlsx;
+
+
+            if (sv1.ShowDialog() == DialogResult.OK)
+            {
+                //    ee.ExportBudgetForPrimavera(saveFileDialog1.FileName, moPCN.ID);
+                PDFEx.Export(rprt.Document, sv1.FileName);
+
+
+            }
+
+
+
+        }
+
+
+
+
+
+
+
+
 
         public void PreviewJobStat(int budID, string wbs)
         {

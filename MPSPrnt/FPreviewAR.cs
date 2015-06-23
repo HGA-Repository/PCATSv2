@@ -212,5 +212,10 @@ namespace RSMPS
 
             return retVal;
         }
+
+        private void FPreviewAR_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -29,33 +29,42 @@ namespace RSMPS
         private void InitializeComponent()
         {
             this.viewer1 = new GrapeCity.ActiveReports.Viewer.Win.Viewer();
-            //this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // viewer1
             // 
             this.viewer1.BackColor = System.Drawing.SystemColors.Control;
+            this.viewer1.CurrentPage = 0;
             this.viewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.viewer1.Document = new GrapeCity.ActiveReports.Document.SectionDocument("ARNet Document");
             this.viewer1.Location = new System.Drawing.Point(0, 0);
             this.viewer1.Name = "viewer1";
-            this.viewer1.ReportViewer.CurrentPage = 0;
-            this.viewer1.ReportViewer.MultiplePageCols = 3;
-            this.viewer1.ReportViewer.MultiplePageRows = 2;
-            this.viewer1.ReportViewer.ViewType = GrapeCity.Viewer.Common.Model.ViewType.SinglePage;
+            this.viewer1.PreviewPages = 0;
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            this.viewer1.Sidebar.ParametersPanel.ContextMenu = null;
+            this.viewer1.Sidebar.ParametersPanel.Width = 200;
+            // 
+            // 
+            // 
+            this.viewer1.Sidebar.SearchPanel.ContextMenu = null;
+            this.viewer1.Sidebar.SearchPanel.Width = 200;
+            // 
+            // 
+            // 
+            this.viewer1.Sidebar.ThumbnailsPanel.ContextMenu = null;
+            this.viewer1.Sidebar.ThumbnailsPanel.Width = 200;
+            // 
+            // 
+            // 
+            this.viewer1.Sidebar.TocPanel.ContextMenu = null;
+            this.viewer1.Sidebar.TocPanel.Width = 200;
+            this.viewer1.Sidebar.Width = 200;
             this.viewer1.Size = new System.Drawing.Size(733, 634);
             this.viewer1.TabIndex = 0;
-           // - obsolete code this.viewer1.TableOfContents.Text = "Table Of Contents";
-            this.viewer1.TableOfContents.Width = 200;
-            // - obsolete code this.viewer1.TabTitleLength = 35;
-            this.viewer1.Toolbar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // - obsolete code this.viewer1.ToolClick += new GrapeCity.ActiveReports.Toolbar.ToolClickEventHandler(this.viewer1_ToolClick);
-            // 
-            // saveFileDialog1
-            // 
-            //this.saveFileDialog1.DefaultExt = "xls";
-            //this.saveFileDialog1.Filter = "Excel|*.xls|Excel 07|*.xlsx";
-            //this.saveFileDialog1.Title = "Save to XLS file";
             // 
             // FPreviewAR
             // 
@@ -68,6 +77,7 @@ namespace RSMPS
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Preview Report";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FPreviewAR_Load);
             this.ResumeLayout(false);
 
         }

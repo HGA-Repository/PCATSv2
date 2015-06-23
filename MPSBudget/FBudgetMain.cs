@@ -14,6 +14,10 @@ using System.Resources;
 using System.Reflection;
 
 
+using GrapeCity.ActiveReports;
+//using DataDynamics.ActiveReports.Export.Pdf.PdfDocumentOptions
+//using DataDynamics.ActiveReports;
+
 namespace RSMPS
 {
     public partial class FBudgetMain : Form
@@ -3966,6 +3970,27 @@ namespace RSMPS
             pcn.EditPreviousPCN(currID);
             pcn.ShowDialog();
             pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNChanged);
+        }
+
+        private void bttPDF_Click(object sender, EventArgs e)
+        {
+            CPBudget bud = new CPBudget();
+            this.Cursor = Cursors.WaitCursor;
+            bud.SavePDF_BudgetDetails(moCurrBudget.ID, cboWBS.Text);
+            this.Cursor = Cursors.Default;
+            MessageBox.Show("file saved");
+           
+
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            CPBudget bud = new CPBudget();
+            this.Cursor = Cursors.WaitCursor;
+            bud.SaveMFile_BudgetDetails(moCurrBudget.ID, cboWBS.Text);
+            this.Cursor = Cursors.Default;
+            MessageBox.Show("file saved");
         }
 
        

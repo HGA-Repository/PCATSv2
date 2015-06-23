@@ -59,6 +59,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\C1.C1Excel.4.dll</HintPath>
     </Reference>
+    <Reference Include="C1.C1Pdf.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Command.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\C1.Win.C1Command.4.dll</HintPath>
@@ -83,6 +84,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\C1.Win.C1TrueDBGrid.4.dll</HintPath>
     </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Export.Pdf.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GrapeCity.ActiveReports.Export.Pdf.v9.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GrapeCity.ActiveReports.v9.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -91,6 +100,7 @@
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -357,6 +367,17 @@
     <None Include="dsWorkSheet.xss">
       <DependentUpon>dsWorkSheet.xsd</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="MFilesAPI">
+      <Guid>{B9C079AA-92DD-4FB4-A0E0-AA3198955B45}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
