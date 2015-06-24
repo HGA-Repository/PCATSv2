@@ -8,6 +8,9 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using GrapeCity.ActiveReports;
 
+
+
+using DataDynamics.ActiveReports;
 namespace RSMPS
 {
     public partial class FPreviewAR : Form
@@ -212,10 +215,39 @@ namespace RSMPS
 
             return retVal;
         }
-
+        const long pdfExportToolID = 42;
         private void FPreviewAR_Load(object sender, EventArgs e)
         {
+            var zoomOutButton = viewer1.TouchModeToolbar.ToolStrip.Items[8];
+            //zoomOutButton.Visible = true;
 
+        }
+
+        private void c1Button1_Click(object sender, EventArgs e)
+        {
+            GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport PDFEx = new GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport();
+
+            SaveFileDialog sv1 = new SaveFileDialog();
+           
+           // sv1.InitialDirectory = "c:\\MZ\\";
+            sv1.InitialDirectory = "v:\\HGA\\";
+            sv1.Filter = "PDF Files | *.pdf";
+            sv1.DefaultExt = "pdf";
+
+            //PDFEx.FileFormat = GrapeCity.ActiveReports.Export.Pdf.Section.FileFormat.Xlsx;
+
+
+            if (sv1.ShowDialog() == DialogResult.OK)
+            {
+                viewer1.Export(PDFEx, new System.IO.FileInfo(sv1.FileName));
+                //PDFEx.Export(rprt.Document, sv1.FileName);
+
+
+            }
+
+
+
+            //viewer1.Export(PDFEx, new System.IO.FileInfo(Application.StartupPath + "\\outputPDF.pdf"));
         }
     }
 }

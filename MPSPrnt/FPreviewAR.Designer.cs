@@ -29,6 +29,8 @@ namespace RSMPS
         private void InitializeComponent()
         {
             this.viewer1 = new GrapeCity.ActiveReports.Viewer.Win.Viewer();
+            this.c1Button1 = new C1.Win.C1Input.C1Button();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
             this.SuspendLayout();
             // 
             // viewer1
@@ -66,11 +68,22 @@ namespace RSMPS
             this.viewer1.Size = new System.Drawing.Size(733, 634);
             this.viewer1.TabIndex = 0;
             // 
+            // c1Button1
+            // 
+            this.c1Button1.Location = new System.Drawing.Point(0, 35);
+            this.c1Button1.Name = "c1Button1";
+            this.c1Button1.Size = new System.Drawing.Size(71, 48);
+            this.c1Button1.TabIndex = 1;
+            this.c1Button1.Text = "Save";
+            this.c1Button1.UseVisualStyleBackColor = true;
+            this.c1Button1.Click += new System.EventHandler(this.c1Button1_Click);
+            // 
             // FPreviewAR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(733, 634);
+            this.Controls.Add(this.c1Button1);
             this.Controls.Add(this.viewer1);
             this.Name = "FPreviewAR";
             this.ShowIcon = false;
@@ -78,6 +91,7 @@ namespace RSMPS
             this.Text = "Preview Report";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FPreviewAR_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -87,5 +101,6 @@ namespace RSMPS
 
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private GrapeCity.ActiveReports.Viewer.Win.Viewer viewer1;
+        private C1.Win.C1Input.C1Button c1Button1;
     }
 }

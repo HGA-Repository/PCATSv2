@@ -199,6 +199,20 @@ namespace RSMPS
             //rprt.Export(PDFEx, new System.IO.FileInfo("\\outputPDF.pdf"));
             //GrapeCity.ActiveReports.Export.Pdf.PdfExport p = new GrapeCity.ActiveReports.Export.Pdf.PdfExport();
 
+                                    MFilesAPI.PropertyValues oPropVals = new MFilesAPI.PropertyValues();
+                                    MFilesAPI.PropertyValue oPropVal = new MFilesAPI.PropertyValue();
+
+                                   MFilesAPI.SourceObjectFiles ofiles = new MFilesAPI.SourceObjectFiles();
+                                    MFilesAPI.SourceObjectFile ofile = new MFilesAPI.SourceObjectFile();
+
+                                    ofile.SourceFilePath = sv1.FileName;
+
+                                   // ofile.Extension = Path.GetExtension(sv1.FileName).Substring(1); // don't forget to sub the <dot>
+                                    //ofile.Title = Path.GetFileNameWithoutExtension(FilePath);
+                                    ofiles.Add(-1, ofile);
+                                   
+
+
         }
 
 
@@ -268,7 +282,7 @@ namespace RSMPS
             {
                 //    ee.ExportBudgetForPrimavera(saveFileDialog1.FileName, moPCN.ID);
                 PDFEx.Export(rprt.Document, sv1.FileName);
-
+                
 
             }
 
