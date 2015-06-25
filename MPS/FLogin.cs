@@ -31,7 +31,7 @@ namespace RSMPS
         private void bttCancel_Click(object sender, EventArgs e)
         {
             if (OnCancelLogin != null)
-                OnCancelLogin(this, null);
+            OnCancelLogin(this, null);
 
             this.Close();
             

@@ -41,6 +41,8 @@ namespace RSMPS
         void fl_OnCancelLogin(object sender, EventArgs e)
         {
             tmrClose.Enabled = true;
+
+            this.Close(); //*********************Tried 6/25/2015***************Fixed
         }
 
        // private void SetDebugMenu()
@@ -105,7 +107,7 @@ namespace RSMPS
                 RSLib.COSecurity.Delete();
             //*****************************Added 6/16/15 *****************MZ
                 moLog.Name = this.UserName;
-                moLog.Save_LogOff();
+                             moLog.Save_LogOff(); //tried 6/25/2015
             //*************************************************************
 
             //}

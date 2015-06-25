@@ -70,11 +70,12 @@ namespace RSMPS
             // 
             // c1Button1
             // 
-            this.c1Button1.Location = new System.Drawing.Point(0, 35);
+            this.c1Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.c1Button1.Image = global::RSMPS.Properties.Resources.Save;
+            this.c1Button1.Location = new System.Drawing.Point(594, 28);
             this.c1Button1.Name = "c1Button1";
-            this.c1Button1.Size = new System.Drawing.Size(71, 48);
+            this.c1Button1.Size = new System.Drawing.Size(127, 53);
             this.c1Button1.TabIndex = 1;
-            this.c1Button1.Text = "Save";
             this.c1Button1.UseVisualStyleBackColor = true;
             this.c1Button1.Click += new System.EventHandler(this.c1Button1_Click);
             // 

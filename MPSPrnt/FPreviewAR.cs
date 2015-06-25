@@ -1,22 +1,32 @@
+using RSMPS.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+
+
+
 using GrapeCity.ActiveReports;
 
 
 
 using DataDynamics.ActiveReports;
+
 namespace RSMPS
 {
     public partial class FPreviewAR : Form
     {
         private SectionReport rprt;
 
+        public  string projNumber;
+        public string reportType;
+        
         public FPreviewAR()
         {
             InitializeComponent();
@@ -25,6 +35,9 @@ namespace RSMPS
 
         public void ViewReport(SectionReport ar)
         {
+           reportType = ar.GetType().ToString();
+            MessageBox.Show(reportType);
+
             rprt = ar;
             viewer1.Document = rprt.Document;
             rprt.Run();
@@ -218,7 +231,7 @@ namespace RSMPS
         const long pdfExportToolID = 42;
         private void FPreviewAR_Load(object sender, EventArgs e)
         {
-            var zoomOutButton = viewer1.TouchModeToolbar.ToolStrip.Items[8];
+           // var zoomOutButton = viewer1.TouchModeToolbar.ToolStrip.Items[8];
             //zoomOutButton.Visible = true;
 
         }
@@ -227,14 +240,48 @@ namespace RSMPS
         {
             GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport PDFEx = new GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport();
 
-            SaveFileDialog sv1 = new SaveFileDialog();
+
+            FPreviewAR pv = new FPreviewAR();
+            rprtBudgetDetail rprt = new rprtBudgetDetail();
+            DataSet ds;
+            CBBudget bud = new CBBudget();
+            CBProject proj = new CBProject();
+            CBCustomer cust = new CBCustomer();
+            CBLocation loc = new CBLocation();
+            CBState state = new CBState();
+
+            //bud.Load(budID);
+            proj.Load(bud.ProjectID);
+            cust.Load(proj.CustomerID);
+            loc.Load(proj.LocationID);
+            state.Load(loc.StateID);
            
-           // sv1.InitialDirectory = "c:\\MZ\\";
+            //MessageBox.Show(proj.Number);
+            MessageBox.Show("**********************************************");
+            MessageBox.Show(projNumber);
+
+           // string fileName = "Proposal Budget- "  + projNumber;
+
+           DateTime dt = DateTime.Now;
+            string fileName ;
+            if(reportType == "RSMPS.rprtBudgetDetail")
+
+             fileName = "Proposal Budget- " + projNumber  +" " + dt.ToString("yyyMMdd hhmmss"); 
+            else //if(reportType == "RSMPS.rprtPCIInformation")
+
+                 fileName = "Budget PCN- " + projNumber  +" " + dt.ToString("yyyMMdd hhmmss"); 
+
+            MessageBox.Show(fileName);
+
+            SaveFileDialog sv1 = new SaveFileDialog();
+            // sv1.InitialDirectory = "c:\\MZ\\";
             sv1.InitialDirectory = "v:\\HGA\\";
+
+            sv1.FileName = fileName;
             sv1.Filter = "PDF Files | *.pdf";
             sv1.DefaultExt = "pdf";
 
-            //PDFEx.FileFormat = GrapeCity.ActiveReports.Export.Pdf.Section.FileFormat.Xlsx;
+           
 
 
             if (sv1.ShowDialog() == DialogResult.OK)
@@ -246,8 +293,6 @@ namespace RSMPS
             }
 
 
-
-            //viewer1.Export(PDFEx, new System.IO.FileInfo(Application.StartupPath + "\\outputPDF.pdf"));
         }
     }
 }

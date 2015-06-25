@@ -101,8 +101,7 @@ namespace RSMPS
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.bttPDF = new System.Windows.Forms.Button();
+           // this.tabPage3 = new System.Windows.Forms.TabPage();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmnuAddRow = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteRowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -150,7 +149,6 @@ namespace RSMPS
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components);
             this.c1PdfDocument1 = new C1.C1Pdf.C1PdfDocument();
-            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).BeginInit();
             this.cmnuBudget.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -158,7 +156,6 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.tdbdPCNStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tdbgBudgetPCN)).BeginInit();
             this.tbpClarification.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).BeginInit();
@@ -475,7 +472,7 @@ namespace RSMPS
             this.tabControl1.ContextMenuStrip = this.cmnuBudget;
             this.tabControl1.Controls.Add(this.tbpPCN);
             this.tabControl1.Controls.Add(this.tbpClarification);
-            this.tabControl1.Controls.Add(this.tabPage3);
+           // this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.ItemSize = new System.Drawing.Size(105, 30);
             this.tabControl1.Location = new System.Drawing.Point(165, 30);
             this.tabControl1.Multiline = true;
@@ -796,25 +793,13 @@ namespace RSMPS
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.button6);
-            this.tabPage3.Controls.Add(this.bttPDF);
-            this.tabPage3.Location = new System.Drawing.Point(4, 34);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(961, 733);
-            this.tabPage3.TabIndex = 7;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // bttPDF
-            // 
-            this.bttPDF.Location = new System.Drawing.Point(64, 25);
-            this.bttPDF.Name = "bttPDF";
-            this.bttPDF.Size = new System.Drawing.Size(128, 55);
-            this.bttPDF.TabIndex = 0;
-            this.bttPDF.Text = "Save PDF";
-            this.bttPDF.UseVisualStyleBackColor = true;
-            this.bttPDF.Click += new System.EventHandler(this.bttPDF_Click);
+            //this.tabPage3.Location = new System.Drawing.Point(4, 34);
+            //this.tabPage3.Name = "tabPage3";
+            //this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            //this.tabPage3.Size = new System.Drawing.Size(961, 733);
+            //this.tabPage3.TabIndex = 7;
+            //this.tabPage3.Text = "tabPage3";
+            //this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // contextMenuStrip1
             // 
@@ -1270,16 +1255,6 @@ namespace RSMPS
             this.c1PdfDocument1.UseFastTextOut = false;
             this.c1PdfDocument1.UseFileCaching = false;
             // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(263, 23);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(128, 55);
-            this.button6.TabIndex = 1;
-            this.button6.Text = "Save M File";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
             // FBudgetMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1309,7 +1284,6 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.tdbgBudgetPCN)).EndInit();
             this.tbpClarification.ResumeLayout(false);
             this.tbpClarification.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).EndInit();
@@ -1444,8 +1418,6 @@ namespace RSMPS
         private C1.Win.C1SpellChecker.C1SpellChecker c1SpellChecker1;
         private System.Windows.Forms.Button button5;
         private C1.C1Pdf.C1PdfDocument c1PdfDocument1;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button bttPDF;
-        private System.Windows.Forms.Button button6; //*****************Added 5/20
+       // private System.Windows.Forms.TabPage tabPage3; //*****************Added 5/20
     }
 }

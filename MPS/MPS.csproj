@@ -664,6 +664,8 @@
     <Content Include="DataConfigCR.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Save.bmp" />
+    <Content Include="Resources\Save.PNG" />
     <None Include="Resources\testing.png" />
     <None Include="Resources\CheckX.png" />
     <None Include="Resources\CheckXAlt.png" />

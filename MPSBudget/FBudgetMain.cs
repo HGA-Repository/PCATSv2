@@ -3156,7 +3156,15 @@ namespace RSMPS
         {
             CPBudget bud = new CPBudget();
             this.Cursor = Cursors.WaitCursor;
+
+           // MessageBox.Show(moCurrBudget.ID.ToString());
+           // MessageBox.Show(moCurrBudget.ProjectID.ToString());
+            //MessageBox.Show(moCurrBudget.Description);
+
             bud.PreviewBudgetDetails(moCurrBudget.ID, cboWBS.Text);
+            
+            //MessageBox.Show(moCurrBudget.ID.ToString());
+
             this.Cursor = Cursors.Default;
         }
 
@@ -3972,27 +3980,7 @@ namespace RSMPS
             pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNChanged);
         }
 
-        private void bttPDF_Click(object sender, EventArgs e)
-        {
-            CPBudget bud = new CPBudget();
-            this.Cursor = Cursors.WaitCursor;
-            bud.SavePDF_BudgetDetails(moCurrBudget.ID, cboWBS.Text);
-            this.Cursor = Cursors.Default;
-            MessageBox.Show("file saved");
-           
-
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            CPBudget bud = new CPBudget();
-            this.Cursor = Cursors.WaitCursor;
-            bud.SaveMFile_BudgetDetails(moCurrBudget.ID, cboWBS.Text);
-            this.Cursor = Cursors.Default;
-            MessageBox.Show("file saved");
-        }
-
+     
        
 
         
