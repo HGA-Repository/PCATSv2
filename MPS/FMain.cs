@@ -12,7 +12,7 @@ namespace RSMPS
     {
         public String UserName; //*****************Added 6/12/15************MZ
         private CBLog moLog;
-
+        private bool calcelClicked ;
         public FMain()
         {
             InitializeComponent();
@@ -41,7 +41,7 @@ namespace RSMPS
         void fl_OnCancelLogin(object sender, EventArgs e)
         {
             tmrClose.Enabled = true;
-
+            calcelClicked=false;
             this.Close(); //*********************Tried 6/25/2015***************Fixed
         }
 
@@ -79,7 +79,7 @@ namespace RSMPS
 
             tssStatus1.Text = "Ready";
             tssStatus2.Text = DateTime.Now.ToShortDateString();
-
+            calcelClicked = true;
             SetAccessForSecurityLevel();
         }
 
@@ -106,8 +106,10 @@ namespace RSMPS
 
                 RSLib.COSecurity.Delete();
             //*****************************Added 6/16/15 *****************MZ
-                moLog.Name = this.UserName;
-                             moLog.Save_LogOff(); //tried 6/25/2015
+                if (calcelClicked == true)
+                {
+                    moLog.Name = this.UserName;
+                             moLog.Save_LogOff(); }//tried 6/25/2015
             //*************************************************************
 
             //}

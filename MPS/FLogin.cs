@@ -32,7 +32,7 @@ namespace RSMPS
         {
             if (OnCancelLogin != null)
             OnCancelLogin(this, null);
-
+           // Application.Exit();
             this.Close();
             
         }
