@@ -32,9 +32,9 @@ namespace RSMPS
         {
             if (OnCancelLogin != null)
             OnCancelLogin(this, null);
-           // Application.Exit();
-            this.Close();
             
+            this.Close();
+            Application.Exit();
         }
 
         private void FLogin_Load(object sender, EventArgs e)

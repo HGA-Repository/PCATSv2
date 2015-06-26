@@ -118,6 +118,7 @@ namespace RSMPS
              //   e.Cancel = true;
              //   this.Activate();
             //}
+      
         }
 
         private void mnuFileExit_Click(object sender, EventArgs e)   //*****************************Added 6/12/15
@@ -126,6 +127,7 @@ namespace RSMPS
             //    moLog.Name = this.UserName;
             //    moLog.Save_LogOff();
                 this.Close();
+                Application.Exit(); //**************************Added 6/25/15****MZ
            
         }
 
@@ -453,7 +455,7 @@ namespace RSMPS
             moLog.Name = this.UserName;
             //moLog.Save();
             moLog.Save_LogOff();
-            
+            calcelClicked = false; //************************Added 6/25/15
             // redo the login
             FLogin fl = new FLogin();
 
