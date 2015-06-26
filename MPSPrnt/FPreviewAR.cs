@@ -38,6 +38,8 @@ namespace RSMPS
            reportType = ar.GetType().ToString();
             MessageBox.Show(reportType);
 
+            MessageBox.Show(projNumber); //**********************************************************
+
             rprt = ar;
             viewer1.Document = rprt.Document;
             rprt.Run();
@@ -264,12 +266,14 @@ namespace RSMPS
 
            DateTime dt = DateTime.Now;
             string fileName ;
-            if(reportType == "RSMPS.rprtBudgetDetail")
+                        if(reportType == "RSMPS.rprtBudgetDetail")
+                                 fileName = "Proposal Budget Detail- " + projNumber  +" " + dt.ToString("yyyMMdd hhmmss"); 
+                        else 
+                            if(reportType == "RSMPS.rprtPCIInformation")
 
-             fileName = "Proposal Budget- " + projNumber  +" " + dt.ToString("yyyMMdd hhmmss"); 
-            else //if(reportType == "RSMPS.rprtPCIInformation")
+                             fileName = "Project Change Identification- " + projNumber  +" " + dt.ToString("yyyMMdd hhmmss");
 
-                 fileName = "Budget PCN- " + projNumber  +" " + dt.ToString("yyyMMdd hhmmss"); 
+                            else fileName = "Project Change Notice- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss"); 
 
             MessageBox.Show(fileName);
 

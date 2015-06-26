@@ -265,12 +265,44 @@ namespace RSMPS
             pv.ShowDialog();
         }
 
+        public void PreviewPCN_New(String projNumber,int pcnID) //******************************Added 6/25/15
+        {
+            FPreviewAR pv = new FPreviewAR();
+            rprtPCNMain rprt = new rprtPCNMain();
+            DataSet ds;
+            CBBudgetPCN pcn = new CBBudgetPCN();
+
+            ds = CBBudgetPCN.GetBudgetPCNInfoForReport(pcnID);
+            pcn.Load(pcnID);
+
+            rprt.SetInformation(pcn);
+            rprt.DataSource = ds;
+            rprt.DataMember = "Table";
+
+            //rprt.Run();
+            pv.projNumber = projNumber;
+
+            MessageBox.Show(pv.projNumber);
+
+            pv.ViewReport(rprt);
+            pv.ShowDialog();
+        }
+
+
+
+
+
+
+
+
+
         public void PreviewPCI(int pciID)
         {
             FPreviewAR pv = new FPreviewAR();
             rprtPCIInformation rprt = new rprtPCIInformation();
             CBPCIInfo info = new CBPCIInfo();
 
+           
             info.Load(pciID);
 
             rprt.SetInformation(info);
@@ -278,6 +310,39 @@ namespace RSMPS
             pv.ViewReport(rprt);
             pv.ShowDialog();
         }
+
+        public void PreviewPCI_New(string projNumber, int pciID) // *************************** Added 6/25/15
+        {
+            FPreviewAR pv = new FPreviewAR();
+            rprtPCIInformation rprt = new rprtPCIInformation();
+            CBPCIInfo info = new CBPCIInfo();
+
+            //CBBudget bud = new CBBudget();
+            //CBProject proj = new CBProject();
+            //bud.Load(budID);
+            //proj.Load(bud.ProjectID);
+
+
+            info.Load(pciID);
+
+            rprt.SetInformation(info);
+
+            pv.projNumber = projNumber;
+
+            MessageBox.Show(pv.projNumber);
+
+            pv.ViewReport(rprt);
+            pv.ShowDialog();
+        }
+
+
+
+
+
+
+
+
+
 
         public void PreviewAllBudget(int budID, string wbs)
         {

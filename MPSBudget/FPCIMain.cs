@@ -17,7 +17,8 @@ namespace RSMPS
         private int miProject = 0;
 
         private bool mbNewPCNNeeded = false;
-
+        private CBBudget moCurrBudget; //**********************************************
+        public string projectNumber;
         public void SetPCI(int pciID)
         {
             moPci = new CBPCIInfo();
@@ -284,6 +285,13 @@ namespace RSMPS
             emp.Load(moPci.InitiatedByID);
             proj.Load(moPci.ProjectID);
 
+            projectNumber = proj.Number; //////*************************************************
+
+            MessageBox.Show("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+
+            MessageBox.Show(projectNumber);
+
+
             txtDiscipline.Text = dept.Name;
             lblPCINumber.Text = moPci.PCINumber;
             txtPCITitle.Text = moPci.PCITitle;
@@ -362,6 +370,7 @@ namespace RSMPS
 
         private void tlbbPrint_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
+            //MessageBox.Show(projectNumber);
             if (IsValidPCI() == true)
             {
                 CPBudget pbud = new CPBudget();
@@ -372,7 +381,15 @@ namespace RSMPS
 
                 tlbbSave.Enabled = false;
 
-                pbud.PreviewPCI(moPci.ID);
+               // pbud.PreviewPCI(moPci.ID);
+
+               // string pn = moProj.Number;
+
+                 //MessageBox.Show(proj.Number);
+
+                MessageBox.Show(projectNumber);
+
+                pbud.PreviewPCI_New(projectNumber, moPci.ID);
 
                 if (OnPCIChanged != null)
                     OnPCIChanged(moPci.ID, "Printed");

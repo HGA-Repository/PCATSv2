@@ -772,9 +772,16 @@ namespace RSMPS
 
             tlbbSave.Enabled = false;
 
+
+            string pn = moProj.Number;
+           
+            //MessageBox.Show(pn);
+
             CPBudget pBud = new CPBudget();
 
-            pBud.PreviewPCN(moPCN.ID);
+           // pBud.PreviewPCN(moPCN.ID);
+
+            pBud.PreviewPCN_New(pn, moPCN.ID);
         }
 
         private void txtDescription_TextChanged(object sender, EventArgs e)
