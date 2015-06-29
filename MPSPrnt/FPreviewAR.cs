@@ -264,9 +264,9 @@ namespace RSMPS
             
            
            
-            MessageBox.Show(projNumber);
+           // MessageBox.Show(projNumber);
             //MessageBox.Show(pcnNumber);
-            MessageBox.Show(reportType);
+           // MessageBox.Show(reportType);
 
          
 
@@ -295,7 +295,7 @@ namespace RSMPS
                                      fileName = "Project Change Identification- " + projNumber  +" " + dt.ToString("yyyMMdd hhmmss");
                                 else
                                     if (reportType == "RSMPS.rprtJobStat1")
-                                        fileName = "Job Stat- "  + " " + dt.ToString("yyyMMdd hhmmss"); //******No project No, because there cn be many
+                                        fileName = "Job Stat- "  + " " + dt.ToString("yyyMMdd hhmmss"); //******No project No, because there may be many
                                     else
                                         if (reportType == "RSMPS.rprtPCNLog")
                                             fileName = "PCN Log- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
@@ -313,7 +313,7 @@ namespace RSMPS
                                                             fileName = "Job Varience- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
                                                              else
                                                                   if (reportType == "RSMPS.rprtDrawingLogTranAlt2")
-                                                                     fileName = "Drawing Log- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                                                      fileName = "Drawing Log- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss"); //******No project No, because there may be many
                                                             
                                                         
                                                         else fileName = "*****Report******* " + projNumber + " " + dt.ToString("yyyMMdd hhmmss"); 
