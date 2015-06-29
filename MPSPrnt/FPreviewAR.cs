@@ -37,6 +37,7 @@ namespace RSMPS
         public void ViewReport(SectionReport ar)
         {
            reportType = ar.GetType().ToString();
+           
            // MessageBox.Show(reportType);
 
            // MessageBox.Show(projNumber); //**********************************************************
@@ -48,6 +49,7 @@ namespace RSMPS
 
         public void ViewReportNoRun(SectionReport ar)
         {
+            reportType = ar.GetType().ToString();
             rprt = ar;
             viewer1.Document = rprt.Document;
         }
@@ -259,13 +261,14 @@ namespace RSMPS
             //loc.Load(proj.LocationID);
             //state.Load(loc.StateID);
            
-            //MessageBox.Show(proj.Number);
-            //MessageBox.Show("**********************************************");
+            
+           
+           
             MessageBox.Show(projNumber);
-            MessageBox.Show(pcnNumber);
+            //MessageBox.Show(pcnNumber);
             MessageBox.Show(reportType);
 
-           // string fileName = "Proposal Budget- "  + projNumber;
+         
 
            DateTime dt = DateTime.Now;
             string fileName ;
@@ -274,7 +277,19 @@ namespace RSMPS
 
                         else
                             if (reportType == "RSMPS.rprtPCNMain")
-                                fileName = "Project Change Notice- " + projNumber + " PCN No "  + pcnNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                fileName = "Project Change Notice- " + projNumber + " PCN No "  + pcnNumber + "--" + dt.ToString("yyyMMdd hhmmss");
+                            else
+                                if (reportType == "RSMPS.rprtBudgetSummary1")
+                                    fileName = "Budget Summary- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                else
+                                    if (reportType == "GrapeCity.ActiveReports.SectionReport")
+                                        fileName = "Proposal Budget Detail- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                        else
+                                            if (reportType == "RSMPS.rprtBudgetJobStat2")
+                                                fileName = "Job Stat Data- " + " " + projNumber + " " + dt.ToString("yyyMMdd hhmmss"); 
+                                              else
+                                                if (reportType == "RSMPS.rprtBudgetAccounting")
+                                                    fileName = "Budget Entry- " + " " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
                             else 
                                 if(reportType == "RSMPS.rprtPCIInformation")
                                      fileName = "Project Change Identification- " + projNumber  +" " + dt.ToString("yyyMMdd hhmmss");
@@ -296,7 +311,12 @@ namespace RSMPS
                                                     else
                                                         if (reportType == "RSMPS.rprtJobVariance1")
                                                             fileName = "Job Varience- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
-                            else fileName = "Report " + projNumber + " " + dt.ToString("yyyMMdd hhmmss"); 
+                                                             else
+                                                                  if (reportType == "RSMPS.rprtDrawingLogTranAlt2")
+                                                                     fileName = "Drawing Log- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                                            
+                                                        
+                                                        else fileName = "*****Report******* " + projNumber + " " + dt.ToString("yyyMMdd hhmmss"); 
 
             MessageBox.Show(fileName);
 

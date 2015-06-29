@@ -73,7 +73,7 @@ namespace RSMPS
             rprt.Contingency = contingency;
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
-
+            pv.projNumber = proj.Number; // **************************Added 6/29/2015 **************************
             pv.ViewReport(rprt);
             pv.ShowDialog();
         }
@@ -215,7 +215,7 @@ namespace RSMPS
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
 
-            //pv.projNumber = proj.Number; //**************************** added 6/27/2015 //****Commented on 6/29
+            pv.projNumber = proj.Number; //**************************** added 6/27/2015 //****Commented on 6/29
 
             pv.ViewReport(rprt);
             pv.ShowDialog();
@@ -243,7 +243,7 @@ namespace RSMPS
             rprt.SetTitles(cust.Name + " / " + loc.City + "," + state.Abbrev, proj.Description, proj.Number, bud.GetNumber(), wbs);
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
-
+            pv.projNumber = proj.Number; //*************************Added 6/29/15
             pv.ViewReport(rprt);
             pv.ShowDialog();
         }
@@ -285,7 +285,7 @@ namespace RSMPS
             pv.projNumber = projNumber;
             pv.pcnNumber = pcnNumber;
 
-            MessageBox.Show(pv.projNumber);
+           // MessageBox.Show(pv.projNumber);
 
 
             pv.ViewReport(rprt);
@@ -330,7 +330,7 @@ namespace RSMPS
 
             pv.projNumber = projNumber;
 
-            MessageBox.Show(pv.projNumber);
+           // MessageBox.Show(pv.projNumber);
 
             pv.ViewReport(rprt);
             pv.ShowDialog();
@@ -386,6 +386,55 @@ namespace RSMPS
             pv.ViewReportNoRun(rprtMain);
             pv.ShowDialog();
         }
+        public void PreviewAllBudget_New(int budID, string projNumber,string wbs) //*********************************Added 6/29
+        {
+            FPreviewAR pv = new FPreviewAR();
+            GrapeCity.ActiveReports.SectionReport rprtMain = new GrapeCity.ActiveReports.SectionReport();
+
+            GrapeCity.ActiveReports.Document.Section.PagesCollection pagesBudSum;
+            GrapeCity.ActiveReports.Document.Section.PagesCollection pagesBudDtl;
+            GrapeCity.ActiveReports.Document.Section.PagesCollection pagesJobStat;
+            GrapeCity.ActiveReports.Document.Section.PagesCollection pagesBudEntry;
+
+            pagesBudSum = CreatePagesBudgetSummary(budID, wbs);
+
+            for (int i = 0; i < pagesBudSum.Count; i++)
+            {
+                rprtMain.Document.Pages.Add(pagesBudSum[i]);
+            }
+
+            pagesBudDtl = CreatePagesBudgetDetails(budID, wbs);
+
+            for (int i = 0; i < pagesBudDtl.Count; i++)
+            {
+                rprtMain.Document.Pages.Add(pagesBudDtl[i]);
+            }
+
+            pagesJobStat = CreatePagesJobStat(budID, wbs);
+
+            for (int i = 0; i < pagesJobStat.Count; i++)
+            {
+                rprtMain.Document.Pages.Add(pagesJobStat[i]);
+            }
+
+            pagesBudEntry = CreatePagesBudgetFormEntry(budID, wbs);
+
+            for (int i = 0; i < pagesBudEntry.Count; i++)
+            {
+                rprtMain.Document.Pages.Add(pagesBudEntry[i]);
+            }
+
+            pv.projNumber = projNumber; //************************Added 6/29
+            pv.ViewReportNoRun(rprtMain);
+            pv.ShowDialog();
+        }
+
+
+
+
+
+
+
 
         private GrapeCity.ActiveReports.Document.Section.PagesCollection CreatePagesBudgetSummary(int budID, string wbs)
         {
@@ -531,9 +580,16 @@ namespace RSMPS
             rprt.DataSource = pciLog;
             rprt.DataMember = "Table";
 
+            pv.projNumber = hgaNum; // ******************* Added 6/29/15**************
             pv.ViewReport(rprt);
             pv.ShowDialog();
         }
+
+
+        
+
+
+
 
         public void PreviewPCNLog(string client, string project, string hgaNum, string clientNum, string pm, DataSet pcnLog)
         {
@@ -544,9 +600,15 @@ namespace RSMPS
             rprt.DataSource = pcnLog;
             rprt.DataMember = "Table";
 
+            pv.projNumber = hgaNum; //******************************Added 6/29/15
             pv.ViewReport(rprt);
             pv.ShowDialog();
         }
+
+       
+
+
+
 
         public static int GetRprtCase(string proj)
         {

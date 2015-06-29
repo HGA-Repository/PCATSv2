@@ -192,6 +192,7 @@ namespace RSMPS
             CPBudget prnt = new CPBudget();
 
             prnt.PreviewPCNLog(txtClient.Text, txtProjName.Text, txtHGANumber.Text, txtClientNumber.Text, txtProjectManager.Text, mdsPCNLogs);
+           //prnt.PreviewPCNLog_New(txtHGANumber.Text, txtClient.Text, txtProjName.Text, txtHGANumber.Text, txtClientNumber.Text, txtProjectManager.Text, mdsPCNLogs); //************ Added 6/29/15
         }
     }
 }

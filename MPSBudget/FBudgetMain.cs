@@ -3815,8 +3815,9 @@ namespace RSMPS
             CPBudget prnt = new CPBudget();
 
             this.Cursor = Cursors.WaitCursor;
-
-            prnt.PreviewAllBudget(moCurrBudget.ID, cboWBS.Text);
+            //string projNumber = moCurrBudget.pr
+            //prnt.PreviewAllBudget(moCurrBudget.ID, cboWBS.Text);
+            prnt.PreviewAllBudget_New(moCurrBudget.ID, msProject, cboWBS.Text);
 
             this.Cursor = Cursors.Default;
             c1ToolBar1.Cursor = Cursors.Default;
