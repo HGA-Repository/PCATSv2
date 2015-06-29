@@ -25,6 +25,7 @@ namespace RSMPS
         private SectionReport rprt;
 
         public  string projNumber;
+        public string pcnNumber;
         public string reportType;
         
         public FPreviewAR()
@@ -259,8 +260,9 @@ namespace RSMPS
             //state.Load(loc.StateID);
            
             //MessageBox.Show(proj.Number);
-            MessageBox.Show("**********************************************");
+            //MessageBox.Show("**********************************************");
             MessageBox.Show(projNumber);
+            MessageBox.Show(pcnNumber);
             MessageBox.Show(reportType);
 
            // string fileName = "Proposal Budget- "  + projNumber;
@@ -268,11 +270,11 @@ namespace RSMPS
            DateTime dt = DateTime.Now;
             string fileName ;
                         if(reportType == "RSMPS.rprtBudgetDetail")
-                                 fileName = "Proposal Budget Detail- " + projNumber  +" " + dt.ToString("yyyMMdd hhmmss");
+                                 fileName = "Proposal Budget Detail- " + projNumber   + " " + dt.ToString("yyyMMdd hhmmss");
 
                         else
                             if (reportType == "RSMPS.rprtPCNMain")
-                                fileName = "Project Change Notice- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                fileName = "Project Change Notice- " + projNumber + " PCN No "  + pcnNumber + " " + dt.ToString("yyyMMdd hhmmss");
                             else 
                                 if(reportType == "RSMPS.rprtPCIInformation")
                                      fileName = "Project Change Identification- " + projNumber  +" " + dt.ToString("yyyMMdd hhmmss");

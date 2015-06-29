@@ -267,7 +267,7 @@ namespace RSMPS
             pv.ShowDialog();
         }
 
-        public void PreviewPCN_New(String projNumber,int pcnID) //******************************Added 6/25/15
+        public void PreviewPCN_New(string projNumber, string pcnNumber, int pcnID) //******************************Added 6/25/15
         {
             FPreviewAR pv = new FPreviewAR();
             rprtPCNMain rprt = new rprtPCNMain();
@@ -283,8 +283,10 @@ namespace RSMPS
 
             //rprt.Run();
             pv.projNumber = projNumber;
+            pv.pcnNumber = pcnNumber;
 
             MessageBox.Show(pv.projNumber);
+
 
             pv.ViewReport(rprt);
             pv.ShowDialog();
