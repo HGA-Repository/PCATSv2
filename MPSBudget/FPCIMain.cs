@@ -287,9 +287,9 @@ namespace RSMPS
 
             projectNumber = proj.Number; //////*************************************************
 
-            MessageBox.Show("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+          //  MessageBox.Show("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 
-            MessageBox.Show(projectNumber);
+          //  MessageBox.Show(projectNumber);
 
 
             txtDiscipline.Text = dept.Name;
@@ -370,7 +370,7 @@ namespace RSMPS
 
         private void tlbbPrint_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
-            //MessageBox.Show(projectNumber);
+            
             if (IsValidPCI() == true)
             {
                 CPBudget pbud = new CPBudget();
@@ -387,7 +387,7 @@ namespace RSMPS
 
                  //MessageBox.Show(proj.Number);
 
-                MessageBox.Show(projectNumber);
+              //  MessageBox.Show(projectNumber);
 
                 pbud.PreviewPCI_New(projectNumber, moPci.ID);
 

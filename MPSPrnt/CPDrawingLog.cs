@@ -49,11 +49,13 @@ namespace RSMPS
 
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
-
+             pv = new FPreviewAR();
+             pv.ViewReport(rprt);
             if (isPreview == true)
             {
-                pv = new FPreviewAR();
-                pv.ViewReport(rprt);
+                //pv = new FPreviewAR(); //****Took these out of If Block, so that, ViewReport() is called, and reportType is available for Save file name
+                //pv.ViewReport(rprt);  //************** Done 6/29/15
+               
                 pv.ShowDialog();
             }
             else
@@ -81,10 +83,14 @@ namespace RSMPS
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
 
+
+            pv = new FPreviewAR();
+            pv.ViewReport(rprt);
+
             if (isPreview == true)
             {
-                pv = new FPreviewAR();
-                pv.ViewReport(rprt);
+                //pv = new FPreviewAR();
+                //pv.ViewReport(rprt);
                 pv.ShowDialog();
             }
             else
@@ -105,10 +111,14 @@ namespace RSMPS
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
 
+
+            pv = new FPreviewAR();
+            pv.ViewReport(rprt);
+
             if (isPreview == true)
             {
-                pv = new FPreviewAR();
-                pv.ViewReport(rprt);
+                //pv = new FPreviewAR();
+                //pv.ViewReport(rprt);
                 pv.ShowDialog();
             }
             else
@@ -129,10 +139,15 @@ namespace RSMPS
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
 
+
+
+            pv = new FPreviewAR();
+            pv.ViewReport(rprt);
+
             if (isPreview == true)
             {
-                pv = new FPreviewAR();
-                pv.ViewReport(rprt);
+                //pv = new FPreviewAR();
+                //pv.ViewReport(rprt);
                 pv.ShowDialog();
             }
             else
@@ -181,10 +196,14 @@ namespace RSMPS
             rprt.DataMember = "DrawingList";
             rprt.SetTitle = GetDrawingSpecTitle(drwgSpec);
 
+            pv = new FPreviewAR();
+            pv.ViewDrawingLogWithExcel(rprt);
+
+
             if (isPreview == true)
             {
-                pv = new FPreviewAR();
-                pv.ViewDrawingLogWithExcel(rprt);
+                //pv = new FPreviewAR();
+                //pv.ViewDrawingLogWithExcel(rprt);
                 pv.ShowDialog();
             }
             else
@@ -206,10 +225,13 @@ namespace RSMPS
             rprt.DataMember = "DrawingList";
             rprt.SetTitle = GetDrawingSpecTitle(drwgSpec);
 
+            pv = new FPreviewAR();
+            pv.ViewDrawingLogWithExcel(rprt);
+
             if (isPreview == true)
             {
-                pv = new FPreviewAR();
-                pv.ViewDrawingLogWithExcel(rprt);
+                //pv = new FPreviewAR();
+                //pv.ViewDrawingLogWithExcel(rprt);
                 pv.ShowDialog();
             }
             else
@@ -231,10 +253,14 @@ namespace RSMPS
             rprt.DataMember = "DrawingList";
             rprt.SetTitle = GetDrawingSpecTitle(drwgSpec);
 
+            pv = new FPreviewAR();
+            pv.ViewDrawingLogWithExcel(rprt);
+
+
             if (isPreview == true)
             {
-                pv = new FPreviewAR();
-                pv.ViewDrawingLogWithExcel(rprt);
+                //pv = new FPreviewAR();
+                //pv.ViewDrawingLogWithExcel(rprt);
                 pv.ShowDialog();
             }
             else

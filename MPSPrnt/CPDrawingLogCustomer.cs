@@ -98,10 +98,14 @@ namespace RSMPS
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
 
+
+            pv = new FPreviewAR();
+            pv.ViewReport(rprt);
+
             if (isPreview == true)
             {
-                pv = new FPreviewAR();
-                pv.ViewReport(rprt);
+                //pv = new FPreviewAR();
+                //pv.ViewReport(rprt);
                 pv.ShowDialog();
             }
             else
@@ -129,11 +133,13 @@ namespace RSMPS
 
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
+            pv = new FPreviewAR();
+            pv.ViewReport(rprt);
 
             if (isPreview == true)
             {
-                pv = new FPreviewAR();
-                pv.ViewReport(rprt);
+                //pv = new FPreviewAR();
+                //pv.ViewReport(rprt);
                 pv.ShowDialog();
             }
             else
@@ -155,10 +161,14 @@ namespace RSMPS
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
 
+
+            pv = new FPreviewAR();
+            pv.ViewReport(rprt);
+
             if (isPreview == true)
             {
-                pv = new FPreviewAR();
-                pv.ViewReport(rprt);
+                //pv = new FPreviewAR();
+                //pv.ViewReport(rprt);
                 pv.ShowDialog();
             }
             else
@@ -179,10 +189,14 @@ namespace RSMPS
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
 
+
+            pv = new FPreviewAR();
+            pv.ViewReport(rprt);
+
             if (isPreview == true)
             {
-                pv = new FPreviewAR();
-                pv.ViewReport(rprt);
+                //pv = new FPreviewAR();
+                //pv.ViewReport(rprt);
                 pv.ShowDialog();
             }
             else
@@ -213,11 +227,16 @@ namespace RSMPS
             rprt.DataSource = dl;
             rprt.DataMember = "DrawingList";
 
+            pv = new FPreviewAR();
+            //pv.ViewReport(rprt);
+            pv.ViewDrawingLogWithExcel(rprt);
+
+
             if (isPreview == true)
             {
-                pv = new FPreviewAR();
-                //pv.ViewReport(rprt);
-                pv.ViewDrawingLogWithExcel(rprt);
+                //pv = new FPreviewAR();
+                ////pv.ViewReport(rprt);
+                //pv.ViewDrawingLogWithExcel(rprt);
                 pv.ShowDialog();
             }
             else
@@ -240,10 +259,14 @@ namespace RSMPS
             rprt.DataSource = dl;
             rprt.DataMember = "DrawingList";
 
+            pv = new FPreviewAR();
+            pv.ViewReport(rprt);
+
+
             if (isPreview == true)
             {
-                pv = new FPreviewAR();
-                pv.ViewReport(rprt);
+                //pv = new FPreviewAR();
+                //pv.ViewReport(rprt);
                 pv.ShowDialog();
             }
             else
@@ -266,10 +289,14 @@ namespace RSMPS
             rprt.DataSource = dl;
             rprt.DataMember = "DrawingList";
 
+            pv = new FPreviewAR();
+            pv.ViewReport(rprt);
+
+
             if (isPreview == true)
             {
-                pv = new FPreviewAR();
-                pv.ViewReport(rprt);
+                //pv = new FPreviewAR();
+                //pv.ViewReport(rprt);
                 pv.ShowDialog();
             }
             else

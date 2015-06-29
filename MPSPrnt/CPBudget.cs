@@ -58,13 +58,14 @@ namespace RSMPS
             contingency = CBBudget.GetContingencyForBudget(budID);
 
             ds = CBBudget.GetBudgetSummaryForReport(budID, wbs);
-
-          
             if (proj.BusinessUnit() == 1) rprt.MainReportTitle = "Staffing Estimate Loaded Summary";
-            if (proj.BusinessUnit() == 2) rprt.MainReportTitle = "Engineering Estimate Loaded Summary";
+            if (proj.BusinessUnit() == 2)  rprt.MainReportTitle = "Engineering Estimate Loaded Summary";
             if (proj.BusinessUnit() == 3) rprt.MainReportTitle = "Pipeline Services Estimate Loaded Summary";
             if (proj.BusinessUnit() == 4) rprt.MainReportTitle = "Program Management Estimate Loaded Summary";
-            if (proj.BusinessUnit() == 5) rprt.MainReportTitle = "EPC Estimate Loaded Summary";
+           if (proj.BusinessUnit() == 5) rprt.MainReportTitle = "EPC Estimate Loaded Summary";
+                
+                   
+            
 
             rprt.SetTitles(proj.Number, proj.Description, bud.GetNumber(), cust.Name, loc.City + "," + state.Abbrev, wbs);
             rprt.TotalHours = totalHours;
@@ -73,6 +74,8 @@ namespace RSMPS
             rprt.Contingency = contingency;
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
+           
+            
             pv.projNumber = proj.Number; // **************************Added 6/29/2015 **************************
             pv.ViewReport(rprt);
             pv.ShowDialog();
@@ -98,11 +101,12 @@ namespace RSMPS
             ds = CBBudget.GetBudgetDetailsForReport(budID, wbs);
 
 
-            if (proj.BusinessUnit() == 1) rprt.MainReportTitle = "Staffing Estimate Loaded Details";
+            if (proj.BusinessUnit() == 1)  rprt.MainReportTitle = "Staffing Estimate Loaded Details";
             if (proj.BusinessUnit() == 2) rprt.MainReportTitle = "Engineering Estimate Loaded Details";
             if (proj.BusinessUnit() == 3) rprt.MainReportTitle = "Pipeline Services Estimate Loaded Details";
-            if (proj.BusinessUnit() == 4) rprt.MainReportTitle = "Program Management Estimate Loaded Details";
+            if (proj.BusinessUnit() == 4)  rprt.MainReportTitle = "Program Management Estimate Loaded Details";
             if (proj.BusinessUnit() == 5) rprt.MainReportTitle = "EPC Estimate Loaded Details";
+                
 
             pv.projNumber = proj.Number;
             
@@ -244,6 +248,7 @@ namespace RSMPS
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
             pv.projNumber = proj.Number; //*************************Added 6/29/15
+      
             pv.ViewReport(rprt);
             pv.ShowDialog();
         }

@@ -26,7 +26,9 @@ namespace RSMPS
 
         public  string projNumber;
         public string pcnNumber;
-        public string reportType;
+        public  string reportType;
+        
+        //public string BusinessUnit;
         
         public FPreviewAR()
         {
@@ -36,11 +38,12 @@ namespace RSMPS
 
         public void ViewReport(SectionReport ar)
         {
-           reportType = ar.GetType().ToString();
+            //MessageBox.Show("reportType");
+            reportType = ar.GetType().ToString();
            
-           // MessageBox.Show(reportType);
+            //MessageBox.Show(reportType);
 
-           // MessageBox.Show(projNumber); //**********************************************************
+           
 
             rprt = ar;
             viewer1.Document = rprt.Document;
@@ -56,6 +59,7 @@ namespace RSMPS
 
         public void ViewReportWithExcel(SectionReport ar)
         {
+            reportType = ar.GetType().ToString();
             rprt = ar;
             viewer1.Document = rprt.Document;
             rprt.Run();
@@ -63,6 +67,7 @@ namespace RSMPS
 
         public void ViewDrawingLogWithExcel(SectionReport ar)
         {
+            reportType = ar.GetType().ToString();
             rprt = ar;
             viewer1.Document = rprt.Document;
             rprt.Run();
@@ -266,7 +271,8 @@ namespace RSMPS
            
            // MessageBox.Show(projNumber);
             //MessageBox.Show(pcnNumber);
-           // MessageBox.Show(reportType);
+         //  MessageBox.Show(reportType);
+           //MessageBox.Show(BusinessUnit);
 
          
 
@@ -283,7 +289,7 @@ namespace RSMPS
                                     fileName = "Budget Summary- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
                                 else
                                     if (reportType == "GrapeCity.ActiveReports.SectionReport")
-                                        fileName = "Proposal Budget Detail- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                        fileName = "Proposal Budget Detail(All)- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
                                         else
                                             if (reportType == "RSMPS.rprtBudgetJobStat2")
                                                 fileName = "Job Stat Data- " + " " + projNumber + " " + dt.ToString("yyyMMdd hhmmss"); 
@@ -304,21 +310,23 @@ namespace RSMPS
                                                 fileName = "PCI Log- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
                                             else
                                                 if (reportType == "RSMPS.rprtCostSummary")
-                                                    fileName = "Cost Summary- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                                    fileName = "Cost Summary- " + " " + dt.ToString("yyyMMdd hhmmss");
                                                 else
                                                     if (reportType == "RSMPS.rprtPMReport1")
-                                                        fileName = "PM Report- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                                        fileName = "PM Report- " + " " + dt.ToString("yyyMMdd hhmmss");
                                                     else
                                                         if (reportType == "RSMPS.rprtJobVariance1")
-                                                            fileName = "Job Varience- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                                            fileName = "Job Varience- " + " " + dt.ToString("yyyMMdd hhmmss");
                                                              else
                                                                   if (reportType == "RSMPS.rprtDrawingLogTranAlt2")
-                                                                      fileName = "Drawing Log- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss"); //******No project No, because there may be many
-                                                            
-                                                        
-                                                        else fileName = "*****Report******* " + projNumber + " " + dt.ToString("yyyMMdd hhmmss"); 
+                                                                   fileName = "Drawing Log- "+ " " + dt.ToString("yyyMMdd hhmmss"); //******No project No, because there may be many
 
-            MessageBox.Show(fileName);
+                                                                  else
+                                                                      if (reportType == "RSMPS.rprtForecastRemaining")
+                                                                          fileName = "Forecast Remaining- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss"); 
+                                                        else fileName = "Report-" + dt.ToString("yyyMMdd hhmmss"); 
+
+           // MessageBox.Show(fileName);
 
             SaveFileDialog sv1 = new SaveFileDialog();
             // sv1.InitialDirectory = "c:\\MZ\\";
