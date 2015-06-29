@@ -23,7 +23,7 @@ using DataDynamics.ActiveReports;
 
 using System.Net;
 using System.Runtime.Serialization.Json;
-using MFiles.Mfws.Structs;
+//using MFiles.Mfws.Structs;
 
 namespace RSMPS
 {
@@ -215,6 +215,8 @@ namespace RSMPS
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
 
+            //pv.projNumber = proj.Number; //**************************** added 6/27/2015 //****Commented on 6/29
+
             pv.ViewReport(rprt);
             pv.ShowDialog();
         }
@@ -290,10 +292,7 @@ namespace RSMPS
 
 
 
-
-
-
-
+        
 
 
         public void PreviewPCI(int pciID)

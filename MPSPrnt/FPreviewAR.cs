@@ -36,9 +36,9 @@ namespace RSMPS
         public void ViewReport(SectionReport ar)
         {
            reportType = ar.GetType().ToString();
-            MessageBox.Show(reportType);
+           // MessageBox.Show(reportType);
 
-            MessageBox.Show(projNumber); //**********************************************************
+           // MessageBox.Show(projNumber); //**********************************************************
 
             rprt = ar;
             viewer1.Document = rprt.Document;
@@ -243,37 +243,58 @@ namespace RSMPS
             GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport PDFEx = new GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport();
 
 
-            FPreviewAR pv = new FPreviewAR();
-            rprtBudgetDetail rprt = new rprtBudgetDetail();
-            DataSet ds;
-            CBBudget bud = new CBBudget();
-            CBProject proj = new CBProject();
-            CBCustomer cust = new CBCustomer();
-            CBLocation loc = new CBLocation();
-            CBState state = new CBState();
+            //FPreviewAR pv = new FPreviewAR();
+            //rprtBudgetDetail rprt = new rprtBudgetDetail();
+            //DataSet ds;
+            //CBBudget bud = new CBBudget();
+            //CBProject proj = new CBProject();
+            //CBCustomer cust = new CBCustomer();
+            //CBLocation loc = new CBLocation();
+            //CBState state = new CBState();
 
-            //bud.Load(budID);
-            proj.Load(bud.ProjectID);
-            cust.Load(proj.CustomerID);
-            loc.Load(proj.LocationID);
-            state.Load(loc.StateID);
+            ////bud.Load(budID);
+            //proj.Load(bud.ProjectID);
+            //cust.Load(proj.CustomerID);
+            //loc.Load(proj.LocationID);
+            //state.Load(loc.StateID);
            
             //MessageBox.Show(proj.Number);
             MessageBox.Show("**********************************************");
             MessageBox.Show(projNumber);
+            MessageBox.Show(reportType);
 
            // string fileName = "Proposal Budget- "  + projNumber;
 
            DateTime dt = DateTime.Now;
             string fileName ;
                         if(reportType == "RSMPS.rprtBudgetDetail")
-                                 fileName = "Proposal Budget Detail- " + projNumber  +" " + dt.ToString("yyyMMdd hhmmss"); 
-                        else 
-                            if(reportType == "RSMPS.rprtPCIInformation")
+                                 fileName = "Proposal Budget Detail- " + projNumber  +" " + dt.ToString("yyyMMdd hhmmss");
 
-                             fileName = "Project Change Identification- " + projNumber  +" " + dt.ToString("yyyMMdd hhmmss");
-
-                            else fileName = "Project Change Notice- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss"); 
+                        else
+                            if (reportType == "RSMPS.rprtPCNMain")
+                                fileName = "Project Change Notice- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                            else 
+                                if(reportType == "RSMPS.rprtPCIInformation")
+                                     fileName = "Project Change Identification- " + projNumber  +" " + dt.ToString("yyyMMdd hhmmss");
+                                else
+                                    if (reportType == "RSMPS.rprtJobStat1")
+                                        fileName = "Job Stat- "  + " " + dt.ToString("yyyMMdd hhmmss"); //******No project No, because there cn be many
+                                    else
+                                        if (reportType == "RSMPS.rprtPCNLog")
+                                            fileName = "PCN Log- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                        else
+                                            if (reportType == "RSMPS.rprtPCILog")
+                                                fileName = "PCI Log- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                            else
+                                                if (reportType == "RSMPS.rprtCostSummary")
+                                                    fileName = "Cost Summary- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                                else
+                                                    if (reportType == "RSMPS.rprtPMReport1")
+                                                        fileName = "PM Report- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                                    else
+                                                        if (reportType == "RSMPS.rprtJobVariance1")
+                                                            fileName = "Job Varience- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                            else fileName = "Report " + projNumber + " " + dt.ToString("yyyMMdd hhmmss"); 
 
             MessageBox.Show(fileName);
 
