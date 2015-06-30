@@ -285,7 +285,7 @@ namespace RSMPS
             emp.Load(moPci.InitiatedByID);
             proj.Load(moPci.ProjectID);
 
-            projectNumber = proj.Number; //////*************************************************
+            projectNumber = proj.Number; //////*************************************************6/25/15
 
           //  MessageBox.Show("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 
