@@ -116,7 +116,6 @@ namespace RSMPS
             // 
             // Detail
             // 
-            this.Detail.ColumnSpacing = 0F;
             this.Detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.TextBox,
             this.TextBox1,
@@ -162,42 +161,42 @@ namespace RSMPS
             // 
             this.TextBox2.DataField = "DlrsPerItem";
             this.TextBox2.Height = 0.2F;
-            this.TextBox2.Left = 3.0625F;
+            this.TextBox2.Left = 2.9F;
             this.TextBox2.Name = "TextBox2";
             this.TextBox2.OutputFormat = resources.GetString("TextBox2.OutputFormat");
             this.TextBox2.Style = "text-align: right";
             this.TextBox2.Text = "TextBox";
             this.TextBox2.Top = 0F;
-            this.TextBox2.Width = 0.75F;
+            this.TextBox2.Width = 1.1F;
             // 
             // TextBox3
             // 
             this.TextBox3.DataField = "NumItems";
             this.TextBox3.Height = 0.2F;
-            this.TextBox3.Left = 3.875F;
+            this.TextBox3.Left = 4F;
             this.TextBox3.Name = "TextBox3";
             this.TextBox3.Style = "text-align: right";
             this.TextBox3.Text = "TextBox";
             this.TextBox3.Top = 0F;
-            this.TextBox3.Width = 0.5625F;
+            this.TextBox3.Width = 0.6F;
             // 
             // TextBox4
             // 
             this.TextBox4.DataField = "MUPerc";
             this.TextBox4.Height = 0.2F;
-            this.TextBox4.Left = 4.5F;
+            this.TextBox4.Left = 4.6F;
             this.TextBox4.Name = "TextBox4";
             this.TextBox4.OutputFormat = resources.GetString("TextBox4.OutputFormat");
             this.TextBox4.Style = "text-align: right";
             this.TextBox4.Text = "TextBox";
             this.TextBox4.Top = 0F;
-            this.TextBox4.Width = 0.5625F;
+            this.TextBox4.Width = 0.4F;
             // 
             // TextBox5
             // 
             this.TextBox5.DataField = "MarkUp";
             this.TextBox5.Height = 0.2F;
-            this.TextBox5.Left = 5.125F;
+            this.TextBox5.Left = 5F;
             this.TextBox5.Name = "TextBox5";
             this.TextBox5.OutputFormat = resources.GetString("TextBox5.OutputFormat");
             this.TextBox5.Style = "text-align: right";
@@ -209,26 +208,26 @@ namespace RSMPS
             // 
             this.TextBox6.DataField = "TotalCost";
             this.TextBox6.Height = 0.2F;
-            this.TextBox6.Left = 6.1875F;
+            this.TextBox6.Left = 6F;
             this.TextBox6.Name = "TextBox6";
             this.TextBox6.OutputFormat = resources.GetString("TextBox6.OutputFormat");
             this.TextBox6.Style = "text-align: right";
             this.TextBox6.Text = "TextBox";
             this.TextBox6.Top = 0F;
-            this.TextBox6.Width = 1F;
+            this.TextBox6.Width = 1.18F;
             // 
             // Line
             // 
-            this.Line.Height = 0F;
+            this.Line.Height = 0.002083302F;
             this.Line.Left = 0F;
             this.Line.LineWeight = 1F;
             this.Line.Name = "Line";
             this.Line.Top = 0.1979167F;
-            this.Line.Width = 7F;
+            this.Line.Width = 7.187F;
             this.Line.X1 = 0F;
-            this.Line.X2 = 7F;
+            this.Line.X2 = 7.187F;
             this.Line.Y1 = 0.1979167F;
-            this.Line.Y2 = 0.1979167F;
+            this.Line.Y2 = 0.2F;
             // 
             // Line5
             // 
@@ -246,80 +245,80 @@ namespace RSMPS
             // Line6
             // 
             this.Line6.Height = 0.1875F;
-            this.Line6.Left = 3.0625F;
+            this.Line6.Left = 2.9F;
             this.Line6.LineWeight = 1F;
             this.Line6.Name = "Line6";
             this.Line6.Top = 0F;
             this.Line6.Width = 0F;
-            this.Line6.X1 = 3.0625F;
-            this.Line6.X2 = 3.0625F;
+            this.Line6.X1 = 2.9F;
+            this.Line6.X2 = 2.9F;
             this.Line6.Y1 = 0F;
             this.Line6.Y2 = 0.1875F;
             // 
             // Line7
             // 
             this.Line7.Height = 0.1875F;
-            this.Line7.Left = 3.875F;
+            this.Line7.Left = 4F;
             this.Line7.LineWeight = 1F;
             this.Line7.Name = "Line7";
             this.Line7.Top = 0F;
             this.Line7.Width = 0F;
-            this.Line7.X1 = 3.875F;
-            this.Line7.X2 = 3.875F;
+            this.Line7.X1 = 4F;
+            this.Line7.X2 = 4F;
             this.Line7.Y1 = 0F;
             this.Line7.Y2 = 0.1875F;
             // 
             // Line8
             // 
             this.Line8.Height = 0.1875F;
-            this.Line8.Left = 4.5F;
+            this.Line8.Left = 4.6F;
             this.Line8.LineWeight = 1F;
             this.Line8.Name = "Line8";
             this.Line8.Top = 0F;
             this.Line8.Width = 0F;
-            this.Line8.X1 = 4.5F;
-            this.Line8.X2 = 4.5F;
+            this.Line8.X1 = 4.6F;
+            this.Line8.X2 = 4.6F;
             this.Line8.Y1 = 0F;
             this.Line8.Y2 = 0.1875F;
             // 
             // Line9
             // 
             this.Line9.Height = 0.1875F;
-            this.Line9.Left = 5.125F;
+            this.Line9.Left = 5F;
             this.Line9.LineWeight = 1F;
             this.Line9.Name = "Line9";
             this.Line9.Top = 0F;
             this.Line9.Width = 0F;
-            this.Line9.X1 = 5.125F;
-            this.Line9.X2 = 5.125F;
+            this.Line9.X1 = 5F;
+            this.Line9.X2 = 5F;
             this.Line9.Y1 = 0F;
             this.Line9.Y2 = 0.1875F;
             // 
             // Line10
             // 
             this.Line10.Height = 0.1875F;
-            this.Line10.Left = 6.1875F;
+            this.Line10.Left = 6F;
             this.Line10.LineWeight = 1F;
             this.Line10.Name = "Line10";
             this.Line10.Top = 0F;
             this.Line10.Width = 0F;
-            this.Line10.X1 = 6.1875F;
-            this.Line10.X2 = 6.1875F;
+            this.Line10.X1 = 6F;
+            this.Line10.X2 = 6F;
             this.Line10.Y1 = 0F;
             this.Line10.Y2 = 0.1875F;
             // 
             // Line11
             // 
-            this.Line11.Height = 0.1875F;
-            this.Line11.Left = 7.1875F;
+            this.Line11.Height = 0.2F;
+            this.Line11.Left = 7.18F;
             this.Line11.LineWeight = 1F;
             this.Line11.Name = "Line11";
             this.Line11.Top = 0F;
             this.Line11.Width = 0F;
-            this.Line11.X1 = 7.1875F;
-            this.Line11.X2 = 7.1875F;
+            this.Line11.X1 = 7.18F;
+            this.Line11.X2 = 7.18F;
             this.Line11.Y1 = 0F;
-            this.Line11.Y2 = 0.1875F;
+            this.Line11.Y2 = 0.2F;
             // 
             // Line12
             // 
@@ -366,114 +365,114 @@ namespace RSMPS
             this.Shape.Height = 0.25F;
             this.Shape.Left = 0F;
             this.Shape.Name = "Shape";
-            this.Shape.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape.Top = 0.25F;
-            this.Shape.Width = 7.2F;
+            this.Shape.Width = 7.18F;
             // 
             // Label2
             // 
             this.Label2.Height = 0.2F;
             this.Label2.HyperLink = null;
-            this.Label2.Left = 3.0625F;
+            this.Label2.Left = 2.7F;
             this.Label2.Name = "Label2";
             this.Label2.Style = "text-align: center";
             this.Label2.Text = "$ per Item";
             this.Label2.Top = 0.25F;
-            this.Label2.Width = 0.75F;
+            this.Label2.Width = 1.3F;
             // 
             // Label3
             // 
             this.Label3.Height = 0.2F;
             this.Label3.HyperLink = null;
-            this.Label3.Left = 3.875F;
+            this.Label3.Left = 4F;
             this.Label3.Name = "Label3";
             this.Label3.Style = "text-align: center";
             this.Label3.Text = "# Items";
             this.Label3.Top = 0.25F;
-            this.Label3.Width = 0.5625F;
+            this.Label3.Width = 0.6F;
             // 
             // Label4
             // 
             this.Label4.Height = 0.2F;
             this.Label4.HyperLink = null;
-            this.Label4.Left = 4.5F;
+            this.Label4.Left = 4.6F;
             this.Label4.Name = "Label4";
             this.Label4.Style = "text-align: center";
             this.Label4.Text = "MU %";
             this.Label4.Top = 0.25F;
-            this.Label4.Width = 0.5625F;
+            this.Label4.Width = 0.425F;
             // 
             // Label5
             // 
             this.Label5.Height = 0.2F;
             this.Label5.HyperLink = null;
-            this.Label5.Left = 5.125F;
+            this.Label5.Left = 5F;
             this.Label5.Name = "Label5";
             this.Label5.Style = "text-align: center";
             this.Label5.Text = "Markup";
-            this.Label5.Top = 0.25F;
+            this.Label5.Top = 0.26F;
             this.Label5.Width = 1F;
             // 
             // Label6
             // 
             this.Label6.Height = 0.2F;
             this.Label6.HyperLink = null;
-            this.Label6.Left = 6.1875F;
+            this.Label6.Left = 6.007F;
             this.Label6.Name = "Label6";
             this.Label6.Style = "text-align: center";
             this.Label6.Text = "Total";
-            this.Label6.Top = 0.25F;
-            this.Label6.Width = 1F;
+            this.Label6.Top = 0.26F;
+            this.Label6.Width = 1.18F;
             // 
             // Line1
             // 
             this.Line1.Height = 0.25F;
-            this.Line1.Left = 3.875F;
+            this.Line1.Left = 4F;
             this.Line1.LineWeight = 1F;
             this.Line1.Name = "Line1";
             this.Line1.Top = 0.25F;
             this.Line1.Width = 0F;
-            this.Line1.X1 = 3.875F;
-            this.Line1.X2 = 3.875F;
+            this.Line1.X1 = 4F;
+            this.Line1.X2 = 4F;
             this.Line1.Y1 = 0.25F;
             this.Line1.Y2 = 0.5F;
             // 
             // Line2
             // 
             this.Line2.Height = 0.25F;
-            this.Line2.Left = 4.5F;
+            this.Line2.Left = 4.6F;
             this.Line2.LineWeight = 1F;
             this.Line2.Name = "Line2";
             this.Line2.Top = 0.25F;
             this.Line2.Width = 0F;
-            this.Line2.X1 = 4.5F;
-            this.Line2.X2 = 4.5F;
+            this.Line2.X1 = 4.6F;
+            this.Line2.X2 = 4.6F;
             this.Line2.Y1 = 0.25F;
             this.Line2.Y2 = 0.5F;
             // 
             // Line3
             // 
             this.Line3.Height = 0.25F;
-            this.Line3.Left = 5.125F;
+            this.Line3.Left = 5F;
             this.Line3.LineWeight = 1F;
             this.Line3.Name = "Line3";
             this.Line3.Top = 0.25F;
             this.Line3.Width = 0F;
-            this.Line3.X1 = 5.125F;
-            this.Line3.X2 = 5.125F;
+            this.Line3.X1 = 5F;
+            this.Line3.X2 = 5F;
             this.Line3.Y1 = 0.25F;
             this.Line3.Y2 = 0.5F;
             // 
             // Line4
             // 
             this.Line4.Height = 0.25F;
-            this.Line4.Left = 6.1875F;
+            this.Line4.Left = 6F;
             this.Line4.LineWeight = 1F;
             this.Line4.Name = "Line4";
             this.Line4.Top = 0.25F;
             this.Line4.Width = 0F;
-            this.Line4.X1 = 6.1875F;
-            this.Line4.X2 = 6.1875F;
+            this.Line4.X1 = 6F;
+            this.Line4.X2 = 6F;
             this.Line4.Y1 = 0.25F;
             this.Line4.Y2 = 0.5F;
             // 
@@ -505,15 +504,15 @@ namespace RSMPS
             this.Shape1.Height = 0.25F;
             this.Shape1.Left = 0F;
             this.Shape1.Name = "Shape1";
-            this.Shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape1.Top = 0F;
-            this.Shape1.Width = 7.2F;
+            this.Shape1.Width = 7.18F;
             // 
             // TextBox7
             // 
             this.TextBox7.DataField = "TotalCost";
             this.TextBox7.Height = 0.2F;
-            this.TextBox7.Left = 6.1875F;
+            this.TextBox7.Left = 6F;
             this.TextBox7.Name = "TextBox7";
             this.TextBox7.OutputFormat = resources.GetString("TextBox7.OutputFormat");
             this.TextBox7.Style = "text-align: right";
@@ -521,13 +520,13 @@ namespace RSMPS
             this.TextBox7.SummaryType = GrapeCity.ActiveReports.SectionReportModel.SummaryType.GrandTotal;
             this.TextBox7.Text = "TextBox";
             this.TextBox7.Top = 0F;
-            this.TextBox7.Width = 1F;
+            this.TextBox7.Width = 1.18F;
             // 
             // Label
             // 
             this.Label.Height = 0.2F;
             this.Label.HyperLink = null;
-            this.Label.Left = 5.1875F;
+            this.Label.Left = 4.957F;
             this.Label.Name = "Label";
             this.Label.Style = "font-family: Arial; font-size: 9.75pt";
             this.Label.Text = "Total Expenses";
@@ -537,13 +536,13 @@ namespace RSMPS
             // Line13
             // 
             this.Line13.Height = 0.25F;
-            this.Line13.Left = 6.1875F;
+            this.Line13.Left = 6F;
             this.Line13.LineWeight = 1F;
             this.Line13.Name = "Line13";
             this.Line13.Top = 0F;
             this.Line13.Width = 0F;
-            this.Line13.X1 = 6.1875F;
-            this.Line13.X2 = 6.1875F;
+            this.Line13.X1 = 6F;
+            this.Line13.X2 = 6F;
             this.Line13.Y1 = 0F;
             this.Line13.Y2 = 0.25F;
             // 
@@ -552,7 +551,6 @@ namespace RSMPS
             this.textBox8.Height = 0.448F;
             this.textBox8.Left = 0F;
             this.textBox8.Name = "textBox8";
-            this.textBox8.Text = "";
             this.textBox8.Top = 0.302F;
             this.textBox8.Width = 7F;
             // 
@@ -565,7 +563,7 @@ namespace RSMPS
             this.DataSource = sqlDBDataSource1;
             this.PageSettings.PaperHeight = 11F;
             this.PageSettings.PaperWidth = 8.5F;
-            this.PrintWidth = 7.2F;
+            this.PrintWidth = 7.221417F;
             this.Sections.Add(this.PageHeader);
             this.Sections.Add(this.GroupHeader1);
             this.Sections.Add(this.Detail);

@@ -119,7 +119,7 @@ namespace RSMPS
                 string t_Digit = "";
                 t_Digit = JNum.Substring(0, 3);
 
-
+                
 
                 if (f_Digit == 1)
                 {
@@ -663,13 +663,13 @@ namespace RSMPS
             this.subPCNHours.Name = "subPCNHours";
             this.subPCNHours.Report = null;
             this.subPCNHours.ReportName = "subReport1";
-            this.subPCNHours.Top = 7.738F;
+            this.subPCNHours.Top = 7.708F;
             this.subPCNHours.Width = 7.25F;
             // 
             // subPCNExpenses
             // 
             this.subPCNExpenses.CloseBorder = false;
-            this.subPCNExpenses.Height = 0.125F;
+            this.subPCNExpenses.Height = 0.2080011F;
             this.subPCNExpenses.Left = 0F;
             this.subPCNExpenses.Name = "subPCNExpenses";
             this.subPCNExpenses.Report = null;
@@ -1356,38 +1356,38 @@ namespace RSMPS
             // 
             // label1
             // 
-            this.label1.Height = 0.25F;
+            this.label1.Height = 0.2F;
             this.label1.HyperLink = null;
-            this.label1.Left = 4.6875F;
+            this.label1.Left = 4.687F;
             this.label1.Name = "label1";
             this.label1.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.label1.Text = "Total Change:";
-            this.label1.Top = 8.175505F;
-            this.label1.Width = 1.0625F;
+            this.label1.Top = 8.2F;
+            this.label1.Width = 1.063F;
             // 
             // txtTotalChange
             // 
-            this.txtTotalChange.Height = 0.25F;
-            this.txtTotalChange.Left = 5.875F;
+            this.txtTotalChange.Height = 0.2F;
+            this.txtTotalChange.Left = 6F;
             this.txtTotalChange.Name = "txtTotalChange";
             this.txtTotalChange.Style = "font-family: Times New Roman; font-size: 12pt; text-align: right; ddo-char-set: 0" +
     "";
             this.txtTotalChange.Text = "textBox4";
-            this.txtTotalChange.Top = 8.175505F;
-            this.txtTotalChange.Width = 1F;
+            this.txtTotalChange.Top = 8.2F;
+            this.txtTotalChange.Width = 1.18F;
             // 
             // line8
             // 
             this.line8.Height = 0F;
-            this.line8.Left = 5.8125F;
+            this.line8.Left = 6F;
             this.line8.LineWeight = 1F;
             this.line8.Name = "line8";
-            this.line8.Top = 8.425507F;
-            this.line8.Width = 1.125F;
-            this.line8.X1 = 5.8125F;
-            this.line8.X2 = 6.9375F;
-            this.line8.Y1 = 8.425507F;
-            this.line8.Y2 = 8.425507F;
+            this.line8.Top = 8.426001F;
+            this.line8.Width = 1.18F;
+            this.line8.X1 = 6F;
+            this.line8.X2 = 7.18F;
+            this.line8.Y1 = 8.426001F;
+            this.line8.Y2 = 8.426001F;
             // 
             // label4
             // 

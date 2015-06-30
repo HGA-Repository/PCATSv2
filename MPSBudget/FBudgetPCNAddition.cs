@@ -776,7 +776,7 @@ namespace RSMPS
             string projNumber = moProj.Number;
             string pcnNumber = moPCN.PCNNumber;
 
-          //  MessageBox.Show(pcnNumber);
+          //  MessageBox.Show(projNumber);
 
             CPBudget pBud = new CPBudget();
 

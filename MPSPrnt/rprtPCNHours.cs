@@ -154,7 +154,7 @@ namespace RSMPS
             this.Line14,
             this.Line15,
             this.Line16});
-            this.Detail.Height = 0.55175F;
+            this.Detail.Height = 0.208F;
             this.Detail.Name = "Detail";
             // 
             // TextBox
@@ -164,7 +164,7 @@ namespace RSMPS
             this.TextBox.Left = 0.02000024F;
             this.TextBox.Name = "TextBox";
             this.TextBox.Text = "TextBox";
-            this.TextBox.Top = 0.07F;
+            this.TextBox.Top = 0F;
             this.TextBox.Width = 0.5F;
             // 
             // TextBox1
@@ -174,18 +174,18 @@ namespace RSMPS
             this.TextBox1.Left = 0.5625002F;
             this.TextBox1.Name = "TextBox1";
             this.TextBox1.Text = "TextBox";
-            this.TextBox1.Top = 0.07F;
+            this.TextBox1.Top = 0F;
             this.TextBox1.Width = 0.375F;
             // 
             // TextBox2
             // 
             this.TextBox2.CanShrink = true;
             this.TextBox2.DataField = "Description";
-            this.TextBox2.Height = 0.1875F;
+            this.TextBox2.Height = 0.2F;
             this.TextBox2.Left = 1F;
             this.TextBox2.Name = "TextBox2";
             this.TextBox2.Text = "TextBox";
-            this.TextBox2.Top = 0.07F;
+            this.TextBox2.Top = 0F;
             this.TextBox2.Width = 2.625F;
             // 
             // TextBox3
@@ -196,7 +196,7 @@ namespace RSMPS
             this.TextBox3.Name = "TextBox3";
             this.TextBox3.Style = "text-align: right";
             this.TextBox3.Text = "TextBox";
-            this.TextBox3.Top = 0.07F;
+            this.TextBox3.Top = 0F;
             this.TextBox3.Width = 0.375F;
             // 
             // TextBox4
@@ -207,183 +207,183 @@ namespace RSMPS
             this.TextBox4.Name = "TextBox4";
             this.TextBox4.Style = "text-align: right";
             this.TextBox4.Text = "TextBox";
-            this.TextBox4.Top = 0.07F;
-            this.TextBox4.Width = 0.6875F;
+            this.TextBox4.Top = 0F;
+            this.TextBox4.Width = 0.63F;
             // 
             // TextBox5
             // 
             this.TextBox5.DataField = "Rate";
             this.TextBox5.Height = 0.2F;
-            this.TextBox5.Left = 4.8125F;
+            this.TextBox5.Left = 4.7F;
             this.TextBox5.Name = "TextBox5";
             this.TextBox5.OutputFormat = resources.GetString("TextBox5.OutputFormat");
             this.TextBox5.Style = "text-align: right";
             this.TextBox5.Text = "TextBox";
-            this.TextBox5.Top = 0.07F;
-            this.TextBox5.Width = 0.625F;
+            this.TextBox5.Top = 0F;
+            this.TextBox5.Width = 0.6849999F;
             // 
             // TextBox6
             // 
             this.TextBox6.DataField = "SubtotalHrs";
             this.TextBox6.Height = 0.2F;
-            this.TextBox6.Left = 5.5F;
+            this.TextBox6.Left = 5.4F;
             this.TextBox6.Name = "TextBox6";
             this.TextBox6.Style = "text-align: right";
             this.TextBox6.Text = "TextBox";
-            this.TextBox6.Top = 0.07F;
+            this.TextBox6.Top = 0F;
             this.TextBox6.Width = 0.625F;
             // 
             // TextBox7
             // 
             this.TextBox7.DataField = "SubtotalDlrs";
             this.TextBox7.Height = 0.2F;
-            this.TextBox7.Left = 6.1875F;
+            this.TextBox7.Left = 6.025F;
             this.TextBox7.Name = "TextBox7";
             this.TextBox7.OutputFormat = resources.GetString("TextBox7.OutputFormat");
             this.TextBox7.Style = "text-align: right";
             this.TextBox7.Text = "TextBox";
-            this.TextBox7.Top = 0.07F;
-            this.TextBox7.Width = 1F;
+            this.TextBox7.Top = 0F;
+            this.TextBox7.Width = 1.1625F;
             // 
             // Line
             // 
             this.Line.AnchorBottom = true;
             this.Line.Height = 0F;
-            this.Line.Left = 2.384186E-07F;
+            this.Line.Left = 0F;
             this.Line.LineWeight = 1F;
             this.Line.Name = "Line";
-            this.Line.Top = 0.2679167F;
-            this.Line.Width = 7.199999F;
-            this.Line.X1 = 2.384186E-07F;
+            this.Line.Top = 0.2F;
+            this.Line.Width = 7.2F;
+            this.Line.X1 = 0F;
             this.Line.X2 = 7.2F;
-            this.Line.Y1 = 0.2679167F;
-            this.Line.Y2 = 0.2679167F;
+            this.Line.Y1 = 0.2F;
+            this.Line.Y2 = 0.2F;
             // 
             // Line8
             // 
             this.Line8.AnchorBottom = true;
-            this.Line8.Height = 0.2425F;
+            this.Line8.Height = 0.2F;
             this.Line8.Left = 0.5000002F;
             this.Line8.LineWeight = 1F;
             this.Line8.Name = "Line8";
-            this.Line8.Top = 0.015F;
+            this.Line8.Top = 0F;
             this.Line8.Width = 0F;
             this.Line8.X1 = 0.5000002F;
             this.Line8.X2 = 0.5000002F;
-            this.Line8.Y1 = 0.015F;
-            this.Line8.Y2 = 0.2575F;
+            this.Line8.Y1 = 0F;
+            this.Line8.Y2 = 0.2F;
             // 
             // Line9
             // 
             this.Line9.AnchorBottom = true;
-            this.Line9.Height = 0.2425F;
+            this.Line9.Height = 0.2F;
             this.Line9.Left = 0.9375002F;
             this.Line9.LineWeight = 1F;
             this.Line9.Name = "Line9";
-            this.Line9.Top = 0.015F;
+            this.Line9.Top = 0F;
             this.Line9.Width = 0F;
             this.Line9.X1 = 0.9375002F;
             this.Line9.X2 = 0.9375002F;
-            this.Line9.Y1 = 0.015F;
-            this.Line9.Y2 = 0.2575F;
+            this.Line9.Y1 = 0F;
+            this.Line9.Y2 = 0.2F;
             // 
             // Line10
             // 
             this.Line10.AnchorBottom = true;
-            this.Line10.Height = 0.2425F;
+            this.Line10.Height = 0.2F;
             this.Line10.Left = 3.625F;
             this.Line10.LineWeight = 1F;
             this.Line10.Name = "Line10";
-            this.Line10.Top = 0.015F;
+            this.Line10.Top = 0F;
             this.Line10.Width = 0F;
             this.Line10.X1 = 3.625F;
             this.Line10.X2 = 3.625F;
-            this.Line10.Y1 = 0.015F;
-            this.Line10.Y2 = 0.2575F;
+            this.Line10.Y1 = 0F;
+            this.Line10.Y2 = 0.2F;
             // 
             // Line11
             // 
             this.Line11.AnchorBottom = true;
-            this.Line11.Height = 0.2425F;
+            this.Line11.Height = 0.2F;
             this.Line11.Left = 4.062F;
             this.Line11.LineWeight = 1F;
             this.Line11.Name = "Line11";
-            this.Line11.Top = 0.015F;
+            this.Line11.Top = 0F;
             this.Line11.Width = 0F;
             this.Line11.X1 = 4.062F;
             this.Line11.X2 = 4.062F;
-            this.Line11.Y1 = 0.015F;
-            this.Line11.Y2 = 0.2575F;
+            this.Line11.Y1 = 0F;
+            this.Line11.Y2 = 0.2F;
             // 
             // Line12
             // 
             this.Line12.AnchorBottom = true;
-            this.Line12.Height = 0.2425F;
-            this.Line12.Left = 4.8125F;
+            this.Line12.Height = 0.2F;
+            this.Line12.Left = 4.7F;
             this.Line12.LineWeight = 1F;
             this.Line12.Name = "Line12";
-            this.Line12.Top = 0.015F;
+            this.Line12.Top = 0F;
             this.Line12.Width = 0F;
-            this.Line12.X1 = 4.8125F;
-            this.Line12.X2 = 4.8125F;
-            this.Line12.Y1 = 0.015F;
-            this.Line12.Y2 = 0.2575F;
+            this.Line12.X1 = 4.7F;
+            this.Line12.X2 = 4.7F;
+            this.Line12.Y1 = 0F;
+            this.Line12.Y2 = 0.2F;
             // 
             // Line13
             // 
             this.Line13.AnchorBottom = true;
-            this.Line13.Height = 0.2425F;
-            this.Line13.Left = 5.5F;
+            this.Line13.Height = 0.2F;
+            this.Line13.Left = 5.4F;
             this.Line13.LineWeight = 1F;
             this.Line13.Name = "Line13";
-            this.Line13.Top = 0.015F;
+            this.Line13.Top = 0F;
             this.Line13.Width = 0F;
-            this.Line13.X1 = 5.5F;
-            this.Line13.X2 = 5.5F;
-            this.Line13.Y1 = 0.015F;
-            this.Line13.Y2 = 0.2575F;
+            this.Line13.X1 = 5.4F;
+            this.Line13.X2 = 5.4F;
+            this.Line13.Y1 = 0F;
+            this.Line13.Y2 = 0.2F;
             // 
             // Line14
             // 
             this.Line14.AnchorBottom = true;
-            this.Line14.Height = 0.2425F;
-            this.Line14.Left = 6.1875F;
+            this.Line14.Height = 0.2F;
+            this.Line14.Left = 6.02F;
             this.Line14.LineWeight = 1F;
             this.Line14.Name = "Line14";
-            this.Line14.Top = 0.015F;
+            this.Line14.Top = 0F;
             this.Line14.Width = 0F;
-            this.Line14.X1 = 6.1875F;
-            this.Line14.X2 = 6.1875F;
-            this.Line14.Y1 = 0.015F;
-            this.Line14.Y2 = 0.2575F;
+            this.Line14.X1 = 6.02F;
+            this.Line14.X2 = 6.02F;
+            this.Line14.Y1 = 0F;
+            this.Line14.Y2 = 0.2F;
             // 
             // Line15
             // 
             this.Line15.AnchorBottom = true;
-            this.Line15.Height = 0.2425F;
+            this.Line15.Height = 0.2F;
             this.Line15.Left = 7.1875F;
             this.Line15.LineWeight = 1F;
             this.Line15.Name = "Line15";
-            this.Line15.Top = 0.015F;
-            this.Line15.Width = 0F;
-            this.Line15.X1 = 7.1875F;
+            this.Line15.Top = 0F;
+            this.Line15.Width = 0.0005002022F;
+            this.Line15.X1 = 7.188F;
             this.Line15.X2 = 7.1875F;
-            this.Line15.Y1 = 0.015F;
-            this.Line15.Y2 = 0.2575F;
+            this.Line15.Y1 = 0F;
+            this.Line15.Y2 = 0.2F;
             // 
             // Line16
             // 
             this.Line16.AnchorBottom = true;
-            this.Line16.Height = 0.1875F;
+            this.Line16.Height = 0.2F;
             this.Line16.Left = 0F;
             this.Line16.LineWeight = 1F;
             this.Line16.Name = "Line16";
-            this.Line16.Top = 0.04F;
+            this.Line16.Top = 0F;
             this.Line16.Width = 0F;
             this.Line16.X1 = 0F;
             this.Line16.X2 = 0F;
-            this.Line16.Y1 = 0.04F;
-            this.Line16.Y2 = 0.2275F;
+            this.Line16.Y1 = 0F;
+            this.Line16.Y2 = 0.2F;
             // 
             // PageHeader
             // 
@@ -422,9 +422,9 @@ namespace RSMPS
             this.Shape.Height = 0.375F;
             this.Shape.Left = 0F;
             this.Shape.Name = "Shape";
-            this.Shape.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape.Top = 0.25F;
-            this.Shape.Width = 7.2F;
+            this.Shape.Width = 7.188F;
             // 
             // Label
             // 
@@ -479,24 +479,24 @@ namespace RSMPS
             this.Label4.Style = "text-align: center";
             this.Label4.Text = "Hrs / Item";
             this.Label4.Top = 0.25F;
-            this.Label4.Width = 0.6875F;
+            this.Label4.Width = 0.63F;
             // 
             // Label5
             // 
             this.Label5.Height = 0.2F;
             this.Label5.HyperLink = null;
-            this.Label5.Left = 4.8125F;
+            this.Label5.Left = 4.7F;
             this.Label5.Name = "Label5";
             this.Label5.Style = "text-align: center";
             this.Label5.Text = "Rate";
             this.Label5.Top = 0.25F;
-            this.Label5.Width = 0.625F;
+            this.Label5.Width = 0.6849999F;
             // 
             // Label6
             // 
             this.Label6.Height = 0.2F;
             this.Label6.HyperLink = null;
-            this.Label6.Left = 5.5F;
+            this.Label6.Left = 5.4F;
             this.Label6.Name = "Label6";
             this.Label6.Style = "text-align: center";
             this.Label6.Text = "Hours";
@@ -507,12 +507,12 @@ namespace RSMPS
             // 
             this.Label7.Height = 0.2F;
             this.Label7.HyperLink = null;
-            this.Label7.Left = 6.1875F;
+            this.Label7.Left = 6.025F;
             this.Label7.Name = "Label7";
             this.Label7.Style = "text-align: center";
             this.Label7.Text = "Dollars";
             this.Label7.Top = 0.25F;
-            this.Label7.Width = 1F;
+            this.Label7.Width = 1.1625F;
             // 
             // Line1
             // 
@@ -569,39 +569,39 @@ namespace RSMPS
             // Line5
             // 
             this.Line5.Height = 0.375F;
-            this.Line5.Left = 4.8125F;
+            this.Line5.Left = 4.7F;
             this.Line5.LineWeight = 1F;
             this.Line5.Name = "Line5";
             this.Line5.Top = 0.25F;
             this.Line5.Width = 0F;
-            this.Line5.X1 = 4.8125F;
-            this.Line5.X2 = 4.8125F;
+            this.Line5.X1 = 4.7F;
+            this.Line5.X2 = 4.7F;
             this.Line5.Y1 = 0.25F;
             this.Line5.Y2 = 0.625F;
             // 
             // Line6
             // 
             this.Line6.Height = 0.375F;
-            this.Line6.Left = 5.5F;
+            this.Line6.Left = 5.4F;
             this.Line6.LineWeight = 1F;
             this.Line6.Name = "Line6";
             this.Line6.Top = 0.25F;
             this.Line6.Width = 0F;
-            this.Line6.X1 = 5.5F;
-            this.Line6.X2 = 5.5F;
+            this.Line6.X1 = 5.4F;
+            this.Line6.X2 = 5.4F;
             this.Line6.Y1 = 0.25F;
             this.Line6.Y2 = 0.625F;
             // 
             // Line7
             // 
             this.Line7.Height = 0.375F;
-            this.Line7.Left = 6.1875F;
+            this.Line7.Left = 6.02F;
             this.Line7.LineWeight = 1F;
             this.Line7.Name = "Line7";
             this.Line7.Top = 0.25F;
             this.Line7.Width = 0F;
-            this.Line7.X1 = 6.1875F;
-            this.Line7.X2 = 6.1875F;
+            this.Line7.X1 = 6.02F;
+            this.Line7.X2 = 6.02F;
             this.Line7.Y1 = 0.25F;
             this.Line7.Y2 = 0.625F;
             // 
@@ -623,7 +623,7 @@ namespace RSMPS
             this.Shape1.Height = 0.25F;
             this.Shape1.Left = 0F;
             this.Shape1.Name = "Shape1";
-            this.Shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape1.Top = 0F;
             this.Shape1.Width = 7.2F;
             // 
@@ -631,7 +631,7 @@ namespace RSMPS
             // 
             this.TextBox8.DataField = "SubtotalDlrs";
             this.TextBox8.Height = 0.2F;
-            this.TextBox8.Left = 6.1875F;
+            this.TextBox8.Left = 6.02F;
             this.TextBox8.Name = "TextBox8";
             this.TextBox8.OutputFormat = resources.GetString("TextBox8.OutputFormat");
             this.TextBox8.Style = "text-align: right";
@@ -639,13 +639,13 @@ namespace RSMPS
             this.TextBox8.SummaryType = GrapeCity.ActiveReports.SectionReportModel.SummaryType.GrandTotal;
             this.TextBox8.Text = "TextBox";
             this.TextBox8.Top = 0F;
-            this.TextBox8.Width = 1F;
+            this.TextBox8.Width = 1.1675F;
             // 
             // Label8
             // 
             this.Label8.Height = 0.2F;
             this.Label8.HyperLink = null;
-            this.Label8.Left = 4.9375F;
+            this.Label8.Left = 4.822F;
             this.Label8.Name = "Label8";
             this.Label8.Style = "";
             this.Label8.Text = "Totals";
@@ -656,7 +656,7 @@ namespace RSMPS
             // 
             this.TextBox9.DataField = "SubtotalHrs";
             this.TextBox9.Height = 0.2F;
-            this.TextBox9.Left = 5.5F;
+            this.TextBox9.Left = 5.39F;
             this.TextBox9.Name = "TextBox9";
             this.TextBox9.Style = "text-align: right";
             this.TextBox9.SummaryRunning = GrapeCity.ActiveReports.SectionReportModel.SummaryRunning.All;
@@ -668,26 +668,26 @@ namespace RSMPS
             // Line17
             // 
             this.Line17.Height = 0.25F;
-            this.Line17.Left = 5.5F;
+            this.Line17.Left = 5.4F;
             this.Line17.LineWeight = 1F;
             this.Line17.Name = "Line17";
             this.Line17.Top = 0F;
             this.Line17.Width = 0F;
-            this.Line17.X1 = 5.5F;
-            this.Line17.X2 = 5.5F;
+            this.Line17.X1 = 5.4F;
+            this.Line17.X2 = 5.4F;
             this.Line17.Y1 = 0F;
             this.Line17.Y2 = 0.25F;
             // 
             // Line18
             // 
             this.Line18.Height = 0.25F;
-            this.Line18.Left = 6.1875F;
+            this.Line18.Left = 6.02F;
             this.Line18.LineWeight = 1F;
             this.Line18.Name = "Line18";
             this.Line18.Top = 0F;
             this.Line18.Width = 0F;
-            this.Line18.X1 = 6.1875F;
-            this.Line18.X2 = 6.1875F;
+            this.Line18.X1 = 6.02F;
+            this.Line18.X2 = 6.02F;
             this.Line18.Y1 = 0F;
             this.Line18.Y2 = 0.25F;
             // 
@@ -700,7 +700,7 @@ namespace RSMPS
             this.DataSource = sqlDBDataSource1;
             this.PageSettings.PaperHeight = 11F;
             this.PageSettings.PaperWidth = 8.5F;
-            this.PrintWidth = 7.2F;
+            this.PrintWidth = 7.22F;
             this.Sections.Add(this.PageHeader);
             this.Sections.Add(this.GroupHeader1);
             this.Sections.Add(this.Detail);
