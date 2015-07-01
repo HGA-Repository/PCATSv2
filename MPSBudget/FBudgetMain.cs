@@ -83,6 +83,7 @@ namespace RSMPS
 
         private string SelectedGroupTab
         {
+          
             get {
                 //try { return _Groups[tabControl1.SelectedIndex].Code; }
                 //catch{ return _Default_Group; }
@@ -94,6 +95,8 @@ namespace RSMPS
                     group = _Default_Group;
                 return group;
             }
+
+
         }
 
         /// <summary>
@@ -126,6 +129,7 @@ namespace RSMPS
                 StartNewBudget();
                 mbProcessing = false;
             }
+           //    MessageBox.Show(" SetNewProjectBudget "); //***************************7
         }
 
 
@@ -166,7 +170,7 @@ namespace RSMPS
             txtTotalDlrs.Text = "";
             txtTotalExp.Text = "";
             txtTotalRate.Text = "";
-
+           // MessageBox.Show("Init()"); //*********************1
             LoadUOMExp();
         }
 
@@ -213,6 +217,7 @@ namespace RSMPS
             col15 = fg.Cols[14].Name;
             col16 = fg.Cols[15].Name;
 
+            fg.Cols[BUDCOL15].Format = DEFAULTDOLLARS;
 
             while (fg.Rows.Count > 1)
             {
@@ -262,6 +267,7 @@ namespace RSMPS
             SubTotal(group);
 
             mbLoaded[group] = true;
+           // MessageBox.Show("LoadGroupWithAccounts");
         }
 
 
@@ -316,13 +322,14 @@ namespace RSMPS
 
                 SetEntryLevel(Convert.ToInt32(dr["EntryLevel"]), Int32.Parse(group), ref r);
             }
-
+            fg.Cols[BUDCOL15].Format = DEFAULTDOLLARS;
             fg.Tree.Style = TreeStyleFlags.SimpleLeaf;
             fg.Tree.Column = 0;
             fg.AllowMerging = AllowMergingEnum.Nodes;
 
             SubTotal(group);
             mbLoaded[group] = true;
+           // MessageBox.Show("LoadGroupWithBudget"); //********************* 3 & 4 With Subtotal
         }
 
 
@@ -354,6 +361,7 @@ namespace RSMPS
                     fg[i, BUDCOL14] = "   ";
                 }
             }
+          //  MessageBox.Show("SubTotal(string group)");
         }
 
         private static void afterTotal_Round(object sender, SubtotalEventArgs args)
@@ -363,6 +371,7 @@ namespace RSMPS
                 var rounded = Math.Round((double)args.AggregateValue, 4);
                 args.AggregateValue = rounded;
             }
+          //  MessageBox.Show("afterTotal_Round");
         }
 
         private void LoadExpenseWithAccounts(string group)
@@ -401,6 +410,7 @@ namespace RSMPS
             }
 
             dr.Close();
+           // MessageBox.Show("LoadExpenseWithAccounts(string group)");
         }
 
 
@@ -446,6 +456,8 @@ namespace RSMPS
                 SaveExpenseLines(group);
             }
 
+           // MessageBox.Show("LoadExpenseWithBudget");
+
         }
 
 
@@ -481,6 +493,7 @@ namespace RSMPS
             r[BUDCOL15] = "0";
 
             SaveChangeToDB(group, newRow);
+           // MessageBox.Show("AddNewRow");
         }
 
 
@@ -508,6 +521,8 @@ namespace RSMPS
             SaveExpenseLines(group);
 
             mbLoaded[group] = true;
+
+           // MessageBox.Show("LoadBudget");
         }
 
 
@@ -527,6 +542,8 @@ namespace RSMPS
             richTextBox6.Text = moCurrBudget.Clarification16000.ToString();
             richTextBox7.Text = moCurrBudget.Clarification18000.ToString();
             richTextBox8.Text = moCurrBudget.Clarification50000.ToString();
+         //   MessageBox.Show("FBudgetMain_Load"); //**************************10
+
         }
 
         private void SetBudgetUserLevel()
@@ -627,6 +644,8 @@ namespace RSMPS
 
                 tdbgBudgetPCN.Splits[0].DisplayColumns[4].Visible = false;
             }
+
+           // MessageBox.Show(" SetBudgetUserLevel"); //***************************8
         }
 
         private void tlbbWorksheet_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
@@ -1187,6 +1206,8 @@ namespace RSMPS
                 newRow[14] = qty * hrs * rate;
                 newRow[15] = bl.ID;
             }
+
+           // MessageBox.Show("InsertLineFromWorkSheet");
         }
 
         private void InsertLineFromPCN(int wsID, int acctGroup, int acctCode, string wbs, string description, int qty, int hrs, decimal rate)
@@ -1283,6 +1304,7 @@ namespace RSMPS
                 newRow[15] = bl.ID;
 
             }
+           // MessageBox.Show("InsertLineFromPCN");
         }
 
         private void tlbbNewRev_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
@@ -1368,6 +1390,8 @@ namespace RSMPS
             lstBudgets.SelectedIndex = indx;
 
             return newBud;
+           // MessageBox.Show("MakeNewRevision");
+
         }
 
         private int MakeNewRevision(int pcnID)
@@ -1414,7 +1438,10 @@ namespace RSMPS
 
             lstBudgets.SelectedIndex = indx;
 
+           // MessageBox.Show("MakeNewRevision");
             return newBud;
+            
+
         }
 
         private void StartNewBudget()
@@ -1454,6 +1481,7 @@ namespace RSMPS
             tlbbMakeActive.Enabled = false;
             tlbbSaveRev.Enabled = true;
             makeActiveToolStripMenuItem.Enabled = false;
+           // MessageBox.Show("StartNewBudget"); //************************5
         }
 
 
@@ -1500,6 +1528,8 @@ namespace RSMPS
 
             LoadPCNStatus();
             LoadBudgetPCNs();
+          //  MessageBox.Show("LoadPreviousBudget"); //***********************************6
+
         }
 
         private void lstBudgets_SelectedIndexChanged(object sender, EventArgs e)
@@ -1633,7 +1663,7 @@ namespace RSMPS
 
                 mdsPCNs.Tables["PCNs"].Rows.Add(d);
             }
-
+           // MessageBox.Show("LoadBudgetPCNs()");
             dr.Close();
         }
 
@@ -1827,6 +1857,8 @@ namespace RSMPS
 
             bl.BareRate = 0;
             bl.BareDollars = 0;
+
+           // MessageBox.Show("CBBudgetLineFromFg");
             return bl;
         }
 
@@ -1845,6 +1877,8 @@ namespace RSMPS
                     r[BUDCOL16] = bl.ID;
                 }
             }
+
+           // MessageBox.Show("SaveBudgetLines");
         }
 
         private void SaveExpenseLines(string group)
@@ -1877,6 +1911,8 @@ namespace RSMPS
                     r[9] = el.ID;
                 }
             }
+
+           // MessageBox.Show("SaveExpenseLines");
         }
 
         private void SaveExpenseLines(string group, int row)
@@ -1903,6 +1939,8 @@ namespace RSMPS
             el.Save();
 
             fgExp[row, 9] = el.ID;
+
+           // MessageBox.Show("SaveExpenseLines(string group, int row)");
         }
 
 
@@ -1974,6 +2012,8 @@ namespace RSMPS
             bl.Save();
 
             fg[rw, BUDCOL16] = bl.ID;
+           // MessageBox.Show("SaveChangeToDB");
+
         }
 
 
@@ -3747,6 +3787,8 @@ namespace RSMPS
 
             foreach (var group in _Groups)
             { fgExpForGroup(group.Code).Cols[4].ComboList = comboLst; }
+
+            // MessageBox.Show("LoadUOMExp...."); //*********************2 
 
         }
 
