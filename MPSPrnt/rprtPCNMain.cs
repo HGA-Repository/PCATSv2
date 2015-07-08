@@ -25,6 +25,8 @@ namespace RSMPS
         private Label label25;
         private Line line11;
         private Line line12;
+        private Label label20;
+        private RichTextBox richTextBox1;
         private decimal mdTotalExpenses = 0;
 
         public rprtPCNMain()
@@ -475,6 +477,8 @@ namespace RSMPS
             this.label25 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.line11 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.line12 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.label20 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.richTextBox1 = new GrapeCity.ActiveReports.SectionReportModel.RichTextBox();
             this.PageHeader = new GrapeCity.ActiveReports.SectionReportModel.PageHeader();
             this.shape2 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
             this.label3 = new GrapeCity.ActiveReports.SectionReportModel.Label();
@@ -550,6 +554,7 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label25)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label6)).BeginInit();
@@ -650,8 +655,10 @@ namespace RSMPS
             this.label24,
             this.label25,
             this.line11,
-            this.line12});
-            this.Detail.Height = 8.55F;
+            this.line12,
+            this.label20,
+            this.richTextBox1});
+            this.Detail.Height = 8.706F;
             this.Detail.Name = "Detail";
             this.Detail.Format += new System.EventHandler(this.Detail_Format);
             // 
@@ -663,7 +670,7 @@ namespace RSMPS
             this.subPCNHours.Name = "subPCNHours";
             this.subPCNHours.Report = null;
             this.subPCNHours.ReportName = "subReport1";
-            this.subPCNHours.Top = 7.708F;
+            this.subPCNHours.Top = 7.638F;
             this.subPCNHours.Width = 7.25F;
             // 
             // subPCNExpenses
@@ -674,7 +681,7 @@ namespace RSMPS
             this.subPCNExpenses.Name = "subPCNExpenses";
             this.subPCNExpenses.Report = null;
             this.subPCNExpenses.ReportName = "subReport2";
-            this.subPCNExpenses.Top = 7.987999F;
+            this.subPCNExpenses.Top = 7.888F;
             this.subPCNExpenses.Width = 7.25F;
             // 
             // pageBreak1
@@ -1518,6 +1525,29 @@ namespace RSMPS
             this.line12.Y1 = 6.020502F;
             this.line12.Y2 = 6.020502F;
             // 
+            // label20
+            // 
+            this.label20.Height = 0.225F;
+            this.label20.HyperLink = null;
+            this.label20.Left = 0F;
+            this.label20.Name = "label20";
+            this.label20.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
+            this.label20.Text = "Comments";
+            this.label20.Top = 8.096001F;
+            this.label20.Width = 2.6875F;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.AutoReplaceFields = true;
+            this.richTextBox1.DataField = "Comments";
+            this.richTextBox1.Font = new System.Drawing.Font("Arial", 10F);
+            this.richTextBox1.Height = 0.2799995F;
+            this.richTextBox1.Left = 0.125F;
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.RTF = resources.GetString("richTextBox1.RTF");
+            this.richTextBox1.Top = 8.321F;
+            this.richTextBox1.Width = 3.874F;
+            // 
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
@@ -1927,6 +1957,7 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label25)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label6)).EndInit();
