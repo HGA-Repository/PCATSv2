@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RSMPS</RootNamespace>
     <AssemblyName>PCATS</AssemblyName>
-    <ApplicationIcon>Corporate.ico</ApplicationIcon>
+    <ApplicationIcon>PCATS - 2015.ico</ApplicationIcon>
     <ManifestCertificateThumbprint>3B5C89FE254DA382D1AB8E0512076EF894601BBB</ManifestCertificateThumbprint>
     <ManifestKeyFile>MPS_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>false</GenerateManifests>
@@ -665,6 +665,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\Save.bmp" />
+    <Content Include="PCATS - 2015.ico" />
     <Content Include="Resources\Save.PNG" />
     <None Include="Resources\testing.png" />
     <None Include="Resources\CheckX.png" />
@@ -703,42 +704,42 @@
   <ItemGroup>
     <PublishFile Include="Config\Debug\DataConfig.xml">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="Config\Release\DataConfig.xml">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="Config\Test\DataConfig.xml">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="RevSolLb">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>
