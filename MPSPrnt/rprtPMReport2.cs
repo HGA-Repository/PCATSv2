@@ -751,7 +751,7 @@ namespace RSMPS
             this.Shape.Height = 1.5625F;
             this.Shape.Left = 0.5F;
             this.Shape.Name = "Shape";
-            this.Shape.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape.Top = 0.375F;
             this.Shape.Width = 6.625F;
             // 
@@ -1517,7 +1517,7 @@ namespace RSMPS
             // 
             // Label4
             // 
-            this.Label4.Height = 0.2F;
+            this.Label4.Height = 0.22F;
             this.Label4.HyperLink = null;
             this.Label4.Left = 0.313F;
             this.Label4.Name = "Label4";
@@ -1528,6 +1528,7 @@ namespace RSMPS
             // 
             // rtbActivities
             // 
+            this.rtbActivities.AutoReplaceFields = true;
             this.rtbActivities.CanShrink = true;
             this.rtbActivities.Font = new System.Drawing.Font("Arial", 10F);
             this.rtbActivities.Height = 0.313F;
@@ -1551,7 +1552,7 @@ namespace RSMPS
             // 
             // label21
             // 
-            this.label21.Height = 0.2F;
+            this.label21.Height = 0.22F;
             this.label21.HyperLink = null;
             this.label21.Left = 0.313F;
             this.label21.Name = "label21";
@@ -1618,7 +1619,7 @@ namespace RSMPS
             // 
             // label26
             // 
-            this.label26.Height = 0.2F;
+            this.label26.Height = 0.22F;
             this.label26.HyperLink = null;
             this.label26.Left = 4.375F;
             this.label26.Name = "label26";
@@ -1638,7 +1639,7 @@ namespace RSMPS
             this.txtPOAmtV.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold; white-space: no" +
     "wrap; ddo-wrap-mode: nowrap";
             this.txtPOAmtV.Text = null;
-            this.txtPOAmtV.Top = 3.171F;
+            this.txtPOAmtV.Top = 3.191F;
             this.txtPOAmtV.Width = 1.063F;
             // 
             // txtBilledToDateV
@@ -1650,7 +1651,7 @@ namespace RSMPS
             this.txtBilledToDateV.OutputFormat = resources.GetString("txtBilledToDateV.OutputFormat");
             this.txtBilledToDateV.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.txtBilledToDateV.Text = null;
-            this.txtBilledToDateV.Top = 3.171F;
+            this.txtBilledToDateV.Top = 3.181F;
             this.txtBilledToDateV.Width = 1.125F;
             // 
             // txtPaidToDateV
@@ -1662,7 +1663,7 @@ namespace RSMPS
             this.txtPaidToDateV.OutputFormat = resources.GetString("txtPaidToDateV.OutputFormat");
             this.txtPaidToDateV.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.txtPaidToDateV.Text = null;
-            this.txtPaidToDateV.Top = 3.171F;
+            this.txtPaidToDateV.Top = 3.191F;
             this.txtPaidToDateV.Width = 1.124F;
             // 
             // txtOutstandingV
@@ -1674,7 +1675,7 @@ namespace RSMPS
             this.txtOutstandingV.OutputFormat = resources.GetString("txtOutstandingV.OutputFormat");
             this.txtOutstandingV.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.txtOutstandingV.Text = null;
-            this.txtOutstandingV.Top = 3.171F;
+            this.txtOutstandingV.Top = 3.191F;
             this.txtOutstandingV.Width = 1.125F;
             // 
             // label31
@@ -1704,13 +1705,13 @@ namespace RSMPS
             this.Shape1.Height = 0.25F;
             this.Shape1.Left = 0.5F;
             this.Shape1.Name = "Shape1";
-            this.Shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape1.Top = 0.25F;
             this.Shape1.Width = 6.063001F;
             // 
             // Label1
             // 
-            this.Label1.Height = 0.2F;
+            this.Label1.Height = 0.22F;
             this.Label1.HyperLink = null;
             this.Label1.Left = 0.313F;
             this.Label1.Name = "Label1";
@@ -1775,7 +1776,7 @@ namespace RSMPS
             // 
             // Label2
             // 
-            this.Label2.Height = 0.17F;
+            this.Label2.Height = 0.22F;
             this.Label2.HyperLink = null;
             this.Label2.Left = 0.313F;
             this.Label2.Name = "Label2";
@@ -1791,7 +1792,7 @@ namespace RSMPS
             this.Shape2.Height = 0.2F;
             this.Shape2.Left = 0.5F;
             this.Shape2.Name = "Shape2";
-            this.Shape2.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape2.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape2.Top = 0.2299999F;
             this.Shape2.Width = 6.063001F;
             // 

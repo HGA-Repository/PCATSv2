@@ -106,9 +106,9 @@ namespace RSMPS
             if (proj.BusinessUnit() == 3) rprt.MainReportTitle = "Pipeline Services Estimate Loaded Details";
             if (proj.BusinessUnit() == 4)  rprt.MainReportTitle = "Program Management Estimate Loaded Details";
             if (proj.BusinessUnit() == 5) rprt.MainReportTitle = "EPC Estimate Loaded Details";
-                
 
-            pv.projNumber = proj.Number;
+
+            pv.projNumber = proj.Number; //***************************Added 6/25/15
             
             // MessageBox.Show(pv.projNumber);
 

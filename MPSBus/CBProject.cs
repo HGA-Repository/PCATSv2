@@ -49,6 +49,21 @@ namespace RSMPS
             dbDt = null;
         }
 
+
+        public void Load_Description(int iID) //************************************Added 7/8/2015
+        {
+            CDbProject dbDt = new CDbProject();
+            string tmpDat;
+
+            tmpDat = dbDt.GetByID_Description(iID);
+
+            Clear();
+            if (tmpDat.Length > 0)
+                LoadVals_Description(tmpDat);
+
+            dbDt = null;
+        }
+
         public void Load(string number)
         {
             CDbProject dbDt = new CDbProject();
@@ -76,6 +91,26 @@ namespace RSMPS
             o = (COProject)s.Deserialize(sr);
 
             base.LoadFromObj(o);
+
+            o = null;
+            sr.Close();
+            sr = null;
+            s = null;
+        }
+
+        public void LoadVals_Description(string strXml) //****************************Added 7/8/2015
+        {
+            XmlSerializer s;
+            StringReader sr;
+            COProject o;
+
+            s = new XmlSerializer(typeof(COProject));
+            sr = new System.IO.StringReader(strXml);
+
+            o = new COProject();
+            o = (COProject)s.Deserialize(sr);
+
+            base.LoadFromObj_Description(o);
 
             o = null;
             sr.Close();

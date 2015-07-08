@@ -24,7 +24,7 @@ namespace RSMPS
     {
         private SectionReport rprt;
 
-        public  string projNumber;
+        public  string projNumber;  //**********************Added these three variables 6/25/15 
         public string pcnNumber;
         public  string reportType;
         
@@ -39,7 +39,7 @@ namespace RSMPS
         public void ViewReport(SectionReport ar)
         {
             //MessageBox.Show("reportType");
-            reportType = ar.GetType().ToString();
+            reportType = ar.GetType().ToString(); //***************************Added 6/29
            
             //MessageBox.Show(reportType);
 
@@ -52,14 +52,14 @@ namespace RSMPS
 
         public void ViewReportNoRun(SectionReport ar)
         {
-            reportType = ar.GetType().ToString();
+            reportType = ar.GetType().ToString(); //***************************Added 6/29
             rprt = ar;
             viewer1.Document = rprt.Document;
         }
 
         public void ViewReportWithExcel(SectionReport ar)
         {
-            reportType = ar.GetType().ToString();
+            reportType = ar.GetType().ToString(); //***************************Added 6/29
             rprt = ar;
             viewer1.Document = rprt.Document;
             rprt.Run();
@@ -67,7 +67,7 @@ namespace RSMPS
 
         public void ViewDrawingLogWithExcel(SectionReport ar)
         {
-            reportType = ar.GetType().ToString();
+            reportType = ar.GetType().ToString(); //***************************Added 6/29
             rprt = ar;
             viewer1.Document = rprt.Document;
             rprt.Run();
@@ -246,7 +246,7 @@ namespace RSMPS
 
         }
 
-        private void c1Button1_Click(object sender, EventArgs e)
+        private void c1Button1_Click(object sender, EventArgs e)        //*************************************Added 6/25/15******MZ
         {
             GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport PDFEx = new GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport();
 
