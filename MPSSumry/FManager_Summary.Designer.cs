@@ -98,6 +98,8 @@ namespace RSMPS
             this.Job = new System.Windows.Forms.TextBox();
             this.Client = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fgForecast)).BeginInit();
@@ -758,7 +760,7 @@ namespace RSMPS
             this.tlbbPrintCust.Name = "tlbbPrintCust";
             this.tlbbPrintCust.ShortcutText = "";
             this.tlbbPrintCust.Text = "Print Client";
-            this.tlbbPrintCust.Visible = false; //********************MAde false 5/28
+            this.tlbbPrintCust.Visible = false;
             // 
             // tlbbExit
             // 
@@ -794,6 +796,8 @@ namespace RSMPS
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.Location);
             this.panel1.Controls.Add(this.Job);
             this.panel1.Controls.Add(this.Client);
@@ -806,28 +810,29 @@ namespace RSMPS
             // Location
             // 
             this.Location.Enabled = false;
-            this.Location.Location = new System.Drawing.Point(1, 192);
+            this.Location.Location = new System.Drawing.Point(0, 245);
             this.Location.Multiline = true;
             this.Location.Name = "Location";
-            this.Location.Size = new System.Drawing.Size(124, 58);
+            this.Location.Size = new System.Drawing.Size(124, 25);
             this.Location.TabIndex = 14;
             // 
             // Job
             // 
             this.Job.Enabled = false;
-            this.Job.Location = new System.Drawing.Point(1, 128);
+            this.Job.Location = new System.Drawing.Point(1, 125);
+            this.Job.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
             this.Job.Multiline = true;
             this.Job.Name = "Job";
-            this.Job.Size = new System.Drawing.Size(124, 58);
+            this.Job.Size = new System.Drawing.Size(124, 50);
             this.Job.TabIndex = 13;
             // 
             // Client
             // 
             this.Client.Enabled = false;
-            this.Client.Location = new System.Drawing.Point(1, 64);
+            this.Client.Location = new System.Drawing.Point(0, 196);
             this.Client.Multiline = true;
             this.Client.Name = "Client";
-            this.Client.Size = new System.Drawing.Size(124, 58);
+            this.Client.Size = new System.Drawing.Size(124, 50);
             this.Client.TabIndex = 12;
             // 
             // button1
@@ -839,6 +844,24 @@ namespace RSMPS
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Visible = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(1, 103);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(96, 13);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Project Description";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(1, 176);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(54, 13);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Client Info";
             // 
             // FManager_Summary
             // 
@@ -955,5 +978,7 @@ namespace RSMPS
         private System.Windows.Forms.TextBox Job;
         private System.Windows.Forms.TextBox Client;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
     }
 }

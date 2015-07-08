@@ -77,7 +77,7 @@ namespace RSMPS
             CBProject p = new CBProject();
 
             p.Load(itmID);
-
+           
             bool inList = false;
 
             foreach (ListViewItem lvi in lvwProjects.Items)
@@ -158,6 +158,8 @@ namespace RSMPS
         {
             bool tmpChanged = tlbbSave.Enabled;
 
+            CBProject p = new CBProject(); //******************************Added 7/8/2015
+     
             if (lvwProjects.SelectedItems.Count > 0)
             {
                 tdbgPCNs.UpdateData();
@@ -179,6 +181,13 @@ namespace RSMPS
                 miCurrentProjectID = Convert.ToInt32(lvwProjects.SelectedItems[0].SubItems[3].Text);
                 ClearProjectSummary();
                 LoadCurrentProject();
+
+                p.Load_Description(miCurrentProjectID); //******************************Added 7/8/2015
+                Client.Text = p.CustomerName; 
+                Job.Text = p.Description;
+                Location.Text = p.City + ", "+p.State;
+              
+
             }
             else
             {

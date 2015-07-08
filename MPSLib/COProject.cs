@@ -31,6 +31,10 @@ namespace RSMPS
         private decimal mdBudget;
         private string msPOAmnt;
 
+        private string msCustomerName;  //******************************Added 7/8/2015
+        private string msCity;
+        private string msState;
+
         #region Properties
 
         public int ID
@@ -175,6 +179,30 @@ namespace RSMPS
             set { msPOAmnt = value; }
         }
 
+
+        public string CustomerName  //******************************Added 7/8/2015
+        {
+            get { return msCustomerName; }
+            set { msCustomerName = value; }
+        }
+
+        public string City
+        {
+            get { return msCity; }
+            set { msCity = value; }
+        }
+
+        public string State
+        {
+            get { return msState; }
+            set { msState = value; }
+        }
+
+
+        
+
+
+
         #endregion
 
         public virtual void Clear()
@@ -260,5 +288,22 @@ namespace RSMPS
             mdBudget = oOrg.Budget;
             msPOAmnt = oOrg.POAmount;
         }
+
+        public void LoadFromObj_Description(COProject oOrg) //*************************Added 7/8/2015
+        {
+            miID = oOrg.ID;
+            msNumber = oOrg.Number;
+            msDescription = oOrg.Description;
+            miCustomerID = oOrg.CustomerID;
+            msCustomerName = oOrg.CustomerName;
+            miLocationID = oOrg.LocationID;
+            msCity = oOrg.City;
+            msState = oOrg.State;
+           
+        }
+
+
+
+
     }
 }

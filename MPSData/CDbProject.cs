@@ -75,6 +75,54 @@ namespace RSMPS
             return tmpStr;
         }
 
+        public string GetByID_Description(int lID) //************************Added 7/8/2015
+        {
+            SqlDataReader dr;
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            string tmpStr = "";
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spProject_ByID_Description", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            prm = cmd.Parameters.Add("@ID", SqlDbType.Int);
+            prm.Value = lID;
+
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+
+            while (dr.Read())
+            {
+                oVar = new COProject();
+
+                oVar.ID = Convert.ToInt32(dr["ID"]);
+                oVar.Number = dr["Number"].ToString();
+                oVar.Description = dr["Description"].ToString();
+                oVar.CustomerID = Convert.ToInt32(dr["CustomerID"]);
+                oVar.CustomerName = dr["CustomerName"].ToString();
+                oVar.LocationID = Convert.ToInt32(dr["LocationID"]);
+                oVar.City = dr["City"].ToString();
+                oVar.State = dr["State"].ToString();
+                tmpStr = GetDataString();
+            }
+
+            dr.Close();
+            dr = null;
+            prm = null;
+            cmd = null;
+            cnn.CloseConnection();
+            cnn = null;
+
+            return tmpStr;
+        }
+
+
+
+
+
         public string GetByNumber(string number)
         {
             SqlDataReader dr;
