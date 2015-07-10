@@ -11,6 +11,8 @@ using System.Data.SqlClient;
 using System.Threading;
 
 
+
+
 namespace RSMPS
 {
     public partial class FScd_AddEdit : Form
@@ -44,6 +46,7 @@ namespace RSMPS
         private const int EMPLOYEEFTOTCOL = 7;
 
         private String HOURDISPLAYFORMAT = "#,##0";
+        private const string HOURDISPLAYFORMAT_Ahrs = "#,##0.00"; //********************Added 7/9/2015
 
         private Color WARNINGCOLORBELOW = Color.White;
         private Color WARNINGCOLORHIGH = Color.Yellow;
@@ -428,12 +431,72 @@ namespace RSMPS
             LoadTheGrid();
         }
 
+        public decimal value;
+       
+
         private void fgSchedule_AfterEdit(object sender, RowColEventArgs e)
         {
+            string v = fgSchedule[e.Row, e.Col].ToString();
+           
+            try
+            {
+                value = Convert.ToDecimal(v);
+            }
+            catch { MessageBox.Show("Please Insert Integer Number, Fraction Data wont be saved"); }
+
+            //MessageBox.Show(v);
+            //MessageBox.Show(value.ToString());
+
+            if (value % 1 > 0)
+            { MessageBox.Show("Please Insert Integer Number, Fraction Data wont be saved");
+            //fgSchedule.StartEditing(e.Row, e.Col);
+            return;
+            }
+           // else
+            //{ MessageBox.Show("whole no"); }
+
+            //MessageBox.Show("Saving started");
+
             SaveTimeChange(e.Row, e.Col);
+            SaveTimeChange_Test(e.Row, e.Col, value);
             CreateSubtotals();
-            SumRowHours(e.Row);
+            SumRowHours(e.Row);           
         }
+
+        private void fgSchedule_SelChange(object sender, EventArgs e)
+        {
+           
+
+            if (fgSchedule.Row >= 0)
+            {
+                int projID = Convert.ToInt32(fgSchedule[fgSchedule.Row, PROJECTIDCOLUMN]);
+
+                if (projID > 0 && mbIsModerator == true)
+                    tsbAddEmployye.Enabled = true;
+                else
+                    tsbAddEmployye.Enabled = false;
+            }
+            else
+            {
+                tsbAddEmployye.Enabled = false;
+            }
+
+
+        }
+
+
+    
+
+      
+      
+
+
+
+
+
+
+
+
 
         private void SumRowHours(int currRow)
         {
@@ -695,22 +758,7 @@ namespace RSMPS
 
         }
 
-        private void fgSchedule_SelChange(object sender, EventArgs e)
-        {
-            if (fgSchedule.Row >= 0)
-            {
-                int projID = Convert.ToInt32(fgSchedule[fgSchedule.Row, PROJECTIDCOLUMN]);
-
-                if (projID > 0 && mbIsModerator == true)
-                    tsbAddEmployye.Enabled = true;
-                else
-                    tsbAddEmployye.Enabled = false;
-            }
-            else
-            {
-                tsbAddEmployye.Enabled = false;
-            }
-        }
+     
 
         private void fgSchedule_RowColChange(object sender, EventArgs e)
         {
@@ -793,6 +841,63 @@ namespace RSMPS
                 moProjSumm.SetProject(miCurrDept, projID, weekID, tmpP, tmpF, tmpA);
             }
         }
+
+
+        private void SaveTimeChange_Test(int rowIndx, int colIndx,decimal val)
+        {
+            int projID, empID, weekID;
+            Column c;
+            string colTitle;
+            CBScheduleHour.HourTypeEnum hType;
+
+            projID = Convert.ToInt32(fgSchedule[rowIndx, PROJECTIDCOLUMN]);
+            empID = Convert.ToInt32(fgSchedule[rowIndx, EMPLOYEEIDCOLUMN]);
+            c = fgSchedule.Cols[colIndx];
+            weekID = Convert.ToInt32(c.UserData);
+            colTitle = fgSchedule[1, colIndx].ToString();           // second row in grid should contain values for hour type
+           
+            //SaveTimeChange(projID, empID, weekID, HourTypeEnum.enPlanning, );
+            CBScheduleHour sh = new CBScheduleHour();
+
+            sh.DepartmentID = miCurrDept;
+            sh.ProjectID = projID;
+            sh.EmployeeID = empID;
+            sh.WeekID = weekID;
+
+            switch (colTitle)
+            {
+                case FORECOLTITLE:
+                    sh.FHrs = val;
+                    hType = CBScheduleHour.HourTypeEnum.enForecast;
+                    break;
+                case ACTLCOLTITLE:
+                    sh.AHrs = val;
+                    hType = CBScheduleHour.HourTypeEnum.enActual;
+                    break;
+                default:
+                    sh.PHrs = val;
+                    hType = CBScheduleHour.HourTypeEnum.enPlanning;
+                    break;
+            }
+
+            sh.Save(hType);
+
+            // start thread to check on time warning
+            CheckEmployeeForHoursWarning(empID, weekID, hType);
+
+            if (mbSummaryOpen == true)
+            {
+                decimal tmpP, tmpF, tmpA;
+                tmpP = tmpF = tmpA = 0;
+                sh.GetProjectTotalByDate(miCurrDept, projID, weekID, ref tmpP, ref tmpF, ref tmpA);
+                moProjSumm.SetProject(miCurrDept, projID, weekID, tmpP, tmpF, tmpA);
+            }
+        }
+
+
+
+
+
 
         private void FScd_AddEdit_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -1298,6 +1403,8 @@ namespace RSMPS
             {
                 colCode = weekID.ToString() + "-" + ACTLCOLTITLE;
                 fgSchedule[rwIndx, colCode] = aHrs.ToString(HOURDISPLAYFORMAT);
+                fgSchedule[rwIndx, colCode] = aHrs.ToString(HOURDISPLAYFORMAT_Ahrs);
+
                 col = fgSchedule.Cols[colCode];
                 col.AllowEditing = false;
             }
@@ -1887,10 +1994,7 @@ namespace RSMPS
             el.Close();
         }
 
-        private void fgSchedule_AfterDataRefresh(object sender, ListChangedEventArgs e)
-        {
-        }
-
+       
         private void bttTest_Click(object sender, EventArgs e)
         {
             //fgSchedule.Sort(SortFlags.Ascending, 1);
@@ -2239,6 +2343,8 @@ namespace RSMPS
             if (e.Col < 1)
                 return;
 
+           
+
             string colTitle = fgSchedule[1, e.Col].ToString();
 
             if (colTitle == ACTLCOLTITLE)
@@ -2246,6 +2352,11 @@ namespace RSMPS
                 e.Cancel = true;
             }
         }
+
+
+        
+
+
 
         private void dtpStart_ValueChanged(object sender, EventArgs e)
         {
@@ -2271,6 +2382,24 @@ namespace RSMPS
         {
 
         }
+
+      
+     
+     
+       
+
+     
+    
+      
+
+       
+
+       
+
+       
+
+
+
 
         //private void button1_Click(object sender, EventArgs e)
         //{

@@ -401,8 +401,8 @@ namespace RSMPS
             this.fgSchedule.SelChange += new System.EventHandler(this.fgSchedule_SelChange);
             this.fgSchedule.BeforeEdit += new C1.Win.C1FlexGrid.RowColEventHandler(this.fgSchedule_BeforeEdit);
             this.fgSchedule.AfterEdit += new C1.Win.C1FlexGrid.RowColEventHandler(this.fgSchedule_AfterEdit);
-            this.fgSchedule.AfterDataRefresh += new System.ComponentModel.ListChangedEventHandler(this.fgSchedule_AfterDataRefresh);
             this.fgSchedule.Click += new System.EventHandler(this.fgSchedule_Click);
+            //this.fgSchedule.Validating += new System.ComponentModel.CancelEventHandler(this.fgSchedule_Validating);
             // 
             // cmnuSchedule
             // 
