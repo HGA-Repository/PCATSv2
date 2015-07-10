@@ -658,11 +658,25 @@ namespace RSMPS
             var has_no_worksheet_codes = new[] { "1000", "10000", "20000" };
             var group_obj = _Groups.FirstOrDefault(x => x.Code == group);
             FWS worksheet = new FWS(group_obj, !has_no_worksheet_codes.Contains(group) );
+
+            worksheet.cboWBS_Text = cboWBS.Text; // *****************************Added 7/1/15
+            worksheet.miProjectID = miProjectID;
+           
+         //   MessageBox.Show(worksheet.miProjectID.ToString());
+            //MessageBox.Show(cboWBS.Text);
+
             var handler = new WorksheetChangedHandler((ds) => { f1_OnWorkSheetChanged(group, ds); });
             worksheet.OnWorkSheetChanged += handler;
             worksheet.SetDataValues(mdsWS[group], moCurrBudget.ID);
+
+            //MessageBox.Show(mdsWS[group].ToString());
+         //   MessageBox.Show(moCurrBudget.ID.ToString());
+          
+            
             worksheet.ShowDialog();
             worksheet.OnWorkSheetChanged -= handler;
+            
+
         }
 
         private decimal WorksheetRate(int code, List<CBBudgetLine> removed)
@@ -3201,7 +3215,12 @@ namespace RSMPS
            // MessageBox.Show(moCurrBudget.ProjectID.ToString());
             //MessageBox.Show(moCurrBudget.Description);
 
-            bud.PreviewBudgetDetails(moCurrBudget.ID, cboWBS.Text);
+            //worksheet.cboWBS_Text = cboWBS.Text; // *****************************Added 7/1/15
+            //MessageBox.Show("#################################");
+            //MessageBox.Show(cboWBS.Text);
+            
+
+            bud.PreviewBudgetDetails(moCurrBudget.ID, cboWBS.Text); 
             
             //MessageBox.Show(moCurrBudget.ID.ToString());
 

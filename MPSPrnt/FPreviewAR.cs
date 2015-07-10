@@ -27,6 +27,9 @@ namespace RSMPS
         public  string projNumber;  //**********************Added these three variables 6/25/15 
         public string pcnNumber;
         public  string reportType;
+        public int budID;
+
+        public string wbs;
         
         //public string BusinessUnit;
         
@@ -38,10 +41,14 @@ namespace RSMPS
 
         public void ViewReport(SectionReport ar)
         {
-            //MessageBox.Show("reportType");
+           
+            
+          //  MessageBox.Show("Wbs is"+this.wbs);
             reportType = ar.GetType().ToString(); //***************************Added 6/29
            
             //MessageBox.Show(reportType);
+
+          //  MessageBox.Show(budID.ToString());
 
            
 
