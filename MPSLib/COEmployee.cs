@@ -16,6 +16,7 @@ namespace RSMPS
         private decimal mdMaxAllHrs;
         private bool mbIsActive;
         private bool mbIsProjectManager;
+        private bool mbIsRelManager; //*******************Added*********7/13/2015
         private int miLocation;
         private bool mbContractor;
         private int miType;
@@ -84,6 +85,15 @@ namespace RSMPS
             get { return mbIsProjectManager; }
             set { mbIsProjectManager = value; }
         }
+
+        public bool IsRelManager //*****************************Added 7/13/2015
+        {
+            get { return mbIsRelManager; }
+            set { mbIsRelManager = value; }
+        }
+
+        
+
         public int Location
         {
             get { return miLocation; }
@@ -124,6 +134,8 @@ namespace RSMPS
             mdMaxAllHrs = 0;
             mbIsActive = false;
             mbIsProjectManager = false;
+            mbIsRelManager = false; //*******************Added*********7/13/2015
+
             miLocation = 0;
             mbContractor = false;
             miType = 0;
@@ -145,6 +157,8 @@ namespace RSMPS
             oNew.MaxAllHrs = mdMaxAllHrs;
             oNew.IsActive = mbIsActive;
             oNew.IsProjectManager = mbIsProjectManager;
+            oNew.IsRelManager = mbIsRelManager; //****************Added 7/13/2015
+
             oNew.Contractor = mbContractor;
             oNew.OfficeLocation = msOfficeLocation;
             oNew.EngineerType = msEngineerType;
@@ -166,6 +180,7 @@ namespace RSMPS
             mdMaxAllHrs = oOrg.MaxAllHrs;
             mbIsActive = oOrg.IsActive;
             mbIsProjectManager = oOrg.IsProjectManager;
+            mbIsRelManager = oOrg.IsRelManager;//****************Added 7/13/2015
             mbContractor = oOrg.Contractor;
             msOfficeLocation = oOrg.OfficeLocation;
             msEngineerType = oOrg.EngineerType;

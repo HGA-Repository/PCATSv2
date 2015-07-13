@@ -44,6 +44,7 @@ namespace RSMPS
             this.numMaxAll = new System.Windows.Forms.NumericUpDown();
             this.cboTitle = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkIsRelMngr = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.cmbType = new System.Windows.Forms.ComboBox();
@@ -212,6 +213,7 @@ namespace RSMPS
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.chkIsRelMngr);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.cmbType);
@@ -229,10 +231,21 @@ namespace RSMPS
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(276, 204);
+            this.groupBox1.Size = new System.Drawing.Size(276, 234);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Description";
+            // 
+            // chkIsRelMngr
+            // 
+            this.chkIsRelMngr.AutoSize = true;
+            this.chkIsRelMngr.Location = new System.Drawing.Point(130, 181);
+            this.chkIsRelMngr.Name = "chkIsRelMngr";
+            this.chkIsRelMngr.Size = new System.Drawing.Size(140, 17);
+            this.chkIsRelMngr.TabIndex = 14;
+            this.chkIsRelMngr.Text = "Is Relationship Manager";
+            this.chkIsRelMngr.UseVisualStyleBackColor = true;
+            this.chkIsRelMngr.CheckedChanged += new System.EventHandler(this.chkIsRelMngr_CheckedChanged);
             // 
             // label11
             // 
@@ -295,7 +308,7 @@ namespace RSMPS
             // chkContractor
             // 
             this.chkContractor.AutoSize = true;
-            this.chkContractor.Location = new System.Drawing.Point(131, 181);
+            this.chkContractor.Location = new System.Drawing.Point(9, 202);
             this.chkContractor.Name = "chkContractor";
             this.chkContractor.Size = new System.Drawing.Size(86, 17);
             this.chkContractor.TabIndex = 9;
@@ -334,7 +347,7 @@ namespace RSMPS
             // bttOK
             // 
             this.bttOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bttOK.Location = new System.Drawing.Point(309, 494);
+            this.bttOK.Location = new System.Drawing.Point(309, 533);
             this.bttOK.Name = "bttOK";
             this.bttOK.Size = new System.Drawing.Size(78, 30);
             this.bttOK.TabIndex = 3;
@@ -345,7 +358,7 @@ namespace RSMPS
             // bttCancel
             // 
             this.bttCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bttCancel.Location = new System.Drawing.Point(393, 494);
+            this.bttCancel.Location = new System.Drawing.Point(393, 533);
             this.bttCancel.Name = "bttCancel";
             this.bttCancel.Size = new System.Drawing.Size(78, 30);
             this.bttCancel.TabIndex = 4;
@@ -360,7 +373,7 @@ namespace RSMPS
             this.lstDept.FormattingEnabled = true;
             this.lstDept.Location = new System.Drawing.Point(6, 54);
             this.lstDept.Name = "lstDept";
-            this.lstDept.Size = new System.Drawing.Size(185, 186);
+            this.lstDept.Size = new System.Drawing.Size(185, 199);
             this.lstDept.TabIndex = 1;
             // 
             // lstEmpDept
@@ -371,7 +384,7 @@ namespace RSMPS
             this.lstEmpDept.FormattingEnabled = true;
             this.lstEmpDept.Location = new System.Drawing.Point(261, 54);
             this.lstEmpDept.Name = "lstEmpDept";
-            this.lstEmpDept.Size = new System.Drawing.Size(185, 186);
+            this.lstEmpDept.Size = new System.Drawing.Size(185, 199);
             this.lstEmpDept.TabIndex = 5;
             // 
             // bttAdd
@@ -408,9 +421,9 @@ namespace RSMPS
             this.groupBox3.Controls.Add(this.bttAdd);
             this.groupBox3.Controls.Add(this.lstDept);
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox3.Location = new System.Drawing.Point(12, 222);
+            this.groupBox3.Location = new System.Drawing.Point(12, 252);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(459, 257);
+            this.groupBox3.Size = new System.Drawing.Size(459, 275);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Departments";
@@ -438,7 +451,7 @@ namespace RSMPS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(482, 533);
+            this.ClientSize = new System.Drawing.Size(482, 572);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.bttCancel);
@@ -498,5 +511,6 @@ namespace RSMPS
         private System.Windows.Forms.ComboBox cmbType;
         private System.Windows.Forms.ComboBox cmbLocation;
         private System.Windows.Forms.CheckBox chkContractor;
+        private System.Windows.Forms.CheckBox chkIsRelMngr;
     }
 }

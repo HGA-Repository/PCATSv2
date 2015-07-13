@@ -44,6 +44,9 @@ namespace RSMPS
             txtAbbrev.Text = "";
             cboTitle.Text = "";
             chkIsProjMngr.Checked = false;
+            chkIsRelMngr.Checked = false; //**********************Added 7/13
+
+
             numMinHrs.Value = 35M;
             numMaxReg.Value = 45M;
             numMaxAll.Value = 55M;
@@ -152,6 +155,7 @@ namespace RSMPS
             cboTitle.Text = et.Name;
 
             chkIsProjMngr.Checked = moEmp.IsProjectManager;
+            chkIsRelMngr.Checked = moEmp.IsRelManager; //******************************Added 7/13/2015
 
             numMinHrs.Value = moEmp.MinHrs;
             numMaxReg.Value = moEmp.MaxRegHrs;
@@ -173,6 +177,7 @@ namespace RSMPS
             moEmp.EmpTitleID = ((RSLib.COListItem)cboTitle.SelectedItem).ID;
 
             moEmp.IsProjectManager = chkIsProjMngr.Checked;
+            moEmp.IsRelManager = chkIsRelMngr.Checked; //*********************Added 7/13/2015
 
             moEmp.MinHrs = numMinHrs.Value;
             moEmp.MaxRegHrs = numMaxReg.Value;
@@ -404,7 +409,12 @@ namespace RSMPS
             mbItemChanged = true;
         }
 
-       
+        private void chkIsRelMngr_CheckedChanged(object sender, EventArgs e)
+        {
+            mbItemChanged = true;
+        }
+
+        
       
     }
 }

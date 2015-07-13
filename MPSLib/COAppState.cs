@@ -91,7 +91,7 @@ namespace RSMPS
             mbSch_ViewPlan = false;
             mbSch_ViewFore = false;
             mbSch_ViewActl = false;
-            msSch_HrDisplay = "#,##0";
+            msSch_HrDisplay = "#,##0"; 
         }
 
         public void InitAppSettings()

@@ -112,6 +112,14 @@ namespace RSMPS
             return dbDt.GetList();
         }
 
+
+        public static SqlDataReader GetRelationshipManagerList() //***********************Added 7/13/2015
+        {
+            CDbEmployee dbDt = new CDbEmployee();
+
+            return dbDt.GetRelationshipManagerList();
+        }
+
         public static SqlDataReader GetListProjectManagers()
         {
             CDbEmployee dbDt = new CDbEmployee();

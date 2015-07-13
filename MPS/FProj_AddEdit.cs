@@ -199,7 +199,9 @@ namespace RSMPS
             SqlDataReader dr;
             RSLib.COListItem li;
 
-            dr = CBEmployee.GetList();
+            //dr = CBEmployee.GetList();
+
+            dr = CBEmployee.GetRelationshipManagerList(); //***********************Edited 7/13/2015
 
             cboRelationship.Items.Clear();
 

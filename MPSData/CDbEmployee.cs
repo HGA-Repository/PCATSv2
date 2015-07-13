@@ -49,6 +49,8 @@ namespace RSMPS
                 oVar.MaxAllHrs = Convert.ToDecimal(dr["MaxAllHrs"]);
                 oVar.IsActive = Convert.ToBoolean(dr["IsActive"]);
                 oVar.IsProjectManager = Convert.ToBoolean(dr["IsProjectManager"]);
+                oVar.IsRelManager = Convert.ToBoolean(dr["IsRelManager"]); //*************************Added 7/13/2015
+
                 oVar.Contractor = Convert.ToBoolean(dr["Contractor"]);
                 oVar.OfficeLocation = dr["OfficeLocation"].ToString();
                 oVar.EngineerType = dr["EngineerType"].ToString();
@@ -104,6 +106,9 @@ namespace RSMPS
             prm.Value = oVar.IsActive;
             prm = cmd.Parameters.Add("@IsProjectManager", SqlDbType.Bit);
             prm.Value = oVar.IsProjectManager;
+            prm = cmd.Parameters.Add("@IsRelManager", SqlDbType.Bit); //********************Added 7/13/2015
+            prm.Value = oVar.IsRelManager;
+
             prm = cmd.Parameters.Add("@Contractor", SqlDbType.Bit);
             prm.Value = oVar.Contractor;
             prm = cmd.Parameters.Add("@OfficeLocation", SqlDbType.VarChar, 50);
@@ -158,6 +163,9 @@ namespace RSMPS
             prm.Value = oVar.IsActive;
             prm = cmd.Parameters.Add("@IsProjectManager", SqlDbType.Bit);
             prm.Value = oVar.IsProjectManager;
+            prm = cmd.Parameters.Add("@IsRelManager", SqlDbType.Bit); //***********************Added 7/13/15
+            prm.Value = oVar.IsRelManager;
+
             prm = cmd.Parameters.Add("@Contractor", SqlDbType.Bit);
             prm.Value = oVar.Contractor;
             prm = cmd.Parameters.Add("@OfficeLocation", SqlDbType.VarChar, 50);
@@ -261,6 +269,30 @@ namespace RSMPS
 
             return dr;
         }
+
+
+        public SqlDataReader GetRelationshipManagerList() //*************************Added 7/13/2015
+        {
+            SqlDataReader dr;
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+
+            cnn = new RSLib.CDbConnection();
+            //cmd = new SqlCommand("spEmployee_ListAll2", cnn.GetConnection());
+           
+            cmd = new SqlCommand("spEmployee_ListRelManager", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            cmd = null;
+
+            return dr;
+        }
+
+
+
+
 
         public SqlDataReader GetListProjectManagers()
         {
