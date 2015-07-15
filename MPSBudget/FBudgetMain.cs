@@ -1803,8 +1803,58 @@ namespace RSMPS
 
 
 
-        private void deleteRowToolStripMenuItem_Click(object sender, EventArgs e)
-        { RemoveCurrentLine(SelectedGroupTab); }
+        //private void deleteRowToolStripMenuItem_Click(object sender, EventArgs e)
+        //{RemoveCurrentLine(SelectedGroupTab); }
+
+
+        private void deleteRowToolStripMenuItem_Click(object sender, EventArgs e) ///****************Experimenting 7/14/2015
+        {
+           
+                //do something
+                        
+                int currRw = fgForGroup(SelectedGroupTab).Row;
+                int currID;
+                var fg = fgForGroup(SelectedGroupTab);
+                if (currRw < 0) return;
+
+                //don't delete the last node
+               // if (CountChildren(fg, fg.Rows[currRw].Node) == 1) return;
+
+                currID = Convert.ToInt32(fg.Rows[currRw][BUDCOL16]);
+
+                //MessageBox.Show(currID.ToString());
+
+                CBBudgetLine bl= new CBBudgetLine();
+                bl.Load(currID);
+                      int el = bl.EntryLevel;
+            // MessageBox.Show(el.ToString());
+           
+            if (el == 2)
+
+            {   
+                  MessageBox.Show("This record is associated with Work Sheet, Please remove it from WorkSheet");
+                    return;
+            }
+            else
+                RemoveCurrentLine(SelectedGroupTab);           
+            
+            }
+
+        private static int IndexOf_Hyphen(string str, char c, int n)
+        {
+            int s = -1;
+
+            for (int i = 0; i < n; i++)
+            {
+                s = str.IndexOf(c, s + 1);
+
+                if (s == -1) break;
+            }
+
+            return s;
+        }
+
+
 
         public int CountChildren(C1FlexGrid fg, Node node) 
         {
