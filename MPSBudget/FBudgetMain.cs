@@ -338,6 +338,14 @@ namespace RSMPS
         private void SubTotal(string group)
         {
             var fg = fgForGroup(group);
+
+
+            fg.Subtotal(AggregateEnum.Sum, 0, BUDCOL2, BUDCOL11);   //*******************Added 7/16/2015
+            fg.Subtotal(AggregateEnum.Sum, 1, BUDCOL3, BUDCOL11);
+            fg.Subtotal(AggregateEnum.Sum, 2, BUDCOL4, BUDCOL11);
+
+
+
             fg.Subtotal(AggregateEnum.Sum, 0, BUDCOL2, BUDCOL13);
             fg.Subtotal(AggregateEnum.Sum, 1, BUDCOL3, BUDCOL13);
             fg.Subtotal(AggregateEnum.Sum, 2, BUDCOL4, BUDCOL13);
