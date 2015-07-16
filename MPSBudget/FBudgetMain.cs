@@ -659,8 +659,8 @@ namespace RSMPS
             var group_obj = _Groups.FirstOrDefault(x => x.Code == group);
             FWS worksheet = new FWS(group_obj, !has_no_worksheet_codes.Contains(group) );
 
-            worksheet.cboWBS_Text = cboWBS.Text; // *****************************Added 7/1/15
-            worksheet.miProjectID = miProjectID;
+           // worksheet.cboWBS_Text = cboWBS.Text; // *****************************Added 7/1/15
+           // worksheet.miProjectID = miProjectID;
            
          //   MessageBox.Show(worksheet.miProjectID.ToString());
             //MessageBox.Show(cboWBS.Text);
