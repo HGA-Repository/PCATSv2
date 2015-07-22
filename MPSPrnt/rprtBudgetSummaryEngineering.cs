@@ -10,6 +10,13 @@ namespace RSMPS
     public class rprtBudgetSummaryEngineering : GrapeCity.ActiveReports.SectionReport
     {
         private int miTotalHours = 0;
+
+        private bool mbRate = true; //************************Added 7/22/2015
+        public bool Rate
+        {
+            get { return mbRate; }
+            set { mbRate = value; }
+        }
         
         public int TotalHours
         {
@@ -755,6 +762,7 @@ namespace RSMPS
             "ght: bold; font-size: 14pt; font-size-adjust: inherit; font-stretch: inherit", "Heading2", "Normal"));
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bo" +
             "ld; font-size: 13pt; font-size-adjust: inherit; font-stretch: inherit", "Heading3", "Normal"));
+            this.ReportStart += new System.EventHandler(this.rprtBudgetSummaryEngineering_ReportStart);
             ((System.ComponentModel.ISupportInitialize)(this.txtAcctCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLoadedDollars)).EndInit();
@@ -818,5 +826,16 @@ namespace RSMPS
         private Label Label2;
         private Line Line25;
         private PageFooter PageFooter;
+
+        private void rprtBudgetSummaryEngineering_ReportStart(object sender, EventArgs e) //**********************Added 7/22/2015
+        {
+            if (mbRate == false)
+            {
+                txtLoadedRate.Visible = false;
+                txtLoadedRateGroup.Visible = false;
+                txtLoadedDollars.Visible = false;
+                txtLoadedDollarsGroup.Visible = false;
+            }
+        }
 	}
 }

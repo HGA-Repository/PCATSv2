@@ -3256,12 +3256,20 @@ namespace RSMPS
         private void tlbbSummary_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
             CPBudget bud = new CPBudget();
-
             this.Cursor = Cursors.WaitCursor;
-
             bud.PreviewBudgetSummary(moCurrBudget.ID, cboWBS.Text);
-
             this.Cursor = Cursors.Default;
+        }
+
+
+        private void tlbbSummaryWORate_Click(object sender, C1.Win.C1Command.ClickEventArgs e) //*****************************Added 7/22/2015
+        {
+            CPBudget bud = new CPBudget();
+            this.Cursor = Cursors.WaitCursor;
+            bool rate = false;
+            bud.PreviewBudgetSummary(moCurrBudget.ID, cboWBS.Text,rate);
+            this.Cursor = Cursors.Default;
+
         }
 
         private void tlbbPreviewDetails_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
@@ -4099,6 +4107,8 @@ namespace RSMPS
             pcn.ShowDialog();
             pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNChanged);
         }
+
+       
 
      
        

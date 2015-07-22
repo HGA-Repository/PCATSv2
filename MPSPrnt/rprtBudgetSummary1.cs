@@ -45,8 +45,14 @@ namespace RSMPS
         private Line line16;
         private decimal mdContingency = 0;
         private decimal t_b_a;
-        
 
+             
+        private bool mbRate = true; //************************Added 7/22/2015
+        public bool Rate
+        {
+            get { return mbRate; }
+            set { mbRate = value; }
+        }
 
 
         public string MainReportTitle
@@ -111,7 +117,9 @@ namespace RSMPS
             rprtGen.TotalHours = miTotalHours;
             rprtGen.DataSource = this.DataSource;
             rprtGen.DataMember = "Table1";
+            rprtGen.Rate = mbRate;
             subGeneral.Report = rprtGen;
+
 
             //if (mbPipelineSvcs == true)
             //   rprtEngr.SubHeading = "Project Services";
@@ -119,6 +127,7 @@ namespace RSMPS
             rprtEngr.TotalHours = miTotalHours;
             rprtEngr.DataSource = this.DataSource;
             rprtEngr.DataMember = "Table2";
+            rprtEngr.Rate = mbRate;
             subEngr.Report = rprtEngr;
 
             txtEngrLoadedDollars.Value = mdTotalHourDollars;
@@ -136,6 +145,7 @@ namespace RSMPS
             rprtExp.TotalHours = miTotalHours;
             rprtExp.DataSource = this.DataSource;
             rprtExp.DataMember = "Table3";
+            rprtExp.Rate = mbRate;
             subExpenses.Report = rprtExp;
 
             txtTotalLoadedDollars.Value = mdTotalHourDollars + mdTotalExpenses;
@@ -1610,6 +1620,22 @@ namespace RSMPS
         private void rprtBudgetSummary1_ReportStart(object sender, EventArgs e)
         {
             lblPrintDate.Text = "Run Date: " + DateTime.Now.ToShortDateString();
+
+            if (mbRate == false)        //******************** 7/22/2015
+            {
+                txtEngrLoadedRate.Visible = false;
+                txtTotalLoadedRate.Visible = false;
+                
+                txtTotalLoadedDollars.Visible = false;
+                txtEngrLoadedDollars.Visible = false;
+                Label4.Visible = false;
+                Label3.Visible = false;
+
+                txtContengency.Visible = false;
+                txtTotalDollars.Visible = false;
+            }
+
+
         }
 
         private PageHeader PageHeader;

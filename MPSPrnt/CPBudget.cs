@@ -81,6 +81,65 @@ namespace RSMPS
             pv.ShowDialog();
         }
 
+        public void PreviewBudgetSummary(int budID, string wbs,bool rate) //***********************Added 7/22/2015
+        {
+            FPreviewAR pv = new FPreviewAR();
+            rprtBudgetSummary1 rprt = new rprtBudgetSummary1();
+            DataSet ds;
+
+
+            int totalHours;
+            decimal totalHourDollars;
+            decimal totalExpenses;
+            decimal contingency;
+            CBBudget bud = new CBBudget();
+            CBProject proj = new CBProject();
+            CBCustomer cust = new CBCustomer();
+            CBLocation loc = new CBLocation();
+            CBState state = new CBState();
+
+            bud.Load(budID);
+            proj.Load(bud.ProjectID);
+            cust.Load(proj.CustomerID);
+            loc.Load(proj.LocationID);
+            state.Load(loc.StateID);
+
+            totalHours = CBBudget.GetTotalBudgetHours(budID, wbs);
+            totalHourDollars = CBBudget.GetTotalBudgetHourDollars(budID, wbs);
+            totalExpenses = CBBudget.GetTotalBudgetExpenses(budID);
+            contingency = CBBudget.GetContingencyForBudget(budID);
+
+            ds = CBBudget.GetBudgetSummaryForReport(budID, wbs);
+            if (proj.BusinessUnit() == 1) rprt.MainReportTitle = "Staffing Estimate Loaded Summary";
+            if (proj.BusinessUnit() == 2) rprt.MainReportTitle = "Engineering Estimate Loaded Summary";
+            if (proj.BusinessUnit() == 3) rprt.MainReportTitle = "Pipeline Services Estimate Loaded Summary";
+            if (proj.BusinessUnit() == 4) rprt.MainReportTitle = "Program Management Estimate Loaded Summary";
+            if (proj.BusinessUnit() == 5) rprt.MainReportTitle = "EPC Estimate Loaded Summary";
+
+
+
+
+            rprt.SetTitles(proj.Number, proj.Description, bud.GetNumber(), cust.Name, loc.City + "," + state.Abbrev, wbs);
+            rprt.TotalHours = totalHours;
+            rprt.TotalHourDollars = totalHourDollars;
+            rprt.TotalExpenses = totalExpenses;
+            rprt.Contingency = contingency;
+            rprt.Rate = rate;
+            rprt.DataSource = ds;
+            rprt.DataMember = "Table";
+
+
+            pv.projNumber = proj.Number; // **************************Added 6/29/2015 **************************
+            pv.ViewReport(rprt);
+            pv.ShowDialog();
+        }
+
+
+
+
+
+
+
         public void PreviewBudgetDetails(int budID, string wbs)
         {
             FPreviewAR pv = new FPreviewAR();

@@ -10,12 +10,20 @@ namespace RSMPS
     public class rprtBudgetSummaryGeneral : GrapeCity.ActiveReports.SectionReport
     {
         private int miTotalHours = 0;
+        private bool mbRate = true; //************************Added 7/22/2015
 
         public int TotalHours
         {
             get { return miTotalHours; }
             set { miTotalHours = value; }
         }
+
+        public bool Rate
+        {
+            get { return mbRate; }
+            set { mbRate = value; }
+        }
+
 
         public rprtBudgetSummaryGeneral()
         {
@@ -118,20 +126,6 @@ namespace RSMPS
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rprtBudgetSummaryGeneral));
             this.Detail = new GrapeCity.ActiveReports.SectionReportModel.Detail();
-            this.PageHeader = new GrapeCity.ActiveReports.SectionReportModel.PageHeader();
-            this.PageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
-            this.GroupHeader1 = new GrapeCity.ActiveReports.SectionReportModel.GroupHeader();
-            this.GroupFooter1 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
-            this.Label = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.Line8 = new GrapeCity.ActiveReports.SectionReportModel.Line();
-            this.Line9 = new GrapeCity.ActiveReports.SectionReportModel.Line();
-            this.Line10 = new GrapeCity.ActiveReports.SectionReportModel.Line();
-            this.Line11 = new GrapeCity.ActiveReports.SectionReportModel.Line();
-            this.Line12 = new GrapeCity.ActiveReports.SectionReportModel.Line();
-            this.Line13 = new GrapeCity.ActiveReports.SectionReportModel.Line();
-            this.Line14 = new GrapeCity.ActiveReports.SectionReportModel.Line();
-            this.Line15 = new GrapeCity.ActiveReports.SectionReportModel.Line();
-            this.Line16 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.txtAcctCode = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.txtDescription = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.txtLoadedDollars = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
@@ -146,6 +140,20 @@ namespace RSMPS
             this.Line5 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.Line6 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.Line7 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.PageHeader = new GrapeCity.ActiveReports.SectionReportModel.PageHeader();
+            this.PageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
+            this.GroupHeader1 = new GrapeCity.ActiveReports.SectionReportModel.GroupHeader();
+            this.Label = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.Line8 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line9 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line10 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line11 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line12 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line13 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line14 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line15 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.Line16 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.GroupFooter1 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
             this.txtLoadedDollarsGroup = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.txtLoadedRateGroup = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.txtMHrsGroup = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
@@ -161,13 +169,13 @@ namespace RSMPS
             this.Label1 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.Label2 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.Line25 = new GrapeCity.ActiveReports.SectionReportModel.Line();
-            ((System.ComponentModel.ISupportInitialize)(this.Label)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAcctCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLoadedDollars)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLoadedRate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMHrs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPercOfHrs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Label)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLoadedDollarsGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLoadedRateGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMHrsGroup)).BeginInit();
@@ -178,24 +186,196 @@ namespace RSMPS
             // 
             // Detail
             // 
-            this.Detail.ColumnSpacing = 0F;
             this.Detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
-                        this.txtAcctCode,
-                        this.txtDescription,
-                        this.txtLoadedDollars,
-                        this.txtLoadedRate,
-                        this.txtMHrs,
-                        this.txtPercOfHrs,
-                        this.Line,
-                        this.Line1,
-                        this.Line2,
-                        this.Line3,
-                        this.Line4,
-                        this.Line5,
-                        this.Line6,
-                        this.Line7});
+            this.txtAcctCode,
+            this.txtDescription,
+            this.txtLoadedDollars,
+            this.txtLoadedRate,
+            this.txtMHrs,
+            this.txtPercOfHrs,
+            this.Line,
+            this.Line1,
+            this.Line2,
+            this.Line3,
+            this.Line4,
+            this.Line5,
+            this.Line6,
+            this.Line7});
             this.Detail.Height = 0.1506944F;
             this.Detail.Name = "Detail";
+            this.Detail.Format += new System.EventHandler(this.Detail_Format);
+            // 
+            // txtAcctCode
+            // 
+            this.txtAcctCode.DataField = "Code";
+            this.txtAcctCode.Height = 0.15F;
+            this.txtAcctCode.Left = 0F;
+            this.txtAcctCode.Name = "txtAcctCode";
+            this.txtAcctCode.Style = "font-size: 9pt; text-align: center; vertical-align: middle";
+            this.txtAcctCode.Text = "TextBox";
+            this.txtAcctCode.Top = 0F;
+            this.txtAcctCode.Width = 0.75F;
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.DataField = "Description";
+            this.txtDescription.Height = 0.15F;
+            this.txtDescription.Left = 0.8125F;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Style = "font-size: 9pt; vertical-align: middle";
+            this.txtDescription.Text = "TextBox";
+            this.txtDescription.Top = 0F;
+            this.txtDescription.Width = 2.6875F;
+            // 
+            // txtLoadedDollars
+            // 
+            this.txtLoadedDollars.DataField = "LoadedDollars";
+            this.txtLoadedDollars.Height = 0.15F;
+            this.txtLoadedDollars.Left = 3.5625F;
+            this.txtLoadedDollars.Name = "txtLoadedDollars";
+            this.txtLoadedDollars.OutputFormat = resources.GetString("txtLoadedDollars.OutputFormat");
+            this.txtLoadedDollars.Style = "font-size: 9pt; text-align: right; vertical-align: middle";
+            this.txtLoadedDollars.Text = "TextBox";
+            this.txtLoadedDollars.Top = 0F;
+            this.txtLoadedDollars.Width = 1.0625F;
+            // 
+            // txtLoadedRate
+            // 
+            this.txtLoadedRate.Height = 0.15F;
+            this.txtLoadedRate.Left = 4.739583F;
+            this.txtLoadedRate.Name = "txtLoadedRate";
+            this.txtLoadedRate.OutputFormat = resources.GetString("txtLoadedRate.OutputFormat");
+            this.txtLoadedRate.Style = "font-size: 9pt; text-align: right; vertical-align: middle";
+            this.txtLoadedRate.Text = "TextBox";
+            this.txtLoadedRate.Top = 0F;
+            this.txtLoadedRate.Width = 1.010417F;
+            // 
+            // txtMHrs
+            // 
+            this.txtMHrs.DataField = "MHrs";
+            this.txtMHrs.Height = 0.15F;
+            this.txtMHrs.Left = 5.833333F;
+            this.txtMHrs.Name = "txtMHrs";
+            this.txtMHrs.OutputFormat = resources.GetString("txtMHrs.OutputFormat");
+            this.txtMHrs.Style = "font-size: 9pt; text-align: right; vertical-align: middle";
+            this.txtMHrs.Text = "TextBox";
+            this.txtMHrs.Top = 0F;
+            this.txtMHrs.Width = 0.7916667F;
+            // 
+            // txtPercOfHrs
+            // 
+            this.txtPercOfHrs.Height = 0.15F;
+            this.txtPercOfHrs.Left = 6.6875F;
+            this.txtPercOfHrs.Name = "txtPercOfHrs";
+            this.txtPercOfHrs.OutputFormat = resources.GetString("txtPercOfHrs.OutputFormat");
+            this.txtPercOfHrs.Style = "font-size: 9pt; text-align: right; vertical-align: middle";
+            this.txtPercOfHrs.Text = "TextBox";
+            this.txtPercOfHrs.Top = 0F;
+            this.txtPercOfHrs.Width = 0.6875F;
+            // 
+            // Line
+            // 
+            this.Line.Height = 0F;
+            this.Line.Left = 0F;
+            this.Line.LineWeight = 1F;
+            this.Line.Name = "Line";
+            this.Line.Top = 0.15F;
+            this.Line.Width = 7.4375F;
+            this.Line.X1 = 0F;
+            this.Line.X2 = 7.4375F;
+            this.Line.Y1 = 0.15F;
+            this.Line.Y2 = 0.15F;
+            // 
+            // Line1
+            // 
+            this.Line1.Height = 0.15F;
+            this.Line1.Left = 0.75F;
+            this.Line1.LineWeight = 1F;
+            this.Line1.Name = "Line1";
+            this.Line1.Top = 0F;
+            this.Line1.Width = 0F;
+            this.Line1.X1 = 0.75F;
+            this.Line1.X2 = 0.75F;
+            this.Line1.Y1 = 0F;
+            this.Line1.Y2 = 0.15F;
+            // 
+            // Line2
+            // 
+            this.Line2.Height = 0.15F;
+            this.Line2.Left = 3.563F;
+            this.Line2.LineWeight = 1F;
+            this.Line2.Name = "Line2";
+            this.Line2.Top = 0F;
+            this.Line2.Width = 0F;
+            this.Line2.X1 = 3.563F;
+            this.Line2.X2 = 3.563F;
+            this.Line2.Y1 = 0F;
+            this.Line2.Y2 = 0.15F;
+            // 
+            // Line3
+            // 
+            this.Line3.Height = 0.15F;
+            this.Line3.Left = 4.688F;
+            this.Line3.LineWeight = 1F;
+            this.Line3.Name = "Line3";
+            this.Line3.Top = 0F;
+            this.Line3.Width = 0F;
+            this.Line3.X1 = 4.688F;
+            this.Line3.X2 = 4.688F;
+            this.Line3.Y1 = 0F;
+            this.Line3.Y2 = 0.15F;
+            // 
+            // Line4
+            // 
+            this.Line4.Height = 0.15F;
+            this.Line4.Left = 5.813001F;
+            this.Line4.LineWeight = 1F;
+            this.Line4.Name = "Line4";
+            this.Line4.Top = 0F;
+            this.Line4.Width = 0F;
+            this.Line4.X1 = 5.813001F;
+            this.Line4.X2 = 5.813001F;
+            this.Line4.Y1 = 0F;
+            this.Line4.Y2 = 0.15F;
+            // 
+            // Line5
+            // 
+            this.Line5.Height = 0.15F;
+            this.Line5.Left = 6.6875F;
+            this.Line5.LineWeight = 1F;
+            this.Line5.Name = "Line5";
+            this.Line5.Top = 0F;
+            this.Line5.Width = 0F;
+            this.Line5.X1 = 6.6875F;
+            this.Line5.X2 = 6.6875F;
+            this.Line5.Y1 = 0F;
+            this.Line5.Y2 = 0.15F;
+            // 
+            // Line6
+            // 
+            this.Line6.Height = 0.15F;
+            this.Line6.Left = 7.4375F;
+            this.Line6.LineWeight = 1F;
+            this.Line6.Name = "Line6";
+            this.Line6.Top = 0F;
+            this.Line6.Width = 0F;
+            this.Line6.X1 = 7.4375F;
+            this.Line6.X2 = 7.4375F;
+            this.Line6.Y1 = 0F;
+            this.Line6.Y2 = 0.15F;
+            // 
+            // Line7
+            // 
+            this.Line7.Height = 0.15F;
+            this.Line7.Left = 0F;
+            this.Line7.LineWeight = 1F;
+            this.Line7.Name = "Line7";
+            this.Line7.Top = 0F;
+            this.Line7.Width = 0F;
+            this.Line7.X1 = 0F;
+            this.Line7.X2 = 0F;
+            this.Line7.Y1 = 0F;
+            this.Line7.Y2 = 0.15F;
             // 
             // PageHeader
             // 
@@ -210,69 +390,32 @@ namespace RSMPS
             // GroupHeader1
             // 
             this.GroupHeader1.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
-                        this.Label,
-                        this.Line8,
-                        this.Line9,
-                        this.Line10,
-                        this.Line11,
-                        this.Line12,
-                        this.Line13,
-                        this.Line14,
-                        this.Line15,
-                        this.Line16});
+            this.Label,
+            this.Line8,
+            this.Line9,
+            this.Line10,
+            this.Line11,
+            this.Line12,
+            this.Line13,
+            this.Line14,
+            this.Line15,
+            this.Line16});
             this.GroupHeader1.Height = 0.2090278F;
             this.GroupHeader1.Name = "GroupHeader1";
             // 
-            // GroupFooter1
-            // 
-            this.GroupFooter1.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
-                        this.txtLoadedDollarsGroup,
-                        this.txtLoadedRateGroup,
-                        this.txtMHrsGroup,
-                        this.txtPerHrsGroup,
-                        this.Line17,
-                        this.Line18,
-                        this.Line19,
-                        this.Line20,
-                        this.Line21,
-                        this.Line22,
-                        this.Line23,
-                        this.Line24,
-                        this.Label1,
-                        this.Label2,
-                        this.Line25});
-            this.GroupFooter1.Height = 0.25F;
-            this.GroupFooter1.Name = "GroupFooter1";
-            // 
             // Label
             // 
-            this.Label.Border.BottomColor = System.Drawing.Color.Black;
-            this.Label.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Label.Border.LeftColor = System.Drawing.Color.Black;
-            this.Label.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Label.Border.RightColor = System.Drawing.Color.Black;
-            this.Label.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Label.Border.TopColor = System.Drawing.Color.Black;
-            this.Label.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label.Height = 0.2F;
             this.Label.HyperLink = null;
             this.Label.Left = 0.8125F;
             this.Label.Name = "Label";
-            this.Label.Style = "font-weight: bold; font-size: 9.75pt; vertical-align: middle; ";
+            this.Label.Style = "font-size: 9.75pt; font-weight: bold; vertical-align: middle";
             this.Label.Text = "General / Project Support";
             this.Label.Top = 0F;
             this.Label.Width = 2.6875F;
             // 
             // Line8
             // 
-            this.Line8.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line8.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line8.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line8.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line8.Border.RightColor = System.Drawing.Color.Black;
-            this.Line8.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line8.Border.TopColor = System.Drawing.Color.Black;
-            this.Line8.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Line8.Height = 0F;
             this.Line8.Left = 0F;
             this.Line8.LineWeight = 1F;
@@ -286,14 +429,6 @@ namespace RSMPS
             // 
             // Line9
             // 
-            this.Line9.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line9.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line9.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line9.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line9.Border.RightColor = System.Drawing.Color.Black;
-            this.Line9.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line9.Border.TopColor = System.Drawing.Color.Black;
-            this.Line9.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Line9.Height = 0F;
             this.Line9.Left = 0F;
             this.Line9.LineWeight = 1F;
@@ -307,14 +442,6 @@ namespace RSMPS
             // 
             // Line10
             // 
-            this.Line10.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line10.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line10.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line10.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line10.Border.RightColor = System.Drawing.Color.Black;
-            this.Line10.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line10.Border.TopColor = System.Drawing.Color.Black;
-            this.Line10.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Line10.Height = 0.2F;
             this.Line10.Left = 0.75F;
             this.Line10.LineWeight = 1F;
@@ -328,14 +455,6 @@ namespace RSMPS
             // 
             // Line11
             // 
-            this.Line11.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line11.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line11.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line11.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line11.Border.RightColor = System.Drawing.Color.Black;
-            this.Line11.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line11.Border.TopColor = System.Drawing.Color.Black;
-            this.Line11.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Line11.Height = 0.2F;
             this.Line11.Left = 0F;
             this.Line11.LineWeight = 1F;
@@ -349,14 +468,6 @@ namespace RSMPS
             // 
             // Line12
             // 
-            this.Line12.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line12.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line12.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line12.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line12.Border.RightColor = System.Drawing.Color.Black;
-            this.Line12.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line12.Border.TopColor = System.Drawing.Color.Black;
-            this.Line12.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Line12.Height = 0.2F;
             this.Line12.Left = 3.563F;
             this.Line12.LineWeight = 1F;
@@ -370,14 +481,6 @@ namespace RSMPS
             // 
             // Line13
             // 
-            this.Line13.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line13.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line13.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line13.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line13.Border.RightColor = System.Drawing.Color.Black;
-            this.Line13.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line13.Border.TopColor = System.Drawing.Color.Black;
-            this.Line13.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Line13.Height = 0.2F;
             this.Line13.Left = 4.688F;
             this.Line13.LineWeight = 1F;
@@ -391,14 +494,6 @@ namespace RSMPS
             // 
             // Line14
             // 
-            this.Line14.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line14.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line14.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line14.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line14.Border.RightColor = System.Drawing.Color.Black;
-            this.Line14.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line14.Border.TopColor = System.Drawing.Color.Black;
-            this.Line14.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Line14.Height = 0.2F;
             this.Line14.Left = 5.813001F;
             this.Line14.LineWeight = 1F;
@@ -412,14 +507,6 @@ namespace RSMPS
             // 
             // Line15
             // 
-            this.Line15.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line15.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line15.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line15.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line15.Border.RightColor = System.Drawing.Color.Black;
-            this.Line15.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line15.Border.TopColor = System.Drawing.Color.Black;
-            this.Line15.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Line15.Height = 0.2F;
             this.Line15.Left = 6.6875F;
             this.Line15.LineWeight = 1F;
@@ -433,14 +520,6 @@ namespace RSMPS
             // 
             // Line16
             // 
-            this.Line16.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line16.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line16.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line16.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line16.Border.RightColor = System.Drawing.Color.Black;
-            this.Line16.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line16.Border.TopColor = System.Drawing.Color.Black;
-            this.Line16.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Line16.Height = 0.2F;
             this.Line16.Left = 7.4375F;
             this.Line16.LineWeight = 1F;
@@ -452,306 +531,35 @@ namespace RSMPS
             this.Line16.Y1 = 0F;
             this.Line16.Y2 = 0.2F;
             // 
-            // txtAcctCode
+            // GroupFooter1
             // 
-            this.txtAcctCode.Border.BottomColor = System.Drawing.Color.Black;
-            this.txtAcctCode.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtAcctCode.Border.LeftColor = System.Drawing.Color.Black;
-            this.txtAcctCode.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtAcctCode.Border.RightColor = System.Drawing.Color.Black;
-            this.txtAcctCode.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtAcctCode.Border.TopColor = System.Drawing.Color.Black;
-            this.txtAcctCode.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtAcctCode.DataField = "Code";
-            this.txtAcctCode.Height = 0.15F;
-            this.txtAcctCode.Left = 0F;
-            this.txtAcctCode.Name = "txtAcctCode";
-            this.txtAcctCode.Style = "text-align: center; font-size: 9pt; vertical-align: middle; ";
-            this.txtAcctCode.Text = "TextBox";
-            this.txtAcctCode.Top = 0F;
-            this.txtAcctCode.Width = 0.75F;
-            // 
-            // txtDescription
-            // 
-            this.txtDescription.Border.BottomColor = System.Drawing.Color.Black;
-            this.txtDescription.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtDescription.Border.LeftColor = System.Drawing.Color.Black;
-            this.txtDescription.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtDescription.Border.RightColor = System.Drawing.Color.Black;
-            this.txtDescription.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtDescription.Border.TopColor = System.Drawing.Color.Black;
-            this.txtDescription.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtDescription.DataField = "Description";
-            this.txtDescription.Height = 0.15F;
-            this.txtDescription.Left = 0.8125F;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Style = "font-size: 9pt; vertical-align: middle; ";
-            this.txtDescription.Text = "TextBox";
-            this.txtDescription.Top = 0F;
-            this.txtDescription.Width = 2.6875F;
-            // 
-            // txtLoadedDollars
-            // 
-            this.txtLoadedDollars.Border.BottomColor = System.Drawing.Color.Black;
-            this.txtLoadedDollars.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtLoadedDollars.Border.LeftColor = System.Drawing.Color.Black;
-            this.txtLoadedDollars.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtLoadedDollars.Border.RightColor = System.Drawing.Color.Black;
-            this.txtLoadedDollars.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtLoadedDollars.Border.TopColor = System.Drawing.Color.Black;
-            this.txtLoadedDollars.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtLoadedDollars.DataField = "LoadedDollars";
-            this.txtLoadedDollars.Height = 0.15F;
-            this.txtLoadedDollars.Left = 3.5625F;
-            this.txtLoadedDollars.Name = "txtLoadedDollars";
-            this.txtLoadedDollars.OutputFormat = resources.GetString("txtLoadedDollars.OutputFormat");
-            this.txtLoadedDollars.Style = "text-align: right; font-size: 9pt; vertical-align: middle; ";
-            this.txtLoadedDollars.Text = "TextBox";
-            this.txtLoadedDollars.Top = 0F;
-            this.txtLoadedDollars.Width = 1.0625F;
-            // 
-            // txtLoadedRate
-            // 
-            this.txtLoadedRate.Border.BottomColor = System.Drawing.Color.Black;
-            this.txtLoadedRate.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtLoadedRate.Border.LeftColor = System.Drawing.Color.Black;
-            this.txtLoadedRate.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtLoadedRate.Border.RightColor = System.Drawing.Color.Black;
-            this.txtLoadedRate.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtLoadedRate.Border.TopColor = System.Drawing.Color.Black;
-            this.txtLoadedRate.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtLoadedRate.Height = 0.15F;
-            this.txtLoadedRate.Left = 4.739583F;
-            this.txtLoadedRate.Name = "txtLoadedRate";
-            this.txtLoadedRate.OutputFormat = resources.GetString("txtLoadedRate.OutputFormat");
-            this.txtLoadedRate.Style = "text-align: right; font-size: 9pt; vertical-align: middle; ";
-            this.txtLoadedRate.Text = "TextBox";
-            this.txtLoadedRate.Top = 0F;
-            this.txtLoadedRate.Width = 1.010417F;
-            // 
-            // txtMHrs
-            // 
-            this.txtMHrs.Border.BottomColor = System.Drawing.Color.Black;
-            this.txtMHrs.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtMHrs.Border.LeftColor = System.Drawing.Color.Black;
-            this.txtMHrs.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtMHrs.Border.RightColor = System.Drawing.Color.Black;
-            this.txtMHrs.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtMHrs.Border.TopColor = System.Drawing.Color.Black;
-            this.txtMHrs.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtMHrs.DataField = "MHrs";
-            this.txtMHrs.Height = 0.15F;
-            this.txtMHrs.Left = 5.833333F;
-            this.txtMHrs.Name = "txtMHrs";
-            this.txtMHrs.OutputFormat = resources.GetString("txtMHrs.OutputFormat");
-            this.txtMHrs.Style = "text-align: right; font-size: 9pt; vertical-align: middle; ";
-            this.txtMHrs.Text = "TextBox";
-            this.txtMHrs.Top = 0F;
-            this.txtMHrs.Width = 0.7916667F;
-            // 
-            // txtPercOfHrs
-            // 
-            this.txtPercOfHrs.Border.BottomColor = System.Drawing.Color.Black;
-            this.txtPercOfHrs.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtPercOfHrs.Border.LeftColor = System.Drawing.Color.Black;
-            this.txtPercOfHrs.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtPercOfHrs.Border.RightColor = System.Drawing.Color.Black;
-            this.txtPercOfHrs.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtPercOfHrs.Border.TopColor = System.Drawing.Color.Black;
-            this.txtPercOfHrs.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtPercOfHrs.Height = 0.15F;
-            this.txtPercOfHrs.Left = 6.6875F;
-            this.txtPercOfHrs.Name = "txtPercOfHrs";
-            this.txtPercOfHrs.OutputFormat = resources.GetString("txtPercOfHrs.OutputFormat");
-            this.txtPercOfHrs.Style = "text-align: right; font-size: 9pt; vertical-align: middle; ";
-            this.txtPercOfHrs.Text = "TextBox";
-            this.txtPercOfHrs.Top = 0F;
-            this.txtPercOfHrs.Width = 0.6875F;
-            // 
-            // Line
-            // 
-            this.Line.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line.Border.RightColor = System.Drawing.Color.Black;
-            this.Line.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line.Border.TopColor = System.Drawing.Color.Black;
-            this.Line.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line.Height = 0F;
-            this.Line.Left = 0F;
-            this.Line.LineWeight = 1F;
-            this.Line.Name = "Line";
-            this.Line.Top = 0.15F;
-            this.Line.Width = 7.4375F;
-            this.Line.X1 = 0F;
-            this.Line.X2 = 7.4375F;
-            this.Line.Y1 = 0.15F;
-            this.Line.Y2 = 0.15F;
-            // 
-            // Line1
-            // 
-            this.Line1.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line1.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line1.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line1.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line1.Border.RightColor = System.Drawing.Color.Black;
-            this.Line1.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line1.Border.TopColor = System.Drawing.Color.Black;
-            this.Line1.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line1.Height = 0.15F;
-            this.Line1.Left = 0.75F;
-            this.Line1.LineWeight = 1F;
-            this.Line1.Name = "Line1";
-            this.Line1.Top = 0F;
-            this.Line1.Width = 0F;
-            this.Line1.X1 = 0.75F;
-            this.Line1.X2 = 0.75F;
-            this.Line1.Y1 = 0F;
-            this.Line1.Y2 = 0.15F;
-            // 
-            // Line2
-            // 
-            this.Line2.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line2.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line2.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line2.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line2.Border.RightColor = System.Drawing.Color.Black;
-            this.Line2.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line2.Border.TopColor = System.Drawing.Color.Black;
-            this.Line2.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line2.Height = 0.15F;
-            this.Line2.Left = 3.563F;
-            this.Line2.LineWeight = 1F;
-            this.Line2.Name = "Line2";
-            this.Line2.Top = 0F;
-            this.Line2.Width = 0F;
-            this.Line2.X1 = 3.563F;
-            this.Line2.X2 = 3.563F;
-            this.Line2.Y1 = 0F;
-            this.Line2.Y2 = 0.15F;
-            // 
-            // Line3
-            // 
-            this.Line3.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line3.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line3.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line3.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line3.Border.RightColor = System.Drawing.Color.Black;
-            this.Line3.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line3.Border.TopColor = System.Drawing.Color.Black;
-            this.Line3.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line3.Height = 0.15F;
-            this.Line3.Left = 4.688F;
-            this.Line3.LineWeight = 1F;
-            this.Line3.Name = "Line3";
-            this.Line3.Top = 0F;
-            this.Line3.Width = 0F;
-            this.Line3.X1 = 4.688F;
-            this.Line3.X2 = 4.688F;
-            this.Line3.Y1 = 0F;
-            this.Line3.Y2 = 0.15F;
-            // 
-            // Line4
-            // 
-            this.Line4.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line4.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line4.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line4.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line4.Border.RightColor = System.Drawing.Color.Black;
-            this.Line4.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line4.Border.TopColor = System.Drawing.Color.Black;
-            this.Line4.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line4.Height = 0.15F;
-            this.Line4.Left = 5.813001F;
-            this.Line4.LineWeight = 1F;
-            this.Line4.Name = "Line4";
-            this.Line4.Top = 0F;
-            this.Line4.Width = 0F;
-            this.Line4.X1 = 5.813001F;
-            this.Line4.X2 = 5.813001F;
-            this.Line4.Y1 = 0F;
-            this.Line4.Y2 = 0.15F;
-            // 
-            // Line5
-            // 
-            this.Line5.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line5.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line5.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line5.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line5.Border.RightColor = System.Drawing.Color.Black;
-            this.Line5.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line5.Border.TopColor = System.Drawing.Color.Black;
-            this.Line5.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line5.Height = 0.15F;
-            this.Line5.Left = 6.6875F;
-            this.Line5.LineWeight = 1F;
-            this.Line5.Name = "Line5";
-            this.Line5.Top = 0F;
-            this.Line5.Width = 0F;
-            this.Line5.X1 = 6.6875F;
-            this.Line5.X2 = 6.6875F;
-            this.Line5.Y1 = 0F;
-            this.Line5.Y2 = 0.15F;
-            // 
-            // Line6
-            // 
-            this.Line6.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line6.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line6.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line6.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line6.Border.RightColor = System.Drawing.Color.Black;
-            this.Line6.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line6.Border.TopColor = System.Drawing.Color.Black;
-            this.Line6.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line6.Height = 0.15F;
-            this.Line6.Left = 7.4375F;
-            this.Line6.LineWeight = 1F;
-            this.Line6.Name = "Line6";
-            this.Line6.Top = 0F;
-            this.Line6.Width = 0F;
-            this.Line6.X1 = 7.4375F;
-            this.Line6.X2 = 7.4375F;
-            this.Line6.Y1 = 0F;
-            this.Line6.Y2 = 0.15F;
-            // 
-            // Line7
-            // 
-            this.Line7.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line7.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line7.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line7.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line7.Border.RightColor = System.Drawing.Color.Black;
-            this.Line7.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line7.Border.TopColor = System.Drawing.Color.Black;
-            this.Line7.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line7.Height = 0.15F;
-            this.Line7.Left = 0F;
-            this.Line7.LineWeight = 1F;
-            this.Line7.Name = "Line7";
-            this.Line7.Top = 0F;
-            this.Line7.Width = 0F;
-            this.Line7.X1 = 0F;
-            this.Line7.X2 = 0F;
-            this.Line7.Y1 = 0F;
-            this.Line7.Y2 = 0.15F;
+            this.GroupFooter1.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
+            this.txtLoadedDollarsGroup,
+            this.txtLoadedRateGroup,
+            this.txtMHrsGroup,
+            this.txtPerHrsGroup,
+            this.Line17,
+            this.Line18,
+            this.Line19,
+            this.Line20,
+            this.Line21,
+            this.Line22,
+            this.Line23,
+            this.Line24,
+            this.Label1,
+            this.Label2,
+            this.Line25});
+            this.GroupFooter1.Name = "GroupFooter1";
+            this.GroupFooter1.Format += new System.EventHandler(this.GroupFooter1_Format);
             // 
             // txtLoadedDollarsGroup
             // 
-            this.txtLoadedDollarsGroup.Border.BottomColor = System.Drawing.Color.Black;
-            this.txtLoadedDollarsGroup.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtLoadedDollarsGroup.Border.LeftColor = System.Drawing.Color.Black;
-            this.txtLoadedDollarsGroup.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtLoadedDollarsGroup.Border.RightColor = System.Drawing.Color.Black;
-            this.txtLoadedDollarsGroup.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtLoadedDollarsGroup.Border.TopColor = System.Drawing.Color.Black;
-            this.txtLoadedDollarsGroup.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.txtLoadedDollarsGroup.DataField = "LoadedDollars";
             this.txtLoadedDollarsGroup.Height = 0.2F;
             this.txtLoadedDollarsGroup.Left = 3.5625F;
             this.txtLoadedDollarsGroup.Name = "txtLoadedDollarsGroup";
             this.txtLoadedDollarsGroup.OutputFormat = resources.GetString("txtLoadedDollarsGroup.OutputFormat");
-            this.txtLoadedDollarsGroup.Style = "text-align: right; ";
+            this.txtLoadedDollarsGroup.Style = "text-align: right";
             this.txtLoadedDollarsGroup.SummaryRunning = GrapeCity.ActiveReports.SectionReportModel.SummaryRunning.All;
             this.txtLoadedDollarsGroup.SummaryType = GrapeCity.ActiveReports.SectionReportModel.SummaryType.GrandTotal;
             this.txtLoadedDollarsGroup.Text = "TextBox2";
@@ -760,39 +568,23 @@ namespace RSMPS
             // 
             // txtLoadedRateGroup
             // 
-            this.txtLoadedRateGroup.Border.BottomColor = System.Drawing.Color.Black;
-            this.txtLoadedRateGroup.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtLoadedRateGroup.Border.LeftColor = System.Drawing.Color.Black;
-            this.txtLoadedRateGroup.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtLoadedRateGroup.Border.RightColor = System.Drawing.Color.Black;
-            this.txtLoadedRateGroup.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtLoadedRateGroup.Border.TopColor = System.Drawing.Color.Black;
-            this.txtLoadedRateGroup.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.txtLoadedRateGroup.Height = 0.2F;
             this.txtLoadedRateGroup.Left = 4.739583F;
             this.txtLoadedRateGroup.Name = "txtLoadedRateGroup";
             this.txtLoadedRateGroup.OutputFormat = resources.GetString("txtLoadedRateGroup.OutputFormat");
-            this.txtLoadedRateGroup.Style = "text-align: right; ";
+            this.txtLoadedRateGroup.Style = "text-align: right";
             this.txtLoadedRateGroup.Text = "TextBox3";
             this.txtLoadedRateGroup.Top = 0F;
             this.txtLoadedRateGroup.Width = 1.010417F;
             // 
             // txtMHrsGroup
             // 
-            this.txtMHrsGroup.Border.BottomColor = System.Drawing.Color.Black;
-            this.txtMHrsGroup.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtMHrsGroup.Border.LeftColor = System.Drawing.Color.Black;
-            this.txtMHrsGroup.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtMHrsGroup.Border.RightColor = System.Drawing.Color.Black;
-            this.txtMHrsGroup.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtMHrsGroup.Border.TopColor = System.Drawing.Color.Black;
-            this.txtMHrsGroup.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.txtMHrsGroup.DataField = "MHrs";
             this.txtMHrsGroup.Height = 0.2F;
             this.txtMHrsGroup.Left = 5.833333F;
             this.txtMHrsGroup.Name = "txtMHrsGroup";
             this.txtMHrsGroup.OutputFormat = resources.GetString("txtMHrsGroup.OutputFormat");
-            this.txtMHrsGroup.Style = "text-align: right; ";
+            this.txtMHrsGroup.Style = "text-align: right";
             this.txtMHrsGroup.SummaryRunning = GrapeCity.ActiveReports.SectionReportModel.SummaryRunning.All;
             this.txtMHrsGroup.SummaryType = GrapeCity.ActiveReports.SectionReportModel.SummaryType.GrandTotal;
             this.txtMHrsGroup.Text = "TextBox4";
@@ -801,33 +593,17 @@ namespace RSMPS
             // 
             // txtPerHrsGroup
             // 
-            this.txtPerHrsGroup.Border.BottomColor = System.Drawing.Color.Black;
-            this.txtPerHrsGroup.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtPerHrsGroup.Border.LeftColor = System.Drawing.Color.Black;
-            this.txtPerHrsGroup.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtPerHrsGroup.Border.RightColor = System.Drawing.Color.Black;
-            this.txtPerHrsGroup.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.txtPerHrsGroup.Border.TopColor = System.Drawing.Color.Black;
-            this.txtPerHrsGroup.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.txtPerHrsGroup.Height = 0.2F;
             this.txtPerHrsGroup.Left = 6.6875F;
             this.txtPerHrsGroup.Name = "txtPerHrsGroup";
             this.txtPerHrsGroup.OutputFormat = resources.GetString("txtPerHrsGroup.OutputFormat");
-            this.txtPerHrsGroup.Style = "text-align: right; ";
+            this.txtPerHrsGroup.Style = "text-align: right";
             this.txtPerHrsGroup.Text = "TextBox5";
             this.txtPerHrsGroup.Top = 0F;
             this.txtPerHrsGroup.Width = 0.6875F;
             // 
             // Line17
             // 
-            this.Line17.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line17.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line17.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line17.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line17.Border.RightColor = System.Drawing.Color.Black;
-            this.Line17.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line17.Border.TopColor = System.Drawing.Color.Black;
-            this.Line17.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Line17.Height = 0F;
             this.Line17.Left = 0F;
             this.Line17.LineWeight = 1F;
@@ -841,14 +617,6 @@ namespace RSMPS
             // 
             // Line18
             // 
-            this.Line18.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line18.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line18.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line18.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line18.Border.RightColor = System.Drawing.Color.Black;
-            this.Line18.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line18.Border.TopColor = System.Drawing.Color.Black;
-            this.Line18.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Line18.Height = 0.1875F;
             this.Line18.Left = 0.75F;
             this.Line18.LineWeight = 1F;
@@ -862,14 +630,6 @@ namespace RSMPS
             // 
             // Line19
             // 
-            this.Line19.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line19.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line19.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line19.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line19.Border.RightColor = System.Drawing.Color.Black;
-            this.Line19.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line19.Border.TopColor = System.Drawing.Color.Black;
-            this.Line19.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Line19.Height = 0.1875F;
             this.Line19.Left = 3.563F;
             this.Line19.LineWeight = 1F;
@@ -883,14 +643,6 @@ namespace RSMPS
             // 
             // Line20
             // 
-            this.Line20.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line20.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line20.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line20.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line20.Border.RightColor = System.Drawing.Color.Black;
-            this.Line20.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line20.Border.TopColor = System.Drawing.Color.Black;
-            this.Line20.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Line20.Height = 0.1875F;
             this.Line20.Left = 4.688F;
             this.Line20.LineWeight = 1F;
@@ -904,14 +656,6 @@ namespace RSMPS
             // 
             // Line21
             // 
-            this.Line21.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line21.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line21.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line21.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line21.Border.RightColor = System.Drawing.Color.Black;
-            this.Line21.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line21.Border.TopColor = System.Drawing.Color.Black;
-            this.Line21.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Line21.Height = 0.1875F;
             this.Line21.Left = 5.813001F;
             this.Line21.LineWeight = 1F;
@@ -925,14 +669,6 @@ namespace RSMPS
             // 
             // Line22
             // 
-            this.Line22.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line22.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line22.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line22.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line22.Border.RightColor = System.Drawing.Color.Black;
-            this.Line22.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line22.Border.TopColor = System.Drawing.Color.Black;
-            this.Line22.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Line22.Height = 0.1875F;
             this.Line22.Left = 6.6875F;
             this.Line22.LineWeight = 1F;
@@ -946,14 +682,6 @@ namespace RSMPS
             // 
             // Line23
             // 
-            this.Line23.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line23.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line23.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line23.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line23.Border.RightColor = System.Drawing.Color.Black;
-            this.Line23.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line23.Border.TopColor = System.Drawing.Color.Black;
-            this.Line23.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Line23.Height = 0.1875F;
             this.Line23.Left = 7.4375F;
             this.Line23.LineWeight = 1F;
@@ -967,14 +695,6 @@ namespace RSMPS
             // 
             // Line24
             // 
-            this.Line24.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line24.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line24.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line24.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line24.Border.RightColor = System.Drawing.Color.Black;
-            this.Line24.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line24.Border.TopColor = System.Drawing.Color.Black;
-            this.Line24.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Line24.Height = 0.1875F;
             this.Line24.Left = 0F;
             this.Line24.LineWeight = 1F;
@@ -988,52 +708,28 @@ namespace RSMPS
             // 
             // Label1
             // 
-            this.Label1.Border.BottomColor = System.Drawing.Color.Black;
-            this.Label1.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Label1.Border.LeftColor = System.Drawing.Color.Black;
-            this.Label1.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Label1.Border.RightColor = System.Drawing.Color.Black;
-            this.Label1.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Label1.Border.TopColor = System.Drawing.Color.Black;
-            this.Label1.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label1.Height = 0.2F;
             this.Label1.HyperLink = null;
             this.Label1.Left = 0.1875F;
             this.Label1.Name = "Label1";
-            this.Label1.Style = "text-align: center; font-weight: bold; font-size: 9.75pt; ";
+            this.Label1.Style = "font-size: 9.75pt; font-weight: bold; text-align: center";
             this.Label1.Text = "A";
             this.Label1.Top = 0F;
             this.Label1.Width = 0.3125F;
             // 
             // Label2
             // 
-            this.Label2.Border.BottomColor = System.Drawing.Color.Black;
-            this.Label2.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Label2.Border.LeftColor = System.Drawing.Color.Black;
-            this.Label2.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Label2.Border.RightColor = System.Drawing.Color.Black;
-            this.Label2.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Label2.Border.TopColor = System.Drawing.Color.Black;
-            this.Label2.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Label2.Height = 0.2F;
             this.Label2.HyperLink = null;
             this.Label2.Left = 0.9375F;
             this.Label2.Name = "Label2";
-            this.Label2.Style = "text-align: left; font-weight: normal; font-size: 9.75pt; ";
+            this.Label2.Style = "font-size: 9.75pt; font-weight: normal; text-align: left";
             this.Label2.Text = "Sub-Total";
             this.Label2.Top = 0F;
             this.Label2.Width = 1.4375F;
             // 
             // Line25
             // 
-            this.Line25.Border.BottomColor = System.Drawing.Color.Black;
-            this.Line25.Border.BottomStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line25.Border.LeftColor = System.Drawing.Color.Black;
-            this.Line25.Border.LeftStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line25.Border.RightColor = System.Drawing.Color.Black;
-            this.Line25.Border.RightStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
-            this.Line25.Border.TopColor = System.Drawing.Color.Black;
-            this.Line25.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.Line25.Height = 0F;
             this.Line25.Left = 0F;
             this.Line25.LineWeight = 2F;
@@ -1045,7 +741,7 @@ namespace RSMPS
             this.Line25.Y1 = 0F;
             this.Line25.Y2 = 0F;
             // 
-            // ActiveReport1
+            // rprtBudgetSummaryGeneral
             // 
             this.MasterReport = false;
             this.PageSettings.Margins.Left = 0.5F;
@@ -1061,18 +757,20 @@ namespace RSMPS
             this.Sections.Add(this.PageFooter);
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule(resources.GetString("$this.StyleSheet"), "Normal"));
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bo" +
-                        "ld; font-size: 16pt; font-size-adjust: inherit; font-stretch: inherit; ", "Heading1", "Normal"));
+            "ld; font-size: 16pt; font-size-adjust: inherit; font-stretch: inherit", "Heading1", "Normal"));
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-family: Times New Roman; font-style: italic; font-variant: inherit; font-wei" +
-                        "ght: bold; font-size: 14pt; font-size-adjust: inherit; font-stretch: inherit; ", "Heading2", "Normal"));
+            "ght: bold; font-size: 14pt; font-size-adjust: inherit; font-stretch: inherit", "Heading2", "Normal"));
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bo" +
-                        "ld; font-size: 13pt; font-size-adjust: inherit; font-stretch: inherit; ", "Heading3", "Normal"));
-            ((System.ComponentModel.ISupportInitialize)(this.Label)).EndInit();
+            "ld; font-size: 13pt; font-size-adjust: inherit; font-stretch: inherit", "Heading3", "Normal"));
+            this.ReportStart += new System.EventHandler(this.rprtBudgetSummaryGeneral_ReportStart);
+            this.PageStart += new System.EventHandler(this.rprtBudgetSummaryGeneral_PageStart);
             ((System.ComponentModel.ISupportInitialize)(this.txtAcctCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLoadedDollars)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLoadedRate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMHrs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPercOfHrs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Label)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLoadedDollarsGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLoadedRateGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMHrsGroup)).EndInit();
@@ -1081,10 +779,6 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.Label2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
-            // Attach Report Events
-            this.PageStart += new System.EventHandler(this.rprtBudgetSummaryGeneral_PageStart);
-            this.Detail.Format += new System.EventHandler(this.Detail_Format);
-            this.GroupFooter1.Format += new System.EventHandler(this.GroupFooter1_Format);
         }
 
 		#endregion
@@ -1133,5 +827,16 @@ namespace RSMPS
         private Label Label2;
         private Line Line25;
         private PageFooter PageFooter;
+
+        private void rprtBudgetSummaryGeneral_ReportStart(object sender, EventArgs e) //***************************Added 7/22/2015
+        {
+            if (mbRate==false)
+            {
+                txtLoadedRate.Visible = false;
+                txtLoadedRateGroup.Visible = false;
+                txtLoadedDollars.Visible = false;
+                txtLoadedDollarsGroup.Visible = false;
+            }
+        }
 	}
 }
