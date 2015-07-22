@@ -31,6 +31,7 @@
 :r $(path)\spRPRT_DrawingLogMainByDeptListProjList_FromTrans.sql
 :r $(path)\spRPRT_DrawingLogMainByDeptProjList.sql
 :r $(path)\spRPRT_DrawingLogByProjList.sql
+:r $(path)\spRPRT_CostReport_NewAcct2_Vision.sql
 :r $(path)\spBusiness_Unit_ListForDisp.sql
 :r $(path)\spBusiness_Unit_ListAll.sql
 :r $(path)\spBusiness_Unit_ByID.sql
