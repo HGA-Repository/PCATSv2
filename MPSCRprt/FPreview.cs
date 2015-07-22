@@ -40,7 +40,7 @@ namespace RSMPS
             SqlCommand cmd;
             SqlParameter prm;
             string currDate;
-
+            int record = 0; //**********************Added 7/22/2015
             this.Cursor = Cursors.WaitCursor;
 
 
@@ -50,11 +50,17 @@ namespace RSMPS
 
             if (UseNewCodes(project) == true)
                 cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision", cnn.GetConnection());
+              //   cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision_Test", cnn.GetConnection());
             else
                 cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision", cnn.GetConnection());
 
             cmd.CommandType = CommandType.StoredProcedure;
 
+
+            prm = cmd.Parameters.Add("@records", SqlDbType.Int);
+            prm.Direction = ParameterDirection.Output;
+           
+          
             prm = cmd.Parameters.Add("@Project", SqlDbType.VarChar, 50);
             prm.Value = project;
             prm = cmd.Parameters.Add("@Rprtdate", SqlDbType.SmallDateTime);
@@ -63,22 +69,32 @@ namespace RSMPS
             prm.Value = rprtCase;
 
 
+         //   cmd.ExecuteNonQuery();
+       
+
             da = new SqlDataAdapter();
             ds = new DataSet();
             da.SelectCommand = cmd;
             da.Fill(ds);
             FtcCalculator.UpdateCalculatedField(ds);
 
+            record = Convert.ToInt32(cmd.Parameters["@records"].Value);
+
             cnn.CloseConnection();
 
             rprtCostReport1 rprt = new rprtCostReport1();
 
+            
             rprt.CutoffDate = currDate;
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
             viewer1.Document = rprt.Document;
+            rprt.records = record; //**********************Added 7/22/2015
+           
             rprt.Run();
-
+           // MessageBox.Show(record.ToString());
+            //MessageBox.Show(rprt.CutoffDate.ToString());
+            //MessageBox.Show(rprt.records.ToString() + "************************");
             this.Cursor = Cursors.Default;
         }
 

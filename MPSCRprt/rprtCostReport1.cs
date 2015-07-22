@@ -38,6 +38,8 @@ namespace RSMPS
         private Picture picture1;
         private decimal mdRollupFAmnt = 0;
 
+        private int mirecords;  //***********************Added 7/22/2015
+
         public rprtCostReport1()
         {
             InitializeComponent();
@@ -54,6 +56,15 @@ namespace RSMPS
             get { return mbIsRollup; }
             set { mbIsRollup = value; }
         }
+
+
+
+        public int records  //***********************Added 7/22/2015
+        {
+            get { return mirecords; }
+            set { mirecords = value; }
+        }
+
 
         public void NoExpenses()
         {
@@ -86,6 +97,13 @@ namespace RSMPS
             mdTotExpFore = 0;
             mdTotExpFtoC = 0;
             mdTotExpOU = 0;
+
+            if(mirecords == 0)      //***********************Added 7/22/2015
+            {
+                GroupFooter1.Visible = false;
+                Detail.Visible = false;
+            }
+
         }
 
         private void PageHeader_Format(object sender, System.EventArgs eArgs)
