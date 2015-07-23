@@ -65,7 +65,7 @@ namespace RSMPS
             set { mirecords = value; }
         }
 
-
+        
         public void NoExpenses()
         {
             GroupFooter2.Visible = false;
@@ -103,6 +103,14 @@ namespace RSMPS
                 GroupFooter1.Visible = false;
                 Detail.Visible = false;
             }
+
+            if (mbIsRollup == true)      //***********************Added 7/23/2015
+            {
+                GroupFooter1.Visible = true;
+                Detail.Visible = true;
+            }
+
+
 
         }
 

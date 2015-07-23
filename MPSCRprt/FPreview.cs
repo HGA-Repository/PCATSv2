@@ -18,7 +18,7 @@ namespace RSMPS
         public event RevSol.PassDataString OnProjectProcessed;
 
         private SectionReport rprt;
-
+        
         public FPreview()
         {
             InitializeComponent();
@@ -116,6 +116,8 @@ namespace RSMPS
             rprt.DataSource = rprtDs;
             rprt.DataMember = "EngrInfo";
             viewer1.Document = rprt.Document;
+            rprt.IsRollup = true ; //**********************Added 7/23/2015
+            
             rprt.Run();
 
             this.Cursor = Cursors.Default;

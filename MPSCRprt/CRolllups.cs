@@ -50,28 +50,30 @@ namespace RSMPS
 
             foreach (DataRow dRow in dInfos)
             {
-                var sProject = dRow["Project"].ToString();
-                var sDescription = dRow["Description"].ToString();
-                var sCustomer = dRow["Customer"].ToString();
-                var sLocation = dRow["Location"].ToString();
-                var sBudgetGroup = dRow["BudgetGroup"].ToString();
-                var sAcctGroup = dRow["AcctGroup"].ToString();
-                var sManager = dRow["Manager"].ToString();
-                var sBillType = dRow["BillType"].ToString();
-                dBudgetDlrs = Convert.ToDecimal(dRow["BudgetDlrs"]);
-                dBudgetHrs = Math.Round(Convert.ToDecimal(dRow["BudgetHrs"]), 0, MidpointRounding.AwayFromZero);
-                dActualTime = Math.Round(Convert.ToDecimal(dRow["ActualTime"]), 0, MidpointRounding.AwayFromZero);
-                dActualAmnt = Convert.ToDecimal(dRow["ActualAmnt"]);
-                dJSBudgetHrs = Convert.ToDecimal(dRow["JSBudgetHrs"]);
-                dRemainingHrs = Convert.ToDecimal(dRow["RemainingHrs"]);
-                dtJSLastUpdated = Convert.ToDateTime(dRow["JSLastUpdated"]);
-                dEarnedHrs = Convert.ToDecimal(dRow["EarnedHrs"]);
-                dProjectedHrs = Convert.ToDecimal(dRow["ProjectedHrs"]);
-                dForecastHrs = Convert.ToDecimal(dRow["ForecastHrs"]);
-                dFTCHrs = Math.Round(Convert.ToDecimal(dRow["FTCHrs"]), 0, MidpointRounding.AwayFromZero);
-                dFTCAmnt = Convert.ToDecimal(dRow["FTCAmnt"]);
-                dtFTCUpdate = Convert.ToDateTime(dRow["FTCUpdate"]);
-
+                try             //********************Added 7/23/2015
+                {
+                    var sProject = dRow["Project"].ToString();
+                    var sDescription = dRow["Description"].ToString();
+                    var sCustomer = dRow["Customer"].ToString();
+                    var sLocation = dRow["Location"].ToString();
+                    var sBudgetGroup = dRow["BudgetGroup"].ToString();
+                    var sAcctGroup = dRow["AcctGroup"].ToString();
+                    var sManager = dRow["Manager"].ToString();
+                    var sBillType = dRow["BillType"].ToString();
+                    dBudgetDlrs = Convert.ToDecimal(dRow["BudgetDlrs"]);
+                    dBudgetHrs = Math.Round(Convert.ToDecimal(dRow["BudgetHrs"]), 0, MidpointRounding.AwayFromZero);
+                    dActualTime = Math.Round(Convert.ToDecimal(dRow["ActualTime"]), 0, MidpointRounding.AwayFromZero);
+                    dActualAmnt = Convert.ToDecimal(dRow["ActualAmnt"]);
+                    dJSBudgetHrs = Convert.ToDecimal(dRow["JSBudgetHrs"]);
+                    dRemainingHrs = Convert.ToDecimal(dRow["RemainingHrs"]);
+                    dtJSLastUpdated = Convert.ToDateTime(dRow["JSLastUpdated"]);
+                    dEarnedHrs = Convert.ToDecimal(dRow["EarnedHrs"]);
+                    dProjectedHrs = Convert.ToDecimal(dRow["ProjectedHrs"]);
+                    dForecastHrs = Convert.ToDecimal(dRow["ForecastHrs"]);
+                    dFTCHrs = Math.Round(Convert.ToDecimal(dRow["FTCHrs"]), 0, MidpointRounding.AwayFromZero);
+                    dFTCAmnt = Convert.ToDecimal(dRow["FTCAmnt"]);
+                    dtFTCUpdate = Convert.ToDateTime(dRow["FTCUpdate"]);
+               
                 eRow.Project = sProject;
                 eRow.Description = sDescription;
                 eRow.Customer = sCustomer;
@@ -96,6 +98,9 @@ namespace RSMPS
                 eRow.FTCHrs += dFTCHrs;
                 eRow.FTCAmnt += dFTCAmnt;
                 eRow.FTCUpdate = dtFTCUpdate;
+
+                }
+                catch { }
             }
 
         }
@@ -182,29 +187,31 @@ namespace RSMPS
                 foreach (DataRow d in ds.Tables[0].Rows)
                 {
                     DSForecastRprt.EngrInfoRow eir = dsFor.EngrInfo.NewEngrInfoRow();
-
-                    eir.Project = sProject;
-                    eir.Description = sDescription;
-                    eir.Customer = sCustomer;
-                    eir.Location = sLocation;
-                    eir.BudgetGroup = d["BudgetGroup"].ToString();
-                    eir.AcctGroup = d["AcctGroup"].ToString();
-                    eir.Manager = sManager;
-                    eir.BillType = sBillType;
-                    eir.BudgetDlrs = Convert.ToDecimal(d["BudgetDlrs"]);
-                    eir.BudgetHrs = Convert.ToDecimal(d["BudgetHrs"]);
-                    eir.ActualTime = Convert.ToDecimal(d["ActualTime"]);
-                    eir.ActualAmnt = Convert.ToDecimal(d["ActualAmnt"]);
-                    eir.JSBudgetHrs = Convert.ToDecimal(d["JSBudgetHrs"]);
-                    eir.RemainingHrs = Convert.ToDecimal(d["RemainingHrs"]);
-                    eir.JSLastUpdated = Convert.ToDateTime(d["JSLastUpdated"]);
-                    eir.EarnedHrs = Convert.ToDecimal(d["EarnedHrs"]);
-                    eir.ProjectedHrs = Convert.ToDecimal(d["ProjectedHrs"]);
-                    eir.ForecastHrs = Convert.ToDecimal(d["ForecastHrs"]);
-                    eir.FTCHrs = Convert.ToDecimal(d["FTCHrs"]);
-                    eir.FTCAmnt = Convert.ToDecimal(d["FTCAmnt"]);
-                    eir.FTCUpdate = Convert.ToDateTime(d["FTCUpdate"]);
-
+                    try         //********************Added 7/23/2015
+                    {
+                        eir.Project = sProject;
+                        eir.Description = sDescription;
+                        eir.Customer = sCustomer;
+                        eir.Location = sLocation;
+                        eir.BudgetGroup = d["BudgetGroup"].ToString();
+                        eir.AcctGroup = d["AcctGroup"].ToString();
+                        eir.Manager = sManager;
+                        eir.BillType = sBillType;
+                        eir.BudgetDlrs = Convert.ToDecimal(d["BudgetDlrs"]);
+                        eir.BudgetHrs = Convert.ToDecimal(d["BudgetHrs"]);
+                        eir.ActualTime = Convert.ToDecimal(d["ActualTime"]);
+                        eir.ActualAmnt = Convert.ToDecimal(d["ActualAmnt"]);
+                        eir.JSBudgetHrs = Convert.ToDecimal(d["JSBudgetHrs"]);
+                        eir.RemainingHrs = Convert.ToDecimal(d["RemainingHrs"]);
+                        eir.JSLastUpdated = Convert.ToDateTime(d["JSLastUpdated"]);
+                        eir.EarnedHrs = Convert.ToDecimal(d["EarnedHrs"]);
+                        eir.ProjectedHrs = Convert.ToDecimal(d["ProjectedHrs"]);
+                        eir.ForecastHrs = Convert.ToDecimal(d["ForecastHrs"]);
+                        eir.FTCHrs = Convert.ToDecimal(d["FTCHrs"]);
+                        eir.FTCAmnt = Convert.ToDecimal(d["FTCAmnt"]);
+                        eir.FTCUpdate = Convert.ToDateTime(d["FTCUpdate"]);
+                    }
+                    catch { }
                     dsFor.EngrInfo.AddEngrInfoRow(eir);
                 }
 
@@ -301,6 +308,10 @@ namespace RSMPS
             cnn = new RevSol.RSConnection("CR");
             cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@records", SqlDbType.Int);    //********************Added 7/23/2015
+            prm.Direction = ParameterDirection.Output;
+
             prm = cmd.Parameters.Add("@Project", SqlDbType.VarChar, 50);
             prm.Value = projNum;
             prm = cmd.Parameters.Add("Rprtdate", SqlDbType.SmallDateTime);
