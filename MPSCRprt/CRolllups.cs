@@ -49,10 +49,7 @@ namespace RSMPS
             eRow.FTCUpdate = new DateTime(1901, 1, 1);
 
             foreach (DataRow dRow in dInfos)
-            {
-                try             //********************Added 7/23/2015
-                {
-                    var sProject = dRow["Project"].ToString();
+            {       var sProject = dRow["Project"].ToString();
                     var sDescription = dRow["Description"].ToString();
                     var sCustomer = dRow["Customer"].ToString();
                     var sLocation = dRow["Location"].ToString();
@@ -60,19 +57,49 @@ namespace RSMPS
                     var sAcctGroup = dRow["AcctGroup"].ToString();
                     var sManager = dRow["Manager"].ToString();
                     var sBillType = dRow["BillType"].ToString();
-                    dBudgetDlrs = Convert.ToDecimal(dRow["BudgetDlrs"]);
-                    dBudgetHrs = Math.Round(Convert.ToDecimal(dRow["BudgetHrs"]), 0, MidpointRounding.AwayFromZero);
-                    dActualTime = Math.Round(Convert.ToDecimal(dRow["ActualTime"]), 0, MidpointRounding.AwayFromZero);
-                    dActualAmnt = Convert.ToDecimal(dRow["ActualAmnt"]);
-                    dJSBudgetHrs = Convert.ToDecimal(dRow["JSBudgetHrs"]);
-                    dRemainingHrs = Convert.ToDecimal(dRow["RemainingHrs"]);
-                    dtJSLastUpdated = Convert.ToDateTime(dRow["JSLastUpdated"]);
-                    dEarnedHrs = Convert.ToDecimal(dRow["EarnedHrs"]);
-                    dProjectedHrs = Convert.ToDecimal(dRow["ProjectedHrs"]);
-                    dForecastHrs = Convert.ToDecimal(dRow["ForecastHrs"]);
-                    dFTCHrs = Math.Round(Convert.ToDecimal(dRow["FTCHrs"]), 0, MidpointRounding.AwayFromZero);
-                    dFTCAmnt = Convert.ToDecimal(dRow["FTCAmnt"]);
-                    dtFTCUpdate = Convert.ToDateTime(dRow["FTCUpdate"]);
+
+                    if (dRow["BudgetDlrs"] == DBNull.Value) dBudgetDlrs = 0;
+                        else  dBudgetDlrs = Convert.ToDecimal(dRow["BudgetDlrs"]);
+                    if (dRow["BudgetHrs"] == DBNull.Value) dBudgetHrs = 0;
+                        else dBudgetHrs = Math.Round(Convert.ToDecimal(dRow["BudgetHrs"]), 0, MidpointRounding.AwayFromZero);
+
+                    if (dRow["ActualTime"] == DBNull.Value) dActualTime = 0;
+                    else dActualTime = Math.Round(Convert.ToDecimal(dRow["ActualTime"]), 0, MidpointRounding.AwayFromZero);
+
+
+                    if (dRow["ActualAmnt"] == DBNull.Value) dActualAmnt = 0;
+                        else                         
+                        dActualAmnt = Convert.ToDecimal(dRow["ActualAmnt"]);
+                    
+                if (dRow["JSBudgetHrs"] == DBNull.Value) dJSBudgetHrs = 0;
+                            else  dJSBudgetHrs = Convert.ToDecimal(dRow["JSBudgetHrs"]);
+
+                    if (dRow["RemainingHrs"] == DBNull.Value) dRemainingHrs = 0;
+                                else                dRemainingHrs = Convert.ToDecimal(dRow["RemainingHrs"]);
+
+                    
+                        if (dRow["JSLastUpdated"] == DBNull.Value) dtJSLastUpdated = new DateTime(1901, 1, 1);
+                        else dtJSLastUpdated = Convert.ToDateTime(dRow["JSLastUpdated"]);
+                   
+                                    
+                if (dRow["EarnedHrs"] == DBNull.Value) dEarnedHrs = 0;
+                                     else dEarnedHrs = Convert.ToDecimal(dRow["EarnedHrs"]);
+                                    
+                if (dRow["ProjectedHrs"] == DBNull.Value) dProjectedHrs = 0;
+                                            else dProjectedHrs = Convert.ToDecimal(dRow["ProjectedHrs"]);
+                                       
+                if (dRow["ForecastHrs"] == DBNull.Value) dForecastHrs = 0;
+                                                else dForecastHrs = Convert.ToDecimal(dRow["ForecastHrs"]);
+                                           
+                if (dRow["FTCHrs"] == DBNull.Value) dFTCHrs = 0;
+                                                    else dFTCHrs = Math.Round(Convert.ToDecimal(dRow["FTCHrs"]), 0, MidpointRounding.AwayFromZero);
+                                                
+                if (dRow["FTCAmnt"] == DBNull.Value) dFTCAmnt = 0;
+                                                        else dFTCAmnt = Convert.ToDecimal(dRow["FTCAmnt"]);
+                if (dRow["FTCUpdate"] == DBNull.Value) dtFTCUpdate = new DateTime(1901, 1, 1);
+               
+                else     dtFTCUpdate = Convert.ToDateTime(dRow["FTCUpdate"]);
+               
                
                 eRow.Project = sProject;
                 eRow.Description = sDescription;
@@ -99,9 +126,7 @@ namespace RSMPS
                 eRow.FTCAmnt += dFTCAmnt;
                 eRow.FTCUpdate = dtFTCUpdate;
 
-                }
-                catch { }
-            }
+                       }
 
         }
 
@@ -187,8 +212,7 @@ namespace RSMPS
                 foreach (DataRow d in ds.Tables[0].Rows)
                 {
                     DSForecastRprt.EngrInfoRow eir = dsFor.EngrInfo.NewEngrInfoRow();
-                    try         //********************Added 7/23/2015
-                    {
+                   
                         eir.Project = sProject;
                         eir.Description = sDescription;
                         eir.Customer = sCustomer;
@@ -197,7 +221,10 @@ namespace RSMPS
                         eir.AcctGroup = d["AcctGroup"].ToString();
                         eir.Manager = sManager;
                         eir.BillType = sBillType;
-                        eir.BudgetDlrs = Convert.ToDecimal(d["BudgetDlrs"]);
+                        try
+                        {   //if (d["BudgetDlrs"] == DBNull.Value) eir.BudgetDlrs = 0;
+                           //else                             
+                        eir.BudgetDlrs = Convert.ToDecimal(d["BudgetDlrs"]);                                                                   
                         eir.BudgetHrs = Convert.ToDecimal(d["BudgetHrs"]);
                         eir.ActualTime = Convert.ToDecimal(d["ActualTime"]);
                         eir.ActualAmnt = Convert.ToDecimal(d["ActualAmnt"]);
@@ -210,8 +237,9 @@ namespace RSMPS
                         eir.FTCHrs = Convert.ToDecimal(d["FTCHrs"]);
                         eir.FTCAmnt = Convert.ToDecimal(d["FTCAmnt"]);
                         eir.FTCUpdate = Convert.ToDateTime(d["FTCUpdate"]);
-                    }
-                    catch { }
+                        }
+                        catch { }
+                                           
                     dsFor.EngrInfo.AddEngrInfoRow(eir);
                 }
 
