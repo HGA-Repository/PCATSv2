@@ -244,6 +244,28 @@ namespace RSMPS
             return dr;
         }
 
+                                        //public SqlDataReader GetPCNListByProjectMngr(int EmpID)
+                                        //{
+                                        //    SqlDataReader dr;
+                                        //    RSLib.CDbConnection cnn;
+                                        //    SqlCommand cmd;
+                                        //    SqlParameter prm;
+
+                                        //    cnn = new RSLib.CDbConnection();
+                                        //    cmd = new SqlCommand("spProjectSummaryPCN_ListBySumID", cnn.GetConnection());
+                                        //    cmd.CommandType = CommandType.StoredProcedure;
+
+                                        //    prm = cmd.Parameters.Add("@ProjSumID", SqlDbType.Int);
+                                        //    prm.Value = EmpID;
+
+                                        //    dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                                        //    cmd = null;
+
+                                        //    return dr;
+                                        //}
+
+
+
         public SqlDataReader GetListByProject(int projSumID, int projID)
         {
             SqlDataReader dr;

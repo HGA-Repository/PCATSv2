@@ -94,12 +94,12 @@ namespace RSMPS
             this.c1CommandLink3 = new C1.Win.C1Command.C1CommandLink();
             this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.Location = new System.Windows.Forms.TextBox();
             this.Job = new System.Windows.Forms.TextBox();
             this.Client = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fgForecast)).BeginInit();
@@ -807,6 +807,24 @@ namespace RSMPS
             this.panel1.Size = new System.Drawing.Size(130, 288);
             this.panel1.TabIndex = 12;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(1, 176);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(54, 13);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Client Info";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(1, 103);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(96, 13);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Project Description";
+            // 
             // Location
             // 
             this.Location.Enabled = false;
@@ -820,7 +838,7 @@ namespace RSMPS
             // 
             this.Job.Enabled = false;
             this.Job.Location = new System.Drawing.Point(1, 125);
-            this.Job.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.Job.Margin = new System.Windows.Forms.Padding(0);
             this.Job.Multiline = true;
             this.Job.Name = "Job";
             this.Job.Size = new System.Drawing.Size(124, 50);
@@ -844,24 +862,6 @@ namespace RSMPS
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Visible = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1, 103);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(96, 13);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Project Description";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(1, 176);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(54, 13);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Client Info";
             // 
             // FManager_Summary
             // 

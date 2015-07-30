@@ -363,7 +363,6 @@ namespace RSMPS
 
             button1.Enabled = false;
             // pv.LoadReportForDetail(lstProjects.Text);
-
             pv.LoadReportForDetail(lvwItems.Items[0].SubItems[1].Text);
             pv.ShowDialog();
             button1.Enabled = true;

@@ -71,7 +71,33 @@ namespace RSMPS
 
             return retVal;
         }
+       
 
+
+        public int Save_From_ProjAddEdit_PM_Update() //***********************Added 7/28/2015
+        {
+            CDbProjectSummaryInfo dbDt = new CDbProjectSummaryInfo();
+            string tmpDat;
+            int retVal;
+
+            tmpDat = GetDataString();
+
+            if (base.ID > 0)
+            {
+                dbDt.SavePrev(tmpDat);
+                retVal = base.ID;
+            }
+            else
+            {
+                retVal = dbDt.SaveNew_From_ProjAddEdit_PM_Update(tmpDat);
+                base.ID = retVal;
+
+            }
+
+            dbDt = null;
+
+            return retVal;
+        }
 
         public static void Delete(int cID)
         {
@@ -118,5 +144,16 @@ namespace RSMPS
 
             return dbDt.GetListByProjSum(projSumID);
         }
+
+
+
+        public static SqlDataReader GetListByProjMngr(int projMngrID) //**************Added 7/27/2015
+        {
+            CDbProjectSummaryInfo dbDt = new CDbProjectSummaryInfo();
+
+            return dbDt.GetListByProjMngr(projMngrID);
+        }
+
+
     }
 }

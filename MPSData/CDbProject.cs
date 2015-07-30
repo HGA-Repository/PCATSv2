@@ -501,6 +501,31 @@ namespace RSMPS
 
             return dr;
         }
+
+        public SqlDataReader GetListProj_ByProjMngr(int mngrID) //*****************Added 7/27/2015
+        {
+            SqlDataReader dr;
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spProject_ListAllProj_ByProjMngr", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            prm = cmd.Parameters.Add("@ProjMngrID", SqlDbType.Int);
+            prm.Value = mngrID;
+
+
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            cmd = null;
+
+            return dr;
+        }
+
+
+
         public SqlDataReader GetListProjRev()
         {
             SqlDataReader dr;

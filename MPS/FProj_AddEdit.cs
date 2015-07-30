@@ -18,9 +18,11 @@ namespace RSMPS
         public event NewItemCreated OnNewItem;
 
         private bool mbItemChanged;
+        private bool mbPMChanged;   //*********************Added 7/28/2017
         private CBProject moProj;
         private DataSet mdsBudget;
 
+        private int previousPM, newPM;
 
         public FProj_AddEdit()
         {
@@ -35,7 +37,10 @@ namespace RSMPS
 
             moProj.Load(itmID);
             LoadObjectToScreen();
+
+            previousPM = moProj.ProjMngrID; //************************Added 7/28/2017
             mbItemChanged = false;
+            mbPMChanged = false;
         }
 
         private void ClearForm()
@@ -422,15 +427,48 @@ namespace RSMPS
                 {
                     LoadScreenToObject();
                     moProj.Save();
-
                     SaveBudgets(moProj.ID);
+                    //*************************** update dt_ProjectSummarys and DT_ProjectSummaryInfos, added 7/28/2015
+                    
+                    newPM = moProj.ProjMngrID;
+                    MessageBox.Show(moProj.ID.ToString());
+                    MessageBox.Show(previousPM.ToString());
+                   MessageBox.Show(newPM.ToString());
+
+                   
+                    if (mbPMChanged == true)
+                    {
+                        //CBProjectSummary ps = new CBProjectSummary();
+                        //CBProjectSummaryInfo psi = new CBProjectSummaryInfo();
+                        //ps.EmployeeID = moProj.ProjMngrID;
+                       // ps.EmployeeID = newPM;
+                                        //int projSummaryID;
+                                        //projSummaryID = ps.Save_From_PMUpdate();
+
+                        Save_PMUpdate(previousPM,newPM,moProj.ID);
+
+                                        ////psi.ProjSumID = ps.ID;
+                                        //psi.ProjSumID = projSummaryID;
+                                        //psi.ProjectID = moProj.ID;
+                                        //MessageBox.Show(projSummaryID.ToString());
+                                            //MessageBox.Show(psi.ProjectID.ToString());
+                                        //psi.Save_From_ProjAddEdit_PM_Update();
+                                MessageBox.Show("Proj Summary info updated");
+                    }
+                                else MessageBox.Show("PM not changed");
+                    //**********************************************************************************************************************************************
 
                     if (OnNewItem != null)
                         OnNewItem(moProj.ID);
                 }
-                else return; // **************** Added 5/26
+                else
+                {
+                        // MessageBox.Show("Closing out");
+                    return;// **************** Added 5/26
+                }
             }
 
+            //MessageBox.Show("Closing out ****************************************************"); 
             this.Close();
         }
 
@@ -546,6 +584,7 @@ namespace RSMPS
         private void cboManager_SelectedIndexChanged(object sender, EventArgs e)
         {
             mbItemChanged = true;
+            mbPMChanged = true; //***************Added 7/28/2015
         }
         private void cboManagerLead_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -719,5 +758,39 @@ namespace RSMPS
         {
 
         }
+
+        private void Save_PMUpdate(int prevID, int newID, int projID)  //************Added*****7/28/2015
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+
+            //LoadVals(strXml);
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spProjectSummary_PM_Update", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            prm = cmd.Parameters.Add("@PrevPMID", SqlDbType.Int);
+            prm.Value = prevID;
+            prm = cmd.Parameters.Add("@NewPMID", SqlDbType.Int);
+            prm.Value = newID;
+            prm = cmd.Parameters.Add("@projectID", SqlDbType.Int);
+            prm.Value = projID;
+
+
+            cmd.ExecuteNonQuery();
+
+            prm = null;
+            cmd = null;
+            cnn.CloseConnection();
+            cnn = null;
+
+            //return oVar.ID;
+        }
+
+
+
     }
 }

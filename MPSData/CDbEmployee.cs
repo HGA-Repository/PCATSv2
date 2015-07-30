@@ -49,7 +49,10 @@ namespace RSMPS
                 oVar.MaxAllHrs = Convert.ToDecimal(dr["MaxAllHrs"]);
                 oVar.IsActive = Convert.ToBoolean(dr["IsActive"]);
                 oVar.IsProjectManager = Convert.ToBoolean(dr["IsProjectManager"]);
-                oVar.IsRelManager = Convert.ToBoolean(dr["IsRelManager"]); //*************************Added 7/13/2015
+
+
+                if (dr["IsRelManager"] == DBNull.Value) oVar.IsRelManager = false;// *********************Edited 7/27/2015***to handle Exception
+                else oVar.IsRelManager = Convert.ToBoolean(dr["IsRelManager"]); //*************************Added 7/13/2015 
 
                 oVar.Contractor = Convert.ToBoolean(dr["Contractor"]);
                 oVar.OfficeLocation = dr["OfficeLocation"].ToString();
