@@ -121,8 +121,11 @@ namespace RSMPS
             lvwProjects.Items.RemoveAt(lvwProjects.SelectedIndices[0]);
             ClearProjectSummary();
             CancelProjectInfo(projID, projNum);
-            CancelProjectPCN(projID, projNum);
+                    // CancelProjectPCN(projID, projNum); //*****************Commented 7/30/2015
             CancelProjectSch(projID, projNum);
+
+           CBProjectSummaryInfo.Delete_SummaryInfo(moProjSum.ID, miCurrentProjectID); //**************************Added 7/30/2015
+           MessageBox.Show(moProjSum.ID.ToString() + "   "+miCurrentProjectID.ToString()+ "Deleted");
             InfoChanged();
         }
 
@@ -455,8 +458,8 @@ namespace RSMPS
             LoadProjectList();
             LoadPCNList();
            LoadSchList();
-            MessageBox.Show(moProjSum.EmployeeID.ToString());
-            MessageBox.Show(moProjSum.ID.ToString());
+            MessageBox.Show("Employee Id   "+moProjSum.EmployeeID.ToString());
+            MessageBox.Show("Project Sum ID   "+moProjSum.ID.ToString());
 
         }
 
@@ -523,7 +526,7 @@ namespace RSMPS
 
             lvwProjects.Items.Clear();
             mdsProjInfos = new dsProjectValues();
-            MessageBox.Show(moProjSum.ID.ToString());
+            MessageBox.Show("Summary ID   "+moProjSum.ID.ToString());
 
                      dr = CBProjectSummaryInfo.GetListByProjSum(moProjSum.ID);
             //  MessageBox.Show(moProjSum.EmployeeID.ToString() + "Loading Project List");
@@ -700,15 +703,15 @@ namespace RSMPS
                                                     //        psp.Save();
                                                     //    }
                                                     //}
-
+           
             foreach (DataRow dr in mdsProjSch.Tables["ScheduleList"].Rows)
             {
-                sch = new CBProjectSummarySch();
+               // sch = new CBProjectSummarySch(); // *********** This was Saving records repeatedly ,  Commented 7/30
 
                 if (Convert.ToInt32(dr["ProjectID"]) > 0)
                 {
-                   // sch.ProjSumID = ps.ID;
-                    sch.ProjSumID = moProjSum.ID;
+                  // sch.ProjSumID = ps.ID; //******************Commented 7/29/2015
+                    sch.ProjSumID = moProjSum.ID; //******************Added 7/29
                     sch.ProjectID = Convert.ToInt32(dr["ProjectID"]);
                     sch.Description = dr["Description"].ToString();
                     sch.InitialTarget = dr["InitialTarget"].ToString();
@@ -716,6 +719,8 @@ namespace RSMPS
                     sch.Actual = dr["Actual"].ToString();
                     sch.Save();
                 }
+
+                //MessageBox.Show("baseID" + baseID.ToString());
             }
         }
 
@@ -1120,9 +1125,13 @@ namespace RSMPS
             //tdbgPCNs.UpdateData();    //******************************Commented 7/29/2015
             tdbgSchedule.UpdateData();
 
+
+            MessageBox.Show("lvwProjects.SelectedItems.Count       " + lvwProjects.SelectedItems.Count.ToString() );
+
             if (lvwProjects.SelectedItems.Count > 0)
                 SaveCurrentProject();
 
+            MessageBox.Show("lvwProjects.Items.Count    "+lvwProjects.Items.Count.ToString());
             if (lvwProjects.Items.Count > 0)
                 SaveCurrentSummary();
 
@@ -1282,76 +1291,85 @@ namespace RSMPS
         //    this.Cursor = Cursors.Default;
         //}
 
-        private void tlbbPrint_Click(object sender, C1.Win.C1Command.ClickEventArgs e) //*****************Added/Edited 5/29/15
-        {
+                                                        //////private void tlbbPrint_Click(object sender, C1.Win.C1Command.ClickEventArgs e) //*****************Added/Edited 5/29/15
+                                                        //////{
 
-            if (lvwProjects.SelectedItems.Count > 0)
-            {
-                DialogResult dialogResult = MessageBox.Show("Data is Saved Before Printing", "Print Report", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    tdbgPCNs.UpdateData();
-                    tdbgSchedule.UpdateData();
-                    SaveCurrentProject();
-                    SaveCurrentSummary();
-                   // miCurrentProjectID = Convert.ToInt32(lvwProjects.SelectedItems[0].SubItems[3].Text);
-                    //ClearProjectSummary();
-                   // LoadCurrentProject();
-                    CPSummary pmS = new CPSummary();
-                    this.Cursor = Cursors.WaitCursor;
-                    pmS.PrintPMSummary(moProjSum.EmployeeID);
-                    this.Cursor = Cursors.Default;
-                }
-                else return;
-            }
-            else
-            {
-                // tdbgPCNs.UpdateData();
-                // tdbgSchedule.UpdateData();
+                                                        //////    if (lvwProjects.SelectedItems.Count > 0)
+                                                        //////    {
+                                                        //////        DialogResult dialogResult = MessageBox.Show("Data is Saved Before Printing", "Print Report", MessageBoxButtons.YesNo);
+                                                        //////        if (dialogResult == DialogResult.Yes)
+                                                        //////        {
+                                                        //////           // tdbgPCNs.UpdateData(); //*****************************Commented on 7/30/2015
+                                                        //////            tdbgSchedule.UpdateData();
+                                                        //////            SaveCurrentProject();
+                                                        //////            SaveCurrentSummary();
+                                                        //////           // miCurrentProjectID = Convert.ToInt32(lvwProjects.SelectedItems[0].SubItems[3].Text);
+                                                        //////            //ClearProjectSummary();
+                                                        //////           // LoadCurrentProject();
+                                                        //////            CPSummary pmS = new CPSummary();
+                                                        //////            this.Cursor = Cursors.WaitCursor;
+                                                        //////            pmS.PrintPMSummary(moProjSum.EmployeeID);
+                                                        //////            this.Cursor = Cursors.Default;
+                                                        //////        }
+                                                        //////        else return;
+                                                        //////    }
+                                                        //////    else
+                                                        //////    {
+                                                        //////        // tdbgPCNs.UpdateData();
+                                                        //////        // tdbgSchedule.UpdateData();
 
-                //SaveCurrentProject();
-                //miCurrentProjectID = Convert.ToInt32(lvwProjects.SelectedItems[0].SubItems[3].Text);
-                //ClearProjectSummary();
-                LoadCurrentProject_Test();
+                                                        //////        //SaveCurrentProject();
+                                                        //////        //miCurrentProjectID = Convert.ToInt32(lvwProjects.SelectedItems[0].SubItems[3].Text);
+                                                        //////        //ClearProjectSummary();
+                                                        //////        LoadCurrentProject_Test();
 
-                //POAmt.Text = "";
-                //BilledToDate.Text = "";
-
-
-
-
-                //if (lvwProjects.Items.Count > 0)
-                    //SaveCurrentSummary();
-
-                CPSummary pmS = new CPSummary();
-                this.Cursor = Cursors.WaitCursor;
-                pmS.PrintPMSummary(moProjSum.EmployeeID);
-                this.Cursor = Cursors.Default;
+                                                        //////        //POAmt.Text = "";
+                                                        //////        //BilledToDate.Text = "";
 
 
 
-                POAmt.Clear();
-                BilledToDate.Clear();
-                PaidToDate.Clear();
-                Outstanding.Clear();
 
-                POAmt.Visible = true;
-                BilledToDate.Visible = true;
-                PaidToDate.Visible = true;
-                Outstanding.Visible = true;
-            }
+                                                        //////        //if (lvwProjects.Items.Count > 0)
+                                                        //////            //SaveCurrentSummary();
 
-                //PaidToDate.Clear();
-                //Outstanding.Clear();
+                                                        //////        CPSummary pmS = new CPSummary();
+                                                        //////        this.Cursor = Cursors.WaitCursor;
+                                                        //////        pmS.PrintPMSummary(moProjSum.EmployeeID);
+                                                        //////        this.Cursor = Cursors.Default;
+
+
+
+                                                        //////        POAmt.Clear();
+                                                        //////        BilledToDate.Clear();
+                                                        //////        PaidToDate.Clear();
+                                                        //////        Outstanding.Clear();
+
+                                                        //////        POAmt.Visible = true;
+                                                        //////        BilledToDate.Visible = true;
+                                                        //////        PaidToDate.Visible = true;
+                                                        //////        Outstanding.Visible = true;
+                                                        //////    }
+
+                                                        //////        //PaidToDate.Clear();
+                                                        //////        //Outstanding.Clear();
 
            
 
 
-                //ClearProjectSummary();
+                                                        //////        //ClearProjectSummary();
     
+                                                        //////}
+
+        private void tlbbPrint_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
+        {
+            CPSummary pmS = new CPSummary();
+
+            this.Cursor = Cursors.WaitCursor;
+
+            pmS.PrintPMSummary(moProjSum.EmployeeID);
+
+            this.Cursor = Cursors.Default;
         }
-
-
 
 
         private void tlbbPrintCust_Click(object sender, C1.Win.C1Command.ClickEventArgs e)

@@ -107,6 +107,19 @@ namespace RSMPS
         }
 
 
+
+        
+
+public static void Delete_SummaryInfo(int sumID, int projID)    //***********************7/30/2015
+        {
+            CDbProjectSummaryInfo dbDt = new CDbProjectSummaryInfo();
+
+            dbDt.Delete_SummaryInfo(sumID,projID);
+        }
+
+
+
+
         public string GetDataString()
         {
             string tmpStr;

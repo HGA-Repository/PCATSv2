@@ -289,6 +289,47 @@ namespace RSMPS
         }
 
 
+
+        public bool Delete_SummaryInfo(int sumID, int projID)   //***********************7/30/2015
+        {
+            bool retVal = false;
+
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spProjectSummaryInfo_Delete_PMReport", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            prm = cmd.Parameters.Add("@sumID", SqlDbType.Int);
+            prm.Value = sumID;
+
+            prm = cmd.Parameters.Add("@projID", SqlDbType.Int);
+            prm.Value = projID;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+                retVal = true;
+            }
+            catch
+            {
+                retVal = false;
+            }
+
+            prm = null;
+            cmd = null;
+            cnn.CloseConnection();
+            cnn = null;
+
+            return retVal;
+        }
+
+
+
         public SqlDataReader GetList()
         {
             SqlDataReader dr;
