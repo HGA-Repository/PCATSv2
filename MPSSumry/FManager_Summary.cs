@@ -456,7 +456,7 @@ namespace RSMPS
             }
 
             LoadProjectList();
-            LoadPCNList();
+                //  LoadPCNList();  //******************Commented, because there is no use, 7/30/2015
            LoadSchList();
             MessageBox.Show("Employee Id   "+moProjSum.EmployeeID.ToString());
             MessageBox.Show("Project Sum ID   "+moProjSum.ID.ToString());
