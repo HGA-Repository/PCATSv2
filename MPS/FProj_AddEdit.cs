@@ -18,9 +18,10 @@ namespace RSMPS
         public event NewItemCreated OnNewItem;
 
         private bool mbItemChanged;
-        private bool mbPMChanged;   //*********************Added 7/28/2017
+        private bool mbPMChanged;   //*********************Added 7/28/2015
         private CBProject moProj;
         private DataSet mdsBudget;
+        public bool IsNewProject; //**********************Added 8/3/2015
 
         private int previousPM, newPM;
 
@@ -413,6 +414,59 @@ namespace RSMPS
             txtBudgetTotal.Text = tmpVal.ToString("###0.00");
         }
 
+        //private void bttOK_Click(object sender, EventArgs e)
+        //{
+        //    RSLib.COSecurity sec = new RSLib.COSecurity();
+        //    CBUser u = new CBUser();
+
+        //    sec.InitAppSettings();
+        //    u.Load(sec.UserID);
+
+        //    if (u.IsAdministrator == true || u.IsEngineerAdmin)
+        //    {
+        //        if (mbItemChanged == true && IsValid() == true)
+        //        {
+        //            LoadScreenToObject();
+        //            moProj.Save();
+        //            SaveBudgets(moProj.ID);
+        //            //*************************** update dt_ProjectSummarys and DT_ProjectSummaryInfos, added 7/28/2015
+
+        //            newPM = moProj.ProjMngrID;
+        //            MessageBox.Show(moProj.ID.ToString());
+                    
+        //            if (OnNewItem != null)
+        //            {
+        //                OnNewItem(moProj.ID);
+        //                MessageBox.Show("New Project Added"+newPM.ToString() + "  " + moProj.ID.ToString());
+        //                Save_Summary_NewProject(newPM, moProj.ID);
+        //            }
+
+        //            else
+        //            {
+        //                if (mbPMChanged == true)
+        //                {
+        //                    MessageBox.Show(previousPM.ToString());
+        //                    MessageBox.Show(newPM.ToString()); 
+        //                    Save_PMUpdate(previousPM, newPM, moProj.ID);
+        //                    MessageBox.Show("Proj Summary info updated");
+        //                }
+        //                else MessageBox.Show("PM not changed");
+
+        //            }
+                    
+        //        }
+        //        //************************ Security Check for Creating new project !!
+        //        //else
+        //        //{
+        //        //     MessageBox.Show("No change Allowed");
+        //        //    return;// **************** Added 5/26
+        //        //}
+
+        //    }
+        //    //MessageBox.Show("Closing out ****************************************************"); 
+        //    this.Close();
+        //}
+
         private void bttOK_Click(object sender, EventArgs e)
         {
             RSLib.COSecurity sec = new RSLib.COSecurity();
@@ -429,42 +483,56 @@ namespace RSMPS
                     moProj.Save();
                     SaveBudgets(moProj.ID);
                     //*************************** update dt_ProjectSummarys and DT_ProjectSummaryInfos, added 7/28/2015
-
                     newPM = moProj.ProjMngrID;
-                    MessageBox.Show(moProj.ID.ToString());
                     
-                    if (OnNewItem != null)
-                    {
-                        OnNewItem(moProj.ID);
-                        MessageBox.Show("New Project Added"+newPM.ToString() + "  " + moProj.ID.ToString());
-                        Save_Summary_NewProject(newPM, moProj.ID);
-                    }
 
-                    else
+                    if (mbPMChanged == true)
+
                     {
-                        if (mbPMChanged == true)
+
+                        if (IsNewProject == true)
                         {
-                            MessageBox.Show(previousPM.ToString());
-                            MessageBox.Show(newPM.ToString()); 
+                            MessageBox.Show("New Project Added" + "New PM" + newPM.ToString() + "ProjID  " + moProj.ID.ToString());
+                            Save_Summary_NewProject(newPM, moProj.ID);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Not a new Project, PM changed");
+                            MessageBox.Show("Prev PM--" + previousPM.ToString() + " New PM--" + newPM.ToString()+"  Project ID--" + moProj.ID.ToString());
                             Save_PMUpdate(previousPM, newPM, moProj.ID);
                             MessageBox.Show("Proj Summary info updated");
                         }
-                        else MessageBox.Show("PM not changed");
-
                     }
+                    else MessageBox.Show("Not a new Project and PM not changed");
+
                     
+
+
+
+                    if (OnNewItem != null)
+                    {
+                        OnNewItem(moProj.ID);
+                      }
+
+                    
+
                 }
                 //************************ Security Check for Creating new project !!
-                //else
-                //{
-                //     MessageBox.Show("No change Allowed");
-                //    return;// **************** Added 5/26
-                //}
+                else
+                {
+                    MessageBox.Show("No change Allowed");
+                    return;// **************** Added 5/26
+                }
 
             }
             //MessageBox.Show("Closing out ****************************************************"); 
             this.Close();
         }
+
+
+
+
+
 
         private void bttCancel_Click(object sender, EventArgs e)
         {

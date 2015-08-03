@@ -1126,12 +1126,12 @@ namespace RSMPS
             tdbgSchedule.UpdateData();
 
 
-            MessageBox.Show("lvwProjects.SelectedItems.Count       " + lvwProjects.SelectedItems.Count.ToString() );
+           // MessageBox.Show("lvwProjects.SelectedItems.Count       " + lvwProjects.SelectedItems.Count.ToString() );
 
             if (lvwProjects.SelectedItems.Count > 0)
                 SaveCurrentProject();
 
-            MessageBox.Show("lvwProjects.Items.Count    "+lvwProjects.Items.Count.ToString());
+           // MessageBox.Show("lvwProjects.Items.Count    "+lvwProjects.Items.Count.ToString());
             if (lvwProjects.Items.Count > 0)
                 SaveCurrentSummary();
 
