@@ -26,6 +26,7 @@ namespace RSMPS
         private bool mbAllowEdit = false;
 
         public int mngrID;
+        public int sumID;
 
         protected override void bttOpen_Click(object sender, EventArgs e)
         {
@@ -105,6 +106,7 @@ namespace RSMPS
                 CBProject.Delete(tmpID);
                 //LoadItemList();
                 LoadItemList_ByMngrId(mngrID);
+                LoadItemList_ByPMSumID(mngrID,sumID);//****************Added 8/4/2015
             }
         }
 
@@ -112,6 +114,7 @@ namespace RSMPS
         {
            // LoadItemList();
             LoadItemList_ByMngrId(mngrID);
+            LoadItemList_ByPMSumID(mngrID, sumID);//****************Added 8/4/2015
         }
 
         protected override void bttClose_Click(object sender, EventArgs e)
@@ -129,6 +132,7 @@ namespace RSMPS
 
            // LoadItemList();
             LoadItemList_ByMngrId(mngrID);
+            LoadItemList_ByPMSumID(mngrID, sumID);//****************Added 8/4/2015
         }
 
         private void SetListForm()
@@ -202,6 +206,39 @@ namespace RSMPS
             dr = null;
 
             sbPanStatus.Text = lvwItems.Items.Count.ToString() + " project(s)";
+
+            this.Cursor = Cursors.Default;
+        }
+
+
+        private void LoadItemList_ByPMSumID(int mngrID,int sumID) //*******************Added 8/4/2015
+        {
+            SqlDataReader dr;
+            ListViewItem lvi;
+
+            this.Cursor = Cursors.WaitCursor;
+
+            //dr = CBProject.GetListProj_ByMngrId(mngrID);
+            dr = CBProject.GetListProj_ByPM_SumID(mngrID, sumID);
+            lvwItems.Items.Clear();
+            while (dr.Read())
+            {
+                lvi = new ListViewItem();
+
+                lvi.Text = dr["ID"].ToString();
+                lvi.SubItems.Add(dr["Number"].ToString());
+                lvi.SubItems.Add(dr["Description"].ToString());
+              //  if (dr["Customer"] == DBNull.Value) lvi.SubItems.Add("   ");
+               // else  lvi.SubItems.Add(dr["Customer"].ToString());
+                //lvi.SubItems.Add(dr["Location"].ToString());
+
+                lvwItems.Items.Add(lvi);
+            }
+
+            dr.Close();
+            dr = null;
+
+            //sbPanStatus.Text = lvwItems.Items.Count.ToString() + " project(s)";
 
             this.Cursor = Cursors.Default;
         }

@@ -68,6 +68,7 @@ namespace RSMPS
 
             FProject_List_ByMngrID pl = new FProject_List_ByMngrID(); //****************Edited 7/27/2015
             pl.mngrID = moProjSum.EmployeeID;
+            pl.sumID = moProjSum.ID;
 
             pl.OnItemSelected += new RSLib.ListItemAction(pl_OnItemSelected);
             pl.ShowDialog();

@@ -524,6 +524,33 @@ namespace RSMPS
             return dr;
         }
 
+        public SqlDataReader GetListProj_ByPM_SumID(int mngrID, int sumID ) //*****************Added 8/4/2015
+        {
+            SqlDataReader dr;
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spProjectSummaryInfos_ByPMID_SumID", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            prm = cmd.Parameters.Add("@PMID", SqlDbType.Int);
+            prm.Value = mngrID;
+
+            prm = cmd.Parameters.Add("@ProjSumID", SqlDbType.Int);
+            prm.Value = sumID;
+
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            cmd = null;
+
+            return dr;
+        }
+
+
+
+
 
 
         public SqlDataReader GetListProjRev()
