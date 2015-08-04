@@ -228,9 +228,10 @@ namespace RSMPS
                 lvi.Text = dr["ID"].ToString();
                 lvi.SubItems.Add(dr["Number"].ToString());
                 lvi.SubItems.Add(dr["Description"].ToString());
+               // lvi.SubItems.Add(dr["Customer"].ToString());
               //  if (dr["Customer"] == DBNull.Value) lvi.SubItems.Add("   ");
                // else  lvi.SubItems.Add(dr["Customer"].ToString());
-                //lvi.SubItems.Add(dr["Location"].ToString());
+                lvi.SubItems.Add(dr["Location"].ToString());
 
                 lvwItems.Items.Add(lvi);
             }
