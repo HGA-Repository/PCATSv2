@@ -228,9 +228,7 @@ namespace RSMPS
                 lvi.Text = dr["ID"].ToString();
                 lvi.SubItems.Add(dr["Number"].ToString());
                 lvi.SubItems.Add(dr["Description"].ToString());
-               // lvi.SubItems.Add(dr["Customer"].ToString());
-              //  if (dr["Customer"] == DBNull.Value) lvi.SubItems.Add("   ");
-               // else  lvi.SubItems.Add(dr["Customer"].ToString());
+               lvi.SubItems.Add(dr["Customer"].ToString());
                 lvi.SubItems.Add(dr["Location"].ToString());
 
                 lvwItems.Items.Add(lvi);
@@ -239,7 +237,7 @@ namespace RSMPS
             dr.Close();
             dr = null;
 
-            //sbPanStatus.Text = lvwItems.Items.Count.ToString() + " project(s)";
+            sbPanStatus.Text = lvwItems.Items.Count.ToString() + " project(s)";
 
             this.Cursor = Cursors.Default;
         }
