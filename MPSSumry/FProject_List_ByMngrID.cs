@@ -105,7 +105,7 @@ namespace RSMPS
             {
                 CBProject.Delete(tmpID);
                 //LoadItemList();
-                LoadItemList_ByMngrId(mngrID);
+                //LoadItemList_ByMngrId(mngrID);//****************Added 7/27/2015
                 LoadItemList_ByPMSumID(mngrID,sumID);//****************Added 8/4/2015
             }
         }
@@ -113,7 +113,7 @@ namespace RSMPS
         private void EditChange(int itmID)
         {
            // LoadItemList();
-            LoadItemList_ByMngrId(mngrID);
+          //  LoadItemList_ByMngrId(mngrID);//****************Added 7/27/2015
             LoadItemList_ByPMSumID(mngrID, sumID);//****************Added 8/4/2015
         }
 
@@ -131,7 +131,7 @@ namespace RSMPS
             tmrLoad.Enabled = false;
 
            // LoadItemList();
-            LoadItemList_ByMngrId(mngrID);
+           // LoadItemList_ByMngrId(mngrID);//****************Added 7/27/2015
             LoadItemList_ByPMSumID(mngrID, sumID);//****************Added 8/4/2015
         }
 
