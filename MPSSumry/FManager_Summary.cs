@@ -477,7 +477,7 @@ namespace RSMPS
 
            //this.Text = "Weekly Report  " + moProjSum.EmployeeID.ToString();
             //MessageBox.Show("Employee Id   "+moProjSum.EmployeeID.ToString());
-            MessageBox.Show("Project Sum ID   "+moProjSum.ID.ToString());
+          //  MessageBox.Show("Project Sum ID   "+moProjSum.ID.ToString());
 
         }
 
