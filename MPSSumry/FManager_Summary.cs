@@ -414,8 +414,12 @@ namespace RSMPS
 
             LoadProjectSummary();
 
-            if (moProjSum.EmployeeID > 0)
-                tlbbPrint.Enabled = true;
+           // if (moProjSum.EmployeeID > 0) //***************************Commented 8/6/2015
+             //   tlbbPrint.Enabled = true;
+
+            if (listCount== 0)
+                tlbbPrint.Enabled = false;
+
             // tlbbPrintCust.Enabled = true; //*************Commented 5/28
 
             tlbbSave.Enabled = false;
@@ -428,7 +432,9 @@ namespace RSMPS
         {
             MessageBox.Show("P Manager-" + EmployeeID.ToString());
             moProjSum.LoadByEmp(miEmpID);
-
+           
+            
+            
             if (moProjSum.ClientFeedback.Length > 0)
             {
                 rtbClientFeed.Rtf = moProjSum.ClientFeedback;
@@ -590,9 +596,16 @@ namespace RSMPS
             }
 
             dr.Close();
+
+            listCount = lvwProjects.Items.Count; //**********************Added 8/6/2015
+          //  if (listCount == 0)
+         //   { tlbbPrint.Enabled = false; }
+          //  else 
+                
+                MessageBox.Show(listCount.ToString()); 
             // MessageBox.Show("Loaded Project List ****************************");
         }
-
+        public int listCount=0;
                                         //private void LoadProjectList()  //***************Tried 7/29
                                         //{
                                         //    SqlDataReader dr;
@@ -917,15 +930,62 @@ namespace RSMPS
             ouExpenses = 0;
             ouTotal = 0;
 
+            decimal cdEngHrs_tmp;
+            decimal cbLabor_tmp;
+            decimal spEngHrs_tmp;
+            decimal spLabor_tmp;
+
+
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
-                cbEngHrs += Convert.ToDecimal(dr["BudgetHrs"]);
-                cbLabor += Convert.ToDecimal(dr["BudgetDlrs"]);
-                spEngHrs += Convert.ToDecimal(dr["ActualTime"]);
-                spLabor += Convert.ToDecimal(dr["ActualAmnt"]);
+                //cbEngHrs += Convert.ToDecimal(dr["BudgetHrs"]);
+                //cbLabor += Convert.ToDecimal(dr["BudgetDlrs"]);
+                //spEngHrs += Convert.ToDecimal(dr["ActualTime"]);
+                //spLabor += Convert.ToDecimal(dr["ActualAmnt"]);
+               try {cdEngHrs_tmp = Convert.ToDecimal(dr["BudgetHrs"]);}
+               catch{cdEngHrs_tmp = 0;
+                        MessageBox.Show("Exception BudgetHrs--" + cdEngHrs_tmp);
+                    }
 
-                tmp1 = Convert.ToDecimal(dr["FTCHrs"]);
-                tmp2 = Convert.ToDecimal(dr["FTCAmnt"]);
+               try { cbLabor_tmp = Convert.ToDecimal(dr["BudgetDlrs"]); }
+               catch { cbLabor_tmp = 0;
+                     MessageBox.Show("Exception BudgetDlrs--" + cbLabor_tmp);
+                    }
+
+               try { spEngHrs_tmp = Convert.ToDecimal(dr["ActualTime"]); }
+               catch{   spEngHrs_tmp = 0;
+                        MessageBox.Show("Exception ActualTime--" + spEngHrs_tmp);
+                    }
+
+               try { spLabor_tmp = Convert.ToDecimal(dr["ActualAmnt"]); }
+               catch  { spLabor_tmp = 0;
+                        MessageBox.Show("Exception ActualAmnt--" + spLabor_tmp);
+                        }
+
+
+               cbEngHrs =cbEngHrs+ cdEngHrs_tmp;
+               cbLabor = cbLabor+ cbLabor_tmp;
+               spEngHrs = spEngHrs + spEngHrs_tmp;
+               spLabor = spLabor + spLabor_tmp;
+
+                //tmp1 = Convert.ToDecimal(dr["FTCHrs"]);
+                //tmp2 = Convert.ToDecimal(dr["FTCAmnt"]);
+
+               try
+               {
+                   tmp1 = Convert.ToDecimal(dr["FTCHrs"]);
+               }
+               catch { tmp1 = 0;
+               MessageBox.Show("tmp1");
+               }
+
+               try
+               {
+                   tmp2 = Convert.ToDecimal(dr["FTCAmnt"]);
+               }
+               catch { tmp2 = 0;
+               MessageBox.Show("tmp2");
+               }
 
                 if (tmp1 >= 0)
                 {
