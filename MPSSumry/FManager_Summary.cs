@@ -75,11 +75,13 @@ namespace RSMPS
 
             pl.OnItemSelected += new RSLib.ListItemAction(pl_OnItemSelected);
             pl.ShowDialog();
-
-            DialogResult AddProjecT = MessageBox.Show("Save the Project to the list", "Save List", MessageBoxButtons.YesNo); //**************Added 8/6/2015
-            if (AddProjecT == DialogResult.Yes)
+            if (added == true)//**************Added 8/6/2015
             {
-                SaveCurrentSummary();
+                DialogResult AddProjecT = MessageBox.Show("Save the Project to the list", "Save List", MessageBoxButtons.YesNo); 
+                if (AddProjecT == DialogResult.Yes)
+                {
+                    SaveCurrentSummary();
+                }
             }
            pl.OnItemSelected -= new RSLib.ListItemAction(pl_OnItemSelected);
 
@@ -88,7 +90,7 @@ namespace RSMPS
             //this.Close();
 
         }
-
+        public bool added = false;//**************Added 8/6/2015
         void pl_OnItemSelected(int itmID)
         {
             CBProject p = new CBProject();
@@ -119,7 +121,7 @@ namespace RSMPS
                 d["ProjSumID"] = 0;
                 d["ProjectID"] = p.ID;
                 mdsProjInfos.Tables["ProjectInfos"].Rows.Add(d);
-
+                added = true;
                 InfoChanged();
             }
             
