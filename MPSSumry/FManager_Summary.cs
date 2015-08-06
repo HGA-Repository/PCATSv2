@@ -45,7 +45,8 @@ namespace RSMPS
 
             ClearForm();
             ClearProjectSummary();
-        }
+            
+                    }
 
         private void ClearForm()
         {
@@ -56,6 +57,7 @@ namespace RSMPS
             miEmpID = 0;
             miCurrentProjectID = 0;
             moProjSum = new CBProjectSummary();
+     
             tdbgPCNs.SetDataBinding(mdsProjPCNs, "PCNList", true);
             tdbgSchedule.SetDataBinding(mdsProjSch, "ScheduleList", true);
 
@@ -67,12 +69,23 @@ namespace RSMPS
            // FProject_List pl = new FProject_List();
 
             FProject_List_ByMngrID pl = new FProject_List_ByMngrID(); //****************Edited 7/27/2015
-            pl.mngrID = moProjSum.EmployeeID;
+          //  pl.mngrID = moProjSum.EmployeeID;
+            pl.mngrID = EmployeeID;
             pl.sumID = moProjSum.ID;
 
             pl.OnItemSelected += new RSLib.ListItemAction(pl_OnItemSelected);
             pl.ShowDialog();
-            pl.OnItemSelected -= new RSLib.ListItemAction(pl_OnItemSelected);
+
+            DialogResult AddProjecT = MessageBox.Show("Save the Project to the list", "Save List", MessageBoxButtons.YesNo); //**************Added 8/6/2015
+            if (AddProjecT == DialogResult.Yes)
+            {
+                SaveCurrentSummary();
+            }
+           pl.OnItemSelected -= new RSLib.ListItemAction(pl_OnItemSelected);
+
+          
+
+            //this.Close();
 
         }
 
@@ -109,6 +122,7 @@ namespace RSMPS
 
                 InfoChanged();
             }
+            
         }
 
         private void bttRemoveProject_Click(object sender, EventArgs e)
@@ -410,6 +424,7 @@ namespace RSMPS
 
         private void LoadProjectSummary()
         {
+            MessageBox.Show("P Manager-" + EmployeeID.ToString());
             moProjSum.LoadByEmp(miEmpID);
 
             if (moProjSum.ClientFeedback.Length > 0)
@@ -459,7 +474,9 @@ namespace RSMPS
             LoadProjectList();
                 //  LoadPCNList();  //******************Commented, because there is no use, 7/30/2015
            LoadSchList();
-            MessageBox.Show("Employee Id   "+moProjSum.EmployeeID.ToString());
+
+           //this.Text = "Weekly Report  " + moProjSum.EmployeeID.ToString();
+            //MessageBox.Show("Employee Id   "+moProjSum.EmployeeID.ToString());
             MessageBox.Show("Project Sum ID   "+moProjSum.ID.ToString());
 
         }
@@ -652,18 +669,28 @@ namespace RSMPS
 
         private void SaveCurrentSummary()
         {
-            CBProjectSummary ps = new CBProjectSummary();
+                         //  CBProjectSummary ps = new CBProjectSummary(); //*******************Commented because looks like not needed 8/6/2015
             CBProjectSummaryInfo psi = new CBProjectSummaryInfo();
                     //CBProjectSummaryPCN psp = new CBProjectSummaryPCN(); //***********************Commented 7/29/2015
             CBProjectSummarySch sch = new CBProjectSummarySch();
 
-            ps.EmployeeID = miEmpID;
-            ps.ClientFeedback = rtbClientFeed.Rtf;
-            ps.QualityImp = rtbQuality.Rtf;
-            ps.NewWorkProp = rtbNewWork.Rtf;
-            ps.Distribution = rtbDists.Rtf;
+                                //ps.EmployeeID = miEmpID;
+                                //ps.ClientFeedback = rtbClientFeed.Rtf;
+                                //ps.QualityImp = rtbQuality.Rtf;
+                                //ps.NewWorkProp = rtbNewWork.Rtf;
+                                //ps.Distribution = rtbDists.Rtf;
+                                // ps.Save();
+            if (moProjSum.ID == 0)      //***********************Added 8/6/2015
+            {
+                CBProjectSummary ps = new CBProjectSummary();
+                ps.EmployeeID = miEmpID;
+                MessageBox.Show("New Summary is added");
+               moProjSum.ID= ps.SaveSummary();
+               MessageBox.Show("New Summary ID" + moProjSum.ID.ToString());
 
-           // ps.Save();
+            }
+
+           
 
             foreach (DataRow dr in mdsProjInfos.Tables["ProjectInfos"].Rows)
             {
@@ -679,9 +706,22 @@ namespace RSMPS
                     psi.ActHigh = dr["ActHigh"].ToString();
                     psi.StaffNeeds = dr["StaffNeeds"].ToString();
                     psi.CFeedBack = dr["CFeedBack"].ToString();
-                    psi.POAmt = POAmt.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["POAmt"]);
-                    psi.BilledtoDate = BilledToDate.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["BilledToDate"]);
+                   psi.POAmt = POAmt.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["POAmt"]);
+                     // psi.BilledtoDate = BilledToDate.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["BilledToDate"]);
+                     //psi.PaidtoDate = PaidToDate.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["PaidToDate"]);
+                     // psi.Outstanding = Outstanding.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["Outstanding"]);
+        //// *********************Edited 8/6/2015***to handle Exception
+                    if (dr["POAmt"] == DBNull.Value) psi.POAmt = 0;
+                    else psi.POAmt = POAmt.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["POAmt"]); 
+
+                    if (dr["BilledToDate"] == DBNull.Value) psi.BilledtoDate = 0;
+                    else psi.BilledtoDate = BilledToDate.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["BilledToDate"]);
+
+                   
+                    if (dr["PaidToDate"] == DBNull.Value) psi.PaidtoDate = 0;
                     psi.PaidtoDate = PaidToDate.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["PaidToDate"]);
+
+                    if (dr["Outstanding"] == DBNull.Value) psi.Outstanding=0;
                     psi.Outstanding = Outstanding.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["Outstanding"]);
 
                     psi.Save();
@@ -1367,7 +1407,16 @@ namespace RSMPS
 
             this.Cursor = Cursors.WaitCursor;
 
-            pmS.PrintPMSummary(moProjSum.EmployeeID);
+            
+            //pmS.PrintPMSummary(moProjSum.EmployeeID);
+            //*********************************************************************Edited 8/5/2015
+            DialogResult SaveSummary = MessageBox.Show("Summary has to be saved before Printing", "Save Summary", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (SaveSummary == DialogResult.Yes)
+            {
+                SaveCurrentSummary();
+                pmS.PrintPMSummary(EmployeeID);
+            }
+            else return;
 
             this.Cursor = Cursors.Default;
         }
@@ -1455,5 +1504,7 @@ namespace RSMPS
         {
             InfoChanged();
         }
+
+
     }
 }

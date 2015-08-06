@@ -484,12 +484,10 @@ namespace RSMPS
                     SaveBudgets(moProj.ID);
                     //*************************** update dt_ProjectSummarys and DT_ProjectSummaryInfos, added 7/28/2015
                     newPM = moProj.ProjMngrID;
-                    
-
+               
                     if (mbPMChanged == true)
 
                     {
-
                         if (IsNewProject == true)
                         {
                             MessageBox.Show("New Project Added" + "New PM" + newPM.ToString() + "ProjID  " + moProj.ID.ToString());
@@ -505,16 +503,11 @@ namespace RSMPS
                     }
                     else MessageBox.Show("Not a new Project and PM not changed");
 
-                    
-
-
-
                     if (OnNewItem != null)
                     {
                         OnNewItem(moProj.ID);
                       }
-
-                    
+                          
 
                 }
                 //************************ Security Check for Creating new project !!
@@ -528,9 +521,7 @@ namespace RSMPS
             //MessageBox.Show("Closing out ****************************************************"); 
             this.Close();
         }
-
-
-
+        
 
 
 

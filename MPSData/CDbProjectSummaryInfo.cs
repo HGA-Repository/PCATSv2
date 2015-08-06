@@ -118,55 +118,55 @@ namespace RSMPS
             return retVal;
         }
 
-        public int SaveNew_From_ProjAddEdit_PM_Update(string strXml) //*******************Added 7/28/2015
-        {
-            RSLib.CDbConnection cnn;
-            SqlCommand cmd;
-            SqlParameter prm;
-            int retVal = 0;
+        //public int SaveNew_From_ProjAddEdit_PM_Update(string strXml) //*******************Added 7/28/2015
+        //{
+        //    RSLib.CDbConnection cnn;
+        //    SqlCommand cmd;
+        //    SqlParameter prm;
+        //    int retVal = 0;
 
-            LoadVals(strXml);
+        //    LoadVals(strXml);
 
-            cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spProjectSummaryInfo_Insert_From_ProjAddEdit_PM_Update", cnn.GetConnection());
-            cmd.CommandType = CommandType.StoredProcedure;
+        //    cnn = new RSLib.CDbConnection();
+        //    cmd = new SqlCommand("spProjectSummaryInfo_Insert_From_ProjAddEdit_PM_Update", cnn.GetConnection());
+        //    cmd.CommandType = CommandType.StoredProcedure;
 
 
-            prm = cmd.Parameters.Add("@ID", SqlDbType.Int);
-            prm.Direction = ParameterDirection.Output;
+        //    prm = cmd.Parameters.Add("@ID", SqlDbType.Int);
+        //    prm.Direction = ParameterDirection.Output;
 
-            prm = cmd.Parameters.Add("@ProjSumID", SqlDbType.Int);
-            prm.Value = oVar.ProjSumID;
-            prm = cmd.Parameters.Add("@ProjectID", SqlDbType.Int);
-            prm.Value = oVar.ProjectID;
-                    //prm = cmd.Parameters.Add("@Schedule", SqlDbType.Text);
-                    //prm.Value = oVar.Schedule;
-                    //prm = cmd.Parameters.Add("@ActHigh", SqlDbType.Text);
-                    //prm.Value = oVar.ActHigh;
-                    //prm = cmd.Parameters.Add("@StaffNeeds", SqlDbType.Text);
-                    //prm.Value = oVar.StaffNeeds;
-                    //prm = cmd.Parameters.Add("@CFeedBack", SqlDbType.Text);
-                    //prm.Value = oVar.CFeedBack;
-                    //prm = cmd.Parameters.Add("@POAmt", SqlDbType.Money);
-                    //prm.Value = oVar.POAmt;
-                    //prm = cmd.Parameters.Add("@BilledtoDate", SqlDbType.Money);
-                    //prm.Value = oVar.BilledtoDate;
-                    //prm = cmd.Parameters.Add("@PaidtoDate", SqlDbType.Money);
-                    //prm.Value = oVar.PaidtoDate;
-                    //prm = cmd.Parameters.Add("@Outstanding", SqlDbType.Money);
-                    //prm.Value = oVar.Outstanding;
+        //    prm = cmd.Parameters.Add("@ProjSumID", SqlDbType.Int);
+        //    prm.Value = oVar.ProjSumID;
+        //    prm = cmd.Parameters.Add("@ProjectID", SqlDbType.Int);
+        //    prm.Value = oVar.ProjectID;
+        //            //prm = cmd.Parameters.Add("@Schedule", SqlDbType.Text);
+        //            //prm.Value = oVar.Schedule;
+        //            //prm = cmd.Parameters.Add("@ActHigh", SqlDbType.Text);
+        //            //prm.Value = oVar.ActHigh;
+        //            //prm = cmd.Parameters.Add("@StaffNeeds", SqlDbType.Text);
+        //            //prm.Value = oVar.StaffNeeds;
+        //            //prm = cmd.Parameters.Add("@CFeedBack", SqlDbType.Text);
+        //            //prm.Value = oVar.CFeedBack;
+        //            //prm = cmd.Parameters.Add("@POAmt", SqlDbType.Money);
+        //            //prm.Value = oVar.POAmt;
+        //            //prm = cmd.Parameters.Add("@BilledtoDate", SqlDbType.Money);
+        //            //prm.Value = oVar.BilledtoDate;
+        //            //prm = cmd.Parameters.Add("@PaidtoDate", SqlDbType.Money);
+        //            //prm.Value = oVar.PaidtoDate;
+        //            //prm = cmd.Parameters.Add("@Outstanding", SqlDbType.Money);
+        //            //prm.Value = oVar.Outstanding;
 
-            cmd.ExecuteNonQuery();
+        //    cmd.ExecuteNonQuery();
 
-            retVal = Convert.ToInt32(cmd.Parameters["@ID"].Value);
+        //    retVal = Convert.ToInt32(cmd.Parameters["@ID"].Value);
 
-            prm = null;
-            cmd = null;
-            cnn.CloseConnection();
-            cnn = null;
+        //    prm = null;
+        //    cmd = null;
+        //    cnn.CloseConnection();
+        //    cnn = null;
 
-            return retVal;
-        }
+        //    return retVal;
+        //}
 
 
 

@@ -85,59 +85,32 @@ namespace RSMPS
 
             return retVal;
         }
-        
 
-                                // public int Save_PMUpdate(int projID,int prevID, int newID)
-                                //{
-                                //    CDbProjectSummary dbDt = new CDbProjectSummary();
-                                //    string tmpDat;
-                                //    int retVal=0;
 
-                                //    tmpDat = GetDataString();
+        public int SaveSummary() //***************************Added****8/6/2015
+        {
+            CDbProjectSummary dbDt = new CDbProjectSummary();
+            string tmpDat;
+            int retVal;
 
-                                //                       // if (base.ID > 0)
-                                //                        //{
-                                //                            //dbDt.SavePrev(tmpDat);
-                                //     dbDt.SavePrev_PMUpdate(tmpDat, projID,prevID,newID);
-                                //                               // retVal = base.ID;
-                                //                            //}
-                                //                           // else
-                                //                           // {
-                                //                               // retVal = dbDt.SaveNew(tmpDat);
-                                //                               // base.ID = retVal;
-                                //                            //}
+            tmpDat = GetDataString();
 
-                                //    dbDt = null;
+            if (base.ID > 0)
+            {
+                dbDt.SavePrev(tmpDat);
+                retVal = base.ID;
+            }
+            else
+            {
+                retVal = dbDt.SaveNewSummary(tmpDat);
+                base.ID = retVal;
+            }
 
-                                //    //return retVal;
-                                //    return retVal;
-                                //}
-     
+            dbDt = null;
 
-                                    //     public int Save_From_PMUpdate() //*********************Added 7/27/2015
-                                    //{
-                                    //    CDbProjectSummary dbDt = new CDbProjectSummary();
-                                    //    string tmpDat;
-                                    //    int retVal;
-
-                                    //    tmpDat = GetDataString();
-
-                                    //    if (base.ID > 0)
-                                    //    {
-                                    //        dbDt.SavePrev(tmpDat);
-                                    //        retVal = base.ID;
-                                    //    }
-                                    //    else
-                                    //    {
-                                    //        retVal = dbDt.SaveNew_From_PMUpdate(tmpDat);
-                                    //        base.ID = retVal;
-                                    //    }
-
-                                    //    dbDt = null;
-
-                                    //    return retVal;
-                                    //}
-        
+            return retVal;
+        }
+      
 
         public static void Delete(int cID)
         {

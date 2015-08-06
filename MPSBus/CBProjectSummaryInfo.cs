@@ -74,30 +74,30 @@ namespace RSMPS
        
 
 
-        public int Save_From_ProjAddEdit_PM_Update() //***********************Added 7/28/2015
-        {
-            CDbProjectSummaryInfo dbDt = new CDbProjectSummaryInfo();
-            string tmpDat;
-            int retVal;
+        //public int Save_From_ProjAddEdit_PM_Update() //***********************Added 7/28/2015
+        //{
+        //    CDbProjectSummaryInfo dbDt = new CDbProjectSummaryInfo();
+        //    string tmpDat;
+        //    int retVal;
 
-            tmpDat = GetDataString();
+        //    tmpDat = GetDataString();
 
-            if (base.ID > 0)
-            {
-                dbDt.SavePrev(tmpDat);
-                retVal = base.ID;
-            }
-            else
-            {
-                retVal = dbDt.SaveNew_From_ProjAddEdit_PM_Update(tmpDat);
-                base.ID = retVal;
+        //    if (base.ID > 0)
+        //    {
+        //        dbDt.SavePrev(tmpDat);
+        //        retVal = base.ID;
+        //    }
+        //    else
+        //    {
+        //        retVal = dbDt.SaveNew_From_ProjAddEdit_PM_Update(tmpDat);
+        //        base.ID = retVal;
 
-            }
+        //    }
 
-            dbDt = null;
+        //    dbDt = null;
 
-            return retVal;
-        }
+        //    return retVal;
+        //}
 
         public static void Delete(int cID)
         {

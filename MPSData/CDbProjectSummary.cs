@@ -136,51 +136,48 @@ namespace RSMPS
             return retVal;
         }
 
-                                //public int SaveNew_From_PMUpdate(string strXml)       //********************Added 7/27/2015
-                                //{
-                                //    RSLib.CDbConnection cnn;
-                                //    SqlCommand cmd;
-                                //    SqlParameter prm;
-                                //    int retVal = 0;
+        public int SaveNewSummary(string strXml) //***************************Added 8/6/2015
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            int retVal = 0;
 
-                                //    LoadVals(strXml);
+            LoadVals(strXml);
 
-                                //    cnn = new RSLib.CDbConnection();
-                                //    cmd = new SqlCommand("spProjectSummary_Insert_From_ProjAddEdit_PM_Update", cnn.GetConnection());
-                                //    cmd.CommandType = CommandType.StoredProcedure;
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spProjectSummary_PM_Insert", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
 
 
-                                //    prm = cmd.Parameters.Add("@ID", SqlDbType.Int);
-                                //    prm.Direction = ParameterDirection.Output;
+            prm = cmd.Parameters.Add("@ID", SqlDbType.Int);
+            prm.Direction = ParameterDirection.Output;
 
-                                //    prm = cmd.Parameters.Add("@EmployeeID", SqlDbType.Int);
-                                //    prm.Value = oVar.EmployeeID;
-                                //    //prm = cmd.Parameters.Add("@ClientFeedback", SqlDbType.Text);
-                                //    //prm.Value = oVar.ClientFeedback;
-                                //    //prm = cmd.Parameters.Add("@QualityImp", SqlDbType.Text);
-                                //    //prm.Value = oVar.QualityImp;
-                                //    //prm = cmd.Parameters.Add("@NewWorkProp", SqlDbType.Text);
-                                //    //prm.Value = oVar.NewWorkProp;
-                                //    //prm = cmd.Parameters.Add("@DistributionList", SqlDbType.Text);
-                                //    //prm.Value = oVar.Distribution;
+            prm = cmd.Parameters.Add("@EmployeeID", SqlDbType.Int);
+            prm.Value = oVar.EmployeeID;
+            
+            cmd.ExecuteNonQuery();
 
-                                //    cmd.ExecuteNonQuery();
+            retVal = Convert.ToInt32(cmd.Parameters["@ID"].Value);
 
-                                //    retVal = Convert.ToInt32(cmd.Parameters["@ID"].Value);
+            prm = null;
+            cmd = null;
+            cnn.CloseConnection();
+            cnn = null;
 
-                                //    prm = null;
-                                //    cmd = null;
-                                //    cnn.CloseConnection();
-                                //    cnn = null;
-
-                                //    return retVal;
-                                //}
+            return retVal;
+        }
 
 
 
 
 
 
+
+
+
+
+                               
 
         public int SavePrev(string strXml)
         {
@@ -218,42 +215,7 @@ namespace RSMPS
             return oVar.ID;
         }
 
-                                    //        public int SavePrev_PMUpdate(string strXml,int prevID, int newID, int projID)  //************Added*****7/28/2015
-                                    //{
-                                    //    RSLib.CDbConnection cnn;
-                                    //    SqlCommand cmd;
-                                    //    SqlParameter prm;
-
-                                    //    LoadVals(strXml);
-
-                                    //    cnn = new RSLib.CDbConnection();
-                                    //    cmd = new SqlCommand("spProjectSummary_PM_Update", cnn.GetConnection());
-                                    //    cmd.CommandType = CommandType.StoredProcedure;
-
-
-                                    //    prm = cmd.Parameters.Add("@PrevPMID", SqlDbType.Int);
-                                    //    prm.Value = prevID;
-                                    //    prm = cmd.Parameters.Add("@NewPMID", SqlDbType.Int);
-                                    //    prm.Value = newID;
-
-                                    //    prm = cmd.Parameters.Add("@projectID", SqlDbType.Int);
-                                    //    prm.Value = projID;
-            
-
-                                    //    cmd.ExecuteNonQuery();
-
-                                    //    prm = null;
-                                    //    cmd = null;
-                                    //    cnn.CloseConnection();
-                                    //    cnn = null;
-
-                                    //    return oVar.ID;
-                                    //}
-
-
-
-
-
+                                    
         private string GetDataString()
         {
             string tmpStr;
