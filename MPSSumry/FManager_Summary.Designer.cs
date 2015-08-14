@@ -499,7 +499,9 @@ namespace RSMPS
             this.tdbgSchedule.Size = new System.Drawing.Size(730, 137);
             this.tdbgSchedule.TabIndex = 0;
             this.tdbgSchedule.Text = "Schedule";
+            this.tdbgSchedule.AfterColUpdate += new C1.Win.C1TrueDBGrid.ColEventHandler(this.tdbgSchedule_AfterColUpdate);
             this.tdbgSchedule.AfterDelete += new System.EventHandler(this.tdbgSchedule_AfterDelete);
+            this.tdbgSchedule.AfterInsert += new System.EventHandler(this.tdbgSchedule_AfterInsert);
             this.tdbgSchedule.AfterUpdate += new System.EventHandler(this.tdbgSchedule_AfterUpdate);
             this.tdbgSchedule.BeforeUpdate += new C1.Win.C1TrueDBGrid.CancelEventHandler(this.tdbgSchedule_BeforeUpdate);
             this.tdbgSchedule.PropBag = resources.GetString("tdbgSchedule.PropBag");

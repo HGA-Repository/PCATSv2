@@ -72,6 +72,56 @@ namespace RSMPS
             return retVal;
         }
 
+        public int UpdateSch() //****************************Added 8/11
+        {
+            CDbProjectSummarySch dbDt = new CDbProjectSummarySch();
+            string tmpDat;
+            int retVal;
+
+            tmpDat = GetDataString();
+         
+            dbDt.SavePrev(tmpDat);
+            retVal = base.ID; 
+             dbDt = null;
+             return retVal;
+        }
+        public int InsertSch() //****************************Added 8/11
+        {
+            CDbProjectSummarySch dbDt = new CDbProjectSummarySch();
+            string tmpDat;
+            int retVal;
+
+            tmpDat = GetDataString();
+             retVal = dbDt.SaveNew(tmpDat);
+             dbDt = null;
+
+            return retVal;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public static void Delete(int cID)
         {
