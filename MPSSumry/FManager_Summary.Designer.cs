@@ -44,6 +44,12 @@ namespace RSMPS
             this.scheduleBulletIndent = new System.Windows.Forms.ToolStripMenuItem();
             this.scheduleBulletRemove = new System.Windows.Forms.ToolStripMenuItem();
             this.scheduleBold = new System.Windows.Forms.ToolStripMenuItem();
+
+            this.cmnuTdbgSchedule = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.TdbgScheduleDeleteLine = new System.Windows.Forms.ToolStripMenuItem();
+            this.TdbgScheduleCancel = new System.Windows.Forms.ToolStripMenuItem();
+
+
             this.indentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.rtbActHigh = new System.Windows.Forms.RichTextBox();
@@ -256,6 +262,31 @@ namespace RSMPS
             this.scheduleBold.Text = "Bold";
             this.scheduleBold.Click += new System.EventHandler(this.scheduleBold_Click);
             // 
+            //
+            //************************************************************************************
+            // cmnuTdbgSchedule
+            // 
+            this.cmnuTdbgSchedule.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TdbgScheduleDeleteLine,
+            this.TdbgScheduleCancel });
+            this.cmnuTdbgSchedule.Name = "cmnuTdbgSchedule";
+            this.cmnuTdbgSchedule.Size = new System.Drawing.Size(151, 92);
+            // 
+            // TdbgScheduleDeleteLine
+            // 
+            this.TdbgScheduleDeleteLine.Name = "TdbgScheduleDeleteLine";
+            this.TdbgScheduleDeleteLine.Size = new System.Drawing.Size(150, 22);
+            this.TdbgScheduleDeleteLine.Text = "Delete Line";
+            this.TdbgScheduleDeleteLine.Click += new System.EventHandler(this.TdbgScheduleDeleteLine_Click);
+            // 
+            // TdbgScheduleCancel
+            // 
+            this.TdbgScheduleCancel.Name = "TdbgScheduleCancel";
+            this.TdbgScheduleCancel.Size = new System.Drawing.Size(150, 22);
+            this.TdbgScheduleCancel.Text = "Cancel";
+            //this.TdbgScheduleCancel.Click += new System.EventHandler(this.TdbgScheduleCancel_Click);
+            //**************************************************************************************
+            //
             // indentToolStripMenuItem
             // 
             this.indentToolStripMenuItem.Name = "indentToolStripMenuItem";
@@ -499,6 +530,13 @@ namespace RSMPS
             this.tdbgSchedule.Size = new System.Drawing.Size(730, 137);
             this.tdbgSchedule.TabIndex = 0;
             this.tdbgSchedule.Text = "Schedule";
+
+            this.tdbgSchedule.ContextMenuStrip = this.cmnuTdbgSchedule;
+
+
+
+
+
             this.tdbgSchedule.AfterColUpdate += new C1.Win.C1TrueDBGrid.ColEventHandler(this.tdbgSchedule_AfterColUpdate);
             this.tdbgSchedule.AfterDelete += new System.EventHandler(this.tdbgSchedule_AfterDelete);
             this.tdbgSchedule.AfterInsert += new System.EventHandler(this.tdbgSchedule_AfterInsert);
@@ -982,5 +1020,12 @@ namespace RSMPS
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
+
+        private System.Windows.Forms.ContextMenuStrip cmnuTdbgSchedule; //**************Added 8/17/2015
+        private System.Windows.Forms.ToolStripMenuItem TdbgScheduleDeleteLine;
+        private System.Windows.Forms.ToolStripMenuItem TdbgScheduleCancel;
+       
+
+
     }
 }

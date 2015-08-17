@@ -1330,7 +1330,32 @@ namespace RSMPS
         {
             InfoChanged();
 
+
+            MessageBox.Show("Deleted........................................");
+            //sch.Delete(sch.ID); //
+
         }
+           
+        private void TdbgScheduleDeleteLine_Click(object sender, EventArgs e)
+        {
+
+            if (MessageBox.Show("Are you sure you wish to delete the current line?", "Delete Schedule", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                DataRow dr = mdsProjSch.Tables["ScheduleList"].Rows[tdbgSchedule.Bookmark];
+                int id = Convert.ToInt32(dr["ID"]);
+                sch.Delete(id);
+                MessageBox.Show("Deleted" + id);
+                tdbgSchedule.Delete();
+
+               
+            }
+
+        }
+
+
+
+
+
         private void FManager_Summary_Load(object sender, EventArgs e)
         {
 

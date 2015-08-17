@@ -101,29 +101,8 @@ namespace RSMPS
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        public static void Delete(int cID)
+        //  public static void Delete(int cID) //****************************Edited 8/17
+             public  void Delete(int cID)
         {
             CDbProjectSummarySch dbDt = new CDbProjectSummarySch();
 
