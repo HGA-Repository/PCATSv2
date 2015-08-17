@@ -112,6 +112,7 @@ namespace RSMPS
                 mdsProjInfos.Tables["ProjectInfos"].Rows.Add(d);
 
                 InfoChanged();
+                MessageBox.Show("Please Save the list");
             }
         }
 
@@ -1329,11 +1330,7 @@ namespace RSMPS
         private void tdbgSchedule_AfterDelete(object sender, EventArgs e)
         {
             InfoChanged();
-
-
-            MessageBox.Show("Deleted........................................");
-            //sch.Delete(sch.ID); //
-
+                     
         }
            
         private void TdbgScheduleDeleteLine_Click(object sender, EventArgs e)
