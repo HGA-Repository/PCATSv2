@@ -484,24 +484,25 @@ namespace RSMPS
                     SaveBudgets(moProj.ID);
                     //*************************** update dt_ProjectSummarys and DT_ProjectSummaryInfos, added 7/28/2015
                     newPM = moProj.ProjMngrID;
-               
-                    if (mbPMChanged == true)
 
+                    if (mbPMChanged == true)
                     {
                         if (IsNewProject == true)
                         {
-                            MessageBox.Show("New Project Added" + "New PM" + newPM.ToString() + "ProjID  " + moProj.ID.ToString());
+                            //MessageBox.Show("New Project Added" + "New PM" + newPM.ToString() + "ProjID  " + moProj.ID.ToString());
                             Save_Summary_NewProject(newPM, moProj.ID);
                         }
                         else
                         {
-                            MessageBox.Show("Not a new Project, PM changed");
-                            MessageBox.Show("Prev PM--" + previousPM.ToString() + " New PM--" + newPM.ToString()+"  Project ID--" + moProj.ID.ToString());
+                            // MessageBox.Show("Not a new Project, PM changed");
+                            // MessageBox.Show("Prev PM--" + previousPM.ToString() + " New PM--" + newPM.ToString()+"  Project ID--" + moProj.ID.ToString());
                             Save_PMUpdate(previousPM, newPM, moProj.ID);
-                            MessageBox.Show("Proj Summary info updated");
+                            //  MessageBox.Show("Proj Summary info updated");
                         }
                     }
-                    else MessageBox.Show("Not a new Project and PM not changed");
+                    else
+                    { //MessageBox.Show("Not a new Project and PM not changed"); 
+                    }
 
                     if (OnNewItem != null)
                     {
