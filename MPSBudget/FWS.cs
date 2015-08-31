@@ -352,6 +352,70 @@ namespace RSMPS
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CPBudget bud = new CPBudget();
+            this.Cursor = Cursors.WaitCursor;
+
+            MessageBox.Show(miBudgetID.ToString());
+            // MessageBox.Show(moCurrBudget.ProjectID.ToString());
+            //MessageBox.Show(moCurrBudget.Description);
+            
+            //worksheet.cboWBS_Text = cboWBS.Text; // *****************************Added 7/1/15
+            //MessageBox.Show("#################################");
+            //MessageBox.Show(cboWBS.Text);
+
+
+            bud.PreviewWorkSheet(miBudgetID, "");
+
+            //MessageBox.Show(moCurrBudget.ID.ToString());
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CPBudget bud = new CPBudget();
+            this.Cursor = Cursors.WaitCursor;
+
+            MessageBox.Show(miBudgetID.ToString());
+            // MessageBox.Show(moCurrBudget.ProjectID.ToString());
+            //MessageBox.Show(moCurrBudget.Description);
+
+            //worksheet.cboWBS_Text = cboWBS.Text; // *****************************Added 7/1/15
+            //MessageBox.Show("#################################");
+            //MessageBox.Show(cboWBS.Text);
+
+
+            bud.PreviewExpensSheet(miBudgetID, "");
+
+            //MessageBox.Show(moCurrBudget.ID.ToString());
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CPBudget bud = new CPBudget();
+            this.Cursor = Cursors.WaitCursor;
+
+            MessageBox.Show(miBudgetID.ToString());
+            // MessageBox.Show(moCurrBudget.ProjectID.ToString());
+            //MessageBox.Show(moCurrBudget.Description);
+
+            //worksheet.cboWBS_Text = cboWBS.Text; // *****************************Added 7/1/15
+            //MessageBox.Show("#################################");
+            //MessageBox.Show(cboWBS.Text);
+
+
+            bud.PreviewWorkSheet_Detail(miBudgetID, "");
+
+            //MessageBox.Show(moCurrBudget.ID.ToString());
+
+            this.Cursor = Cursors.Default;
+
+        }
+
 
 
     }

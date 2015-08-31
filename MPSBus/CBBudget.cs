@@ -267,6 +267,29 @@ namespace RSMPS
 
             return dbDt.GetBudgetDetailsForReport(budgetID, wbs);
         }
+        public static DataSet GetWorksheet_DetailsForReport(int budgetID, string wbs) //**********************************Added 8/31
+        {
+            CDbBudget dbDt = new CDbBudget();
+
+            return dbDt.GetWorkSheet_DetailsForReport(budgetID, wbs);
+           // return dbDt.GetBudgetDetailsForReport(budgetID, wbs);
+
+           
+        }
+
+        public static DataSet GetWorksheetDetailsForReport(int budgetID, string wbs) //**********************************Added 8/26
+        {
+            CDbBudget dbDt = new CDbBudget();
+
+            return dbDt.GetWorkSheetDetailsForReport(budgetID, wbs);
+        }
+
+        public static DataSet GetExpenseDetailsForReport(int budgetID, string wbs) //**********************************Added 8/26
+        {
+            CDbBudget dbDt = new CDbBudget();
+
+            return dbDt.GetExpenseDetailsForReport(budgetID, wbs);
+        }
 
 
         public static DataSet GetBudgetJobstatForReport(int budgetID, string wbs)

@@ -126,7 +126,13 @@
     <Compile Include="rprtBudgetAccountingExps.Designer.cs">
       <DependentUpon>rprtBudgetAccountingExps.cs</DependentUpon>
     </Compile>
+    <Compile Include="rprtBudgetDetail_WorkSheet.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="rprtBudgetDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtBudgetDetailWorksheet.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="rprtBudgetDetailExps.cs">
@@ -338,8 +344,16 @@
       <DependentUpon>rprtBudgetAccountingExps.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="rprtBudgetDetail_WorkSheet.resx">
+      <DependentUpon>rprtBudgetDetail_WorkSheet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="rprtBudgetDetail.resx">
       <DependentUpon>rprtBudgetDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtBudgetDetailWorksheet.resx">
+      <DependentUpon>rprtBudgetDetailWorksheet.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="rprtBudgetDetailExps.resx">

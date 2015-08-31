@@ -278,7 +278,7 @@ namespace RSMPS
            
           //  MessageBox.Show(projNumber);
             //MessageBox.Show(pcnNumber);
-         //  MessageBox.Show(reportType);
+           //MessageBox.Show(reportType);
            //MessageBox.Show(BusinessUnit);
 
          
@@ -330,7 +330,10 @@ namespace RSMPS
 
                                                                   else
                                                                       if (reportType == "RSMPS.rprtForecastRemaining")
-                                                                          fileName = "Forecast Remaining- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss"); 
+                                                                          fileName = "Forecast Remaining- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                                                      else
+                                                                          if (reportType == "RSMPS.rprtBudgetDetail_WorkSheet")
+                                                                              fileName = "BudgetDetail_WorkSheet- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss"); 
                                                         else fileName = "Report-" + dt.ToString("yyyMMdd hhmmss"); 
 
            // MessageBox.Show(fileName);

@@ -652,7 +652,8 @@ namespace RSMPS
             DataSet ds;
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spRPRT_WorksheetDetail", cnn.GetConnection());
+           // cmd = new SqlCommand("spRPRT_WorksheetDetail", cnn.GetConnection());
+            cmd = new SqlCommand("spRPRT_WorksheetDetail_Test", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
             prm = cmd.Parameters.Add("@BudgetID", SqlDbType.Int);
@@ -670,6 +671,73 @@ namespace RSMPS
 
             return ds;
         }
+
+        public DataSet GetWorkSheet_DetailsForReport(int budgetID, string wbs) //************************Added 8/31/2015
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            SqlDataAdapter da;
+            DataSet ds;
+
+            cnn = new RSLib.CDbConnection();
+            // cmd = new SqlCommand("spRPRT_WorksheetDetail", cnn.GetConnection());
+            cmd = new SqlCommand("spRPRT_WorksheetDetail_Test", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@BudgetID", SqlDbType.Int);
+            prm.Value = budgetID;
+            prm = cmd.Parameters.Add("@WBS", SqlDbType.VarChar, 5);
+            prm.Value = wbs;
+
+            da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+
+            ds = new DataSet();
+            da.Fill(ds);
+
+            cnn.CloseConnection();
+
+            return ds;
+        }
+
+
+
+
+
+        public DataSet GetExpenseDetailsForReport(int budgetID, string wbs)
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            SqlDataAdapter da;
+            DataSet ds;
+
+            cnn = new RSLib.CDbConnection();
+           
+            cmd = new SqlCommand("spRPRT_ExpenseDetail", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@BudgetID", SqlDbType.Int);
+            prm.Value = budgetID;
+            prm = cmd.Parameters.Add("@WBS", SqlDbType.VarChar, 5);
+            prm.Value = wbs;
+
+            da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+
+            ds = new DataSet();
+            da.Fill(ds);
+
+            cnn.CloseConnection();
+
+            return ds;
+        }
+
+
+
+
+
         public DataSet GetBudgetJobstatForReport(int budgetID, string wbs)
         {
             RSLib.CDbConnection cnn;

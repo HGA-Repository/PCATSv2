@@ -179,6 +179,137 @@ namespace RSMPS
             pv.ShowDialog();
         }
 
+        public void PreviewWorkSheet(int budID, string wbs) //*******************************Added 8/26/2015
+        {
+            FPreviewAR pv = new FPreviewAR();
+            rprtBudgetDetailWorksheet rprt = new rprtBudgetDetailWorksheet();
+            DataSet ds;
+            CBBudget bud = new CBBudget();
+            CBProject proj = new CBProject();
+            CBCustomer cust = new CBCustomer();
+            CBLocation loc = new CBLocation();
+            CBState state = new CBState();
+
+            bud.Load(budID);
+            proj.Load(bud.ProjectID);
+            cust.Load(proj.CustomerID);
+            loc.Load(proj.LocationID);
+            state.Load(loc.StateID);
+
+            ds = CBBudget.GetWorksheetDetailsForReport(budID, wbs);
+
+
+            //if (proj.BusinessUnit() == 1) rprt.MainReportTitle = "Staffing Estimate Loaded Details";
+            //if (proj.BusinessUnit() == 2) rprt.MainReportTitle = "Engineering Estimate Loaded Details";
+            //if (proj.BusinessUnit() == 3) rprt.MainReportTitle = "Pipeline Services Estimate Loaded Details";
+            //if (proj.BusinessUnit() == 4) rprt.MainReportTitle = "Program Management Estimate Loaded Details";
+            //if (proj.BusinessUnit() == 5) rprt.MainReportTitle = "EPC Estimate Loaded Details";
+
+
+            pv.projNumber = proj.Number; //***************************Added 6/25/15
+
+            // MessageBox.Show(pv.projNumber);
+
+            //rprt.SetTitles(cust.Name + " / " + loc.City + "," + state.Abbrev, proj.Description, proj.Number, bud.GetNumber(), wbs);
+            rprt.DataSource = ds;
+            rprt.DataMember = "Table";
+
+            pv.ViewReport(rprt);
+            pv.ShowDialog();
+        }
+
+        public void PreviewWorkSheet_Detail(int budID, string wbs) //*******************************Added 8/31/2015
+        {
+            FPreviewAR pv = new FPreviewAR();
+            rprtBudgetDetail_WorkSheet rprt = new rprtBudgetDetail_WorkSheet();
+
+            //rprtBudgetDetail rprt = new rprtBudgetDetail();
+            DataSet ds;
+            CBBudget bud = new CBBudget();
+            CBProject proj = new CBProject();
+            CBCustomer cust = new CBCustomer();
+            CBLocation loc = new CBLocation();
+            CBState state = new CBState();
+
+            bud.Load(budID);
+            proj.Load(bud.ProjectID);
+            cust.Load(proj.CustomerID);
+            loc.Load(proj.LocationID);
+            state.Load(loc.StateID);
+
+            ds = CBBudget.GetWorksheet_DetailsForReport(budID, wbs);
+
+
+            if (proj.BusinessUnit() == 1) rprt.MainReportTitle = "Staffing Estimate Loaded Details";
+            if (proj.BusinessUnit() == 2) rprt.MainReportTitle = "Engineering Estimate Loaded Details";
+            if (proj.BusinessUnit() == 3) rprt.MainReportTitle = "Pipeline Services Estimate Loaded Details";
+            if (proj.BusinessUnit() == 4) rprt.MainReportTitle = "Program Management Estimate Loaded Details";
+            if (proj.BusinessUnit() == 5) rprt.MainReportTitle = "EPC Estimate Loaded Details";
+
+
+            pv.projNumber = proj.Number; //***************************Added 6/25/15
+
+            // MessageBox.Show(pv.projNumber);
+
+            rprt.SetTitles(cust.Name + " / " + loc.City + "," + state.Abbrev, proj.Description, proj.Number, bud.GetNumber(), wbs);
+            rprt.DataSource = ds;
+            rprt.DataMember = "Table";
+
+            pv.ViewReport(rprt);
+            pv.ShowDialog();
+        }
+
+
+
+
+
+        public void PreviewExpensSheet(int budID, string wbs) //*******************************Added 8/26/2015
+        {
+            FPreviewAR pv = new FPreviewAR();
+            rprtBudgetDetailExps rprt = new rprtBudgetDetailExps();
+            DataSet ds;
+            CBBudget bud = new CBBudget();
+            CBProject proj = new CBProject();
+            CBCustomer cust = new CBCustomer();
+            CBLocation loc = new CBLocation();
+            CBState state = new CBState();
+
+            bud.Load(budID);
+            proj.Load(bud.ProjectID);
+            cust.Load(proj.CustomerID);
+            loc.Load(proj.LocationID);
+            state.Load(loc.StateID);
+
+            ds = CBBudget.GetExpenseDetailsForReport(budID, wbs);
+
+
+            //if (proj.BusinessUnit() == 1) rprt.MainReportTitle = "Staffing Estimate Loaded Details";
+            //if (proj.BusinessUnit() == 2) rprt.MainReportTitle = "Engineering Estimate Loaded Details";
+            //if (proj.BusinessUnit() == 3) rprt.MainReportTitle = "Pipeline Services Estimate Loaded Details";
+            //if (proj.BusinessUnit() == 4) rprt.MainReportTitle = "Program Management Estimate Loaded Details";
+            //if (proj.BusinessUnit() == 5) rprt.MainReportTitle = "EPC Estimate Loaded Details";
+
+
+            pv.projNumber = proj.Number; //***************************Added 6/25/15
+
+            // MessageBox.Show(pv.projNumber);
+
+            //rprt.SetTitles(cust.Name + " / " + loc.City + "," + state.Abbrev, proj.Description, proj.Number, bud.GetNumber(), wbs);
+            rprt.DataSource = ds;
+            rprt.DataMember = "Table";
+
+            pv.ViewReport(rprt);
+            pv.ShowDialog();
+        }
+
+
+
+
+
+
+
+
+
        
 
         public void Show_BudgetDetails(int budID, string wbs)    //**************************Added 6/22/15

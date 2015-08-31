@@ -658,7 +658,9 @@ namespace RSMPS
 
         private void tlbbWorksheet_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
+            //MessageBox.Show(SelectedGroupTab);
             OpenWorksheet(SelectedGroupTab);
+            
         }
 
         private void OpenWorksheet(string group)
@@ -670,15 +672,15 @@ namespace RSMPS
            // worksheet.cboWBS_Text = cboWBS.Text; // *****************************Added 7/1/15
            // worksheet.miProjectID = miProjectID;
            
-         //   MessageBox.Show(worksheet.miProjectID.ToString());
+           // MessageBox.Show(worksheet.miProjectID.ToString());
             //MessageBox.Show(cboWBS.Text);
 
             var handler = new WorksheetChangedHandler((ds) => { f1_OnWorkSheetChanged(group, ds); });
             worksheet.OnWorkSheetChanged += handler;
             worksheet.SetDataValues(mdsWS[group], moCurrBudget.ID);
 
-            //MessageBox.Show(mdsWS[group].ToString());
-         //   MessageBox.Show(moCurrBudget.ID.ToString());
+           // MessageBox.Show(mdsWS[group].ToString());
+            //MessageBox.Show(moCurrBudget.ID.ToString());
           
             
             worksheet.ShowDialog();
@@ -741,6 +743,8 @@ namespace RSMPS
                         InsertLineFromWorkSheet(valID, group_int, code, wbs, locDesc, qtyEach, value, rate);
                     }
                     index++;
+
+                    //MessageBox.Show("inserted");
                 }
 
             }
@@ -1151,6 +1155,7 @@ namespace RSMPS
             task = 0;
             cat = 0;
             act = 0;
+            MessageBox.Show("Account Code" + acctCode.ToString());
 
             foreach (Row r in fg.Rows)
             {
@@ -1165,6 +1170,9 @@ namespace RSMPS
                         rowGrp = Convert.ToInt32(r[BUDCOL7]);
                     }
 
+                    //MessageBox.Show("(r.Index > 0)============ is invoked");
+                    MessageBox.Show("rowGrp-----" + rowGrp.ToString() + "----acctCode---------" + acctCode.ToString());
+
                     if (rowGrp == acctCode)
                     {
                         foundFirst = true;
@@ -1176,15 +1184,19 @@ namespace RSMPS
                         task = Convert.ToInt32(r[BUDCOL5]);
                         cat = Convert.ToInt32(r[BUDCOL6]);
                         act = Convert.ToInt32(r[BUDCOL7]);
+
+                        MessageBox.Show("(rowGrp == acctCode)============ is invoked");
                     }
                     else if (rowGrp != acctCode && foundFirst == true)
                     {
                         rowIndx = r.Index;
+                        MessageBox.Show("else if (rowGrp != acctCode && foundFirst == true)============ is invoked");
                         break;
                     }
                 }
+               // MessageBox.Show(foundFirst.ToString() + rowIndx.ToString());
             }
-
+            MessageBox.Show(foundFirst.ToString() + rowIndx.ToString());
             if (foundFirst == true && rowIndx != 0)
             {
                 //  insert a new row into the grid
@@ -1211,6 +1223,7 @@ namespace RSMPS
                 bl.BareDollars = 0;
 
                 bl.Save();
+                MessageBox.Show("Inserted to Budgetline From WorkSheet");
 
                 newRow[1] = taskVal;
                 newRow[2] = catVal;
