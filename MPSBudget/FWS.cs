@@ -416,7 +416,50 @@ namespace RSMPS
 
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            CPBudget bud = new CPBudget();
+            this.Cursor = Cursors.WaitCursor;
+
+            MessageBox.Show(miBudgetID.ToString());
+
+            bud.PreviewDetail_WorkSheet_Expenses(miBudgetID, "");
+
+            //MessageBox.Show(moCurrBudget.ID.ToString());
+
+            this.Cursor = Cursors.Default;
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            CPBudget bud = new CPBudget();
+            this.Cursor = Cursors.WaitCursor;
+
+            MessageBox.Show(miBudgetID.ToString());
+
+            bud.PreviewDetail_Travel_Expenses(miBudgetID);
+
+            //MessageBox.Show(moCurrBudget.ID.ToString());
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            CPBudget bud = new CPBudget();
+            this.Cursor = Cursors.WaitCursor;
+
+            MessageBox.Show(miBudgetID.ToString());
+
+            bud.PreviewDetail_SpecificationProcurement(miBudgetID);
+
+            //MessageBox.Show(moCurrBudget.ID.ToString());
+
+            this.Cursor = Cursors.Default;
+        }
 
 
+        
     }
 }

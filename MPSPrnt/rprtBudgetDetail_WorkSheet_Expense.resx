@@ -132,6 +132,21 @@
   <data name="TextBox6.OutputFormat" xml:space="preserve">
     <value>$#,##0.00;($#,##0.00)</value>
   </data>
+  <data name="TextBox2.OutputFormat" xml:space="preserve">
+    <value>#,##0;(#,##0)</value>
+  </data>
+  <data name="TextBox3.OutputFormat" xml:space="preserve">
+    <value>#,###</value>
+  </data>
+  <data name="TextBox4.OutputFormat" xml:space="preserve">
+    <value>#,##0;(#,##0)</value>
+  </data>
+  <data name="TextBox5.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00;($#,##0.00)</value>
+  </data>
+  <data name="TextBox6.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00;($#,##0.00)</value>
+  </data>
   <data name="txtEngTotalHrs.OutputFormat" xml:space="preserve">
     <value>#,##0;(#,##0)</value>
   </data>
@@ -139,6 +154,51 @@
     <value>$#,##0.00;($#,##0.00)</value>
   </data>
   <data name="txtEngTotLdDlrs.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00;($#,##0.00)</value>
+  </data>
+  <data name="txtNonEngTotHrs.OutputFormat" xml:space="preserve">
+    <value>#,##0;(#,##0)</value>
+  </data>
+  <data name="txtNonEngLdRt.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00;($#,##0.00)</value>
+  </data>
+  <data name="txtNonEngTotLdDlrs.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00;($#,##0.00)</value>
+  </data>
+  <data name="txtTotalLoadedDlrs.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00;($#,##0.00)</value>
+  </data>
+  <data name="txtTotalHours.OutputFormat" xml:space="preserve">
+    <value>#,##0;(#,##0)</value>
+  </data>
+  <data name="txtTotalLoadedRate.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00;($#,##0.00)</value>
+  </data>
+  <data name="txtEngTotalHrs.OutputFormat" xml:space="preserve">
+    <value>#,##0;(#,##0)</value>
+  </data>
+  <data name="txtEngLdRt.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00;($#,##0.00)</value>
+  </data>
+  <data name="txtEngTotLdDlrs.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00;($#,##0.00)</value>
+  </data>
+  <data name="txtNonEngTotHrs.OutputFormat" xml:space="preserve">
+    <value>#,##0;(#,##0)</value>
+  </data>
+  <data name="txtNonEngLdRt.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00;($#,##0.00)</value>
+  </data>
+  <data name="txtNonEngTotLdDlrs.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00;($#,##0.00)</value>
+  </data>
+  <data name="txtTotalLoadedDlrs.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00;($#,##0.00)</value>
+  </data>
+  <data name="txtTotalHours.OutputFormat" xml:space="preserve">
+    <value>#,##0;(#,##0)</value>
+  </data>
+  <data name="txtTotalLoadedRate.OutputFormat" xml:space="preserve">
     <value>$#,##0.00;($#,##0.00)</value>
   </data>
   <data name="Picture.ImageData" mimetype="application/x-microsoft.net.object.binary.base64">

@@ -643,6 +643,103 @@ namespace RSMPS
             return ds;
         }
 
+        public DataSet GetBudgetDetails_WorkSheet_ExpenseForReport(int budgetID, string wbs)
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            SqlDataAdapter da;
+            DataSet ds;
+
+            cnn = new RSLib.CDbConnection();
+          //  cmd = new SqlCommand("spRPRT_BudgetDetail", cnn.GetConnection());
+            cmd = new SqlCommand("spRPRT_BudgetDetail_WorkSheet_Expenses", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@BudgetID", SqlDbType.Int);
+            prm.Value = budgetID;
+            prm = cmd.Parameters.Add("@WBS", SqlDbType.VarChar, 5);
+            prm.Value = wbs;
+
+            da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+
+            ds = new DataSet();
+            da.Fill(ds);
+
+            cnn.CloseConnection();
+
+            return ds;
+        }
+
+        public DataSet GetWorksheet_TravelExpenses_DetailsForReport(int budgetID) // **************************Added 9/1/2015
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            SqlDataAdapter da;
+            DataSet ds;
+
+            cnn = new RSLib.CDbConnection();
+            //  cmd = new SqlCommand("spRPRT_BudgetDetail", cnn.GetConnection());
+            cmd = new SqlCommand("spRPRT_TravelExpenses", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@BudgetID", SqlDbType.Int);
+            prm.Value = budgetID;
+           // prm = cmd.Parameters.Add("@WBS", SqlDbType.VarChar, 5);
+           // prm.Value = wbs;
+
+            da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+
+            ds = new DataSet();
+            da.Fill(ds);
+
+            cnn.CloseConnection();
+
+            return ds;
+        }
+
+        public DataSet GetBudgetDetails_SpecificationProcurementForReport(int budgetID)// **************************Added 9/1/2015
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            SqlDataAdapter da;
+            DataSet ds;
+
+            cnn = new RSLib.CDbConnection();
+          
+            cmd = new SqlCommand("spRPRT_SpecificationProcurement", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@BudgetID", SqlDbType.Int);
+            prm.Value = budgetID;
+            // prm = cmd.Parameters.Add("@WBS", SqlDbType.VarChar, 5);
+            // prm.Value = wbs;
+
+            da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+
+            ds = new DataSet();
+            da.Fill(ds);
+
+            cnn.CloseConnection();
+
+            return ds;
+        }
+
+
+
+
+
+
+
+
+
+
+
         public DataSet GetWorkSheetDetailsForReport(int budgetID, string wbs)
         {
             RSLib.CDbConnection cnn;

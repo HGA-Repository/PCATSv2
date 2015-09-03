@@ -126,6 +126,15 @@
     <Compile Include="rprtBudgetAccountingExps.Designer.cs">
       <DependentUpon>rprtBudgetAccountingExps.cs</DependentUpon>
     </Compile>
+    <Compile Include="rprtSpecificationProcurement.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtTravelExpenses.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtBudgetDetail_WorkSheet_Expense.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="rprtBudgetDetail_WorkSheet.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -342,6 +351,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="rprtBudgetAccountingExps.resx">
       <DependentUpon>rprtBudgetAccountingExps.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtSpecificationProcurement.resx">
+      <DependentUpon>rprtSpecificationProcurement.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtTravelExpenses.resx">
+      <DependentUpon>rprtTravelExpenses.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtBudgetDetail_WorkSheet_Expense.resx">
+      <DependentUpon>rprtBudgetDetail_WorkSheet_Expense.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="rprtBudgetDetail_WorkSheet.resx">
