@@ -373,7 +373,7 @@ namespace RSMPS
             this.Cursor = Cursors.Default;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Expense_Click(object sender, EventArgs e)
         {
             CPBudget bud = new CPBudget();
             this.Cursor = Cursors.WaitCursor;
@@ -416,7 +416,7 @@ namespace RSMPS
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void WS_Expenses_Click(object sender, EventArgs e)
         {
             CPBudget bud = new CPBudget();
             this.Cursor = Cursors.WaitCursor;
@@ -458,6 +458,37 @@ namespace RSMPS
 
             this.Cursor = Cursors.Default;
         }
+
+        private void WS_PCNExpenses_Click(object sender, EventArgs e)
+        {
+            CPBudget bud = new CPBudget();
+            this.Cursor = Cursors.WaitCursor;
+
+            MessageBox.Show(miBudgetID.ToString());
+
+            bud.PreviewDetail_WorkSheet_PCN_Expenses(miBudgetID, "");
+
+            //MessageBox.Show(moCurrBudget.ID.ToString());
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void bttPCN_Click(object sender, EventArgs e)
+        {
+            CPBudget bud = new CPBudget();
+            this.Cursor = Cursors.WaitCursor;
+
+            MessageBox.Show(miBudgetID.ToString());
+
+            bud.PreviewDetail_PCN(4548, "");
+
+            //MessageBox.Show(moCurrBudget.ID.ToString());
+
+            this.Cursor = Cursors.Default;
+
+        }
+
+            
 
 
         

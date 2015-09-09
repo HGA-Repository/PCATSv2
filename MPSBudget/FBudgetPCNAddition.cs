@@ -25,7 +25,7 @@ namespace RSMPS
         private CBBudgetPCN moPCN;
         private dsAccts mdsAccnts;
         private dsAccts mdsExpensAccts;
-
+        public int projID;
 
         //private CBBudget moCurrBudget; added 6/3/15 ***************Commented
        
@@ -46,6 +46,14 @@ namespace RSMPS
 
             this.Text = "PCN: Job-" + moProj.Number + " PCN-" + moPCN.PCNNumber;
 
+            List<CBActivityCodeDisc> _Groups = CBActivityCodeDisc.GetAllForProject(projID).ToList();
+            foreach (var group in _Groups)
+            {
+                codes[i] = group.Code;
+               // MessageBox.Show(_Groups.Count() + " " + i + " " + codes[i]);
+                i++;
+
+            }
             SetPCNSecurityLevel();
         }
         public void CopyPCN(int projID, int pcnID)
@@ -73,6 +81,15 @@ namespace RSMPS
             txtPCNNumber.Text = moPCN.PCNNumber;
             this.Text = "PCN: Job-" + moProj.Number + " PCN-" + moPCN.PCNNumber;
 
+            List<CBActivityCodeDisc> _Groups = CBActivityCodeDisc.GetAllForProject(projID).ToList();
+            foreach (var group in _Groups)
+            {
+                codes[i] = group.Code;
+              //  MessageBox.Show(_Groups.Count() + " " + i + " " + codes[i]);
+                i++;
+
+            }
+
             SetPCNSecurityLevel();
             
             
@@ -86,6 +103,19 @@ namespace RSMPS
 
             moPCN.LoadWithData(pcnID);
             moProj.Load(moPCN.ProjectID);
+            projID = moPCN.ProjectID;
+           
+                List<CBActivityCodeDisc> _Groups = CBActivityCodeDisc.GetAllForProject(projID).ToList();
+
+                foreach (var group in _Groups)
+                {
+                    codes[i]=group.Code;
+                    //MessageBox.Show(_Groups.Count() + " " + i + " " +codes[i]);
+                    i++;
+
+                }
+          
+                     
             moBudg.LoadByProject(moProj.ID);
 
             LoadFromPCN();
@@ -95,11 +125,16 @@ namespace RSMPS
             SetPCNSecurityLevel();
         }
 
+        string[] codes = new string[13]; // Added 9/9/2015, to store Codes. The Array size needs to be increased if, no of Codes ever increases.
+        public List<CBActivityCodeDisc> _Groups = null;
+        int i = 0;
+
         public FBudgetPCNAddition()
         {
             InitializeComponent();
         }
-
+     
+	 
         public void ViewForm() //*******************Added 5/28
         {
             moPCN = new CBBudgetPCN();
@@ -147,7 +182,8 @@ namespace RSMPS
 
 
         public void ClearForm()
-        {
+        { //  moProj = new CBProject();
+        //MessageBox.Show("Clear started &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&" + moProj.ID.ToString());
             moPCN = new CBBudgetPCN();
             moPCN.Clear();
 
@@ -189,13 +225,11 @@ namespace RSMPS
             DataRow d;
             mdsAccnts = new dsAccts();
             mdsExpensAccts = new dsAccts();
-
             while (dr.Read())
             {
                 d = mdsAccnts.Tables["Accounts"].NewRow();
                 d["Code"] = dr["Code"];
                 d["Description"] = dr["Description"];
-
                 mdsAccnts.Tables["Accounts"].Rows.Add(d);
             }
 
@@ -214,12 +248,9 @@ namespace RSMPS
 
                 mdsExpensAccts.Tables["Accounts"].Rows.Add(d);
             }
-
             dr.Close();
-
             tdbdExpenseAccts.SetDataBinding(mdsExpensAccts, "Accounts", true);
-        }
-
+        }   
         private void SetPCNSecurityLevel()
         {
             RSLib.COSecurity sec = new RSLib.COSecurity();
@@ -334,13 +365,6 @@ namespace RSMPS
                 MessageBox.Show("Rate Field cannot be Empty");
                 return;
             }
-
-
-
-
-
-
-
             decimal quantity, hrsPer, rate;
 
             quantity = RevSol.RSMath.IsDecimalEx(tdbgHours.Columns[2].Value);
@@ -367,22 +391,65 @@ namespace RSMPS
                 MessageBox.Show("Input an Activity Code", "Missing Activity Code", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            else
-                tlbbSave.Enabled = true;
+                //else
+                //if (test == false)
+                //{ tlbbSave.Enabled = false; }
+
+                else   tlbbSave.Enabled = true;
+
+
+            //******************** This part is probably not needed***************************************************************************
+
+
 
             //if (tdbgHours.Columns[2].Text == "" || tdbgHours.Columns[3].Text == "" || tdbgHours.Columns[4].Text == "")      //**************6/11/15*************MZ
             //{
             //    MessageBox.Show("Fields Cannot be Empty");
             //    return;
             //}
-
-                TotalHoursGrid();
-                
-                
+            TotalHoursGrid();
+                          
             //tlbbSave.Enabled = true;
             
         }
+        private void tdbgHours_ComboSelect(object sender, C1.Win.C1TrueDBGrid.ColEventArgs e)
+        {
+           // MessageBox.Show("Combo selected");
 
+            string acct = tdbgHours.Columns[0].Value.ToString().Substring(0, 2);
+            for (int j = 0; j < i; j++)
+            {
+                string y = codes[j].Substring(0, 2);
+                
+              //  MessageBox.Show(y + "         " + acct);
+
+                if (y.Equals(acct))
+                {
+                    test = true;
+                    break;
+
+                }
+          
+            }
+            MessageBox.Show(test.ToString());
+            if (test == false)
+            {
+                MessageBox.Show("This Expense isn't valid. Please Clear Current Row. To use this Expense Code,Please select right Account code First. This window will be closed");
+                //tdbgHours.Col = 0;
+               // tdbgHours.Row = r;
+               // tlbbSave.Enabled = false;
+               // tabControl1.Enabled = false;
+                this.Close();
+               //tdbgExpenses.Enabled = false;
+                // return;
+            }
+            else
+            { test = false; }
+
+        }
+
+  bool test = false; // Added 9/9 to store expense code Validating
+  
         private void TotalHoursGrid()
         {
             decimal hours;
@@ -412,7 +479,7 @@ namespace RSMPS
             foreach (DataRow d in mdsAccnts.Tables["Accounts"].Rows)
             {
                 rowVal = d["Code"].ToString();
-
+               // MessageBox.Show(rowVal);
                 if (rowVal == acct)
                 {
                     retVal = d["Description"].ToString();
@@ -568,19 +635,17 @@ namespace RSMPS
         }
 
         private void tlbbSave_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
-        {
-           
-            
-            SaveCurrentPCN();
-           // MessageBox.Show("Saved");
-
-            tlbbSave.Enabled = false;
+        {                      
+                SaveCurrentPCN();
+                //MessageBox.Show("Saved");
+                tlbbSave.Enabled = false;
         }
 
         private void FBudgetPCNAddition_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (tlbbSave.Enabled == true)
-                SaveCurrentPCN();
+           // if (tlbbSave.Enabled == true)
+            //    SaveCurrentPCN();
+            // ********************************* Commented on 9/9/2015 to stop Saving wrong input******* MZ
 
             if (OnPCNChanged != null)
                 OnPCNChanged(moPCN.ID, moPCN.PCNNumber);
@@ -1048,7 +1113,20 @@ namespace RSMPS
             }
         }
 
+        private void ClearCurrentRow_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
+        {
+           MessageBox.Show("Are you sure you wish to delete the current line?");
+            //if (MessageBox.Show("Are you sure you wish to delete the current line?", "Delete Hours", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //{
+               // DataRow dr = moPCN.PCNData.PCNHours.Rows[tdbgHours.Bookmark];
+               // DataRow dd = moPCN.PCNData.PCNHoursDeleted.NewRow();
+               // dd["ID"] = dr["ID"];
+               // moPCN.PCNData.PCNHoursDeleted.Rows.Add(dd);
+
+                //tdbgHours.Delete();
+            //}
+        }
 
 
-    }
+     }
 }

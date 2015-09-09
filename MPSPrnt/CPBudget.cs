@@ -258,6 +258,90 @@ namespace RSMPS
             pv.ShowDialog();
         }
 
+        public void PreviewDetail_WorkSheet_PCN_Expenses(int budID, string wbs) //*******************************Added 9/3/2015
+        {
+            FPreviewAR pv = new FPreviewAR();
+            rprtBudgetDetail_WorkSheet_PCN_Expense rprt = new rprtBudgetDetail_WorkSheet_PCN_Expense();
+
+
+            DataSet ds;
+            CBBudget bud = new CBBudget();
+            CBProject proj = new CBProject();
+            CBCustomer cust = new CBCustomer();
+            CBLocation loc = new CBLocation();
+            CBState state = new CBState();
+
+            bud.Load(budID);
+            proj.Load(bud.ProjectID);
+            cust.Load(proj.CustomerID);
+            loc.Load(proj.LocationID);
+            state.Load(loc.StateID);
+
+            ds = CBBudget.GetBudgetDetails_WorkSheet_PCN_ExpenseForReport(budID, wbs);
+
+
+            if (proj.BusinessUnit() == 1) rprt.MainReportTitle = "Staffing Estimate Loaded Details";
+            if (proj.BusinessUnit() == 2) rprt.MainReportTitle = "Engineering Estimate Loaded Details";
+            if (proj.BusinessUnit() == 3) rprt.MainReportTitle = "Pipeline Services Estimate Loaded Details";
+            if (proj.BusinessUnit() == 4) rprt.MainReportTitle = "Program Management Estimate Loaded Details";
+            if (proj.BusinessUnit() == 5) rprt.MainReportTitle = "EPC Estimate Loaded Details";
+
+
+            pv.projNumber = proj.Number; //***************************Added 6/25/15
+
+            // MessageBox.Show(pv.projNumber);
+
+            rprt.SetTitles(cust.Name + " / " + loc.City + "," + state.Abbrev, proj.Description, proj.Number, bud.GetNumber(), wbs);
+            rprt.DataSource = ds;
+            rprt.DataMember = "Table";
+
+            pv.ViewReport(rprt);
+            pv.ShowDialog();
+        }
+        public void PreviewDetail_PCN(int budID, string wbs) //*******************************Added 9/3/2015
+        {
+            FPreviewAR pv = new FPreviewAR();
+            rprtPCNMain_New rprt = new rprtPCNMain_New();
+
+
+            DataSet ds;
+            CBBudget bud = new CBBudget();
+            CBProject proj = new CBProject();
+            CBCustomer cust = new CBCustomer();
+            CBLocation loc = new CBLocation();
+            CBState state = new CBState();
+
+            bud.Load(budID);
+            proj.Load(bud.ProjectID);
+            cust.Load(proj.CustomerID);
+            loc.Load(proj.LocationID);
+            state.Load(loc.StateID);
+
+            ds = CBBudget.GetBudgetDetails_PCN(budID, wbs);
+
+
+          //  if (proj.BusinessUnit() == 1) rprt.MainReportTitle = "Staffing Estimate Loaded Details";
+         //   if (proj.BusinessUnit() == 2) rprt.MainReportTitle = "Engineering Estimate Loaded Details";
+          //  if (proj.BusinessUnit() == 3) rprt.MainReportTitle = "Pipeline Services Estimate Loaded Details";
+          //  if (proj.BusinessUnit() == 4) rprt.MainReportTitle = "Program Management Estimate Loaded Details";
+          //  if (proj.BusinessUnit() == 5) rprt.MainReportTitle = "EPC Estimate Loaded Details";
+
+
+            pv.projNumber = proj.Number; //***************************Added 6/25/15
+
+            // MessageBox.Show(pv.projNumber);
+
+         //   rprt.SetTitles(cust.Name + " / " + loc.City + "," + state.Abbrev, proj.Description, proj.Number, bud.GetNumber(), wbs);
+            rprt.DataSource = ds;
+            rprt.DataMember = "Table";
+
+            pv.ViewReport(rprt);
+            pv.ShowDialog();
+        }
+
+
+
+
         public void PreviewDetail_Travel_Expenses(int budID) //*******************************Added 8/31/2015
         {
             FPreviewAR pv = new FPreviewAR();

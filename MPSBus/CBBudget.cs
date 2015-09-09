@@ -298,6 +298,25 @@ namespace RSMPS
 
 
 
+        public static DataSet GetBudgetDetails_WorkSheet_PCN_ExpenseForReport(int budgetID, string wbs) //**********************************Added 9/3/2015
+        {
+            CDbBudget dbDt = new CDbBudget();
+            return dbDt.GetBudgetDetails_WorkSheet_PCN_ExpenseForReport(budgetID, wbs);
+
+
+        }
+
+        public static DataSet GetBudgetDetails_PCN(int budgetID, string wbs) //**********************************Added 9/4/2015
+        {
+            CDbBudget dbDt = new CDbBudget();
+            return dbDt.GetBudgetDetails_PCN(budgetID, wbs);
+
+
+        }
+
+        
+
+
 
         public static DataSet GetWorksheet_DetailsForReport(int budgetID, string wbs) //**********************************Added 8/31
         {
