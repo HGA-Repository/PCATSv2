@@ -2514,6 +2514,13 @@ namespace RSMPS
             pcn.StartNewPCN(moCurrBudget.ProjectID);
             pcn.ShowDialog();
             pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNAdded);
+
+
+            MessageBox.Show("PCN Added .........................");
+            this.ReloadForm = true;
+           this.Close();
+
+
         }
 
 
@@ -2538,6 +2545,13 @@ namespace RSMPS
 
             mdsPCNs.Tables["PCNs"].Rows.Add(dr);
 
+
+            MessageBox.Show("PCN ADDED Called");
+            //this.ReloadForm = true;
+            //this.Close();
+
+
+
             //bttEditPCN.Enabled = true;    //**************************************commented on 5/6
         }
 
@@ -2558,10 +2572,17 @@ namespace RSMPS
                 pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNChanged);
           //      }
 
+
+                MessageBox.Show("Pcn Edit clicked");
+                this.ReloadForm = true;
+              this.Close();
+
+
         }
 
         void PCNChanged(int itmID, string name)
         {
+
             CBBudgetPCN pcn = new CBBudgetPCN();
 
             pcn.Load(itmID);
@@ -2573,8 +2594,10 @@ namespace RSMPS
             d["TotalDlrs"] = CBBudgetPCN.TotalDollars(itmID);
             if (pcn.PCNNumber != null)
             { d["PCNNumber"] = pcn.PCNNumber; }
-        
-            
+
+          //  MessageBox.Show("Pcn Changed 444444444444444444444");
+           // this.ReloadForm = true;
+           // this.Close();
          }
         private void bttCopyPCN_Click_1(object sender, EventArgs e)
         {
@@ -2592,7 +2615,9 @@ namespace RSMPS
             pcn.ShowDialog();
             pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNAdded);
 
-          
+            MessageBox.Show("PCN Copied......................");
+            this.ReloadForm = true;
+           this.Close();
 
         }
 
@@ -4082,7 +4107,7 @@ namespace RSMPS
             }
         }
 
-        private void tlbbSelectCodes_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
+     private void tlbbSelectCodes_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
             var code_selector = new CodeGroupSelector(this.miProjectID);
             code_selector.ShowDialog();

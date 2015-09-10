@@ -25,7 +25,9 @@ namespace RSMPS
         private CBBudgetPCN moPCN;
         private dsAccts mdsAccnts;
         private dsAccts mdsExpensAccts;
-        public int projID;
+       // public int projID;
+
+        public int project_ID; //************************For PCN Update Code Validation
 
         //private CBBudget moCurrBudget; added 6/3/15 ***************Commented
        
@@ -46,7 +48,8 @@ namespace RSMPS
 
             this.Text = "PCN: Job-" + moProj.Number + " PCN-" + moPCN.PCNNumber;
 
-            List<CBActivityCodeDisc> _Groups = CBActivityCodeDisc.GetAllForProject(projID).ToList();
+            project_ID = moPCN.ProjectID;
+            List<CBActivityCodeDisc> _Groups = CBActivityCodeDisc.GetAllForProject(project_ID).ToList();
             foreach (var group in _Groups)
             {
                 codes[i] = group.Code;
@@ -80,8 +83,8 @@ namespace RSMPS
             lblProjectTitle.Text = moProj.Description;
             txtPCNNumber.Text = moPCN.PCNNumber;
             this.Text = "PCN: Job-" + moProj.Number + " PCN-" + moPCN.PCNNumber;
-
-            List<CBActivityCodeDisc> _Groups = CBActivityCodeDisc.GetAllForProject(projID).ToList();
+            project_ID = moPCN.ProjectID;
+            List<CBActivityCodeDisc> _Groups = CBActivityCodeDisc.GetAllForProject(project_ID).ToList();
             foreach (var group in _Groups)
             {
                 codes[i] = group.Code;
@@ -103,9 +106,10 @@ namespace RSMPS
 
             moPCN.LoadWithData(pcnID);
             moProj.Load(moPCN.ProjectID);
-            projID = moPCN.ProjectID;
+            project_ID = moPCN.ProjectID;
            
-                List<CBActivityCodeDisc> _Groups = CBActivityCodeDisc.GetAllForProject(projID).ToList();
+                //List<CBActivityCodeDisc> _Groups = CBActivityCodeDisc.GetAllForProject(projID).ToList();
+                List<CBActivityCodeDisc> _Groups = CBActivityCodeDisc.GetAllForProject(project_ID).ToList();
 
                 foreach (var group in _Groups)
                 {
@@ -434,12 +438,22 @@ namespace RSMPS
             MessageBox.Show(test.ToString());
             if (test == false)
             {
-                MessageBox.Show("This Expense isn't valid. Please Clear Current Row. To use this Expense Code,Please select right Account code First. This window will be closed");
-                //tdbgHours.Col = 0;
-               // tdbgHours.Row = r;
-               // tlbbSave.Enabled = false;
-               // tabControl1.Enabled = false;
-                this.Close();
+                MessageBox.Show("This Expense isn't valid. Group will be Added in the budget");
+                
+                int c = Convert.ToInt32(acct) * 1000;
+            
+
+               CBActivityCodeDisc.UpdateForProject(c, project_ID, true);
+
+             MessageBox.Show("Added" + c.ToString());
+
+
+           //  var code_selector = new CodeGroupSelector(this.project_ID);
+            // code_selector.ShowDialog();
+
+
+
+               // this.Close();
                //tdbgExpenses.Enabled = false;
                 // return;
             }
@@ -449,6 +463,10 @@ namespace RSMPS
         }
 
   bool test = false; // Added 9/9 to store expense code Validating
+
+  /// if set to return the form will reopen when it is closed
+  /// </summary>
+  //public bool ReloadForm { get; private set; }
   
         private void TotalHoursGrid()
         {
@@ -646,6 +664,10 @@ namespace RSMPS
            // if (tlbbSave.Enabled == true)
             //    SaveCurrentPCN();
             // ********************************* Commented on 9/9/2015 to stop Saving wrong input******* MZ
+
+            if (tlbbSave.Enabled == true)   // *********************************Added again 9/10/2015 ******* MZ
+                SaveCurrentPCN();
+
 
             if (OnPCNChanged != null)
                 OnPCNChanged(moPCN.ID, moPCN.PCNNumber);
@@ -1116,16 +1138,33 @@ namespace RSMPS
         private void ClearCurrentRow_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
            MessageBox.Show("Are you sure you wish to delete the current line?");
-            //if (MessageBox.Show("Are you sure you wish to delete the current line?", "Delete Hours", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            //{
-               // DataRow dr = moPCN.PCNData.PCNHours.Rows[tdbgHours.Bookmark];
-               // DataRow dd = moPCN.PCNData.PCNHoursDeleted.NewRow();
-               // dd["ID"] = dr["ID"];
-               // moPCN.PCNData.PCNHoursDeleted.Rows.Add(dd);
+           if (MessageBox.Show("Are you sure you wish to delete the current line?", "Delete Hours", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+           {
+               DataRow dr = moPCN.PCNData.PCNHours.Rows[tdbgHours.Bookmark];
+               DataRow dd = moPCN.PCNData.PCNHoursDeleted.NewRow();
+               dd["ID"] = dr["ID"];
+               moPCN.PCNData.PCNHoursDeleted.Rows.Add(dd);
 
-                //tdbgHours.Delete();
-            //}
+               tdbgHours.Delete();
+           }
         }
+
+
+        private void DeleteCurrentRow()
+        {
+            MessageBox.Show("Are you sure you wish to delete the current line?");
+            if (MessageBox.Show("Are you sure you wish to delete the current line?", "Delete Hours", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                DataRow dr = moPCN.PCNData.PCNHours.Rows[tdbgHours.Bookmark];
+                DataRow dd = moPCN.PCNData.PCNHoursDeleted.NewRow();
+                dd["ID"] = dr["ID"];
+                moPCN.PCNData.PCNHoursDeleted.Rows.Add(dd);
+
+                tdbgHours.Delete();
+            }
+        }
+
+
 
 
      }

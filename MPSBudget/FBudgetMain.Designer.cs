@@ -1390,7 +1390,8 @@ namespace RSMPS
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private C1.Win.C1Command.C1Command tlbbSelectCodes;
+       // private C1.Win.C1Command.C1Command tlbbSelectCodes;
+        public C1.Win.C1Command.C1Command tlbbSelectCodes;
         private C1.Win.C1Command.C1CommandLink c1CommandLink12;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.TextBox txtTotalExp;
