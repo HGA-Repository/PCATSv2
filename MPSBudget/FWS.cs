@@ -46,7 +46,7 @@ namespace RSMPS
             this.Text = "FWS" + group.Code;
             groupBox1.Text = _Group.Code + " Specifications and Procurement";
             if (!show_specification)
-            { 
+            {
                 groupBox1.Visible = false;
                 this.Height = this.Height - groupBox1.Height;
             }
@@ -152,7 +152,7 @@ namespace RSMPS
 
             if (OnWorkSheetChanged != null)
                 OnWorkSheetChanged(mdsWSData.Copy());
-
+            MessageBox.Show("Worksheet updated");
             this.Close();
         }
 
@@ -169,7 +169,7 @@ namespace RSMPS
                     DataRow dr = mdsWSData.Worksheet.Rows[tdbgWS.Bookmark];
                     DataRow dd = mdsWSData.WorksheetDeleted.NewRow();
                     dd["ID"] = dr["ID"];
-                    
+
                     mdsWSData.WorksheetDeleted.Rows.Add(dd);
                     tdbgWS.Delete(tdbgWS.Row);
 
@@ -352,145 +352,7 @@ namespace RSMPS
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            CPBudget bud = new CPBudget();
-            this.Cursor = Cursors.WaitCursor;
+       
 
-            MessageBox.Show(miBudgetID.ToString());
-            // MessageBox.Show(moCurrBudget.ProjectID.ToString());
-            //MessageBox.Show(moCurrBudget.Description);
-            
-            //worksheet.cboWBS_Text = cboWBS.Text; // *****************************Added 7/1/15
-            //MessageBox.Show("#################################");
-            //MessageBox.Show(cboWBS.Text);
-
-
-            bud.PreviewWorkSheet(miBudgetID, "");
-
-            //MessageBox.Show(moCurrBudget.ID.ToString());
-
-            this.Cursor = Cursors.Default;
-        }
-
-        private void Expense_Click(object sender, EventArgs e)
-        {
-            CPBudget bud = new CPBudget();
-            this.Cursor = Cursors.WaitCursor;
-
-            MessageBox.Show(miBudgetID.ToString());
-            // MessageBox.Show(moCurrBudget.ProjectID.ToString());
-            //MessageBox.Show(moCurrBudget.Description);
-
-            //worksheet.cboWBS_Text = cboWBS.Text; // *****************************Added 7/1/15
-            //MessageBox.Show("#################################");
-            //MessageBox.Show(cboWBS.Text);
-
-
-            bud.PreviewExpensSheet(miBudgetID, "");
-
-            //MessageBox.Show(moCurrBudget.ID.ToString());
-
-            this.Cursor = Cursors.Default;
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            CPBudget bud = new CPBudget();
-            this.Cursor = Cursors.WaitCursor;
-
-            MessageBox.Show(miBudgetID.ToString());
-            // MessageBox.Show(moCurrBudget.ProjectID.ToString());
-            //MessageBox.Show(moCurrBudget.Description);
-
-            //worksheet.cboWBS_Text = cboWBS.Text; // *****************************Added 7/1/15
-            //MessageBox.Show("#################################");
-            //MessageBox.Show(cboWBS.Text);
-
-
-            bud.PreviewWorkSheet_Detail(miBudgetID, "");
-
-            //MessageBox.Show(moCurrBudget.ID.ToString());
-
-            this.Cursor = Cursors.Default;
-
-        }
-
-        private void WS_Expenses_Click(object sender, EventArgs e)
-        {
-            CPBudget bud = new CPBudget();
-            this.Cursor = Cursors.WaitCursor;
-
-            MessageBox.Show(miBudgetID.ToString());
-
-            bud.PreviewDetail_WorkSheet_Expenses(miBudgetID, "");
-
-            //MessageBox.Show(moCurrBudget.ID.ToString());
-
-            this.Cursor = Cursors.Default;
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            CPBudget bud = new CPBudget();
-            this.Cursor = Cursors.WaitCursor;
-
-            MessageBox.Show(miBudgetID.ToString());
-
-            bud.PreviewDetail_Travel_Expenses(miBudgetID);
-
-            //MessageBox.Show(moCurrBudget.ID.ToString());
-
-            this.Cursor = Cursors.Default;
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            CPBudget bud = new CPBudget();
-            this.Cursor = Cursors.WaitCursor;
-
-            MessageBox.Show(miBudgetID.ToString());
-
-            bud.PreviewDetail_SpecificationProcurement(miBudgetID);
-
-            //MessageBox.Show(moCurrBudget.ID.ToString());
-
-            this.Cursor = Cursors.Default;
-        }
-
-        private void WS_PCNExpenses_Click(object sender, EventArgs e)
-        {
-            CPBudget bud = new CPBudget();
-            this.Cursor = Cursors.WaitCursor;
-
-            MessageBox.Show(miBudgetID.ToString());
-
-            bud.PreviewDetail_WorkSheet_PCN_Expenses(miBudgetID, "");
-
-            //MessageBox.Show(moCurrBudget.ID.ToString());
-
-            this.Cursor = Cursors.Default;
-        }
-
-        private void bttPCN_Click(object sender, EventArgs e)
-        {
-            CPBudget bud = new CPBudget();
-            this.Cursor = Cursors.WaitCursor;
-
-            MessageBox.Show(miBudgetID.ToString());
-
-            bud.PreviewDetail_PCN(4548, "");
-
-            //MessageBox.Show(moCurrBudget.ID.ToString());
-
-            this.Cursor = Cursors.Default;
-
-        }
-
-            
-
-
-        
     }
 }

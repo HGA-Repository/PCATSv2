@@ -28,9 +28,8 @@ namespace RSMPS
         /// </summary>
         private void InitializeComponent()
         {
-           
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FProj_AddEdit));
-            this.components = new System.ComponentModel.Container();    //*****************Added 5/20
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -78,14 +77,15 @@ namespace RSMPS
             this.label5 = new System.Windows.Forms.Label();
             this.bttCancel = new System.Windows.Forms.Button();
             this.bttOK = new System.Windows.Forms.Button();
-            //this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components);
+            this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components);
+            this.c1RadialMenu1 = new C1.Win.C1Command.C1RadialMenu();
+            this.chkIsFixedRate = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tdbgBudget)).BeginInit();
             this.groupBox4.SuspendLayout();
-            this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components); //**********************Added 5/20
             ((System.ComponentModel.ISupportInitialize)(this.c1SpellChecker1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -199,10 +199,10 @@ namespace RSMPS
             this.rtbNotes.Location = new System.Drawing.Point(9, 19);
             this.rtbNotes.Name = "rtbNotes";
             this.rtbNotes.Size = new System.Drawing.Size(266, 315);
+            this.c1SpellChecker1.SetSpellChecking(this.rtbNotes, true);
             this.rtbNotes.TabIndex = 0;
             this.rtbNotes.Text = "";
             this.rtbNotes.TextChanged += new System.EventHandler(this.rtbNotes_TextChanged);
-            this.c1SpellChecker1.SetSpellChecking(this.rtbNotes, true); // **********************Added 5/20
             // 
             // dtpStart
             // 
@@ -645,12 +645,24 @@ namespace RSMPS
             this.bttOK.UseVisualStyleBackColor = true;
             this.bttOK.Click += new System.EventHandler(this.bttOK_Click);
             // 
+            // chkIsFixedRate
+            // 
+            this.chkIsFixedRate.AutoSize = true;
+            this.chkIsFixedRate.Location = new System.Drawing.Point(314, 312);
+            this.chkIsFixedRate.Name = "chkIsFixedRate";
+            this.chkIsFixedRate.Size = new System.Drawing.Size(77, 17);
+            this.chkIsFixedRate.TabIndex = 7;
+            this.chkIsFixedRate.Text = "Fixed Rate";
+            this.chkIsFixedRate.UseVisualStyleBackColor = true;
+            this.chkIsFixedRate.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // FProj_AddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(529, 742);
             this.ControlBox = false;
+            this.Controls.Add(this.chkIsFixedRate);
             this.Controls.Add(this.bttOK);
             this.Controls.Add(this.bttCancel);
             this.Controls.Add(this.groupBox4);
@@ -675,6 +687,7 @@ namespace RSMPS
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1SpellChecker1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -727,6 +740,8 @@ namespace RSMPS
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox cboManagerLead;
-        private C1.Win.C1SpellChecker.C1SpellChecker c1SpellChecker1; //*****************Added 5/20
+        private C1.Win.C1SpellChecker.C1SpellChecker c1SpellChecker1;
+        private C1.Win.C1Command.C1RadialMenu c1RadialMenu1;
+        private System.Windows.Forms.CheckBox chkIsFixedRate; //*****************Added 5/20
     }
 }

@@ -62,6 +62,9 @@ namespace RSMPS
                 oVar.ReportingStatus = Convert.ToInt32(dr["ReportingStatus"]);
                 oVar.Budget = Convert.ToDecimal(dr["Budget"]);
                 oVar.POAmount = dr["POAmount"].ToString();
+             //   oVar.IsFixedRate = Convert.ToBoolean(dr["IsFixedRate"]); //*******************************************Added 9/15
+                if (dr["IsFixedRate"] == DBNull.Value) oVar.IsFixedRate = false;// *********************Added 9/15***to handle Exception
+                else oVar.IsFixedRate = Convert.ToBoolean(dr["IsFixedRate"]); //*************************Added 9/15
                 tmpStr = GetDataString();
             }
 
@@ -278,6 +281,9 @@ namespace RSMPS
             prm = cmd.Parameters.Add("@POAmount", SqlDbType.VarChar, 50);
             prm.Value = oVar.POAmount;
 
+            prm = cmd.Parameters.Add("@IsFixedRate", SqlDbType.VarChar, 50); //****************************************Added 9/15
+            prm.Value = oVar.IsFixedRate;
+
             cmd.ExecuteNonQuery();
 
             retVal = Convert.ToInt32(cmd.Parameters["@ID"].Value);
@@ -350,6 +356,9 @@ namespace RSMPS
             prm.Value = oVar.ReportingStatus;
             prm = cmd.Parameters.Add("@POAmount", SqlDbType.VarChar, 50);
             prm.Value = oVar.POAmount;
+
+            prm = cmd.Parameters.Add("@IsfixedRate", SqlDbType.VarChar, 50);
+            prm.Value = oVar.IsFixedRate;
 
             cmd.ExecuteNonQuery();
 

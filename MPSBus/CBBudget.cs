@@ -233,6 +233,15 @@ namespace RSMPS
             return dbDt.GetBudgetSummaryForReport(budgetID, wbs);
         }
 
+
+        public static DataSet GetTravelExpenseReport(int budgetID)//*********************************Added 7/22/2015
+        {
+            CDbBudget dbDt = new CDbBudget();
+            return dbDt.GetTravelExpenseReport(budgetID);
+        }
+
+
+
         public static int GetTotalBudgetHours(int budgetID, string wbs)
         {
             CDbBudget dbDt = new CDbBudget();

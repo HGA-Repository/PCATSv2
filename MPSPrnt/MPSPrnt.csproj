@@ -126,6 +126,9 @@
     <Compile Include="rprtBudgetAccountingExps.Designer.cs">
       <DependentUpon>rprtBudgetAccountingExps.cs</DependentUpon>
     </Compile>
+    <Compile Include="rprtTravelExpenseDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="rprtBudgetDetail_WorkSheet_PCN_Expense.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -360,6 +363,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="rprtBudgetAccountingExps.resx">
       <DependentUpon>rprtBudgetAccountingExps.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtTravelExpenseDetail.resx">
+      <DependentUpon>rprtTravelExpenseDetail.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="rprtBudgetDetail_WorkSheet_PCN_Expense.resx">

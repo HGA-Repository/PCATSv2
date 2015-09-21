@@ -80,6 +80,7 @@
     <Compile Include="COActivityCode.cs" />
     <Compile Include="COAppState.cs" />
     <Compile Include="COBudget.cs" />
+    <Compile Include="COBudgetExpenseLine_FromWorkSheet.cs" />
     <Compile Include="COBudgetExpenseLine.cs" />
     <Compile Include="COBudgetExpenseSheet.cs" />
     <Compile Include="COBudgetLine.cs" />

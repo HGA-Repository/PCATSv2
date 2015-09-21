@@ -35,6 +35,8 @@ namespace RSMPS
         private string msCity;
         private string msState;
 
+        private bool mbIsFixedRate; // *******************************Added 9/15/2015
+
         #region Properties
 
         public int ID
@@ -129,6 +131,12 @@ namespace RSMPS
         {
             get { return mbIsProposal; }
             set { mbIsProposal = value; }
+        }
+
+        public bool IsFixedRate // *******************************Added 9/15/2015
+        {
+            get { return mbIsFixedRate; }
+            set { mbIsFixedRate = value; }
         }
 
         public bool IsBooked
@@ -231,6 +239,7 @@ namespace RSMPS
             miReportingStatus = 0;
             mdBudget = 0;
             msPOAmnt = "";
+            mbIsFixedRate = false;
         }
 
         public void Copy(COProject oNew)
@@ -259,6 +268,8 @@ namespace RSMPS
             oNew.ReportingStatus = miReportingStatus;
             oNew.Budget = mdBudget;
             oNew.POAmount = msPOAmnt;
+
+            oNew.mbIsFixedRate = mbIsFixedRate;//********************************************************
         }
 
         public void LoadFromObj(COProject oOrg)
@@ -287,6 +298,7 @@ namespace RSMPS
             miReportingStatus = oOrg.ReportingStatus;
             mdBudget = oOrg.Budget;
             msPOAmnt = oOrg.POAmount;
+            mbIsFixedRate = oOrg.IsFixedRate;
         }
 
         public void LoadFromObj_Description(COProject oOrg) //*************************Added 7/8/2015

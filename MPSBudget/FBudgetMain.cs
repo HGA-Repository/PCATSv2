@@ -1321,6 +1321,7 @@ namespace RSMPS
                 bl.BareDollars = 0;
 
                 bl.Save();
+                MessageBox.Show("Inserted from pcn");
 
                 newRow[1] = taskVal;
                 newRow[2] = catVal;
@@ -1959,16 +1960,18 @@ namespace RSMPS
                 {
                     bl = CBBudgetLineFromFg(r, group_int);
                     bl.Save();
+               
                     r[BUDCOL16] = bl.ID;
                 }
             }
-
+            MessageBox.Show("Saved.................................");
            // MessageBox.Show("SaveBudgetLines");
         }
 
         private void SaveExpenseLines(string group)
         {
             CBBudgetExpenseLine el;
+            //CBBudgetExpenseLine_FromWorkSheet el2;
             var fgExp = fgExpForGroup(group);
             var group_int = Int32.Parse(group);
 
@@ -1993,10 +1996,50 @@ namespace RSMPS
 
                     el.Save();
 
+                                    //el2 = new CBBudgetExpenseLine_FromWorkSheet();
+
+                                    //el2.ID = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(r[9]));
+                                    //el2.BudgetID = moCurrBudget.ID;
+                                    //el2.DeptGroup = group_int;
+                                    //el2.EntryLevel = 1;
+                                    //el2.Code = r[1].ToString();
+                                    //el2.MarkUp = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(r[2]));
+                                    //el2.Description = r[3].ToString();
+                                    //el2.UOMID = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(r[10]));
+                                    //el2.DollarsEach = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(r[5]));
+                                    //el2.Quantity = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(r[6]));
+                                    //el2.MarkupDollars = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(r[7]));
+                                    //el2.TotalDollars = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(r[8]));
+
+                                    //el2.ID = el.ID;
+                                    //el2.BudgetID = el.BudgetID;
+                                    //el2.DeptGroup = el.DeptGroup;
+                                    //el2.EntryLevel = 1;
+                                    //el2.Code = el.Code;
+                                    //el2.MarkUp = el.MarkUp;
+                                    //el2.Description = el.Description;
+                                    //el2.UOMID = el.UOMID;
+                                    //el2.DollarsEach = el.DollarsEach;
+                                    //el2.Quantity = el.Quantity;
+                                    //el2.MarkupDollars = el.MarkupDollars;
+                                    //el2.TotalDollars = el.TotalDollars;
+
+
+                                    //el2.Save();
+
+
+
+
+
+
+
+
                     r[9] = el.ID;
+
+                    
                 }
             }
-
+        //    MessageBox.Show("SaveExpenseLines....................................................");
            // MessageBox.Show("SaveExpenseLines");
         }
 
@@ -2023,8 +2066,29 @@ namespace RSMPS
 
             el.Save();
 
-            fgExp[row, 9] = el.ID;
+                          //  CBBudgetExpenseLine_FromWorkSheet el2;
+                            //var fgExp = fgExpForGroup(group);
+                           // var group_int = Int32.Parse(group);
 
+                            //el2 = new CBBudgetExpenseLine_FromWorkSheet();
+
+                            //el2.ID = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(fgExp[row, 9]));
+                            //el2.BudgetID = moCurrBudget.ID;
+                            //el2.DeptGroup = group_int;
+                            //el2.EntryLevel = 1;
+                            //el2.Code = fgExp[row, 1].ToString(); ;
+                            //el2.MarkUp = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(fgExp[row, 2]));
+                            //el2.Description = fgExp[row, 3].ToString(); ;
+                            //el2.UOMID = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(fgExp[row, 10]));
+                            //el2.DollarsEach = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(fgExp[row, 5]));
+                            //el2.Quantity = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(fgExp[row, 6]));
+                            //el2.MarkupDollars = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(fgExp[row, 7]));
+                            //el2.TotalDollars = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(fgExp[row, 8]));
+
+                            //el2.Save();
+
+            fgExp[row, 9] = el.ID;
+            MessageBox.Show("SaveExpenseLines.......................................!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
            // MessageBox.Show("SaveExpenseLines(string group, int row)");
         }
 
@@ -2095,6 +2159,7 @@ namespace RSMPS
             bl.BareDollars = 0;
 
             bl.Save();
+            MessageBox.Show("Saved changed to DB");
 
             fg[rw, BUDCOL16] = bl.ID;
            // MessageBox.Show("SaveChangeToDB");
@@ -2281,13 +2346,16 @@ namespace RSMPS
             }
 
             SaveExpenseChangeToDB(group, e.Row);
+           // MessageBox.Show("SaveExpenseChangeToDB............***************************");
             TotalBudget(group, true);
+ 
         }
 
 
         private void SaveExpenseChangeToDB(string group, int rw)
         {
             CBBudgetExpenseLine el = new CBBudgetExpenseLine();
+            //CBBudgetExpenseLine_FromWorkSheet el2 = new CBBudgetExpenseLine_FromWorkSheet();
             var fgExp = fgExpForGroup(group);
 
             el.ID = Convert.ToInt32(fgExp[rw, 9]);
@@ -2304,11 +2372,45 @@ namespace RSMPS
             el.MarkupDollars = Convert.ToDecimal(fgExp[rw, 7]);
             el.TotalDollars = Convert.ToDecimal(fgExp[rw, 8]);
 
-            el.Save();
+                                    //            //el2.ID = Convert.ToInt32(fgExp[rw, 9]);
+                                    //            //el2.BudgetID = moCurrBudget.ID;
+                                    //            //el2.DeptGroup = Int32.Parse(group);
+                                    //            //el2.EntryLevel = 0;
+                                    //            //el2.Code = fgExp[rw, 1].ToString();
+                                    //            //el2.Description = fgExp[rw, 3].ToString();
+                                    //            //el2.MarkUp = Convert.ToDecimal(fgExp[rw, 2]);
+                                    //            ////el.UOMID = Convert.ToInt32(fgExp[rw, 10]);
+                                    //            //el2.UOMID = UOMIDFromUomText(fgExp[rw, 4].ToString());
+                                    //            //el2.DollarsEach = Convert.ToDecimal(fgExp[rw, 5]);
+                                    //            //el2.Quantity = Convert.ToInt32(fgExp[rw, 6]);
+                                    //            //el2.MarkupDollars = Convert.ToDecimal(fgExp[rw, 7]);
+                                    //            //el2.TotalDollars = Convert.ToDecimal(fgExp[rw, 8]);
+                                    //el2.ID = el.ID;
+                                    //el2.BudgetID = el.BudgetID;
+                                    //el2.DeptGroup = el.DeptGroup;
+                                    //el2.EntryLevel = 0;
+                                    //el2.Code = el.Code;
+                                    //el2.Description = el.Description;
+                                    //el2.MarkUp = el.MarkUp;
+                                    ////el.UOMID = Convert.ToInt32(fgExp[rw, 10]);
+                                    //el2.UOMID = el.UOMID;
+                                    //el2.DollarsEach = el.DollarsEach;
+                                    //el2.Quantity = el.Quantity;
+                                    //el2.MarkupDollars = el.MarkupDollars;
+                                    //el2.TotalDollars = el.TotalDollars;
+
+                                    el.Save();
+            //el2.Save();
+            
 
             fgExp[rw, 9] = el.ID;
             fgExp[rw, 10] = el.UOMID;
+
+            //MessageBox.Show("SaveExpenseChangeToDB............***************************");
         }
+        
+
+
 
         private int UOMIDFromUomText(string uom)
         {
@@ -3162,6 +3264,41 @@ namespace RSMPS
 
                 el.Save();
 
+               // CBBudgetExpenseLine_FromWorkSheet el2;
+
+                                   // el2 = new CBBudgetExpenseLine_FromWorkSheet();
+
+                                    //el2.ID = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(rw[9]));
+                                    //el2.BudgetID = moCurrBudget.ID;
+                                    //el2.DeptGroup = Int32.Parse(group);
+                                    //el2.EntryLevel = 1;
+                                    //el2.Code = rowCode;
+                                    //el2.MarkUp = mu;
+                                    //el2.Description = rw[3].ToString();
+                                    //el2.UOMID = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(rw[10]));
+                                    //el2.DollarsEach = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(rw[5]));
+                                    //el2.Quantity = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(rw[6]));
+                                    //el2.MarkupDollars = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(rw[7]));
+                                    //el2.TotalDollars = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(rw[8]));
+
+                                    //el2.ID =  el.ID;
+                                    //el2.BudgetID = el.BudgetID;
+                                    //el2.DeptGroup = el.DeptGroup;
+                                    //el2.EntryLevel = 1;
+                                    //el2.Code = el.Code;
+                                    //el2.MarkUp = el.MarkUp;
+                                    //el2.Description = el.Description;
+                                    //el2.UOMID = el.UOMID;
+                                    //el2.DollarsEach =el.DollarsEach;
+                                    //el2.Quantity =el.Quantity;
+                                    //el2.MarkupDollars = el.MarkupDollars;
+                                    //el2.TotalDollars = el.TotalDollars;
+
+                                    //el2.Save();
+
+
+                MessageBox.Show("AddPCNExpensesNonWorkSheet......>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+
                 rw[9] = el.ID;
             }
         }
@@ -3309,6 +3446,22 @@ namespace RSMPS
             this.Cursor = Cursors.Default;
 
         }
+
+        private void tlbbExpenseReport_Click(object sender, C1.Win.C1Command.ClickEventArgs e) //*****************************Added 9/17/2015
+        {
+            CPBudget bud = new CPBudget();
+            this.Cursor = Cursors.WaitCursor;
+            bool rate = false;
+            bud.PreviewGetTravelExpenseReport(moCurrBudget.ID, cboWBS.Text, rate);
+            this.Cursor = Cursors.Default;
+           // MessageBox.Show("cliiiiiiiiiiiiiiiiiiiiiiiiiicked");
+
+        }
+
+
+
+
+
 
         private void tlbbPreviewDetails_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {

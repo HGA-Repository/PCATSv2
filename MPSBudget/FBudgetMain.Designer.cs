@@ -60,7 +60,9 @@ namespace RSMPS
             this.c1CommandLink4 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink2 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink13 = new C1.Win.C1Command.C1CommandLink();
+            this.c1CommandLink14 = new C1.Win.C1Command.C1CommandLink();
             this.tlbbSummaryWORate = new C1.Win.C1Command.C1Command();
+            this.tlbbExpenseReport = new C1.Win.C1Command.C1Command();
             this.c1CommandLink6 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink8 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink9 = new C1.Win.C1Command.C1CommandLink();
@@ -187,6 +189,7 @@ namespace RSMPS
             this.c1CommandLink4,
             this.c1CommandLink2,
             this.c1CommandLink13,
+             this.c1CommandLink14,
             this.c1CommandLink6,
             this.c1CommandLink8,
             this.c1CommandLink9,
@@ -218,6 +221,7 @@ namespace RSMPS
             this.c1CommandHolder1.Commands.Add(this.tlbbPrintAll);
             this.c1CommandHolder1.Commands.Add(this.tlbbSelectCodes);
             this.c1CommandHolder1.Commands.Add(this.tlbbSummaryWORate);
+            this.c1CommandHolder1.Commands.Add(this.tlbbExpenseReport);
             this.c1CommandHolder1.Owner = this;
             this.c1CommandHolder1.VisualStyle = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
@@ -361,6 +365,11 @@ namespace RSMPS
             this.c1CommandLink13.Command = this.tlbbSummaryWORate;
             this.c1CommandLink13.SortOrder = 6;
             // 
+            // c1CommandLink14
+            // 
+            this.c1CommandLink14.Command = this.tlbbExpenseReport;
+            this.c1CommandLink14.SortOrder = 14;
+            // 
             // tlbbSummaryWORate
             // 
             this.tlbbSummaryWORate.Name = "tlbbSummaryWORate";
@@ -368,6 +377,20 @@ namespace RSMPS
             this.tlbbSummaryWORate.Text = "SummaryWORate";
             this.tlbbSummaryWORate.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbSummaryWORate_Click);
             // 
+
+            // 
+            // tlbbExpenseReport
+            // 
+            this.tlbbExpenseReport.Name = "tlbbExpenseReport";
+            this.tlbbExpenseReport.ShortcutText = "";
+            this.tlbbExpenseReport.Text = "Expense Report";
+            
+            this.tlbbExpenseReport.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbExpenseReport_Click);
+            // 
+
+
+
+
             // c1CommandLink6
             // 
             this.c1CommandLink6.Command = this.tlbbPreviewDetails;
@@ -1429,6 +1452,8 @@ namespace RSMPS
         private System.Windows.Forms.Button button5;
         private C1.C1Pdf.C1PdfDocument c1PdfDocument1;
         private C1.Win.C1Command.C1CommandLink c1CommandLink3;
+        private C1.Win.C1Command.C1CommandLink c1CommandLink14;
+        private C1.Win.C1Command.C1Command tlbbExpenseReport;
        // private System.Windows.Forms.TabPage tabPage3; //*****************Added 5/20
     }
 }

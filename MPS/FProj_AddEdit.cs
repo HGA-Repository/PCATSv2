@@ -72,6 +72,8 @@ namespace RSMPS
 
             rtbNotes.Text = "";
 
+            
+
             LoadCustomerBox();
             LoadManagerBox();
             LoadRelationshipBox();
@@ -325,7 +327,10 @@ namespace RSMPS
             chkIsBooked.Checked = moProj.IsBooked;
             chkIsActive.Checked = moProj.IsActive;
             chkIsGovernment.Checked = moProj.IsGovernment;
-            chkIsMaster.Checked = moProj.IsMaster;
+            chkIsMaster.Checked = moProj.IsMaster; //*******************************************************************************
+            chkIsFixedRate.Checked = moProj.IsFixedRate;
+
+            
 
             if (moProj.MasterID > 0)
             {
@@ -398,6 +403,7 @@ namespace RSMPS
             moProj.ReportingStatus = cboReportStatus.SelectedIndex;
 
             moProj.Notes = rtbNotes.Text;
+            moProj.IsFixedRate = chkIsFixedRate.Checked;
         }
 
         private void TotalBudget()
@@ -877,6 +883,15 @@ namespace RSMPS
 
             //return oVar.ID;
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            mbItemChanged = true;
+
+            MessageBox.Show("check changed");
+        }
+
+       
 
 
 

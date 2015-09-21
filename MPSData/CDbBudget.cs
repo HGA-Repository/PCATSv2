@@ -469,6 +469,44 @@ namespace RSMPS
             return ds;
         }
 
+        public DataSet GetTravelExpenseReport(int budgetID) //*************************************9/17/2015
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            SqlDataAdapter da;
+            DataSet ds;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spRPRT_TravelExpense", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@BudgetID", SqlDbType.Int);
+            prm.Value = budgetID;
+            
+
+            da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+
+            ds = new DataSet();
+            da.Fill(ds);
+
+            cnn.CloseConnection();
+
+            return ds;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
         //public DataSet GetBudgetSummaryForPipelineReport(int budgetID, string wbs)
         //{
         //    RSLib.CDbConnection cnn;
