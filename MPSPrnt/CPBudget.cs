@@ -144,10 +144,10 @@ namespace RSMPS
             DataSet ds;
 
 
-            int totalHours;
-            decimal totalHourDollars;
-            decimal totalExpenses;
-            decimal contingency;
+            //int totalHours;
+            //decimal totalHourDollars;
+            //decimal totalExpenses;
+            //decimal contingency;
             CBBudget bud = new CBBudget();
             CBProject proj = new CBProject();
             CBCustomer cust = new CBCustomer();
@@ -160,24 +160,21 @@ namespace RSMPS
             loc.Load(proj.LocationID);
             state.Load(loc.StateID);
 
-            totalHours = CBBudget.GetTotalBudgetHours(budID, wbs);
-            totalHourDollars = CBBudget.GetTotalBudgetHourDollars(budID, wbs);
-            totalExpenses = CBBudget.GetTotalBudgetExpenses(budID);
-            contingency = CBBudget.GetContingencyForBudget(budID);
+            //totalHours = CBBudget.GetTotalBudgetHours(budID, wbs);
+            //totalHourDollars = CBBudget.GetTotalBudgetHourDollars(budID, wbs);
+            //totalExpenses = CBBudget.GetTotalBudgetExpenses(budID);
+            //contingency = CBBudget.GetContingencyForBudget(budID);
 
             ds = CBBudget.GetTravelExpenseReport(budID);
            // ds = CBBudget.GetBudgetDetailsForReport(budID, wbs);
 
-            if (proj.BusinessUnit() == 1) rprt.MainReportTitle = "Staffing Estimate Loaded Summary";
-            if (proj.BusinessUnit() == 2) rprt.MainReportTitle = "Engineering Estimate Loaded Summary";
-            if (proj.BusinessUnit() == 3) rprt.MainReportTitle = "Pipeline Services Estimate Loaded Summary";
-            if (proj.BusinessUnit() == 4) rprt.MainReportTitle = "Program Management Estimate Loaded Summary";
-            if (proj.BusinessUnit() == 5) rprt.MainReportTitle = "EPC Estimate Loaded Summary";
+            if (proj.BusinessUnit() == 1) rprt.MainReportTitle = "Staffing Estimate Travel Expense Report";
+            if (proj.BusinessUnit() == 2) rprt.MainReportTitle = "Engineering Estimate Travel Expense Report";
+            if (proj.BusinessUnit() == 3) rprt.MainReportTitle = "Pipeline Services Estimate Travel Expense Report";
+            if (proj.BusinessUnit() == 4) rprt.MainReportTitle = "Program Management Estimate Travel Expense Report";
+            if (proj.BusinessUnit() == 5) rprt.MainReportTitle = "EPC Estimate Travel Expense Report";
 
-
-
-
-            //rprt.SetTitles(proj.Number, proj.Description, bud.GetNumber(), cust.Name, loc.City + "," + state.Abbrev, wbs);
+            rprt.SetTitles(proj.Number, proj.Description, bud.GetNumber(), cust.Name, loc.City + "," + state.Abbrev, wbs);
             //rprt.TotalHours = totalHours;
             //rprt.TotalHourDollars = totalHourDollars;
             //rprt.TotalExpenses = totalExpenses;

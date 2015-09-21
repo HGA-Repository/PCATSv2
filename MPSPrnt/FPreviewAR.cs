@@ -332,8 +332,8 @@ namespace RSMPS
                                                                       if (reportType == "RSMPS.rprtForecastRemaining")
                                                                           fileName = "Forecast Remaining- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
                                                                       else
-                                                                          if (reportType == "RSMPS.rprtBudgetDetail_WorkSheet")
-                                                                              fileName = "BudgetDetail_WorkSheet- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss"); 
+                                                                          if (reportType == "RSMPS.rprtTravelExpenseDetail")
+                                                                              fileName = "Travel Expense(WorkSheet)- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss"); 
                                                         else fileName = "Report-" + dt.ToString("yyyMMdd hhmmss"); 
 
            // MessageBox.Show(fileName);

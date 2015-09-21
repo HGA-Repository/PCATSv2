@@ -3454,8 +3454,7 @@ namespace RSMPS
             bool rate = false;
             bud.PreviewGetTravelExpenseReport(moCurrBudget.ID, cboWBS.Text, rate); //*******************************I have to work on it
             this.Cursor = Cursors.Default;
-           // MessageBox.Show("cliiiiiiiiiiiiiiiiiiiiiiiiiicked");
-
+           
         }
 
 
