@@ -234,7 +234,7 @@ namespace RSMPS
         }
 
 
-        public static DataSet GetTravelExpenseReport(int budgetID)//*********************************Added 7/22/2015
+        public static DataSet GetTravelExpenseReport(int budgetID)//*********************************Added 7/22/2015 //*******************************I will keep it
         {
             CDbBudget dbDt = new CDbBudget();
             return dbDt.GetTravelExpenseReport(budgetID);
@@ -276,81 +276,7 @@ namespace RSMPS
 
             return dbDt.GetBudgetDetailsForReport(budgetID, wbs);
         }
-
-        public static DataSet GetBudgetDetails_SpecificationProcurementForReport(int budgetID) //**********************************Added 9/1
-        {
-            CDbBudget dbDt = new CDbBudget();
-            return dbDt.GetBudgetDetails_SpecificationProcurementForReport(budgetID);
-
-
-        }
-
-        public static DataSet GetWorksheet_TravelExpenses_DetailsForReport(int budgetID) //**********************************Added 9/1
-        {
-            CDbBudget dbDt = new CDbBudget();
-            return dbDt.GetWorksheet_TravelExpenses_DetailsForReport(budgetID);
-
-
-        }
-
-
-
-
-
-        public static DataSet GetWorksheet_Expenses_DetailsForReport(int budgetID, string wbs) //**********************************Added 8/31
-        {
-            CDbBudget dbDt = new CDbBudget();
-            return dbDt.GetBudgetDetails_WorkSheet_ExpenseForReport(budgetID, wbs);
-
-
-        }
-
-
-
-        public static DataSet GetBudgetDetails_WorkSheet_PCN_ExpenseForReport(int budgetID, string wbs) //**********************************Added 9/3/2015
-        {
-            CDbBudget dbDt = new CDbBudget();
-            return dbDt.GetBudgetDetails_WorkSheet_PCN_ExpenseForReport(budgetID, wbs);
-
-
-        }
-
-        public static DataSet GetBudgetDetails_PCN(int budgetID, string wbs) //**********************************Added 9/4/2015
-        {
-            CDbBudget dbDt = new CDbBudget();
-            return dbDt.GetBudgetDetails_PCN(budgetID, wbs);
-
-
-        }
-
         
-
-
-
-        public static DataSet GetWorksheet_DetailsForReport(int budgetID, string wbs) //**********************************Added 8/31
-        {
-            CDbBudget dbDt = new CDbBudget();
-
-            return dbDt.GetWorkSheet_DetailsForReport(budgetID, wbs);
-           // return dbDt.GetBudgetDetailsForReport(budgetID, wbs);
-
-           
-        }
-
-        public static DataSet GetWorksheetDetailsForReport(int budgetID, string wbs) //**********************************Added 8/26
-        {
-            CDbBudget dbDt = new CDbBudget();
-
-            return dbDt.GetWorkSheetDetailsForReport(budgetID, wbs);
-        }
-
-        public static DataSet GetExpenseDetailsForReport(int budgetID, string wbs) //**********************************Added 8/26
-        {
-            CDbBudget dbDt = new CDbBudget();
-
-            return dbDt.GetExpenseDetailsForReport(budgetID, wbs);
-        }
-
 
         public static DataSet GetBudgetJobstatForReport(int budgetID, string wbs)
         {

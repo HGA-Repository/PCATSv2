@@ -3452,7 +3452,7 @@ namespace RSMPS
             CPBudget bud = new CPBudget();
             this.Cursor = Cursors.WaitCursor;
             bool rate = false;
-            bud.PreviewGetTravelExpenseReport(moCurrBudget.ID, cboWBS.Text, rate);
+            bud.PreviewGetTravelExpenseReport(moCurrBudget.ID, cboWBS.Text, rate); //*******************************I have to work on it
             this.Cursor = Cursors.Default;
            // MessageBox.Show("cliiiiiiiiiiiiiiiiiiiiiiiiiicked");
 

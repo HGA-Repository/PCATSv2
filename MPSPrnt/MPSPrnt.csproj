@@ -129,31 +129,10 @@
     <Compile Include="rprtTravelExpenseDetail.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="rprtBudgetDetail_WorkSheet_PCN_Expense.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rprtPCNExpenses_New.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rprtPCNMain_New.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="rprtSpecificationProcurement.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="rprtTravelExpenses.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rprtBudgetDetail_WorkSheet_Expense.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rprtBudgetDetail_WorkSheet.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="rprtBudgetDetail.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rprtBudgetDetailWorksheet.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="rprtBudgetDetailExps.cs">
@@ -369,40 +348,12 @@
       <DependentUpon>rprtTravelExpenseDetail.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="rprtBudgetDetail_WorkSheet_PCN_Expense.resx">
-      <DependentUpon>rprtBudgetDetail_WorkSheet_PCN_Expense.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rprtPCNExpenses_New.resx">
-      <DependentUpon>rprtPCNExpenses_New.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rprtPCNMain_New.resx">
-      <DependentUpon>rprtPCNMain_New.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="rprtSpecificationProcurement.resx">
       <DependentUpon>rprtSpecificationProcurement.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="rprtTravelExpenses.resx">
-      <DependentUpon>rprtTravelExpenses.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rprtBudgetDetail_WorkSheet_Expense.resx">
-      <DependentUpon>rprtBudgetDetail_WorkSheet_Expense.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rprtBudgetDetail_WorkSheet.resx">
-      <DependentUpon>rprtBudgetDetail_WorkSheet.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="rprtBudgetDetail.resx">
       <DependentUpon>rprtBudgetDetail.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rprtBudgetDetailWorksheet.resx">
-      <DependentUpon>rprtBudgetDetailWorksheet.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="rprtBudgetDetailExps.resx">
