@@ -438,15 +438,15 @@ namespace RSMPS
             MessageBox.Show(test.ToString());
             if (test == false)
             {
-                MessageBox.Show("This Expense isn't valid. Group will be Added in the budget");
+                
                 
                 int c = Convert.ToInt32(acct) * 1000;
             
 
                CBActivityCodeDisc.UpdateForProject(c, project_ID, true);
-
-             MessageBox.Show("Added" + c.ToString());
-
+               mbIsCodeAdded = true;
+             
+                MessageBox.Show("This Expense isn't valid. Group will be Added in the budget " + c.ToString());
 
            //  var code_selector = new CodeGroupSelector(this.project_ID);
             // code_selector.ShowDialog();
@@ -462,7 +462,8 @@ namespace RSMPS
 
         }
 
-  bool test = false; // Added 9/9 to store expense code Validating
+bool test = false; // Added 9/9 to store expense code Validating
+public bool mbIsCodeAdded = false;// Added 9/21 to store, whether group is added
 
   /// if set to return the form will reopen when it is closed
   /// </summary>

@@ -2618,11 +2618,16 @@ namespace RSMPS
             pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNAdded);
 
 
-            MessageBox.Show("PCN Added .........................");
-            this.ReloadForm = true;
-           this.Close();
+            MessageBox.Show("PCN Added ..., Group added? " + pcn.mbIsCodeAdded);
 
 
+            if (pcn.mbIsCodeAdded == true)
+            {
+                this.ReloadForm = true;
+                this.Close();
+               
+            }
+          
         }
 
 
@@ -2648,7 +2653,7 @@ namespace RSMPS
             mdsPCNs.Tables["PCNs"].Rows.Add(dr);
 
 
-            MessageBox.Show("PCN ADDED Called");
+           // MessageBox.Show("PCN ADDED Called");
             //this.ReloadForm = true;
             //this.Close();
 
@@ -2675,9 +2680,14 @@ namespace RSMPS
           //      }
 
 
-                MessageBox.Show("Pcn Edit clicked");
-                this.ReloadForm = true;
-              this.Close();
+                MessageBox.Show("GroupCode added ?    "+pcn.mbIsCodeAdded);
+
+                if (pcn.mbIsCodeAdded == true)
+                {
+                    this.ReloadForm = true;
+                    this.Close();
+                }
+             
 
 
         }
@@ -2717,9 +2727,15 @@ namespace RSMPS
             pcn.ShowDialog();
             pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNAdded);
 
-            MessageBox.Show("PCN Copied......................");
-            this.ReloadForm = true;
-           this.Close();
+            MessageBox.Show("PCN Copied, Group added?  " + pcn.mbIsCodeAdded);
+
+            if (pcn.mbIsCodeAdded == true)
+            {
+                this.ReloadForm = true;
+                this.Close();
+            }
+           // this.ReloadForm = true;
+           //this.Close();
 
         }
 
