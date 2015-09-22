@@ -112,6 +112,7 @@ namespace RSMPS
             this.checkBox21 = new GrapeCity.ActiveReports.SectionReportModel.CheckBox();
             this.line13 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.pageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
+            this.subReport4 = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
             ((System.ComponentModel.ISupportInitialize)(this.label1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label2)).BeginInit();
@@ -217,7 +218,7 @@ namespace RSMPS
             this.shape1.Height = 1F;
             this.shape1.Left = 0F;
             this.shape1.Name = "shape1";
-            this.shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.shape1.Top = 0.25F;
             this.shape1.Width = 7.5F;
             // 
@@ -280,7 +281,6 @@ namespace RSMPS
             // 
             // detail
             // 
-            this.detail.ColumnSpacing = 0F;
             this.detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.label5,
             this.label6,
@@ -353,7 +353,8 @@ namespace RSMPS
             this.checkBox19,
             this.checkBox20,
             this.checkBox21,
-            this.line13});
+            this.line13,
+            this.subReport4});
             this.detail.Height = 7.552083F;
             this.detail.Name = "detail";
             this.detail.Format += new System.EventHandler(this.detail_Format);
@@ -1179,6 +1180,17 @@ namespace RSMPS
             this.pageFooter.Height = 0.1875F;
             this.pageFooter.Name = "pageFooter";
             // 
+            // subReport4
+            // 
+            this.subReport4.CloseBorder = false;
+            this.subReport4.Height = 0.335F;
+            this.subReport4.Left = 5.312F;
+            this.subReport4.Name = "subReport4";
+            this.subReport4.Report = null;
+            this.subReport4.ReportName = "subReport4";
+            this.subReport4.Top = 5.54F;
+            this.subReport4.Width = 1.125F;
+            // 
             // rprtTransmittalRelease1
             // 
             this.MasterReport = false;
@@ -1429,5 +1441,6 @@ namespace RSMPS
         private GrapeCity.ActiveReports.SectionReportModel.CheckBox checkBox20;
         private GrapeCity.ActiveReports.SectionReportModel.CheckBox checkBox21;
         private GrapeCity.ActiveReports.SectionReportModel.Line line13;
+        private GrapeCity.ActiveReports.SectionReportModel.SubReport subReport4;
     }
 }

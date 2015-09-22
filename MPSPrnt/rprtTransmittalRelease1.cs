@@ -29,6 +29,7 @@ namespace RSMPS
             rprtTransmittalReleaseDist1 rprtDistTo = new rprtTransmittalReleaseDist1();
             rprtTransmittalReleaseDist1 rprtDistCc = new rprtTransmittalReleaseDist1();
             rprtTransmittalReleaseDocs1 rprtDocs = new rprtTransmittalReleaseDocs1();
+            rprtTransmittalReleaseDocsCount rprtDocsCount = new rprtTransmittalReleaseDocsCount(); // Added *******************************************9/22/2015
 
             rprtDistTo.DataSource = this.DataSource;
             rprtDistTo.DataMember = "Table1";
@@ -41,6 +42,14 @@ namespace RSMPS
             rprtDocs.DataSource = this.DataSource;
             rprtDocs.DataMember = "Table3";
             subReport3.Report = rprtDocs;
+
+
+           rprtDocsCount.DataSource = this.DataSource;
+            rprtDocsCount.DataMember = "Table3";
+            subReport4.Report = rprtDocsCount;
+
+
+
         }
     }
 }
