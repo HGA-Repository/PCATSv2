@@ -62,7 +62,6 @@
   <ItemGroup>
     <Compile Include="CDbActivityCode.cs" />
     <Compile Include="CDbBudget.cs" />
-    <Compile Include="CDbBudgetExpenseLine_FromWorkSheet.cs" />
     <Compile Include="CDbBudgetExpenseLine.cs" />
     <Compile Include="CDbBudgetExpenseSheet.cs" />
     <Compile Include="CDbBudgetImp.cs" />

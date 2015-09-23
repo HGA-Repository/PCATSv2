@@ -2,17 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-using System.Data;
-using System.Data.SqlClient;
 using System.IO;
 using System.Xml.Serialization;
 
+using System.Data;
+using System.Data.SqlClient;
+
 namespace RSMPS
 {
-    public class CDbActivityCode
+    public class CDbBudgetPCNExpense
     {
-
-        COActivityCode oVar;
+        private COBudgetPCNExpense oVar;
 
         public string GetByID(int lID)
         {
@@ -23,7 +23,7 @@ namespace RSMPS
             string tmpStr = "";
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spActivityCodes_ByID", cnn.GetConnection());
+            cmd = new SqlCommand("spBudgetPCNExpense_ByID", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -35,11 +35,17 @@ namespace RSMPS
 
             while (dr.Read())
             {
-                oVar = new COActivityCode();
+                oVar = new COBudgetPCNExpense();
 
                 oVar.ID = Convert.ToInt32(dr["ID"]);
+                oVar.PCNID = Convert.ToInt32(dr["PCNID"]);
                 oVar.Code = dr["Code"].ToString();
-                oVar.Name = dr["Name"].ToString();
+                oVar.Description = dr["Description"].ToString();
+                oVar.DlrsPerItem = Convert.ToDecimal(dr["DlrsPerItem"]);
+                oVar.NumItems = Convert.ToInt32(dr["NumItems"]);
+                oVar.MUPerc = Convert.ToDecimal(dr["MUPerc"]);
+                oVar.MarkUp = Convert.ToDecimal(dr["MarkUp"]);
+                oVar.TotalCost = Convert.ToDecimal(dr["TotalCost"]);
                 tmpStr = GetDataString();
             }
 
@@ -63,17 +69,29 @@ namespace RSMPS
             LoadVals(strXml);
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spActivityCodes_Insert", cnn.GetConnection());
+            cmd = new SqlCommand("spBudgetPCNExpense_Insert", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
             prm = cmd.Parameters.Add("@ID", SqlDbType.Int);
             prm.Direction = ParameterDirection.Output;
 
-            prm = cmd.Parameters.Add("@Code", SqlDbType.VarChar, 6);
+            prm = cmd.Parameters.Add("@PCNID", SqlDbType.Int);
+            prm.Value = oVar.PCNID;
+            prm = cmd.Parameters.Add("@Code", SqlDbType.VarChar, 50);
             prm.Value = oVar.Code;
-            prm = cmd.Parameters.Add("@Name", SqlDbType.VarChar, 50);
-            prm.Value = oVar.Name;
+            prm = cmd.Parameters.Add("@Description", SqlDbType.VarChar, 200);
+            prm.Value = oVar.Description;
+            prm = cmd.Parameters.Add("@DlrsPerItem", SqlDbType.Money);
+            prm.Value = oVar.DlrsPerItem;
+            prm = cmd.Parameters.Add("@NumItems", SqlDbType.Int);
+            prm.Value = oVar.NumItems;
+            prm = cmd.Parameters.Add("@MUPerc", SqlDbType.Money);
+            prm.Value = oVar.MUPerc;
+            prm = cmd.Parameters.Add("@MarkUp", SqlDbType.Money);
+            prm.Value = oVar.MarkUp;
+            prm = cmd.Parameters.Add("@TotalCost", SqlDbType.Money);
+            prm.Value = oVar.TotalCost;
             cmd.ExecuteNonQuery();
 
             retVal = Convert.ToInt32(cmd.Parameters["@ID"].Value);
@@ -96,16 +114,30 @@ namespace RSMPS
             LoadVals(strXml);
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spActivityCodes_Update", cnn.GetConnection());
+            cmd = new SqlCommand("spBudgetPCNExpense_Update", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
             prm = cmd.Parameters.Add("@ID", SqlDbType.Int);
             prm.Value = oVar.ID;
-            prm = cmd.Parameters.Add("@Code", SqlDbType.VarChar, 6);
+            prm = cmd.Parameters.Add("@PCNID", SqlDbType.Int);
+            prm.Value = oVar.PCNID;
+            prm = cmd.Parameters.Add("@Code", SqlDbType.VarChar, 50);
             prm.Value = oVar.Code;
-            prm = cmd.Parameters.Add("@Name", SqlDbType.VarChar, 50);
-            prm.Value = oVar.Name;
+            prm = cmd.Parameters.Add("@Description", SqlDbType.VarChar, 200);
+            prm.Value = oVar.Description;
+            prm = cmd.Parameters.Add("@DlrsPerItem", SqlDbType.Money);
+            prm.Value = oVar.DlrsPerItem;
+            prm = cmd.Parameters.Add("@NumItems", SqlDbType.Int);
+            prm.Value = oVar.NumItems;
+            prm = cmd.Parameters.Add("@MUPerc", SqlDbType.Money);
+            prm.Value = oVar.MUPerc;
+            prm = cmd.Parameters.Add("@MarkUp", SqlDbType.Money);
+            prm.Value = oVar.MarkUp;
+            prm = cmd.Parameters.Add("@TotalCost", SqlDbType.Money);
+            prm.Value = oVar.TotalCost;
+            prm = cmd.Parameters.Add("@DeptGroup", SqlDbType.Money);
+            prm.Value = oVar.DeptGroup;
             cmd.ExecuteNonQuery();
 
             prm = null;
@@ -123,7 +155,7 @@ namespace RSMPS
             XmlSerializer s;
             StringWriter sw;
 
-            s = new XmlSerializer(typeof(COActivityCode));
+            s = new XmlSerializer(typeof(COBudgetPCNExpense));
             sw = new StringWriter();
 
             s.Serialize(sw, oVar);
@@ -138,11 +170,11 @@ namespace RSMPS
             XmlSerializer s;
             StringReader sr;
 
-            s = new XmlSerializer(typeof(COActivityCode));
+            s = new XmlSerializer(typeof(COBudgetPCNExpense));
             sr = new System.IO.StringReader(strXml);
 
-            oVar = new COActivityCode();
-            oVar = (COActivityCode)s.Deserialize(sr);
+            oVar = new COBudgetPCNExpense();
+            oVar = (COBudgetPCNExpense)s.Deserialize(sr);
 
             sr.Close();
             sr = null;
@@ -159,7 +191,7 @@ namespace RSMPS
             SqlParameter prm;
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spActivityCodes_Delete", cnn.GetConnection());
+            cmd = new SqlCommand("spBudgetPCNExpense_Delete", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -193,7 +225,7 @@ namespace RSMPS
             SqlCommand cmd;
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spActivityCodes_ListAll", cnn.GetConnection());
+            cmd = new SqlCommand("spBudgetPCNExpense_ListAll", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -203,44 +235,24 @@ namespace RSMPS
             return dr;
         }
 
-        public SqlDataReader GetListForBudget()
+        public SqlDataReader GetListByPCN(int pcnID)
         {
             SqlDataReader dr;
             RSLib.CDbConnection cnn;
             SqlCommand cmd;
+            SqlParameter prm;
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spBudget_GetActivityCodes", cnn.GetConnection());
+            cmd = new SqlCommand("spBudgetPCNExpense_ListAllByPCN", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
-
+            prm = cmd.Parameters.Add("@PCNID", SqlDbType.Int);
+            prm.Value = pcnID;
 
             dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
             cmd = null;
 
             return dr;
         }
-
-
-        public SqlDataReader GetDeptGroup() //****************************Added 9/22/2015
-        {
-            SqlDataReader dr;
-            RSLib.CDbConnection cnn;
-            SqlCommand cmd;
-
-            cnn = new RSLib.CDbConnection();
-            //cmd = new SqlCommand("spBudget_GetActivityCodes", cnn.GetConnection());
-            cmd = new SqlCommand("spAcctCodeAct_DepartmentGroup_ListAll", cnn.GetConnection());
-            cmd.CommandType = CommandType.StoredProcedure;
-
-
-            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-            cmd = null;
-
-            return dr;
-        }
-
-
-
 
     }
 }

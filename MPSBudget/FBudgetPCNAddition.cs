@@ -25,6 +25,7 @@ namespace RSMPS
         private CBBudgetPCN moPCN;
         private dsAccts mdsAccnts;
         private dsAccts mdsExpensAccts;
+        private dsAccts mdsDeptGroup;   //********************Added 9/23/2015
        // public int projID;
 
         public int project_ID; //************************For PCN Update Code Validation
@@ -229,6 +230,7 @@ namespace RSMPS
             DataRow d;
             mdsAccnts = new dsAccts();
             mdsExpensAccts = new dsAccts();
+            mdsDeptGroup = new dsAccts();
             while (dr.Read())
             {
                 d = mdsAccnts.Tables["Accounts"].NewRow();
@@ -254,6 +256,24 @@ namespace RSMPS
             }
             dr.Close();
             tdbdExpenseAccts.SetDataBinding(mdsExpensAccts, "Accounts", true);
+            //****************************************************************************************************************
+
+            dr = CBActivityCode.GetDeptGroup();
+
+            while (dr.Read())
+            {
+                //  d = mdsDeptGroup.Tables["DepartmentGroup"].NewRow();
+                d = mdsDeptGroup.Tables["Accounts"].NewRow();
+                d["Code"] = dr["Code"];
+                d["Description"] = dr["Description"];
+                //d["DefaultMU"] = dr["DefaultMU"];
+
+                mdsDeptGroup.Tables["Accounts"].Rows.Add(d);
+            }
+            dr.Close();
+            tdbdDeptGroup.SetDataBinding(mdsDeptGroup, "Accounts", true);
+
+            //*******************************************************************************************************************
         }   
         private void SetPCNSecurityLevel()
         {
@@ -687,27 +707,86 @@ public bool mbIsCodeAdded = false;// Added 9/21 to store, whether group is added
                 e.Cancel = true;
             else
                 tdbgExpenses.Columns[1].Value = desc;
-                tdbgExpenses.Columns[4].Value = mudefault;
+                //tdbgExpenses.Columns[4].Value = mudefault;
+                tdbgExpenses.Columns[5].Value = mudefault;
         }
 
         private void tdbgExpenses_AfterColUpdate(object sender, C1.Win.C1TrueDBGrid.ColEventArgs e)
         {
-            if (e.ColIndex < 2)
-                return;
+            //if (e.ColIndex < 2)
+            //    return;
 
-            if (tdbgExpenses.Columns[2].Text == "")      //**************6/11/15*************MZ
+            //if (tdbgExpenses.Columns[2].Text == "")      //**************6/11/15*************MZ
+            //{
+            //    MessageBox.Show("Per Item Field cannot be Empty");
+            //    return;
+            //}
+
+            //if (tdbgExpenses.Columns[3].Text == "")      //**************6/11/15*************MZ
+            //{
+            //    MessageBox.Show("#Item Field cannot be Empty");
+            //    return;
+            //}
+
+            //if (tdbgExpenses.Columns[4].Text == "")      //**************6/11/15*************MZ
+            //{
+            //    MessageBox.Show("MarkUp Field cannot be Empty");
+            //    return;
+            //}
+
+
+
+            //decimal dllrPerItem, numItems, percMU, markup, total;
+
+            //dllrPerItem = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[2].Value);
+            //numItems = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[3].Value);
+            //percMU = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[4].Value);
+            //markup = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[5].Value);
+            //total = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[6].Value);
+
+            //markup = dllrPerItem * numItems * (percMU / 100.0m);
+            //total = (dllrPerItem * numItems) + markup;
+
+            //tdbgExpenses.Columns[5].Value = markup;
+            //tdbgExpenses.Columns[6].Value = total;
+
+            //if (e.ColIndex < 2)
+            //    return;
+
+            //if (tdbgExpenses.Columns[2].Text == "")      //**************6/11/15*************MZ
+            //{
+            //    MessageBox.Show("Per Item Field cannot be Empty");
+            //    return;
+            //}
+
+            //if (tdbgExpenses.Columns[3].Text == "")      //**************6/11/15*************MZ
+            //{
+            //    MessageBox.Show("#Item Field cannot be Empty");
+            //    return;
+            //}
+
+            //if (tdbgExpenses.Columns[4].Text == "")      //**************6/11/15*************MZ
+            //{
+            //    MessageBox.Show("MarkUp Field cannot be Empty");
+            //    return;
+            //}
+            //**************************************************************************************************************************************************************************
+            // if (e.ColIndex < 2)
+            //   return;
+
+            if (tdbgExpenses.Columns[3].Text == "")      //**************6/11/15*************MZ
             {
                 MessageBox.Show("Per Item Field cannot be Empty");
                 return;
             }
 
-            if (tdbgExpenses.Columns[3].Text == "")      //**************6/11/15*************MZ
+            if (tdbgExpenses.Columns[4].Text == "")      //**************6/11/15*************MZ
             {
                 MessageBox.Show("#Item Field cannot be Empty");
                 return;
             }
 
-            if (tdbgExpenses.Columns[4].Text == "")      //**************6/11/15*************MZ
+            if (tdbgExpenses.Columns[5].Text == "")      //**************6/11/15*************MZ
             {
                 MessageBox.Show("MarkUp Field cannot be Empty");
                 return;
@@ -715,19 +794,42 @@ public bool mbIsCodeAdded = false;// Added 9/21 to store, whether group is added
 
 
 
+
+
             decimal dllrPerItem, numItems, percMU, markup, total;
 
-            dllrPerItem = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[2].Value);
-            numItems = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[3].Value);
-            percMU = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[4].Value);
-            markup = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[5].Value);
-            total = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[6].Value);
+            //dllrPerItem = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[2].Value);
+            //numItems = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[3].Value);
+            //percMU = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[4].Value);
+            //markup = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[5].Value);
+            //total = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[6].Value);
+
+            //markup = dllrPerItem * numItems * (percMU / 100.0m);
+            //total = (dllrPerItem * numItems) + markup;
+
+            //tdbgExpenses.Columns[5].Value = markup;
+            //tdbgExpenses.Columns[6].Value = total;
+
+            dllrPerItem = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[3].Value);
+            numItems = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[4].Value);
+            percMU = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[5].Value);
+            markup = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[6].Value);
+            total = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[7].Value);
 
             markup = dllrPerItem * numItems * (percMU / 100.0m);
             total = (dllrPerItem * numItems) + markup;
 
-            tdbgExpenses.Columns[5].Value = markup;
-            tdbgExpenses.Columns[6].Value = total;
+            tdbgExpenses.Columns[6].Value = markup;
+            tdbgExpenses.Columns[7].Value = total;
+
+
+
+
+
+
+
+
+
         }
 
         private void tdbgExpenses_AfterUpdate(object sender, EventArgs e)
@@ -752,8 +854,11 @@ public bool mbIsCodeAdded = false;// Added 9/21 to store, whether group is added
                 dollars += Convert.ToDecimal(dr["TotalCost"]);
             }
 
-            tdbgExpenses.Columns[5].FooterText = muAmnt.ToString("$#,##0.00");
-            tdbgExpenses.Columns[6].FooterText = dollars.ToString("$#,##0.00");
+            // tdbgExpenses.Columns[5].FooterText = muAmnt.ToString("$#,##0.00");
+            // tdbgExpenses.Columns[6].FooterText = dollars.ToString("$#,##0.00");
+
+            tdbgExpenses.Columns[6].FooterText = muAmnt.ToString("$#,##0.00");
+        //    tdbgExpenses.Columns[7].FooterText = dollars.ToString("$#,##0.00");
 
             txtEstimatedDollars.Text = TotalDollars().ToString("#,##0.00");
         }

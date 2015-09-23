@@ -718,8 +718,8 @@ namespace RSMPS
             // 
             // txtDescription
             // 
-            this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDescription.Location = new System.Drawing.Point(7, 20);
             this.txtDescription.MaxLength = 1000;
@@ -777,8 +777,8 @@ namespace RSMPS
             // 
             this.tdbgHours.AllowAddNew = true;
             this.tdbgHours.AllowDelete = true;
-            this.tdbgHours.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.tdbgHours.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tdbgHours.ColumnFooters = true;
             this.tdbgHours.ContextMenuStrip = this.cmnuHours;
@@ -875,8 +875,8 @@ namespace RSMPS
             // 
             this.tdbgExpenses.AllowAddNew = true;
             this.tdbgExpenses.AllowDelete = true;
-            this.tdbgExpenses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.tdbgExpenses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tdbgExpenses.ColumnFooters = true;
             this.tdbgExpenses.ContextMenuStrip = this.cmnuExpenses;
@@ -933,8 +933,8 @@ namespace RSMPS
             // 
             // rtbComments
             // 
-            this.rtbComments.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.rtbComments.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbComments.Location = new System.Drawing.Point(6, 6);
             this.rtbComments.Name = "rtbComments";
@@ -1082,7 +1082,7 @@ namespace RSMPS
             this.tdbdDeptGroup.HeadingStyle = style12;
             this.tdbdDeptGroup.HighLightRowStyle = style13;
             this.tdbdDeptGroup.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbdDeptGroup.Images"))));
-            this.tdbdDeptGroup.Location = new System.Drawing.Point(425, 44);
+            this.tdbdDeptGroup.Location = new System.Drawing.Point(426, 44);
             this.tdbdDeptGroup.Name = "tdbdDeptGroup";
             this.tdbdDeptGroup.OddRowStyle = style14;
             this.tdbdDeptGroup.RecordSelectorStyle = style15;
@@ -1143,7 +1143,7 @@ namespace RSMPS
 
         #endregion
 
-        
+
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tbpHours;
@@ -1158,7 +1158,7 @@ namespace RSMPS
         private C1.Win.C1Command.C1CommandLink c1CommandLink2;
         private C1.Win.C1Command.C1CommandLink c1CommandLink3;
         private C1.Win.C1Command.C1CommandLink c1CommandLink4;
-        
+
         private System.Windows.Forms.TabPage tbpComments;
         private C1.Win.C1TrueDBGrid.C1TrueDBGrid tdbgHours;
         private C1.Win.C1TrueDBGrid.C1TrueDBGrid tdbgExpenses;
@@ -1227,7 +1227,7 @@ namespace RSMPS
         private System.Windows.Forms.Label label11;
         private C1.Win.C1Command.C1Command tlbbHourExport; //*********************Added 6/3/15
         private C1.Win.C1Command.C1CommandLink c1CommandLink10;
-        private C1.Win.C1Command.C1Command tlbbExpenseExport; 
+        private C1.Win.C1Command.C1Command tlbbExpenseExport;
         private C1.Win.C1Command.C1CommandLink c1CommandLink11;
         private C1.Win.C1Command.C1Command tlbbClearCurrentRow;//*********************Added 9/9/15
         private C1.Win.C1Command.C1CommandLink c1CommandLink12;

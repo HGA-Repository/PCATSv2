@@ -2,19 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+using System.IO;
+using System.Xml.Serialization;
 using System.Data;
 using System.Data.SqlClient;
-using System.Xml;
-using System.Xml.Serialization;
-using System.IO;
 
 namespace RSMPS
 {
-    public class CBBudgetExpenseLine_FromWorkSheet : COBudgetExpenseLine_FromWorkSheet
+    public class CBActivityCode : COActivityCode
     {
         public void Load(int iID)
         {
-            CDbBudgetExpenseLine_FromWorkSheet dbDt = new CDbBudgetExpenseLine_FromWorkSheet();
+            CDbActivityCode dbDt = new CDbActivityCode();
             string tmpDat;
 
             tmpDat = dbDt.GetByID(iID);
@@ -30,13 +29,13 @@ namespace RSMPS
         {
             XmlSerializer s;
             StringReader sr;
-            COBudgetExpenseLine_FromWorkSheet o;
+            COActivityCode o;
 
-            s = new XmlSerializer(typeof(COBudgetExpenseLine_FromWorkSheet));
+            s = new XmlSerializer(typeof(COActivityCode));
             sr = new System.IO.StringReader(strXml);
 
-            o = new COBudgetExpenseLine_FromWorkSheet();
-            o = (COBudgetExpenseLine_FromWorkSheet)s.Deserialize(sr);
+            o = new COActivityCode();
+            o = (COActivityCode)s.Deserialize(sr);
 
             base.LoadFromObj(o);
 
@@ -49,7 +48,7 @@ namespace RSMPS
 
         public int Save()
         {
-            CDbBudgetExpenseLine_FromWorkSheet dbDt = new CDbBudgetExpenseLine_FromWorkSheet();
+            CDbActivityCode dbDt = new CDbActivityCode();
             string tmpDat;
             int retVal;
 
@@ -74,7 +73,7 @@ namespace RSMPS
 
         public static void Delete(int cID)
         {
-            CDbBudgetExpenseLine_FromWorkSheet dbDt = new CDbBudgetExpenseLine_FromWorkSheet();
+            CDbActivityCode dbDt = new CDbActivityCode();
 
             dbDt.Delete(cID);
         }
@@ -83,12 +82,12 @@ namespace RSMPS
         public string GetDataString()
         {
             string tmpStr;
-            COBudgetExpenseLine_FromWorkSheet o;
+            COActivityCode o;
             XmlSerializer s;
             StringWriter sw;
 
-            o = new COBudgetExpenseLine_FromWorkSheet();
-            s = new XmlSerializer(typeof(COBudgetExpenseLine_FromWorkSheet));
+            o = new COActivityCode();
+            s = new XmlSerializer(typeof(COActivityCode));
             sw = new StringWriter();
 
             base.Copy(o);
@@ -104,32 +103,19 @@ namespace RSMPS
         }
 
 
-
-        public static void AddMissingLines(int budID, int groupID, string wbsCode)
-        {
-            CDbBudgetExpenseLine_FromWorkSheet exp = new CDbBudgetExpenseLine_FromWorkSheet();
-            exp.AddMissingLines(budID, groupID, wbsCode);
-        }
-
         public static SqlDataReader GetList()
         {
-            CDbBudgetExpenseLine_FromWorkSheet dbDt = new CDbBudgetExpenseLine_FromWorkSheet();
+            CDbActivityCode dbDt = new CDbActivityCode();
 
             return dbDt.GetList();
         }
 
-        public static SqlDataReader GetListByBudget(int budID, int groupID)
-        {
-            CDbBudgetExpenseLine_FromWorkSheet dbDt = new CDbBudgetExpenseLine_FromWorkSheet();
 
-            return dbDt.GetListByBudget(budID, groupID);
-        }
-
-        public static void CopyExpenseLines(int originalID, int newBudID)
+        public static SqlDataReader GetListForBudget()
         {
-            CDbBudgetExpenseLine_FromWorkSheet dbDt = new CDbBudgetExpenseLine_FromWorkSheet();
-            
-            dbDt.CopyExpenseLines(originalID, newBudID);
+            CDbActivityCode dbDt = new CDbActivityCode();
+
+            return dbDt.GetListForBudget();
         }
     }
 }

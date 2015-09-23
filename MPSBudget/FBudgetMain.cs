@@ -1321,7 +1321,7 @@ namespace RSMPS
                 bl.BareDollars = 0;
 
                 bl.Save();
-                MessageBox.Show("Inserted from pcn");
+                //MessageBox.Show("Inserted from pcn");
 
                 newRow[1] = taskVal;
                 newRow[2] = catVal;
@@ -1971,7 +1971,7 @@ namespace RSMPS
         private void SaveExpenseLines(string group)
         {
             CBBudgetExpenseLine el;
-            //CBBudgetExpenseLine_FromWorkSheet el2;
+            
             var fgExp = fgExpForGroup(group);
             var group_int = Int32.Parse(group);
 

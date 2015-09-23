@@ -219,28 +219,5 @@ namespace RSMPS
 
             return dr;
         }
-
-
-        public SqlDataReader GetDeptGroup() //****************************Added 9/22/2015
-        {
-            SqlDataReader dr;
-            RSLib.CDbConnection cnn;
-            SqlCommand cmd;
-
-            cnn = new RSLib.CDbConnection();
-            //cmd = new SqlCommand("spBudget_GetActivityCodes", cnn.GetConnection());
-            cmd = new SqlCommand("spAcctCodeAct_DepartmentGroup_ListAll", cnn.GetConnection());
-            cmd.CommandType = CommandType.StoredProcedure;
-
-
-            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-            cmd = null;
-
-            return dr;
-        }
-
-
-
-
     }
 }

@@ -117,5 +117,12 @@ namespace RSMPS
 
             return dbDt.GetListForBudget();
         }
+
+        public static SqlDataReader GetDeptGroup()
+        {
+            CDbActivityCode dbDt = new CDbActivityCode();
+
+            return dbDt.GetDeptGroup();
+        }
     }
 }

@@ -62,7 +62,6 @@
   <ItemGroup>
     <Compile Include="CBActivityCode.cs" />
     <Compile Include="CBBudget.cs" />
-    <Compile Include="CBBudgetExpenseLine_FromWorkSheet.cs" />
     <Compile Include="CBBudgetExpenseLine.cs" />
     <Compile Include="CBBudgetExpenseSheet.cs" />
     <Compile Include="CBBudgetImp.cs" />

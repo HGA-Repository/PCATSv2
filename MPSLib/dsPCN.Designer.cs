@@ -782,6 +782,8 @@ namespace RSMPS {
             
             private global::System.Data.DataColumn columnTotalCost;
             
+            private global::System.Data.DataColumn columnDeptGroup;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public PCNExpensesDataTable() {
@@ -889,6 +891,14 @@ namespace RSMPS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DeptGroupColumn {
+                get {
+                    return this.columnDeptGroup;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -924,7 +934,7 @@ namespace RSMPS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PCNExpensesRow AddPCNExpensesRow(int ID, int PCNID, string Code, string Description, decimal DlrsPerItem, int NumItems, decimal MUPerc, decimal MarkUp, decimal TotalCost) {
+            public PCNExpensesRow AddPCNExpensesRow(int ID, int PCNID, string Code, string Description, decimal DlrsPerItem, int NumItems, decimal MUPerc, decimal MarkUp, decimal TotalCost, string DeptGroup) {
                 PCNExpensesRow rowPCNExpensesRow = ((PCNExpensesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
@@ -935,7 +945,8 @@ namespace RSMPS {
                         NumItems,
                         MUPerc,
                         MarkUp,
-                        TotalCost};
+                        TotalCost,
+                        DeptGroup};
                 rowPCNExpensesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPCNExpensesRow);
                 return rowPCNExpensesRow;
@@ -967,6 +978,7 @@ namespace RSMPS {
                 this.columnMUPerc = base.Columns["MUPerc"];
                 this.columnMarkUp = base.Columns["MarkUp"];
                 this.columnTotalCost = base.Columns["TotalCost"];
+                this.columnDeptGroup = base.Columns["DeptGroup"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -990,6 +1002,8 @@ namespace RSMPS {
                 base.Columns.Add(this.columnMarkUp);
                 this.columnTotalCost = new global::System.Data.DataColumn("TotalCost", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalCost);
+                this.columnDeptGroup = new global::System.Data.DataColumn("DeptGroup", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDeptGroup);
                 this.columnID.DefaultValue = ((int)(0));
                 this.columnPCNID.DefaultValue = ((int)(0));
                 this.columnDlrsPerItem.DefaultValue = ((decimal)(0m));
@@ -2074,6 +2088,22 @@ namespace RSMPS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DeptGroup {
+                get {
+                    try {
+                        return ((string)(this[this.tablePCNExpenses.DeptGroupColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DeptGroup\' in table \'PCNExpenses\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePCNExpenses.DeptGroupColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsIDNull() {
                 return this.IsNull(this.tablePCNExpenses.IDColumn);
             }
@@ -2178,6 +2208,18 @@ namespace RSMPS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTotalCostNull() {
                 this[this.tablePCNExpenses.TotalCostColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDeptGroupNull() {
+                return this.IsNull(this.tablePCNExpenses.DeptGroupColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDeptGroupNull() {
+                this[this.tablePCNExpenses.DeptGroupColumn] = global::System.Convert.DBNull;
             }
         }
         
