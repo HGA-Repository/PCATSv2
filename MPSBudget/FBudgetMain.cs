@@ -2781,6 +2781,7 @@ namespace RSMPS
         private void AddPCNExpenses(int pcnID, string pcnNum, dsPCN pcns)
         {
             var group = _Default_Group;
+           // var group = "12000"; //********************************************************* Testing !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
             int travelFare, autoRental, tolls, fuel, mileage, meals, lodging, perdiem, miscExp, survey1, survey2, survey3, survey4, survsup, engserv, surveying, geotinv, environ, specsub, atv, oruv, boat, digcam, cphone, fldcomp, trimbler8, trimblegeo, etotstat, lasrange, pipeloc; 
             string rowCode;
@@ -3280,40 +3281,10 @@ namespace RSMPS
 
                 el.Save();
 
-               // CBBudgetExpenseLine_FromWorkSheet el2;
-
-                                   // el2 = new CBBudgetExpenseLine_FromWorkSheet();
-
-                                    //el2.ID = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(rw[9]));
-                                    //el2.BudgetID = moCurrBudget.ID;
-                                    //el2.DeptGroup = Int32.Parse(group);
-                                    //el2.EntryLevel = 1;
-                                    //el2.Code = rowCode;
-                                    //el2.MarkUp = mu;
-                                    //el2.Description = rw[3].ToString();
-                                    //el2.UOMID = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(rw[10]));
-                                    //el2.DollarsEach = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(rw[5]));
-                                    //el2.Quantity = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(rw[6]));
-                                    //el2.MarkupDollars = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(rw[7]));
-                                    //el2.TotalDollars = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(rw[8]));
-
-                                    //el2.ID =  el.ID;
-                                    //el2.BudgetID = el.BudgetID;
-                                    //el2.DeptGroup = el.DeptGroup;
-                                    //el2.EntryLevel = 1;
-                                    //el2.Code = el.Code;
-                                    //el2.MarkUp = el.MarkUp;
-                                    //el2.Description = el.Description;
-                                    //el2.UOMID = el.UOMID;
-                                    //el2.DollarsEach =el.DollarsEach;
-                                    //el2.Quantity =el.Quantity;
-                                    //el2.MarkupDollars = el.MarkupDollars;
-                                    //el2.TotalDollars = el.TotalDollars;
-
-                                    //el2.Save();
+               
 
 
-                MessageBox.Show("AddPCNExpensesNonWorkSheet......>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+               // MessageBox.Show("AddPCNExpensesNonWorkSheet......>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
                 rw[9] = el.ID;
             }

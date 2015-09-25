@@ -256,14 +256,13 @@ namespace RSMPS
             }
             dr.Close();
             tdbdExpenseAccts.SetDataBinding(mdsExpensAccts, "Accounts", true);
-            //****************************************************************************************************************
+            
 
-            dr = CBActivityCode.GetDeptGroup();
+            dr = CBActivityCode.GetDeptGroup();//*****************************Added for DeptGroup Dropdown
 
             while (dr.Read())
             {
-                //  d = mdsDeptGroup.Tables["DepartmentGroup"].NewRow();
-                d = mdsDeptGroup.Tables["Accounts"].NewRow();
+                 d = mdsDeptGroup.Tables["Accounts"].NewRow();
                 d["Code"] = dr["Code"];
                 d["Description"] = dr["Description"];
                 //d["DefaultMU"] = dr["DefaultMU"];
@@ -438,52 +437,73 @@ namespace RSMPS
         }
         private void tdbgHours_ComboSelect(object sender, C1.Win.C1TrueDBGrid.ColEventArgs e)
         {
-           // MessageBox.Show("Combo selected");
-
             string acct = tdbgHours.Columns[0].Value.ToString().Substring(0, 2);
             for (int j = 0; j < i; j++)
             {
                 string y = codes[j].Substring(0, 2);
-                
-              //  MessageBox.Show(y + "         " + acct);
-
                 if (y.Equals(acct))
                 {
-                    test = true;
+                    test_Hour = true;
                     break;
 
                 }
           
             }
-            MessageBox.Show(test.ToString());
-            if (test == false)
-            {
-                
+            MessageBox.Show(test_Hour.ToString());
+            if (test_Hour == false)
+            {             
                 
                 int c = Convert.ToInt32(acct) * 1000;
-            
-
                CBActivityCodeDisc.UpdateForProject(c, project_ID, true);
                mbIsCodeAdded = true;
              
                 MessageBox.Show("This Expense isn't valid. Group will be Added in the budget " + c.ToString());
-
-           //  var code_selector = new CodeGroupSelector(this.project_ID);
-            // code_selector.ShowDialog();
-
-
-
-               // this.Close();
-               //tdbgExpenses.Enabled = false;
-                // return;
+               
             }
             else
-            { test = false; }
+            { test_Hour = false; }
 
         }
 
-bool test = false; // Added 9/9 to store expense code Validating
+bool test_Hour = false; // Added 9/9 to store expense code Validating
+bool test_Expense = false; // Added 9/23 to store Dept Group Validating
 public bool mbIsCodeAdded = false;// Added 9/21 to store, whether group is added
+
+private void tdbgExpenses_ComboSelect(object sender, C1.Win.C1TrueDBGrid.ColEventArgs e)
+{
+   // MessageBox.Show("Combo selected");
+}
+
+
+private void tdbdDeptGroup_MouseLeave(object sender, EventArgs e)
+{
+    string Dept = tdbgExpenses.Columns[2].Value.ToString();
+    for (int j = 0; j < i; j++)
+    {
+        string y = codes[j];
+
+        if (y.Equals(Dept))
+        {
+            test_Expense = true;
+            MessageBox.Show("Match");
+            break;
+        }
+
+    }
+    if (test_Expense == false)
+    {
+
+        int D = Convert.ToInt32(Dept);
+        CBActivityCodeDisc.UpdateForProject(D, project_ID, true);
+        mbIsCodeAdded = true;
+        MessageBox.Show("This Department isn't valid, will be Added in the budget " + Dept);
+
+    }
+    else
+    { test_Expense = false; }
+}
+
+
 
   /// if set to return the form will reopen when it is closed
   /// </summary>
@@ -1269,6 +1289,14 @@ public bool mbIsCodeAdded = false;// Added 9/21 to store, whether group is added
                 tdbgHours.Delete();
             }
         }
+
+       
+
+        
+
+       
+
+      
 
 
 
