@@ -28,6 +28,8 @@ namespace RSMPS
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rprtTransmittal1));
+            GrapeCity.ActiveReports.SectionReportModel.Line line6;
+            line6 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.pageHeader = new GrapeCity.ActiveReports.SectionReportModel.PageHeader();
             this.label1 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.label2 = new GrapeCity.ActiveReports.SectionReportModel.Label();
@@ -76,7 +78,6 @@ namespace RSMPS
             this.textBox5 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.line4 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.line5 = new GrapeCity.ActiveReports.SectionReportModel.Line();
-            this.line6 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.checkBox1 = new GrapeCity.ActiveReports.SectionReportModel.CheckBox();
             this.checkBox2 = new GrapeCity.ActiveReports.SectionReportModel.CheckBox();
             this.checkBox3 = new GrapeCity.ActiveReports.SectionReportModel.CheckBox();
@@ -107,6 +108,7 @@ namespace RSMPS
             this.label22 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.label24 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.groupFooter2 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
+            this.subReport4 = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
             ((System.ComponentModel.ISupportInitialize)(this.label1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label3)).BeginInit();
@@ -273,7 +275,7 @@ namespace RSMPS
             this.shape1.Height = 0.313F;
             this.shape1.Left = 0F;
             this.shape1.Name = "shape1";
-            this.shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.shape1.Top = 1.462F;
             this.shape1.Width = 7.5F;
             // 
@@ -638,7 +640,6 @@ namespace RSMPS
             this.textBox5,
             this.line4,
             this.line5,
-            this.line6,
             this.checkBox1,
             this.checkBox2,
             this.checkBox3,
@@ -660,7 +661,9 @@ namespace RSMPS
             this.label4,
             this.textBox13,
             this.line3,
-            this.txtApprvOther});
+            this.txtApprvOther,
+            this.subReport4,
+            line6});
             this.groupHeader1.Height = 3.364583F;
             this.groupHeader1.Name = "groupHeader1";
             this.groupHeader1.Format += new System.EventHandler(this.groupHeader1_Format);
@@ -749,7 +752,7 @@ namespace RSMPS
             this.textBox5.Height = 0.1875F;
             this.textBox5.Left = 4F;
             this.textBox5.Name = "textBox5";
-            this.textBox5.Style = "font-size: 9pt; ddo-char-set: 0";
+            this.textBox5.Style = "font-size: 9pt; text-decoration: none; ddo-char-set: 0";
             this.textBox5.Text = "textBox2";
             this.textBox5.Top = 0.4375F;
             this.textBox5.Width = 3.25F;
@@ -779,19 +782,6 @@ namespace RSMPS
             this.line5.X2 = 7.25F;
             this.line5.Y1 = 0.2F;
             this.line5.Y2 = 0.2F;
-            // 
-            // line6
-            // 
-            this.line6.Height = 0F;
-            this.line6.Left = 4F;
-            this.line6.LineWeight = 1F;
-            this.line6.Name = "line6";
-            this.line6.Top = 0.64F;
-            this.line6.Width = 3.25F;
-            this.line6.X1 = 4F;
-            this.line6.X2 = 7.25F;
-            this.line6.Y1 = 0.64F;
-            this.line6.Y2 = 0.64F;
             // 
             // checkBox1
             // 
@@ -1063,7 +1053,7 @@ namespace RSMPS
             this.shape2.Height = 0.1875F;
             this.shape2.Left = 0F;
             this.shape2.Name = "shape2";
-            this.shape2.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.shape2.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.shape2.Top = 0F;
             this.shape2.Width = 7.5F;
             // 
@@ -1115,6 +1105,30 @@ namespace RSMPS
             // 
             this.groupFooter2.Height = 0F;
             this.groupFooter2.Name = "groupFooter2";
+            // 
+            // subReport4
+            // 
+            this.subReport4.CloseBorder = false;
+            this.subReport4.Height = 0.335F;
+            this.subReport4.Left = 2.83F;
+            this.subReport4.Name = "subReport4";
+            this.subReport4.Report = null;
+            this.subReport4.ReportName = "subReport4";
+            this.subReport4.Top = 0.6850001F;
+            this.subReport4.Width = 2.062F;
+            // 
+            // line6
+            // 
+            line6.Height = 0F;
+            line6.Left = 4F;
+            line6.LineWeight = 1F;
+            line6.Name = "line6";
+            line6.Top = 0.6350001F;
+            line6.Width = 3.25F;
+            line6.X1 = 4F;
+            line6.X2 = 7.25F;
+            line6.Y1 = 0.6350001F;
+            line6.Y2 = 0.6350001F;
             // 
             // rprtTransmittal1
             // 
@@ -1299,7 +1313,6 @@ namespace RSMPS
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox5;
         private GrapeCity.ActiveReports.SectionReportModel.Line line4;
         private GrapeCity.ActiveReports.SectionReportModel.Line line5;
-        private GrapeCity.ActiveReports.SectionReportModel.Line line6;
         private GrapeCity.ActiveReports.SectionReportModel.CheckBox checkBox1;
         private GrapeCity.ActiveReports.SectionReportModel.CheckBox checkBox2;
         private GrapeCity.ActiveReports.SectionReportModel.CheckBox checkBox3;
@@ -1354,5 +1367,6 @@ namespace RSMPS
         private GrapeCity.ActiveReports.SectionReportModel.Line line3;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox txtApprvOther;
         private GrapeCity.ActiveReports.SectionReportModel.Picture Picture;
+        private GrapeCity.ActiveReports.SectionReportModel.SubReport subReport4;
     }
 }

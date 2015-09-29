@@ -42,6 +42,13 @@ namespace RSMPS
             {
                 chkApprovedOther.Text = "Other";
             }
+
+            rprtTransmittal_DocsCount rprtDocsCount = new rprtTransmittal_DocsCount(); // Added *******************************************9/29/2015
+
+            rprtDocsCount.DataSource = this.DataSource;
+            rprtDocsCount.DataMember = "Table1";
+            subReport4.Report = rprtDocsCount;
+
         }
 
         private void pageHeader_Format(object sender, EventArgs e)
