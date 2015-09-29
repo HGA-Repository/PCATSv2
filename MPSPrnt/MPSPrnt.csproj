@@ -132,12 +132,6 @@
     <Compile Include="rprtTransmittal_DocsCount.Designer.cs">
       <DependentUpon>rprtTransmittal_DocsCount.cs</DependentUpon>
     </Compile>
-    <Compile Include="rprtTransmittalReleaseDocsCount.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rprtTransmittalReleaseDocsCount.Designer.cs">
-      <DependentUpon>rprtTransmittalReleaseDocsCount.cs</DependentUpon>
-    </Compile>
     <Compile Include="rprtTravelExpenseDetail.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -358,9 +352,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="rprtTransmittal_DocsCount.resx">
       <DependentUpon>rprtTransmittal_DocsCount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rprtTransmittalReleaseDocsCount.resx">
-      <DependentUpon>rprtTransmittalReleaseDocsCount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rprtTravelExpenseDetail.resx">
       <DependentUpon>rprtTravelExpenseDetail.cs</DependentUpon>

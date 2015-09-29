@@ -376,8 +376,19 @@ namespace RSMPS
             cboActivityCodes.Text = ac.Code;
 
             //chkIsTask.Checked = moDrwLog.IsTask;
-            SetDrawingType(moDrwLog.IsTaskDrwgSpec);
 
+            //******************************************************* Added 9/29/2015
+            MessageBox.Show(moDrwLog.DepartmentID.ToString() + "Previous task/drawing/specification?   " + moDrwLog.IsTaskDrwgSpec);
+            if (moDrwLog.DepartmentID == 10)
+            {
+                SetDrawingType(1);
+                bttSave.Enabled = true;
+            }
+
+            else
+                SetDrawingType(moDrwLog.IsTaskDrwgSpec);
+                    // MessageBox.Show("New task/drawing/specification?    " + moDrwLog.IsTaskDrwgSpec);
+            //*******************************************************
             ds = new CBDrawingSize();
             ds.Load(moDrwLog.DrawingSizeID);
             cboDrawingSizes.Text = ds.Size;
@@ -443,7 +454,7 @@ namespace RSMPS
                 dtpDateLate.Value = moDrwLog.DateLate;
             }
 
-            bttSave.Enabled = false;
+           // bttSave.Enabled = false;
             bttSaveNew.Enabled = false;
         }
 
@@ -791,13 +802,17 @@ namespace RSMPS
         }
 
         private void LoadSelectedItem()
+
         {
+            //MessageBox.Show("selected");
             if (lvwLogs.SelectedItems.Count > 0)
             {
                 CheckForSave();
 
                 int tmpID = Convert.ToInt32(lvwLogs.SelectedItems[0].Text);
                 ClearLog();
+                //MessageBox.Show(lvwLogs.SelectedItems[0].Text);
+
                 moDrwLog.Load(tmpID);
                 LoadObjectToScreen();
             }
@@ -1168,6 +1183,8 @@ namespace RSMPS
 
         private void SetDrawingType(int taskVal)
         {
+
+            MessageBox.Show("Task val  .........."+taskVal.ToString());
             if (taskVal == 0)
             {
                 rdoDrawing.Checked = true;
