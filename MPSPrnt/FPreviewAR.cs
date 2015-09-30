@@ -273,12 +273,11 @@ namespace RSMPS
             //loc.Load(proj.LocationID);
             //state.Load(loc.StateID);
            
-            
+                     
            
-           
-          //  MessageBox.Show(projNumber);
+        //    MessageBox.Show(projNumber);
             //MessageBox.Show(pcnNumber);
-           //MessageBox.Show(reportType);
+         //  MessageBox.Show(reportType);
            //MessageBox.Show(BusinessUnit);
 
          
@@ -333,8 +332,15 @@ namespace RSMPS
                                                                           fileName = "Forecast Remaining- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
                                                                       else
                                                                           if (reportType == "RSMPS.rprtTravelExpenseDetail")
-                                                                              fileName = "Travel Expense(WorkSheet)- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss"); 
-                                                        else fileName = "Report-" + dt.ToString("yyyMMdd hhmmss"); 
+                                                                              fileName = "Travel Expense(WorkSheet)- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                                    else
+                                                        if (reportType == "RSMPS.rprtTransmittal1")
+                                                           fileName = "Transmittal- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                                        else
+                                                            if (reportType == "RSMPS.rprtTransmittalRelease1")
+                                                                fileName = "Issue Release- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss"); 
+                                                   
+                                                       else fileName = "Report-" + dt.ToString("yyyMMdd hhmmss"); 
 
            // MessageBox.Show(fileName);
 
