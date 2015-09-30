@@ -276,7 +276,7 @@ namespace RSMPS
            
                      
            
-            MessageBox.Show(projNumber);
+      //      MessageBox.Show(projNumber);
             //MessageBox.Show(pcnNumber);
          //  MessageBox.Show(reportType);
            //MessageBox.Show(BusinessUnit);
@@ -317,7 +317,7 @@ namespace RSMPS
                                                 fileName = "PCI Log- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
                                             else
                                                 if (reportType == "RSMPS.rprtCostSummary")
-                                                    fileName = "Cost Summary- " + projNumber + dt.ToString("yyyMMdd hhmmss");
+                                                    fileName = "Cost Summary- " + projNumber + "- " + dt.ToString("yyyMMdd hhmmss");
                                                 else
                                                     if (reportType == "RSMPS.rprtPMReport1")
                                                         fileName = "PM Report- " + " " + dt.ToString("yyyMMdd hhmmss");
