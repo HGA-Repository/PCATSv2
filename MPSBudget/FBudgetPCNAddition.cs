@@ -32,6 +32,7 @@ namespace RSMPS
 
         //private CBBudget moCurrBudget; added 6/3/15 ***************Commented
        
+        private bool mbIsFixedRate = false; //*****************************Added 9/30/2015
         public event RevSol.ItemValueChangedHandler OnPCNChanged;
 
         public void StartNewPCN(int projID)
@@ -59,6 +60,8 @@ namespace RSMPS
 
             }
             SetPCNSecurityLevel();
+            mbIsFixedRate = moProj.IsFixedRate; //*****************************Added 9/30/2015
+            SetPCN_RateLevel(); //***************************Added 9/30/2015
         }
         public void CopyPCN(int projID, int pcnID)
         {
@@ -95,6 +98,8 @@ namespace RSMPS
             }
 
             SetPCNSecurityLevel();
+            mbIsFixedRate = moProj.IsFixedRate; //*****************************Added 9/30/2015
+            SetPCN_RateLevel();                 //***************************Added 9/30/2015
             
             
         }
@@ -126,8 +131,10 @@ namespace RSMPS
             LoadFromPCN();
 
             this.Text = "PCN: Job-" + moProj.Number + " PCN-" + moPCN.PCNNumber;
-
+            
             SetPCNSecurityLevel();
+            mbIsFixedRate = moProj.IsFixedRate; //*****************************Added 9/30/2015
+            SetPCN_RateLevel();                 //*********************    
         }
 
         string[] codes = new string[13]; // Added 9/9/2015, to store Codes. The Array size needs to be increased if, no of Codes ever increases.
@@ -309,6 +316,23 @@ namespace RSMPS
                 */
             }
         }
+        private void SetPCN_RateLevel()     ////***************************Added 9/30/2015 ************** 
+                                            //******************* If Flat Rate display Budget screen with limited column
+        {
+
+
+                if(mbIsFixedRate==true)   
+                { MessageBox.Show(mbIsFixedRate.ToString());
+                tdbgHours.Splits[0].DisplayColumns[5].Visible = false;
+                tdbgHours.Splits[0].DisplayColumns[7].Visible = false;
+                }
+                           
+        }
+
+
+
+
+
 
         private void tlbbClose_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
@@ -478,6 +502,7 @@ private void tdbgExpenses_ComboSelect(object sender, C1.Win.C1TrueDBGrid.ColEven
 private void tdbdDeptGroup_MouseLeave(object sender, EventArgs e)
 {
     string Dept = tdbgExpenses.Columns[2].Value.ToString();
+    MessageBox.Show(Dept);
     for (int j = 0; j < i; j++)
     {
         string y = codes[j];
@@ -491,9 +516,12 @@ private void tdbdDeptGroup_MouseLeave(object sender, EventArgs e)
 
     }
     if (test_Expense == false)
-    {
-
-        int D = Convert.ToInt32(Dept);
+    {   int D;
+    if (Dept == "")
+        D = 11000;
+    else
+         D = Convert.ToInt32(Dept);                          //*********************************************Expection is happening here,,,, I have to check it!!!!!!!!!!!!
+                                                            // **************** Default Dept is 11000
         CBActivityCodeDisc.UpdateForProject(D, project_ID, true);
         mbIsCodeAdded = true;
         MessageBox.Show("This Department isn't valid, will be Added in the budget " + Dept);

@@ -68,6 +68,7 @@ namespace RSMPS
         private bool mbIsPipeline = false;
         private bool mbUseAllGroups = false;
 
+        private bool mbIsFixedRate = false; //*****************************Added 9/30/2015
         private CBBudget moCurrBudget;
 
 
@@ -130,6 +131,9 @@ namespace RSMPS
                 mbProcessing = false;
             }
            //    MessageBox.Show(" SetNewProjectBudget "); //***************************7
+
+            mbIsFixedRate = p.IsFixedRate;
+         //   MessageBox.Show(mbIsFixedRate.ToString());
         }
 
 
@@ -541,6 +545,7 @@ namespace RSMPS
             LoadPCNStatus();
 
             SetBudgetUserLevel();
+            SetBudgetRateLevel(); //***************************************************************Added 9/30
             
             richTextBox1.Text = moCurrBudget.Clarification11000.ToString();
             richTextBox2.Text = moCurrBudget.Clarification12000.ToString();
@@ -654,6 +659,36 @@ namespace RSMPS
             }
 
            // MessageBox.Show(" SetBudgetUserLevel"); //***************************8
+        }
+
+        private void SetBudgetRateLevel() //***************************Added 9/29/2015 ************** 
+                                            //******************* If Flat Rate display Budget screen with limited column
+        {
+            if (mbIsFixedRate == true)
+            {
+                MessageBox.Show("Fixed rate");
+
+                foreach (var group in _Groups)
+                {
+                    txtSumDlrsForGroup(group.Code).Visible = false;
+                    txtSumRateForGroup(group.Code).Visible = false;
+                    txtSumExpForGroup(group.Code).Visible = false;
+                }
+
+                txtTotalDlrs.Visible = false;
+                txtTotalRate.Visible = false;
+                txtTotalExp.Visible = false;
+
+                foreach (var group in _Groups)
+                {
+                    // hide dollar columns in grid
+                    fgForGroup(group.Code).Cols[13].Visible = false;
+                    fgForGroup(group.Code).Cols[14].Visible = false;
+                }
+                 tdbgBudgetPCN.Splits[0].DisplayColumns[4].Visible = false;
+            }
+
+
         }
 
         private void tlbbWorksheet_Click(object sender, C1.Win.C1Command.ClickEventArgs e)

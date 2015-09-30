@@ -378,7 +378,7 @@ namespace RSMPS
             //chkIsTask.Checked = moDrwLog.IsTask;
 
             //******************************************************* Added 9/29/2015
-            MessageBox.Show(moDrwLog.DepartmentID.ToString() + "Previous task/drawing/specification?   " + moDrwLog.IsTaskDrwgSpec);
+       //     MessageBox.Show(moDrwLog.DepartmentID.ToString() + "Previous task/drawing/specification?   " + moDrwLog.IsTaskDrwgSpec);
             if (moDrwLog.DepartmentID == 10)
             {
                 SetDrawingType(1);
@@ -1184,7 +1184,7 @@ namespace RSMPS
         private void SetDrawingType(int taskVal)
         {
 
-            MessageBox.Show("Task val  .........."+taskVal.ToString());
+          //  MessageBox.Show("Task val  .........."+taskVal.ToString());
             if (taskVal == 0)
             {
                 rdoDrawing.Checked = true;
