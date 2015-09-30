@@ -94,7 +94,7 @@ namespace RSMPS
             DataSet ds = CBProjectSummary.GetForecastRemaining(usePipe);
             r.DataSource = ds;
             r.DataMember = "Table";
-
+            pv.ForeCastTitle = "Pipeline Forecast Remaining Report"; //********************Added 9/30/2015
             pv.ViewReportWithExcel(r);
             pv.ShowDialog();
         }
@@ -105,6 +105,13 @@ namespace RSMPS
 
             //if (usePipe == true)
               //  r.SetAsPipeline();
+
+            if (ENGPLSPM == 1)      //********************Added 9/30/2015
+            { pv.ForeCastTitle = r.SetAsEngineering(); }
+
+            if (ENGPLSPM == 3)
+            { pv.ForeCastTitle = r.SetAsPM(); }
+
 
             DataSet ds = CBProjectSummary.GetForecastRemainingNew(ENGPLSPM);
             r.DataSource = ds;

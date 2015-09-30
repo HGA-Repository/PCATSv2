@@ -25,6 +25,7 @@ namespace RSMPS
         private SectionReport rprt;
 
         public  string projNumber;  //**********************Added these three variables 6/25/15 
+        public string ForeCastTitle; //********************Added 9/30/2015
         public string pcnNumber;
         public  string reportType;
         public int budID;
@@ -275,11 +276,11 @@ namespace RSMPS
            
                      
            
-        //    MessageBox.Show(projNumber);
+            MessageBox.Show(projNumber);
             //MessageBox.Show(pcnNumber);
          //  MessageBox.Show(reportType);
            //MessageBox.Show(BusinessUnit);
-
+        //    MessageBox.Show(ForeCastTitle);
          
 
            DateTime dt = DateTime.Now;
@@ -316,7 +317,7 @@ namespace RSMPS
                                                 fileName = "PCI Log- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
                                             else
                                                 if (reportType == "RSMPS.rprtCostSummary")
-                                                    fileName = "Cost Summary- " + " " + dt.ToString("yyyMMdd hhmmss");
+                                                    fileName = "Cost Summary- " + projNumber + dt.ToString("yyyMMdd hhmmss");
                                                 else
                                                     if (reportType == "RSMPS.rprtPMReport1")
                                                         fileName = "PM Report- " + " " + dt.ToString("yyyMMdd hhmmss");
@@ -329,7 +330,7 @@ namespace RSMPS
 
                                                                   else
                                                                       if (reportType == "RSMPS.rprtForecastRemaining")
-                                                                          fileName = "Forecast Remaining- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                                                        fileName = ForeCastTitle +  "--" + dt.ToString("yyyMMdd hhmmss");
                                                                       else
                                                                           if (reportType == "RSMPS.rprtTravelExpenseDetail")
                                                                               fileName = "Travel Expense(WorkSheet)- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
