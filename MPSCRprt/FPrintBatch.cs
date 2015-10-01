@@ -177,6 +177,9 @@ namespace RSMPS
 
             cmd.CommandType = CommandType.StoredProcedure;
 
+
+            prm = cmd.Parameters.Add("@records", SqlDbType.Int); //*******Added 10/1/2015, because, it was throwing exception in PM Report
+            prm.Direction = ParameterDirection.Output;
             prm = cmd.Parameters.Add("@Project", SqlDbType.VarChar, 50);
             prm.Value = project;
             prm = cmd.Parameters.Add("@Rprtdate", SqlDbType.SmallDateTime);
@@ -401,6 +404,8 @@ namespace RSMPS
 
             cmd.CommandType = CommandType.StoredProcedure;
 
+            prm = cmd.Parameters.Add("@records", SqlDbType.Int); //*******Added 10/1/2015, because, it was throwing exception in ForeCast Batch Report
+            prm.Direction = ParameterDirection.Output;
             prm = cmd.Parameters.Add("@Project", SqlDbType.VarChar, 50);
             prm.Value = project;
             prm = cmd.Parameters.Add("@Rprtdate", SqlDbType.SmallDateTime);

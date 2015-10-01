@@ -149,8 +149,8 @@ namespace RSMPS
             da = new SqlDataAdapter();
             ds = new DataSet();
             da.SelectCommand = cmd;
-            try
-            {
+          //  try
+           // {
 
                 da.Fill(ds);
 
@@ -164,10 +164,10 @@ namespace RSMPS
                 rprt.DataMember = "Table";
                 viewer1.Document = rprt.Document;
                 rprt.Run();
-            }
-            catch {
-                MessageBox.Show("Exception");
-            }
+            //}
+            //catch {
+            //    MessageBox.Show("Exception");
+            //}
             this.Cursor = Cursors.Default;
         }
 
@@ -298,6 +298,9 @@ namespace RSMPS
                 cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision", cnn.GetConnection());
 
             cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@records", SqlDbType.Int); //*******Added 10/1/2015, because, it was throwing exception in PM Report
+            prm.Direction = ParameterDirection.Output;
 
             prm = cmd.Parameters.Add("@Project", SqlDbType.VarChar, 50);
             prm.Value = project;
