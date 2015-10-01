@@ -1289,19 +1289,19 @@ private void tdbdDeptGroup_MouseLeave(object sender, EventArgs e)
             }
         }
 
-        private void ClearCurrentRow_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
-        {
-           MessageBox.Show("Are you sure you wish to delete the current line?");
-           if (MessageBox.Show("Are you sure you wish to delete the current line?", "Delete Hours", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-           {
-               DataRow dr = moPCN.PCNData.PCNHours.Rows[tdbgHours.Bookmark];
-               DataRow dd = moPCN.PCNData.PCNHoursDeleted.NewRow();
-               dd["ID"] = dr["ID"];
-               moPCN.PCNData.PCNHoursDeleted.Rows.Add(dd);
+        //private void ClearCurrentRow_Click(object sender, C1.Win.C1Command.ClickEventArgs e) //*****************************Commented 9/30/2015, not needed
+        //{
+        //   MessageBox.Show("Are you sure you wish to delete the current line?");
+        //   if (MessageBox.Show("Are you sure you wish to delete the current line?", "Delete Hours", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+        //   {
+        //       DataRow dr = moPCN.PCNData.PCNHours.Rows[tdbgHours.Bookmark];
+        //       DataRow dd = moPCN.PCNData.PCNHoursDeleted.NewRow();
+        //       dd["ID"] = dr["ID"];
+        //       moPCN.PCNData.PCNHoursDeleted.Rows.Add(dd);
 
-               tdbgHours.Delete();
-           }
-        }
+        //       tdbgHours.Delete();
+        //   }
+        //}
 
 
         private void DeleteCurrentRow()

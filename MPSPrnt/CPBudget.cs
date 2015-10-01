@@ -77,6 +77,7 @@ namespace RSMPS
            
             
             pv.projNumber = proj.Number; // **************************Added 6/29/2015 **************************
+            pv.Title = rprt.MainReportTitle; //************************Added 10/1/2015
             pv.ViewReport(rprt);
             pv.ShowDialog();
         }
@@ -129,8 +130,12 @@ namespace RSMPS
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
 
-
+            
             pv.projNumber = proj.Number; // **************************Added 6/29/2015 **************************
+                    if (rate == false)//************************Added 10/1/2015
+                         pv.Title = rprt.MainReportTitle + "WO Rate"; 
+                    else
+                        pv.Title = rprt.MainReportTitle; 
             pv.ViewReport(rprt);
             pv.ShowDialog();
         }
@@ -228,7 +233,7 @@ namespace RSMPS
             rprt.SetTitles(cust.Name + " / " + loc.City + "," + state.Abbrev, proj.Description, proj.Number, bud.GetNumber(), wbs);
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
-
+            pv.Title = rprt.MainReportTitle; //************************Added 10/1/2015
             pv.ViewReport(rprt);
             pv.ShowDialog();
         }
@@ -292,7 +297,7 @@ namespace RSMPS
 
             GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport PDFEx = new GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport();
             
-
+             pv.Title = rprt.MainReportTitle; //************************Added 10/1/2015
             rprt.Run();
 
             SaveFileDialog sv1 = new SaveFileDialog();
@@ -399,8 +404,9 @@ namespace RSMPS
             rprt.SetInformation(pcn);
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
-
+            pv.Title = pcn.PCNTitle; //************************Added 10/1/2015
             //rprt.Run();
+
             pv.ViewReport(rprt);
             pv.ShowDialog();
         }
@@ -422,8 +428,8 @@ namespace RSMPS
             //rprt.Run();
             pv.projNumber = projNumber;
             pv.pcnNumber = pcnNumber;
-
-           // MessageBox.Show(pv.projNumber);
+            pv.Title = pcn.PCNTitle; //************************Added 10/1/2015
+           
 
 
             pv.ViewReport(rprt);

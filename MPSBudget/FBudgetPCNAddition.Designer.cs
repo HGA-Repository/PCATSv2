@@ -130,7 +130,7 @@ namespace RSMPS
             this.tlbbClose = new C1.Win.C1Command.C1Command();
             this.tlbbHourExport = new C1.Win.C1Command.C1Command();
             this.tlbbExpenseExport = new C1.Win.C1Command.C1Command();
-            this.ClearCurrentRow = new C1.Win.C1Command.C1Command();
+           // this.ClearCurrentRow = new C1.Win.C1Command.C1Command();
             this.c1ToolBar1 = new C1.Win.C1Command.C1ToolBar();
             this.c1CommandLink1 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink2 = new C1.Win.C1Command.C1CommandLink();
@@ -988,7 +988,7 @@ namespace RSMPS
             this.c1CommandHolder1.Commands.Add(this.tlbbClose);
             this.c1CommandHolder1.Commands.Add(this.tlbbHourExport);
             this.c1CommandHolder1.Commands.Add(this.tlbbExpenseExport);
-            this.c1CommandHolder1.Commands.Add(this.ClearCurrentRow);
+           // this.c1CommandHolder1.Commands.Add(this.ClearCurrentRow);
             this.c1CommandHolder1.Owner = this;
             this.c1CommandHolder1.VisualStyle = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
@@ -1039,10 +1039,10 @@ namespace RSMPS
             // 
             // ClearCurrentRow
             // 
-            this.ClearCurrentRow.Name = "ClearCurrentRow";
-            this.ClearCurrentRow.ShortcutText = "";
-            this.ClearCurrentRow.Text = "ClearCurrentRow";
-            this.ClearCurrentRow.Click += new C1.Win.C1Command.ClickEventHandler(this.ClearCurrentRow_Click);
+           // this.ClearCurrentRow.Name = "ClearCurrentRow";
+            //this.ClearCurrentRow.ShortcutText = "";
+            //this.ClearCurrentRow.Text = "ClearCurrentRow";
+            //this.ClearCurrentRow.Click += new C1.Win.C1Command.ClickEventHandler(this.ClearCurrentRow_Click);
             // 
             // c1ToolBar1
             // 
@@ -1098,7 +1098,7 @@ namespace RSMPS
             // 
             // c1CommandLink12
             // 
-            this.c1CommandLink12.Command = this.ClearCurrentRow;
+         //   this.c1CommandLink12.Command = this.ClearCurrentRow;
             this.c1CommandLink12.SortOrder = 12;
             // 
             // FBudgetPCNAddition
@@ -1231,12 +1231,12 @@ namespace RSMPS
         private C1.Win.C1Command.C1CommandLink c1CommandLink10;
         private C1.Win.C1Command.C1Command tlbbExpenseExport; 
         private C1.Win.C1Command.C1CommandLink c1CommandLink11;
-        private C1.Win.C1Command.C1Command tlbbClearCurrentRow;//*********************Added 9/9/15
+    //    private C1.Win.C1Command.C1Command tlbbClearCurrentRow;//*********************Added 9/9/15
         private C1.Win.C1Command.C1CommandLink c1CommandLink12;
 
 
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private C1.Win.C1Command.C1Command ClearCurrentRow;
+       // private C1.Win.C1Command.C1Command ClearCurrentRow;
         private C1.Win.C1TrueDBGrid.C1TrueDBDropdown tdbdDeptGroup;
         //*********************Added 6/3/15
     }
