@@ -545,7 +545,7 @@ namespace RSMPS
             LoadPCNStatus();
 
             SetBudgetUserLevel();
-            SetBudgetRateLevel(); //***************************************************************Added 9/30
+          //  SetBudgetRateLevel(); //***************************************************************Added 9/30
             
             richTextBox1.Text = moCurrBudget.Clarification11000.ToString();
             richTextBox2.Text = moCurrBudget.Clarification12000.ToString();
@@ -656,6 +656,10 @@ namespace RSMPS
                 }
 
                 tdbgBudgetPCN.Splits[0].DisplayColumns[4].Visible = false;
+
+                //if (mbIsFixedRate == true)
+                //    SetBudgetRateLevel();
+
             }
 
            // MessageBox.Show(" SetBudgetUserLevel"); //***************************8
@@ -664,8 +668,8 @@ namespace RSMPS
         private void SetBudgetRateLevel() //***************************Added 9/29/2015 ************** 
                                             //******************* If Flat Rate display Budget screen with limited column
         {
-            if (mbIsFixedRate == true)
-            {
+           // if (mbIsFixedRate == true)
+          //  {
                 MessageBox.Show("Fixed rate");
 
                 foreach (var group in _Groups)
@@ -686,7 +690,7 @@ namespace RSMPS
                     fgForGroup(group.Code).Cols[14].Visible = false;
                 }
                  tdbgBudgetPCN.Splits[0].DisplayColumns[4].Visible = false;
-            }
+           // }
 
 
         }
