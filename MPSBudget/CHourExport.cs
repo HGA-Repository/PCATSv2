@@ -23,26 +23,20 @@ namespace RSMPS
             // must be output with the following columns
             // code,blank,description,quantity,uom,hours,rate,cost
 
-           // dr = CBBudgetLine.GetExportListByBudget(budgetID);
+        
             dr = CBBudgetLine.GetExportList_Hour_ByPCNID(PCNID);
 
-            indx = 0;
+            indx = 1;
             tmpRate = 0;
-
-                                    //while (dr.Read())
-                                    //{
-                                    //    sheet[indx, 3].Value = dr["Activity"];                                                      //  code
-                                    //    sheet[indx, 4].Value = "";                                                                  //  blank
-                                    //    sheet[indx, 5].Value = dr["FullDescription"];                                               //  description
-                                    //    sheet[indx, 6].Value = dr["Quantity"].ToString();                                           //  quantity
-                                    //    sheet[indx, 7].Value = dr["UOM"];                                                           //  uom
-                                    //    sheet[indx, 8].Value = dr["TotalHours"].ToString();                                         //  hours
-                                    //    tmpRate = GetHourRate(Convert.ToInt32(dr["TotalHours"]), Convert.ToDecimal(dr["TotalDollars"]));
-                                    //    sheet[indx, 9].Value = tmpRate.ToString("#,##0.00");                                        //  rate
-                                    //    sheet[indx, 10].Value = Convert.ToDecimal(dr["TotalDollars"]).ToString("#,##0.00");         //  cost
-
-                                    //    indx++;
-                                    //}
+            sheet[0, 3].Value = "PCNID";
+            sheet[0, 4].Value = "Code";
+            sheet[0, 5].Value = "WBS";
+            sheet[0, 6].Value = "Description";
+            sheet[0, 7].Value = "Quantity";
+            sheet[0, 8].Value = "HoursPerItem";
+            sheet[0, 9].Value = "Rate";
+            sheet[0, 10].Value = "SubtotalHrs";
+            sheet[0, 11].Value = "SubtotalDlrs";
             while (dr.Read())
             {
                 sheet[indx, 3].Value = dr["PCNID"];                                                      //  code

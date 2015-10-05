@@ -215,6 +215,32 @@ namespace RSMPS
             return dbDt.GetWBSListByProject(projectID);
         }
 
+        public static SqlDataReader GetExportListForDrawingLog(string dXml, string pXml, int sortCode, int drwgSpec)//*****************Added 10/2/2015
+        {
+          //  CDbBudgetLine dbDt = new CDbBudgetLine();
+            
+           // return dbDt.GetExportListByBudget(budID);
+            CDbDrawingLog dbDt = new CDbDrawingLog();
+            return  dbDt.GetDrawingLogMainByDeptListProjList_Test(dXml, pXml, sortCode, drwgSpec);
+        }
+        public static SqlDataReader GetExportListForDrawingLog_Dept( string xml, int sortCode, int drwgSpec)//*****************Added 10/2/2015
+        {
+            CDbDrawingLog dbDt = new CDbDrawingLog();
+            return dbDt.GetDrawingLogMainByDeptList_Test(xml, sortCode, drwgSpec);
+        }
+        public static SqlDataReader GetExportListForDrawingLog_Proj(string xml, int sortCode, int drwgSpec)//*****************Added 10/2/2015
+        {
+            CDbDrawingLog dbDt = new CDbDrawingLog();
+            return dbDt.GetDrawingLogMainByProjList_Test(xml, sortCode, drwgSpec);
+        }
+        public static SqlDataReader GetExportListForDrawingLog_Lead(string dXml, string lXml, int sortCode, int drwgSpec)//*****************Added10/2/2015
+        {
+            CDbDrawingLog dbDt = new CDbDrawingLog();
+            return dbDt.GetDrawingLogMainByLeadList_Test(dXml, lXml, sortCode, drwgSpec);
+        }
+
+
+
         public static DataSet GetListbyDeptProjForUpdate(int deptID, int projID, string wbs)
         {
             CDbDrawingLog dbDt = new CDbDrawingLog();

@@ -1106,6 +1106,116 @@ namespace RSMPS
             return ds;
         }
 
+        public SqlDataReader GetDrawingLogMainByDeptListProjList_Test(string dXml, string pXml, int sortCode, int drwgSpec) //************************Added 10/3/2015
+        {
+            SqlDataReader dr;
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spRPRT_DrawingLogMainByDeptListProjList_FromTrans", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@DeptXML", SqlDbType.Text);
+            prm.Value = dXml;
+            prm = cmd.Parameters.Add("@ProjXML", SqlDbType.Text);
+            prm.Value = pXml;
+            prm = cmd.Parameters.Add("@SortCode", SqlDbType.Int);
+            prm.Value = sortCode;
+            prm = cmd.Parameters.Add("@DrwgSpecVal", SqlDbType.Int);
+            prm.Value = drwgSpec;
+
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            cmd = null;
+
+            return dr;
+
+        }
+        public SqlDataReader  GetDrawingLogMainByDeptList_Test(string dXml, int sortCode, int drwgSpec)
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            dsDrawingLog ds;
+            SqlDataReader dr;
+            int drawingID = 0;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spRPRT_DrawingLogMainByDeptListProj", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@DeptXML", SqlDbType.Text);
+            prm.Value = dXml;
+            prm = cmd.Parameters.Add("@SortCode", SqlDbType.Int);
+            prm.Value = sortCode;
+            prm = cmd.Parameters.Add("@DrwgSpecVal", SqlDbType.Int);
+            prm.Value = drwgSpec;
+
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            cmd = null;
+            return dr;
+            
+            
+        }
+            public SqlDataReader GetDrawingLogMainByProjList_Test(string pXml, int sortCode, int drwgSpec)
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            dsDrawingLog ds;
+            SqlDataReader dr;
+            int drawingID = 0;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spRPRT_DrawingLogMainByDeptProjList_FromTrans", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@ProjXML", SqlDbType.Text);
+            prm.Value = pXml;
+            prm = cmd.Parameters.Add("@SortCode", SqlDbType.Int);
+            prm.Value = sortCode;
+            prm = cmd.Parameters.Add("@DrwgSpecVal", SqlDbType.Int);
+            prm.Value = drwgSpec;
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            cmd = null;
+            return dr;
+        }
+                public SqlDataReader GetDrawingLogMainByLeadList_Test(string dXml, string lXml, int sortCode, int drwgSpec)
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            dsDrawingLog ds;
+            SqlDataReader dr;
+            int drawingID = 0;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spRPRT_DrawingLogMainByDeptListLeadList_FromTrans", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@DeptXML", SqlDbType.Text);
+            prm.Value = dXml;
+            prm = cmd.Parameters.Add("@LeadXML", SqlDbType.Text);
+            prm.Value = lXml;
+            prm = cmd.Parameters.Add("@SortCode", SqlDbType.Int);
+            prm.Value = sortCode;
+            prm = cmd.Parameters.Add("@DrwgSpecVal", SqlDbType.Int);
+            prm.Value = drwgSpec;
+
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            cmd = null;
+            return dr;
+        }
+
+
+
+
+
+
         public dsDrawingLog GetDrawingLogMainByLeadList(string dXml, string lXml, int sortCode, int drwgSpec)
         {
             RSLib.CDbConnection cnn;

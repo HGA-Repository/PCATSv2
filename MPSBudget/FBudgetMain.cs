@@ -4050,6 +4050,8 @@ namespace RSMPS
         private void tlbbBudgetExport_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
             CBudgetExport be = new CBudgetExport();
+            DateTime dt = DateTime.Now;
+            saveFileDialog1.FileName = "Budget-" + msProject + "-" + dt.ToString("yyyMMdd hhmmss") ; //*******************Added 10/4/2015
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {

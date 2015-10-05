@@ -169,20 +169,20 @@ namespace RSMPS
         {
             if (e.Index != 0 && e.NewValue == CheckState.Checked)
             {
-               // MessageBox.Show("11111111111111111111111111111");
+               
                 mbListWork = true;
                 clstDepartments.SetItemCheckState(0, CheckState.Unchecked);
                 mbListWork = false;
 
                 if (clstDepartments.CheckedItems.Count == 0)
                 {
-                  //  MessageBox.Show("22222222222222222222222222222");
+                  
                     rdoProjects.Enabled = true;
                     rdoLeads.Enabled = true;
                 }
                 else
                 {
-                    //MessageBox.Show("33333333333333333333333333333333");
+                   
                     rdoProjects.Checked = true;
                     rdoProjects.Enabled = false;
                     rdoLeads.Enabled = false;
@@ -194,7 +194,7 @@ namespace RSMPS
                 {
                     rdoProjects.Enabled = true;
                     rdoLeads.Enabled = true;
-                   ///////// MessageBox.Show("444444444444444444444444444444444444");
+                  
                 }
                 else
                 {
@@ -205,7 +205,7 @@ namespace RSMPS
             }
             else if (e.Index == 0 && e.NewValue == CheckState.Checked)
             {
-                MessageBox.Show("555555555555555555555555555555555");
+                
                 if (mbListWork == true)
                     return;
 
@@ -224,7 +224,7 @@ namespace RSMPS
             }
             else if (e.Index == 0 && clstDepartments.CheckedItems.Count <= 1 && mbListWork == false)
             {
-                MessageBox.Show("66666666666666666666666666666666666666666");
+                
                 e.NewValue = CheckState.Checked;
             }
         }
@@ -233,14 +233,14 @@ namespace RSMPS
         {
             if (e.Index != 0 && e.NewValue == CheckState.Checked)
             {
-               // MessageBox.Show("11.......................");
+               
                 mbListWork = true;
                 clstProjects.SetItemCheckState(0, CheckState.Unchecked);
                 mbListWork = false;
             }
             else if (e.Index == 0 && e.NewValue == CheckState.Checked)
             {
-               // MessageBox.Show("22.......................");
+              
                 if (mbListWork == true)
                     return;
 
@@ -251,14 +251,14 @@ namespace RSMPS
                     clstProjects.SetItemCheckState(i, CheckState.Unchecked);
                     j++;
                 }
-              //  MessageBox.Show("XX......................." + j);
+              
                 clstProjects.SetItemChecked(0, true);
 
                 mbListWork = false;
             }
             else if (e.Index == 0 && clstProjects.CheckedItems.Count <= 1 && mbListWork == false)
             {
-                MessageBox.Show("33.......................");
+                
                 e.NewValue = CheckState.Checked;
             }
         }
@@ -278,7 +278,6 @@ namespace RSMPS
                 dr = dt.NewRow();
                 dr["DeptID"] = ((RSLib.COListItem)o).ID;
                 dept_id = ((RSLib.COListItem)o).ID;
-                //MessageBox.Show("Dept ID.................." + dept_id);
                 dt.Rows.Add(dr);
             }
 
@@ -308,8 +307,7 @@ namespace RSMPS
                 dr = dt.NewRow();
                 dr["ProjID"] = ((RSLib.COListItem)o).ID;
                k = ((RSLib.COListItem)o).ID;
-              // MessageBox.Show("Project ID.................." + k);
-                dt.Rows.Add(dr);
+               dt.Rows.Add(dr);
                 
             }
 
@@ -318,8 +316,7 @@ namespace RSMPS
             if (clstProjects.CheckedItems.Count > 0)
             {
                 pXml = ds.GetXml();
-                MessageBox.Show("Project pXml" + pXml);
-            }
+                           }
             else
                 pXml = "";
         }
@@ -567,14 +564,14 @@ namespace RSMPS
             if (IsDepartmentAllChecked() == true)
             {
                 CreateProjectXMLList(ref xml1);
-                CreateDepartmentXMLList(ref xml1); // *********************** Added to check
+                            //CreateDepartmentXMLList(ref xml1); // *********************** Added to check
 
                 dl.PrintDrawingLogList(xml1, false, isPreview, sortCode, drwgSpec);
             }
             else if (IsProjectLeadAllChecked() == true)
             {
                 CreateDepartmentXMLList(ref xml1);
-                CreateProjectXMLList(ref xml1); // *********************** Added to check
+                            //CreateProjectXMLList(ref xml1); // *********************** Added to check
 
                 dl.PrintDrawingLogList(xml1, true, isPreview, sortCode, drwgSpec);
             }

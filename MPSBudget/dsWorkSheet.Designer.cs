@@ -986,6 +986,8 @@ namespace RSMPS {
             
             private global::System.Data.DataColumn columnE595;
             
+            private global::System.Data.DataColumn columnDeptGroup;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ExpensesDataTable() {
@@ -1341,6 +1343,14 @@ namespace RSMPS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DeptGroupColumn {
+                get {
+                    return this.columnDeptGroup;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1416,7 +1426,8 @@ namespace RSMPS {
                         string E592, 
                         string E593, 
                         string E594, 
-                        string E595) {
+                        string E595, 
+                        string DeptGroup) {
                 ExpensesRow rowExpensesRow = ((ExpensesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
@@ -1458,7 +1469,8 @@ namespace RSMPS {
                         E592,
                         E593,
                         E594,
-                        E595};
+                        E595,
+                        DeptGroup};
                 rowExpensesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowExpensesRow);
                 return rowExpensesRow;
@@ -1521,6 +1533,7 @@ namespace RSMPS {
                 this.columnE593 = base.Columns["E593"];
                 this.columnE594 = base.Columns["E594"];
                 this.columnE595 = base.Columns["E595"];
+                this.columnDeptGroup = base.Columns["DeptGroup"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1606,6 +1619,8 @@ namespace RSMPS {
                 base.Columns.Add(this.columnE594);
                 this.columnE595 = new global::System.Data.DataColumn("E595", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnE595);
+                this.columnDeptGroup = new global::System.Data.DataColumn("DeptGroup", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDeptGroup);
                 this.columnWorkGuid.DefaultValue = ((string)("\"\""));
             }
             
@@ -3490,6 +3505,22 @@ namespace RSMPS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DeptGroup {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpenses.DeptGroupColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DeptGroup\' in table \'Expenses\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpenses.DeptGroupColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsIDNull() {
                 return this.IsNull(this.tableExpenses.IDColumn);
             }
@@ -3966,6 +3997,18 @@ namespace RSMPS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetE595Null() {
                 this[this.tableExpenses.E595Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDeptGroupNull() {
+                return this.IsNull(this.tableExpenses.DeptGroupColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDeptGroupNull() {
+                this[this.tableExpenses.DeptGroupColumn] = global::System.Convert.DBNull;
             }
         }
         

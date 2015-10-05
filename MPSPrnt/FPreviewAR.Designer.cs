@@ -30,7 +30,9 @@ namespace RSMPS
         {
             this.viewer1 = new GrapeCity.ActiveReports.Viewer.Win.Viewer();
             this.c1Button1 = new C1.Win.C1Input.C1Button();
+            this.bttExportExcel = new C1.Win.C1Input.C1Button();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bttExportExcel)).BeginInit();
             this.SuspendLayout();
             // 
             // viewer1
@@ -79,11 +81,23 @@ namespace RSMPS
             this.c1Button1.UseVisualStyleBackColor = true;
             this.c1Button1.Click += new System.EventHandler(this.c1Button1_Click);
             // 
+            // bttExportExcel
+            // 
+            this.bttExportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bttExportExcel.Location = new System.Drawing.Point(594, 87);
+            this.bttExportExcel.Name = "bttExportExcel";
+            this.bttExportExcel.Size = new System.Drawing.Size(127, 53);
+            this.bttExportExcel.TabIndex = 2;
+            this.bttExportExcel.Text = "Export Drawing Log To Excell";
+            this.bttExportExcel.UseVisualStyleBackColor = true;
+            this.bttExportExcel.Click += new System.EventHandler(this.bttExportExcel_Click);
+            // 
             // FPreviewAR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(733, 634);
+            this.Controls.Add(this.bttExportExcel);
             this.Controls.Add(this.c1Button1);
             this.Controls.Add(this.viewer1);
             this.Name = "FPreviewAR";
@@ -93,6 +107,7 @@ namespace RSMPS
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FPreviewAR_Load);
             ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bttExportExcel)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -103,5 +118,6 @@ namespace RSMPS
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private GrapeCity.ActiveReports.Viewer.Win.Viewer viewer1;
         private C1.Win.C1Input.C1Button c1Button1;
+        private C1.Win.C1Input.C1Button bttExportExcel;
     }
 }

@@ -137,7 +137,6 @@ namespace RSMPS
             this.c1CommandLink4 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink10 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink11 = new C1.Win.C1Command.C1CommandLink();
-            this.c1CommandLink12 = new C1.Win.C1Command.C1CommandLink();
             this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tabControl1.SuspendLayout();
@@ -1027,6 +1026,7 @@ namespace RSMPS
             this.tlbbHourExport.Name = "tlbbHourExport";
             this.tlbbHourExport.ShortcutText = "";
             this.tlbbHourExport.Text = "Hour Export";
+            this.tlbbHourExport.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbHourExport_Click);
             // 
             // tlbbExpenseExport
             // 
@@ -1047,8 +1047,7 @@ namespace RSMPS
             this.c1CommandLink3,
             this.c1CommandLink4,
             this.c1CommandLink10,
-            this.c1CommandLink11,
-            this.c1CommandLink12});
+            this.c1CommandLink11});
             this.c1ToolBar1.Dock = System.Windows.Forms.DockStyle.Top;
             this.c1ToolBar1.Location = new System.Drawing.Point(0, 0);
             this.c1ToolBar1.Movable = false;
@@ -1087,9 +1086,10 @@ namespace RSMPS
             this.c1CommandLink11.Command = this.tlbbExpenseExport;
             this.c1CommandLink11.SortOrder = 11;
             // 
-            // c1CommandLink12
+            // saveFileDialog1          //*******************************Added 10/4/2015
             // 
-            this.c1CommandLink12.SortOrder = 12;
+            this.saveFileDialog1.DefaultExt = "xls";
+            this.saveFileDialog1.Filter = "Excel files|*.xls";
             // 
             // FBudgetPCNAddition
             // 
@@ -1221,8 +1221,8 @@ namespace RSMPS
         private C1.Win.C1Command.C1CommandLink c1CommandLink10;
         private C1.Win.C1Command.C1Command tlbbExpenseExport; 
         private C1.Win.C1Command.C1CommandLink c1CommandLink11;
-    //    private C1.Win.C1Command.C1Command tlbbClearCurrentRow;//*********************Added 9/9/15
-        private C1.Win.C1Command.C1CommandLink c1CommandLink12;
+    //    private C1.Win.C1Command.C1Command tlbbClearCurrentRow;//*********************Added 9/9/15******Commented 10/4
+       // private C1.Win.C1Command.C1CommandLink c1CommandLink12;
 
 
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;

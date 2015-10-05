@@ -283,73 +283,14 @@ namespace RSMPS
         //    MessageBox.Show(ForeCastTitle);
          
 
-           DateTime dt = DateTime.Now;
-            string fileName ;
-                        if(reportType == "RSMPS.rprtBudgetDetail")
-                             fileName = Title +"-" + projNumber   + " " + dt.ToString("yyyMMdd hhmmss");
-
-                        else
-                            if (reportType == "RSMPS.rprtPCNMain")
-                                 fileName = "Project Change Notice-"+ projNumber +Title + "-" +  "-PCN No-"  + pcnNumber + "-" + dt.ToString("yyyMMdd hhmmss");
-                            else
-                                if (reportType == "RSMPS.rprtBudgetSummary1")
-                                  fileName = Title +"-" + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
-                                else
-                                    if (reportType == "GrapeCity.ActiveReports.SectionReport")
-                                        fileName = "Proposal Budget Detail(All)- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
-                                        else
-                                            if (reportType == "RSMPS.rprtBudgetJobStat2")
-                                                fileName = "Job Stat Data- " + " " + projNumber + " " + dt.ToString("yyyMMdd hhmmss"); 
-                                              else
-                                                if (reportType == "RSMPS.rprtBudgetAccounting")
-                                                    fileName = "Budget Entry- " + " " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
-                            else 
-                                if(reportType == "RSMPS.rprtPCIInformation")
-                                     fileName = "Project Change Identification- " + projNumber  +" " + dt.ToString("yyyMMdd hhmmss");
-                                else
-                                    if (reportType == "RSMPS.rprtJobStat1")
-                                        fileName = "Job Stat- "  + " " + dt.ToString("yyyMMdd hhmmss"); //******No project No, because there may be many
-                                    else
-                                        if (reportType == "RSMPS.rprtPCNLog")
-                                            fileName = "PCN Log- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
-                                        else
-                                            if (reportType == "RSMPS.rprtPCILog")
-                                                fileName = "PCI Log- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
-                                            else
-                                                if (reportType == "RSMPS.rprtCostSummary")
-                                                    fileName = "Cost Summary- " + projNumber + "- " + dt.ToString("yyyMMdd hhmmss");
-                                                else
-                                                    if (reportType == "RSMPS.rprtPMReport1")
-                                                        fileName = "PM Report- " + " " + dt.ToString("yyyMMdd hhmmss");
-                                                    else
-                                                        if (reportType == "RSMPS.rprtJobVariance1")
-                                                            fileName = "Job Varience- " + " " + dt.ToString("yyyMMdd hhmmss");
-                                                             else
-                                                                  if (reportType == "RSMPS.rprtDrawingLogTranAlt2")
-                                                                   fileName = "Drawing Log- "+ " " + dt.ToString("yyyMMdd hhmmss"); //******No project No, because there may be many
-
-                                                                  else
-                                                                      if (reportType == "RSMPS.rprtForecastRemaining")
-                                                                        fileName = Title +  "--" + dt.ToString("yyyMMdd hhmmss");
-                                                                      else
-                                                                          if (reportType == "RSMPS.rprtTravelExpenseDetail")
-                                                                              fileName = "Travel Expense(WorkSheet)- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
-                                                    else
-                                                        if (reportType == "RSMPS.rprtTransmittal1")
-                                                           fileName = "Transmittal- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
-                                                        else
-                                                            if (reportType == "RSMPS.rprtTransmittalRelease1")
-                                                                fileName = "Issue Release- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss"); 
-                                                   
-                                                       else fileName = "Report-" + dt.ToString("yyyMMdd hhmmss"); 
-
            // MessageBox.Show(fileName);
-
+            Report_Name = CreateFileNAme();
             SaveFileDialog sv1 = new SaveFileDialog();
             // sv1.InitialDirectory = "c:\\MZ\\";
             sv1.InitialDirectory = "v:\\HGA\\";
 
-            sv1.FileName = fileName;
+          
+            sv1.FileName = Report_Name;
             sv1.Filter = "PDF Files | *.pdf";
             sv1.DefaultExt = "pdf";
 
@@ -366,5 +307,118 @@ namespace RSMPS
 
 
         }
+
+        public string Report_Name;
+        public string deptXml; public string projXml; public string xml; public string leadXml; 
+        public bool isPreview; public int sortCode; public int drwgSpec;
+        public string name_of_Method;
+       
+        private void bttExportExcel_Click(object sender, EventArgs e)
+        {
+            CDrawingLogExport DrEx = new CDrawingLogExport();
+
+            SaveFileDialog sv2 = new SaveFileDialog();
+            Report_Name = CreateFileNAme();
+            sv2.FileName = Report_Name;
+            sv2.Filter = "XLS Files | *.xls";
+            sv2.DefaultExt = "xls";
+          //  MessageBox.Show(deptXml);
+          //  MessageBox.Show(projXml);
+          //  MessageBox.Show(sortCode.ToString());
+          //  MessageBox.Show(drwgSpec.ToString());
+
+            if (sv2.ShowDialog() == DialogResult.OK)
+            {
+              if(name_of_Method =="GetDrawingLogMainByDeptListProjList" )
+                   DrEx.ExportBudgetForPrimavera_GetDrawingLogMainByDeptListProjList(sv2.FileName, deptXml, projXml, sortCode, drwgSpec);
+
+                if(name_of_Method =="GetDrawingLogMainByDeptList")
+                    DrEx.ExportBudgetForPrimavera_GetDrawingLogMainByDeptList(sv2.FileName, xml, sortCode, drwgSpec);
+       
+                if(name_of_Method =="GetDrawingLogMainByProjList")
+                    DrEx.ExportBudgetForPrimavera_GetDrawingLogMainByProjList(sv2.FileName, xml, sortCode, drwgSpec);
+       
+                if(name_of_Method =="GetDrawingLogMainByLeadList")
+                    DrEx.ExportBudgetForPrimavera_GetDrawingLogMainByLeadList(sv2.FileName, deptXml, leadXml, sortCode, drwgSpec); 
+
+
+
+
+            }
+        }
+
+
+        public string CreateFileNAme() //******************Added / Edited 10/4/2015
+        {
+            DateTime dt = DateTime.Now;
+            string fileName;
+            if (reportType == "RSMPS.rprtBudgetDetail")
+                fileName = Title + "-" + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+
+            else
+                if (reportType == "RSMPS.rprtPCNMain")
+                    fileName = "Project Change Notice-" + projNumber + Title + "-" + "-PCN No-" + pcnNumber + "-" + dt.ToString("yyyMMdd hhmmss");
+                else
+                    if (reportType == "RSMPS.rprtBudgetSummary1")
+                        fileName = Title + "-" + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                    else
+                        if (reportType == "GrapeCity.ActiveReports.SectionReport")
+                            fileName = "Proposal Budget Detail(All)- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                        else
+                            if (reportType == "RSMPS.rprtBudgetJobStat2")
+                                fileName = "Job Stat Data- " + " " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                            else
+                                if (reportType == "RSMPS.rprtBudgetAccounting")
+                                    fileName = "Budget Entry- " + " " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                else
+                                    if (reportType == "RSMPS.rprtPCIInformation")
+                                        fileName = "Project Change Identification- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                    else
+                                        if (reportType == "RSMPS.rprtJobStat1")
+                                            fileName = "Job Stat- " + " " + dt.ToString("yyyMMdd hhmmss"); //******No project No, because there may be many
+                                        else
+                                            if (reportType == "RSMPS.rprtPCNLog")
+                                                fileName = "PCN Log- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                            else
+                                                if (reportType == "RSMPS.rprtPCILog")
+                                                    fileName = "PCI Log- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                                else
+                                                    if (reportType == "RSMPS.rprtCostSummary")
+                                                        fileName = "Cost Summary- " + projNumber + "- " + dt.ToString("yyyMMdd hhmmss");
+                                                    else
+                                                        if (reportType == "RSMPS.rprtPMReport1")
+                                                            fileName = "PM Report- " + " " + dt.ToString("yyyMMdd hhmmss");
+                                                        else
+                                                            if (reportType == "RSMPS.rprtJobVariance1")
+                                                                // fileName = "Job Varience- " + " " + dt.ToString("yyyMMdd hhmmss");
+                                                                fileName = Title + "-" + " " + dt.ToString("yyyMMdd hhmmss");
+                                                            else
+                                                                if (reportType == "RSMPS.rprtDrawingLogTranAlt2")
+                                                                    fileName = "Drawing Log- " + " " + dt.ToString("yyyMMdd hhmmss"); //******No project No, because there may be many
+
+                                                                else
+                                                                    if (reportType == "RSMPS.rprtForecastRemaining")
+                                                                        fileName = Title + "--" + dt.ToString("yyyMMdd hhmmss");
+                                                                    else
+                                                                        if (reportType == "RSMPS.rprtTravelExpenseDetail")
+                                                                            fileName = "Travel Expense(WorkSheet)- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                                                        else
+                                                                            if (reportType == "RSMPS.rprtTransmittal1")
+                                                                                fileName = "Transmittal- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+                                                                            else
+                                                                                if (reportType == "RSMPS.rprtTransmittalRelease1")
+                                                                                    fileName = "Issue Release- " + projNumber + " " + dt.ToString("yyyMMdd hhmmss");
+
+                                                                                else fileName = "Report-" + dt.ToString("yyyMMdd hhmmss");
+            return fileName;
+
+        }
+
+
+
     }
 }
+
+
+	
+	

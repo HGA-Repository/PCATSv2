@@ -1271,10 +1271,13 @@ private void tdbdDeptGroup_MouseLeave(object sender, EventArgs e)
         {
            // CBudgetExport be = new CBudgetExport();
             CHourExport he = new CHourExport();
+            DateTime dt = DateTime.Now;
+            saveFileDialog1.FileName = "PCN Hour-" + moProj.Number + "-" + moPCN.PCNTitle + "-" + moPCN.PCNNumber + "-" + dt.ToString("yyyMMdd hhmmss"); //*******************Added 10/4/2015
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                he.ExportBudgetForPrimavera(saveFileDialog1.FileName, moPCN.ID);
+               
             }
         }
 
@@ -1282,7 +1285,8 @@ private void tdbdDeptGroup_MouseLeave(object sender, EventArgs e)
         {
             
             CExpenseExport ee = new CExpenseExport();
-
+            DateTime dt = DateTime.Now;
+            saveFileDialog1.FileName = "PCN Expense-" + moProj.Number + "-" + moPCN.PCNTitle + "-" + moPCN.PCNNumber + "-" + dt.ToString("yyyMMdd hhmmss"); //*******************Added 10/4/2015
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                ee.ExportBudgetForPrimavera(saveFileDialog1.FileName, moPCN.ID);
