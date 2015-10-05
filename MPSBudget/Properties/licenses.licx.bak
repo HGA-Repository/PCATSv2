@@ -1,8 +1,9 @@
-C1.Win.C1SpellChecker.C1SpellChecker, C1.Win.C1SpellChecker.2, Version=2.0.20142.142, Culture=neutral, PublicKeyToken=79882d576c6336da
-C1.C1Excel.C1XLBook, C1.C1Excel.2, Version=2.1.20142.323, Culture=neutral, PublicKeyToken=79882d576c6336da
-C1.Win.C1TrueDBGrid.C1TrueDBGrid, C1.Win.C1TrueDBGrid.2, Version=2.0.20142.61401, Culture=neutral, PublicKeyToken=75ae3fb0e2b1e0da
-C1.Win.C1Command.C1ToolBar, C1.Win.C1Command.2, Version=2.0.20142.19708, Culture=neutral, PublicKeyToken=e808566f358766d8
-C1.Win.C1List.C1Combo, C1.Win.C1List.2, Version=2.1.20142.305, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc
-C1.Win.C1FlexGrid.C1FlexGrid, C1.Win.C1FlexGrid.2, Version=2.6.20142.842, Culture=neutral, PublicKeyToken=79882d576c6336da
-C1.Win.C1Command.C1CommandHolder, C1.Win.C1Command.2, Version=2.0.20142.19708, Culture=neutral, PublicKeyToken=e808566f358766d8
-C1.Win.C1List.C1List, C1.Win.C1List.2, Version=2.1.20142.305, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc
+C1.Win.C1List.C1Combo, C1.Win.C1List.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc
+C1.Win.C1SpellChecker.C1SpellChecker, C1.Win.C1SpellChecker.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da
+C1.Win.C1List.C1List, C1.Win.C1List.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc
+C1.Win.C1FlexGrid.C1FlexGrid, C1.Win.C1FlexGrid.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da
+C1.Win.C1TrueDBGrid.C1TrueDBGrid, C1.Win.C1TrueDBGrid.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=75ae3fb0e2b1e0da
+C1.C1Pdf.C1PdfDocument, C1.C1Pdf.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da
+C1.Win.C1Command.C1CommandHolder, C1.Win.C1Command.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=e808566f358766d8
+C1.Win.C1Command.C1ToolBar, C1.Win.C1Command.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=e808566f358766d8
+C1.C1Excel.C1XLBook, C1.C1Excel.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da

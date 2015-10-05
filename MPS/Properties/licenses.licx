@@ -1,14 +1,14 @@
-C1.Win.C1Input.C1TextBox, C1.Win.C1Input.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a
-C1.Win.C1SpellChecker.C1SpellChecker, C1.Win.C1SpellChecker.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da
-C1.Win.C1Command.C1ToolBar, C1.Win.C1Command.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=e808566f358766d8
-C1.Win.C1Command.C1RadialMenu, C1.Win.C1Command.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=e808566f358766d8
-GrapeCity.ActiveReports.SectionReport, GrapeCity.ActiveReports.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff
-C1.Win.C1TrueDBGrid.C1TrueDBGrid, C1.Win.C1TrueDBGrid.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=75ae3fb0e2b1e0da
-C1.Win.C1FlexGrid.C1FlexGrid, C1.Win.C1FlexGrid.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da
-C1.C1Excel.C1XLBook, C1.C1Excel.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da
+C1.C1Excel.C1XLBook, C1.C1Excel.4
+C1.Win.C1Command.C1CommandHolder, C1.Win.C1Command.4
+C1.Win.C1Command.C1RadialMenu, C1.Win.C1Command.4
+C1.Win.C1Command.C1ToolBar, C1.Win.C1Command.4
+C1.Win.C1FlexGrid.C1FlexGrid, C1.Win.C1FlexGrid.4
+C1.Win.C1Input.C1NumericEdit, C1.Win.C1Input.4
+C1.Win.C1Input.C1TextBox, C1.Win.C1Input.4
+C1.Win.C1List.C1Combo, C1.Win.C1List.4
+C1.Win.C1List.C1List, C1.Win.C1List.4
+C1.Win.C1SpellChecker.C1SpellChecker, C1.Win.C1SpellChecker.4
+C1.Win.C1TrueDBGrid.C1TrueDBGrid, C1.Win.C1TrueDBGrid.4
 GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport, GrapeCity.ActiveReports.Export.Pdf.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff
-C1.Win.C1Command.C1CommandHolder, C1.Win.C1Command.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=e808566f358766d8
-C1.Win.C1Input.C1NumericEdit, C1.Win.C1Input.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a
-C1.Win.C1List.C1List, C1.Win.C1List.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc
-C1.Win.C1List.C1Combo, C1.Win.C1List.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc
+GrapeCity.ActiveReports.SectionReport, GrapeCity.ActiveReports.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff
 GrapeCity.ActiveReports.Viewer.Win.Viewer, GrapeCity.ActiveReports.Viewer.Win.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff

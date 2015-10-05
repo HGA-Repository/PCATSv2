@@ -3074,6 +3074,13 @@
             Overridden. Gets an array of exporters supported by the current document source object.
             </summary>
         </member>
+        <member name="P:C1.Win.C1Document.C1SSRSDocumentSource.Language">
+            <summary>
+            Gets or sets the language used in the SSRS session.
+            The culture specified by this property affects User!Language report identifier.
+            By default this property is null, which means that CultureInfo.CurrentUICulture will be used.
+            </summary>
+        </member>
         <member name="P:C1.Win.C1Document.C1SSRSDocumentSource.Document">
             <summary>
             Overridden. Gets a <see cref="T:C1.Win.C1Document.C1Document"/> object representing the SSRS report
@@ -4515,7 +4522,10 @@
         </member>
         <member name="P:C1.Win.C1Document.Parameter.AllowedValues">
             <summary>
-            Gets a list of allowed parameter values.
+            Gets a list of allowed parameter values. This collection can be null, it means
+            that parameter does not support list of allowed values, it can be null, it means
+            that list of allowed values is empty, it is possible when it query based and query
+            is empty.
             </summary>
         </member>
         <member name="P:C1.Win.C1Document.Parameter.DefaultValue">

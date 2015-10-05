@@ -59,7 +59,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\C1.C1Excel.4.dll</HintPath>
     </Reference>
-    <Reference Include="C1.C1Pdf.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.C1Pdf.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="C1.Win.C1Command.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\C1.Win.C1Command.4.dll</HintPath>

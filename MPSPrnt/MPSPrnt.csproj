@@ -75,7 +75,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\C1.C1Excel.4.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.C1Input.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1Input.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="GrapeCity.ActiveReports.Chart.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
     <Reference Include="GrapeCity.ActiveReports.Dashboard.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

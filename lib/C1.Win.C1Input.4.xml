@@ -4,6 +4,194 @@
     <name>C1.Win.C1Input.4</name>
   </assembly>
   <members>
+    <member name="T:C1.Win.C1Input.GrapeCity.Editors.KanaMode">
+      <summary>
+              Defines the Japanese char converting mode.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.GrapeCity.Editors.KanaMode.KatakanaHalf">
+      <summary>
+              Converts the Japanese character to the Half Width Katakana mode.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.GrapeCity.Editors.KanaMode.Katakana">
+      <summary>
+              Convert the Japanese character to the Full Width Katakana mode.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.GrapeCity.Editors.KanaMode.Hiragana">
+      <summary>
+              Converts the Japanese character to the Hiragana mode.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.GrapeCity.Editors.ImeSentenceMode">
+      <summary>
+              Determines how the IME should handle sentences.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.GrapeCity.Editors.ImeSentenceMode.Inherit">
+      <summary>
+              Inherit the IME sentence mode of the parent control.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.GrapeCity.Editors.ImeSentenceMode.NoControl">
+      <summary>
+              Do not control the IME sentence mode.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.GrapeCity.Editors.ImeSentenceMode.Normal">
+      <summary>
+              Use phrase information to predict the next character.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.GrapeCity.Editors.ImeSentenceMode.BiasForNames">
+      <summary>
+              The IME uses plural clause information to carry out conversion processing.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.GrapeCity.Editors.ImeSentenceMode.BiasForSpeech">
+      <summary>
+              The IME uses conversation mode. This is useful for chat applications.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.GrapeCity.Editors.ImeSentenceMode.Direct">
+      <summary>
+              No information for sentence.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.GrapeCity.Editors.ReadingStringOutput">
+      <summary>
+              A class is used to control the output behavior of the reading string.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.GrapeCity.Editors.ReadingStringOutput.#ctor(System.Object,C1.Win.C1Input.GrapeCity.Editors.ReadingStringOutputMode)">
+      <summary>
+              Initializes a new instance of the <see cref="T:C1.Win.C1Input.GrapeCity.Editors.ReadingStringOutput" /> class.
+            </summary>
+      <param name="outputTarget">
+              A <see cref="T:System.Object" /> indicates the target object.
+            </param>
+      <param name="outputMode">
+              A <see cref="T:C1.Win.C1Input.GrapeCity.Editors.ReadingStringOutputMode" /> controls the output behaviors.
+            </param>
+    </member>
+    <member name="M:C1.Win.C1Input.GrapeCity.Editors.ReadingStringOutput.Equals(System.Object)">
+      <summary>
+              Indicates whether this instance and a specified object are equal.
+            </summary>
+      <param name="obj">Another object to compare to.</param>
+      <returns>
+        <see langword="true" /> if <b>obj</b> and this instance are the same type and represent the same value; otherwise, <see langword="false" />.
+            </returns>
+    </member>
+    <member name="M:C1.Win.C1Input.GrapeCity.Editors.ReadingStringOutput.op_Equality(C1.Win.C1Input.GrapeCity.Editors.ReadingStringOutput,C1.Win.C1Input.GrapeCity.Editors.ReadingStringOutput)">
+      <summary>
+              Declares the "==" operator.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.GrapeCity.Editors.ReadingStringOutput.op_Inequality(C1.Win.C1Input.GrapeCity.Editors.ReadingStringOutput,C1.Win.C1Input.GrapeCity.Editors.ReadingStringOutput)">
+      <summary>
+              Declares the "!=" operator.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.GrapeCity.Editors.ReadingStringOutput.GetHashCode">
+      <summary>
+              Gets the hash code of this object.
+            </summary>
+      <returns>
+              An <see cref="T:System.Int32" /> indicates the hash code of the ime.
+            </returns>
+    </member>
+    <member name="P:C1.Win.C1Input.GrapeCity.Editors.ReadingStringOutput.None">
+      <summary>
+              Gets a empty output.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.GrapeCity.Editors.ReadingStringOutput.TargetControl">
+      <summary>
+              Gets or sets a control used to receive the output.
+            </summary>
+      <value>
+              A <see cref="T:System.Windows.Forms.Control" /> indicates the target control.
+            </value>
+    </member>
+    <member name="P:C1.Win.C1Input.GrapeCity.Editors.ReadingStringOutput.Target">
+      <summary>
+              Gets or sets an object used to receieve the output string.
+            </summary>
+      <value>
+              An object indicates the output target.
+            </value>
+      <remarks>
+              To make sure the string could be receieved, the output target object should either have a public property named 'Text' or 'Value'.
+              In addition, a string typed property is valid.
+            </remarks>
+    </member>
+    <member name="P:C1.Win.C1Input.GrapeCity.Editors.ReadingStringOutput.OutputMode">
+      <summary>
+              Gets or sets the output mode.
+            </summary>
+      <value>
+              A <see cref="T:C1.Win.C1Input.GrapeCity.Editors.ReadingStringOutputMode" /> controls the output behaviors.
+            </value>
+    </member>
+    <member name="T:C1.Win.C1Input.GrapeCity.Editors.ReadingStringOutputMode">
+      <summary>
+              Indicates the output mode of the reading string.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.GrapeCity.Editors.ReadingStringOutputMode.Append">
+      <summary>
+              Adds the new text at the end of the old text.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.GrapeCity.Editors.ReadingStringOutputMode.Replace">
+      <summary>
+              Replaces all text of the target control.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.GrapeCity.Editors.ReadingStringOutputMode.Intelligence">
+      <summary>
+              Maintain the reading string output automatically.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.GrapeCity.Editors.ResultStringEventArgs">
+      <summary>
+              Provides the <see cref="T:System.EventArgs" /> data for the <b>ResultString</b> event.
+            </summary>
+      <remarks>
+              The <b>ResultString</b> takes place when there has been changes
+              made in the IME conversion window.
+            </remarks>
+    </member>
+    <member name="M:C1.Win.C1Input.GrapeCity.Editors.ResultStringEventArgs.#ctor(System.Windows.Forms.Control,System.String)">
+      <summary>
+              Initializes a new instance of the <see cref="T:C1.Win.C1Input.GrapeCity.Editors.ResultStringEventArgs" /> 
+              class with the specified reading string.
+            </summary>
+      <param name="sourceControl">
+              A <see cref="T:System.Windows.Forms.Control" /> indicates the source control that creates the reading string.
+            </param>
+      <param name="readString">
+              A <b>string</b> indicates the specified reading string.
+            </param>
+    </member>
+    <member name="P:C1.Win.C1Input.GrapeCity.Editors.ResultStringEventArgs.SourceControl">
+      <summary>
+              Gets the control that creates the reading string.
+            </summary>
+      <value>
+              A <see cref="T:System.Windows.Forms.Control" /> indicates the source control.
+            </value>
+    </member>
+    <member name="P:C1.Win.C1Input.GrapeCity.Editors.ResultStringEventArgs.ReadString">
+      <summary>
+              Gets the reading string.
+            </summary>
+      <value>
+              A <see cref="T:System.String" /> value indicating the reading string.
+            </value>
+    </member>
     <member name="T:C1.Framework.ResourceLoader">
       <summary>
             Class with static methods used for enumerating and retrieving application
@@ -635,9 +823,9 @@
       <returns>
       </returns>
     </member>
-    <member name="T:C1.Win.C1Input.C1ComboBox">
+    <member name="T:C1.Win.C1Input.C1BasePicker">
       <summary>
-            Represents a composite control combining a textbox and a drop-down item list.
+            Base class for C1ColorPicker and C1FontPicker controls.
             </summary>
     </member>
     <member name="T:C1.Win.C1Input.C1DropDownControl">
@@ -2001,174 +2189,166 @@
             Determines if image should be shown.
             </summary>
     </member>
-    <member name="M:C1.Win.C1Input.C1ComboBox.#ctor">
+    <member name="M:C1.Win.C1Input.C1BasePicker.#ctor">
       <summary>
-            Initializes a new instance of the C1ComboBox class.
+            Initializes a new instance of the C1BasePicker class.
             </summary>
     </member>
-    <member name="M:C1.Win.C1Input.C1ComboBox.SetItemsDataSource(System.Object,System.String)">
+    <member name="M:C1.Win.C1Input.C1BasePicker.OnParsing(C1.Win.C1Input.ParseEventArgs)">
       <summary>
-            Sets items data source and data member for the C1ComboBox.
+            This method is for internal use only.
             </summary>
-      <param name="dataSource">Data source.</param>
-      <param name="dataMember">Data member.</param>
+      <param name="e">
+      </param>
     </member>
-    <member name="M:C1.Win.C1Input.C1ComboBox.SetItemsDataSource(System.Object,System.String,System.Int32)">
+    <member name="M:C1.Win.C1Input.C1BasePicker.OnFormatting(C1.Win.C1Input.FormatEventArgs)">
       <summary>
-            Sets items data source, data member and initially selected item index for the C1ComboBox.
+            This method is for internal use only.
             </summary>
-      <param name="dataSource">Data source.</param>
-      <param name="dataMember">Data member.</param>
-      <param name="selectedIndex">Initially selected item index.</param>
+      <param name="e">
+      </param>
     </member>
-    <member name="M:C1.Win.C1Input.C1ComboBox.CreateItemsCollection">
+    <member name="M:C1.Win.C1Input.C1BasePicker.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
       <summary>
-            Creates a new instance of the item collection.
+            This method is for internal use only.
             </summary>
-      <returns>A <see cref="T:C1.Win.C1Input.ComboBoxItemList" /> that represents the new item collection.</returns>
+      <param name="e">
+      </param>
     </member>
-    <member name="M:C1.Win.C1Input.C1ComboBox.OnSelectedItemChanged">
+    <member name="M:C1.Win.C1Input.C1BasePicker.TextToValue(C1.Win.C1Input.C1BasePicker.TextToValueArgs@)">
       <summary>
-            Raises the <see cref="E:C1.Win.C1Input.C1ComboBox.SelectedItemChanged" /> event.
+            Should be overridden in deviced class and convert string to value.
             </summary>
+      <param name="e">
+      </param>
+      <returns>
+      </returns>
     </member>
-    <member name="M:C1.Win.C1Input.C1ComboBox.OnSelectedIndexChanged">
+    <member name="M:C1.Win.C1Input.C1BasePicker.ValueToText(C1.Win.C1Input.C1BasePicker.ValueToTextArgs@)">
       <summary>
-            Raises the <see cref="E:C1.Win.C1Input.C1ComboBox.SelectedIndexChanged" /> event.
+            Should be overridden in derived class and convert value to string.
             </summary>
+      <param name="e">
+      </param>
+      <returns>
+      </returns>
     </member>
-    <member name="M:C1.Win.C1Input.C1ComboBox.Dispose(System.Boolean)">
+    <member name="P:C1.Win.C1Input.C1BasePicker.DisplayFormat">
       <summary>
-            Releases the resources used by the C1ComboBox.
-            </summary>
-      <param name="disposing">
-        <b>true</b> to release both managed and unmanaged resources; <b>false</b> to release only unmanaged resources.</param>
-    </member>
-    <member name="P:C1.Win.C1Input.C1ComboBox.AllowSpinLoop">
-      <summary>
-            Determines whether the spinner moves to the first item when it reaches the last, or to the last when it reaches the first.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1ComboBox.Items">
-      <summary>
-            Gets an object representing the collection of the items contained in this ComboBox.
+            Format used to display the value when the control is not in edit mode (does not have input focus or is read-only).
             </summary>
     </member>
-    <member name="P:C1.Win.C1Input.C1ComboBox.ItemMode">
+    <member name="P:C1.Win.C1Input.C1BasePicker.EditFormat">
       <summary>
-            Gets or sets the combobox item mode.
+            Format used to display the value when the control is in edit mode (has input focus and is not read-only).
             </summary>
     </member>
-    <member name="P:C1.Win.C1Input.C1ComboBox.HtmlPattern">
+    <member name="P:C1.Win.C1Input.C1BasePicker.ParseInfo">
       <summary>
-            Gets or sets the pattern to build HTML representation of combobox items.
+            Settings affecting parsing, that is, converting the string entered by the user to the data type.
             </summary>
     </member>
-    <member name="P:C1.Win.C1Input.C1ComboBox.SelectedItem">
+    <member name="P:C1.Win.C1Input.C1BasePicker.InterceptArrowKeys">
       <summary>
-             Gets or sets currently selected item in the ComboBox.
+            Settings affecting parsing, that is, converting the string entered by the user to the data type.
             </summary>
     </member>
-    <member name="P:C1.Win.C1Input.C1ComboBox.SelectedIndex">
+    <member name="P:C1.Win.C1Input.C1BasePicker.AcceptsTab">
       <summary>
-             Gets or sets the index specifying the currently selected item.
+            Indicates if Tab and Shift+Tab keys are accepted by control and move the focus to the next (previous) group of input characters in edit mask and in DateTimeInput mode.
             </summary>
     </member>
-    <member name="P:C1.Win.C1Input.C1ComboBox.ItemsImageList">
+    <member name="T:C1.Win.C1Input.C1ColorPicker">
       <summary>
-            Gets or sets the ImageList to get the images to display in the combobox items.
+            Represents a Windows color picker control supporting additional visual styles.
             </summary>
     </member>
-    <member name="P:C1.Win.C1Input.C1ComboBox.Style">
+    <member name="M:C1.Win.C1Input.C1ColorPicker.#ctor">
       <summary>
-            Gets the style of the drop down form and combobox items.
+            Initializes a new instance of the C1ColorPicker class.
             </summary>
     </member>
-    <member name="P:C1.Win.C1Input.C1ComboBox.InitialSelectedIndex">
+    <member name="M:C1.Win.C1Input.C1ColorPicker.TextToValue(C1.Win.C1Input.C1BasePicker.TextToValueArgs@)">
       <summary>
-            Gets or sets the index of the initially selected item.
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1ColorPicker.ValueToText(C1.Win.C1Input.C1BasePicker.ValueToTextArgs@)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1ColorPicker.OnModalButtonClick(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1ColorPicker.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1ColorPicker.GetImageSize">
+      <summary>
+            This method is for internal use only.
             </summary>
     </member>
-    <member name="P:C1.Win.C1Input.C1ComboBox.ItemsDataSource">
+    <member name="M:C1.Win.C1Input.C1ColorPicker.DrawImage(System.Drawing.Graphics,System.IntPtr,System.Drawing.Rectangle)">
       <summary>
-            Gets or sets the data source for items of this C1ComboBox.
+            This method is for internal use only.
             </summary>
     </member>
-    <member name="P:C1.Win.C1Input.C1ComboBox.ItemsDisplayMember">
+    <member name="P:C1.Win.C1Input.C1ColorPicker.AllowTransparent">
       <summary>
-            Gets or sets the property to display items for this C1ComboBox control.
+            Gets or sets a value indicating whether the transparent color can de selected.
             </summary>
     </member>
-    <member name="P:C1.Win.C1Input.C1ComboBox.ItemsValueMember">
+    <member name="P:C1.Win.C1Input.C1ColorPicker.AllowEmpty">
       <summary>
-            Gets or sets the path of the property to use as the actual value for the items in the C1ComboBox control.
+            Gets or sets a value indicating whether the empty color can de selected.
             </summary>
     </member>
-    <member name="E:C1.Win.C1Input.C1ComboBox.SelectedItemChanged">
+    <member name="P:C1.Win.C1Input.C1ColorPicker.EmptyColorCaption">
       <summary>
-            Occurs when the <see cref="P:C1.Win.C1Input.C1ComboBox.SelectedItem" /> changes.
+            Gets or sets a caption for the empty color.
             </summary>
     </member>
-    <member name="E:C1.Win.C1Input.C1ComboBox.SelectedIndexChanged">
+    <member name="P:C1.Win.C1Input.C1ColorPicker.DefaultDropDownFormClassName">
       <summary>
-            Occurs when the <see cref="E:C1.Win.C1Input.C1ComboBox.SelectedIndexChanged" /> changes.
+            This property is for internal use only.
             </summary>
     </member>
-    <member name="T:C1.Win.C1Input.ComboItemMode">
+    <member name="P:C1.Win.C1Input.C1ColorPicker.ShowImage">
       <summary>
-            Specifies how the visual representation of combo box items is building.
+            This property is for internal use only.
             </summary>
     </member>
-    <member name="F:C1.Win.C1Input.ComboItemMode.Default">
+    <member name="P:C1.Win.C1Input.C1ColorPicker.VisibleButtons">
       <summary>
-            C1ComboBox displays text of combo box item in the drop drown list.
+            Gets or sets a value specifying which buttons are visible. The default is (UpDown Or DropDown).
             </summary>
     </member>
-    <member name="F:C1.Win.C1Input.ComboItemMode.Html">
+    <member name="P:C1.Win.C1Input.C1ColorPicker.DataType">
       <summary>
-            Each combo box item is fragment of HTML. <see cref="T:C1.Win.C1Input.C1ComboBox" /> parses the HTML fragment and displays it as the drop down items.
-            </summary>
-      <remakrs>
-            C1ComboBox uses the same subset of HTML as C1SuperLabel does. 
-            It does not support the full HTML features.
-            </remakrs>
-    </member>
-    <member name="F:C1.Win.C1Input.ComboItemMode.HtmlPattern">
-      <summary>
-            Each combo box item is fragment of HTML defined by <see cref="P:C1.Win.C1Input.C1ComboBox.HtmlPattern" /> property. 
-            <see cref="T:C1.Win.C1Input.C1ComboBox" /> parses the HTML pattern and replaces any of "{Text}" entires with the combo box item text.
-            </summary>
-      <remakrs>
-            C1ComboBox uses the same subset of HTML as C1SuperLabel does. 
-            It does not support the full HTML features.
-            </remakrs>
-    </member>
-    <member name="T:C1.Win.C1Input.DropDownStyle">
-      <summary>
-             Specifies the <see cref="T:C1.Win.C1Input.C1DropDownControl" /> style.
+            Type of the Value property.
             </summary>
     </member>
-    <member name="F:C1.Win.C1Input.DropDownStyle.Default">
+    <member name="P:C1.Win.C1Input.C1ColorPicker.DefaultThemeRootPath">
       <summary>
-            Text portion of the drop down control is editable and the drop down is displayed by clicking 
-            the down arrow.
+            Default path for the control in xml theme file.
             </summary>
-      <remarks>
-            This means that the user can enter a new value and is not limited to selecting an existing value.
-            </remarks>
     </member>
-    <member name="F:C1.Win.C1Input.DropDownStyle.DropDownList">
+    <member name="T:C1.Win.C1Input.C1ColorPickerDropDownForm">
       <summary>
-            The drop down of the <see cref="T:C1.Win.C1Input.C1DropDownControl" /> is displayed by clicking 
-            on either the text portion of the control or drop down button. The text portion is not editable. 
-            </summary>
-      <remarks>
-            This means that the user cannot enter a value not existing in the drop down. 
-            </remarks>
-    </member>
-    <member name="T:C1.Win.C1Input.ComboBoxItemList">
-      <summary>
-            Represents collection of <see cref="T:C1.Win.C1Input.C1ComboBox" /> drop down items.
+            Represents drop down color picker form.
             </summary>
     </member>
     <member name="T:C1.Win.C1Input.DropDownForm">
@@ -2366,6 +2546,206 @@
     <member name="E:C1.Win.C1Input.DropDownForm.OwnerControlValueChanged">
       <summary>
             Occurs when OwnerControl.Value property is changed.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.C1ColorPickerDropDownForm.#ctor">
+      <summary>
+            Initializes a new instance of the C1ColorPickerDropDownForm class.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.C1ColorPickerDropDownForm.OnPostChanges(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1ColorPickerDropDownForm.OnVisibleChanged(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1ColorPickerDropDownForm.Dispose(System.Boolean)">
+      <summary>
+            Clean up any resources being used.
+            </summary>
+      <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+    </member>
+    <member name="T:C1.Win.C1Input.C1ComboBox">
+      <summary>
+            Represents a composite control combining a textbox and a drop-down item list.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.C1ComboBox.#ctor">
+      <summary>
+            Initializes a new instance of the C1ComboBox class.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.C1ComboBox.SetItemsDataSource(System.Object,System.String)">
+      <summary>
+            Sets items data source and data member for the C1ComboBox.
+            </summary>
+      <param name="dataSource">Data source.</param>
+      <param name="dataMember">Data member.</param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1ComboBox.SetItemsDataSource(System.Object,System.String,System.Int32)">
+      <summary>
+            Sets items data source, data member and initially selected item index for the C1ComboBox.
+            </summary>
+      <param name="dataSource">Data source.</param>
+      <param name="dataMember">Data member.</param>
+      <param name="selectedIndex">Initially selected item index.</param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1ComboBox.CreateItemsCollection">
+      <summary>
+            Creates a new instance of the item collection.
+            </summary>
+      <returns>A <see cref="T:C1.Win.C1Input.ComboBoxItemList" /> that represents the new item collection.</returns>
+    </member>
+    <member name="M:C1.Win.C1Input.C1ComboBox.OnSelectedItemChanged">
+      <summary>
+            Raises the <see cref="E:C1.Win.C1Input.C1ComboBox.SelectedItemChanged" /> event.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.C1ComboBox.OnSelectedIndexChanged">
+      <summary>
+            Raises the <see cref="E:C1.Win.C1Input.C1ComboBox.SelectedIndexChanged" /> event.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.C1ComboBox.Dispose(System.Boolean)">
+      <summary>
+            Releases the resources used by the C1ComboBox.
+            </summary>
+      <param name="disposing">
+        <b>true</b> to release both managed and unmanaged resources; <b>false</b> to release only unmanaged resources.</param>
+    </member>
+    <member name="P:C1.Win.C1Input.C1ComboBox.AllowSpinLoop">
+      <summary>
+            Determines whether the spinner moves to the first item when it reaches the last, or to the last when it reaches the first.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1ComboBox.Items">
+      <summary>
+            Gets an object representing the collection of the items contained in this ComboBox.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1ComboBox.ItemMode">
+      <summary>
+            Gets or sets the combobox item mode.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1ComboBox.HtmlPattern">
+      <summary>
+            Gets or sets the pattern to build HTML representation of combobox items.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1ComboBox.SelectedItem">
+      <summary>
+             Gets or sets currently selected item in the ComboBox.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1ComboBox.SelectedIndex">
+      <summary>
+             Gets or sets the index specifying the currently selected item.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1ComboBox.ItemsImageList">
+      <summary>
+            Gets or sets the ImageList to get the images to display in the combobox items.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1ComboBox.Style">
+      <summary>
+            Gets the style of the drop down form and combobox items.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1ComboBox.InitialSelectedIndex">
+      <summary>
+            Gets or sets the index of the initially selected item.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1ComboBox.ItemsDataSource">
+      <summary>
+            Gets or sets the data source for items of this C1ComboBox.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1ComboBox.ItemsDisplayMember">
+      <summary>
+            Gets or sets the property to display items for this C1ComboBox control.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1ComboBox.ItemsValueMember">
+      <summary>
+            Gets or sets the path of the property to use as the actual value for the items in the C1ComboBox control.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.C1ComboBox.SelectedItemChanged">
+      <summary>
+            Occurs when the <see cref="P:C1.Win.C1Input.C1ComboBox.SelectedItem" /> changes.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.C1ComboBox.SelectedIndexChanged">
+      <summary>
+            Occurs when the <see cref="E:C1.Win.C1Input.C1ComboBox.SelectedIndexChanged" /> changes.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.ComboItemMode">
+      <summary>
+            Specifies how the visual representation of combo box items is building.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.ComboItemMode.Default">
+      <summary>
+            C1ComboBox displays text of combo box item in the drop drown list.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.ComboItemMode.Html">
+      <summary>
+            Each combo box item is fragment of HTML. <see cref="T:C1.Win.C1Input.C1ComboBox" /> parses the HTML fragment and displays it as the drop down items.
+            </summary>
+      <remakrs>
+            C1ComboBox uses the same subset of HTML as C1SuperLabel does. 
+            It does not support the full HTML features.
+            </remakrs>
+    </member>
+    <member name="F:C1.Win.C1Input.ComboItemMode.HtmlPattern">
+      <summary>
+            Each combo box item is fragment of HTML defined by <see cref="P:C1.Win.C1Input.C1ComboBox.HtmlPattern" /> property. 
+            <see cref="T:C1.Win.C1Input.C1ComboBox" /> parses the HTML pattern and replaces any of "{Text}" entires with the combo box item text.
+            </summary>
+      <remakrs>
+            C1ComboBox uses the same subset of HTML as C1SuperLabel does. 
+            It does not support the full HTML features.
+            </remakrs>
+    </member>
+    <member name="T:C1.Win.C1Input.DropDownStyle">
+      <summary>
+             Specifies the <see cref="T:C1.Win.C1Input.C1DropDownControl" /> style.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.DropDownStyle.Default">
+      <summary>
+            Text portion of the drop down control is editable and the drop down is displayed by clicking 
+            the down arrow.
+            </summary>
+      <remarks>
+            This means that the user can enter a new value and is not limited to selecting an existing value.
+            </remarks>
+    </member>
+    <member name="F:C1.Win.C1Input.DropDownStyle.DropDownList">
+      <summary>
+            The drop down of the <see cref="T:C1.Win.C1Input.C1DropDownControl" /> is displayed by clicking 
+            on either the text portion of the control or drop down button. The text portion is not editable. 
+            </summary>
+      <remarks>
+            This means that the user cannot enter a value not existing in the drop down. 
+            </remarks>
+    </member>
+    <member name="T:C1.Win.C1Input.ComboBoxItemList">
+      <summary>
+            Represents collection of <see cref="T:C1.Win.C1Input.C1ComboBox" /> drop down items.
             </summary>
     </member>
     <member name="T:C1.Win.C1Input.ComboBoxStyle">
@@ -4414,6 +4794,97 @@
             This property is for internal use only.
             </summary>
     </member>
+    <member name="T:C1.Win.C1Input.C1FontPicker">
+      <summary>
+            Represents a Windows font picker control supporting additional visual styles.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.C1FontPicker.#ctor">
+      <summary>
+            Initializes a new instance of the C1FontPicker class.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.C1FontPicker.TextToValue(C1.Win.C1Input.C1BasePicker.TextToValueArgs@)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1FontPicker.ValueToText(C1.Win.C1Input.C1BasePicker.ValueToTextArgs@)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1FontPicker.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="P:C1.Win.C1Input.C1FontPicker.UsedFonts">
+      <summary>
+            Gets a collection of fonts installed on system.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1FontPicker.DropDownFormWidth">
+      <summary>
+            Gets or sets a width of drop down list of fonts.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1FontPicker.DefaultDropDownFormClassName">
+      <summary>
+            This property is for internal use only.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1FontPicker.VisibleButtons">
+      <summary>
+            Gets or sets a value specifying which buttons are visible. The default is (UpDown Or DropDown).
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1FontPicker.DataType">
+      <summary>
+            Type of the Value property.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1FontPicker.DefaultThemeRootPath">
+      <summary>
+            Default path for the control in xml theme file.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.C1FontPickerDropDownForm">
+      <summary>
+            Represents drop down font picker form.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.C1FontPickerDropDownForm.#ctor">
+      <summary>
+            Initializes a new instance of the C1FontPickerDropDownForm class.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.C1FontPickerDropDownForm.OnPostChanges(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1FontPickerDropDownForm.OnVisibleChanged(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1FontPickerDropDownForm.Dispose(System.Boolean)">
+      <summary>
+            Clean up any resources being used.
+            </summary>
+      <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+    </member>
     <member name="T:C1.Win.C1Input.ErrorActionEnum">
       <summary>
             Used by ErrorInfo.ErrorAction property.
@@ -4702,9 +5173,14 @@
             Indicates that the TrimEnd property is inherited from the control.
             </summary>
     </member>
+    <member name="F:C1.Win.C1Input.FormatInfoInheritFlags.CalendarType">
+      <summary>
+            Indicates that the CalendarType property is inherited from the control.
+            </summary>
+    </member>
     <member name="F:C1.Win.C1Input.FormatInfoInheritFlags.All">
       <summary>
-            Indicates that values of FormatType, CustomFormat, NullText, EmptyAsNull, TrimStart, TrimEnd properties are inherited from the control.
+            Indicates that values of FormatType, CustomFormat, NullText, EmptyAsNull, TrimStart, TrimEnd, CalendarType properties are inherited from the control.
             </summary>
     </member>
     <member name="T:C1.Win.C1Input.FormatTargetEnum">
@@ -4872,6 +5348,11 @@
     <member name="P:C1.Win.C1Input.FormatInfo.FormatType">
       <summary>
             Enumeration value determining the formatting method, including standard .NET format specifiers, custom and programmatic formatting.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.FormatInfo.CalendarType">
+      <summary>
+            Calendar, used to format date.
             </summary>
     </member>
     <member name="P:C1.Win.C1Input.FormatInfo.CustomFormat">
@@ -5069,6 +5550,11 @@
     <member name="P:C1.Win.C1Input.MaskInfo.EditMask">
       <summary>
             The edit mask string restricting user input.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.MaskInfo.RegexpEditMask">
+      <summary>
+            A <see cref="T:System.String" /> representing the mask in regular expression style. 
             </summary>
     </member>
     <member name="P:C1.Win.C1Input.MaskInfo.Inherit">
@@ -7079,6 +7565,31 @@
       <returns>
       </returns>
     </member>
+    <member name="T:C1.Win.C1Input.GrapeCity.Editors.Fields.Field">
+      <summary>
+              Represnts a <b>Field</b> class to define a base field.
+            </summary>
+      <remarks>
+              This class will implement view function for single segment. And some input behavior will exposed to user, too.
+              This is final interface for our user.
+              When a field is created, it will create a segment and value module for it. Then configuration will be done on the
+              segment and the value module.
+            </remarks>
+    </member>
+    <member name="M:C1.Win.C1Input.GrapeCity.Editors.Fields.Field.#ctor">
+      <summary>
+              Initializes a new instance of the <see cref="T:C1.Win.C1Input.GrapeCity.Editors.Fields.Field" /> class.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.GrapeCity.Editors.Fields.Field.Name">
+      <summary>
+              Gets or sets the name of the object.
+            </summary>
+      <value>
+              A <see cref="T:System.String" /> value indicating the name of the object.
+              <br /> The default is <see cref="F:System.String.Empty" />.
+            </value>
+    </member>
     <member name="T:C1.Win.C1Input.C1Label">
       <summary>
             Read-only data bound control displaying formatted data. C1Label supports all formatting features of the C1TextBox control.
@@ -8037,6 +8548,20 @@
       </param>
     </member>
     <member name="M:C1.Win.C1Input.C1RangeSlider.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1RangeSlider.OnGotFocus(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1RangeSlider.OnLostFocus(System.EventArgs)">
       <summary>
             This method is for internal use only.
             </summary>
@@ -9395,81 +9920,6 @@
     <member name="F:C1.Win.C1Input.UpDownButtonAlignment.UpRightDownLeft">
       <summary>
             Up button on the right and down button on the left.
-            </summary>
-    </member>
-    <member name="T:C1.Win.C1Input.CharType">
-      <summary>
-              Defines the category of a Unicode character.  
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.CharType.OtherChar">
-      <summary>
-              Indicates that the character is not of a particular category.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.CharType.Control">
-      <summary>
-              Indicates that the character is a control code.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.CharType.Numeric">
-      <summary>
-              Indicates that the character is a numeric digit.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.CharType.MathSymbol">
-      <summary>
-              Indicates that the character is a mathematical symbol.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.CharType.Symbol">
-      <summary>
-              Indicates that the character is a symbol.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.CharType.Punctuation">
-      <summary>
-              Indicates that the character is a punctuation. ( Open &amp; Close )
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.CharType.Space">
-      <summary>
-              Indicates that the character is a space character.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.CharType.UpperCase">
-      <summary>
-              Indicates that the character is an upper case letter.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.CharType.LowerCase">
-      <summary>
-              Indicates that the character is a lower case letter.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.CharType.Katakana">
-      <summary>
-              Indicates that the character is a Japanese Katakana character.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.CharType.Hiragana">
-      <summary>
-              Indicates that the character is a Japanese Hiragana character.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.CharType.FarEastPunctation">
-      <summary>
-              Indicates that the character is a CJK punctuation.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.CharType.Hangul">
-      <summary>
-              Indicates that the character is a Hangal character.
-            </summary>
-    </member>
-    <member name="F:C1.Win.C1Input.CharType.FullWidth">
-      <summary>
-              Indicates that the character is of full width.
             </summary>
     </member>
     <member name="T:C1.Win.C1Input.DropDownFormOptionsFlags">

@@ -106,7 +106,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\C1.Win.C1List.4.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.C1SpellChecker.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1SpellChecker.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="C1.Win.C1TrueDBGrid.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=75ae3fb0e2b1e0da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\C1.Win.C1TrueDBGrid.4.dll</HintPath>

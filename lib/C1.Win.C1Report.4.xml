@@ -1348,6 +1348,18 @@
       <returns>The currently selected text, or empty string if the current
             selection is empty.</returns>
     </member>
+    <member name="M:C1.Win.C1Preview.C1PreviewPane.OnInitializeSSRSParametersDialog(System.Windows.Forms.Form,System.Boolean,C1.Win.C1Document.C1DocumentSource)">
+      <summary>
+            TBD:
+            Fires <see cref="E:C1.Win.C1Preview.C1PreviewPane.InitializeSSRSParametersDialog" /> event, should return <b>false</b>
+            if dialog should NOT be shown.
+            </summary>
+      <param name="dialog">Dialog that is about to be displayed.</param>
+      <param name="userAction">Indicates whether the user causes dialog to show, i.e. user pressed a toolbar button or key combination.</param>
+      <param name="documentSource">
+        <see cref="T:C1.Win.C1Document.C1DocumentSource" /> object parameters of that are edited.</param>
+      <returns>Returns <b>true</b> if dialog should be shown, otherwise <b>false</b> this indicates that parameters values were defined in the event.</returns>
+    </member>
     <member name="M:C1.Win.C1Preview.C1PreviewPane.OnPreviewPrint(C1.Win.C1Preview.PreviewPrintEventArgs)">
       <summary>
             Raises the <see cref="E:C1.Win.C1Preview.C1PreviewPane.PreviewPrint" /> event on the current preview pane.
@@ -2036,6 +2048,37 @@
       <summary>
             Occurs when the document action from preview forms should be executed.
             </summary>
+    </member>
+    <member name="E:C1.Win.C1Preview.C1PreviewPane.InitializeSSRSParametersDialog">
+      <summary>
+            TBD:
+            Fired before the control displays the <b>Report Parameters</b> dialog when displaying SSRS report.
+            </summary>
+      <remarks>
+        <para>
+          <see cref="T:C1.Win.C1Document.C1DocumentSource" /> object has Parameters collection
+            containing parameters used to generate a report.</para>
+        <para>This event fires before the dialog is displayed and allows you to customize the dialog by changing 
+            its caption, font, colors, etc.</para>
+        <para>You can also use this event to inspect and modify parameter values using the 
+            <see cref="P:C1.Win.C1Preview.InitializeSSRSParametersDialogEventArgs.Parameters" /> collection.</para>
+        <para>Finally, you can use the <see cref="P:C1.Win.C1Preview.InitializeSSRSParametersDialogEventArgs.ShowDialog" /> property to prevent the component
+            from showing the parameters dialog.</para>
+      </remarks>
+      <example>
+            The code below uses the <b>InitializeSSRSParametersDialog</b> event to modify the values
+            of the report parameters and suppress the display of the parameter dialog.
+            <code>
+            private void c1PreviewPane1_InitializeSSRSParametersDialog(object sender, 
+                     InitializeSSRSParametersDialogEventArgs e)
+            {
+              // change parameter values
+              e.Parameters["StartDate"].Value = DateTime.Now;
+              
+              // don't show dialog
+              e.ShowDialog = false;
+            }
+            </code></example>
     </member>
     <member name="E:C1.Win.C1Preview.C1PreviewPane.QueryPageSettings">
       <summary>
@@ -2803,6 +2846,50 @@
             Turn this option off to only copy plain text to clipboard (as in versions prior to 2013v1).
             </para></summary>
     </member>
+    <member name="T:C1.Win.C1Preview.InitializeSSRSParametersDialogEventArgs">
+      <summary>
+            TBD:
+            Provides data for <see cref="E:C1.Win.C1Preview.C1PreviewPane.InitializeSSRSParametersDialog" /> event.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Preview.InitializeSSRSParametersDialogEventArgs.Dialog">
+      <summary>
+            TBD:
+            Gets a <see cref="T:System.Windows.Forms.Form" /> object that is about to be displayed.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Preview.InitializeSSRSParametersDialogEventArgs.UserAction">
+      <summary>
+            TBD:
+            Gets a value indicating whether the user causes dialog to show.
+            This property is <b>false</b> when dialog showed automatically before rendering a document,
+            <b>true</b> indicates that user pressed "Parameters" button in toolbar.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Preview.InitializeSSRSParametersDialogEventArgs.DocumentSource">
+      <summary>
+            TBD:
+            Gets a <see cref="T:C1.Win.C1Document.C1DocumentSource" /> object parameters of that are edited.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Preview.InitializeSSRSParametersDialogEventArgs.Parameters">
+      <summary>
+            TBD:
+            Gets a <see cref="T:C1.Win.C1Document.ParameterCollection" /> collection, shortcut for the <see cref="P:C1.Win.C1Document.C1DocumentSource.Parameters" /> property.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Preview.InitializeSSRSParametersDialogEventArgs.ShowDialog">
+      <summary>
+            TBD:
+            Gets or sets a value that determines whether the component should display the parameters dialog.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Preview.InitializeSSRSParametersDialogEventHandler">
+      <summary>
+            TBD:
+            Represents the method that will handle the <see cref="E:C1.Win.C1Preview.C1PreviewPane.InitializeSSRSParametersDialog" /> event.
+            </summary>
+    </member>
     <member name="T:C1.Win.C1Preview.C1PreviewTextSearchPanel">
       <summary>
             Displays a text search panel allowing to find text in the connected preview pane.
@@ -2819,6 +2906,11 @@
             </summary>
       <param name="m">
       </param>
+    </member>
+    <member name="M:C1.Win.C1Preview.C1PreviewTextSearchPanel.ScaleControl(System.Drawing.SizeF,System.Windows.Forms.BoundsSpecified)">
+      <summary>
+            Scales a control's location, size, padding and margin.
+            </summary>
     </member>
     <member name="M:C1.Win.C1Preview.C1PreviewTextSearchPanel.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
       <summary>
@@ -3021,9 +3113,21 @@
             Resets the <see cref="P:C1.Win.C1Preview.C1PreviewTextSearchPanel.ResultListBackColor" /> property to its default value.
             </summary>
     </member>
+    <member name="M:C1.Win.C1Preview.C1PreviewTextSearchPanel.ResetSearch">
+      <summary>
+            Clears the search text and removes selection from the preview pane.
+            </summary>
+    </member>
     <member name="M:C1.Win.C1Preview.C1PreviewTextSearchPanel.DoSearchAgain">
       <summary>
             Repeats the last search.
+            </summary>
+      <returns>
+        <b>True</b> if the search text was found, <b>false</b> otherwise.</returns>
+    </member>
+    <member name="M:C1.Win.C1Preview.C1PreviewTextSearchPanel.DoSearchAgainBackward">
+      <summary>
+            Repeats the last search and select the previous occurrence.
             </summary>
       <returns>
         <b>True</b> if the search text was found, <b>false</b> otherwise.</returns>
@@ -3034,6 +3138,11 @@
             </summary>
       <returns>
         <b>True</b>.</returns>
+    </member>
+    <member name="P:C1.Win.C1Preview.C1PreviewTextSearchPanel.ScaleChildren">
+      <summary>
+            Gets a value that determines the scaling of child controls.
+            </summary>
     </member>
     <member name="E:C1.Win.C1Preview.C1PreviewTextSearchPanel.PropertyChanged">
       <summary>
@@ -3416,27 +3525,6 @@
             </summary>
       <param name="m">
       </param>
-    </member>
-    <member name="M:C1.Win.C1Preview.C1PrintPreviewControl.ScaleControl(System.Drawing.SizeF,System.Windows.Forms.BoundsSpecified)">
-      <summary>
-            Scales a control's location, size, padding and margin.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Preview.C1PrintPreviewControl.OnSizeChanged(System.EventArgs)">
-      <summary>
-            Raises the <c>SizeChanged</c> event.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Preview.C1PrintPreviewControl.OnLayout(System.Windows.Forms.LayoutEventArgs)">
-      <summary>
-            Raises the <c>Layout</c> event.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Preview.C1PrintPreviewControl.OnRightToLeftChanged(System.EventArgs)">
-      <summary>
-            Raises the <c>RightToLeftChanged</c> event.
-            </summary>
-      <param name="e">An <c>EventArgs</c> that contains the event data.</param>
     </member>
     <member name="M:C1.Win.C1Preview.C1PrintPreviewControl.ShouldSerializeThumbnailViewCaption">
       <summary>
