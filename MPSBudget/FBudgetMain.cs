@@ -582,7 +582,6 @@ namespace RSMPS
                 tlbbPrintAll.Enabled = true;
                 tlbbBudgetEntry.Enabled = true;
                 tlbbBudgetExport.Enabled = true;
-                
             }
             else if (u.IsEngineerAdmin == true)
             {
@@ -598,7 +597,6 @@ namespace RSMPS
                 tlbbPrintAll.Enabled = true;
                 tlbbBudgetEntry.Enabled = true;
                 tlbbBudgetExport.Enabled = true;
-                
             }
             else if (u.IsManager == true)
             {
@@ -616,7 +614,6 @@ namespace RSMPS
                 tlbbMakeActive.Visible = false;
                 tlbbMakeActive.Visible = false;
                 makeActiveToolStripMenuItem.Visible = false;
-                
                 
             }
             else
@@ -638,8 +635,6 @@ namespace RSMPS
                 tlbbPrintAll.Visible = false;
                 tlbbBudgetExport.Enabled = false;
                 tlbbBudgetExport.Visible = false;
-                tlbbExpenseReport.Visible = false; //******************Added 10/5/2015
-                tlbbSummaryWORate.Visible = false;
 
                 // hide dollars for non-admin
                 foreach (var group in _Groups)
