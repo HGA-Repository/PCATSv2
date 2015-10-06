@@ -27,9 +27,9 @@ namespace RSMPS
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rprtTransmittal1));
             GrapeCity.ActiveReports.SectionReportModel.Line line6;
             line6 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rprtTransmittal1));
             this.pageHeader = new GrapeCity.ActiveReports.SectionReportModel.PageHeader();
             this.label1 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.label2 = new GrapeCity.ActiveReports.SectionReportModel.Label();
@@ -100,6 +100,7 @@ namespace RSMPS
             this.textBox13 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.line3 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.txtApprvOther = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.subReport4 = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
             this.groupFooter1 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
             this.groupHeader2 = new GrapeCity.ActiveReports.SectionReportModel.GroupHeader();
             this.shape2 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
@@ -108,7 +109,6 @@ namespace RSMPS
             this.label22 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.label24 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.groupFooter2 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
-            this.subReport4 = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
             ((System.ComponentModel.ISupportInitialize)(this.label1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label3)).BeginInit();
@@ -164,6 +164,19 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            // 
+            // line6
+            // 
+            line6.Height = 0F;
+            line6.Left = 4F;
+            line6.LineWeight = 1F;
+            line6.Name = "line6";
+            line6.Top = 0.6350001F;
+            line6.Width = 3.25F;
+            line6.X1 = 4F;
+            line6.X2 = 7.25F;
+            line6.Y1 = 0.6350001F;
+            line6.Y2 = 0.6350001F;
             // 
             // pageHeader
             // 
@@ -787,22 +800,22 @@ namespace RSMPS
             // 
             this.checkBox1.DataField = "WeTransmitHereWith";
             this.checkBox1.Height = 0.1875F;
-            this.checkBox1.Left = 0.9375F;
+            this.checkBox1.Left = 0.5F;
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Style = "font-size: 9pt; ddo-char-set: 0";
             this.checkBox1.Text = "We Transmit Herewith";
-            this.checkBox1.Top = 1F;
+            this.checkBox1.Top = 1.06F;
             this.checkBox1.Width = 1.6875F;
             // 
             // checkBox2
             // 
             this.checkBox2.DataField = "UnderSeperateCover";
             this.checkBox2.Height = 0.1875F;
-            this.checkBox2.Left = 3.125F;
+            this.checkBox2.Left = 3.188F;
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Style = "font-size: 9pt; ddo-char-set: 0";
             this.checkBox2.Text = "Under Separate Cover";
-            this.checkBox2.Top = 1F;
+            this.checkBox2.Top = 1.06F;
             this.checkBox2.Width = 1.625F;
             // 
             // checkBox3
@@ -813,7 +826,7 @@ namespace RSMPS
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Style = "font-size: 9pt; ddo-char-set: 0";
             this.checkBox3.Text = "Drawings";
-            this.checkBox3.Top = 1.375F;
+            this.checkBox3.Top = 1.37F;
             this.checkBox3.Width = 1.6875F;
             // 
             // checkBox4
@@ -875,22 +888,22 @@ namespace RSMPS
             // 
             this.checkBox9.DataField = "ForApproval";
             this.checkBox9.Height = 0.1875F;
-            this.checkBox9.Left = 3.1875F;
+            this.checkBox9.Left = 3.188F;
             this.checkBox9.Name = "checkBox9";
             this.checkBox9.Style = "font-size: 9pt; ddo-char-set: 0";
             this.checkBox9.Text = "For Approval";
-            this.checkBox9.Top = 1.791667F;
+            this.checkBox9.Top = 1.688F;
             this.checkBox9.Width = 1.6875F;
             // 
             // checkBox10
             // 
             this.checkBox10.DataField = "ForBidding";
             this.checkBox10.Height = 0.1875F;
-            this.checkBox10.Left = 3.1875F;
+            this.checkBox10.Left = 3.188F;
             this.checkBox10.Name = "checkBox10";
             this.checkBox10.Style = "font-size: 9pt; ddo-char-set: 0";
             this.checkBox10.Text = "For Bidding";
-            this.checkBox10.Top = 2F;
+            this.checkBox10.Top = 2.688F;
             this.checkBox10.Visible = false;
             this.checkBox10.Width = 1.6875F;
             // 
@@ -898,22 +911,22 @@ namespace RSMPS
             // 
             this.checkBox11.DataField = "ForConstruction";
             this.checkBox11.Height = 0.1875F;
-            this.checkBox11.Left = 3.1875F;
+            this.checkBox11.Left = 3.188F;
             this.checkBox11.Name = "checkBox11";
             this.checkBox11.Style = "font-size: 9pt; ddo-char-set: 0";
             this.checkBox11.Text = "Approved For Construction";
-            this.checkBox11.Top = 2.208333F;
+            this.checkBox11.Top = 2F;
             this.checkBox11.Width = 1.6875F;
             // 
             // chkApprovedOther
             // 
             this.chkApprovedOther.DataField = "ForNoted";
-            this.chkApprovedOther.Height = 0.375F;
-            this.chkApprovedOther.Left = 3.1875F;
+            this.chkApprovedOther.Height = 0.188F;
+            this.chkApprovedOther.Left = 3.188F;
             this.chkApprovedOther.Name = "chkApprovedOther";
             this.chkApprovedOther.Style = "font-size: 9pt; ddo-char-set: 0";
             this.chkApprovedOther.Text = "Approved as Noted";
-            this.chkApprovedOther.Top = 2.5F;
+            this.chkApprovedOther.Top = 2.313F;
             this.chkApprovedOther.Width = 2.25F;
             // 
             // checkBox13
@@ -975,11 +988,11 @@ namespace RSMPS
             // 
             this.label12.Height = 0.1875F;
             this.label12.HyperLink = null;
-            this.label12.Left = 5.8125F;
+            this.label12.Left = 5.625F;
             this.label12.Name = "label12";
             this.label12.Style = "font-size: 9pt; text-decoration: underline; ddo-char-set: 0";
             this.label12.Text = "Sent By";
-            this.label12.Top = 1F;
+            this.label12.Top = 1.06F;
             this.label12.Width = 0.8125F;
             // 
             // label4
@@ -1027,6 +1040,17 @@ namespace RSMPS
             this.txtApprvOther.Top = 2.8125F;
             this.txtApprvOther.Visible = false;
             this.txtApprvOther.Width = 1F;
+            // 
+            // subReport4
+            // 
+            this.subReport4.CloseBorder = false;
+            this.subReport4.Height = 0.335F;
+            this.subReport4.Left = 2.83F;
+            this.subReport4.Name = "subReport4";
+            this.subReport4.Report = null;
+            this.subReport4.ReportName = "subReport4";
+            this.subReport4.Top = 0.6850001F;
+            this.subReport4.Width = 2.062F;
             // 
             // groupFooter1
             // 
@@ -1106,30 +1130,6 @@ namespace RSMPS
             this.groupFooter2.Height = 0F;
             this.groupFooter2.Name = "groupFooter2";
             // 
-            // subReport4
-            // 
-            this.subReport4.CloseBorder = false;
-            this.subReport4.Height = 0.335F;
-            this.subReport4.Left = 2.83F;
-            this.subReport4.Name = "subReport4";
-            this.subReport4.Report = null;
-            this.subReport4.ReportName = "subReport4";
-            this.subReport4.Top = 0.6850001F;
-            this.subReport4.Width = 2.062F;
-            // 
-            // line6
-            // 
-            line6.Height = 0F;
-            line6.Left = 4F;
-            line6.LineWeight = 1F;
-            line6.Name = "line6";
-            line6.Top = 0.6350001F;
-            line6.Width = 3.25F;
-            line6.X1 = 4F;
-            line6.X2 = 7.25F;
-            line6.Y1 = 0.6350001F;
-            line6.Y2 = 0.6350001F;
-            // 
             // rprtTransmittal1
             // 
             this.MasterReport = false;
@@ -1140,7 +1140,7 @@ namespace RSMPS
             this.PageSettings.Orientation = GrapeCity.ActiveReports.Document.Section.PageOrientation.Portrait;
             this.PageSettings.PaperHeight = 11F;
             this.PageSettings.PaperWidth = 8.5F;
-            this.PrintWidth = 7.5F;
+            this.PrintWidth = 7.7915F;
             this.Sections.Add(this.pageHeader);
             this.Sections.Add(this.groupHeader1);
             this.Sections.Add(this.groupHeader2);
