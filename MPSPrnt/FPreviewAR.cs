@@ -322,11 +322,7 @@ namespace RSMPS
             sv2.FileName = Report_Name;
             sv2.Filter = "XLS Files | *.xls";
             sv2.DefaultExt = "xls";
-          //  MessageBox.Show(deptXml);
-          //  MessageBox.Show(projXml);
-          //  MessageBox.Show(sortCode.ToString());
-          //  MessageBox.Show(drwgSpec.ToString());
-
+          
             if (sv2.ShowDialog() == DialogResult.OK)
             {
               if(name_of_Method =="GetDrawingLogMainByDeptListProjList" )
