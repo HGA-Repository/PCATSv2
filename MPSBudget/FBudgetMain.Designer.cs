@@ -358,17 +358,17 @@ namespace RSMPS
             // c1CommandLink2
             // 
             this.c1CommandLink2.Command = this.tlbbSummary;
-            this.c1CommandLink2.SortOrder = 5;
+            this.c1CommandLink2.SortOrder = 6;
             // 
             // c1CommandLink13
             // 
             this.c1CommandLink13.Command = this.tlbbSummaryWORate;
-            this.c1CommandLink13.SortOrder = 6;
+            this.c1CommandLink13.SortOrder = 7;
             // 
             // c1CommandLink14
             // 
             this.c1CommandLink14.Command = this.tlbbExpenseReport;
-            this.c1CommandLink14.SortOrder = 14;
+            this.c1CommandLink14.SortOrder = 5;
             // 
             // tlbbSummaryWORate
             // 
@@ -383,7 +383,7 @@ namespace RSMPS
             // 
             this.tlbbExpenseReport.Name = "tlbbExpenseReport";
             this.tlbbExpenseReport.ShortcutText = "";
-            this.tlbbExpenseReport.Text = "Expense Report";
+            this.tlbbExpenseReport.Text = "Worksheet Itemization";
             
             this.tlbbExpenseReport.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbExpenseReport_Click);
             // 
@@ -394,27 +394,27 @@ namespace RSMPS
             // c1CommandLink6
             // 
             this.c1CommandLink6.Command = this.tlbbPreviewDetails;
-            this.c1CommandLink6.SortOrder = 7;
+            this.c1CommandLink6.SortOrder = 8;
             // 
             // c1CommandLink8
             // 
             this.c1CommandLink8.Command = this.tlbbJobStat;
-            this.c1CommandLink8.SortOrder = 8;
+            this.c1CommandLink8.SortOrder = 9;
             // 
             // c1CommandLink9
             // 
             this.c1CommandLink9.Command = this.tlbbBudgetEntry;
-            this.c1CommandLink9.SortOrder = 9;
+            this.c1CommandLink9.SortOrder = 10;
             // 
             // c1CommandLink11
             // 
             this.c1CommandLink11.Command = this.tlbbPrintAll;
-            this.c1CommandLink11.SortOrder = 10;
+            this.c1CommandLink11.SortOrder = 11;
             // 
             // c1CommandLink10
             // 
             this.c1CommandLink10.Command = this.tlbbBudgetExport;
-            this.c1CommandLink10.SortOrder = 11;
+            this.c1CommandLink10.SortOrder = 12;
             // 
             // lstBudgets
             // 
@@ -1280,7 +1280,7 @@ namespace RSMPS
             // c1CommandLink3
             // 
             this.c1CommandLink3.Command = this.tlbbExit;
-            this.c1CommandLink3.SortOrder = 12;
+            this.c1CommandLink3.SortOrder = 13;
             // 
             // FBudgetMain
             // 
