@@ -1086,7 +1086,7 @@ namespace RSMPS
             this.c1CommandLink11.Command = this.tlbbExpenseExport;
             this.c1CommandLink11.SortOrder = 11;
             // 
-            // saveFileDialog1          //*******************************Added 10/4/2015
+            // saveFileDialog1
             // 
             this.saveFileDialog1.DefaultExt = "xls";
             this.saveFileDialog1.Filter = "Excel files|*.xls";
