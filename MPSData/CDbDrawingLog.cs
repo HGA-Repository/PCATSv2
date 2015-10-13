@@ -115,7 +115,8 @@ namespace RSMPS
             LoadVals(strXml);
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spDrawingLog_Insert", cnn.GetConnection());
+        //    cmd = new SqlCommand("spDrawingLog_Insert", cnn.GetConnection());
+            cmd = new SqlCommand("spDrawingLog_Test_Insert", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -218,7 +219,8 @@ namespace RSMPS
             LoadVals(strXml);
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spDrawingLog_Update", cnn.GetConnection());
+        //    cmd = new SqlCommand("spDrawingLog_Update", cnn.GetConnection());
+            cmd = new SqlCommand("spDrawingLog_Test_Update", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -307,6 +309,40 @@ namespace RSMPS
 
             return oVar.ID;
         }
+
+        public int ID_Test(int id) //***********************************Added 10/8/2015
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            int retVal = 0;
+
+            //LoadVals(strXml);
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spDrawingLog_Test_ID", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            prm = cmd.Parameters.Add("@ID", SqlDbType.Int);
+            prm.Value = id;
+
+            prm = cmd.Parameters.Add("@ID_Exists", SqlDbType.Int);
+            prm.Direction = ParameterDirection.Output;
+
+            cmd.ExecuteNonQuery();
+
+            //retVal = Convert.ToInt32(cmd.Parameters["@ID"].Value);
+            retVal = Convert.ToInt32(cmd.Parameters["@ID_Exists"].Value);
+
+            prm = null;
+            cmd = null;
+            cnn.CloseConnection();
+            cnn = null;
+
+            return retVal;
+        }
+
 
 
         private string GetDataString()
@@ -422,6 +458,39 @@ namespace RSMPS
 
             return dr;
         }
+
+        public SqlDataReader GetListbyDeptProj(int deptID, int projID) //*************Added 10/9/2015
+        {
+            SqlDataReader dr;
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spDrawingLog_ListAll_DeptProj", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@DepartmentID", SqlDbType.Int);
+            prm.Value = deptID;
+            prm = cmd.Parameters.Add("@ProjectID", SqlDbType.Int);
+            prm.Value = projID;
+            
+
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            cmd = null;
+
+            return dr;
+        }
+
+
+
+
+
+
+
+
+
+
 
         public SqlDataReader GetListbyDeptProjNoTask(int deptID, int projID, string wbs, int sortColumn, bool sortAsc)
         {
@@ -727,7 +796,36 @@ namespace RSMPS
 
             return ds;
         }
+        public SqlDataReader GetDrawingLogForExport(int deptID, int projID) //******************************Added 10/8/2015
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            dsDrawingLog ds;
+            SqlDataReader dr;
+            string wbs = "";
 
+            cnn = new RSLib.CDbConnection();
+         //   cmd = new SqlCommand("spRPRT_DrawingLogByDeptProj2", cnn.GetConnection());
+            cmd = new SqlCommand("spDrawingLog_ListForUpdate", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            prm = cmd.Parameters.Add("@DepartmentID", SqlDbType.Int);
+            prm.Value = deptID;
+            prm = cmd.Parameters.Add("@ProjectID", SqlDbType.Int);
+            prm.Value = projID;
+            prm = cmd.Parameters.Add("@WBS", SqlDbType.Text);
+            prm.Value = wbs;
+
+
+
+           // dr = cmd.ExecuteReader();
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            cmd = null;
+
+            return dr;
+        }
         public DataSet GetJobStatForRprt(int deptID, int projID)
         {
             RSLib.CDbConnection cnn;

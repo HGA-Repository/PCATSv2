@@ -14,7 +14,7 @@ using System.Data.SqlClient;
 
 using GrapeCity.ActiveReports;
 
-
+//using C1.C1Excel;
 
 using DataDynamics.ActiveReports;
 
@@ -154,85 +154,98 @@ namespace RSMPS
         }
 
         private void SendDrawingLogToExcel()
+
+
+
+
         {
-        //    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-        //    {
-        //        this.Cursor = Cursors.WaitCursor;
 
-        //        C1.C1Excel.C1XLBook book = new C1.C1Excel.C1XLBook();
-        //        C1.C1Excel.XLSheet sheet = book.Sheets[0];
-        //        int indx = 0;
-        //        string hgaNumber, cadNumber, title, revision, issuedate, issuefor, transmittalnumber;
-        //        //SSS 201131126 uncommented the comment
-        //        //string cadNumber, title, revision, issuedate, issuefor, transmittalnumber;
-        //        DataSet dsLoc;
-        //        DataView dvLoc;
 
-        //        sheet[indx, 0].Value = "CADNumber";
-        //        sheet[indx, 1].Value = "Title";
-        //        sheet[indx, 2].Value = "Revision";
-        //        sheet[indx, 3].Value = "IssueDate";
-        //        sheet[indx, 4].Value = "IssuedFor";
-        //        sheet[indx, 5].Value = "TransmittalNumber";
+            //SaveFileDialog sv3 = new SaveFileDialog();
+            //Report_Name = CreateFileNAme();
+            //sv3.FileName = Report_Name;
+            //sv3.Filter = "XLS Files | *.xls";
+            //sv3.DefaultExt = "xls";
 
-        //        indx++;
 
-        //        dsLoc = (dsDrawingLog)rprt.DataSource;
-        //        dvLoc = new DataView(dsLoc.Tables["Revisions"]);
-        //        dvLoc.Sort = "IssuedDate";
+            //if (sv3.ShowDialog() == DialogResult.OK)
+            //{
+            //    this.Cursor = Cursors.WaitCursor;
 
-        //        foreach (DataRow dr in dsLoc.Tables["DrawingList"].Rows)
-        //        {
-        //            dvLoc.RowFilter = "DrawingID = " + dr["DrawingID"].ToString();
+            //    C1.C1Excel.C1XLBook book = new C1.C1Excel.C1XLBook();
+            //    C1.C1Excel.XLSheet sheet = book.Sheets[0];
+            //    int indx = 0;
+            //    string hgaNumber, cadNumber, title, revision, issuedate, issuefor, transmittalnumber;
+            //    //SSS 201131126 uncommented the comment
+            //    //string cadNumber, title, revision, issuedate, issuefor, transmittalnumber;
+            //    DataSet dsLoc;
+            //    DataView dvLoc;
 
-        //            if (dvLoc.Count > 0)
-        //            {
-        //                for (int i = 0; i < dvLoc.Count; i++)
-        //                {
-        //                    DataRowView d = dvLoc[i];
+            //    sheet[indx, 0].Value = "CADNumber";
+            //    sheet[indx, 1].Value = "Title";
+            //    sheet[indx, 2].Value = "Revision";
+            //    sheet[indx, 3].Value = "IssueDate";
+            //    sheet[indx, 4].Value = "IssuedFor";
+            //    sheet[indx, 5].Value = "TransmittalNumber";
 
-        //                    cadNumber = dr["CADNumber"].ToString();
-        //                    title = dr["Title1"].ToString();
-        //                    revision = d["RevisionNumber"].ToString();
-        //                    issuedate = DateToOutput(Convert.ToDateTime(d["IssuedDate"]));
-        //                    issuefor = d["IssuedFor"].ToString();
-        //                    transmittalnumber = d["TransmittalNumber"].ToString();
+            //    indx++;
 
-        //                    sheet[indx, 0].Value = cadNumber;
-        //                    sheet[indx, 1].Value = title;
-        //                    sheet[indx, 2].Value = revision;
-        //                    sheet[indx, 3].Value = issuedate;
-        //                    sheet[indx, 4].Value = issuefor;
-        //                    sheet[indx, 5].Value = transmittalnumber;
+            //    dsLoc = (dsDrawingLog)rprt.DataSource;
+            //    dvLoc = new DataView(dsLoc.Tables["Revisions"]);
+            //    dvLoc.Sort = "IssuedDate";
 
-        //                    indx++;
-        //                }
-        //            }
-        //            else
-        //            {
-        //                cadNumber = dr["CADNumber"].ToString();
-        //                hgaNumber = dr["DrawingID"].ToString();
-        //                title = dr["Title1"].ToString();
-        //                revision = "";
-        //                issuedate = "";
-        //                issuefor = "";
-        //                transmittalnumber = "";
+            //    foreach (DataRow dr in dsLoc.Tables["DrawingList"].Rows)
+            //    {
+            //        dvLoc.RowFilter = "DrawingID = " + dr["DrawingID"].ToString();
 
-        //                sheet[indx, 0].Value = cadNumber;
-        //                sheet[indx, 1].Value = title;
-        //                sheet[indx, 2].Value = revision;
-        //                sheet[indx, 3].Value = issuedate;
-        //                sheet[indx, 4].Value = issuefor;
-        //                sheet[indx, 5].Value = transmittalnumber;
+            //        if (dvLoc.Count > 0)
+            //        {
+            //            for (int i = 0; i < dvLoc.Count; i++)
+            //            {
+            //                DataRowView d = dvLoc[i];
 
-        //                indx++;
-        //            }
-        //        }
+            //                cadNumber = dr["CADNumber"].ToString();
+            //                title = dr["Title1"].ToString();
+            //                revision = d["RevisionNumber"].ToString();
+            //                issuedate = DateToOutput(Convert.ToDateTime(d["IssuedDate"]));
+            //                issuefor = d["IssuedFor"].ToString();
+            //                transmittalnumber = d["TransmittalNumber"].ToString();
 
-        //        book.Save(saveFileDialog1.FileName);
+            //                sheet[indx, 0].Value = cadNumber;
+            //                sheet[indx, 1].Value = title;
+            //                sheet[indx, 2].Value = revision;
+            //                sheet[indx, 3].Value = issuedate;
+            //                sheet[indx, 4].Value = issuefor;
+            //                sheet[indx, 5].Value = transmittalnumber;
 
-        //        this.Cursor = Cursors.Default;
-        //    }
+            //                indx++;
+            //            }
+            //        }
+            //        else
+            //        {
+            //            cadNumber = dr["CADNumber"].ToString();
+            //            hgaNumber = dr["DrawingID"].ToString();
+            //            title = dr["Title1"].ToString();
+            //            revision = "";
+            //            issuedate = "";
+            //            issuefor = "";
+            //            transmittalnumber = "";
+
+            //            sheet[indx, 0].Value = cadNumber;
+            //            sheet[indx, 1].Value = title;
+            //            sheet[indx, 2].Value = revision;
+            //            sheet[indx, 3].Value = issuedate;
+            //            sheet[indx, 4].Value = issuefor;
+            //            sheet[indx, 5].Value = transmittalnumber;
+
+            //            indx++;
+            //        }
+            //    }
+
+            //    book.Save(sv3.FileName);
+
+            //    this.Cursor = Cursors.Default;
+            //}
         }
 
         private string DateToOutput(DateTime dOut)
@@ -278,7 +291,7 @@ namespace RSMPS
            
       //      MessageBox.Show(projNumber);
             //MessageBox.Show(pcnNumber);
-         //  MessageBox.Show(reportType);
+           MessageBox.Show(reportType);
            //MessageBox.Show(BusinessUnit);
         //    MessageBox.Show(ForeCastTitle);
          
@@ -408,7 +421,7 @@ namespace RSMPS
                                                                                 else fileName = "Report-" + dt.ToString("yyyMMdd hhmmss");
             return fileName;
 
-        }
+        }       
 
 
 

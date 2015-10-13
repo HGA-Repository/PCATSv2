@@ -71,6 +71,66 @@ namespace RSMPS
             return retVal;
         }
 
+
+        public int Save_Update() //********************************Added 10/8/2015
+        {
+            CDbDrawingLog dbDt = new CDbDrawingLog();
+            string tmpDat;
+            int retVal = 0;
+
+        //    tmpDat = GetDataString_Test();
+            tmpDat = GetDataString();
+
+            if (base.ID > 0)
+            {
+               // dbDt.SavePrev_Test(tmpDat);
+                dbDt.SavePrev(tmpDat);
+                retVal = base.ID;
+            }
+            else
+            {
+                //retVal = dbDt.SaveNew_Test(tmpDat);
+                base.ID = retVal;
+            }
+
+            dbDt = null;
+
+            return retVal;
+
+        }
+
+        public int Save_Insert()//********************************Added 10/8/2015
+        {
+            CDbDrawingLog dbDt = new CDbDrawingLog();
+            string tmpDat;
+            int retVal = 0;
+
+        //    tmpDat = GetDataString_Test();
+            tmpDat = GetDataString();
+            if (base.ID > 0)
+            {
+                //dbDt.SavePrev_Test(tmpDat);
+                retVal = base.ID;
+            }
+            else
+            {
+                ///retVal = dbDt.SaveNew_Test(tmpDat);
+                retVal = dbDt.SaveNew(tmpDat);
+                base.ID = retVal;
+            }
+
+            dbDt = null;
+
+            return retVal;
+
+        }
+
+
+
+
+
+
+
         public static decimal GetPercentComplete(decimal bHrs, decimal rHrs)
         {
             decimal pComp;

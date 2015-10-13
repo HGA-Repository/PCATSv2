@@ -29,6 +29,7 @@ namespace RSMPS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FDLog_AddEdit));
             this.lvwLogs = new System.Windows.Forms.ListView();
             this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHGANum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -103,6 +104,7 @@ namespace RSMPS
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.bttNew = new System.Windows.Forms.Button();
             this.txtDepartment = new System.Windows.Forms.TextBox();
             this.bttDept = new System.Windows.Forms.Button();
@@ -115,6 +117,18 @@ namespace RSMPS
             this.bttProjectLead = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.cboWBS = new System.Windows.Forms.ComboBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.tbbPrint = new System.Windows.Forms.ToolStripButton();
+            this.tbbJobStatPrint = new System.Windows.Forms.ToolStripButton();
+            this.ttlbbSwitch = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bttSaveToExcel = new System.Windows.Forms.ToolStripButton();
+            this.bttOpenExcel2 = new System.Windows.Forms.ToolStripButton();
+            this.bttExportToDatabase = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.mnuRemoveDrawing.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -123,6 +137,7 @@ namespace RSMPS
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lvwLogs
@@ -926,6 +941,11 @@ namespace RSMPS
             this.label1.TabIndex = 0;
             this.label1.Text = "Alt. Doc. #:";
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.DefaultExt = "xlsx";
+            this.saveFileDialog1.Filter = "Excel files|*.xlsx";
+            // 
             // bttNew
             // 
             this.bttNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -1038,11 +1058,133 @@ namespace RSMPS
             this.cboWBS.TabIndex = 7;
             this.cboWBS.SelectedIndexChanged += new System.EventHandler(this.cboWBS_SelectedIndexChanged);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripButton2,
+            this.toolStripButton3,
+            this.tbbPrint,
+            this.tbbJobStatPrint,
+            this.ttlbbSwitch,
+            this.toolStripSeparator1,
+            this.bttSaveToExcel,
+            this.bttOpenExcel2,
+            this.bttExportToDatabase,
+            this.toolStripButton5});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(820, 25);
+            this.toolStrip1.TabIndex = 14;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Enabled = false;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "Change Project";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Enabled = false;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "Add Drawing";
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Enabled = false;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton3.Text = "Remove Drawing";
+            // 
+            // tbbPrint
+            // 
+            this.tbbPrint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbbPrint.Image = ((System.Drawing.Image)(resources.GetObject("tbbPrint.Image")));
+            this.tbbPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbbPrint.Name = "tbbPrint";
+            this.tbbPrint.Size = new System.Drawing.Size(23, 22);
+            this.tbbPrint.Text = "Print";
+            this.tbbPrint.Visible = false;
+            // 
+            // tbbJobStatPrint
+            // 
+            this.tbbJobStatPrint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbbJobStatPrint.Image = ((System.Drawing.Image)(resources.GetObject("tbbJobStatPrint.Image")));
+            this.tbbJobStatPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbbJobStatPrint.Name = "tbbJobStatPrint";
+            this.tbbJobStatPrint.Size = new System.Drawing.Size(23, 22);
+            this.tbbJobStatPrint.Text = "Print JobStat";
+            // 
+            // ttlbbSwitch
+            // 
+            this.ttlbbSwitch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ttlbbSwitch.Image = ((System.Drawing.Image)(resources.GetObject("ttlbbSwitch.Image")));
+            this.ttlbbSwitch.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ttlbbSwitch.Name = "ttlbbSwitch";
+            this.ttlbbSwitch.Size = new System.Drawing.Size(23, 22);
+            this.ttlbbSwitch.Text = "Switch to Account grouping";
+            this.ttlbbSwitch.ToolTipText = "Switch Switch to Account grouping";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bttSaveToExcel
+            // 
+            this.bttSaveToExcel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.bttSaveToExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bttSaveToExcel.Name = "bttSaveToExcel";
+            this.bttSaveToExcel.Size = new System.Drawing.Size(77, 22);
+            this.bttSaveToExcel.Text = "Save in Excel";
+            this.bttSaveToExcel.Click += new System.EventHandler(this.bttSaveToExcel_Click);
+            // 
+            // bttOpenExcel2
+            // 
+            this.bttOpenExcel2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.bttOpenExcel2.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.bttOpenExcel2.Name = "bttOpenExcel2";
+            this.bttOpenExcel2.Size = new System.Drawing.Size(69, 22);
+            this.bttOpenExcel2.Text = "Open Excel";
+            this.bttOpenExcel2.Click += new System.EventHandler(this.bttOpenExcel2_Click);
+            // 
+            // bttExportToDatabase
+            // 
+            this.bttExportToDatabase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.bttExportToDatabase.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bttExportToDatabase.Name = "bttExportToDatabase";
+            this.bttExportToDatabase.Size = new System.Drawing.Size(109, 22);
+            this.bttExportToDatabase.Text = "Export to Database";
+            this.bttExportToDatabase.Click += new System.EventHandler(this.bttExportToDatabase_Click);
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton5.Text = "Close";
+            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
+            // 
             // FDLog_AddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 428);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.cboWBS);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.txtProjectLead);
@@ -1075,6 +1217,8 @@ namespace RSMPS
             this.groupBox2.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1172,5 +1316,18 @@ namespace RSMPS
         private System.Windows.Forms.RadioButton rdoSpec;
         private System.Windows.Forms.RadioButton rdoDrawing;
         private System.Windows.Forms.RadioButton rdoTask;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton tbbPrint;
+        private System.Windows.Forms.ToolStripButton tbbJobStatPrint;
+        private System.Windows.Forms.ToolStripButton ttlbbSwitch;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton bttSaveToExcel;
+        private System.Windows.Forms.ToolStripButton bttOpenExcel2;
+        private System.Windows.Forms.ToolStripButton bttExportToDatabase;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

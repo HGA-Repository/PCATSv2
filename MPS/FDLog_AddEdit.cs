@@ -8,8 +8,16 @@ using System.Windows.Forms;
 
 using System.Collections;
 using System.Data.SqlClient;
+//using Microsoft.Office.Interop.Excel.Extensions;
+using Excel = Microsoft.Office.Interop.Excel; //********************Added 10/9/2015
+using Microsoft.Office.Core;
+//using Microsoft.Office.Interop.Excel;
+using System.IO;
+using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
 
-
+//using System.Globalization.CultureInfo;
 namespace RSMPS
 {
     public partial class FDLog_AddEdit : Form
@@ -148,6 +156,7 @@ namespace RSMPS
             CBEmployee emp = new CBEmployee();
             emp.Load(leadID);
             miCurrLead = leadID;
+            
             txtProjectLead.Text = emp.Name;
             bttProjectLead.Enabled = false;
 
@@ -1300,7 +1309,189 @@ namespace RSMPS
 
             //MessageBox.Show("Pass Level" + passLvl, "Pass Level", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+        CDrawingExport de = new CDrawingExport();
+        DateTime dt = DateTime.Now;
+       
+        public string Get_File_Name()//***************Added 10/8/2015}
+        {
+            string ExFile = "JobStat Update-" + msCurrProj + "-" + "-" + miCurrDept + "_" + dt.ToString("yyyMMdd hhmmss");
+            return ExFile;
+        }
+        private void bttSaveToExcel_Click(object sender, EventArgs e)
+        {
+            de.F_Name = Get_File_Name();
+            //saveFileDialog1.FileName = Get_File_Name();
+
+
+            //// SaveFileDialog savefiledialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+            saveFileDialog1.DefaultExt = "xlsx";
+            saveFileDialog1.FilterIndex = 1;
+            saveFileDialog1.RestoreDirectory = true;
+            saveFileDialog1.FileName = Get_File_Name();
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                de.ExportDrawingForPrimavera(saveFileDialog1.FileName, miCurrProj, miCurrDept);
+            }
+            MessageBox.Show("Saved in excel");
+        }
+
+        private void bttOpenExcel2_Click(object sender, EventArgs e)
+        {
+            string F_Name = Get_File_Name();
+                    
+             //string workbookPath = "C:\\Test\\" + F_Name + ".xlsx";
+
+
+             string workbookPath = "C:\\Test\\" + Get_File_Name() + ".xlsx";
+
+
+             var excelApp = new Excel.Application();
+             // Make the object visible.
+             excelApp.Visible = true;
+             // excelApp.Workbooks.Add(workbookPath);
+
+             Excel.Workbook excelWorkbook = excelApp.Workbooks.Open(workbookPath,
+                     0, false, 5, "", "", false, Excel.XlPlatform.xlWindows, "",
+                     true, false, 0, true, false, false);
+             excelApp.DefaultSaveFormat = Excel.XlFileFormat.xlOpenXMLWorkbook;
+
+             // This example uses a single workSheet. 
+             Excel._Worksheet workSheet = excelApp.ActiveSheet;
+                     
+             Excel.Range rng = workSheet.Range["A1"];
+             // rng.EntireColumn.Hidden = true;
+             rng.EntireColumn.Hidden = true;
+             workSheet.Cells.Locked = false;
+             workSheet.Cells.FormulaHidden = false;
+             rng.Locked = true;
+             rng.FormulaHidden = false;
+             workSheet.Protect(Type.Missing, true, true, true);
+
+
+         
+            //**************************************************************This part is commented to try new way
+
+                                     //Excel.Application excelApp = new Excel.Application();
+                                     //excelApp.Visible = true;
+                                     //Excel.Workbook excelWorkbook = excelApp.Workbooks.Open(workbookPath,
+                                     //      0, false, 5, "", "", false, Excel.XlPlatform.xlWindows, "",
+                                     //      true, false, 0, true, false, false);
+            //******************************************************************************************************
+
+
+        }
+
+
+
+        private void bttExportToDatabase_Click(object sender, EventArgs e)
+        {
+            CDrawingExport de = new CDrawingExport();
+            de.F_Name = Get_File_Name();
+            MessageBox.Show(de.F_Name + "....................");
+            de.ExportDrawingForPrimavera(miCurrDept, miCurrProj);
+            MessageBox.Show(de.F_Name + "Saved to DFatabase");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string workbookPath = "C:\\Test\\" + Get_File_Name() + ".xlsx";
+            
+
+            var excelApp = new Excel.Application();
+            // Make the object visible.
+         
+           // excelApp.Workbooks.Add(workbookPath);
+
+            Excel.Workbook excelWorkbook = excelApp.Workbooks.Open(workbookPath,
+                    0, false, 5, "", "", false, Excel.XlPlatform.xlWindows, "",
+                    true, false, 0, true, false, false);
+            excelApp.DefaultSaveFormat = Excel.XlFileFormat.xlOpenXMLWorkbook;
+
+                // This example uses a single workSheet. 
+            Excel._Worksheet workSheet = excelApp.ActiveSheet;
+
+                // Earlier versions of C# require explicit casting.
+                //Excel._Worksheet workSheet = (Excel.Worksheet)excelApp.ActiveSheet;
+
+            // Establish column headings in cells A1 and B1.
+            workSheet.Cells[20, "A"] = "ID Number";
+            workSheet.Cells[20, "B"] = "Current Balance";
+
+
+            Excel.Range rng = workSheet.Range["A10"];
+            // rng.EntireColumn.Hidden = true;
+            rng.EntireColumn.Hidden = true;
+            workSheet.Cells.Locked = false;
+            workSheet.Cells.FormulaHidden = false;
+            rng.Locked = true;
+            rng.FormulaHidden = false;
+            workSheet.Protect(Type.Missing, true, true, true);
+             
+            //*****************************************************************************************
+                                        
+            //*****************************************************************************************
+            
+              excelApp.Visible = true;
+
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+            string workbookPath = "C:\\Test\\" + "Book1" + ".xlsx";
+            var excelApp = new Excel.Application();
+            
+            Excel.Workbook excelWorkbook = excelApp.Workbooks.Open(workbookPath,
+                    0, false, 5, "", "", false, Excel.XlPlatform.xlWindows, "",
+                    true, false, 0, true, false, false);
+            excelApp.DefaultSaveFormat = Excel.XlFileFormat.xlOpenXMLWorkbook;
+
+            // This example uses a single workSheet. 
+            Excel._Worksheet workSheet = excelApp.ActiveSheet;
+            workSheet.Name = "HGO";
+            MessageBox.Show("clicked");
+
+            object Missing = System.Reflection.Missing.Value;
+
+            Excel.Range Range = workSheet.get_Range("B2", "B10");
+
+            Range.Validation.Add(Excel.XlDVType.xlValidateList        , Excel.XlDVAlertStyle.xlValidAlertStop        , Excel.XlFormatConditionOperator.xlBetween        , "Item1,Item2,Item3"        , Type.Missing);
+            Range.Validation.InCellDropdown = true;
+
+            Range.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 217, 217, 0)); 
+
+
+
+
+
+            excelApp.Visible = true;
+
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
+
+ 
+
+
+
+
+
+
+
+
+    //********************************************
+       //********************************************
+
+
+
+
 
     public class SortDrawingList : System.Collections.IComparer
     {
