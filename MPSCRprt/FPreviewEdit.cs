@@ -169,7 +169,7 @@ namespace RSMPS
 
             rprtCostReport1 rprt = new rprtCostReport1();
             rprt.records = record;
-            MessageBox.Show(rprt.records.ToString());
+       //     MessageBox.Show(rprt.records.ToString());
             rprt.CutoffDate = currDate;
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
