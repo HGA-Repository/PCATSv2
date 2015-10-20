@@ -2457,7 +2457,7 @@ namespace RSMPS
             return uomID;
         }
 
-                public string OldStatus;
+            //    public string OldStatus;
 
 
             
@@ -2561,9 +2561,9 @@ namespace RSMPS
 
             if (e.Column.Name == "Status")
             {
-               // MessageBox.Show(e.OldValue.ToString() + "........");
-            //    if (e.OldValue.ToString() == "Approved")
-                if (OldStatus == "Approved")
+                //MessageBox.Show("e.OldValue = " + e.OldValue.ToString() );
+                if (e.OldValue.ToString() == "Approved")
+                     //if (OldStatus == "Approved")
                 {
                     if (UnApprovePCN() == false)
                     {
@@ -2583,7 +2583,7 @@ namespace RSMPS
                     {
                         pa.IsChangeOnly = false;
 
-                       // MessageBox.Show("OldStatus =" + e.OldValue.ToString() + "...New Status= " + tdbgBudgetPCN.Columns["Status"].Value.ToString());
+                     //   MessageBox.Show("OldStatus =" + e.OldValue.ToString() + "...New Status= " + tdbgBudgetPCN.Columns["Status"].Value.ToString());
                     }
                     else
                         pa.IsChangeOnly = true;
@@ -3488,7 +3488,7 @@ namespace RSMPS
            
             string st  = Convert.ToString(d_MC["PCNStatus"]);
             //MessageBox.Show(st);
-           OldStatus = st;
+         //  OldStatus = st;
 
             //if (st == "Approved")
             //{
