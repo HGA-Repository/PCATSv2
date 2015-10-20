@@ -960,7 +960,6 @@ namespace RSMPS
             // 
             // Detail
             // 
-            this.Detail.ColumnSpacing = 0F;
             this.Detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.Shape12,
             this.Shape11,
@@ -1013,7 +1012,7 @@ namespace RSMPS
             this.Shape12.Left = 6.125F;
             this.Shape12.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape12.Name = "Shape12";
-            this.Shape12.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape12.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape12.Top = 0.0625F;
             this.Shape12.Width = 1.4375F;
             // 
@@ -1024,7 +1023,7 @@ namespace RSMPS
             this.Shape11.Left = 3.75F;
             this.Shape11.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape11.Name = "Shape11";
-            this.Shape11.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape11.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape11.Top = 0.0625F;
             this.Shape11.Width = 1.625F;
             // 
@@ -1035,7 +1034,7 @@ namespace RSMPS
             this.Shape10.Left = 1.125F;
             this.Shape10.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape10.Name = "Shape10";
-            this.Shape10.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape10.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape10.Top = 0.0625F;
             this.Shape10.Width = 0.75F;
             // 
@@ -1332,7 +1331,7 @@ namespace RSMPS
             this.Shape.Left = 0F;
             this.Shape.LineStyle = GrapeCity.ActiveReports.SectionReportModel.LineStyle.Transparent;
             this.Shape.Name = "Shape";
-            this.Shape.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape.Top = 0F;
             this.Shape.Width = 7.5625F;
             // 
@@ -1481,7 +1480,6 @@ namespace RSMPS
             this.txtTotalForecast,
             this.txtTotalOU,
             this.Shape3});
-            this.ReportFooter.Height = 0.25F;
             this.ReportFooter.Name = "ReportFooter";
             this.ReportFooter.Format += new System.EventHandler(this.ReportFooter_Format);
             // 
@@ -1558,7 +1556,7 @@ namespace RSMPS
             this.Shape3.Left = 0F;
             this.Shape3.LineStyle = GrapeCity.ActiveReports.SectionReportModel.LineStyle.Transparent;
             this.Shape3.Name = "Shape3";
-            this.Shape3.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape3.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape3.Top = 0F;
             this.Shape3.Width = 7.5625F;
             // 
@@ -1607,7 +1605,7 @@ namespace RSMPS
             this.Shape5.Height = 0.28F;
             this.Shape5.Left = 1.937F;
             this.Shape5.Name = "Shape5";
-            this.Shape5.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape5.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape5.Top = 0.762F;
             this.Shape5.Width = 1.75F;
             // 
@@ -1628,7 +1626,7 @@ namespace RSMPS
             this.Shape8.Height = 0.28F;
             this.Shape8.Left = 6.1245F;
             this.Shape8.Name = "Shape8";
-            this.Shape8.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape8.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape8.Top = 0.762F;
             this.Shape8.Width = 1.4375F;
             // 
@@ -1650,7 +1648,7 @@ namespace RSMPS
             this.Shape6.Height = 0.28F;
             this.Shape6.Left = 3.7495F;
             this.Shape6.Name = "Shape6";
-            this.Shape6.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape6.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape6.Top = 0.762F;
             this.Shape6.Width = 1.625F;
             // 
@@ -1659,7 +1657,7 @@ namespace RSMPS
             this.Shape7.Height = 0.28F;
             this.Shape7.Left = 5.437F;
             this.Shape7.Name = "Shape7";
-            this.Shape7.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape7.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape7.Top = 0.762F;
             this.Shape7.Width = 0.625F;
             // 
@@ -1668,7 +1666,7 @@ namespace RSMPS
             this.Shape4.Height = 0.28F;
             this.Shape4.Left = 1.1245F;
             this.Shape4.Name = "Shape4";
-            this.Shape4.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape4.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape4.Top = 0.762F;
             this.Shape4.Width = 0.75F;
             // 
@@ -1865,7 +1863,7 @@ namespace RSMPS
             this.Shape9.Left = 1.062F;
             this.Shape9.LineStyle = GrapeCity.ActiveReports.SectionReportModel.LineStyle.Transparent;
             this.Shape9.Name = "Shape9";
-            this.Shape9.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape9.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape9.Top = 1.01F;
             this.Shape9.Width = 6.6875F;
             // 
@@ -1943,11 +1941,11 @@ namespace RSMPS
             // 
             this.lblDeptCover.Height = 0.562F;
             this.lblDeptCover.HyperLink = null;
-            this.lblDeptCover.Left = 0.36F;
+            this.lblDeptCover.Left = 0.02F;
             this.lblDeptCover.Name = "lblDeptCover";
             this.lblDeptCover.Style = "background-color: White; font-size: 14.25pt; font-weight: bold";
             this.lblDeptCover.Text = "HGA Forecasting Report by Department";
-            this.lblDeptCover.Top = 0.01200002F;
+            this.lblDeptCover.Top = 0.012F;
             this.lblDeptCover.Visible = false;
             this.lblDeptCover.Width = 5.14F;
             // 
@@ -2085,7 +2083,7 @@ namespace RSMPS
             this.Shape2.Left = 0F;
             this.Shape2.LineStyle = GrapeCity.ActiveReports.SectionReportModel.LineStyle.Transparent;
             this.Shape2.Name = "Shape2";
-            this.Shape2.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape2.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape2.Top = 0F;
             this.Shape2.Width = 7.5625F;
             // 
@@ -2142,7 +2140,7 @@ namespace RSMPS
             this.Shape15.Left = 6.125F;
             this.Shape15.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape15.Name = "Shape15";
-            this.Shape15.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape15.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape15.Top = 0.0625F;
             this.Shape15.Width = 1.4375F;
             // 
@@ -2153,7 +2151,7 @@ namespace RSMPS
             this.Shape14.Left = 3.75F;
             this.Shape14.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape14.Name = "Shape14";
-            this.Shape14.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape14.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape14.Top = 0.0625F;
             this.Shape14.Width = 1.625F;
             // 
@@ -2164,7 +2162,7 @@ namespace RSMPS
             this.Shape13.Left = 1.125F;
             this.Shape13.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.Shape13.Name = "Shape13";
-            this.Shape13.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape13.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape13.Top = 0.0625F;
             this.Shape13.Width = 0.75F;
             // 
@@ -2535,7 +2533,7 @@ namespace RSMPS
             this.Shape1.Left = 0F;
             this.Shape1.LineStyle = GrapeCity.ActiveReports.SectionReportModel.LineStyle.Transparent;
             this.Shape1.Name = "Shape1";
-            this.Shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F);
+            this.Shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape1.Top = 0F;
             this.Shape1.Width = 7.5625F;
             // 

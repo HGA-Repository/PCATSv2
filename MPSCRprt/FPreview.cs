@@ -163,6 +163,10 @@ namespace RSMPS
                 rprt.DataSource = ds;
                 rprt.DataMember = "Table";
                 viewer1.Document = rprt.Document;
+                // By default rprtCostReport1.records = 0. So, when its Called for Report for Department, Detail part becomes invisible.
+
+                rprt.records = 10; //**********************Added 10/20/2015 *******************To Test
+
                 rprt.Run();
             //}
             //catch {
