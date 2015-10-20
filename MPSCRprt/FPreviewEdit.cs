@@ -133,7 +133,7 @@ namespace RSMPS
             SqlCommand cmd;
             SqlParameter prm;
             string currDate;
-
+            int record = 0; //**************************************************10/20/2015
             this.Cursor = Cursors.WaitCursor;
 
             currDate = DateTime.Now.ToShortDateString();
@@ -164,14 +164,16 @@ namespace RSMPS
 
             da.Fill(ds);
             FtcCalculator.UpdateCalculatedField(ds);
-
+            record = Convert.ToInt32(cmd.Parameters["@records"].Value); //****************************************Added 10/20/2015
             cnn.CloseConnection();
 
             rprtCostReport1 rprt = new rprtCostReport1();
-
+            rprt.records = record;
+            MessageBox.Show(rprt.records.ToString());
             rprt.CutoffDate = currDate;
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
+           
             viewer1.Document = rprt.Document;
             rprt.Run();
 
