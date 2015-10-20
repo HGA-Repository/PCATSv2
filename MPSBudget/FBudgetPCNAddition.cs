@@ -957,7 +957,7 @@ private void tdbdDeptGroup_MouseLeave(object sender, EventArgs e)
             // tdbgExpenses.Columns[6].FooterText = dollars.ToString("$#,##0.00");
 
             tdbgExpenses.Columns[6].FooterText = muAmnt.ToString("$#,##0.00");
-        //    tdbgExpenses.Columns[7].FooterText = dollars.ToString("$#,##0.00");
+            tdbgExpenses.Columns[7].FooterText = dollars.ToString("$#,##0.00");
 
             txtEstimatedDollars.Text = TotalDollars().ToString("#,##0.00");
         }

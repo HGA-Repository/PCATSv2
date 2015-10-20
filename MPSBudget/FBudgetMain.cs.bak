@@ -672,7 +672,7 @@ namespace RSMPS
         {
            // if (mbIsFixedRate == true)
           //  {
-               // MessageBox.Show("Fixed rate");
+                MessageBox.Show("Fixed rate");
 
                 foreach (var group in _Groups)
                 {
@@ -789,7 +789,7 @@ namespace RSMPS
                 }
 
             }
-// MessageBox.Show(" f1_OnWorkSheetChanged..................");
+
             ClearExpenseLines(group);
 
             int travelFare, autoRental, tolls, fuel, mileage, meals, lodging, perdiem, miscExp, survey1, survey2, survey3, survey4, survsup, engserv, surveying, geotinv, environ, specsub, atv, oruv, boat, digcam, cphone, fldcomp, trimbler8, trimblegeo, etotstat, lasrange, pipeloc;
@@ -1182,7 +1182,6 @@ namespace RSMPS
 
         private void InsertLineFromWorkSheet(int wsID, int acctGroup, int acctCode, string wbs, string description, int qty, int hrs, decimal rate)
         {
-// MessageBox.Show("InsertLineFromWorkSheet...........");
             string group = acctGroup + "";
             var fg = fgForGroup(group);
             int rowIndx = 0;
@@ -1197,7 +1196,7 @@ namespace RSMPS
             task = 0;
             cat = 0;
             act = 0;
-         //   MessageBox.Show("Account Code" + acctCode.ToString());
+            MessageBox.Show("Account Code" + acctCode.ToString());
 
             foreach (Row r in fg.Rows)
             {
@@ -1213,7 +1212,7 @@ namespace RSMPS
                     }
 
                     //MessageBox.Show("(r.Index > 0)============ is invoked");
-                //    MessageBox.Show("rowGrp-----" + rowGrp.ToString() + "----acctCode---------" + acctCode.ToString());
+                    MessageBox.Show("rowGrp-----" + rowGrp.ToString() + "----acctCode---------" + acctCode.ToString());
 
                     if (rowGrp == acctCode)
                     {
@@ -1227,18 +1226,18 @@ namespace RSMPS
                         cat = Convert.ToInt32(r[BUDCOL6]);
                         act = Convert.ToInt32(r[BUDCOL7]);
 
-                     //   MessageBox.Show("(rowGrp == acctCode)============ is invoked");
+                        MessageBox.Show("(rowGrp == acctCode)============ is invoked");
                     }
                     else if (rowGrp != acctCode && foundFirst == true)
                     {
                         rowIndx = r.Index;
-                      //  MessageBox.Show("else if (rowGrp != acctCode && foundFirst == true)============ is invoked");
+                        MessageBox.Show("else if (rowGrp != acctCode && foundFirst == true)============ is invoked");
                         break;
                     }
                 }
                // MessageBox.Show(foundFirst.ToString() + rowIndx.ToString());
             }
-          //  MessageBox.Show(foundFirst.ToString() + rowIndx.ToString());
+            MessageBox.Show(foundFirst.ToString() + rowIndx.ToString());
             if (foundFirst == true && rowIndx != 0)
             {
                 //  insert a new row into the grid
@@ -1265,7 +1264,7 @@ namespace RSMPS
                 bl.BareDollars = 0;
 
                 bl.Save();
-            //    MessageBox.Show("Inserted to Budgetline From WorkSheet");
+                MessageBox.Show("Inserted to Budgetline From WorkSheet");
 
                 newRow[1] = taskVal;
                 newRow[2] = catVal;
@@ -1289,7 +1288,6 @@ namespace RSMPS
 
         private void InsertLineFromPCN(int wsID, int acctGroup, int acctCode, string wbs, string description, int qty, int hrs, decimal rate)
         {
- //MessageBox.Show("InsertLineFromPCN started");
             string group = acctGroup + "";
             var fg = fgForGroup(group);
             int rowIndx = 0;
@@ -2007,7 +2005,7 @@ namespace RSMPS
                     r[BUDCOL16] = bl.ID;
                 }
             }
-            
+            MessageBox.Show("Saved.................................");
            // MessageBox.Show("SaveBudgetLines");
         }
 
@@ -2069,13 +2067,21 @@ namespace RSMPS
 
 
                                     //el2.Save();
+
+
+
+
+
+
+
+
                     r[9] = el.ID;
 
                     
                 }
             }
         //    MessageBox.Show("SaveExpenseLines....................................................");
-           
+           // MessageBox.Show("SaveExpenseLines");
         }
 
         private void SaveExpenseLines(string group, int row)
@@ -2123,7 +2129,7 @@ namespace RSMPS
                             //el2.Save();
 
             fgExp[row, 9] = el.ID;
-          //  MessageBox.Show("SaveExpenseLines.......................................!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            MessageBox.Show("SaveExpenseLines.......................................!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
            // MessageBox.Show("SaveExpenseLines(string group, int row)");
         }
 
@@ -2194,7 +2200,7 @@ namespace RSMPS
             bl.BareDollars = 0;
 
             bl.Save();
-         //   MessageBox.Show("Saved changed to DB");
+            MessageBox.Show("Saved changed to DB");
 
             fg[rw, BUDCOL16] = bl.ID;
            // MessageBox.Show("SaveChangeToDB");
@@ -2457,23 +2463,11 @@ namespace RSMPS
             return uomID;
         }
 
-                public string OldStatus;
-
-
-            
-
-
-
-
 
         private void tdbgBudgetPCN_AfterColEdit(object sender, C1.Win.C1TrueDBGrid.ColEventArgs e)
         {
-            DataRow d4 = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
-            //string O_st = Convert.ToString(d4["PCNStatus"]);
+            //DataRow d4 = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
 
-            //MessageBox.Show("tdbgBudgetPCN_AfterColEdit,,,," + e.ColIndex + "........." + tdbgBudgetPCN.Columns["Status"].Value.ToString());
-
-       //     MessageBox.Show("tdbgBudgetPCN_AfterColEdit,,,," );
             if (e.ColIndex == 5 && Convert.ToBoolean(tdbgBudgetPCN.Tag) == true)
             {
                 CBBudgetPCN pcn = new CBBudgetPCN();
@@ -2502,12 +2496,11 @@ namespace RSMPS
                     makeActiveToolStripMenuItem.Enabled = false;
 
                     MakeProjectActiveInJobStat(li.ID);
-                    //MessageBox.Show("Project active");
                 }
 
                 //**************************************added on 5/6
-                string st = Convert.ToString(d["PCNStatus"]);
-                if (st == "Approved" || st == "Disapprove" || st == "Pending" || st == "Prepare Control Estimate") { bttEditPCN.Enabled = false; }
+                        string st = Convert.ToString(d["PCNStatus"]);
+                        if (st == "Approved" || st == "Disapprove" || st == "Pending" || st == "Prepare Control Estimate") { bttEditPCN.Enabled = false; }
                 //**************************************
 
 
@@ -2529,7 +2522,7 @@ namespace RSMPS
             {
                 DataRow d3 = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
                 string st_status = Convert.ToString(d3["PCNStatus"]);
-
+                              
                 if (st_status == "Initiated")
                 {
                     CBBudgetPCN pcn = new CBBudgetPCN();
@@ -2542,12 +2535,14 @@ namespace RSMPS
                     pcn.Save();
                 }
                 else
-                {
+                {                   
                     int r_i = tdbgBudgetPCN.Row;
                     tdbgBudgetPCN[r_i, 2] = st_Description;
-                }
+                 }
                 //MessageBox.Show("You cannot edit Description with Approved/Pendind/Disapprove PCN");
             }
+
+
 
 
 
@@ -2555,15 +2550,12 @@ namespace RSMPS
 
         private void tdbgBudgetPCN_BeforeColUpdate(object sender, C1.Win.C1TrueDBGrid.BeforeColUpdateEventArgs e)
         {
-            //MessageBox.Show("tdbgBudgetPCN_BeforeColUpdate started, " + e.Column.Name + " Old Status =" + e.OldValue.ToString() + ".................." + OldStatus);
-        //    MessageBox.Show("Please Hit enter to Change PCN Status");
+            //MessageBox.Show("Please Hit enter to Change PCN Status");
             tdbgBudgetPCN.Tag = true;
 
             if (e.Column.Name == "Status")
             {
-               // MessageBox.Show(e.OldValue.ToString() + "........");
-            //    if (e.OldValue.ToString() == "Approved")
-                if (OldStatus == "Approved")
+                if (e.OldValue.ToString() == "Approved")
                 {
                     if (UnApprovePCN() == false)
                     {
@@ -2576,18 +2568,17 @@ namespace RSMPS
                 }
                 else
                 {
-
                     FBudgetPCNApproval pa = new FBudgetPCNApproval();
                     //SSS02192014
                     if (tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Approved" | tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Pending")
                     {
                         pa.IsChangeOnly = false;
 
-                       // MessageBox.Show("OldStatus =" + e.OldValue.ToString() + "...New Status= " + tdbgBudgetPCN.Columns["Status"].Value.ToString());
+
                     }
                     else
                         pa.IsChangeOnly = true;
-                 //   MessageBox.Show("tdbgBudgetPCN_BeforeColUpdate.......Middle" + "OldStatus =" + e.OldValue.ToString()  + "...New Status= " + tdbgBudgetPCN.Columns["Status"].Value.ToString());
+
                     pa.PreviousEntry = e.OldValue.ToString();
                     pa.OnChangeApproved += new RevSol.PassDataStringWithIndex(pa_OnChangeApproved);
                     pa.OnChangeCancelled += new RevSol.PassDataStringWithIndex(pa_OnChangeCancelled);
@@ -2596,8 +2587,9 @@ namespace RSMPS
                     pa.OnChangeCancelled -= new RevSol.PassDataStringWithIndex(pa_OnChangeCancelled);
                 }
             }
-          //  MessageBox.Show("tdbgBudgetPCN_BeforeColUpdate.......Ended");
+
             //bttEditPCN.Enabled = false; // Added 5/6 **************@10:52
+
         }
 
         private bool UnApprovePCN()
@@ -2652,7 +2644,7 @@ namespace RSMPS
                 //tdbgBudgetPCN.UpdateData();
 
                 int pcnID = Convert.ToInt32(d["ID"]);
-             //   MessageBox.Show("pa_OnChangeApproved....." + val + " " + index);
+
                 AddPCNToCurrentBudget(pcnID);
             }
         }
@@ -2667,7 +2659,7 @@ namespace RSMPS
             pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNAdded);
 
 
-         //   MessageBox.Show("PCN Added ..., Group added? " + pcn.mbIsCodeAdded);
+            MessageBox.Show("PCN Added ..., Group added? " + pcn.mbIsCodeAdded);
 
 
             if (pcn.mbIsCodeAdded == true)
@@ -2790,7 +2782,6 @@ namespace RSMPS
 
         private void AddPCNToCurrentBudget(int pcnID)
         {
-          //  MessageBox.Show("AddPCNToCurrentBudget....." + pcnID);
             CBBudgetPCN pcn = new CBBudgetPCN();
             int code;
             string wbs;
@@ -2805,9 +2796,7 @@ namespace RSMPS
 
             foreach (DataRow d in pcn.PCNData.Tables["PCNHours"].Rows)
             {
-               
                 code = Convert.ToInt32(d["Code"]);
-              //  MessageBox.Show(code.ToString());
                 wbs = d["WBS"].ToString();
                 desc = d["Description"].ToString();
                 hrs = Convert.ToInt32(d["SubtotalHrs"]);
@@ -2816,24 +2805,11 @@ namespace RSMPS
                 AddPCNByCode(pcn.PCNNumber, code, wbs, desc, hrs, rate);
             }
 
-            //AddPCNExpenses(pcn.ID, pcn.PCNNumber, pcn.PCNData); //**********Commented***********************************
-            //***************************************************Added to put PCN to Proper Dept Group********************
-            DataView view = new DataView(pcn.PCNData.Tables["PCNExpenses"]);
-            DataTable distinctValues = view.ToTable(true, "DeptGroup");
-
-            foreach (DataRow de in distinctValues.Rows)
-            {
-              //  MessageBox.Show(de["DeptGroup"].ToString());
-                AddPCNExpenses(pcn.ID, pcn.PCNNumber, pcn.PCNData, Convert.ToInt32(de["DeptGroup"]));
-            }
-            //*******************************************************************************************
-
-
+            AddPCNExpenses(pcn.ID, pcn.PCNNumber, pcn.PCNData);
         }
 
         private void AddPCNByCode(string pcnNum, int code, string wbs, string desc, int hrs, decimal rate)
         {
-            //MessageBox.Show("AddPCNByCode...................... Started");
             string newDesc;
 
             newDesc = "PCN" + pcnNum + " " + wbs + " " + desc;
@@ -2843,11 +2819,10 @@ namespace RSMPS
             InsertLineFromPCN(0, group, code, wbs, newDesc, 1, hrs, rate);
         }
 
-     //   private void AddPCNExpenses(int pcnID, string pcnNum, dsPCN pcns)
-             private void AddPCNExpenses(int pcnID, string pcnNum, dsPCN pcns, int dept) //********************Edited 10/19/2015
+        private void AddPCNExpenses(int pcnID, string pcnNum, dsPCN pcns)
         {
-            //var group = _Default_Group;
-            var group = dept.ToString(); //******************//********************Edited 10/19/2015
+            var group = _Default_Group;
+           // var group = "12000"; //********************************************************* Testing !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
             int travelFare, autoRental, tolls, fuel, mileage, meals, lodging, perdiem, miscExp, survey1, survey2, survey3, survey4, survsup, engserv, surveying, geotinv, environ, specsub, atv, oruv, boat, digcam, cphone, fldcomp, trimbler8, trimblegeo, etotstat, lasrange, pipeloc; 
             string rowCode;
@@ -2886,109 +2861,104 @@ namespace RSMPS
             // find entries to make new worksheet line
             foreach (DataRow d in pcns.Tables["PCNExpenses"].Rows)
             {
-                int dg = Convert.ToInt32(d["DeptGroup"]);// ****************************************10/19
-                if (dg == dept)                             //***************************************10/19
+
+                rowCode = d["Code"].ToString();
+
+                switch (rowCode)
                 {
-
-                    rowCode = d["Code"].ToString();
-
-                    switch (rowCode)
-                    {
-                        case "E110":
-                            travelFare += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E120":
-                            autoRental += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E130":
-                            tolls += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E140":
-                            fuel += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E150":
-                            mileage += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E160":
-                            meals += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E170":
-                            lodging += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E180":
-                            perdiem += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E190":
-                            miscExp += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E281":
-                            survey1 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E282":
-                            survey2 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E283":
-                            survey3 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E284":
-                            survey4 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E290":
-                            survsup += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E310":
-                            engserv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E320":
-                            surveying += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E330":
-                            geotinv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E340":
-                            environ += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E350":
-                            specsub += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E541":
-                            atv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E542":
-                            oruv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E543":
-                            boat += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E561":
-                            digcam += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E562":
-                            cphone += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E580":
-                            fldcomp += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E591":
-                            trimbler8 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E592":
-                            trimblegeo += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E593":
-                            etotstat += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E594":
-                            lasrange += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        case "E595":
-                            pipeloc += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                            break;
-                        default:
-                            //AddPCNExpensesNonWorksheet(pcnID, rowCode, Convert.ToInt32(d["NumItems"]), Convert.ToDecimal(d["DlrsPerItem"]), Convert.ToDecimal(d["MUPerc"]));
-                            AddPCNExpensesNonWorksheet(pcnID, rowCode, Convert.ToInt32(d["NumItems"]), Convert.ToDecimal(d["DlrsPerItem"]), Convert.ToDecimal(d["MUPerc"]), dg);
-                            break;
-                    }
+                    case "E110":
+                        travelFare += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E120":
+                        autoRental += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E130":
+                        tolls += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E140":
+                        fuel += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E150":
+                        mileage += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E160":
+                        meals += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E170":
+                        lodging += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E180":
+                        perdiem += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E190":
+                        miscExp += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E281":
+                        survey1 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E282":
+                        survey2 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E283":
+                        survey3 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E284":
+                        survey4 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E290":
+                        survsup  += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E310":
+                        engserv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E320":
+                        surveying += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E330":
+                        geotinv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E340":
+                        environ += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E350":
+                        specsub += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E541":
+                        atv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E542":
+                        oruv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E543":
+                        boat += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E561":
+                        digcam += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E562":
+                        cphone += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E580":
+                        fldcomp += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E591":
+                        trimbler8 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E592":
+                        trimblegeo += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E593":
+                        etotstat += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E594":
+                        lasrange += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    case "E595":
+                        pipeloc += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                        break;
+                    default:
+                        AddPCNExpensesNonWorksheet(pcnID, rowCode, Convert.ToInt32(d["NumItems"]), Convert.ToDecimal(d["DlrsPerItem"]), Convert.ToDecimal(d["MUPerc"]));
+                        break;
                 }
             }
 
@@ -3039,7 +3009,6 @@ namespace RSMPS
             es.E595 = pipeloc;
 
             es.Save();
-          //  MessageBox.Show("BudgetExpenseSheet data saved");
 
             DataRow eRow = mdsWS[group].Tables["Expenses"].NewRow();
             eRow["ID"] = es.ID;
@@ -3081,19 +3050,15 @@ namespace RSMPS
             eRow["E593"] = etotstat;
             eRow["E594"] = lasrange;
             eRow["E595"] = pipeloc;
-            
-            eRow["DeptGroup"] = dept;//********************************10/16
+
             mdsWS[group].Tables["Expenses"].Rows.Add(eRow);
 
-          //  AddPCNWorksheetExpenses();
-            AddPCNWorksheetExpenses(eRow["DeptGroup"].ToString()); //*********************************************10/16
+            AddPCNWorksheetExpenses();
         }
 
-        //private void AddPCNWorksheetExpenses()
-            private void AddPCNWorksheetExpenses(string dg) //*************************10/16
+        private void AddPCNWorksheetExpenses()
         {
-            //var group = _Default_Group;
-            var group = dg;
+            var group = _Default_Group;
 
             ClearExpenseLines(group);
 
@@ -3164,7 +3129,7 @@ namespace RSMPS
                 lasrange += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E594"]));
                 pipeloc += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E595"]));
             }
-            //MessageBox.Show("worked untill here.........................................Checking where exception is happening");
+
             var fgExp = fgExpForGroup(group);
             foreach (C1.Win.C1FlexGrid.Row r in fgExp.Rows)
             {
@@ -3297,19 +3262,16 @@ namespace RSMPS
             }
         }
 
-                    //private void AddPCNExpensesNonWorksheet(int pcnID, string rowCode, int quantity, decimal dlrsPer, decimal mu) //**********************************************************Edited 10/19
-             private void AddPCNExpensesNonWorksheet(int pcnID, string rowCode, int quantity, decimal dlrsPer, decimal mu, int dept)
+        private void AddPCNExpensesNonWorksheet(int pcnID, string rowCode, int quantity, decimal dlrsPer, decimal mu)
         {
             CBBudgetPCN pcn = new CBBudgetPCN();
             pcn.Load(pcnID);
-                    // AddPCNExpensesNonWorkSheet(_Default_Group, pcn.PCNNumber, rowCode, rowCode, quantity, dlrsPer, mu, 0);
-            AddPCNExpensesNonWorkSheet(dept.ToString(), pcn.PCNNumber, rowCode, rowCode, quantity, dlrsPer, mu, 0); 
+            AddPCNExpensesNonWorkSheet(_Default_Group, pcn.PCNNumber, rowCode, rowCode, quantity, dlrsPer, mu, 0);
         }
 
 
         private void AddPCNExpensesNonWorkSheet(string group, string pcnNumber, string rowCode, string description, int quantity, decimal dlrsPer, decimal mu, int uomID)
-             {
-                 //MessageBox.Show("AddPCNExpensesNonWorkSheet started");
+        {
             string gridCode;
             int currIndx = -1;
             C1FlexGrid fgExp = fgExpForGroup(group);
@@ -3376,12 +3338,12 @@ namespace RSMPS
         {
             if (tdbgBudgetPCN.Bookmark >= 0)
             {
-                // bttEditPCN.Enabled = true; //***********************Commented****MZ
-            }
-
-
-
-
+               // bttEditPCN.Enabled = true; //***********************Commented****MZ
+            }          
+            
+            
+            
+            
             //string stat = tdbgBudgetPCN.Columns["Status"].Value.ToString();
 
             //Console.WriteLine("The Status is: " + stat);
@@ -3390,9 +3352,9 @@ namespace RSMPS
             DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];//***********************Added 9:48
             st_Description = Convert.ToString(d["Description"]);
 
-            // Set_Description(st_Description);
+           // Set_Description(st_Description);
             //string st = Convert.ToString(d["PCNStatus"]);
-            // MessageBox.Show(st_Description); 
+           // MessageBox.Show(st_Description); 
             //return(st_Description);
 
             //********************5/4 *******************Uncommented below
@@ -3407,7 +3369,7 @@ namespace RSMPS
             //}
                 
             
-        }
+  }
         //public void Set_Description(string s)
 
         //{ 
@@ -3445,74 +3407,51 @@ namespace RSMPS
 
         private void tdbgBudgetPCN_Change(object sender, EventArgs e)
         {
-            if (tdbgBudgetPCN.Bookmark >= 0)
+            //MessageBox.Show("Please Hit Enter to Change PCN");
+
+
+            DataRow d_MC = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
+            string st = Convert.ToString(d_MC["PCNStatus"]);
+            if (st == "Approved")
             {
-                // bttEditPCN.Enabled = true; //***********************Commented****MZ
-            }
+                bttEditPCN.Enabled = false;
+               }
 
-
-
-
-            //string stat = tdbgBudgetPCN.Columns["Status"].Value.ToString();
-
-            //Console.WriteLine("The Status is: " + stat);
-
-
-            DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];//***********************Added 9:48
-            st_Description = Convert.ToString(d["Description"]);
-
-            // Set_Description(st_Description);
-            //string st = Convert.ToString(d["PCNStatus"]);
-            // MessageBox.Show(st_Description); 
-            //return(st_Description);
-
-            //********************5/4 *******************Uncommented below
-            //if (stat == "Initiated")
-            //{
-            //    bttEditPCN.Enabled = true;
-            //    tdbgBudgetPCN.Columns["Status"].DropDown.AllowDrop = false;
-            //}
-            //else
-            //{
-            //    bttEditPCN.Enabled = false;
-            //}
-                
         }
 
-        //public string OldStatus;
+
 
 
         private void tdbgBudgetPCN_MouseClick(object sender, MouseEventArgs e)
         {
             DataRow d_MC = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
-           
-            string st  = Convert.ToString(d_MC["PCNStatus"]);
+            string st = Convert.ToString(d_MC["PCNStatus"]);
             //MessageBox.Show(st);
-           OldStatus = st;
+
 
             //if (st == "Approved")
             //{
             //    bttEditPCN.Enabled = false;
             //tdbgBudgetPCN.EditRows = olumns["Description"].Text. = false;
             //    //MessageBox.Show("Can not Edit   " + st + " PCN"); //******************Commented on 5/6
-
+            
             //}
-
-
-
-
-
-            if (st == "Initiated")
+            
+            
+             
+                
+                
+                if (st == "Initiated")
             {
                 bttEditPCN.Enabled = true;
                 //tdbgBudgetPCN.Columns["Status"].DropDown.AllowDrop = false;
             }
-
+            
             else
             {
                 bttEditPCN.Enabled = false;
                 //MessageBox.Show("Can not Edit   " + st +" PCN");
-
+               
             }
 
         }
@@ -4388,7 +4327,17 @@ namespace RSMPS
             pcn.ShowDialog();
             pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNChanged);
         }
-               
+
+       
+
+     
+       
+
+        
+        
+
+       
+
 
 
      
