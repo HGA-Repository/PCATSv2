@@ -2457,7 +2457,7 @@ namespace RSMPS
             return uomID;
         }
 
-            //    public string OldStatus;
+                public string OldStatus;
 
 
             
@@ -2558,12 +2558,12 @@ namespace RSMPS
             //MessageBox.Show("tdbgBudgetPCN_BeforeColUpdate started, " + e.Column.Name + " Old Status =" + e.OldValue.ToString() + ".................." + OldStatus);
         //    MessageBox.Show("Please Hit enter to Change PCN Status");
             tdbgBudgetPCN.Tag = true;
-
+         //   MessageBox.Show("e.OldValue = " + e.OldValue.ToString());
             if (e.Column.Name == "Status")
             {
                 //MessageBox.Show("e.OldValue = " + e.OldValue.ToString() );
-                if (e.OldValue.ToString() == "Approved")
-                     //if (OldStatus == "Approved")
+             //   if (e.OldValue.ToString() == "Approved")
+                     if (OldStatus == "Approved")
                 {
                     if (UnApprovePCN() == false)
                     {
@@ -2583,7 +2583,7 @@ namespace RSMPS
                     {
                         pa.IsChangeOnly = false;
 
-                     //   MessageBox.Show("OldStatus =" + e.OldValue.ToString() + "...New Status= " + tdbgBudgetPCN.Columns["Status"].Value.ToString());
+                       // MessageBox.Show("OldStatus =" + e.OldValue.ToString() + "...New Status= " + tdbgBudgetPCN.Columns["Status"].Value.ToString());
                     }
                     else
                         pa.IsChangeOnly = true;
@@ -2667,7 +2667,7 @@ namespace RSMPS
             pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNAdded);
 
 
-         //   MessageBox.Show("PCN Added ..., Group added? " + pcn.mbIsCodeAdded);
+            MessageBox.Show("PCN Added ..., Group added? " + pcn.mbIsCodeAdded);
 
 
             if (pcn.mbIsCodeAdded == true)
@@ -3488,7 +3488,7 @@ namespace RSMPS
            
             string st  = Convert.ToString(d_MC["PCNStatus"]);
             //MessageBox.Show(st);
-         //  OldStatus = st;
+           OldStatus = st;
 
             //if (st == "Approved")
             //{
