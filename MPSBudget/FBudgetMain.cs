@@ -2468,13 +2468,15 @@ namespace RSMPS
 
         private void tdbgBudgetPCN_AfterColEdit(object sender, C1.Win.C1TrueDBGrid.ColEventArgs e)
         {
-            DataRow d4 = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
+          //  DataRow d4 = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
             //string O_st = Convert.ToString(d4["PCNStatus"]);
 
             //MessageBox.Show("tdbgBudgetPCN_AfterColEdit,,,," + e.ColIndex + "........." + tdbgBudgetPCN.Columns["Status"].Value.ToString());
 
        //     MessageBox.Show("tdbgBudgetPCN_AfterColEdit,,,," );
-            if (e.ColIndex == 5 && Convert.ToBoolean(tdbgBudgetPCN.Tag) == true)
+
+         //   if (e.ColIndex == 5 && Convert.ToBoolean(tdbgBudgetPCN.Tag) == true) //***************************Edited, because no other Column is editable
+                if ( Convert.ToBoolean(tdbgBudgetPCN.Tag) == true)
             {
                 CBBudgetPCN pcn = new CBBudgetPCN();
                 DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
@@ -2525,31 +2527,31 @@ namespace RSMPS
                 pcn.Save();
             }*/
 
-            if (e.ColIndex == 2)
-            {
-                DataRow d3 = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
-                string st_status = Convert.ToString(d3["PCNStatus"]);
+                                    //if (e.ColIndex == 2) //********************************************************************Commented, because nott needed, from truedbgrid it is made readonly
+                                    //{
+                                    //    DataRow d3 = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
+                                    //    string st_status = Convert.ToString(d3["PCNStatus"]);
 
-                if (st_status == "Initiated")
-                {
-                    CBBudgetPCN pcn = new CBBudgetPCN();
-                    DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
+                                    //    if (st_status == "Initiated")
+                                    //    {
+                                    //        CBBudgetPCN pcn = new CBBudgetPCN();
+                                    //        DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
 
-                    int pcnID = Convert.ToInt32(d["ID"]);
-                    pcn.Load(pcnID);
+                                    //        int pcnID = Convert.ToInt32(d["ID"]);
+                                    //        pcn.Load(pcnID);
 
-                    pcn.PCNTitle = d["Description"].ToString();
-                    pcn.Save();
-                }
-                else
-                {
-                    int r_i = tdbgBudgetPCN.Row;
-                    tdbgBudgetPCN[r_i, 2] = st_Description;
-                }
-                //MessageBox.Show("You cannot edit Description with Approved/Pendind/Disapprove PCN");
-            }
+                                    //        pcn.PCNTitle = d["Description"].ToString();
+                                    //        pcn.Save();
+                                    //    }
+                                    //    else
+                                    //    {
+                                    //        int r_i = tdbgBudgetPCN.Row;
+                                    //        tdbgBudgetPCN[r_i, 2] = st_Description;
+                                    //    }
+                                    //    //MessageBox.Show("You cannot edit Description with Approved/Pendind/Disapprove PCN");
+                                    //}
 
-
+                tdbgBudgetPCN.Tag = false;//***********************************************************
 
         }
 
@@ -2558,43 +2560,47 @@ namespace RSMPS
             //MessageBox.Show("tdbgBudgetPCN_BeforeColUpdate started, " + e.Column.Name + " Old Status =" + e.OldValue.ToString() + ".................." + OldStatus);
         //    MessageBox.Show("Please Hit enter to Change PCN Status");
             tdbgBudgetPCN.Tag = true;
-         //   MessageBox.Show("e.OldValue = " + e.OldValue.ToString());
-            if (e.Column.Name == "Status")
-            {
+
+       //     MessageBox.Show("e.OldValue = " + e.OldValue.ToString());
+          //  if (e.Column.Name == "Status")
+            //{
                 //MessageBox.Show("e.OldValue = " + e.OldValue.ToString() );
-             //   if (e.OldValue.ToString() == "Approved")
-                     if (OldStatus == "Approved")
+                //   if (e.OldValue.ToString() == "Approved")
+                //if (OldStatus == "Approved")
+               // {
+            if (tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Disapprove")
+            {
+                if (UnApprovePCN() == false)
                 {
-                    if (UnApprovePCN() == false)
-                    {
-                        e.Cancel = true;
+                    e.Cancel = true;
 
-                        tdbgBudgetPCN.Tag = false;    // tell other functions to not update
+                    tdbgBudgetPCN.Tag = false;    // tell other functions to not update
 
-                        pa_OnChangeCancelled(e.OldValue.ToString(), 0);
-                    }
+                    pa_OnChangeCancelled(e.OldValue.ToString(), 0);
+                }
+            }
+                
+            if (tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Approved" | tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Pending" | tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Prepare Control Estimate")
+            {
+                FBudgetPCNApproval pa = new FBudgetPCNApproval();
+                //SSS02192014
+
+                if (tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Approved" | tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Pending")
+                {
+                    pa.IsChangeOnly = false;
+
+                    // MessageBox.Show("OldStatus =" + e.OldValue.ToString() + "...New Status= " + tdbgBudgetPCN.Columns["Status"].Value.ToString());
                 }
                 else
-                {
+                    pa.IsChangeOnly = true;
+                //   MessageBox.Show("tdbgBudgetPCN_BeforeColUpdate.......Middle" + "OldStatus =" + e.OldValue.ToString()  + "...New Status= " + tdbgBudgetPCN.Columns["Status"].Value.ToString());
+                pa.PreviousEntry = e.OldValue.ToString();
+                pa.OnChangeApproved += new RevSol.PassDataStringWithIndex(pa_OnChangeApproved);
+                pa.OnChangeCancelled += new RevSol.PassDataStringWithIndex(pa_OnChangeCancelled);
+                pa.ShowDialog();
+                pa.OnChangeApproved -= new RevSol.PassDataStringWithIndex(pa_OnChangeApproved);
+                pa.OnChangeCancelled -= new RevSol.PassDataStringWithIndex(pa_OnChangeCancelled);
 
-                    FBudgetPCNApproval pa = new FBudgetPCNApproval();
-                    //SSS02192014
-                    if (tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Approved" | tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Pending")
-                    {
-                        pa.IsChangeOnly = false;
-
-                       // MessageBox.Show("OldStatus =" + e.OldValue.ToString() + "...New Status= " + tdbgBudgetPCN.Columns["Status"].Value.ToString());
-                    }
-                    else
-                        pa.IsChangeOnly = true;
-                 //   MessageBox.Show("tdbgBudgetPCN_BeforeColUpdate.......Middle" + "OldStatus =" + e.OldValue.ToString()  + "...New Status= " + tdbgBudgetPCN.Columns["Status"].Value.ToString());
-                    pa.PreviousEntry = e.OldValue.ToString();
-                    pa.OnChangeApproved += new RevSol.PassDataStringWithIndex(pa_OnChangeApproved);
-                    pa.OnChangeCancelled += new RevSol.PassDataStringWithIndex(pa_OnChangeCancelled);
-                    pa.ShowDialog();
-                    pa.OnChangeApproved -= new RevSol.PassDataStringWithIndex(pa_OnChangeApproved);
-                    pa.OnChangeCancelled -= new RevSol.PassDataStringWithIndex(pa_OnChangeCancelled);
-                }
             }
           //  MessageBox.Show("tdbgBudgetPCN_BeforeColUpdate.......Ended");
             //bttEditPCN.Enabled = false; // Added 5/6 **************@10:52
@@ -2667,7 +2673,7 @@ namespace RSMPS
             pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNAdded);
 
 
-            MessageBox.Show("PCN Added ..., Group added? " + pcn.mbIsCodeAdded);
+         //   MessageBox.Show("PCN Added ..., Group added? " + pcn.mbIsCodeAdded);
 
 
             if (pcn.mbIsCodeAdded == true)
@@ -2729,7 +2735,7 @@ namespace RSMPS
           //      }
 
 
-                MessageBox.Show("GroupCode added ?    "+pcn.mbIsCodeAdded);
+           //     MessageBox.Show("GroupCode added ?    "+pcn.mbIsCodeAdded);
 
                 if (pcn.mbIsCodeAdded == true)
                 {
@@ -3445,37 +3451,44 @@ namespace RSMPS
 
         private void tdbgBudgetPCN_Change(object sender, EventArgs e)
         {
-            if (tdbgBudgetPCN.Bookmark >= 0)
-            {
-                // bttEditPCN.Enabled = true; //***********************Commented****MZ
-            }
+                                        //if (tdbgBudgetPCN.Bookmark >= 0)
+                                        //{
+                                        //    // bttEditPCN.Enabled = true; //***********************Commented****MZ
+                                        //}
 
 
 
 
-            //string stat = tdbgBudgetPCN.Columns["Status"].Value.ToString();
+                                        ////string stat = tdbgBudgetPCN.Columns["Status"].Value.ToString();
 
-            //Console.WriteLine("The Status is: " + stat);
+                                        ////Console.WriteLine("The Status is: " + stat);
 
 
-            DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];//***********************Added 9:48
-            st_Description = Convert.ToString(d["Description"]);
+                                        //DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];//***********************Added 9:48
+                                        //st_Description = Convert.ToString(d["Description"]);
 
-            // Set_Description(st_Description);
-            //string st = Convert.ToString(d["PCNStatus"]);
-            // MessageBox.Show(st_Description); 
-            //return(st_Description);
+                                        //// Set_Description(st_Description);
+                                        ////string st = Convert.ToString(d["PCNStatus"]);
+                                        //// MessageBox.Show(st_Description); 
+                                        ////return(st_Description);
 
-            //********************5/4 *******************Uncommented below
-            //if (stat == "Initiated")
-            //{
-            //    bttEditPCN.Enabled = true;
-            //    tdbgBudgetPCN.Columns["Status"].DropDown.AllowDrop = false;
-            //}
-            //else
-            //{
-            //    bttEditPCN.Enabled = false;
-            //}
+                                        ////********************5/4 *******************Uncommented below
+                                        ////if (stat == "Initiated")
+                                        ////{
+                                        ////    bttEditPCN.Enabled = true;
+                                        ////    tdbgBudgetPCN.Columns["Status"].DropDown.AllowDrop = false;
+                                        ////}
+                                        ////else
+                                        ////{
+                                        ////    bttEditPCN.Enabled = false;
+                                        ////}
+            //***************************The Above part is commented, because looks like, not needed any more
+            //******Bottom part is from old Copy
+            DataRow d_MC = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
+            string st = Convert.ToString(d_MC["PCNStatus"]);
+            if (st == "Approved")
+            {                bttEditPCN.Enabled = false;            }
+
                 
         }
 
@@ -3483,12 +3496,14 @@ namespace RSMPS
 
 
         private void tdbgBudgetPCN_MouseClick(object sender, MouseEventArgs e)
+    //      private void tdbgBudgetPCN_MouseClick(object sender, C1.Win.C1TrueDBGrid.FetchCellStyleEventArgs e)
+            
         {
             DataRow d_MC = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
            
             string st  = Convert.ToString(d_MC["PCNStatus"]);
             //MessageBox.Show(st);
-           OldStatus = st;
+         //  OldStatus = st;
 
             //if (st == "Approved")
             //{
@@ -3498,7 +3513,11 @@ namespace RSMPS
 
             //}
 
-
+            if (st == "Approved")
+            {
+                bttEditPCN.Enabled = false;
+              //  MessageBox.Show("Should not edit");
+            }
 
 
 
@@ -4388,9 +4407,6 @@ namespace RSMPS
             pcn.ShowDialog();
             pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNChanged);
         }
-               
-
-
-     
+                       
     }
 }
