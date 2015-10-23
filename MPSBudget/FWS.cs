@@ -152,7 +152,7 @@ namespace RSMPS
 
             if (OnWorkSheetChanged != null)
                 OnWorkSheetChanged(mdsWSData.Copy());
-            MessageBox.Show("Worksheet updated");
+         //   MessageBox.Show("Worksheet updated");
             this.Close();
         }
 
