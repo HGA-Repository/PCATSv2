@@ -123,9 +123,6 @@
   <data name="TextBox3.OutputFormat" xml:space="preserve">
     <value>#,###</value>
   </data>
-  <data name="TextBox4.OutputFormat" xml:space="preserve">
-    <value>#,##0.00;(#,##0.00)</value>
-  </data>
   <data name="TextBox5.OutputFormat" xml:space="preserve">
     <value>$#,##0.00;($#,##0.00)</value>
   </data>
@@ -135,26 +132,8 @@
   <data name="textBox13.OutputFormat" xml:space="preserve">
     <value>#,##0.00</value>
   </data>
-  <data name="TextBox2.OutputFormat" xml:space="preserve">
-    <value>#,##0;(#,##0)</value>
-  </data>
-  <data name="TextBox3.OutputFormat" xml:space="preserve">
-    <value>#,###</value>
-  </data>
-  <data name="TextBox4.OutputFormat" xml:space="preserve">
-    <value>#,##0.00;(#,##0.00)</value>
-  </data>
-  <data name="TextBox5.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00;($#,##0.00)</value>
-  </data>
-  <data name="TextBox6.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00;($#,##0.00)</value>
-  </data>
-  <data name="textBox13.OutputFormat" xml:space="preserve">
+  <data name="textBox4.OutputFormat" xml:space="preserve">
     <value>#,##0.00</value>
-  </data>
-  <data name="txtTotalLoadedDlrs.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00;($#,##0.00)</value>
   </data>
   <data name="txtTotalLoadedDlrs.OutputFormat" xml:space="preserve">
     <value>$#,##0.00;($#,##0.00)</value>

@@ -24,7 +24,6 @@ namespace RSMPS
         private TextBox textBox22;
         private TextBox textBox23;
         private Label lblRevision;
-        private TextBox textBox9;
         private TextBox textBox13;
         private GroupHeader groupHeader2;
         private TextBox textBox8;
@@ -38,6 +37,9 @@ namespace RSMPS
         private TextBox textBox11;
         private TextBox textBox12;
         private Shape shape1;
+        private TextBox textBox4;
+        private TextBox textBox7;
+        private TextBox textBox9;
         decimal currentExpenseValue = 0;
 
         public string MainReportTitle
@@ -151,6 +153,8 @@ namespace RSMPS
             sec.InitAppSettings();
             u.Load(sec.UserID);
 
+           
+
             if (u.IsAdministrator == false && u.IsEngineerAdmin == false && u.IsManager == false)
             {
                 TextBox5.Visible = false;
@@ -160,6 +164,8 @@ namespace RSMPS
                 //TextBox18.Visible = false;
                 TextBox17.Visible = false;
             }
+
+           
         }
 
         private void ReportFooter_Format(object sender, System.EventArgs eArgs)
@@ -210,73 +216,7 @@ namespace RSMPS
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
         public void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rprtTravelExpenseDetail));
@@ -284,11 +224,12 @@ namespace RSMPS
             this.TextBox1 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.TextBox2 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.TextBox3 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
-            this.TextBox4 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.TextBox5 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.TextBox6 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
-            this.textBox9 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox13 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.textBox4 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.textBox7 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.textBox9 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.ReportHeader = new GrapeCity.ActiveReports.SectionReportModel.ReportHeader();
             this.ReportFooter = new GrapeCity.ActiveReports.SectionReportModel.ReportFooter();
             this.Shape6 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
@@ -315,7 +256,7 @@ namespace RSMPS
             this.TextBox17 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.lblDeptTotals = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.groupHeader2 = new GrapeCity.ActiveReports.SectionReportModel.GroupHeader();
-            this.groupFooter2 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
+            this.shape1 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
             this.textBox8 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox10 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.label6 = new GrapeCity.ActiveReports.SectionReportModel.Label();
@@ -325,15 +266,16 @@ namespace RSMPS
             this.label12 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.textBox11 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox12 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
-            this.shape1 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
+            this.groupFooter2 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
             ((System.ComponentModel.ISupportInitialize)(this.TextBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TextBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalLoadedDlrs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
@@ -367,11 +309,12 @@ namespace RSMPS
             this.TextBox1,
             this.TextBox2,
             this.TextBox3,
-            this.TextBox4,
             this.TextBox5,
             this.TextBox6,
-            this.textBox9,
-            this.textBox13});
+            this.textBox13,
+            this.textBox4,
+            this.textBox7,
+            this.textBox9});
             this.Detail.Height = 0.29F;
             this.Detail.Name = "Detail";
             this.Detail.Format += new System.EventHandler(this.Detail_Format);
@@ -385,7 +328,7 @@ namespace RSMPS
             this.TextBox1.Style = "font-size: 9pt";
             this.TextBox1.Text = "DetailDescription";
             this.TextBox1.Top = 0F;
-            this.TextBox1.Width = 2.667F;
+            this.TextBox1.Width = 2.272F;
             // 
             // TextBox2
             // 
@@ -411,20 +354,9 @@ namespace RSMPS
             this.TextBox3.Top = 0F;
             this.TextBox3.Width = 0.4375F;
             // 
-            // TextBox4
-            // 
-            this.TextBox4.DataField = "DollarsEach";
-            this.TextBox4.Height = 0.175F;
-            this.TextBox4.Left = 4.769F;
-            this.TextBox4.Name = "TextBox4";
-            this.TextBox4.OutputFormat = resources.GetString("TextBox4.OutputFormat");
-            this.TextBox4.Style = "font-size: 9pt; text-align: right";
-            this.TextBox4.Text = "TextBox";
-            this.TextBox4.Top = 0F;
-            this.TextBox4.Width = 0.8660002F;
-            // 
             // TextBox5
             // 
+            this.TextBox5.CurrencyCulture = new System.Globalization.CultureInfo("en-US");
             this.TextBox5.DataField = "MarkupDollars";
             this.TextBox5.Height = 0.175F;
             this.TextBox5.Left = 5.635F;
@@ -437,6 +369,7 @@ namespace RSMPS
             // 
             // TextBox6
             // 
+            this.TextBox6.CurrencyCulture = new System.Globalization.CultureInfo("en-US");
             this.TextBox6.DataField = "Total";
             this.TextBox6.Height = 0.175F;
             this.TextBox6.Left = 6.377F;
@@ -446,17 +379,6 @@ namespace RSMPS
             this.TextBox6.Text = "Total";
             this.TextBox6.Top = 0F;
             this.TextBox6.Width = 1.123F;
-            // 
-            // textBox9
-            // 
-            this.textBox9.DataField = "Code";
-            this.textBox9.Height = 0.175F;
-            this.textBox9.Left = 0.16F;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Style = "font-size: 9pt";
-            this.textBox9.Text = "Code";
-            this.textBox9.Top = 0F;
-            this.textBox9.Width = 0.422F;
             // 
             // textBox13
             // 
@@ -469,6 +391,41 @@ namespace RSMPS
             this.textBox13.Text = "MarkUP";
             this.textBox13.Top = 0F;
             this.textBox13.Width = 0.6450001F;
+            // 
+            // textBox4
+            // 
+            this.textBox4.DataField = "Code";
+            this.textBox4.Height = 0.175F;
+            this.textBox4.Left = 0F;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.OutputFormat = resources.GetString("textBox4.OutputFormat");
+            this.textBox4.Style = "font-size: 9pt";
+            this.textBox4.Text = "Code";
+            this.textBox4.Top = 0F;
+            this.textBox4.Width = 0.6450001F;
+            // 
+            // textBox7
+            // 
+            this.textBox7.DataField = "DollarsEach";
+            this.textBox7.Height = 0.175F;
+            this.textBox7.Left = 4.99F;
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Style = "font-size: 9pt; text-align: right";
+            this.textBox7.Text = "Rate";
+            this.textBox7.Top = 0F;
+            this.textBox7.Width = 0.6450001F;
+            // 
+            // textBox9
+            // 
+            this.textBox9.DataField = "DollarsEach";
+            this.textBox9.Height = 0.175F;
+            this.textBox9.Left = 2.938F;
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Style = "background-color: Red; font-size: 9pt";
+            this.textBox9.Text = "test";
+            this.textBox9.Top = 0F;
+            this.textBox9.Visible = false;
+            this.textBox9.Width = 0.187F;
             // 
             // ReportHeader
             // 
@@ -763,9 +720,15 @@ namespace RSMPS
             this.groupHeader2.Height = 0.65625F;
             this.groupHeader2.Name = "groupHeader2";
             // 
-            // groupFooter2
+            // shape1
             // 
-            this.groupFooter2.Name = "groupFooter2";
+            this.shape1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.shape1.Height = 0.406F;
+            this.shape1.Left = 0.011F;
+            this.shape1.Name = "shape1";
+            this.shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
+            this.shape1.Top = 0.25F;
+            this.shape1.Width = 7.5F;
             // 
             // textBox8
             // 
@@ -865,15 +828,9 @@ namespace RSMPS
             this.textBox12.Top = 0.26F;
             this.textBox12.Width = 0.5109999F;
             // 
-            // shape1
+            // groupFooter2
             // 
-            this.shape1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            this.shape1.Height = 0.406F;
-            this.shape1.Left = 0.011F;
-            this.shape1.Name = "shape1";
-            this.shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
-            this.shape1.Top = 0.25F;
-            this.shape1.Width = 7.5F;
+            this.groupFooter2.Name = "groupFooter2";
             // 
             // rprtTravelExpenseDetail
             // 
@@ -906,11 +863,12 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.TextBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TextBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalLoadedDlrs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).EndInit();
@@ -944,6 +902,21 @@ namespace RSMPS
 
         private void Detail_Format(object sender, EventArgs e)
         {
+            if (textBox4.Text == "E150")
+            {
+                textBox7.Text = Convert.ToDecimal(textBox9.Text).ToString("$#,##0.000");
+                 //  textBox7.OutputFormat = "$#,##0.000000000"; //**************************************** Didn't work******10/25
+               // textBox7.BackColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+
+                textBox7.Text = Convert.ToDecimal(textBox9.Text).ToString("$#,##0.00");
+               //  textBox7.OutputFormat = "$#,##0.00";
+               // textBox7.BackColor = System.Drawing.Color.Green;
+            }
+
+           
         }
 
         private ReportHeader ReportHeader;
@@ -958,7 +931,6 @@ namespace RSMPS
         private TextBox TextBox1;
         private TextBox TextBox2;
         private TextBox TextBox3;
-        private TextBox TextBox4;
         private TextBox TextBox5;
         private TextBox TextBox6;
         private GroupFooter GroupFooter1;
