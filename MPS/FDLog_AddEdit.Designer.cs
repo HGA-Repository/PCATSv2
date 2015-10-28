@@ -129,6 +129,7 @@ namespace RSMPS
             this.bttOpenExcel2 = new System.Windows.Forms.ToolStripButton();
             this.bttExportToDatabase = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.button1 = new System.Windows.Forms.Button();
             this.mnuRemoveDrawing.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -1149,6 +1150,7 @@ namespace RSMPS
             this.bttSaveToExcel.Name = "bttSaveToExcel";
             this.bttSaveToExcel.Size = new System.Drawing.Size(77, 22);
             this.bttSaveToExcel.Text = "Save in Excel";
+            this.bttSaveToExcel.Visible = false;
             this.bttSaveToExcel.Click += new System.EventHandler(this.bttSaveToExcel_Click);
             // 
             // bttOpenExcel2
@@ -1156,8 +1158,8 @@ namespace RSMPS
             this.bttOpenExcel2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.bttOpenExcel2.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.bttOpenExcel2.Name = "bttOpenExcel2";
-            this.bttOpenExcel2.Size = new System.Drawing.Size(69, 22);
-            this.bttOpenExcel2.Text = "Open Excel";
+            this.bttOpenExcel2.Size = new System.Drawing.Size(84, 22);
+            this.bttOpenExcel2.Text = "Save&Edit Excel";
             this.bttOpenExcel2.Click += new System.EventHandler(this.bttOpenExcel2_Click);
             // 
             // bttExportToDatabase
@@ -1165,8 +1167,8 @@ namespace RSMPS
             this.bttExportToDatabase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.bttExportToDatabase.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.bttExportToDatabase.Name = "bttExportToDatabase";
-            this.bttExportToDatabase.Size = new System.Drawing.Size(109, 22);
-            this.bttExportToDatabase.Text = "Export to Database";
+            this.bttExportToDatabase.Size = new System.Drawing.Size(112, 22);
+            this.bttExportToDatabase.Text = "Import to Database";
             this.bttExportToDatabase.Click += new System.EventHandler(this.bttExportToDatabase_Click);
             // 
             // toolStripButton5
@@ -1179,11 +1181,23 @@ namespace RSMPS
             this.toolStripButton5.Text = "Close";
             this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(730, 8);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(78, 30);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Test";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FDLog_AddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 428);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.cboWBS);
             this.Controls.Add(this.label19);
@@ -1329,5 +1343,7 @@ namespace RSMPS
         private System.Windows.Forms.ToolStripButton bttExportToDatabase;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button button1;
+      
     }
 }

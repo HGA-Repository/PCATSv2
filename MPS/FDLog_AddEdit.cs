@@ -1315,6 +1315,7 @@ namespace RSMPS
         public string Get_File_Name()//***************Added 10/8/2015}
         {
             string ExFile = "JobStat Update-" + msCurrProj + "-" + "-" + miCurrDept + "_" + dt.ToString("yyyMMdd hhmmss");
+          //  string ExFile = "JobStat Update-" + msCurrProj;
             return ExFile;
         }
         private void bttSaveToExcel_Click(object sender, EventArgs e)
@@ -1332,69 +1333,260 @@ namespace RSMPS
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                de.ExportDrawingForPrimavera(saveFileDialog1.FileName, miCurrProj, miCurrDept);
+                de.ExportDrawing_ToExcel(saveFileDialog1.FileName, miCurrProj, miCurrDept);
             }
             MessageBox.Show("Saved in excel");
         }
 
+        public string ExportedFileName;
         private void bttOpenExcel2_Click(object sender, EventArgs e)
         {
-            string F_Name = Get_File_Name();
-                    
+            
+         //   de.F_Name = Get_File_Name();
+
+            saveFileDialog1.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+            saveFileDialog1.DefaultExt = "xlsx";
+            saveFileDialog1.FilterIndex = 1;
+            saveFileDialog1.RestoreDirectory = true;
+           // saveFileDialog1.FileName = Get_File_Name();
+           
+         
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                de.ExportDrawing_ToExcel(saveFileDialog1.FileName, miCurrProj, miCurrDept);
+            }
+
+              ExportedFileName = saveFileDialog1.FileName;
+
+        //    MessageBox.Show("Saved in " + saveFileDialog1.FileName + "..........." + ExportedFileName);
+
+
+            //**************************************
+
+           // string F_Name = Get_File_Name();                    
              //string workbookPath = "C:\\Test\\" + F_Name + ".xlsx";
-
-
-             string workbookPath = "C:\\Test\\" + Get_File_Name() + ".xlsx";
+           //  string workbookPath = "C:\\Test\\" + Get_File_Name() + ".xlsx";
+            string workbookPath = saveFileDialog1.FileName;
 
 
              var excelApp = new Excel.Application();
              // Make the object visible.
-             excelApp.Visible = true;
+          
              // excelApp.Workbooks.Add(workbookPath);
 
-             Excel.Workbook excelWorkbook = excelApp.Workbooks.Open(workbookPath,
-                     0, false, 5, "", "", false, Excel.XlPlatform.xlWindows, "",
-                     true, false, 0, true, false, false);
+             Excel.Workbook excelWorkbook = excelApp.Workbooks.Open(workbookPath,0, false, 5, "", "", false, Excel.XlPlatform.xlWindows, "",true, false, 0, true, false, false);
              excelApp.DefaultSaveFormat = Excel.XlFileFormat.xlOpenXMLWorkbook;
 
              // This example uses a single workSheet. 
              Excel._Worksheet workSheet = excelApp.ActiveSheet;
                      
-             Excel.Range rng = workSheet.Range["A1"];
-             // rng.EntireColumn.Hidden = true;
-             rng.EntireColumn.Hidden = true;
-             workSheet.Cells.Locked = false;
-             workSheet.Cells.FormulaHidden = false;
-             rng.Locked = true;
-             rng.FormulaHidden = false;
-             workSheet.Protect(Type.Missing, true, true, true);
-
-
+       
          
             //**************************************************************This part is commented to try new way
-
                                      //Excel.Application excelApp = new Excel.Application();
                                      //excelApp.Visible = true;
                                      //Excel.Workbook excelWorkbook = excelApp.Workbooks.Open(workbookPath,
                                      //      0, false, 5, "", "", false, Excel.XlPlatform.xlWindows, "",
                                      //      true, false, 0, true, false, false);
             //******************************************************************************************************
+             object Missing = System.Reflection.Missing.Value;
+             //int iTotalColumns = workSheet.UsedRange.Columns.Count;
+             int iTotalRows = workSheet.UsedRange.Rows.Count;
+            
+            iTotalRows = iTotalRows + 10;
+           
+             string a = "";
+             a = "Q" + iTotalRows;
+           //  Excel.Range RangeQ = workSheet.get_Range("Q2", "Q20");
+             Excel.Range RangeQ = workSheet.get_Range("Q2", a);
+             RangeQ.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, "true,false", Type.Missing);
+             RangeQ.Validation.InCellDropdown = true;
+             RangeQ.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 217, 217, 0));
+             a = "R" + iTotalRows;
+            // Excel.Range RangeR = workSheet.get_Range("R2", "R20");
+             Excel.Range RangeR = workSheet.get_Range("R2", a);
+             RangeR.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, "true,false", Type.Missing);
+             RangeR.Validation.InCellDropdown = true;
+             RangeR.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 255, 0, 0));
+             a = "T" + iTotalRows;
+             Excel.Range RangeT = workSheet.get_Range("T2", a);
+             RangeT.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, "true,false", Type.Missing);
+             RangeT.Validation.InCellDropdown = true;
+             RangeT.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 255, 0, 0));
+             a = "U" + iTotalRows;
+             Excel.Range RangeU = workSheet.get_Range("U2", a);
+             RangeU.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, "true,false", Type.Missing);
+             RangeU.Validation.InCellDropdown = true;
+             RangeU.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 0, 255, 0));
+             a = "W" + iTotalRows;
+             Excel.Range RangeW = workSheet.get_Range("W2", a);
+             RangeW.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, "true,false", Type.Missing);
+             RangeW.Validation.InCellDropdown = true;
+             RangeW.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 0, 0, 255));             
+             a = "X" + iTotalRows;
+             // Excel.Range RangeX = workSheet.get_Range("X2", "X20");
+             Excel.Range RangeX = workSheet.get_Range("X2", a);
+             RangeX.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, "true,false", Type.Missing);
+             RangeX.Validation.InCellDropdown = true;
+             RangeX.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 255, 0, 0));
+             
+                a = "Z" + iTotalRows;
+                Excel.Range RangeZ = workSheet.get_Range("Z2", a);
+                RangeZ.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, "true,false", Type.Missing);
+                RangeZ.Validation.InCellDropdown = true;
 
+             a = "AA" + iTotalRows;
+             Excel.Range RangeAA = workSheet.get_Range("AA2", a);
+             RangeAA.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, "true,false", Type.Missing);
+             RangeAA.Validation.InCellDropdown = true;
+             a = "AC" + iTotalRows;
+             Excel.Range RangeAC = workSheet.get_Range("AC2", a);
+             RangeAC.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, "true,false", Type.Missing);
+             RangeAC.Validation.InCellDropdown = true;
+             a = "AD" + iTotalRows;
+             Excel.Range RangeAD = workSheet.get_Range("AD2", a);
+             RangeAD.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, "true,false", Type.Missing);
+             RangeAD.Validation.InCellDropdown = true;
+             a = "AF" + iTotalRows;
+             Excel.Range RangeAF = workSheet.get_Range("AF2", a);
+             RangeAF.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, "true,false", Type.Missing);
+             RangeAF.Validation.InCellDropdown = true;
+             a = "AZ" + iTotalRows;
+             Excel.Range RangeAG = workSheet.get_Range("AG2", a);
+             RangeAG.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, "true,false", Type.Missing);
+             RangeAG.Validation.InCellDropdown = true;
+
+             
+
+             
+
+
+             string listOfAccount = "11000	,11100	,11110	,11210	,11220	,11230	,11310	,11320	,11330	,11410	,11820	,11910	,12000	,12100	,12110	,12200	,12210	,12211	,12212	,12213	,12214	,12215	,12220	,12221	,12222	,12223	,12224	,12225	,12226	,12227	,12229	,12300	,12310	,12311	,12312	,12313	,12320	,12330	,12331	,12332	,12333	,12334	,12340	,12350	,12360	,12370	,12380	,12390	,12391	,12392	,";
+
+    listOfAccount = listOfAccount + "12393	,12394	,12395	,12400	,12410	,12411	,12412	,12413	,12414	,12415	,12416	,12490	,12491	,12501	,12502	,12503	,12504	,12506	,12507	,12508	,12509	,12510	,13000	,13100	,13110	,13200	,13210	,13211	,13212	,13213	,13214	,13215	,13220	,13221	,13222	,13223	,13224	,13225	,13226	,13227	,13229	,13300	,13310	,13311	,13312	,13320	,13330	,13331	,13332	,13333	,";
+
+    listOfAccount = listOfAccount + "13334	,13335	,13340	,13360	,13370	,13380	,13390	,13391	,13392	,13393	,13394	,13395	,13400	,13410	,13411	,13412	,13413	,13414	,13415	,13416	,13417	,13418	,13420	,13421	,13422	,13423	,13424	,13425	,13426	,13427	,13490	,13491	,13492	,13493	,13494	,13495	,13496	,13600	,13601	,13602	,13603	,13604	,13605	,13606	,13607	,13608	,13609	,13610	,14000	,14100	,";
+
+    listOfAccount = listOfAccount + "14110	,14200	,14210	,14212	,14213	,14214	,14215	,14220	,14221	,14222	,14223	,14224	,14225	,14226	,14227	,14229	,14300	,14310	,14311	,14312	,14320	,14330	,14331	,14360	,14370	,14380	,14390	,14391	,14392	,14393	,14394	,14395	,14400	,14410	,14411	,14412	,14413	,14420	,14421	,14422	,14423	,14430	,14431	,14432	,14433	,14434	,14435	,14440	,14441	,14442	,";
+
+    listOfAccount = listOfAccount + "14450	,14451	,14490	,14491	,14492	,14493	,14494	,15000	,15100	,15110	,15200	,15210	,15211	,15212	,15213	,15214	,15215	,15220	,15221	,15222	,15223	,15224	,15225	,15226	,15227	,15229	,15300	,15310	,15311	,15312	,15313	,15320	,15330	,15331	,15332	,15370	,15380	,15390	,15391	,15392	,15393	,15394	,15395	,15400	,15410	,15411	,15412	,15413	,15414	,15422	,";
+
+    listOfAccount = listOfAccount + "15423	,15424	,15425	,15426	,15427	,15428	,15430	,15431	,15432	,15433	,15434	,15441	,15442	,15443	,15444	,15450	,15451	,15452	,15453	,15454	,15490	,15491	,15492	,15493	,15494	,16415	,16416	,16420	,16421	,16431	,16432	,16451	,16460	,16461	,16462	,16463	,16464	,16465	,16466	,16467	,16468	,17100	,17110	,17200	,17210	,17211	,17212	,17213	,17214	,17215	,";
+
+    listOfAccount = listOfAccount + "17220	,17221	,17222	,17223	,17224	,17225	,17226	,17227	,17229	,17300	,17310	,17311	,17312	,17313	,17320	,17330	,17331	,17332	,17333	,17334	,17340	,17360	,17370	,17380	,17390	,17391	,17393	,17394	,17395	,17400	,17410	,17411	,17412	,17413	,17414	,17415	,17416	,17417	,17418	,17420	,17421	,17422	,17490	,17491	,17500	,17501	,17502	,17503	,17504	,17505	,";
+
+    listOfAccount = listOfAccount + "17506	,17507	,17508	,17509	,17510	,18100	,18110	,18200	,18210	,18211	,18212	,18213	,18214	,18220	,18221	,18222	,18223	,18224	,18225	,18226	,18227	,18300	,18310	,18311	,18312	,18313	,18320	,18330	,18331	,18340	,18350	,18360	,18361	,18362	,18363	,18364	,18365	,18400	,18410	,18411	,18412	,18413	,18414	,18415	,18420	,18421	,18422	,18423	,18425	,18430	,";
+
+    listOfAccount = listOfAccount + "18431	,18433	,18434	,18435	,18436	,18440	,18441	,18442	,18443	,18444	,18445	,18446	,18450	,18451	,18452	,18453	,18454	,18999	,19130	,19210	,19220	,19310	,19320	,19330	,19350	,19400	,19410	,19420	,19430	,19440	,19500	,19510	,19520	,19530	,19630	,20260	,21110	,21310	,22411	,50110	,50111	,50112	,50113	,50212	,50213	,50220	,50225	,50312	,50313	,50314	,";
+           
+    listOfAccount = listOfAccount +"50330	,50343	,50440	,50443	,50445	,50446	,50554	,50556	,50557	,50658	,50660	,50661	,50662	,50663	,50665	,50667	,11120	,11130	,11200	,11300	,11340	,11400	,11420	,11430	,11440	,11450	,11800	,11810	,11900	,11999	,12120	,12335	,12900	,12999	,13120	,13313	,13699	,13900	,13999	,14120	,14313	,14900	,14999	,15120	,15340	,15350	,15420	,15440	,15900	,15999	,";
+
+    listOfAccount = listOfAccount + "16000	,16100	,16110	,16120	,16200	,16210	,16211	,16212	,16213	,16214	,16215	,16220	,16221	,16222	,16223	,16224	,16225	,16226	,16227	,16229	,16300	,16310	,16311	,16312	,16313	,16320	,16330	,16331	,16370	,16380	,16390	,16391	,16392	,16393	,16394	,16395	,16400	,16410	,16411	,16413	,16414	,16430	,16433	,16434	,16440	,16441	,16442	,16443	,16444	,16450	,";
+
+    listOfAccount = listOfAccount + "16452	,16453	,16490	,16491	,16492	,16493	,16494	,16900	,16999	,17000	,17120	,17335	,17900	,17999	,18000	,18120	,18215	,18424	,18432	,18900	,19000	,19100	,19110	,19120	,19200	,19230	,19300	,19340	,19600	,19610	,19620	,19640	,19800	,19810	,19900	,19999	,20000	,20100	,20110	,20120	,20130	,20200	,20210	,20220	,20230	,20240	,20250	,20800	,20820	,20900	,";
+
+    listOfAccount = listOfAccount + "20999	,21000	,21100	,21120	,21130	,21200	,21210	,21220	,21230	,21240	,21250	,21260	,21270	,21280	,21300	,21320	,21330	,21340	,21350	,21360	,21370	,21380	,21390	,21800	,21810	,21900	,21999	,22000	,22100	,22110	,22300	,22310	,22400	,22410	,22412	,22413	,22420	,22421	,22422	,22423	,22430	,22440	,22450	,22460	,22900	,22999	,50000	,50100	,50115	,50116	,"; 
+             
+     listOfAccount = listOfAccount + "50200	,50214	,50215	,50216	,50300	,50315	,50316	,50370	,50400	,50412	,50413	,50414	,50415	,50416	,50441	,50442	,50444	,50465	,50470	,50500	,50512	,50513	,50514	,50515	,50516	,50541	,50542	,50545	,50550	,50551	,50552	,50553	,50555	,50558	,50565	,50570	,50600	,50612	,50613	,50614	,50615	,50616	,50641	,50642	,50653	,50657	,50664	,50666	,50670	,50700	,50712	,50713	,50714	,50716	,50765	,50770	,50771";
+   
+            
+            a = "I" + iTotalRows;        
+            
+            
+            Excel.Range RangeI = workSheet.get_Range("I2", a);
+             RangeI.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, listOfAccount, Type.Missing);
+                RangeI.Validation.InCellDropdown = true;
+
+              //Excel.Style style = excelWorkbook.Styles.Add("NewStyle");
+             //style.Font.Name = "Verdana";
+             //style.Font.Size = 20;
+             //style.Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
+             //style.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Gray);
+             //style.Interior.Pattern = Excel.XlPattern.xlPatternSolid;
+
+         
+             Excel.Range RangeTop = workSheet.get_Range("A1", "AL1");
+             RangeTop.Font.Bold = true;
+             RangeTop.Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 255, 0, 0));
+
+           // Excel.Range dataRange = workSheet.get_Range("L1", "N10"); ;
+            //workSheet.ListObjects.Add(Excel.XlListObjectSourceType.xlSrcRange,dataRange, Type.Missing, Excel.XlYesNoGuess.xlYes, Type.Missing);
+
+             a = "O" + iTotalRows;
+            
+            //workSheet.get_Range("O1", Type.Missing).EntireColumn.Formula = "=L1-N1";      
+          
+                    workSheet.get_Range("O2", a).Formula = "=L2-N2";
+
+            // workSheet.get_Range("O1", a).Formula = "=L1-N1"; ******************************************************** I will try later          
+         //   workSheet.get_Range("O1", a).EntireColumn.Formula = "=L1-N1"; 
+                    a = "M" + iTotalRows;
+         //   workSheet.get_Range("M1", Type.Missing).EntireColumn.Formula = "=(1-N1/L1)*100";
+            workSheet.get_Range("M2", a).Formula = "=(1-N2/L2)*100";
+
+
+         workSheet.Columns.AutoFit();
+         workSheet.Columns[3].Style.Locked = true;
+
+            //Excel.Range fit = workSheet.get_Range("A1", "AL100");
+            //fit.Columns.AutoFit();
+         
+Excel.Range rngRO = workSheet.Range["B1"];
+            rngRO.Locked = true;
+           
+
+           // workSheet.get_Range("A1", Type.Missing).EntireColumn.AllowEdit = false;
+            //rngRO.EntireColumn.Locked = true;
+
+
+
+            Excel.Range rng = workSheet.Range["A1"];
+            // rng.EntireColumn.Hidden = true;
+        //    rng.EntireColumn.Hidden = true;
+            workSheet.Cells.Locked = false;
+            workSheet.Cells.FormulaHidden = false;
+            rng.Locked = true;
+            rng.FormulaHidden = false;
+            workSheet.Protect(Type.Missing, true, true, true);
+
+            
+            
+            //workSheet.Protect(Type.Missing, Type.Missing,
+            //                       true,
+            //                       Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+            //                       Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+            //                       Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+            //                       Type.Missing);
+
+
+  
+            
+  
+   excelApp.Visible = true;
+
+   //excelApp.Quit();
 
         }
 
 
+  
 
         private void bttExportToDatabase_Click(object sender, EventArgs e)
         {
             CDrawingExport de = new CDrawingExport();
-            de.F_Name = Get_File_Name();
-            MessageBox.Show(de.F_Name + "....................");
-            de.ExportDrawingForPrimavera(miCurrDept, miCurrProj);
-            MessageBox.Show(de.F_Name + "Saved to DFatabase");
+           // de.F_Name = Get_File_Name();
+            
+            de.F_Name = ExportedFileName;
+         
+            
+           // de.ExportDrawing_ToDataBase(miCurrDept, miCurrProj, iTotalRows);
+            de.ExportDrawing_ToDataBase(miCurrDept, miCurrProj);
+
+           MessageBox.Show(de.F_Name + "Saved to DFatabase");
         }
 
-        private void button1_Click(object sender, EventArgs e)
+   //     private void button1_Click(object sender, EventArgs e)
+        private void buttonmmmmmmmmmmmmmmmmmm_Click(object sender, EventArgs e)
         {
             string workbookPath = "C:\\Test\\" + Get_File_Name() + ".xlsx";
             
@@ -1438,10 +1630,13 @@ namespace RSMPS
             
         }
 
-        private void button2_Click(object sender, EventArgs e)
+     //   private void button2_Click(object sender, EventArgs e)
+         private void button1_Click(object sender, EventArgs e)
         {
             
-            string workbookPath = "C:\\Test\\" + "Book1" + ".xlsx";
+           //  string workbookPath = "C:\\Test\\" + "Book1" + ".xlsx";
+
+             string workbookPath = "C:\\Test\\" + Get_File_Name() + ".xlsx";
             var excelApp = new Excel.Application();
             
             Excel.Workbook excelWorkbook = excelApp.Workbooks.Open(workbookPath,
@@ -1451,19 +1646,25 @@ namespace RSMPS
 
             // This example uses a single workSheet. 
             Excel._Worksheet workSheet = excelApp.ActiveSheet;
-            workSheet.Name = "HGO";
+            workSheet.Name = "HGA";
             MessageBox.Show("clicked");
 
             object Missing = System.Reflection.Missing.Value;
 
-            Excel.Range Range = workSheet.get_Range("B2", "B10");
+            Excel.Range Range = workSheet.get_Range("Z2", "Z10");
 
             Range.Validation.Add(Excel.XlDVType.xlValidateList        , Excel.XlDVAlertStyle.xlValidAlertStop        , Excel.XlFormatConditionOperator.xlBetween        , "Item1,Item2,Item3"        , Type.Missing);
             Range.Validation.InCellDropdown = true;
 
-            Range.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 217, 217, 0)); 
+            Range.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 217, 217, 0));
 
 
+            Excel.Range RangeQ = workSheet.get_Range("Q2", "Q10");
+
+            RangeQ.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, "TRUE,FALSE", Type.Missing);
+            RangeQ.Validation.InCellDropdown = true;
+
+            RangeQ.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 217, 217, 0)); 
 
 
 
@@ -1475,6 +1676,12 @@ namespace RSMPS
         {
             this.Close();
         }
+
+        
+
+        }
+
+       
     }
 
  
@@ -1493,40 +1700,41 @@ namespace RSMPS
 
 
 
-    public class SortDrawingList : System.Collections.IComparer
+public class SortDrawingList : System.Collections.IComparer
+{
+    private bool mbSortAsc = true;
+    private int miSortCol = 1;
+
+    public int SortColumnNumber
     {
-        private bool mbSortAsc = true;
-        private int miSortCol = 1;
+        get { return miSortCol; }
+        set { miSortCol = value; }
+    }
 
-        public int SortColumnNumber
+    public bool SortColumnAsc
+    {
+        get { return mbSortAsc; }
+        set { mbSortAsc = value; }
+    }
+
+    int IComparer.Compare(object x, object y)
+    {
+        ListViewItem lvi1;
+        ListViewItem lvi2;
+
+        if (mbSortAsc == true)
         {
-            get { return miSortCol; }
-            set { miSortCol = value; }
+            lvi1 = (ListViewItem)x;
+            lvi2 = (ListViewItem)y;
+        }
+        else
+        {
+            lvi1 = (ListViewItem)y;
+            lvi2 = (ListViewItem)x;
         }
 
-        public bool SortColumnAsc
-        {
-            get { return mbSortAsc; }
-            set { mbSortAsc = value; }
-        }
-
-        int IComparer.Compare(object x, object y)
-        {
-            ListViewItem lvi1;
-            ListViewItem lvi2;
-
-            if (mbSortAsc == true)
-            {
-                lvi1 = (ListViewItem)x;
-                lvi2 = (ListViewItem)y;
-            }
-            else
-            {
-                lvi1 = (ListViewItem)y;
-                lvi2 = (ListViewItem)x;
-            }
-
-            return ((new CaseInsensitiveComparer().Compare(lvi1.SubItems[miSortCol].Text, lvi2.SubItems[miSortCol].Text)));
-        }
+        return ((new CaseInsensitiveComparer().Compare(lvi1.SubItems[miSortCol].Text, lvi2.SubItems[miSortCol].Text)));
     }
 }
+    
+
