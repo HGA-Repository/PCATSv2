@@ -121,6 +121,59 @@ namespace RSMPS
 
             return tmpStr;
         }
+        public string[] GetByID_ProjectDescription(int id) //************************Added 11/2/2015
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            string retVal = "";
+            string [] ProjectDescription = new string[4];
+
+
+            //LoadVals(strXml);
+
+            cnn = new RSLib.CDbConnection();
+          //  cmd = new SqlCommand("spDrawingLog_Test_ID", cnn.GetConnection());
+            cmd = new SqlCommand("spProject_ByID_OutputDescription", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            prm = cmd.Parameters.Add("@ID", SqlDbType.Int);
+            prm.Value = id;
+
+            prm = cmd.Parameters.Add("@Description", SqlDbType.VarChar,100);
+            prm.Direction = ParameterDirection.Output;
+
+            prm = cmd.Parameters.Add("@Number", SqlDbType.VarChar, 100);
+            prm.Direction = ParameterDirection.Output;
+
+            prm = cmd.Parameters.Add("@CustomerName", SqlDbType.VarChar, 100);
+            prm.Direction = ParameterDirection.Output;
+
+            prm = cmd.Parameters.Add("@City", SqlDbType.VarChar, 100);
+            prm.Direction = ParameterDirection.Output;
+
+
+            cmd.ExecuteNonQuery();
+
+            ProjectDescription[0] = cmd.Parameters["@Description"].Value.ToString();
+            ProjectDescription[1] = cmd.Parameters["@Number"].Value.ToString();
+            ProjectDescription[2] = cmd.Parameters["@CustomerName"].Value.ToString();
+            ProjectDescription[3] = cmd.Parameters["@City"].Value.ToString();
+        
+            
+
+         //   MessageBox.Show(retVal);
+
+            prm = null;
+            cmd = null;
+            cnn.CloseConnection();
+            cnn = null;
+
+           // return retVal;
+            return ProjectDescription;
+
+        }
 
 
 
