@@ -1295,6 +1295,7 @@ namespace RSMPS
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PCATS Budget Add/Edit";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FBudgetMain_FormClosing);
             this.Load += new System.EventHandler(this.FBudgetMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).EndInit();
             this.cmnuBudget.ResumeLayout(false);

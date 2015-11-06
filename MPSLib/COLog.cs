@@ -8,6 +8,7 @@ namespace RSMPS
     {
         private int miID;
         private string msName;
+        private int miLog;
 
         #region Properties
 
@@ -22,6 +23,16 @@ namespace RSMPS
             get { return msName; }
             set { msName = value; }
         }
+
+
+
+        public int Log_In_Off
+        {
+            get { return miLog; }
+            set { miLog = value; }
+        }
+
+
 
         #endregion
 

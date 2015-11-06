@@ -147,8 +147,9 @@ namespace RSMPS
             _Default_Group = _Groups.First().Code;
             InitializeDynamicComponent();
             Init();
+            
         }
-
+        public CDbLog moLog = new CDbLog(); //*******************Added 10/28
 
         private void Init()
         {
@@ -518,8 +519,121 @@ namespace RSMPS
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadBudget(SelectedGroupTab);
+            LoadBudget(SelectedGroupTab);           
+           // (int ID, int selectedTab)
+         //*********************************************************************11/4/2015
+            moLog.UpdateForSelectedGroup(moLog.GetCurrentUserID(u.Username), Convert.ToInt32(SelectedGroupTab));
+           // ListUserSecurity(miCurrUser);
+          
+           // int pass = CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab);
+            //if (pass == 3)
+
+
+            if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 3)
+            { LockTheCurrentGroupTab();
+            CurrentUserSecurityForThisTab(miCurrUser, SelectedGroupTab);
+         //   MessageBox.Show("This Tab is Locked, because security for current user is viewonly");
+            }
+
+
+
+
+            if (moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
+            {
+               // mbLoaded[SelectedGroupTab] = false;
+
+               LockTheCurrentGroupTab();
+                MessageBox.Show("The following users are working on GroupTab " + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n" + "This Tab is Locked ");    
+            }
+            else
+            {
+                // mbLoaded[SelectedGroupTab] = false;
+              //  UnLockTheCurrentBudget();
+                //UnLockTheCurrentGroupTab();
+              //  MessageBox.Show("Budget Un Locked");
+                MessageBox.Show("Nobody else is working on this group tab");
+
+            } 
+
+
         }
+
+        private void LockTheCurrentGroupTab()
+        {
+            
+               // MessageBox.Show(_Groups.Code);
+                fgForGroup(SelectedGroupTab).AllowEditing = false;
+                fgExpForGroup(SelectedGroupTab).AllowEditing = false;
+           
+        }
+
+        private void UnLockTheCurrentGroupTab()
+        {
+            foreach (var group in _Groups)
+            {
+                fgForGroup(SelectedGroupTab).AllowEditing = true;
+                fgExpForGroup(SelectedGroupTab).AllowEditing = true;
+            }
+        }
+
+        private void ListUserSecurity(int ID)
+        { 
+            SqlDataReader dr=moLog.GetList_UserSecurityLevel(ID) ;
+
+            string [] li = new string [13];
+            int i = 0;
+            string id = "";
+            while (dr.Read())
+
+            {
+                id = dr["UserID"].ToString() +", "+ dr["UserName"].ToString() ;
+
+                li[i] = dr["DeptName"].ToString() + ", " + dr["AcctGroup"].ToString() + ", " + (Convert.ToInt32(dr["passlevel"])).ToString() + ", " + dr["SecurityName"].ToString();
+
+               
+                
+                i++;
+            }
+
+            MessageBox.Show(id + "\n" +li[0] + "\n " + li[1] + "\n " + li[2] + "\n " + li[3] + "\n " + li[4] + "\n " + li[5] +
+                                "\n " + li[6] + "\n " + li[7] + "\n " + li[8] + "\n " + li[9] + "\n " + li[10] +
+                                        "\n " + li[11] + "\n " + li[12]);
+
+
+
+        }
+        private int CurrentUserPassLevelForThisTab(int userID, string tab )
+        {
+            SqlDataReader dr = moLog.GetCurrUserSecurityLevelForThisTab(userID, tab);
+            int passlevel = 0;
+            while (dr.Read())
+            {               
+                passlevel = Convert.ToInt32(dr["passlevel"]);
+            }
+
+            return passlevel;
+
+        }
+
+        private void CurrentUserSecurityForThisTab(int userID, string tab)
+        {
+            SqlDataReader dr = moLog.GetCurrUserSecurityLevelForThisTab(userID, tab);
+          
+            string UserInfo = "";
+            while (dr.Read())
+            {
+                // UserInfo = dr["UserID"].ToString() + ", " + dr["UserName"].ToString() + ", " + dr["DeptName"].ToString() + ", " + dr["AcctGroup"].ToString() + ", " + (Convert.ToInt32(dr["passlevel"])).ToString() + ", " + dr["SecurityName"].ToString();
+                UserInfo = dr["UserID"].ToString() + ", " + dr["UserName"].ToString() + ", " + dr["AcctGroup"].ToString() + ", " + (Convert.ToInt32(dr["passlevel"])).ToString() + ", " + dr["SecurityName"].ToString();
+              
+            }
+
+            MessageBox.Show(UserInfo + "--- Tab is Locked" );
+          
+
+        }
+        
+
+        
 
         private void LoadBudget(string group)
         {
@@ -555,14 +669,64 @@ namespace RSMPS
             richTextBox6.Text = moCurrBudget.Clarification16000.ToString();
             richTextBox7.Text = moCurrBudget.Clarification18000.ToString();
             richTextBox8.Text = moCurrBudget.Clarification50000.ToString();
-         //   MessageBox.Show("FBudgetMain_Load"); //**************************10
 
+        //    MessageBox.Show(moLog.GetCurrentUserID(u.Username) + "   ...........   " + miCurrUser);
+            
+            moLog.UpdateForBudgetWindow(moLog.GetCurrentUserID(u.Username), miProjectID, 1); //*******************trying next line, instead of this line
+
+      //      moLog.UpdateForBudgetWindow(miCurrUser, miProjectID, 1);
+
+            //int no_of_User = moLog.No_Of_User_OnBudgetWindow(miProjectID);
+
+            //if (no_of_User > 1)
+
+            //{
+               // MessageBox.Show("List of user in budgetwindow in last 30 minutes" + miProjectID + " are" + moLog.list_Of_User_OnBudgetWindow(miProjectID) + " " + no_of_User + "You cannot edit this Project" );
+            //    this.Close();
+            //}
+            ////else 
+
+              MessageBox.Show("list of all user Logged in PCAT- " + moLog.list_Of_User());//*********************************10/28*****MZ 
+              MessageBox.Show("List of user in this project's budgetwindow- " + miProjectID + " are " + moLog.list_Of_User_OnBudgetWindow(miProjectID) + "   number= " + moLog.No_Of_User_OnBudgetWindow(miProjectID));
+
+              
+
+
+
+            if (moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
+            {
+                // mbLoaded[SelectedGroupTab] = false;
+                LockTheCurrentGroupTab();
+                //LockTheCurrentBudget();
+                MessageBox.Show("The following users are working on GroupTab " + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n"  + "This Tab is Locked ");
+
+            }
+            else
+            {
+                // mbLoaded[SelectedGroupTab] = false;
+            //    UnLockTheCurrentBudget();
+                MessageBox.Show("Nobody else is working on this group tab");
+
+            }
+
+
+            //int pass = CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab);
+            //if (pass == 3)
+                if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 3)
+            {
+                LockTheCurrentGroupTab();
+                CurrentUserSecurityForThisTab(miCurrUser, SelectedGroupTab);
+                //MessageBox.Show("This Tab is Locked, because security for current user is viewonly");
+            }
+
+                   
         }
-
+        CBUser u;// = new CBUser(); //***************************************Moved outside*******10/29
         private void SetBudgetUserLevel()
         {
             RSLib.COSecurity sec = new RSLib.COSecurity();
-            CBUser u = new CBUser();
+            u = new CBUser();
+            //     CBUser u = new CBUser();//***************************************Moved outside*******10/29
 
             sec.InitAppSettings();
             u.Load(sec.UserID);
@@ -4406,6 +4570,15 @@ namespace RSMPS
             pcn.EditPreviousPCN(currID);
             pcn.ShowDialog();
             pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNChanged);
+        }
+
+        private void FBudgetMain_FormClosing(object sender, FormClosingEventArgs e)
+        { 
+            
+           // moLog.UpdateForBudgetWindow(moLog.GetCurrentUserID(u.Username),0, 0);
+            moLog.UpdateForBudgetWindowClosing(moLog.GetCurrentUserID(u.Username));
+            MessageBox.Show("Budget Closed");
+
         }
                        
     }
