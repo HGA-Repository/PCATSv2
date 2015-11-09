@@ -687,40 +687,44 @@ namespace RSMPS
             ////else 
 
               MessageBox.Show("list of all user Logged in PCAT- " + moLog.list_Of_User());//*********************************10/28*****MZ 
-              MessageBox.Show("List of user in this project's budgetwindow- " + miProjectID + " are " + moLog.list_Of_User_OnBudgetWindow(miProjectID) + "   number= " + moLog.No_Of_User_OnBudgetWindow(miProjectID));
-
-              
+              MessageBox.Show("List of user in this project's"  + miProjectID +"budgetwindow are-- " + moLog.list_Of_User_OnBudgetWindow(miProjectID) + "   number= " + moLog.No_Of_User_OnBudgetWindow(miProjectID));
 
 
 
-            if (moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
-            {
-                // mbLoaded[SelectedGroupTab] = false;
-                LockTheCurrentGroupTab();
-                //LockTheCurrentBudget();
-                MessageBox.Show("The following users are working on GroupTab " + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n"  + "This Tab is Locked ");
+              if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 3)
+              {
+                  LockTheCurrentGroupTab();
+                  CurrentUserSecurityForThisTab(miCurrUser, SelectedGroupTab);
+                  //MessageBox.Show("This Tab is Locked, because security for current user is viewonly");
+                  return;
+              //}
+              }
 
-            }
-            else
-            {
-                // mbLoaded[SelectedGroupTab] = false;
-            //    UnLockTheCurrentBudget();
-                MessageBox.Show("Nobody else is working on this group tab");
+           // MessageBox.Show("This is after return.....");
+                  else   if(moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
+                              {
+                                  // mbLoaded[SelectedGroupTab] = false;
+                                  LockTheCurrentGroupTab();
+                                  //LockTheCurrentBudget();
+                                  MessageBox.Show("The following users are working on GroupTab " + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n" + "This Tab is Locked ");
 
-            }
+
+                              }
+                  else
+                  {
+                      // mbLoaded[SelectedGroupTab] = false;
+                      //    UnLockTheCurrentBudget();
+                      MessageBox.Show("Nobody else is working on this group tab");
+
+                  }
 
 
-            //int pass = CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab);
-            //if (pass == 3)
-                if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 3)
-            {
-                LockTheCurrentGroupTab();
-                CurrentUserSecurityForThisTab(miCurrUser, SelectedGroupTab);
-                //MessageBox.Show("This Tab is Locked, because security for current user is viewonly");
-            }
+                  //int pass = CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab);
+                  //if (pass == 3)
 
+              }
                    
-        }
+        
         CBUser u;// = new CBUser(); //***************************************Moved outside*******10/29
         private void SetBudgetUserLevel()
         {
