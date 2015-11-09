@@ -149,7 +149,8 @@ namespace RSMPS
             Init();        
             
         }
-        public CDbLog moLog = new CDbLog(); //*******************Added 10/28            
+        public CDbLog moLog = new CDbLog(); //*******************Added 10/28  
+        public  int miCurrentUserLoginID;  
 
         private void Init()
         {
@@ -520,44 +521,35 @@ namespace RSMPS
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadBudget(SelectedGroupTab);           
-           // (int ID, int selectedTab)
+        
          //*********************************************************************11/4/2015
            // moLog.UpdateForSelectedGroup(moLog.GetCurrentUserID(u.Username), Convert.ToInt32(SelectedGroupTab)); //*************************trying with next line
 
-            moLog.UpdateForSelectedGroup(moLog.GetCurrentUserLoginID(miCurrUser), Convert.ToInt32(SelectedGroupTab));
-
-            //moLog.UpdateForBudgetWindow(moLog.GetCurrentUserLoginID(miCurrUser), Convert.ToInt32(SelectedGroupTab));
-
-
-
-
+          //  moLog.UpdateForSelectedGroup(moLog.GetCurrentUserLoginID(miCurrUser), Convert.ToInt32(SelectedGroupTab));
+            moLog.UpdateForSelectedGroup(miCurrentUserLoginID, Convert.ToInt32(SelectedGroupTab));             
+            //moLog.UpdateForBudgetWindow(moLog.GetCurrentUserLoginID(miCurrUser), Convert.ToInt32(SelectedGroupTab));            
            // ListUserSecurity(miCurrUser);
-          
-           
-
-
-            if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 3)
-            { LockTheCurrentGroupTab();
-            CurrentUserSecurityForThisTab(miCurrUser, SelectedGroupTab);
-         //   MessageBox.Show("This Tab is Locked, because security for current user is viewonly");
-            return;
-            }
-
-            else     if (moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
+            if (tabControl1.SelectedTab.Text == "PCN's" || tabControl1.SelectedTab.Text == "Clarifications")
             {
-               // mbLoaded[SelectedGroupTab] = false;
-
-               LockTheCurrentGroupTab();
-                MessageBox.Show("The following users are working on GroupTab " + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n" + "This Tab is Locked ");    
+                MessageBox.Show("PCN's or Clarifications");
+                return;
             }
-            //else
-            //{
-              
-            //    MessageBox.Show("Nobody else is working on this group tab");
-
-            //} 
 
 
+            else if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 3)
+            {
+                LockTheCurrentGroupTab();
+                CurrentUserSecurityForThisTab(miCurrUser, SelectedGroupTab);
+
+                return;
+            }
+
+            else if (moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
+            {
+                LockTheCurrentGroupTab();
+                MessageBox.Show("The following users are working on GroupTab " + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n" + "This Tab is Locked ");
+            }
+           
         }
 
         private void LockTheCurrentGroupTab()
@@ -673,19 +665,15 @@ namespace RSMPS
             richTextBox8.Text = moCurrBudget.Clarification50000.ToString();
 
         //    MessageBox.Show(moLog.GetCurrentUserID(u.Username) + "   ...........   " + miCurrUser);
-
-
-
+                        
            // MessageBox.Show(moLog.GetCurrentUserLoginID(miCurrUser).ToString());
             
          //   moLog.UpdateForBudgetWindow(moLog.GetCurrentUserID(u.Username), miProjectID, 1); //*******************trying next line, instead of this line
-
-            moLog.UpdateForBudgetWindow(moLog.GetCurrentUserLoginID(miCurrUser), miProjectID, 1);
-            //int no_of_User = moLog.No_Of_User_OnBudgetWindow(miProjectID);
-
-           
-               // MessageBox.Show("List of user in budgetwindow in last 30 minutes" + miProjectID + " are" + moLog.list_Of_User_OnBudgetWindow(miProjectID) + " " + no_of_User + "You cannot edit this Project" );
-            
+            miCurrentUserLoginID = moLog.GetCurrentUserLoginID(miCurrUser);
+            //moLog.UpdateForBudgetWindow(moLog.GetCurrentUserLoginID(miCurrUser), miProjectID, 1);
+            //moLog.UpdateForBudgetWindow(miCurrentUserLoginID, miProjectID, 1);
+            moLog.UpdateForBudgetWindow(miCurrentUserLoginID, miProjectID);
+          
         //      MessageBox.Show("list of all user Logged in PCAT- " + moLog.list_Of_User());//***********This gives all PCAT User looged in, currently...*********10/28*****MZ 
         //      MessageBox.Show("List of user in this project's"  + miProjectID +"budgetwindow are-- " + moLog.list_Of_User_OnBudgetWindow(miProjectID) + "   number= " + moLog.No_Of_User_OnBudgetWindow(miProjectID));
 
@@ -695,28 +683,15 @@ namespace RSMPS
               {
                   LockTheCurrentGroupTab();
                   CurrentUserSecurityForThisTab(miCurrUser, SelectedGroupTab);
-                  //MessageBox.Show("This Tab is Locked, because security for current user is viewonly");
                   return;
-              //}
               }
 
-           // MessageBox.Show("This is after return.....");
                   else   if(moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
-                              {
-                               
-                                  LockTheCurrentGroupTab();
-                            
+                              {                              
+                                  LockTheCurrentGroupTab();                            
                                   MessageBox.Show("The following users are working on GroupTab " + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n" + "This Tab is Locked, please reopen budget window");
-
-
-                              }
-                  //else
-                  //{
-                      
-                  //    MessageBox.Show("Nobody else is working on this group tab");
-
-                  //}
-
+                               }
+                 
 
               }
                    

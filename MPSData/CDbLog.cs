@@ -366,16 +366,10 @@ namespace RSMPS
 
              return userCount;
          }
+        
 
-
-
-
-
-
-
-
-
-         public void UpdateForBudgetWindow(int ID, int projectID, int IsBudgetWindow )
+      //   public void UpdateForBudgetWindow(int ID, int projectID, int IsBudgetWindow )
+             public void UpdateForBudgetWindow(int ID, int projectID )
          {
              RSLib.CDbConnection cnn;
              SqlCommand cmd;
@@ -393,8 +387,8 @@ namespace RSMPS
              prm = cmd.Parameters.Add("@ProjectID", SqlDbType.Int);
             prm.Value = projectID;
 
-             prm = cmd.Parameters.Add("@IsBudgetWindow", SqlDbType.Int);
-             prm.Value = IsBudgetWindow;
+          //   prm = cmd.Parameters.Add("@IsBudgetWindow", SqlDbType.Int);
+            // prm.Value = IsBudgetWindow;
 
 
              cmd.ExecuteNonQuery();
@@ -546,19 +540,6 @@ namespace RSMPS
              return dr;
          }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
          public void UpdateForBudgetWindowClosing(int ID)
          {
              RSLib.CDbConnection cnn;
@@ -652,14 +633,7 @@ namespace RSMPS
              cnn.CloseConnection();
              cnn = null;
              // Console.Read();
-             return retVal;
-         }
-
-
-
-
-
-
+             return retVal;     }
         //***************************************************************************************************
 
 
