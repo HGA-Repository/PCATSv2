@@ -115,8 +115,8 @@ namespace RSMPS
             LoadVals(strXml);
 
             cnn = new RSLib.CDbConnection();
-        //    cmd = new SqlCommand("spDrawingLog_Insert", cnn.GetConnection());
-            cmd = new SqlCommand("spDrawingLog_Test_Insert", cnn.GetConnection());
+            cmd = new SqlCommand("spDrawingLog_Insert", cnn.GetConnection());
+        //    cmd = new SqlCommand("spDrawingLog_Test_Insert", cnn.GetConnection()); //*************************testin 11/9
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -219,8 +219,8 @@ namespace RSMPS
             LoadVals(strXml);
 
             cnn = new RSLib.CDbConnection();
-        //    cmd = new SqlCommand("spDrawingLog_Update", cnn.GetConnection());
-            cmd = new SqlCommand("spDrawingLog_Test_Update", cnn.GetConnection());
+            cmd = new SqlCommand("spDrawingLog_Update", cnn.GetConnection());
+       //     cmd = new SqlCommand("spDrawingLog_Test_Update", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -467,9 +467,9 @@ namespace RSMPS
             SqlParameter prm;
 
             cnn = new RSLib.CDbConnection();
-           // cmd = new SqlCommand("spDrawingLog_ListAll_DeptProj", cnn.GetConnection());
+            cmd = new SqlCommand("spDrawingLog_ListAll_DeptProj", cnn.GetConnection()); //************************************11/9
 
-            cmd = new SqlCommand("spDrawingLog_ListAll_DeptProj_Test", cnn.GetConnection()); //**********************************************10/28
+        //    cmd = new SqlCommand("spDrawingLog_ListAll_DeptProj_Test", cnn.GetConnection()); //**********************************************10/28
             cmd.CommandType = CommandType.StoredProcedure;
 
             prm = cmd.Parameters.Add("@DepartmentID", SqlDbType.Int);

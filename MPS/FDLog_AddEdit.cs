@@ -1583,7 +1583,7 @@ Excel.Range rngRO = workSheet.Range["B1"];
            // de.ExportDrawing_ToDataBase(miCurrDept, miCurrProj, iTotalRows);
             de.ExportDrawing_ToDataBase(miCurrDept, miCurrProj);
 
-           MessageBox.Show(de.F_Name + "Saved to DFatabase");
+           MessageBox.Show(de.F_Name + "Saved to Database");
         }
 
    //     private void button1_Click(object sender, EventArgs e)

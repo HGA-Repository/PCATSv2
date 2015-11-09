@@ -148,13 +148,13 @@ namespace RSMPS
 
            if (ii == 0)
            {
-             //  MessageBox.Show("Return of ID Test for..." + moDrwLog.ID + "....." + ii + "..So   Insert");
+               MessageBox.Show("Return of ID Test for..." + moDrwLog.ID + "....." + ii + "..So   Insert");
                moDrwLog.Save_Insert();
 
            }
            else
            {
-              // MessageBox.Show("Return of ID Test for..." + moDrwLog.ID + "....." + ii + "..So   Update");
+               MessageBox.Show("Return of ID Test for..." + moDrwLog.ID + "....." + ii + "..So   Update");
              
                moDrwLog.Save_Update();
            }
