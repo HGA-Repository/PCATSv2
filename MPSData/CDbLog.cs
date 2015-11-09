@@ -622,7 +622,42 @@ namespace RSMPS
              // Console.Read();
              return retVal;
          }
-       
+
+         public int GetCurrentUserLoginID(int currentUserID)
+         {
+             RSLib.CDbConnection cnn;
+             SqlCommand cmd;
+             SqlParameter prm;
+             int retVal = 0;
+
+             cnn = new RSLib.CDbConnection();
+
+             cmd = new SqlCommand("spLogin_CurrentUserLoginID", cnn.GetConnection());
+             cmd.CommandType = CommandType.StoredProcedure;
+
+                       
+             prm = cmd.Parameters.Add("@UserID", SqlDbType.Int);
+             prm.Value = currentUserID;
+
+               prm = cmd.Parameters.Add("@ID", SqlDbType.Int);
+             prm.Direction = ParameterDirection.Output;
+
+
+             cmd.ExecuteNonQuery();
+
+             retVal = Convert.ToInt32(cmd.Parameters["@ID"].Value);
+
+             prm = null;
+             cmd = null;
+             cnn.CloseConnection();
+             cnn = null;
+             // Console.Read();
+             return retVal;
+         }
+
+
+
+
 
 
         //***************************************************************************************************

@@ -286,7 +286,7 @@ namespace RSMPS
             if (clstDepartments.CheckedItems.Count > 0)
             {
                 dXml = ds.GetXml();
-                MessageBox.Show("Dept dXml" + dXml);
+               // MessageBox.Show("Dept dXml" + dXml);
             }
             else
                 dXml = "";
