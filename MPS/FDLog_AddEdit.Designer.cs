@@ -805,7 +805,6 @@ namespace RSMPS
             // txtRemainingHrs
             // 
             this.txtRemainingHrs.Location = new System.Drawing.Point(86, 248);
-            this.txtRemainingHrs.Mask = "00000";
             this.txtRemainingHrs.Name = "txtRemainingHrs";
             this.txtRemainingHrs.Size = new System.Drawing.Size(121, 20);
             this.txtRemainingHrs.TabIndex = 14;
@@ -825,7 +824,6 @@ namespace RSMPS
             // txtBudgetHrs
             // 
             this.txtBudgetHrs.Location = new System.Drawing.Point(86, 202);
-            this.txtBudgetHrs.Mask = "00000";
             this.txtBudgetHrs.Name = "txtBudgetHrs";
             this.txtBudgetHrs.Size = new System.Drawing.Size(121, 20);
             this.txtBudgetHrs.TabIndex = 10;
