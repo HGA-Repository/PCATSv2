@@ -178,7 +178,7 @@ namespace RSMPS
 
 
        private int LoadScreenToObject(int indx, int deptID, int projID)
-          //   private int LoadScreenToObject(int indx)
+          
         {
                
             moDrwLog = new CBDrawingLog();
@@ -363,7 +363,7 @@ namespace RSMPS
         //*****************************************Not Needed
 
 
-        //public void ExportDrawingForPrimavera(string saveLoc, int projID, int deptID)
+        
             public void ExportDrawing_ToExcel(string saveLoc, int projID, int deptID)
         {
             SqlDataReader dr;
@@ -383,21 +383,6 @@ namespace RSMPS
             dr = dl.GetListbyDeptProj(deptID, projID);
 
             indx = 1;
-
-            //Alt. Doc #	Drwg/Spec #	WBS	Type	Title/Description	Acct	Budget	% Comp.	Ernd Hrs	Rmn Hrs
-
-            //sheet[0, 0].Value = "ID"; 
-            //sheet[0, 1].Value = "Alt. Doc #"; 
-            //sheet[0, 2].Value = "Drwg/Spec #"; 
-            //sheet[0, 3].Value = "WBS";
-            //sheet[0, 4].Value = "Type";
-            //sheet[0, 5].Value = "Title/Description";  //  quantity
-            //sheet[0, 6].Value = "Acct";
-            //sheet[0, 7].Value = "Budget";
-            //sheet[0, 8].Value = "% Comp.";                                                           //  uom
-            //sheet[0, 9].Value = "Ernd Hrs";
-            //sheet[0, 9].Value = "Rmn Hrs";
-            //sheet[0, 10].Value = "DrawingSizeID";
 
             sheet[0, 0].Value = "ID";
             sheet[0, 1].Value = "DepartmentID";
