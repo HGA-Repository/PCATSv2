@@ -4550,9 +4550,11 @@ namespace RSMPS
         private void FBudgetMain_FormClosing(object sender, FormClosingEventArgs e)
         { 
             
-           // moLog.UpdateForBudgetWindow(moLog.GetCurrentUserID(u.Username),0, 0);
-            moLog.UpdateForBudgetWindowClosing(moLog.GetCurrentUserID(u.Username));
-            MessageBox.Show("Budget Closed");
+           
+           // moLog.UpdateForBudgetWindowClosing(moLog.GetCurrentUserID(u.Username));
+            moLog.UpdateForBudgetWindowClosing(miCurrentUserLoginID);
+           
+           // MessageBox.Show("Budget Closed");
 
         }
                        
