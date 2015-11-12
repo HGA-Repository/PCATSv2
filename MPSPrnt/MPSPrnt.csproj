@@ -133,9 +133,6 @@
     <Compile Include="rprtBudgetAccountingExps.Designer.cs">
       <DependentUpon>rprtBudgetAccountingExps.cs</DependentUpon>
     </Compile>
-    <Compile Include="rprtPMReportPCNPending.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="rprtTransmittal_DocsCount.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -358,10 +355,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="rprtBudgetAccountingExps.resx">
       <DependentUpon>rprtBudgetAccountingExps.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rprtPMReportPCNPending.resx">
-      <DependentUpon>rprtPMReportPCNPending.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="rprtTransmittal_DocsCount.resx">

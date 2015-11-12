@@ -81,6 +81,7 @@ namespace RSMPS
                 Label18.Visible = false;
                 Label19.Visible = false;
                 Shape1.Visible = false;
+                label32.Visible = false;
             }
             else
             {
@@ -88,6 +89,7 @@ namespace RSMPS
                 Label17.Visible = true;
                 Label18.Visible = true;
                 Label19.Visible = true;
+                label32.Visible = true;
                 Shape1.Visible = true;
             }
 
