@@ -55,7 +55,6 @@ namespace RSMPS
         private Label Label18;
         private Label Label19;
         private TextBox txtBilledToDate;
-        private Label label32;
 
         private int miCount = 0;
 
@@ -67,7 +66,6 @@ namespace RSMPS
         private void Detail_Format(object sender, System.EventArgs eArgs)
         {
             rprtPMReportPCN rpcn = new rprtPMReportPCN();
-          //  rprtPMReportPCNPending rpcn = new rprtPMReportPCNPending();
             DataSet ds = CBProjectBudget.GetPCNByProject(Convert.ToInt32(TextBox27.Text), Convert.ToInt32(TextBox28.Text));
 
             rpcn.DataSource = ds;
@@ -603,7 +601,6 @@ namespace RSMPS
             this.SubReport1 = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
             this.groupHeader2 = new GrapeCity.ActiveReports.SectionReportModel.GroupHeader();
             this.groupFooter2 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
-            this.label32 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Label5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label7)).BeginInit();
@@ -680,7 +677,6 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.Label28)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label29)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label30)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label32)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -1503,8 +1499,7 @@ namespace RSMPS
             this.Label16,
             this.Label17,
             this.Label18,
-            this.Label19,
-            this.label32});
+            this.Label19});
             this.GroupFooter1.Height = 3.40625F;
             this.GroupFooter1.Name = "GroupFooter1";
             this.GroupFooter1.Format += new System.EventHandler(this.GroupFooter1_Format);
@@ -1712,7 +1707,7 @@ namespace RSMPS
             this.Shape1.Name = "Shape1";
             this.Shape1.RoundingRadius = new GrapeCity.ActiveReports.Controls.CornersRadius(9.999999F, null, null, null, null);
             this.Shape1.Top = 0.25F;
-            this.Shape1.Width = 6.687F;
+            this.Shape1.Width = 6.063001F;
             // 
             // Label1
             // 
@@ -1733,7 +1728,7 @@ namespace RSMPS
             this.SubReport.Name = "SubReport";
             this.SubReport.Report = null;
             this.SubReport.Top = 0.531F;
-            this.SubReport.Width = 6.687F;
+            this.SubReport.Width = 6.092F;
             // 
             // Label16
             // 
@@ -1761,7 +1756,7 @@ namespace RSMPS
             // 
             this.Label18.Height = 0.2F;
             this.Label18.HyperLink = null;
-            this.Label18.Left = 4.014F;
+            this.Label18.Left = 4.624002F;
             this.Label18.Name = "Label18";
             this.Label18.Style = "font-size: 9.75pt; font-weight: bold; text-align: center";
             this.Label18.Text = "Hours";
@@ -1772,7 +1767,7 @@ namespace RSMPS
             // 
             this.Label19.Height = 0.2F;
             this.Label19.HyperLink = null;
-            this.Label19.Left = 5.017F;
+            this.Label19.Left = 5.687F;
             this.Label19.Name = "Label19";
             this.Label19.Style = "font-size: 9.75pt; font-weight: bold; text-align: center";
             this.Label19.Text = "Dollars";
@@ -1873,17 +1868,6 @@ namespace RSMPS
             this.SubReport1});
             this.groupFooter2.Height = 0.5416666F;
             this.groupFooter2.Name = "groupFooter2";
-            // 
-            // label32
-            // 
-            this.label32.Height = 0.2F;
-            this.label32.HyperLink = null;
-            this.label32.Left = 6.062F;
-            this.label32.Name = "label32";
-            this.label32.Style = "font-size: 9.75pt; font-weight: bold; text-align: center";
-            this.label32.Text = "Comments";
-            this.label32.Top = 0.284F;
-            this.label32.Width = 0.85F;
             // 
             // rprtPMReport2
             // 
@@ -1991,7 +1975,6 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.Label28)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label29)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label30)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label32)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
