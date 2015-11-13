@@ -7,6 +7,7 @@ using GrapeCity.ActiveReports.Controls;
 using GrapeCity.ActiveReports.SectionReportModel;
 using GrapeCity.ActiveReports.Document.Section;
 using GrapeCity.ActiveReports.Document;
+using System.Windows.Forms; //**********************11/13
 
 namespace RSMPS
 {
@@ -34,6 +35,24 @@ namespace RSMPS
 
         private void groupHeader1_Format(object sender, EventArgs e)
         {
+           
+
+            if (textBox1.Text.Substring(0, 3) == "0.A" || textBox1.Text.Substring(0, 3) == "8.A") //**********Added 11/13, For Birmingham Address
+
+            { 
+                //MessageBox.Show("Starts with  0.A and 8.A ");
+            label23.Visible = true;
+            label5.Visible = false;
+            label6.Visible = false;
+
+            }
+            else { 
+                //MessageBox.Show("No");
+            label23.Visible = false;
+            label5.Visible = true;
+            label6.Visible = true;
+            }
+
             if (chkApprovedOther.Checked == true)
             {
                 chkApprovedOther.Text = txtApprvOther.Text;
@@ -58,5 +77,6 @@ namespace RSMPS
             if (count > 1)
                 pageFooter.Visible = false;
         }
+               
     }
 }

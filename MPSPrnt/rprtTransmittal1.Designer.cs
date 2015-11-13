@@ -109,6 +109,7 @@ namespace RSMPS
             this.label22 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.label24 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.groupFooter2 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
+            this.label23 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             ((System.ComponentModel.ISupportInitialize)(this.label1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label3)).BeginInit();
@@ -163,6 +164,7 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // line6
@@ -191,7 +193,8 @@ namespace RSMPS
             this.shape1,
             this.label11,
             this.textBox1,
-            this.Picture});
+            this.Picture,
+            this.label23});
             this.pageHeader.Height = 1.8F;
             this.pageHeader.Name = "pageHeader";
             this.pageHeader.Format += new System.EventHandler(this.pageHeader_Format);
@@ -1130,6 +1133,19 @@ namespace RSMPS
             this.groupFooter2.Height = 0F;
             this.groupFooter2.Name = "groupFooter2";
             // 
+            // label23
+            // 
+            this.label23.Height = 0.625F;
+            this.label23.HyperLink = null;
+            this.label23.Left = 4.322F;
+            this.label23.Name = "label23";
+            this.label23.Style = "font-family: Times New Roman; font-size: 9.75pt; font-style: italic; text-align: " +
+    "center; ddo-char-set: 0";
+            this.label23.Text = "Birmingham Office\r\nOne MMetroplex Drive\r\nBirmingham, AL 35209\r\n205.970.4977 - Fax" +
+    " 205-970.4928";
+            this.label23.Top = 0.659F;
+            this.label23.Width = 3.178F;
+            // 
             // rprtTransmittal1
             // 
             this.MasterReport = false;
@@ -1208,6 +1224,7 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -1368,5 +1385,6 @@ namespace RSMPS
         private GrapeCity.ActiveReports.SectionReportModel.TextBox txtApprvOther;
         private GrapeCity.ActiveReports.SectionReportModel.Picture Picture;
         private GrapeCity.ActiveReports.SectionReportModel.SubReport subReport4;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label23;
     }
 }
