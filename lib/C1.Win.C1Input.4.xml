@@ -2233,29 +2233,9 @@
       <returns>
       </returns>
     </member>
-    <member name="P:C1.Win.C1Input.C1BasePicker.DisplayFormat">
+    <member name="P:C1.Win.C1Input.C1BasePicker.BorderStyle">
       <summary>
-            Format used to display the value when the control is not in edit mode (does not have input focus or is read-only).
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1BasePicker.EditFormat">
-      <summary>
-            Format used to display the value when the control is in edit mode (has input focus and is not read-only).
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1BasePicker.ParseInfo">
-      <summary>
-            Settings affecting parsing, that is, converting the string entered by the user to the data type.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1BasePicker.InterceptArrowKeys">
-      <summary>
-            Settings affecting parsing, that is, converting the string entered by the user to the data type.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1BasePicker.AcceptsTab">
-      <summary>
-            Indicates if Tab and Shift+Tab keys are accepted by control and move the focus to the next (previous) group of input characters in edit mask and in DateTimeInput mode.
+            Determines the style of the control's border.
             </summary>
     </member>
     <member name="T:C1.Win.C1Input.C1ColorPicker">
@@ -2267,6 +2247,18 @@
       <summary>
             Initializes a new instance of the C1ColorPicker class.
             </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.C1ColorPicker.ResetColor">
+      <summary>
+            This method is for internal use only.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.C1ColorPicker.OnColorChanged(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
     </member>
     <member name="M:C1.Win.C1Input.C1ColorPicker.TextToValue(C1.Win.C1Input.C1BasePicker.TextToValueArgs@)">
       <summary>
@@ -2316,9 +2308,19 @@
             Gets or sets a value indicating whether the empty color can de selected.
             </summary>
     </member>
+    <member name="P:C1.Win.C1Input.C1ColorPicker.Color">
+      <summary>
+            Gets or sets the current color.
+            </summary>
+    </member>
     <member name="P:C1.Win.C1Input.C1ColorPicker.EmptyColorCaption">
       <summary>
             Gets or sets a caption for the empty color.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1ColorPicker.Value">
+      <summary>
+            The main bindable property of a C1Input control.
             </summary>
     </member>
     <member name="P:C1.Win.C1Input.C1ColorPicker.DefaultDropDownFormClassName">
@@ -2331,14 +2333,9 @@
             This property is for internal use only.
             </summary>
     </member>
-    <member name="P:C1.Win.C1Input.C1ColorPicker.VisibleButtons">
+    <member name="E:C1.Win.C1Input.C1ColorPicker.ColorChanged">
       <summary>
-            Gets or sets a value specifying which buttons are visible. The default is (UpDown Or DropDown).
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1ColorPicker.DataType">
-      <summary>
-            Type of the Value property.
+            Fires when the <see cref="P:C1.Win.C1Input.C1ColorPicker.Color" /> property changes.
             </summary>
     </member>
     <member name="P:C1.Win.C1Input.C1ColorPicker.DefaultThemeRootPath">
@@ -4838,16 +4835,6 @@
     <member name="P:C1.Win.C1Input.C1FontPicker.DefaultDropDownFormClassName">
       <summary>
             This property is for internal use only.
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1FontPicker.VisibleButtons">
-      <summary>
-            Gets or sets a value specifying which buttons are visible. The default is (UpDown Or DropDown).
-            </summary>
-    </member>
-    <member name="P:C1.Win.C1Input.C1FontPicker.DataType">
-      <summary>
-            Type of the Value property.
             </summary>
     </member>
     <member name="P:C1.Win.C1Input.C1FontPicker.DefaultThemeRootPath">

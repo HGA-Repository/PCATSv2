@@ -425,12 +425,12 @@
     </member>
     <member name="P:C1.C1Excel.XLShape.Row">
       <summary>
-            Gets the index of the row to which the shape is attached.
+            Gets or sets the index of the row to which the shape is attached.
             </summary>
     </member>
     <member name="P:C1.C1Excel.XLShape.Column">
       <summary>
-            Gets the index of the column to which the shape is attached.
+            Gets or sets the index of the column to which the shape is attached.
             </summary>
     </member>
     <member name="P:C1.C1Excel.XLShape.Sheet">

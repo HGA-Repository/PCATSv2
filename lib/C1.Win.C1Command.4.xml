@@ -2995,7 +2995,7 @@
             Get the <see cref="T:C1.Win.C1Command.C1TopicLink" /> at the point being tested (if the point does not correspond to a page, it returns null).
             </summary>
     </member>
-    <member name="T:C1.Win.C1Command.RadialStrings">
+    <member name="T:C1.Win.C1Command.CommandStrings">
       <summary>
             Static class containing UI strings used by the designer.
             </summary>
@@ -4049,6 +4049,11 @@
             Gets or sets the value indicating whether to update commands' status when idle.
             </summary>
     </member>
+    <member name="P:C1.Win.C1Command.C1CommandHolder.SkipDisabledMenuItems">
+      <summary>
+            Gets or sets a value indicating whether the user can give the focus to the CommandLink using keys when the Command is disabled.
+            </summary>
+    </member>
     <member name="P:C1.Win.C1Command.C1CommandHolder.SmoothImages">
       <summary>
             Draw smooth images for currently unselected items.
@@ -4697,6 +4702,14 @@
             Occurs when the VisualStyle property has changed.
             </summary>
     </member>
+    <member name="P:C1.Win.C1Command.C1CommandMenu.HideFirstDelimiter">
+      <summary>
+            Gets or sets a value indicating whether the control should hide the first delimiter.
+            </summary>
+      <remarks>
+            C1CommandLink.Delimiter property shows a delimiter before a C1CommandLink present at C1ContextMenu. The HideFirstDelimiter property hides the delimiter for the first visible C1CommandLink even the Delimiter property of the C1CommandLink is True.
+            </remarks>
+    </member>
     <member name="P:C1.Win.C1Command.C1CommandMenu.VisualStyle">
       <summary>
             Gets or sets the visual style of the control.
@@ -5320,6 +5333,14 @@
       <summary>
             Occurs when the VisualStyle property has changed.
             </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1MainMenu.HideFirstDelimiter">
+      <summary>
+            Gets or sets a value indicating whether the control should hide the first delimiter.
+            </summary>
+      <remarks>
+            C1CommandLink.Delimiter property shows a delimiter before a C1CommandLink present at C1MainMenu. The HideFirstDelimiter property hides the delimiter for the first visible C1CommandLink even the Delimiter property of the C1CommandLink is True.
+            </remarks>
     </member>
     <member name="P:C1.Win.C1Command.C1MainMenu.VisualStyle">
       <summary>
@@ -6743,6 +6764,11 @@
             Invokes the VisualStyleChanged event.
             </summary>
       <param name="e">The event arguments.</param>
+    </member>
+    <member name="M:C1.Win.C1Command.C1NavBar.GetCollapsedSize">
+      <summary>
+            Get the value of size for control in a collapsed state.
+            </summary>
     </member>
     <member name="P:C1.Win.C1Command.C1NavBar.PanelHeaderImage">
       <summary>
@@ -9135,6 +9161,13 @@
       <param name="e">
       </param>
     </member>
+    <member name="M:C1.Win.C1Command.C1ToolBar.OnParentCursorChanged(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
     <member name="M:C1.Win.C1Command.C1ToolBar.OnRightToLeftChanged(System.EventArgs)">
       <summary>
             This method is for internal use only.
@@ -9478,6 +9511,14 @@
             Occurs when the VisualStyle property has changed.
             </summary>
     </member>
+    <member name="P:C1.Win.C1Command.C1ToolBar.HideFirstDelimiter">
+      <summary>
+            Gets or sets a value indicating whether the control should hide the first delimiter.
+            </summary>
+      <remarks>
+            C1CommandLink.Delimiter property shows a delimiter before a C1CommandLink present at C1ToolBar. The HideFirstDelimiter property hides the delimiter for the first visible C1CommandLink even the Delimiter property of the C1CommandLink is True.
+            </remarks>
+    </member>
     <member name="P:C1.Win.C1Command.C1ToolBar.VisualStyle">
       <summary>
             Gets or sets the visual style of the control.
@@ -9647,6 +9688,11 @@
       <param name="imageList">
       </param>
     </member>
+    <member name="M:C1.Win.C1Command.C1TopicBar.ResetLinkStyle">
+      <summary>
+            Resets the LinkStyle property to its default value.
+            </summary>
+    </member>
     <member name="M:C1.Win.C1Command.C1TopicBar.HitTest">
       <summary>
             Returns information about the control at at the current mouse position.
@@ -9776,9 +9822,19 @@
             Gets or sets the value indicating whether invisible pages and links are shown at design time.
             </summary>
     </member>
+    <member name="P:C1.Win.C1Command.C1TopicBar.LinkStyle">
+      <summary>
+            Gets the style of the links on pages.
+            </summary>
+    </member>
     <member name="P:C1.Win.C1Command.C1TopicBar.VisualStyle">
       <summary>
             Gets or sets the visual style of the control.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.C1TopicBar.ShowFocus">
+      <summary>
+            Gets or sets a value indicating whether pages and links should display focus rectangles.
             </summary>
     </member>
     <member name="E:C1.Win.C1Command.C1TopicBar.LinkClick">
@@ -9794,6 +9850,11 @@
     <member name="E:C1.Win.C1Command.C1TopicBar.PageCollapsed">
       <summary>
             Occurs when a page is collapsed.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Command.C1TopicBar.LinkStyleChanged">
+      <summary>
+            Occurs when the LinkStyle property has changed.
             </summary>
     </member>
     <member name="E:C1.Win.C1Command.C1TopicBar.VisualStyleChanged">
@@ -10180,6 +10241,46 @@
             Gets or sets the page at the specified index.
             </summary>
     </member>
+    <member name="P:C1.Win.C1Command.TopicLinkStyle.ForeColor">
+      <summary>
+            Gets or sets the foreground color of the link.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.TopicLinkStyle.Font">
+      <summary>
+            Gets or sets the font of the link.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.TopicBarStyle.NormalPage">
+      <summary>
+            Gets the style of the links on page.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.TopicBarStyle.SpecialPage">
+      <summary>
+            Gets the style of the links on page with special style.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.TopicLinkStatesStyle.NormalLink">
+      <summary>
+            Gets the style of the link.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.TopicLinkStatesStyle.MouseOverLink">
+      <summary>
+            Gets the style of the link when mouse cursor is over link.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.TopicLinkStatesStyle.DisabledLink">
+      <summary>
+            Gets the style of the disabled link.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Command.TopicLinkStatesStyle.PressedLink">
+      <summary>
+            Gets the style of the pressed link.
+            </summary>
+    </member>
     <member name="T:C1.Win.C1Command.C1Stack">
       <summary>
             Simple stack with indexed access, based on System.Collections.ArrayList
@@ -10532,6 +10633,11 @@
     <member name="F:C1.Win.C1Command.CustomizeOptionsFlags.AllowToggleCustomizeButton">
       <summary>
             Customize button can be enabled or disabled.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Command.CustomizeOptionsFlags.HideCustomizeOption">
+      <summary>
+            Hides Customize menu item from Add and Remove Buttons menu.
             </summary>
     </member>
     <member name="F:C1.Win.C1Command.CustomizeOptionsFlags.AllowAll">

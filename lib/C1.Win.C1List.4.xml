@@ -252,16 +252,16 @@
     </member>
     <member name="M:C1.Util.CodeRange.#ctor(System.Char)">
       <summary>
-      </summary>
+            Initialization of the range of character codes
+            </summary>
       <param name="ch">Adding character.</param>
     </member>
     <member name="M:C1.Util.CodeRange.#ctor(System.Char,System.Char)">
       <summary>
-      </summary>
-      <param name="first">
-      </param>
-      <param name="last">
-      </param>
+            Initialization of the range of character codes
+            </summary>
+      <param name="first">The first character code.</param>
+      <param name="last">The last character code.</param>
     </member>
     <member name="M:C1.Util.CodeRange.Clone">
       <summary>

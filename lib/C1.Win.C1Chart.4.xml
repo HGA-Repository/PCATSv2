@@ -969,7 +969,7 @@
       <summary>
             Raises the chart wizard dialog at runtime.
             </summary>
-      <returns>DialogResult.</returns>
+      <returns>DialogResult</returns>
       <remarks>
             The chart wizard displays the chart properties step by step,
             permitting the construction or modification of a chart in a progressive and logical manner.
@@ -979,40 +979,81 @@
       <summary>
             Raises the chart properties dialog at runtime.
             </summary>
-      <returns>DialogResult.</returns>
+      <returns>DialogResult</returns>
       <remarks>
             The properties dialog allows modification of the chart properties,
             including data, at runtime. All available properties are displayed on multiple tabs.
             </remarks>
+    </member>
+    <member name="M:C1.Win.C1Chart.C1Chart.ShowProperties(System.Drawing.Rectangle@)">
+      <summary>
+            Raises the chart properties dialog at runtime.
+            </summary>
+      <param name="rect">
+        <para>Specifies a Rectangle reference that provides and returns the properties dialog location in screen coordinates.</para>
+            Specifying an empty rectangle will center the properties dialog relative to the chart parent window.
+            </param>
+      <returns>DialogResult</returns>
+      <remarks>
+        <para>The properties dialog allows modification of the chart properties,
+            including data, at runtime. All available properties are displayed on multiple tabs.</para>
+        <para>The properties dialog will always be displayed with a minimum size.</para>
+      </remarks>
     </member>
     <member name="M:C1.Win.C1Chart.C1Chart.ShowProperties(C1.Win.C1Chart.PropertyPageFlags)">
       <summary>
             Raises the customized chart properties dialog at runtime.
             </summary>
       <param name="ppf">
-      </param>
-      <returns>DialogResult.</returns>
+            Specifies PropertyPageFlags combinations that limit available properties.
+            </param>
+      <returns>DialogResult</returns>
+    </member>
+    <member name="M:C1.Win.C1Chart.C1Chart.ShowProperties(C1.Win.C1Chart.PropertyPageFlags,System.Drawing.Rectangle@)">
+      <summary>
+            Raises the customized chart properties dialog at runtime.
+            </summary>
+      <param name="ppf">Specifies PropertyPageFlags combinations that limit available properties.</param>
+      <param name="rect">
+        <para>Specifies a Rectangle reference that provides and returns the properties dialog location in screen coordinates.</para>
+            Specifying an empty rectangle will center the properties dialog relative to the chart parent window.
+            </param>
+      <remarks>
+        <para>The properties dialog allows modification of the chart properties, including data, at runtime.
+            All available properties are displayed on multiple tabs.</para>
+        <para>The properties dialog will always be displayed with a minimum size.</para>
+      </remarks>
+      <returns>DialogResult</returns>
     </member>
     <member name="M:C1.Win.C1Chart.C1Chart.ShowWizard(C1.Win.C1Chart.DesignerDialogEnum)">
       <summary>
             Raises the chart wizard at runtime using specified dialog version.
             </summary>
       <param name="version">Dialog version.</param>
-      <returns>DialogResult.</returns>
+      <returns>DialogResult</returns>
     </member>
     <member name="M:C1.Win.C1Chart.C1Chart.ShowProperties(C1.Win.C1Chart.DesignerDialogEnum)">
       <summary>
             Raises the properties dialog at runtime using specified dialog version.
             </summary>
       <param name="version">Dialog version.</param>
-      <returns>Dialog result.</returns>
+      <returns>DialogResult</returns>
     </member>
     <member name="M:C1.Win.C1Chart.C1Chart.ShowVisualEffectsEditor">
       <summary>
             Raises the VisualEffects Editor dialog at runtime.
             </summary>
-      <returns>
-      </returns>
+      <returns>DialogResult</returns>
+    </member>
+    <member name="M:C1.Win.C1Chart.C1Chart.ShowVisualEffectsEditor(System.Drawing.Rectangle@)">
+      <summary>
+            Raises the VisualEffects Editor dialog at runtime.
+            </summary>
+      <param name="rect">
+        <para>Specifies a Rectangle reference that provides and returns the VisualEffects Editor location in screen coordinates.</para>
+            Specifying an empty rectangle will place the editor on the edge of the chart it is editing.  Note that the editor is fixed in size.
+            </param>
+      <returns>DialogResult</returns>
     </member>
     <member name="M:C1.Win.C1Chart.C1Chart.GenerateHistogramData(System.Double[],System.Double[],System.Double,System.Double[]@,System.Double[]@,System.Double[]@)">
       <summary>

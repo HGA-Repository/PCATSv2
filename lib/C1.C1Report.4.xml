@@ -48,6 +48,60 @@
             Static class containing UI strings used by the designer.
             </summary>
     </member>
+    <member name="T:C1.C1Pdf.PdfDocumentInfo">
+      <summary>
+            Contains information about the document. This information includes 
+            the document author, title, keywords, etc.
+            </summary>
+      <remarks>
+        <para>You don't have to provide this information, it is optional. If provided, 
+            it is saved with the document and is available to the reader application.</para>
+        <para>Some reader applications may allow users to search documents by author, 
+            subject, or keyword.</para>
+        <para>The Adobe Acrobat Reader 5 does not provide such search mechanism, 
+            but it does allow users to view the document information.</para>
+      </remarks>
+    </member>
+    <member name="P:C1.C1Pdf.PdfDocumentInfo.Title">
+      <summary>
+            Gets or sets the title of the Pdf document.
+            </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfDocumentInfo.Creator">
+      <summary>
+            Gets or sets the name of the application that created the original document.
+            </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfDocumentInfo.Producer">
+      <summary>
+            Gets or sets the name of the application that created the Pdf document.
+            </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfDocumentInfo.Author">
+      <summary>
+            Gets or sets the name of the person that created the Pdf document.
+            </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfDocumentInfo.Subject">
+      <summary>
+            Gets or sets the subject of the Pdf document.
+            </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfDocumentInfo.Keywords">
+      <summary>
+            Gets or sets keywords associated with the Pdf document.
+            </summary>
+    </member>
+    <member name="P:C1.C1Pdf.PdfDocumentInfo.CreationDate">
+      <summary>
+            Gets or sets the creation date and time of the Pdf document.
+            </summary>
+      <remarks>
+        <para>The default value for this property is the <b>DateTime.MinValue</b>, which
+            causes <see cref="T:C1.C1Pdf.C1PdfDocument" /> to use the date and time when the document
+            is saved as the creation date.</para>
+      </remarks>
+    </member>
     <member name="T:C1.C1Preview.C1Anchor">
       <summary>
             Represents an anchor within a document. 
@@ -21362,16 +21416,16 @@
     </member>
     <member name="M:C1.Util.CodeRange.#ctor(System.Char)">
       <summary>
-      </summary>
+            Initialization of the range of character codes
+            </summary>
       <param name="ch">Adding character.</param>
     </member>
     <member name="M:C1.Util.CodeRange.#ctor(System.Char,System.Char)">
       <summary>
-      </summary>
-      <param name="first">
-      </param>
-      <param name="last">
-      </param>
+            Initialization of the range of character codes
+            </summary>
+      <param name="first">The first character code.</param>
+      <param name="last">The last character code.</param>
     </member>
     <member name="M:C1.Util.CodeRange.Clone">
       <summary>
@@ -21542,6 +21596,42 @@
       <param name="text">The text for substitution.</param>
       <param name="substitutions">The font subset list.</param>
       <returns>The index of best alternative font (font subset).</returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.GetFontSubSet(System.Drawing.Font)">
+      <summary>
+            Create <see cref="T:C1.Util.FontSubSet" /> object using font name and styles.
+            </summary>
+      <param name="font">The font object.</param>
+      <returns>The <see cref="T:C1.Util.FontSubSet" /> object.</returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.GetFontSubSet(System.String,System.Boolean,System.Boolean)">
+      <summary>
+            Create <see cref="T:C1.Util.FontSubSet" /> object using font name and styles.
+            </summary>
+      <param name="fontName">The font name.</param>
+      <param name="bold">The bold flag of the font.</param>
+      <param name="italic">The italic flag of the font.</param>
+      <returns>The <see cref="T:C1.Util.FontSubSet" /> object.</returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.GetFontSubSet(C1.Util.FontKey)">
+      <summary>
+            Create <see cref="T:C1.Util.FontSubSet" /> object using font name and styles.
+            </summary>
+      <param name="fk">The font key object.</param>
+      <returns>The <see cref="T:C1.Util.FontSubSet" /> object.</returns>
+    </member>
+    <member name="M:C1.Util.FontSubSet.SetFontSubSet(C1.Util.FontSubSet)">
+      <summary>
+            Sets already exist <see cref="T:C1.Util.FontSubSet" /> object to cache.
+            </summary>
+      <param name="fss">The exist <see cref="T:C1.Util.FontSubSet" /> object.</param>
+    </member>
+    <member name="M:C1.Util.FontSubSet.SetFontSubSet(C1.Util.FontKey,C1.Util.FontSubSet)">
+      <summary>
+            Sets already exist <see cref="T:C1.Util.FontSubSet" /> object to cache.
+            </summary>
+      <param name="fk">The exist <see cref="T:C1.Util.FontKey" /> object.</param>
+      <param name="fss">The exist <see cref="T:C1.Util.FontSubSet" /> object.</param>
     </member>
     <member name="P:C1.Util.FontSubSet.FontName">
       <summary>

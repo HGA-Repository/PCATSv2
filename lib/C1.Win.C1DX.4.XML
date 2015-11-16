@@ -1114,6 +1114,11 @@
             Gets whether this ColorF structure is uninitialized.
             </summary>
         </member>
+        <member name="P:C1.Util.DX.ColorF.IsTransparent">
+            <summary>
+            Gets a value indicating if we can skip drawing with this color.
+            </summary>
+        </member>
         <member name="T:C1.Util.DX.Matrix3x2">
             <summary>
             Direct2D Matrix3x2 3x2. Use <see cref="T:C1.Util.DX.Matrix3x2"/> and implicit cast to <see cref="T:C1.Util.DX.Matrix3x2"/>.
@@ -3095,6 +3100,11 @@
             Converts a point from DIPs to pixels.
             </summary>
         </member>
+        <member name="M:C1.Util.DX.Point2F.DistanceSqr(C1.Util.DX.Point2F)">
+            <summary>
+            Gets the square of the distance to the given point.
+            </summary>
+        </member>
         <member name="P:C1.Util.DX.Point2F.IsEmpty">
             <summary>
             Determines if all components of <see cref="T:C1.Util.DX.Point2F"/> are equal to zero.
@@ -3327,6 +3337,14 @@
             Determines if this rectangle intersects with rect.
             </summary>
         </member>
+        <member name="M:C1.Util.DX.RectF.IntersectFast(C1.Util.DX.RectF@)">
+            <summary>
+            Quickly updates a rectangle to represent the intersection with another rectangle.
+            </summary>
+            <remarks>
+            The resulting rectangle may be invalid. Use the <see cref="P:C1.Util.DX.RectF.HasSpace"/> property to check.
+            </remarks>
+        </member>
         <member name="M:C1.Util.DX.RectF.Intersect(C1.Util.DX.RectF,C1.Util.DX.RectF)">
             <summary>
             Returns a rectangle that represents the intersection of two rectangles.
@@ -3472,6 +3490,11 @@
             Gets the size of the rectangle.
             </summary>
         </member>
+        <member name="P:C1.Util.DX.RectF.HasSpace">
+            <summary>
+            Determines if there is some space within the rectangle.
+            </summary>
+        </member>
         <member name="P:C1.Util.DX.RectF.IsEmpty">
             <summary>
             Determines if all components of <see cref="T:C1.Util.DX.RectF"/> are equal to zero.
@@ -3579,6 +3602,14 @@
             Determines if this rectangle intersects with rect.
             </summary>
         </member>
+        <member name="M:C1.Util.DX.RectL.IntersectFast(C1.Util.DX.RectL@)">
+            <summary>
+            Quickly updates a rectangle to represent the intersection with another rectangle.
+            </summary>
+            <remarks>
+            The resulting rectangle may be invalid. Use the <see cref="P:C1.Util.DX.RectL.HasSpace"/> property to check.
+            </remarks>
+        </member>
         <member name="M:C1.Util.DX.RectL.Intersect(C1.Util.DX.RectL,C1.Util.DX.RectL)">
             <summary>
             Returns a rectangle that represents the intersection of two rectangles.
@@ -3667,6 +3698,11 @@
         <member name="P:C1.Util.DX.RectL.Size">
             <summary>
             Gets the size of the rectangle.
+            </summary>
+        </member>
+        <member name="P:C1.Util.DX.RectL.HasSpace">
+            <summary>
+            Determines if there is some space within the rectangle.
             </summary>
         </member>
         <member name="P:C1.Util.DX.RectL.IsEmpty">
@@ -9688,39 +9724,6 @@
             <param name="wicBitmap">The wic bitmap.</param>
             <param name="bitmapProperties">The bitmap properties.</param>
         </member>
-        <member name="M:C1.Util.DX.Direct2D.Bitmap.CopyFromBitmap(C1.Util.DX.Direct2D.Bitmap)">
-            <summary>	
-            Copies the specified region from the specified bitmap into the current bitmap. 	
-            </summary>	
-            <remarks>	
-            This method does not update the size of the  current bitmap. If the contents of the source bitmap do not fit in the current bitmap, this method fails. Also, note that this method does not perform format conversion, and will fail if the bitmap formats do not match. Calling this method may cause the current batch to flush if the bitmap is active in the batch. If the batch that was flushed does not complete successfully, this method fails. However, this method does not clear the error state of the render target on which the batch was flushed. The failing <see cref="T:System.Int32"/> and tag state will be returned at the next call to {{EndDraw}} or {{Flush}}.  	
-            </remarks>	
-            <param name="sourceBitmap">The bitmap to copy from. </param>
-            <returns>If the method succeeds, it returns S_OK. Otherwise, it returns an HRESULT error code. </returns>
-        </member>
-        <member name="M:C1.Util.DX.Direct2D.Bitmap.CopyFromBitmap(C1.Util.DX.Direct2D.Bitmap,C1.Util.DX.Point2L)">
-            <summary>	
-            Copies the specified region from the specified bitmap into the current bitmap. 	
-            </summary>	
-            <remarks>	
-            This method does not update the size of the  current bitmap. If the contents of the source bitmap do not fit in the current bitmap, this method fails. Also, note that this method does not perform format conversion, and will fail if the bitmap formats do not match. Calling this method may cause the current batch to flush if the bitmap is active in the batch. If the batch that was flushed does not complete successfully, this method fails. However, this method does not clear the error state of the render target on which the batch was flushed. The failing <see cref="T:System.Int32"/> and tag state will be returned at the next call to {{EndDraw}} or {{Flush}}.  	
-            </remarks>	
-            <param name="sourceBitmap">The bitmap to copy from. </param>
-            <param name="destinationPoint">In the current bitmap, the upper-left corner of the area to which the region specified by srcRect is copied. </param>
-            <returns>If the method succeeds, it returns S_OK. Otherwise, it returns an HRESULT error code. </returns>
-        </member>
-        <member name="M:C1.Util.DX.Direct2D.Bitmap.CopyFromBitmap(C1.Util.DX.Direct2D.Bitmap,C1.Util.DX.Point2L,C1.Util.DX.RectL)">
-            <summary>	
-            Copies the specified region from the specified bitmap into the current bitmap. 	
-            </summary>	
-            <remarks>	
-            This method does not update the size of the  current bitmap. If the contents of the source bitmap do not fit in the current bitmap, this method fails. Also, note that this method does not perform format conversion, and will fail if the bitmap formats do not match. Calling this method may cause the current batch to flush if the bitmap is active in the batch. If the batch that was flushed does not complete successfully, this method fails. However, this method does not clear the error state of the render target on which the batch was flushed. The failing <see cref="T:System.Int32"/> and tag state will be returned at the next call to {{EndDraw}} or {{Flush}}.  	
-            </remarks>	
-            <param name="sourceBitmap">The bitmap to copy from. </param>
-            <param name="sourceArea">The area of bitmap to copy. </param>
-            <param name="destinationPoint">In the current bitmap, the upper-left corner of the area to which the region specified by srcRect is copied. </param>
-            <returns>If the method succeeds, it returns S_OK. Otherwise, it returns an HRESULT error code. </returns>
-        </member>
         <member name="M:C1.Util.DX.Direct2D.Bitmap.CopyFromMemory(System.IntPtr,System.Int32)">
             <summary>	
             Copies the specified region from memory into the current bitmap. 	
@@ -9879,7 +9882,22 @@
             void ID2D1Bitmap::GetDpi([Out] float* dpiX,[Out] float* dpiY)	
             </summary>	
         </member>
-        <member name="M:C1.Util.DX.Direct2D.Bitmap.CopyFromBitmap(System.Nullable{C1.Util.DX.Point2L},C1.Util.DX.Direct2D.Bitmap,System.Nullable{C1.Util.DX.RectL})">
+        <member name="M:C1.Util.DX.Direct2D.Bitmap.CopyFromBitmap(C1.Util.DX.Direct2D.Bitmap)">
+            <summary>	
+            HRESULT ID2D1Bitmap::CopyFromBitmap([In, Optional] const D2D_POINT_2U* destPoint,[In] ID2D1Bitmap* bitmap,[In, Optional] const D2D_RECT_U* srcRect)	
+            </summary>	
+        </member>
+        <member name="M:C1.Util.DX.Direct2D.Bitmap.CopyFromBitmap(C1.Util.DX.Point2L,C1.Util.DX.Direct2D.Bitmap)">
+            <summary>	
+            HRESULT ID2D1Bitmap::CopyFromBitmap([In, Optional] const D2D_POINT_2U* destPoint,[In] ID2D1Bitmap* bitmap,[In, Optional] const D2D_RECT_U* srcRect)	
+            </summary>	
+        </member>
+        <member name="M:C1.Util.DX.Direct2D.Bitmap.CopyFromBitmap(C1.Util.DX.Direct2D.Bitmap,C1.Util.DX.RectL)">
+            <summary>	
+            HRESULT ID2D1Bitmap::CopyFromBitmap([In, Optional] const D2D_POINT_2U* destPoint,[In] ID2D1Bitmap* bitmap,[In, Optional] const D2D_RECT_U* srcRect)	
+            </summary>	
+        </member>
+        <member name="M:C1.Util.DX.Direct2D.Bitmap.CopyFromBitmap(C1.Util.DX.Point2L,C1.Util.DX.Direct2D.Bitmap,C1.Util.DX.RectL)">
             <summary>	
             HRESULT ID2D1Bitmap::CopyFromBitmap([In, Optional] const D2D_POINT_2U* destPoint,[In] ID2D1Bitmap* bitmap,[In, Optional] const D2D_RECT_U* srcRect)	
             </summary>	
@@ -10478,11 +10496,6 @@
             </summary>	
         </member>
         <member name="M:C1.Util.DX.Direct2D.RenderTarget.FillRectangle(C1.Util.DX.RectF,C1.Util.DX.Direct2D.Brush)">
-            <summary>	
-            void ID2D1RenderTarget::FillRectangle([In] const D2D_RECT_F* rect,[In] ID2D1Brush* brush)	
-            </summary>	
-        </member>
-        <member name="M:C1.Util.DX.Direct2D.RenderTarget.FillRectangle(C1.Util.DX.RectF@,C1.Util.DX.Direct2D.Brush)">
             <summary>	
             void ID2D1RenderTarget::FillRectangle([In] const D2D_RECT_F* rect,[In] ID2D1Brush* brush)	
             </summary>	
@@ -39042,7 +39055,12 @@
             Performs an explicit conversion from <see cref="T:System.IntPtr"/> to <see cref="T:C1.Util.DX.DXGI.PrintDocumentPackageTargetFactory"/>.
             </summary>
         </member>
-        <member name="M:C1.Util.DX.DXGI.PrintDocumentPackageTargetFactory.CreateDocumentPackageTargetForPrintJob(System.String,System.String,C1.Util.DX.Storage.ComStream,C1.Util.DX.Storage.ComStream)">
+        <member name="M:C1.Util.DX.DXGI.PrintDocumentPackageTargetFactory.CreateDocumentPackageTargetForPrintJob(System.String,System.String,C1.Util.DX.Storage.ComStream)">
+            <summary>
+            HRESULT IPrintDocumentPackageTargetFactory::CreateDocumentPackageTargetForPrintJob([In] const wchar_t* printerName,[In] const wchar_t* jobName,[In, Optional] IStream *jobOutputStream,[In] IStream *jobPrintTicketStream,[Out] IPrintDocumentPackageTarget **docPackageTarget)
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.DXGI.PrintDocumentPackageTargetFactory.CreateDocumentPackageTargetForPrintJob(System.String,System.String,System.IntPtr,C1.Util.DX.Storage.ComStream)">
             <summary>
             HRESULT IPrintDocumentPackageTargetFactory::CreateDocumentPackageTargetForPrintJob([In] const wchar_t* printerName,[In] const wchar_t* jobName,[In, Optional] IStream *jobOutputStream,[In] IStream *jobPrintTicketStream,[Out] IPrintDocumentPackageTarget **docPackageTarget)
             </summary>
@@ -41077,6 +41095,11 @@
             HRESULT IPrintDocumentPackageTarget::GetPackageTarget([in] REFGUID guidTargetType, [in] REFIID riid, [out] void **ppvTarget)
             </summary>
         </member>
+        <member name="M:C1.Util.DX.DXGI.PrintDocumentPackageTarget.GetPackageTarget(System.Guid,System.Guid)">
+            <summary>
+            HRESULT IPrintDocumentPackageTarget::GetPackageTarget([in] REFGUID guidTargetType, [in] REFIID riid, [out] void **ppvTarget)
+            </summary>
+        </member>
         <member name="M:C1.Util.DX.DXGI.PrintDocumentPackageTarget.Cancel">
             <summary>
             HRESULT IPrintDocumentPackageTarget::Cancel()
@@ -42045,9 +42068,84 @@
             HRESULT IStream::Clone([Out] IStream** ppstm)	
             </summary>	
         </member>
+        <member name="T:C1.Util.DX.Storage.ComStreamBaseShadow">
+            <summary>
+            A ComStream Interface Callback
+            </summary>
+        </member>
+        <member name="T:C1.Util.DX.Storage.ComStreamProxy">
+            <summary>
+            An implementation of the IStream interface wrapping up a System.IO.Stream.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Storage.ComStreamProxy.#ctor(System.IO.Stream)">
+            <summary>
+            Creates an instance of ComStreamProxy for the given sourceStream.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Storage.ComStreamProxy.Read(System.IntPtr,System.Int32)">
+            <summary>
+            Reads a specified number of bytes from the stream object into memory starting at the current seek pointer.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Storage.ComStreamProxy.Write(System.IntPtr,System.Int32)">
+            <summary>
+            Writes a specified number of bytes into the stream object starting at the current seek pointer.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Storage.ComStreamProxy.Seek(System.Int64,System.IO.SeekOrigin)">
+            <summary>
+            Changes the seek pointer to a new location relative to the beginning of the stream, to the end of the stream, or to the current seek pointer.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Storage.ComStreamProxy.SetSize(System.Int64)">
+            <summary>
+            Changes the size of the stream object.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Storage.ComStreamProxy.CopyTo(C1.Util.DX.Storage.IStream,System.Int64,System.Int64@)">
+            <summary>
+            Copies a specified number of bytes from the current seek pointer in the stream to the current seek pointer in another stream.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Storage.ComStreamProxy.Commit(C1.Util.DX.Storage.CommitFlags)">
+            <summary>
+            Commit method ensures that any changes made to a stream object open in transacted mode are reflected in the parent storage. If the stream object is open in direct mode, Commit has no effect other than flushing all memory buffers to the next-level storage object. The COM compound file implementation of streams does not support opening streams in transacted mode.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Storage.ComStreamProxy.Revert">
+            <summary>
+            Not implemented. 
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Storage.ComStreamProxy.LockRegion(System.Int64,System.Int64,C1.Util.DX.Storage.LockType)">
+            <summary>
+            Not implemented. 
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Storage.ComStreamProxy.UnlockRegion(System.Int64,System.Int64,C1.Util.DX.Storage.LockType)">
+            <summary>
+            Not implemented. 
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Storage.ComStreamProxy.GetStatistics(C1.Util.DX.Storage.StorageStatisticsFlags)">
+            <summary>
+            Gets the statistics.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Storage.ComStreamProxy.Clone">
+            <summary>
+            Clones this instance.
+            </summary>
+        </member>
         <member name="M:C1.Util.DX.Storage.ComStreamProxy.Dispose(System.Boolean)">
             <summary>
             Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="T:C1.Util.DX.Storage.ComStreamShadow">
+            <summary>
+            A ComStream Interface Callback
             </summary>
         </member>
         <member name="M:C1.Util.DX.Storage.ComStreamShadow.ToIntPtr(C1.Util.DX.Storage.IStream)">
@@ -44383,12 +44481,27 @@
             HRESULT IWICImageEncoder::WriteFrame([In] ID2D1Image* pImage,[In] IWICBitmapFrameEncode* pFrameEncode,[In, Value] const WICImageParameters* pImageParameters)	
             </summary>	
         </member>
+        <member name="M:C1.Util.DX.WIC.ImageEncoder.WriteFrame(C1.Util.DX.Direct2D.Image,C1.Util.DX.WIC.BitmapFrameEncode)">
+            <summary>	
+            HRESULT IWICImageEncoder::WriteFrame([In] ID2D1Image* pImage,[In] IWICBitmapFrameEncode* pFrameEncode,[In, Value] const WICImageParameters* pImageParameters)	
+            </summary>	
+        </member>
         <member name="M:C1.Util.DX.WIC.ImageEncoder.WriteFrameThumbnail(C1.Util.DX.Direct2D.Image,C1.Util.DX.WIC.BitmapFrameEncode,C1.Util.DX.WIC.ImageParameters)">
             <summary>	
             HRESULT IWICImageEncoder::WriteFrameThumbnail([In] ID2D1Image* pImage,[In] IWICBitmapFrameEncode* pFrameEncode,[In, Value] const WICImageParameters* pImageParameters)	
             </summary>	
         </member>
+        <member name="M:C1.Util.DX.WIC.ImageEncoder.WriteFrameThumbnail(C1.Util.DX.Direct2D.Image,C1.Util.DX.WIC.BitmapFrameEncode)">
+            <summary>	
+            HRESULT IWICImageEncoder::WriteFrameThumbnail([In] ID2D1Image* pImage,[In] IWICBitmapFrameEncode* pFrameEncode,[In, Value] const WICImageParameters* pImageParameters)	
+            </summary>	
+        </member>
         <member name="M:C1.Util.DX.WIC.ImageEncoder.WriteThumbnail(C1.Util.DX.Direct2D.Image,C1.Util.DX.WIC.BitmapEncoder,C1.Util.DX.WIC.ImageParameters)">
+            <summary>	
+            HRESULT IWICImageEncoder::WriteThumbnail([In] ID2D1Image* pImage,[In] IWICBitmapEncoder* pEncoder,[In, Value] const WICImageParameters* pImageParameters)	
+            </summary>	
+        </member>
+        <member name="M:C1.Util.DX.WIC.ImageEncoder.WriteThumbnail(C1.Util.DX.Direct2D.Image,C1.Util.DX.WIC.BitmapEncoder)">
             <summary>	
             HRESULT IWICImageEncoder::WriteThumbnail([In] ID2D1Image* pImage,[In] IWICBitmapEncoder* pEncoder,[In, Value] const WICImageParameters* pImageParameters)	
             </summary>	

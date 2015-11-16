@@ -10135,6 +10135,15 @@
       <returns>Index of the column that has the given name in this collection, or -1 if the collection
             does not contain a column with the given name.</returns>
     </member>
+    <member name="M:C1.Win.C1FlexGrid.ColumnCollection.IndexOf(System.String,System.Int32)">
+      <summary>
+            Gets the index of the <see cref="T:C1.Win.C1FlexGrid.Column" /> with the specified name. The search starts at a specified index.
+            </summary>
+      <param name="columnName">Column name to look for (case-insensitive).</param>
+      <param name="startIndex">The search starting index.</param>
+      <returns>Index of the column that has the given name in this collection, or -1 if the collection
+            does not contain a column with the given name.</returns>
+    </member>
     <member name="M:C1.Win.C1FlexGrid.ColumnCollection.IndexOf(System.String,System.Boolean)">
       <summary>
             Gets the index of the <see cref="T:C1.Win.C1FlexGrid.Column" /> with the specified name, optionally
@@ -10142,6 +10151,30 @@
             </summary>
       <param name="columnName">Column name to look for (case-insensitive).</param>
       <param name="throwIfNotFound">Whether to throw and exception if the column cannot be found.</param>
+      <returns>Index of the column that has the given name in this collection, or -1 if the collection
+            does not contain a column with the given name.</returns>
+      <remarks>If the <paramref name="throwIfNotFound" /> parameter is set to true and
+            a column named <paramref name="columnName" /> cannot be found, the control throws
+            an <see cref="T:System.ArgumentOutOfRangeException" />. This makes it easier to write
+            compact code that relies on column names.</remarks>
+      <example>
+            The example below uses the <b>IndexOf</b> method to convert column names into
+            indices. Note that if the column names are invalid, the exception will be thrown
+            by the <b>IndexOf</b> method (column not found) rather than in the following 
+            method, where it would not be as clear (invalid index).
+            <code>
+            int columnIndex = _flex.Cols.IndexOf("total");
+            _flex.AutoSizeCol(columnIndex);
+            </code></example>
+    </member>
+    <member name="M:C1.Win.C1FlexGrid.ColumnCollection.IndexOf(System.String,System.Boolean,System.Int32)">
+      <summary>
+            Gets the index of the <see cref="T:C1.Win.C1FlexGrid.Column" /> with the specified name, optionally
+            throwing an exception if the column is not found. The search starts at a specified index.
+            </summary>
+      <param name="columnName">Column name to look for (case-insensitive).</param>
+      <param name="throwIfNotFound">Whether to throw and exception if the column cannot be found.</param>
+      <param name="startIndex">The search starting index.</param>
       <returns>Index of the column that has the given name in this collection, or -1 if the collection
             does not contain a column with the given name.</returns>
       <remarks>If the <paramref name="throwIfNotFound" /> parameter is set to true and

@@ -1376,7 +1376,7 @@
       <summary>
             Raises the LongOperation event on the preview pane.
             </summary>
-      <param name="e">A <see cref="T:C1.C1Preview.LongOperationEventArgs" /> that contains the event data.</param>
+      <param name="e">A <see cref="T:C1.Win.LongOperationEventArgs" /> that contains the event data.</param>
     </member>
     <member name="M:C1.Win.C1Preview.C1PreviewPane.OnLongOperation(System.Double,System.Boolean)">
       <summary>
