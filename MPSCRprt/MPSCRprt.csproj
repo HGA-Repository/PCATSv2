@@ -59,23 +59,19 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\C1.C1Excel.4.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.C1Command.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL">
+    <Reference Include="C1.Win.C1Command.4, Version=4.0.20153.102, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\C1.Win.C1Command.4.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.C1FlexGrid.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\C1.Win.C1FlexGrid.4.dll</HintPath>
-    </Reference>
-    <Reference Include="C1.Win.C1Input.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL">
+    <Reference Include="C1.Win.C1Input.4, Version=4.0.20153.102, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\C1.Win.C1Input.4.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.C1List.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc, processorArchitecture=MSIL">
+    <Reference Include="C1.Win.C1List.4, Version=4.0.20153.102, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\C1.Win.C1List.4.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.C1TrueDBGrid.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=75ae3fb0e2b1e0da, processorArchitecture=MSIL">
+    <Reference Include="C1.Win.C1TrueDBGrid.4, Version=4.0.20153.102, Culture=neutral, PublicKeyToken=75ae3fb0e2b1e0da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\C1.Win.C1TrueDBGrid.4.dll</HintPath>
     </Reference>
@@ -90,10 +86,6 @@
     <Reference Include="GrapeCity.ActiveReports.Extensibility.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
     <Reference Include="GrapeCity.ActiveReports.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
     <Reference Include="GrapeCity.ActiveReports.Viewer.Win.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
-    <Reference Include="RSLib, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\RSLib\bin\Debug\RSLib.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -110,9 +102,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSForecastRprt.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FCRMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FCRMain.cs" />
     <Compile Include="FCRMain.Designer.cs">
       <DependentUpon>FCRMain.cs</DependentUpon>
     </Compile>
@@ -249,6 +239,10 @@
     <ProjectReference Include="..\RevSolLb\RevSolLb.csproj">
       <Project>{4AAE51B8-8EF7-4794-95B3-F4175F982CBE}</Project>
       <Name>RevSolLb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RSLib\RSLib.csproj">
+      <Project>{57db77b5-a4fc-4360-bb87-bde12bcd73f0}</Project>
+      <Name>RSLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
