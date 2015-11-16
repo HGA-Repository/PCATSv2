@@ -1315,7 +1315,7 @@ namespace RSMPS
        
         public string Get_File_Name()//***************Added 10/8/2015}
         {
-            string ExFile = "JobStat Update-" + msCurrProj + "-" + "-" + miCurrDept + "_" + dt.ToString("yyyMMdd hhmmss");
+            string ExFile = "JobStat Update-" + msCurrProj + "-" + "-" + miCurrDept + "_" + dt.ToString("yyyMMdd-hhmmss");
           //  string ExFile = "JobStat Update-" + msCurrProj;
             return ExFile;
         }
@@ -1838,8 +1838,9 @@ namespace RSMPS
 
 
            // de.ExportDrawing_ToExcel_Test(miCurrProj, miCurrDept);
-
-            de.ExportDrawing_ToExcel_Test2(miCurrProj, miCurrDept);
+           
+           // de.ExportDrawing_ToExcel_Test2(miCurrProj, miCurrDept);
+            de.ExportDrawing_ToExcel_Test2(miCurrProj, miCurrDept, Get_File_Name());
             MessageBox.Show("DataBase Updated,,,,,, Loading Again!!!");
 
             LoadDrawingList();

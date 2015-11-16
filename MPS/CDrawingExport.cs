@@ -66,7 +66,8 @@ namespace RSMPS
             // excelApp.Workbooks.Add(workbookPath);
 
          //   Excel.Workbook excelWorkbook = excelApp.Workbooks.Open(workbookPath, 0, false, 5, "", "", false, Excel.XlPlatform.xlWindows, "", true, false, 0, true, false, false);
-            excelApp.DefaultSaveFormat = Excel.XlFileFormat.xlOpenXMLWorkbook;
+          
+      // excelApp.DefaultSaveFormat = Excel.XlFileFormat.xlOpenXMLWorkbook;
 
             // This example uses a single workSheet. 
              workSheet = excelApp.ActiveSheet;
@@ -89,9 +90,13 @@ namespace RSMPS
        //application.U
 
         }
-                
 
-
+    ~CDrawingExport()
+   {
+      // excelApp.Quit();
+       //excelApp2.Quit();
+       
+   }
 
 
 
@@ -551,27 +556,79 @@ namespace RSMPS
    public Excel.Application excelApp2= new Excel.Application();
         public Excel.Workbook workBook2;
         //public Excel._Worksheet workSheet;
-   public void ExportDrawing_ToExcel_Test2(int projID, int deptID)
+
+
+        public string CreateFolder_Tesst()
+        {
+            string folderName = @Environment.SpecialFolder.MyDocuments.ToString();
+
+            string myDoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+          //  string pathString = System.IO.Path.Combine(folderName, "PCATJobStat2");
+            string pathString = System.IO.Path.Combine(myDoc, "PCATJobStat");
+       
+            //bool folderExists = Directory.Exists(Server.MapPath(path));
+            try
+            {
+                System.IO.Directory.CreateDirectory(pathString);
+                MessageBox.Show("folder created");
+
+            }
+            catch (IOException ioex)
+            {
+                MessageBox.Show("folder noooooooooooooooot created");
+                MessageBox.Show(ioex.Message); }
+
+
+
+            
+
+            MessageBox.Show(Environment.SpecialFolder.MyDocuments.ToString() + "           "+folderName + " " +myDoc);
+            return myDoc;
+        }
+
+
+   public void ExportDrawing_ToExcel_Test2(int projID, int deptID, string FN)
    {
+     string initDr =  CreateFolder_Tesst();
+     initDr = initDr + "\\PCATJobStat";
+
+     //////////////////////////////////////  MessageBox.Show(FN);
        SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-       saveFileDialog1.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
-       saveFileDialog1.DefaultExt = "xlsx";
-       saveFileDialog1.FilterIndex = 1;
-       saveFileDialog1.RestoreDirectory = true;
-       // saveFileDialog1.FileName = Get_File_Name();
+     //  saveFileDialog1.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+      // saveFileDialog1.DefaultExt = "xlsx";
+       saveFileDialog1.InitialDirectory = initDr;
+
+
+
+         saveFileDialog1.Filter = "Excel files (*.xls)|*.xls|All files (*.*)|*.*";
+        saveFileDialog1.DefaultExt = "xls";
+
+
+
+
+      // saveFileDialog1.FilterIndex = 1;
+      // saveFileDialog1.RestoreDirectory = true;
+        saveFileDialog1.FileName = FN;
+
+
 
        string x="";
        if (saveFileDialog1.ShowDialog() == DialogResult.OK)
        {
-          // de.ExportDrawing_ToExcel(saveFileDialog1.FileName, miCurrProj, miCurrDept);
-        x = saveFileDialog1.FileName;
-    //   MessageBox.Show(x);
+           // de.ExportDrawing_ToExcel(saveFileDialog1.FileName, miCurrProj, miCurrDept);
+           x = saveFileDialog1.FileName;
+           //   MessageBox.Show(x);
        }
+       else return;
+       fName = x;
 
-       
+//return; /////****************************************** testing Folder creation 11/13
+      // var excelApp2 = new Excel.Application();
+
+       Excel.Application excelApp2 = new Excel.Application();
 
 
-       var excelApp2 = new Excel.Application();
        // Make the object visible.
 
        // excelApp.Workbooks.Add(workbookPath);
@@ -720,20 +777,29 @@ namespace RSMPS
 
 
 
-
        DialogResult ret = MessageBox.Show("Do you Want to Save the Data to Database? ", "Import JobStat", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
        if (ret == DialogResult.Cancel)
        {
-           workBook.Close(true, misValue, misValue);
-           excelApp.Quit();
+           //  workBook2.Close(true, misValue, misValue);
+           excelApp2.Quit();
            return;
        }
-       else ExportDrawing_ToDataBase_Test(deptID, projID, no);
+       //  else ExportDrawing_ToDataBase_Test(deptID, projID, no);
+       else //ExportDrawing_ToDataBase_Test2(deptID, projID, no);
+       {
+           excelApp2.Quit();
+      //     ExportDrawing_ToDataBase_Test2(deptID, projID, no, FN);
+
+           ExportDrawing_ToDataBase_Test2(deptID, projID, no, FN, initDr);
+
+       }
+
+     //  workBook2.Close(true, misValue, misValue);
+      
 
 
-
-       workBook2.Close(true, misValue, misValue);
-       excelApp2.Quit();
+       //workBook2.Close(true, misValue, misValue);
+       //excelApp2.Quit();
 
    }
 
@@ -787,8 +853,9 @@ namespace RSMPS
          //           workBook.SaveAs(saveFileDialog1.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
          //       }
 
-                string x = saveFileDialog1.FileName;
-                MessageBox.Show(x);
+                fName = saveFileDialog1.FileName;
+           string  x = saveFileDialog1.FileName;
+           //////////////////////////////////////            MessageBox.Show(fName);
 
             //    Excel.Workbook excelWorkbook = excelApp.Workbooks.Open(x, 0, false, 5, "", "", false, Excel.XlPlatform.xlWindows, "", true, false, 0, true, false, false);
                 Excel._Worksheet workSheet = excelApp.ActiveSheet;
@@ -936,7 +1003,7 @@ namespace RSMPS
                 workBook.Close(true, misValue, misValue);
                 excelApp.Quit();
             }
-
+            public string fName = "";
             public int FormatExcelFile()
             {
                 int noOfRows = workSheet.UsedRange.Rows.Count;
@@ -1117,7 +1184,9 @@ namespace RSMPS
 
                 for (int indx = 2; indx < lastRow; indx++)
                 {
-                 int ID =  LoadScreenToObject_Test(indx, deptID, projID);
+                // int ID =  LoadScreenToObject_Test(indx, deptID, projID); /////////////////////////////////Experiment ----good
+
+                 int ID = LoadScreenToObject_X(indx, deptID, projID, workSheet);
 
                   //  int ii = FindIDExists_Test(moDrwLog.ID);
 
@@ -1157,6 +1226,77 @@ namespace RSMPS
 
                 }
             }
+
+
+
+               // public void ExportDrawing_ToDataBase_Test2(int deptID, int projID, int no, string FN)
+                     public void ExportDrawing_ToDataBase_Test2(int deptID, int projID, int no, string FN, string location)
+            {
+                //////////////////////////////////////  MessageBox.Show(fName);
+                Excel.Application excelApp3 = new Excel.Application();
+
+
+               // string fName2 = "C:\\Test\\n1.xls";
+
+
+            //    string fName2 = "C:\\Test\\" + FN +".xls";
+
+                string fName2 = location + "\\" + FN + ".xls";
+                //////////////////////////////////////     MessageBox.Show(fName2);
+
+                Excel.Workbook excelWorkbook3 = excelApp3.Workbooks.Open(fName2, 0, false, 5, "", "", false, Excel.XlPlatform.xlWindows, "", true, false, 0, true, false, false);
+
+          //      workBook = excelApp.Workbooks.Add(misValue); 
+
+                excelApp3.DefaultSaveFormat = Excel.XlFileFormat.xlOpenXMLWorkbook;
+                Excel._Worksheet workSheet3 = excelApp3.ActiveSheet;
+
+                int lastRow = 0;
+
+                for (int i = 1; i < (no + 5); i++)
+                {
+                    if (workSheet3.Cells[i, 12].Text == "")
+                    {
+                        lastRow = i;
+                        //   MessageBox.Show("Emply" + "found @" + lastRow);
+                        break;
+                    }
+
+
+                }
+
+                for (int indx = 2; indx < lastRow; indx++)
+                {
+                   // int ID = LoadScreenToObject_Test(indx, deptID, projID);
+                    /////////////////////////////////Experiment ----good
+
+                    int ID = LoadScreenToObject_X(indx, deptID, projID, workSheet3);
+
+
+
+                    if (ID == 0)
+                    {
+                        //   MessageBox.Show("Return of ID Test for..." + ID + "....."  + "..So   Insert");
+                        moDrwLog.Save_Insert();
+
+                    }
+                    else
+                    {
+                        // MessageBox.Show("Return of ID Test for..." + ID + "....."  + "..So   Update");
+
+                        moDrwLog.Save_Update();
+                    }
+
+
+
+
+                }
+
+
+                excelApp3.Quit();
+            }
+
+
 
 
 
@@ -1339,6 +1479,177 @@ namespace RSMPS
                 
 
             }
+
+
+            private int LoadScreenToObject_X(int indx, int deptID, int projID, Excel._Worksheet WS)
+            {
+
+                moDrwLog = new CBDrawingLog();
+                //    ID = Convert.ToInt32(sheet[indx, 0].Value);
+
+                if (WS.Cells[indx, 1].Text == "")
+                    moDrwLog.ID = 0;
+                else
+                    moDrwLog.ID = Convert.ToInt32(WS.Cells[indx, 1].Value.ToString());
+
+
+
+                moDrwLog.DepartmentID = Convert.ToInt32(WS.Cells[indx, 2].Value);
+                moDrwLog.DepartmentID = deptID;
+                //moDrwLog.ProjectID = Convert.ToInt32(sheet[indx, 2].Value);
+                moDrwLog.ProjectID = projID;
+                //moDrwLog.ProjectLeadID = Convert.ToInt32(sheet[indx, 3].Value);
+                moDrwLog.ProjectLeadID = Convert.ToInt32(WS.Cells[indx, 4].Value); ;
+                moDrwLog.WBS = WS.Cells[indx, 5].Text;
+                moDrwLog.HGANumber = WS.Cells[indx, 6].Text;
+                moDrwLog.ClientNumber = WS.Cells[indx, 7].Text;
+                // moDrwLog.CADNumber = sheet[indx, 7].Text;
+                moDrwLog.CADNumber = WS.Cells[indx, 8].Text;
+                // moDrwLog.ActCodeID = GetActivityCode();
+
+                //   moDrwLog.ActCodeID = Convert.ToInt32(sheet[indx, 8].Value);
+
+                moDrwLog.ActCodeID = Array.IndexOf(listOfAccount, Convert.ToInt32(WS.Cells[indx, 9].Value)); /// **************************     to fetch index of AccountCode
+
+                //     MessageBox.Show(moDrwLog.ActCodeID.ToString());
+
+
+                //moDrwLog.IsTask = chkIsTask.Checked;
+                moDrwLog.IsTaskDrwgSpec = Convert.ToInt32(WS.Cells[indx, 10].Value);
+
+                //  moDrwLog.DrawingSizeID = GetDrawingSizeCode();
+                moDrwLog.DrawingSizeID = Convert.ToInt32(WS.Cells[indx, 11].Value);
+
+                try
+                {
+                    moDrwLog.BudgetHrs = Convert.ToDecimal(WS.Cells[indx, 12].Text);
+                }
+                catch
+                {
+                    moDrwLog.BudgetHrs = 0;
+                }
+                try
+                {
+                    moDrwLog.PercentComplete = Convert.ToDecimal(WS.Cells[indx, 13].Text);
+                }
+                catch
+                {
+                    moDrwLog.PercentComplete = 0;
+                }
+                try
+                {
+                    moDrwLog.RemainingHrs = Convert.ToDecimal(WS.Cells[indx, 14].Text);
+                }
+                catch
+                {
+                    moDrwLog.RemainingHrs = 0;
+                }
+                try
+                {
+                    moDrwLog.EarnedHrs = Convert.ToDecimal(WS.Cells[indx, 15].Text);
+                }
+                catch
+                {
+                    moDrwLog.EarnedHrs = 0;
+                }
+
+                moDrwLog.Title1 = WS.Cells[indx, 16].Text;
+                moDrwLog.Title2 = WS.Cells[indx, 18].Text;
+                moDrwLog.Title3 = WS.Cells[indx, 22].Text;
+                moDrwLog.Title4 = WS.Cells[indx, 25].Text;
+                moDrwLog.Title5 = WS.Cells[indx, 28].Text;
+                moDrwLog.Title6 = WS.Cells[indx, 31].Text;
+
+                bool IsTitle1, IsTitle2, IsTitle3, IsTitle4, IsTitle5, IsTitle6;
+                bool IsDesc1, IsDesc2, IsDesc3, IsDesc4, IsDesc5, IsDesc6;
+
+
+                if (WS.Cells[indx, 17].Value.ToString() == "True")
+                    IsTitle1 = true;
+                else IsTitle1 = false;
+                if (WS.Cells[indx, 20].Value.ToString() == "True")
+                    IsTitle2 = true;
+                else IsTitle2 = false;
+                if (WS.Cells[indx, 23].Value.ToString() == "True")
+                    IsTitle3 = true;
+                else IsTitle3 = false;
+                if (WS.Cells[indx, 26].Value.ToString() == "True")
+                    IsTitle4 = true;
+                else IsTitle4 = false;
+                if (WS.Cells[indx, 29].Value.ToString() == "True")
+                    IsTitle5 = true;
+                else IsTitle5 = false;
+                if (WS.Cells[indx, 32].Value.ToString() == "True")
+                    IsTitle6 = true;
+                else IsTitle6 = false;
+
+
+                if (WS.Cells[indx, 18].Value.ToString() == "True")
+                    IsDesc1 = true;
+                else IsDesc1 = false;
+                if (WS.Cells[indx, 21].Value.ToString() == "True")
+                    IsDesc2 = true;
+                else IsDesc2 = false;
+                if (WS.Cells[indx, 24].Value.ToString() == "True")
+                    IsDesc3 = true;
+                else IsDesc3 = false;
+                if (WS.Cells[indx, 27].Value.ToString() == "True")
+                    IsDesc4 = true;
+                else IsDesc4 = false;
+                if (WS.Cells[indx, 30].Value.ToString() == "True")
+                    IsDesc5 = true;
+                else IsDesc5 = false;
+                if (WS.Cells[indx, 33].Value.ToString() == "True")
+                    IsDesc6 = true;
+                else IsDesc6 = false;
+
+
+                moDrwLog.Title1IsTitle = IsTitle1;
+                moDrwLog.Title2IsTitle = IsTitle2;
+                moDrwLog.Title3IsTitle = IsTitle3;
+                moDrwLog.Title4IsTitle = IsTitle4;
+                moDrwLog.Title5IsTitle = IsTitle5;
+                moDrwLog.Title6IsTitle = IsTitle6;
+
+
+
+                moDrwLog.Title1IsDesc = IsDesc1;
+                moDrwLog.Title2IsDesc = IsDesc2;
+                moDrwLog.Title3IsDesc = IsDesc3;
+                moDrwLog.Title4IsDesc = IsDesc4;
+                moDrwLog.Title5IsDesc = IsDesc5;
+                moDrwLog.Title6IsDesc = IsDesc6;
+
+
+
+
+                moDrwLog.Revision = WS.Cells[indx, 34].Text;
+                moDrwLog.ReleasedDrawingID = Convert.ToInt32(WS.Cells[indx, 35].Value);
+
+                //if (dtpDateRevised.Checked == false)
+                moDrwLog.DateRevised = RSLib.COUtility.DEFAULTDATE;
+                //else
+                //moDrwLog.DateRevised = dtpDateRevised.Value;
+
+                // if (dtpDateDue.Checked == false)
+                moDrwLog.DateDue = RSLib.COUtility.DEFAULTDATE;
+                //else
+                // moDrwLog.DateDue = dtpDateDue.Value;
+
+                //if (dtpDateLate.Checked == false)
+                moDrwLog.DateLate = RSLib.COUtility.DEFAULTDATE;
+                // else
+                //  moDrwLog.DateLate = dtpDateLate.Value;
+                //      MessageBox.Show("Loaded" + moDrwLog.ID);
+                return moDrwLog.ID;
+
+
+
+            }
+
+
+
+
 
 
 
