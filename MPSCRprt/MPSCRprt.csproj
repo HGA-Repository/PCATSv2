@@ -75,17 +75,81 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\C1.Win.C1TrueDBGrid.4.dll</HintPath>
     </Reference>
-    <Reference Include="GrapeCity.ActiveReports.Chart.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
-    <Reference Include="GrapeCity.ActiveReports.Design.Win.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
-    <Reference Include="GrapeCity.ActiveReports.Diagnostics.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
-    <Reference Include="GrapeCity.ActiveReports.Document.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
-    <Reference Include="GrapeCity.ActiveReports.Export.Excel.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
-    <Reference Include="GrapeCity.ActiveReports.Export.Image.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
-    <Reference Include="GrapeCity.ActiveReports.Export.Pdf.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
-    <Reference Include="GrapeCity.ActiveReports.Export.Rdf.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
-    <Reference Include="GrapeCity.ActiveReports.Extensibility.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
-    <Reference Include="GrapeCity.ActiveReports.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
-    <Reference Include="GrapeCity.ActiveReports.Viewer.Win.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff" />
+    <Reference Include="GrapeCity.ActiveReports.Calendar.v9, Version=9.3.4300.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GrapeCity.ActiveReports.Calendar.v9.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Chart.v9, Version=9.3.4300.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GrapeCity.ActiveReports.Chart.v9.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Dashboard.v9, Version=9.3.4300.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GrapeCity.ActiveReports.Dashboard.v9.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Design.Win.v9, Version=9.3.4300.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GrapeCity.ActiveReports.Design.Win.v9.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Diagnostics.v9, Version=9.3.4300.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GrapeCity.ActiveReports.Diagnostics.v9.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Document.v9, Version=9.3.4300.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GrapeCity.ActiveReports.Document.v9.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Export.Document.v9, Version=9.3.4300.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GrapeCity.ActiveReports.Export.Document.v9.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Export.Excel.v9, Version=9.3.4300.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GrapeCity.ActiveReports.Export.Excel.v9.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Export.Html.v9, Version=9.3.4300.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GrapeCity.ActiveReports.Export.Html.v9.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Export.Image.Unsafe.v9, Version=9.3.4300.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GrapeCity.ActiveReports.Export.Image.Unsafe.v9.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Export.Image.v9, Version=9.3.4300.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GrapeCity.ActiveReports.Export.Image.v9.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Export.Pdf.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff">
+      <HintPath>..\lib\GrapeCity.ActiveReports.Export.Pdf.v9.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Export.Rdf.v9, Version=9.3.4300.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GrapeCity.ActiveReports.Export.Rdf.v9.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Export.Word.v9, Version=9.3.4300.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GrapeCity.ActiveReports.Export.Word.v9.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Export.Xaml.v9, Version=9.3.4300.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GrapeCity.ActiveReports.Export.Xaml.v9.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Export.Xml.v9, Version=9.3.4300.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GrapeCity.ActiveReports.Export.Xml.v9.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Extensibility.v9, Version=9.3.4300.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GrapeCity.ActiveReports.Extensibility.v9.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.v9, Version=9.3.4300.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GrapeCity.ActiveReports.v9.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Viewer.Win.v9, Version=9.3.4300.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GrapeCity.ActiveReports.Viewer.Win.v9.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -102,7 +166,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSForecastRprt.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FCRMain.cs" />
+    <Compile Include="FCRMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FCRMain.Designer.cs">
       <DependentUpon>FCRMain.cs</DependentUpon>
     </Compile>

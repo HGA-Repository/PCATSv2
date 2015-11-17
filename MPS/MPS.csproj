@@ -121,6 +121,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\C1.Win.C1TrueDBGrid.4.dll</HintPath>
     </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Export.Pdf.v9, Version=9.3.4300.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GrapeCity.ActiveReports.Export.Pdf.v9.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Viewer.Win.v9, Version=9.3.4300.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GrapeCity.ActiveReports.Viewer.Win.v9.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
