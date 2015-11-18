@@ -826,6 +826,7 @@ namespace RSMPS
             // 
             this.txtBudgetHrs.Location = new System.Drawing.Point(86, 202);
             this.txtBudgetHrs.Name = "txtBudgetHrs";
+            this.txtBudgetHrs.ReadOnly = true;
             this.txtBudgetHrs.Size = new System.Drawing.Size(121, 20);
             this.txtBudgetHrs.TabIndex = 10;
             this.txtBudgetHrs.ValidatingType = typeof(int);
