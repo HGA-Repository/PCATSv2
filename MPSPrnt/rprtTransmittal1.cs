@@ -37,21 +37,111 @@ namespace RSMPS
         {
            
 
+            //if (textBox1.Text.Substring(0, 3) == "0.A" || textBox1.Text.Substring(0, 3) == "8.A") //**********Added 11/13, For Birmingham Address
+
+            //{ 
+            //    //MessageBox.Show("Starts with  0.A and 8.A ");
+            //label23.Visible = true;
+            //label5.Visible = false;
+            //label6.Visible = false;
+
+            //}
+            //else { 
+            //    //MessageBox.Show("No");
+            //label23.Visible = false;
+            //label5.Visible = true;
+            //label6.Visible = true;
+            //}
+
+                label5.Visible = false;
+                label6.Visible = false;
+
+
             if (textBox1.Text.Substring(0, 3) == "0.A" || textBox1.Text.Substring(0, 3) == "8.A") //**********Added 11/13, For Birmingham Address
-
-            { 
+            {
                 //MessageBox.Show("Starts with  0.A and 8.A ");
-            label23.Visible = true;
-            label5.Visible = false;
-            label6.Visible = false;
+                //label23.Visible = true;
+
+                this.label23.Text = "Birmingham Office\r\nOne Metroplex Drive – Suite 100\r\nBirmingham, AL 35209\r\n205.970.4977 - Fax" +
+    " 205-970.4928";
+                
 
             }
-            else { 
-                //MessageBox.Show("No");
-            label23.Visible = false;
-            label5.Visible = true;
-            label6.Visible = true;
+
+
+            else     if (textBox1.Text.Substring(0, 3) == "0.S") //**********Added 11/18, For Shreveport
+            {
+
+              this.label23.Text =  "400 Texas Street - Suite 300 - Shreveport, LA 71101\r\n318.213.6825 - Fax 318.213.8591";
+             }
+
+
+        else     if (textBox1.Text.Substring(0, 3) == "0.H") //**********Houston
+            {
+
+                this.label23.Text = "8401 New Trails Drive, Suite 100\r\nThe Woodlands, TX 77381\r\n 281.671.6825 Office , 318.255.8591 Fax";
+             }
+
+
+
+            else if (textBox1.Text.Substring(0, 3) == "0.B" || textBox1.Text.Substring(0, 3) == "3.B" || textBox1.Text.Substring(0, 2) == "4.") //**********Baton rouge
+            {
+
+                this.label23.Text = "9357 Interline Drive,  Baton Rouge, LA. 70809 \r\n225.927.6825 Office, 225.927.6850 Fax";
             }
+
+            else if (textBox1.Text.Substring(0, 3) == "8.J" || textBox1.Text.Substring(0, 3) == "7.J" || textBox1.Text.Substring(0, 3) == "3.J") //**********Ruston, James
+            {
+
+                this.label23.Text = "106 West Mississippi Ave.,  Ruston, LA 71270 \r\n318.255.6825 Office,  318.255.8591 Fax";
+            }
+
+
+
+            else if (textBox1.Text.Substring(0, 3) == "0.P" || textBox1.Text.Substring(0, 3) == "8.P") //**********Pennsylvania
+            {
+
+                this.label23.Text = "480 Johnson Road, Meadow Pointe II, - Suite 310\r\nWashington, Pennsylvania 15301 724.884.2800";
+            }
+
+
+
+            else if (textBox1.Text.Substring(0, 4) == "3.NY") //**********New York
+            {
+
+                this.label23.Text = "185 Green Street, Kingston,\r\n New York 12401845.688.3131";
+            }
+
+
+
+
+            else
+            {
+                //MessageBox.Show("No");
+               
+                label23.Visible = false;
+                this.label23.Text = ""; //***********For Ruston
+
+
+           
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+
+
 
             if (chkApprovedOther.Checked == true)
             {

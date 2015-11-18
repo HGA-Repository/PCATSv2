@@ -1141,8 +1141,7 @@ namespace RSMPS
             this.label23.Name = "label23";
             this.label23.Style = "font-family: Times New Roman; font-size: 9.75pt; font-style: italic; text-align: " +
     "center; ddo-char-set: 0";
-            this.label23.Text = "Birmingham Office\r\nOne Metroplex Drive\r\nBirmingham, AL 35209\r\n205.970.4977 - Fax" +
-    " 205-970.4928";
+          //  this.label23.Text = "Birmingham Office\r\nOne Metroplex Drive\r\nBirmingham, AL 35209\r\n205.970.4977 - Fax" +    " 205-970.4928";
             this.label23.Top = 0.659F;
             this.label23.Width = 3.178F;
             // 
