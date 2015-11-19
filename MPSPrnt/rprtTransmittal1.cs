@@ -62,7 +62,7 @@ namespace RSMPS
                 //MessageBox.Show("Starts with  0.A and 8.A ");
                 //label23.Visible = true;
 
-                this.label23.Text = "Birmingham Office\r\nOne Metroplex Drive – Suite 100, Birmingham, AL 35209\r\n205.970.4977 - Fax" +   " 205-970.4928";
+                this.label23.Text = "Birmingham Office\r\nOne Metroplex Drive – Suite 100, Birmingham, AL 35209\r\n205.970.4977 - Fax" +   " 205.970.4928";
                 
 
             }
