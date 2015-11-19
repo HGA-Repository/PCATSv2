@@ -55,12 +55,14 @@ namespace RSMPS
             this.tlbbSelectCodes = new C1.Win.C1Command.C1Command();
             this.tlbbSummaryWORate = new C1.Win.C1Command.C1Command();
             this.tlbbExpenseReport = new C1.Win.C1Command.C1Command();
+            this.tlbbEdit = new C1.Win.C1Command.C1Command();
             this.c1CommandLink1 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink7 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink5 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink12 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink4 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink14 = new C1.Win.C1Command.C1CommandLink();
+            this.c1CommandLink15 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink2 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink13 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink6 = new C1.Win.C1Command.C1CommandLink();
@@ -187,6 +189,7 @@ namespace RSMPS
             this.c1CommandLink5,
             this.c1CommandLink12,
             this.c1CommandLink4,
+            
             this.c1CommandLink14,
             this.c1CommandLink2,
             this.c1CommandLink13,
@@ -195,6 +198,7 @@ namespace RSMPS
             this.c1CommandLink9,
             this.c1CommandLink11,
             this.c1CommandLink10,
+             this.c1CommandLink15,
             this.c1CommandLink3});
             this.c1ToolBar1.Dock = System.Windows.Forms.DockStyle.Top;
             this.c1ToolBar1.Location = new System.Drawing.Point(0, 0);
@@ -222,6 +226,7 @@ namespace RSMPS
             this.c1CommandHolder1.Commands.Add(this.tlbbSelectCodes);
             this.c1CommandHolder1.Commands.Add(this.tlbbSummaryWORate);
             this.c1CommandHolder1.Commands.Add(this.tlbbExpenseReport);
+            this.c1CommandHolder1.Commands.Add(this.tlbbEdit);
             this.c1CommandHolder1.Owner = this;
             this.c1CommandHolder1.VisualStyle = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
@@ -343,6 +348,16 @@ namespace RSMPS
             this.tlbbExpenseReport.Text = "Worksheet Itemization";
             this.tlbbExpenseReport.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbExpenseReport_Click);
             // 
+
+            // tlbbEdit
+            // 
+            this.tlbbEdit.Name = "tlbbEdit";
+            this.tlbbEdit.ShortcutText = "";
+            this.tlbbEdit.Text = "Edit Budget";
+            this.tlbbEdit.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbEdit_Click);
+            // 
+
+
             // c1CommandLink1
             // 
             this.c1CommandLink1.ButtonLook = ((C1.Win.C1Command.ButtonLookFlags)((C1.Win.C1Command.ButtonLookFlags.Text | C1.Win.C1Command.ButtonLookFlags.Image)));
@@ -374,6 +389,16 @@ namespace RSMPS
             this.c1CommandLink14.Command = this.tlbbExpenseReport;
             this.c1CommandLink14.SortOrder = 5;
             // 
+            // 
+            // c1CommandLink15
+            // 
+            this.c1CommandLink15.Command = this.tlbbEdit;
+            this.c1CommandLink15.SortOrder = 15;
+            //
+
+
+
+
             // c1CommandLink2
             // 
             this.c1CommandLink2.Command = this.tlbbSummary;
@@ -1448,6 +1473,10 @@ namespace RSMPS
         private C1.Win.C1Command.C1CommandLink c1CommandLink3;
         private C1.Win.C1Command.C1CommandLink c1CommandLink14;
         private C1.Win.C1Command.C1Command tlbbExpenseReport;
+
+        private C1.Win.C1Command.C1CommandLink c1CommandLink15;
+        private C1.Win.C1Command.C1Command tlbbEdit;
+
        // private System.Windows.Forms.TabPage tabPage3; //*****************Added 5/20
     }
 }

@@ -531,7 +531,7 @@ namespace RSMPS
            // ListUserSecurity(miCurrUser);
             if (tabControl1.SelectedTab.Text == "PCN's" || tabControl1.SelectedTab.Text == "Clarifications")
             {
-                MessageBox.Show("PCN's or Clarifications");
+             //   MessageBox.Show("PCN's or Clarifications");
                 return;
             }
 
@@ -547,7 +547,18 @@ namespace RSMPS
             else if (moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
             {
                 LockTheCurrentGroupTab();
-                MessageBox.Show("The following users are working on GroupTab " + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n" + "This Tab is Locked ");
+           //     MessageBox.Show("The following users are working on GroupTab " + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n" + "This Tab is Locked ");
+
+                //DialogResult retVal = MessageBox.Show("Are you sure that you wish to unlock? \"" +  "\"", "Unlock", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                //if (retVal == DialogResult.Yes)
+                //{
+                //    UnLockTheCurrentGroupTab();
+                //    MessageBox.Show("unlocked !!!!");
+                //}
+
+
+
+
             }
            
         }
@@ -589,9 +600,9 @@ namespace RSMPS
                 i++;
             }
 
-            MessageBox.Show(id + "\n" +li[0] + "\n " + li[1] + "\n " + li[2] + "\n " + li[3] + "\n " + li[4] + "\n " + li[5] +
-                                "\n " + li[6] + "\n " + li[7] + "\n " + li[8] + "\n " + li[9] + "\n " + li[10] +
-                                        "\n " + li[11] + "\n " + li[12]);
+            //MessageBox.Show(id + "\n" +li[0] + "\n " + li[1] + "\n " + li[2] + "\n " + li[3] + "\n " + li[4] + "\n " + li[5] +
+            //                    "\n " + li[6] + "\n " + li[7] + "\n " + li[8] + "\n " + li[9] + "\n " + li[10] +
+            //                            "\n " + li[11] + "\n " + li[12]);
 
 
 
@@ -621,7 +632,7 @@ namespace RSMPS
               
             }
 
-            MessageBox.Show(UserInfo + "--- Tab is Locked" );
+        //    MessageBox.Show(UserInfo + "--- Tab is Locked" );
           
 
         }
@@ -689,7 +700,7 @@ namespace RSMPS
                   else   if(moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
                               {                              
                                   LockTheCurrentGroupTab();                            
-                                  MessageBox.Show("The following users are working on GroupTab " + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n" + "This Tab is Locked, please reopen budget window");
+                                 // MessageBox.Show("The following users are working on GroupTab " + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n" + "This Tab is Locked, please reopen budget window");
                                }
                  
 
@@ -3707,6 +3718,13 @@ namespace RSMPS
            
         }
 
+        private void tlbbEdit_Click(object sender, C1.Win.C1Command.ClickEventArgs e) //*****************************Added 9/17/2015
+        {
+            MessageBox.Show("you can edit current Group Tab");
+            UnLockTheCurrentGroupTab();
+
+
+        }
 
 
 
@@ -4558,6 +4576,11 @@ namespace RSMPS
             moLog.UpdateForBudgetWindowClosing(miCurrentUserLoginID);
            
            // MessageBox.Show("Budget Closed");
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
 
         }
                        
