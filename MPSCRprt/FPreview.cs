@@ -88,8 +88,7 @@ namespace RSMPS
             rprtCostReport1 rprt = new rprtCostReport1();
             projNumber = project;
            // p.ViewReport(rprt);
-            projNumber = project ;
-            ViewReport(rprt);
+           ViewReport(rprt);
             rprt.CutoffDate = currDate;
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
