@@ -18,7 +18,9 @@ namespace RSMPS
         public event RevSol.PassDataString OnProjectProcessed;
 
         private SectionReport rprt;
-        
+        public string reportType; ////******************Added 11/18
+        public  string projNumber;
+        public string Report_Name;
         public FPreview()
         {
             InitializeComponent();
@@ -27,11 +29,12 @@ namespace RSMPS
         public void ViewReport(SectionReport ar)
         {
             rprt = ar;
-            viewer1.Document = rprt.Document;
-            rprt.Run();
+            reportType = ar.GetType().ToString(); ////******************Added and Commented for M-File button*****11/18
+            //viewer1.Document = rprt.Document;
+            //rprt.Run();
             //Cursor.Current = Cursors.Default;
-        }
 
+        }
         public void LoadReportForProject(string project, int rprtCase)
         {
             DataSet ds;
@@ -83,8 +86,10 @@ namespace RSMPS
             cnn.CloseConnection();
 
             rprtCostReport1 rprt = new rprtCostReport1();
-
-            
+            projNumber = project;
+           // p.ViewReport(rprt);
+            projNumber = project ;
+            ViewReport(rprt);
             rprt.CutoffDate = currDate;
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
@@ -97,9 +102,8 @@ namespace RSMPS
             //MessageBox.Show(rprt.records.ToString() + "************************");
             this.Cursor = Cursors.Default;
         }
-
-        public void LoadReportForProjectRollup(string project, int rprtCase)
-        {
+             public void LoadReportForProjectRollup(string project, int rprtCase)
+           {
             string currDate;
             DSForecastRprt rprtDs;
 
@@ -109,9 +113,10 @@ namespace RSMPS
             rprtDs = ru.LoadReportForProjectRollup(project, rprtCase);
 
             currDate = DateTime.Now.ToShortDateString();
-
             rprtCostReport1 rprt = new rprtCostReport1();
-
+          projNumber = project + "-RollUp";
+            ViewReport(rprt);
+            ViewReport(rprt);
             rprt.CutoffDate = currDate;
             rprt.DataSource = rprtDs;
             rprt.DataMember = "EngrInfo";
@@ -208,6 +213,9 @@ namespace RSMPS
             cnn.CloseConnection();
 
             rprtCostReportDetail1 rprt = new rprtCostReportDetail1();
+            projNumber = project;
+            //  p.ViewReport(rprt);
+            ViewReport(rprt);
 
             //rprt.CutoffDate = currDate;
             rprt.DataSource = ds;
@@ -248,7 +256,9 @@ namespace RSMPS
             cnn.CloseConnection();
 
             rprtCostReportDetail2 rprt = new rprtCostReportDetail2();
-
+            ViewReport(rprt);
+            projNumber = project;
+            
             //rprt.CutoffDate = currDate;
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
@@ -332,5 +342,37 @@ namespace RSMPS
             this.Cursor = Cursors.Default;
 
         }
+
+        private void c1Button1_Click(object sender, EventArgs e) //******************Added 11/18
+        {
+            GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport PDFEx = new GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport();           
+         //  MessageBox.Show(reportType);
+        Report_Name = CreateFileNAme();
+            SaveFileDialog sv1 = new SaveFileDialog();            
+            sv1.InitialDirectory = "v:\\HGA\\";          
+            sv1.FileName = Report_Name;
+            sv1.Filter = "PDF Files | *.pdf";
+            sv1.DefaultExt = "pdf";
+      
+         if (sv1.ShowDialog() == DialogResult.OK)
+         {
+             viewer1.Export(PDFEx, new System.IO.FileInfo(sv1.FileName));   
+         }
+        
+        }
+
+             public string CreateFileNAme() //******************Added 11/18
+        {
+            DateTime dt = DateTime.Now;
+            string fileName = "";
+           if(reportType == "RSMPS.rprtCostReport1")
+             fileName = "Project Forecasting Report-" + projNumber + "-"+ dt.ToString("yyyMMdd-hhmmss");
+           else if (reportType == "RSMPS.rprtCostReportDetail2")
+               fileName = "Project Forecasting Report-Detail-" + projNumber + "-" + dt.ToString("yyyMMdd-hhmmss");
+            // MessageBox.Show(fileName);
+            return fileName;
+
+        }       
+        
     }
 }

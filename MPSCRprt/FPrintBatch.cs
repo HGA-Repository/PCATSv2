@@ -521,10 +521,23 @@ namespace RSMPS
 
         private void bttPrintPDF_Click(object sender, EventArgs e)
         {
+            //if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            //{
+            //    LoadReportsForPDF(saveFileDialog1.FileName);
+            //}
+
+            saveFileDialog1.InitialDirectory = "v:\\HGA\\"; //************************** Commented and Added 11/19m to save in Default File Name
+            saveFileDialog1.FileName = "Project_Forecast_Report-Batch";
+            saveFileDialog1.Filter = "PDF Files | *.pdf";
+            saveFileDialog1.DefaultExt = "pdf";
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 LoadReportsForPDF(saveFileDialog1.FileName);
             }
+        
+
+
+
         }
     }
 }

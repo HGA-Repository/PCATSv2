@@ -172,7 +172,7 @@ namespace RSMPS
             else
             {
                 pv.LoadReportForProject(lstProjects.Text, GetRprtCase(lstProjects.Text));
-            }
+             }
 
             pv.ShowDialog();
             bttPrint.Enabled = true;
