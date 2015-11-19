@@ -736,6 +736,7 @@ namespace RSMPS
                 tlbbPrintAll.Enabled = true;
                 tlbbBudgetEntry.Enabled = true;
                 tlbbBudgetExport.Enabled = true;
+                removeToolStripMenuItem.Enabled = false; //******************************************11/19
             }
             else if (u.IsManager == true)
             {
@@ -753,6 +754,7 @@ namespace RSMPS
                 tlbbMakeActive.Visible = false;
                 tlbbMakeActive.Visible = false;
                 makeActiveToolStripMenuItem.Visible = false;
+                removeToolStripMenuItem.Enabled = false; //******************************************11/19
                 
             }
             else
@@ -775,6 +777,7 @@ namespace RSMPS
                 tlbbBudgetExport.Enabled = false;
                 tlbbBudgetExport.Visible = false;
                 tlbbExpenseReport.Visible = false; //******************Added 10/5/2015
+                removeToolStripMenuItem.Enabled = false; //******************************************11/19
                 tlbbSummaryWORate.Visible = false;
 
                 // hide dollars for non-admin
