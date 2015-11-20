@@ -520,47 +520,89 @@ namespace RSMPS
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadBudget(SelectedGroupTab);           
+         //   LoadBudget(SelectedGroupTab);           
         
-         //*********************************************************************11/4/2015
-           // moLog.UpdateForSelectedGroup(moLog.GetCurrentUserID(u.Username), Convert.ToInt32(SelectedGroupTab)); //*************************trying with next line
+         ////*********************************************************************11/4/2015
+         //  // moLog.UpdateForSelectedGroup(moLog.GetCurrentUserID(u.Username), Convert.ToInt32(SelectedGroupTab)); //*************************trying with next line
 
-          //  moLog.UpdateForSelectedGroup(moLog.GetCurrentUserLoginID(miCurrUser), Convert.ToInt32(SelectedGroupTab));
-            moLog.UpdateForSelectedGroup(miCurrentUserLoginID, Convert.ToInt32(SelectedGroupTab));             
-            //moLog.UpdateForBudgetWindow(moLog.GetCurrentUserLoginID(miCurrUser), Convert.ToInt32(SelectedGroupTab));            
-           // ListUserSecurity(miCurrUser);
-            if (tabControl1.SelectedTab.Text == "PCN's" || tabControl1.SelectedTab.Text == "Clarifications")
-            {
-             //   MessageBox.Show("PCN's or Clarifications");
-                return;
-            }
-
-
-            else if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 3)
-            {
-                LockTheCurrentGroupTab();
-                CurrentUserSecurityForThisTab(miCurrUser, SelectedGroupTab);
-
-                return;
-            }
-
-            else if (moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
-            {
-                LockTheCurrentGroupTab();
-           //     MessageBox.Show("The following users are working on GroupTab " + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n" + "This Tab is Locked ");
-
-                //DialogResult retVal = MessageBox.Show("Are you sure that you wish to unlock? \"" +  "\"", "Unlock", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                //if (retVal == DialogResult.Yes)
-                //{
-                //    UnLockTheCurrentGroupTab();
-                //    MessageBox.Show("unlocked !!!!");
-                //}
+         // //  moLog.UpdateForSelectedGroup(moLog.GetCurrentUserLoginID(miCurrUser), Convert.ToInt32(SelectedGroupTab));
+         //   moLog.UpdateForSelectedGroup(miCurrentUserLoginID, Convert.ToInt32(SelectedGroupTab));             
+         //   //moLog.UpdateForBudgetWindow(moLog.GetCurrentUserLoginID(miCurrUser), Convert.ToInt32(SelectedGroupTab));            
+         //  // ListUserSecurity(miCurrUser);
+         //   if (tabControl1.SelectedTab.Text == "PCN's" || tabControl1.SelectedTab.Text == "Clarifications")
+         //   {
+         //    //   MessageBox.Show("PCN's or Clarifications");
+         //       return;
+         //   }
 
 
+         //   else if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 3)
+         //   {
+         //       LockTheCurrentGroupTab();
+         //               //    CurrentUserSecurityForThisTab(miCurrUser, SelectedGroupTab);
+         //       tlbbEdit.Enabled = false;
+         //       return;
+         //   }
+
+         //   else if (moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
+         //   {
+         //       LockTheCurrentGroupTab();
+
+         //       tlbbEdit.Enabled = true;
+
+         //  //     MessageBox.Show("The following users are working on GroupTab " + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n" + "This Tab is Locked ");
+
+         //       //DialogResult retVal = MessageBox.Show("Are you sure that you wish to unlock? \"" +  "\"", "Unlock", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+         //       //if (retVal == DialogResult.Yes)
+         //       //{
+         //       //    UnLockTheCurrentGroupTab();
+         //       //    MessageBox.Show("unlocked !!!!");
+         //       //}
 
 
-            }
+
+
+         //   }
+
+            //*************************************************************
+            LoadBudget(SelectedGroupTab);
+                      
+            moLog.UpdateForSelectedGroup(miCurrentUserLoginID, Convert.ToInt32(SelectedGroupTab));
            
+         if (tabControl1.SelectedTab.Text == "PCN's" || tabControl1.SelectedTab.Text == "Clarifications")
+            {
+                return;
+            }
+
+         else if (moCurrBudget.IsActive == true)
+         {
+             tlbbEdit.Enabled = false;
+             return;
+         }
+         else
+         {
+
+             if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 2) //Means moderator
+             {
+                 //MessageBox.Show("User is Moderator");
+                 if (moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
+                 {
+                     LockTheCurrentGroupTab();
+                     tlbbEdit.Enabled = true;
+                     MessageBox.Show("The following users r working on GroupTab" + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n" + "This Tab is Locked, Click Edit Budget button");
+
+                 }
+
+             }
+
+             else if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 3) //Means view only
+             {
+                 //MessageBox.Show("User is Viewer only");
+                 LockTheCurrentGroupTab();
+                 tlbbEdit.Enabled = false;
+
+             }
+         }     
         }
 
         private void LockTheCurrentGroupTab()
@@ -688,21 +730,56 @@ namespace RSMPS
         //      MessageBox.Show("list of all user Logged in PCAT- " + moLog.list_Of_User());//***********This gives all PCAT User looged in, currently...*********10/28*****MZ 
         //      MessageBox.Show("List of user in this project's"  + miProjectID +"budgetwindow are-- " + moLog.list_Of_User_OnBudgetWindow(miProjectID) + "   number= " + moLog.No_Of_User_OnBudgetWindow(miProjectID));
 
+            if (moCurrBudget.IsActive == true)
+            {
+               // MessageBox.Show(moCurrBudget.IsActive.ToString());
+                tlbbEdit.Enabled = false;
+                return;
+            }
 
+            else
+            {
 
-              if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 3)
-              {
-                  LockTheCurrentGroupTab();
-                  CurrentUserSecurityForThisTab(miCurrUser, SelectedGroupTab);
-                  return;
-              }
+                                                //    if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 3)
+                                                //    {
+                                                //        LockTheCurrentGroupTab();
+                                                //        tlbbEdit.Enabled = false;
+                                                //        //    CurrentUserSecurityForThisTab(miCurrUser, SelectedGroupTab);  @@@@@@@@@@@@@@@@@@@I am not sure to keep it
+                                                //        return;
+                                                //    }
 
-                  else   if(moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
-                              {                              
-                                  LockTheCurrentGroupTab();                            
-                                 // MessageBox.Show("The following users are working on GroupTab " + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n" + "This Tab is Locked, please reopen budget window");
-                               }
+                                                //    else if (moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
+                                                //  //  else if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 2 || moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
+                                                //    {
+                                                //        LockTheCurrentGroupTab();
+                                                //        tlbbEdit.Enabled = true;
+                                                //         MessageBox.Show("The following users are working on GroupTab " + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n" + "This Tab is Locked, please reopen budget window");
+                                                //    }
                  
+                               //}
+                if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 2) //Means moderator
+                {
+                   // MessageBox.Show("User is Moderator");
+                                    if (moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
+                                    {
+                                        LockTheCurrentGroupTab();
+                                        tlbbEdit.Enabled = true;
+                                        MessageBox.Show("The following users are working on GroupTab " + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n" + "This Tab is Locked, Click Edit Budget button");
+                                                                
+                                    }
+                    
+                }
+
+                else if(CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 3) //Means view only
+                {  //MessageBox.Show("User is Viewer only");
+                    LockTheCurrentGroupTab();
+                    tlbbEdit.Enabled = false;
+                    
+                }
+
+              
+                
+            }
 
               }
                    
