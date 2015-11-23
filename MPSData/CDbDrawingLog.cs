@@ -459,6 +459,25 @@ namespace RSMPS
             return dr;
         }
 
+        public SqlDataReader GetListAcctCodes() //********************************Added 11/20
+        {
+            SqlDataReader dr;
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spAcctCodes_ListAll_ForExcelDropDown", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+           
+
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            cmd = null;
+
+            return dr;
+        }
+
         public SqlDataReader GetListbyDeptProj(int deptID, int projID) //*************Added 10/9/2015
         {
             SqlDataReader dr;

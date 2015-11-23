@@ -109,8 +109,12 @@ namespace RSMPS
 
             return dbDt.GetList();
         }
-
-
+        public static int GetID_ByActivityCode(int Code) //******************************Added 11/23
+        {
+            CDbActivityCode dbDt = new CDbActivityCode();
+    
+            return dbDt.GetID_ByActivityCode(Code);
+        }
         public static SqlDataReader GetListForBudget()
         {
             CDbActivityCode dbDt = new CDbActivityCode();

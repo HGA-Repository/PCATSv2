@@ -219,8 +219,7 @@ namespace RSMPS
 
             return dr;
         }
-
-
+        
         public SqlDataReader GetDeptGroup() //****************************Added 9/22/2015
         {
             SqlDataReader dr;
@@ -238,6 +237,36 @@ namespace RSMPS
 
             return dr;
         }
+
+
+        public int GetID_ByActivityCode(int Code) //********************************Added 11/23
+        {
+            SqlDataReader dr;
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            int ID = 0;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spAcctCodes_GetID_ForExcelDropDown", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            prm = cmd.Parameters.Add("@Code", SqlDbType.Int);
+            prm.Value = Code;
+
+            prm = cmd.Parameters.Add("@ID", SqlDbType.Int);
+            prm.Direction = ParameterDirection.Output;
+
+           
+            cmd.ExecuteNonQuery();
+
+            ID = Convert.ToInt32(cmd.Parameters["@ID"].Value);
+
+            return ID;
+        }
+
+
 
 
 

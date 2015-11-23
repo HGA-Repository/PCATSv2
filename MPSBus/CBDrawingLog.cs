@@ -254,6 +254,13 @@ namespace RSMPS
             return dbDt.GetListbyDeptProj(dID, pID, wbs, sortCol, sortAsc);
         }
 
+        
+        public static SqlDataReader GetListAcctCodes() //************************Added 11/20
+        {
+            CDbDrawingLog dbDt = new CDbDrawingLog();
+
+            return dbDt.GetListAcctCodes();
+        }
         public static SqlDataReader GetListbyDeptProjForTrans(int deptID, int projID)
         {
             CDbDrawingLog dbDt = new CDbDrawingLog();
