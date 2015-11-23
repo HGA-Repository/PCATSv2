@@ -979,6 +979,14 @@ namespace RSMPS
             //}
         }
 
+        private void forecastRemainingBirminghamToolStripMenuItem_Click(object sender, EventArgs e) //***********************Added 11/23
+        {
+            CPSummary sum = new CPSummary();
+            this.Cursor = Cursors.WaitCursor;
+            sum.PrintForecastRemainingBHam();
+            this.Cursor = Cursors.Default;
+        }
+
 
 
         //SSS 20131209 - Removing from Menu

@@ -115,6 +115,7 @@ namespace RSMPS
             this.tssStatus2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssProgress = new System.Windows.Forms.ToolStripProgressBar();
             this.tmrClose = new System.Windows.Forms.Timer(this.components);
+            this.forecastRemainingBirminghamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMain.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -492,6 +493,7 @@ namespace RSMPS
             this.forecastRemainingToolStripMenuItem,
             this.pipelineForecastRemainingToolStripMenuItem,
             this.programManagementForecastRemainingToolStripMenuItem,
+            this.forecastRemainingBirminghamToolStripMenuItem,
             this.projectForecastingToolStripMenuItem,
             this.projectForecastingReportRollupToolStripMenuItem,
             this.resourceVarianceToolStripMenuItem,
@@ -841,6 +843,13 @@ namespace RSMPS
             // 
             this.tmrClose.Tick += new System.EventHandler(this.tmrClose_Tick);
             // 
+            // forecastRemainingBirminghamToolStripMenuItem
+            // 
+            this.forecastRemainingBirminghamToolStripMenuItem.Name = "forecastRemainingBirminghamToolStripMenuItem";
+            this.forecastRemainingBirminghamToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.forecastRemainingBirminghamToolStripMenuItem.Text = "Forecast Remaining - Birmingham";
+            this.forecastRemainingBirminghamToolStripMenuItem.Click += new System.EventHandler(this.forecastRemainingBirminghamToolStripMenuItem_Click);
+            // 
             // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -955,6 +964,7 @@ namespace RSMPS
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem viewMPPlanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem forecastRemainingBirminghamToolStripMenuItem;
     }
 }
 

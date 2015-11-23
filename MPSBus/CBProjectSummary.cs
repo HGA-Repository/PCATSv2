@@ -190,5 +190,12 @@ namespace RSMPS
 
             return dbDt.GetForecastRemainingNew(EngPLSPM);
         }
+        public static DataSet GetForecastRemainingBHam()//************************* Added 11/23
+        {
+            CDbProjectSummary dbDt = new CDbProjectSummary();
+
+            return dbDt.GetForecastRemainingBHam();
+        }        
+
     }
 }

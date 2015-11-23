@@ -483,6 +483,28 @@ namespace RSMPS
             cnn.CloseConnection();
 
             return ds;
+        }      
+            public DataSet GetForecastRemainingBHam()//******************************Added 11/23***
+        {
+            DataSet ds;
+            RSLib.CDbConnection cnn;
+            SqlDataAdapter da;
+            SqlCommand cmd;
+
+            cnn = new RSLib.CDbConnection();         
+            cmd = new SqlCommand("spRPRT_ForecastRemainingBHam", cnn.GetConnection(120));          
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandTimeout = 60 * 2;
+
+            da = new SqlDataAdapter();
+            ds = new DataSet();
+            da.SelectCommand = cmd;
+            da.Fill(ds);
+
+            cnn.CloseConnection();
+
+            return ds;
         }
 
     }

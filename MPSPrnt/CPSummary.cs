@@ -143,5 +143,24 @@ namespace RSMPS
             pv.ViewReportWithExcel(r);
             pv.ShowDialog();
         }
+
+        public void PrintForecastRemainingBHam()
+        {
+            rprtForecastRemaining r = new rprtForecastRemaining();
+            FPreviewAR pv = new FPreviewAR();
+            pv.Title = r.SetAsBHam();
+
+            DataSet ds = CBProjectSummary.GetForecastRemainingBHam();
+            r.DataSource = ds;
+            r.DataMember = "Table";
+
+            pv.ViewReportWithExcel(r);
+            pv.ShowDialog();
+        }
+
+
+
+
+
     }
 }
