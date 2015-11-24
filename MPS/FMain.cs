@@ -14,7 +14,7 @@ namespace RSMPS
         private CBLog moLog;
         private bool calcelClicked ;
         public FMain()
-        {
+        {  
             InitializeComponent();
             moLog = new CBLog();
 
@@ -81,6 +81,8 @@ namespace RSMPS
             tssStatus2.Text = DateTime.Now.ToShortDateString();
             calcelClicked = true;
             SetAccessForSecurityLevel();
+
+            MessageBox.Show("fl_OnSuccessLogin working again"); //***********************************************11/24
         }
 
         private void FMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -342,7 +344,8 @@ namespace RSMPS
         private void FMain_Load(object sender, EventArgs e)
         {
             InitApplication();
-           // MessageBox.Show(UserName + "Has Logged in");
+            MessageBox.Show(UserName + "Has Logged in");
+           // SetAccessForSecurityLevel(); //*******************************************************************
         }
 
         private void SetAccessForSecurityLevel()
@@ -384,20 +387,51 @@ namespace RSMPS
                 systemUsersToolStripMenuItem.Enabled = false;
                 systemUsersToolStripMenuItem.Visible = false;
 
+
+                costSummaryToolStripMenuItem.Visible = true;
+                costSummaryToolStripMenuItem1.Visible = true;
+                projectForecastingToolStripMenuItem.Visible = true;
+                projectForecastingReportRollupToolStripMenuItem.Visible = true;
+                weeklyPMReportsToolStripMenuItem.Visible = true;
+                pCNLogToolStripMenuItem.Visible = true;
+
+
                 if (u.IsAdministrator == true)
                 {
                     systemUsersToolStripMenuItem.Enabled = true;
                     systemUsersToolStripMenuItem.Visible = true;
+
+                    forecastRemainingToolStripMenuItem.Visible = true;
+                    pipelineForecastRemainingToolStripMenuItem.Visible = true;
+                    programManagementForecastRemainingToolStripMenuItem.Visible = true;
+                    forecastRemainingBirminghamToolStripMenuItem.Visible = true; //*******************Added 7/24
+                    manageReleaseTransmittalToolStripMenuItem.Visible = true;
+                    tsbProject.Visible = true;
+                    tsbCustomer.Visible = true;
+                    tsbEmployee.Visible = true;
+                    mnuNavCust.Enabled = true;
+                    mnuNavEmp.Enabled = true;
+                    mnuNavProjects.Visible = true;
+                    mnuNavProjects.Enabled = true;
+                    mnuNavCust.Visible = true;
+                    mnuNavEmp.Visible = true;
+                    employeeTitlesToolStripMenuItem.Visible = true;
+                    departmentsToolStripMenuItem.Visible = true;
+                    systemUsersToolStripMenuItem.Visible = true;                                              
+
+
+
                 }
             }
             else
             {
                 if (u.IsManager == true)
                 {  //Updated by Scott Shelton on 6/11/2015
-                    mnuNavigate.Enabled = true;
+                   // mnuNavigate.Enabled = true;
                     forecastRemainingToolStripMenuItem.Visible = false;
                     pipelineForecastRemainingToolStripMenuItem.Visible = false;
                     programManagementForecastRemainingToolStripMenuItem.Visible = false;
+                    forecastRemainingBirminghamToolStripMenuItem.Visible = false; //*******************Added 7/24
                     manageReleaseTransmittalToolStripMenuItem.Visible = false;
                     tsbProject.Visible = false;
                     tsbCustomer.Visible = false;
@@ -411,8 +445,8 @@ namespace RSMPS
                     employeeTitlesToolStripMenuItem.Visible = false;
                     departmentsToolStripMenuItem.Visible = false;
                     systemUsersToolStripMenuItem.Visible = false;
+                                       
 
-    
                 }
                 else
                 {
@@ -423,6 +457,7 @@ namespace RSMPS
                     forecastRemainingToolStripMenuItem.Visible = false;
                     pipelineForecastRemainingToolStripMenuItem.Visible = false;
                     programManagementForecastRemainingToolStripMenuItem.Visible = false;
+                    forecastRemainingBirminghamToolStripMenuItem.Visible = false; //*******************Added 7/24
                     manageReleaseTransmittalToolStripMenuItem.Visible = false;
                     tsbProject.Visible = false;
                     tsbCustomer.Visible = false;
