@@ -377,6 +377,69 @@ namespace RSMPS
             return tranCount;
         }
 
+        public void RenameTransmittal(int transID, string tranNumber) //***************************Added 11/30
+        {
+            // SqlDataReader dr;
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            //int tranCount = 0;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spTransmittalRename", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@ID", SqlDbType.Int);
+            prm.Value = transID;
+
+            prm = cmd.Parameters.Add("@tranNumber", SqlDbType.VarChar, 50);
+            prm.Value = @tranNumber;
+
+
+            cmd.ExecuteNonQuery();
+
+            prm = null;
+            cmd = null;
+            cnn.CloseConnection();
+            cnn = null;
+
+        }
+        public string GetTransmittalName(int transID) //***************************Added 11/30
+        {
+            // SqlDataReader dr;
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            string tranName = "";
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spTransmittal_GetName_By_ID", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+           
+                     
+            prm = cmd.Parameters.Add("@tranNumber", SqlDbType.VarChar, 50);
+            prm.Direction = ParameterDirection.Output;
+
+            prm = cmd.Parameters.Add("@ID", SqlDbType.Int);
+            prm.Value = transID;
+
+            cmd.ExecuteNonQuery();
+
+            tranName = (cmd.Parameters["@tranNumber"].Value).ToString();
+
+            prm = null;
+            cmd = null;
+            cnn.CloseConnection();
+            cnn = null;
+            return tranName;
+        }
+
+
+
+
+
+
         public DataSet GetTransmittalForReport(int transID)
         {
             SqlDataAdapter da;

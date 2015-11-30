@@ -179,11 +179,14 @@ namespace RSMPS
             {
                 bttEditTransmittal.Enabled = true;
                 bttPrintTransmittal.Enabled = true;
+                bttRenameTransmittal.Enabled = true;
+                
             }
             else
             {
                 bttEditTransmittal.Enabled = false;
                 bttPrintTransmittal.Enabled = false;
+                bttRenameTransmittal.Enabled = false;
             }
         }
 
@@ -204,6 +207,26 @@ namespace RSMPS
             int tranID = Convert.ToInt32(lvi.Text);
 
             CPTransmittal.PrintTransmittal(tranID);
+        }
+
+        
+        private void bttRenameTransmittal_Click(object sender, EventArgs e) //************ Added 11/30
+        {
+            ListViewItem lvi = lvwTransmittals.SelectedItems[0];
+            int tranID = Convert.ToInt32(lvi.Text);
+
+            FTransmittal_Rename ftr = new FTransmittal_Rename();
+            ftr.ID = tranID;
+            ftr.ShowDialog();
+
+            if (ftr.IsRenamed)
+            {
+                LoadTransmittals();
+                //  MessageBox.Show("reloaded");
+            }
+
+            bttRenameTransmittal.Enabled = false;
+
         }
     }
 }

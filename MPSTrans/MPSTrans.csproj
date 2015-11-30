@@ -132,6 +132,12 @@
     <Compile Include="FTransmittal_Manage.Designer.cs">
       <DependentUpon>FTransmittal_Manage.cs</DependentUpon>
     </Compile>
+    <Compile Include="FTransmittal_Rename.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FTransmittal_Rename.Designer.cs">
+      <DependentUpon>FTransmittal_Rename.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FTransmittal_Manage.resx">
       <DependentUpon>FTransmittal_Manage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FTransmittal_Rename.resx">
+      <DependentUpon>FTransmittal_Rename.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>

@@ -119,6 +119,23 @@ namespace RSMPS
             return db.GetCountByProject(projectID);
         }
 
+        public static void RenameTransmittal(int transID, string tranNumber) //***************************Added 11/30
+        {
+            CDbTransmittal db = new CDbTransmittal();
+
+            db.RenameTransmittal(transID, tranNumber);
+        }
+
+        public static string GetTransmittalName(int transID) //***************************Added 11/30
+        {
+            CDbTransmittal db = new CDbTransmittal();
+
+          return  db.GetTransmittalName(transID);
+        }
+
+
+
+
         public static DataSet GetTransmittalForReport(int transmittalID)
         {
             CDbTransmittal db = new CDbTransmittal();
