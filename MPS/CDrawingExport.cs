@@ -67,8 +67,9 @@ namespace RSMPS
             return myDoc;
         }
 
+       
+   public void ExportDrawing_ToExcel_Test2(int projID, int deptID,int leadID, string FN) //**********11/30
 
-   public void ExportDrawing_ToExcel_Test2(int projID, int deptID, string FN)
    {
        string initDr = CreateFolder_InDocument();
      initDr = initDr + "\\PCATJobStat";
@@ -228,7 +229,12 @@ namespace RSMPS
 
        }
 
-       dr.Close();         
+       dr.Close();
+
+    //   defaultDepartment = workSheet.Cells[2, 2].Value;
+     //  defaultProjectID = workSheet.Cells[2, 3].Value;
+   //    defaultProjectLeadID = workSheet.Cells[2, 4].Value;
+
 
        workBook2.SaveAs(x, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
 
@@ -252,7 +258,7 @@ namespace RSMPS
        else 
        {
            excelApp2.Quit();
-           ExportDrawing_ToDataBase_Test2(deptID, projID, no, FN, initDr);
+           ExportDrawing_ToDataBase_Test2(deptID, projID, leadID , no, FN, initDr);
 
        }
    }
@@ -405,8 +411,8 @@ namespace RSMPS
                 Excel.Range rngM = workSheet.Range["M1"];
                 rngM.EntireColumn.Locked = true;
 
-                Excel.Range rngN = workSheet.Range["N1"];
-                rngN.EntireColumn.Locked = true;
+                Excel.Range rngO = workSheet.Range["O1"];
+                rngO.EntireColumn.Locked = true;
                 
 
 
@@ -415,10 +421,8 @@ namespace RSMPS
                 
                 return noOfRows;
             }
-
-            
-                     public void ExportDrawing_ToDataBase_Test2(int deptID, int projID, int no, string FN, string location)
-            {
+          public void ExportDrawing_ToDataBase_Test2(int deptID, int projID, int leadID, int no, string FN, string location)
+         {
                //  MessageBox.Show(fName);
                 Excel.Application excelApp3 = new Excel.Application();
 
@@ -436,7 +440,7 @@ namespace RSMPS
 
                 for (int i = 1; i < (no + 5); i++)
                 {
-                    if (workSheet3.Cells[i, 12].Text == "")
+                    if (workSheet3.Cells[i, 6].Text == "")
                     {
                         lastRow = i;
                         //   MessageBox.Show("Emply" + "found @" + lastRow);
@@ -449,7 +453,7 @@ namespace RSMPS
                 for (int indx = 2; indx < lastRow; indx++)
                 {
 
-                    int ID = LoadScreenToObject_X(indx, deptID, projID, workSheet3);
+                    int ID = LoadScreenToObject_X(indx, deptID, projID,leadID, workSheet3);
 
 
 
@@ -461,7 +465,7 @@ namespace RSMPS
                     }
                     else
                     {
-                        // MessageBox.Show("Return of ID Test for..." + ID + "....."  + "..So   Update");
+                       //  MessageBox.Show("Return of ID Test for..." + ID + "....."  + "..So   Update");
 
                         moDrwLog.Save_Update();
                     }
@@ -480,9 +484,8 @@ namespace RSMPS
                 return id_Exists;
             }   
 
-
-            private int LoadScreenToObject_X(int indx, int deptID, int projID, Excel._Worksheet WS)
-            {
+          private int LoadScreenToObject_X(int indx, int deptID, int projID,int leadID, Excel._Worksheet WS)
+                  {
 
                 moDrwLog = new CBDrawingLog();
               
@@ -490,11 +493,10 @@ namespace RSMPS
                     moDrwLog.ID = 0;
                 else
                     moDrwLog.ID = Convert.ToInt32(WS.Cells[indx, 1].Value.ToString());
-
-                moDrwLog.DepartmentID = Convert.ToInt32(WS.Cells[indx, 2].Value);
                 moDrwLog.DepartmentID = deptID;
                 moDrwLog.ProjectID = projID;
-                moDrwLog.ProjectLeadID = Convert.ToInt32(WS.Cells[indx, 4].Value); ;
+                moDrwLog.ProjectLeadID = leadID; // ******* Added 11/30
+
                 moDrwLog.WBS = WS.Cells[indx, 5].Text;
                 moDrwLog.HGANumber = WS.Cells[indx, 6].Text;
                 moDrwLog.ClientNumber = WS.Cells[indx, 7].Text;
@@ -503,8 +505,6 @@ namespace RSMPS
               //  moDrwLog.ActCodeID = Array.IndexOf(AccountCodeID, Convert.ToInt32(WS.Cells[indx, 9].Value)); ///****************11/20
 
                 moDrwLog.ActCodeID = CBActivityCode.GetID_ByActivityCode(Convert.ToInt32(WS.Cells[indx, 9].Value));/// **************************     to fetch index of AccountCode ***11/23
-
-               //moDrwLog.ActCodeID = ((RSLib.COListItem)Convert.ToInt32(WS.Cells[indx, 9].Value).ID;          
 
 
            //     MessageBox.Show("From Sheet....."+WS.Cells[indx, 9].Value + ".....ID...." + moDrwLog.ActCodeID);              
