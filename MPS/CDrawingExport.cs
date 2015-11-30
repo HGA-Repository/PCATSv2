@@ -15,124 +15,74 @@ using Excel = Microsoft.Office.Interop.Excel; //********************Added 10/9/2
 using Microsoft.Office.Core;
 using System.Reflection;
 using System.Runtime.InteropServices;
-//***********************************************************************************************************
-
-
 using System.ComponentModel;
-
 using System.Drawing;
-
 using System.Collections;
-
-//***********************************************************************************************************
-
-
-
-
-//using C1.C1Excel;
 
 namespace RSMPS
 {
     public class CDrawingExport
     {
-      //  public C1XLBook book ;
-       // public XLSheet sheet ;
+
+       public  Excel.Application excelApp2;
+       public Excel._Worksheet workSheet;
+
         public CBDrawingLog moDrwLog;
-        //public FileStream fs;
-            int ID;
-          //  public string F_Name;
-        
+          
         CDbDrawingLog dl = new CDbDrawingLog();
 
 
-        public Excel.Application excelApp;
-        public Excel.Workbook workBook;
-       // public Excel.Workbook excelWorkbook;
-  //      public Excel.Worksheet workSheet;
-        public Excel._Worksheet workSheet;
         public object misValue = System.Reflection.Missing.Value;
    public     CDrawingExport()
         {
 
 
-            string workbookPath = "C:\\Test\\A1.xlsx";
-            
-             excelApp = new Excel.Application();
-
-             workBook = excelApp.Workbooks.Add(misValue); 
- 
-             workSheet = excelApp.ActiveSheet;
-
-             workBook.CheckCompatibility = false;   
-     //  workBook.Settings.CheckCompatibility = false;
-       excelApp.DisplayAlerts = false;
-     //  excelWorkbook.CheckCompatibility = false;
-
-       //application.U
-
         }
-
-    ~CDrawingExport()
-   {
-             
-   }
-  
 
  object Missing = System.Reflection.Missing.Value;
 
-   public Excel.Application excelApp2= new Excel.Application();
         public Excel.Workbook workBook2;
 
 
-        public string CreateFolder_Tesst()
+        public string CreateFolder_InDocument()
         {
             string folderName = @Environment.SpecialFolder.MyDocuments.ToString();
 
             string myDoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
-          //  string pathString = System.IO.Path.Combine(folderName, "PCATJobStat2");
+                     
             string pathString = System.IO.Path.Combine(myDoc, "PCATJobStat");
        
-            //bool folderExists = Directory.Exists(Server.MapPath(path));
             try
             {
                 System.IO.Directory.CreateDirectory(pathString);
-              //  MessageBox.Show("folder created"); //*********************************************************************
+              //  MessageBox.Show("folder created"); 
 
             }
             catch (IOException ioex)
             {
-                MessageBox.Show("folder noooooooooooooooot created");
-                MessageBox.Show(ioex.Message); }
+                MessageBox.Show("folder not created");
+                MessageBox.Show(ioex.Message); }            
 
-
-
-            
-
-         //   MessageBox.Show(Environment.SpecialFolder.MyDocuments.ToString() + "           "+folderName + " " +myDoc); //*************************************************
+         //   MessageBox.Show(Environment.SpecialFolder.MyDocuments.ToString() + "           "+folderName + " " +myDoc);
             return myDoc;
         }
 
 
    public void ExportDrawing_ToExcel_Test2(int projID, int deptID, string FN)
    {
-     string initDr =  CreateFolder_Tesst();
+       string initDr = CreateFolder_InDocument();
      initDr = initDr + "\\PCATJobStat";
 
-     //////////////////////////////////////  MessageBox.Show(FN);
+  //  MessageBox.Show(FN);
        SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-     //  saveFileDialog1.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
-      // saveFileDialog1.DefaultExt = "xlsx";
+
        saveFileDialog1.InitialDirectory = initDr;
 
 
 
          saveFileDialog1.Filter = "Excel files (*.xls)|*.xls|All files (*.*)|*.*";
         saveFileDialog1.DefaultExt = "xls";
-
-
-
-
+       
       // saveFileDialog1.FilterIndex = 1;
       // saveFileDialog1.RestoreDirectory = true;
         saveFileDialog1.FileName = FN;
@@ -142,32 +92,24 @@ namespace RSMPS
        string x="";
        if (saveFileDialog1.ShowDialog() == DialogResult.OK)
        {
-           // de.ExportDrawing_ToExcel(saveFileDialog1.FileName, miCurrProj, miCurrDept);
-           x = saveFileDialog1.FileName;
+            x = saveFileDialog1.FileName;
            //   MessageBox.Show(x);
        }
        else return;
        fName = x;
 
-//return; /////****************************************** testing Folder creation 11/13
-      // var excelApp2 = new Excel.Application();
-
-       Excel.Application excelApp2 = new Excel.Application();
+   
+      excelApp2 = new Excel.Application();
 
 
        // Make the object visible.
-
-       // excelApp.Workbooks.Add(workbookPath);
-
-       //  Excel.Workbook excelWorkbook = excelApp.Workbooks.Open(workbookPath, 0, false, 5, "", "", false, Excel.XlPlatform.xlWindows, "", true, false, 0, true, false, false);
+            
        excelApp2.DefaultSaveFormat = Excel.XlFileFormat.xlOpenXMLWorkbook;
        excelApp2.DisplayAlerts = false;
-      // Excel.Workbook workBook2;
+     
        workBook2 = excelApp2.Workbooks.Add(misValue);
 
        workBook2.CheckCompatibility = false;
-       // This example uses a single workSheet. 
-     //  Excel._Worksheet workSheet = excelApp2.ActiveSheet;
        workSheet = excelApp2.ActiveSheet;
 
       
@@ -286,21 +228,14 @@ namespace RSMPS
 
        }
 
-       dr.Close();
-
-      // int no = FormatExcelFile();
-
-
-       //  workBook.SaveAs("C:\\Test\\A1.xlsx", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+       dr.Close();         
 
        workBook2.SaveAs(x, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
 
        excelApp2.Visible = true;
-
-
+       
        int no = FormatExcelFile();
 
-       // MessageBox.Show(workSheet.Cells[2, 1].Value.ToString() + "Please Dont close the file Edit");
        MessageBox.Show("Please Don't close the file while Editing");
 
 
@@ -313,23 +248,13 @@ namespace RSMPS
            excelApp2.Quit();
            return;
        }
-       //  else ExportDrawing_ToDataBase_Test(deptID, projID, no);
-       else //ExportDrawing_ToDataBase_Test2(deptID, projID, no);
+    
+       else 
        {
            excelApp2.Quit();
-      //     ExportDrawing_ToDataBase_Test2(deptID, projID, no, FN);
-
            ExportDrawing_ToDataBase_Test2(deptID, projID, no, FN, initDr);
 
        }
-
-     //  workBook2.Close(true, misValue, misValue);
-      
-
-
-       //workBook2.Close(true, misValue, misValue);
-       //excelApp2.Quit();
-
    }
 
                                                        
@@ -368,7 +293,7 @@ namespace RSMPS
                 RangeW.Validation.InCellDropdown = true;
                 RangeW.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 0, 0, 255));
                 a = "X" + iTotalRows;
-                // Excel.Range RangeX = workSheet.get_Range("X2", "X20");
+             
                 Excel.Range RangeX = workSheet.get_Range("X2", a);
                 RangeX.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, "true,false", Type.Missing);
                 RangeX.Validation.InCellDropdown = true;
@@ -412,22 +337,14 @@ namespace RSMPS
 
 
                 Excel.Range RangeI = workSheet.get_Range("I2", a);
-                //    RangeI.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, listOfAccount, Type.Missing);
                 RangeI.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, listOfAccount2, Type.Missing);  //**********************11/20
                 RangeI.Validation.InCellDropdown = true;
               
-                
-
-              //  MessageBox.Show(listOfAccount2);
-
-
-
 
                 Excel.Range RangeTop = workSheet.get_Range("A1", "AL1");
                 RangeTop.Font.Bold = true;
                 RangeTop.Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 255, 0, 0));
-
-             
+                            
 
                 a = "O" + iTotalRows;
 
@@ -447,44 +364,66 @@ namespace RSMPS
                 //Excel.Range fit = workSheet.get_Range("A1", "AL100");
                 //fit.Columns.AutoFit();
 
-                Excel.Range rngRO = workSheet.Range["B1"];
-                rngRO.Locked = true;
+                        //Excel.Range rngRO = workSheet.Range["B1"];
+                        //rngRO.Locked = true;
 
 
                 // workSheet.get_Range("A1", Type.Missing).EntireColumn.AllowEdit = false;
                 //rngRO.EntireColumn.Locked = true;
 
 
+//******************************************************************************************************************************************************
+                //Excel.Range rng = workSheet.Range["A1"];
+                //// rng.EntireColumn.Hidden = true;
+                ////    rng.EntireColumn.Hidden = true;
+                //workSheet.Cells.Locked = false;
+                //workSheet.Cells.FormulaHidden = false;
+                //rng.Locked = true;
+                //rng.FormulaHidden = false;
+                //workSheet.Protect(Type.Missing, true, true, true);
+               
+                //**********************************
 
-                Excel.Range rng = workSheet.Range["A1"];
-                // rng.EntireColumn.Hidden = true;
-                //    rng.EntireColumn.Hidden = true;
-                workSheet.Cells.Locked = false;
-                workSheet.Cells.FormulaHidden = false;
-                rng.Locked = true;
-                rng.FormulaHidden = false;
-                workSheet.Protect(Type.Missing, true, true, true);
+                this.excelApp2.Cells.Locked = false;
+              //  this.excelApp2.get_Range("A1", "C3").Locked = true;                
+
+                Excel.Range rngA = workSheet.Range["A1"];
+                rngA.EntireColumn.Locked = true;
+                
+                Excel.Range rngB = workSheet.Range["B1"];
+                rngB.EntireColumn.Locked = true;
+
+                Excel.Range rngC = workSheet.Range["C1"];
+                rngC.EntireColumn.Locked = true;
+
+                Excel.Range rngD = workSheet.Range["D1"];
+                rngD.EntireColumn.Locked = true;
+
+                Excel.Range rngL = workSheet.Range["L1"];
+                rngL.EntireColumn.Locked = true;
+
+                Excel.Range rngM = workSheet.Range["M1"];
+                rngM.EntireColumn.Locked = true;
+
+                Excel.Range rngN = workSheet.Range["N1"];
+                rngN.EntireColumn.Locked = true;
+                
+
+
+                workSheet.Protect(Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing);
+                //*************************************                                           
+                
                 return noOfRows;
             }
 
             
-
-
-
-               // public void ExportDrawing_ToDataBase_Test2(int deptID, int projID, int no, string FN)
                      public void ExportDrawing_ToDataBase_Test2(int deptID, int projID, int no, string FN, string location)
             {
-                //////////////////////////////////////  MessageBox.Show(fName);
+               //  MessageBox.Show(fName);
                 Excel.Application excelApp3 = new Excel.Application();
 
-
-               // string fName2 = "C:\\Test\\n1.xls";
-
-
-            //    string fName2 = "C:\\Test\\" + FN +".xls";
-
                 string fName2 = location + "\\" + FN + ".xls";
-                //////////////////////////////////////     MessageBox.Show(fName2);
+          //     MessageBox.Show(fName2);
 
                 Excel.Workbook excelWorkbook3 = excelApp3.Workbooks.Open(fName2, 0, false, 5, "", "", false, Excel.XlPlatform.xlWindows, "", true, false, 0, true, false, false);
 
@@ -509,8 +448,6 @@ namespace RSMPS
 
                 for (int indx = 2; indx < lastRow; indx++)
                 {
-                   // int ID = LoadScreenToObject_Test(indx, deptID, projID);
-                    /////////////////////////////////Experiment ----good
 
                     int ID = LoadScreenToObject_X(indx, deptID, projID, workSheet3);
 
@@ -528,10 +465,7 @@ namespace RSMPS
 
                         moDrwLog.Save_Update();
                     }
-
-
-
-
+                    
                 }
 
 
@@ -539,78 +473,45 @@ namespace RSMPS
             }
 
 
-
-
-
             private int FindIDExists_Test(int indx)
             {
                 int id_Exists;
-             //   CDbDrawingLog moCDbDrawingLogTestID = new CDbDrawingLog();
-              //  id_Exists = moCDbDrawingLogTestID.ID_Test(indx);
-
-
-                
                 id_Exists = dl.ID_Test(indx);
                 return id_Exists;
-            }
-
-
-
-      
+            }   
 
 
             private int LoadScreenToObject_X(int indx, int deptID, int projID, Excel._Worksheet WS)
             {
 
                 moDrwLog = new CBDrawingLog();
-                //    ID = Convert.ToInt32(sheet[indx, 0].Value);
-
+              
                 if (WS.Cells[indx, 1].Text == "")
                     moDrwLog.ID = 0;
                 else
                     moDrwLog.ID = Convert.ToInt32(WS.Cells[indx, 1].Value.ToString());
 
-
-
                 moDrwLog.DepartmentID = Convert.ToInt32(WS.Cells[indx, 2].Value);
                 moDrwLog.DepartmentID = deptID;
-                //moDrwLog.ProjectID = Convert.ToInt32(sheet[indx, 2].Value);
                 moDrwLog.ProjectID = projID;
-                //moDrwLog.ProjectLeadID = Convert.ToInt32(sheet[indx, 3].Value);
                 moDrwLog.ProjectLeadID = Convert.ToInt32(WS.Cells[indx, 4].Value); ;
                 moDrwLog.WBS = WS.Cells[indx, 5].Text;
                 moDrwLog.HGANumber = WS.Cells[indx, 6].Text;
                 moDrwLog.ClientNumber = WS.Cells[indx, 7].Text;
-                // moDrwLog.CADNumber = sheet[indx, 7].Text;
                 moDrwLog.CADNumber = WS.Cells[indx, 8].Text;
-                // moDrwLog.ActCodeID = GetActivityCode();
-
-                //   moDrwLog.ActCodeID = Convert.ToInt32(sheet[indx, 8].Value);
-
-     //           moDrwLog.ActCodeID = Array.IndexOf(listOfAccount, Convert.ToInt32(WS.Cells[indx, 9].Value)); /// **************************     to fetch index of AccountCode
+            
               //  moDrwLog.ActCodeID = Array.IndexOf(AccountCodeID, Convert.ToInt32(WS.Cells[indx, 9].Value)); ///****************11/20
 
+                moDrwLog.ActCodeID = CBActivityCode.GetID_ByActivityCode(Convert.ToInt32(WS.Cells[indx, 9].Value));/// **************************     to fetch index of AccountCode ***11/23
+
+               //moDrwLog.ActCodeID = ((RSLib.COListItem)Convert.ToInt32(WS.Cells[indx, 9].Value).ID;          
 
 
-                moDrwLog.ActCodeID = CBActivityCode.GetID_ByActivityCode(Convert.ToInt32(WS.Cells[indx, 9].Value));
-
-
-
-
-
-
-             //   moDrwLog.ActCodeID = Convert.ToInt32(WS.Cells[indx, 9].Value); //********************************************************************
-
-
-           //     MessageBox.Show("From Sheet....."+WS.Cells[indx, 9].Value + ".....ID...." + moDrwLog.ActCodeID);
-
-
-                //     MessageBox.Show(moDrwLog.ActCodeID.ToString());
+           //     MessageBox.Show("From Sheet....."+WS.Cells[indx, 9].Value + ".....ID...." + moDrwLog.ActCodeID);              
 
 
                 //moDrwLog.IsTask = chkIsTask.Checked;
                 moDrwLog.IsTaskDrwgSpec = Convert.ToInt32(WS.Cells[indx, 10].Value);
-
                 //  moDrwLog.DrawingSizeID = GetDrawingSizeCode();
                 moDrwLog.DrawingSizeID = Convert.ToInt32(WS.Cells[indx, 11].Value);
 
@@ -734,27 +635,19 @@ namespace RSMPS
                 moDrwLog.DateLate = RSLib.COUtility.DEFAULTDATE;
                 // else
                 //  moDrwLog.DateLate = dtpDateLate.Value;
-                //      MessageBox.Show("Loaded" + moDrwLog.ID);
+               
                 return moDrwLog.ID;
-
-
 
             }
             private string ActivityList()
             {
                 
                 SqlDataReader dr;
-
                 string AcctList = "";
                 dr = CBDrawingLog.GetListAcctCodes();
-                int i = 1;
-
-               // string test_Code = "";
-             while (dr.Read())
+                while (dr.Read())
                 {
                    AcctList = AcctList + dr["Code"].ToString() + "," ;
-
-                   i++;
                     
                 }
 
