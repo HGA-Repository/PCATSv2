@@ -1,0 +1,2659 @@
+<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>C1.Win.FlexPivot.4</name>
+  </assembly>
+  <members>
+    <!-- Badly formed XML comment ignored for member "T:C1.DataEngine.ObjectDataReader`1" -->
+    <!-- Badly formed XML comment ignored for member "M:C1.DataEngine.ObjectDataReader`1.Attribute.MakePropertyAccessor``2(System.Reflection.PropertyInfo)" -->
+    <member name="T:C1.DataEngine.NullValue">
+      <summary>
+            An object of this class can be used to control what values to import instead of DBNull values.
+            </summary>
+    </member>
+    <member name="T:C1.DataEngine.Connector">
+      <summary>
+            Base class for ComponentOne DataEngine data connectors.
+            </summary>
+      <remarks>
+            Data connectors are used to fill DataEngine tables with data, import data to DataEngine.
+            </remarks>
+    </member>
+    <member name="M:C1.DataEngine.Connector.GetData(System.String,System.Int64,C1.DataEngine.NullValue)">
+      <summary>
+            Import data to a DataEngine table.
+            </summary>
+      <param name="tableName">The name of the DataEngine table.</param>
+      <param name="count">Optional number of rows to import. If count is 0 (default), import all rows.</param>
+      <param name="nullValue">Optional object specifying what values to import instead of DBNull values.</param>
+    </member>
+    <member name="M:C1.DataEngine.Connector.AppendData(System.String,System.Int64,C1.DataEngine.NullValue)">
+      <summary>
+            Append data to the end of a DataEngine table.
+            </summary>
+      <param name="tableName">The name of the DataEngine table.</param>
+      <param name="count">Optional number of rows to import. If count is 0 (default), import all rows.</param>
+      <param name="nullValue">Optional object specifying what values to import instead of DBNull values.</param>
+    </member>
+    <member name="T:C1.DataEngine.DbConnector">
+      <summary>
+            Connector for importing data to a DataEngine table from a database.
+            </summary>
+    </member>
+    <member name="M:C1.DataEngine.DbConnector.#ctor(System.Data.Common.DbConnection,System.Data.Common.DbCommand)">
+      <summary>
+            Initialize a new instance of the <see cref="T:System.Data.Common.DbConnection" /> class.
+            </summary>
+      <param name="connection">ADO.NET connection object for connecting to the database.</param>
+      <param name="command">ADO.NET command object for retrieving data from the database.</param>
+    </member>
+    <member name="M:C1.DataEngine.DbConnector.GetData(System.Data.DataTable,System.String,System.Int64,C1.DataEngine.NullValue)">
+      <summary>
+            Import data to a DataEngine table from an ADO.NET DataTable.
+            </summary>
+      <param name="table">ADO.NET DataTable to import data from.</param>
+      <param name="tableName">The name of the DataEngine table.</param>
+      <param name="count">Optional number of rows to import. If count is 0 (default), import all rows.</param>
+      <param name="nullValue">Optional object specifying what values to import instead of DBNull values.</param>
+    </member>
+    <member name="P:C1.DataEngine.DbConnector.Command">
+      <summary>
+            Gets or sets the ADO.NET command object for retrieving data from the database.
+            </summary>
+    </member>
+    <member name="T:C1.DataEngine.ObjectConnector`1">
+      <summary>
+            Connector for importing data to a DataEngine table from an arbitrary IEnumerable.
+            </summary>
+      <typeparam name="T">The type of the elements of IEnumerable.</typeparam>
+    </member>
+    <member name="M:C1.DataEngine.ObjectConnector`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+      <summary>
+            Initialize a new instance of the <see cref="!:ObjectDataReader`1&lt;T&gt;" /> class.
+            </summary>
+      <param name="data">Collection to import data from.</param>
+    </member>
+    <member name="M:C1.DataEngine.Workspace.Init(System.String)">
+      <summary>
+            Initializes ComponentOne DataEngine.
+            </summary>
+      <param name="path">Folder where C1.DataEngine data is saved in files.</param>
+      <remarks>
+      </remarks>
+    </member>
+    <member name="M:C1.DataEngine.Workspace.GetTableData(System.String)">
+      <summary>
+            Gets size and enumerator for all data rows in a table.
+            </summary>
+      <param name="tableName">Name of the table to get data from.</param>
+    </member>
+    <member name="M:C1.DataEngine.Workspace.Clear">
+      <summary>
+            Deletes all data and structure information about all tables.
+            </summary>
+      <param name="path">
+      </param>
+      <remarks>This method should be used with caution. It wipes out all C1 DataEngine data from memory and from disk.</remarks>
+    </member>
+    <member name="M:C1.DataEngine.Workspace.Clear(System.String)">
+      <summary>
+            Deletes all table data and structure information about a table.
+            </summary>
+      <param name="tableName">Name of the table to delete.</param>
+      <remarks>This method should be used with caution. It wipes out all data and information about the table, including from disk. It can be used creating a new table to ensure that it did not exist before.</remarks>
+    </member>
+    <member name="M:C1.DataEngine.Workspace.BeginUpdate">
+      <summary>
+            Indicates that multiple batches of data are being added to one or more tables, so that data consumers can suspend their update until all data changed are complete.
+            </summary>
+      <remarks>
+            Call this method if you want to perform more than one data import with or <see cref="M:C1.DataEngine.Connector.GetData(System.String,System.Int64,C1.DataEngine.NullValue)" /> or <see cref="M:C1.DataEngine.Connector.AppendData(System.String,System.Int64,C1.DataEngine.NullValue)" />.
+            Call <see cref="!:GetData" />  when all data import operations are complete.
+            </remarks>
+      <seealso cref="M:C1.DataEngine.Workspace.EndUpdate" />
+    </member>
+    <member name="M:C1.DataEngine.Workspace.EndUpdate">
+      <summary>
+            Indicates that multiple batches of data changes have been completed.
+            </summary>
+      <seealso cref="M:C1.DataEngine.Workspace.EndUpdate" />
+    </member>
+    <member name="T:C1.FlexPivot.Subtotal">
+      <summary>
+            Specifies the type of subtotal (aggregate) statistic to calculate.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.Subtotal.Sum">
+      <summary>
+            Gets the sum of a group.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.Subtotal.Count">
+      <summary>
+            Gets the number of values in a group.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.Subtotal.Average">
+      <summary>
+            Gets the average of a group.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.Subtotal.Max">
+      <summary>
+            Gets the maximum value in a group.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.Subtotal.Min">
+      <summary>
+            Gets the minimum value in a group.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.Subtotal.First">
+      <summary>
+            Gets the first value in a group.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.Subtotal.Last">
+      <summary>
+            Gets the last value in a group.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.Subtotal.Var">
+      <summary>
+            Gets the sample variance of a group.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.Subtotal.Std">
+      <summary>
+            Gets the sample standard deviation of a group.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.Subtotal.VarP">
+      <summary>
+            Gets the population variance of a group.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.Subtotal.StdP">
+      <summary>
+            Gets the population standard deviation of a group.
+            </summary>
+    </member>
+    <member name="T:C1.FlexPivot.ShowTotals">
+      <summary>
+            Specifies whether to include totals in the output table.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.ShowTotals.None">
+      <summary>
+            Do not show any totals.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.ShowTotals.GrandTotals">
+      <summary>
+            Show grand totals.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.ShowTotals.Subtotals">
+      <summary>
+            Show subtotals and grand totals.
+            </summary>
+    </member>
+    <member name="T:C1.FlexPivot.C1FlexPivotEngine">
+      <summary>
+            Class that tabulates data in a <see cref="P:C1.FlexPivot.C1FlexPivotEngine.DataSource" /> according to lists of 
+            fields and creates a <see cref="T:System.Data.DataTable" /> exposed by the <see cref="P:C1.FlexPivot.C1FlexPivotEngine.FlexPivotTable" /> property.
+            </summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.#ctor">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.FlexPivot.C1FlexPivotEngine" />.
+            </summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.TransposeFields">
+      <summary>
+            Transposes the fields in the current view so rows become columns and
+            columns become rows.
+            </summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetViewTitle">
+      <summary>
+            Gets a string with a title describing the current view.
+            </summary>
+      <returns>A string describing the current view.</returns>
+      <remarks>
+            The string includes the names of the fields currently active and 
+            can be used as a caption for charts and reports.
+            </remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetViewTitle(System.String,System.String)">
+      <summary>
+            Gets a localized string with a title describing the current view.
+            </summary>
+      <param name="by">String to use as a separator between value and row/column field names.</param>
+      <param name="and">String to use as a separator between row and column field names.</param>
+      <returns>A string describing the current view.</returns>
+      <remarks>
+            The string includes the names of the fields currently active and 
+            can be used as a caption for charts and reports.
+            </remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.BeginUpdate">
+      <summary>
+            Suspend automatic updates to the output table while defining the FlexPivot view.
+            </summary>
+      <remarks>
+            The <see cref="T:C1.FlexPivot.C1FlexPivotEngine" /> updates the output table whenever the 
+            fields that make up the FlexPivot view change. 
+            Before making multiple changes (such as defining a new FlexPivot view), 
+            you can increase performance by enclosing the changes between calls to
+            <see cref="M:C1.FlexPivot.C1FlexPivotEngine.BeginUpdate" /> and <see cref="M:C1.FlexPivot.C1FlexPivotEngine.EndUpdate" />.
+            </remarks>
+      <example>
+            The code below shows how to define a new FlexPivot view efficiently by 
+            enclosing the changes between calls to <see cref="M:C1.FlexPivot.C1FlexPivotEngine.BeginUpdate" /> and 
+            <see cref="M:C1.FlexPivot.C1FlexPivotEngine.EndUpdate" />.
+            <code>
+            // set data source (populates Fields list)
+            fp.DataSource = GetDataTable();
+            
+            // prevent updates while building FlexPivot view
+            fp.BeginUpdate();
+            
+            // show countries in rows
+            fp.RowFields.Add("Country");
+            
+            // show categories and products in columns
+            fp.ColumnFields.Add("Category");
+            fp.ColumnFields.Add("Product");
+            
+            // show total sales in cells
+            fp.ValueFields.Add("Sales");
+            
+            // done defining the view
+            fp.EndUpdate();
+            </code></example>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.EndUpdate">
+      <summary>
+            Restore automatic updates to the output table after the FlexPivot view has been defined.
+            </summary>
+      <example>
+            For a complete example, please refer to the <see cref="M:C1.FlexPivot.C1FlexPivotEngine.BeginUpdate" /> method documentation.
+            </example>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.OnUpdating(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.FlexPivot.C1FlexPivotEngine.Updating" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.OnUpdated(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.FlexPivot.C1FlexPivotEngine.Updated" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.OnLoadedFields(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.FlexPivot.C1FlexPivotEngine.LoadedFields" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.Update">
+      <summary>
+            Causes the <see cref="T:C1.FlexPivot.C1FlexPivotEngine" /> to rebuild the output
+            table exposed by the <see cref="P:C1.FlexPivot.C1FlexPivotEngine.FlexPivotTable" /> property.
+            </summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.Dispose">
+      <summary> 
+            Clean up any resources being used.
+            </summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetFlexPivotKey(System.Data.DataColumn)">
+      <summary>
+            Gets the <see cref="T:C1.FlexPivot.C1FlexPivotKey" /> associated with a <see cref="T:System.Data.DataColumn" />
+            on a FlexPivot table.
+            </summary>
+      <param name="column">
+        <see cref="T:System.Data.DataColumn" /> for which the key should be retrieved.</param>
+      <returns>The <see cref="T:C1.FlexPivot.C1FlexPivotKey" /> associated with the <paramref name="column" />.</returns>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetFlexPivotKey(System.Data.DataRow)">
+      <summary>
+            Gets the <see cref="T:C1.FlexPivot.C1FlexPivotKey" /> associated with a <see cref="T:System.Data.DataRow" />
+            on a FlexPivot table.
+            </summary>
+      <param name="row">
+        <see cref="T:System.Data.DataRow" /> for which the key should be retrieved.</param>
+      <returns>The <see cref="T:C1.FlexPivot.C1FlexPivotKey" /> associated with the <paramref name="row" />.</returns>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetDetail(System.Data.DataRow,System.Data.DataColumn)">
+      <summary>
+            Gets a list of objects in the raw data source that define the content 
+            of a specific cell in the output table exposed by the <see cref="P:C1.FlexPivot.C1FlexPivotEngine.FlexPivotTable" /> 
+            property.
+            </summary>
+      <param name="row">
+        <see cref="T:System.Data.DataRow" /> that contains the FlexPivot cell.</param>
+      <param name="column">
+        <see cref="T:System.Data.DataColumn" /> that contains the FlexPivot cell.</param>
+      <returns>A list of objects in the raw data source that define the
+            content of the specified FlexPivot cell.</returns>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.GetDetail(System.Data.DataRow,System.String)">
+      <summary>
+            Gets a list of objects in the raw data source that define the content 
+            of a specific cell in the output table exposed by the <see cref="P:C1.FlexPivot.C1FlexPivotEngine.FlexPivotTable" /> 
+            property.
+            </summary>
+      <param name="row">
+        <see cref="T:System.Data.DataRow" /> that contains the FlexPivot cell.</param>
+      <param name="columnName">Name of the column that contains the FlexPivot cell.</param>
+      <returns>A list of objects in the raw data source that define the
+            content of the specified FlexPivot cell.</returns>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.CancelUpdate">
+      <summary>
+            Requests cancellation of a pending request operation.
+            </summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.WriteXml(System.Xml.XmlWriter)">
+      <summary>
+            Saves the current FlexPivot view definition into an <see cref="T:System.Xml.XmlWriter" />.
+            </summary>
+      <param name="xw">
+        <see cref="T:System.Xml.XmlWriter" /> where the view definition will be saved.</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.WriteXml(System.String)">
+      <summary>
+            Saves the current FlexPivot view definition into an Xml file.
+            </summary>
+      <param name="path">Name of the file to save.</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.ReadXml(System.Xml.XmlReader)">
+      <summary>
+            Reads an FlexPivot view definition from an <see cref="T:System.Xml.XmlReader" />.
+            </summary>
+      <param name="xr">
+        <see cref="T:System.Xml.XmlReader" /> that contains the view definition.</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.ReadXml(System.String)">
+      <summary>
+            Reads an FlexPivot view definition from a file.
+            </summary>
+      <param name="path">Name of the file that contains the view definition.</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotEngine.OnStartUpdating(System.EventArgs)">
+      <summary>
+      </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.DataSource">
+      <summary>
+            Gets or sets the object that contains data to be analyzed.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.Fields">
+      <summary>
+            Gets the list of <see cref="T:C1.FlexPivot.C1FlexPivotField" /> objects exposed by 
+            the data source.
+            </summary>
+      <remarks>
+        <para>This list is created automatically whenever the <see cref="P:C1.FlexPivot.C1FlexPivotEngine.DataSource" />
+            property is set.</para>
+        <para>FlexPivot views are defined by copying fields from this list to
+            the lists that define the view: <see cref="P:C1.FlexPivot.C1FlexPivotEngine.ValueFields" />, <see cref="P:C1.FlexPivot.C1FlexPivotEngine.RowFields" />,
+            <see cref="P:C1.FlexPivot.C1FlexPivotEngine.ColumnFields" />, and <see cref="P:C1.FlexPivot.C1FlexPivotEngine.FilterFields" />.</para>
+      </remarks>
+      <example>
+            The code below assigns a data source to the FlexPivot engine and then defines
+            a view by adding fields to each of the <see cref="P:C1.FlexPivot.C1FlexPivotEngine.RowFields" />, 
+            <see cref="P:C1.FlexPivot.C1FlexPivotEngine.ColumnFields" />, and <see cref="P:C1.FlexPivot.C1FlexPivotEngine.ValueFields" /> lists.
+            <code>
+            // set data source (populates Fields list)
+            fp.DataSource = GetDataTable();
+            
+            // prevent updates while building FlexPivot view
+            fp.BeginUpdate();
+            
+            // show countries in rows
+            fp.RowFields.Add("Country");
+            
+            // show categories and products in columns
+            fp.ColumnFields.Add("Category");
+            fp.ColumnFields.Add("Product");
+            
+            // show total sales in cells
+            fp.ValueFields.Add("Sales");
+            
+            // done defining the view
+            fp.EndUpdate();
+            </code></example>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.RowFields">
+      <summary>
+            Gets a list of <see cref="T:C1.FlexPivot.C1FlexPivotField" /> objects that define
+            the fields shown as rows in the output table.
+            </summary>
+      <remarks>
+            See the <see cref="P:C1.FlexPivot.C1FlexPivotEngine.Fields" /> property for details and an example.
+            </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.ColumnFields">
+      <summary>
+            Gets a list of <see cref="T:C1.FlexPivot.C1FlexPivotField" /> objects that define
+            the fields shown as columns in the output table.
+            </summary>
+      <remarks>
+            See the <see cref="P:C1.FlexPivot.C1FlexPivotEngine.Fields" /> property for details and an example.
+            </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.ValueFields">
+      <summary>
+            Gets a list of <see cref="T:C1.FlexPivot.C1FlexPivotField" /> objects that define
+            the fields summarized in the cells of the output table.
+            </summary>
+      <remarks>
+            See the <see cref="P:C1.FlexPivot.C1FlexPivotEngine.Fields" /> property for details and an example.
+            </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.ValueField">
+      <summary>
+            Gets the first <see cref="T:C1.FlexPivot.C1FlexPivotField" /> in the <see cref="P:C1.FlexPivot.C1FlexPivotEngine.ValueFields" />
+            collection, or null if the collection is empty.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.FilterFields">
+      <summary>
+            Gets a list of <see cref="T:C1.FlexPivot.C1FlexPivotField" /> objects that define
+            the fields used as filters for the output table.
+            </summary>
+      <remarks>
+        <para>Fields in this list do not appear in the output table,
+            but are still used for filtering the input data.</para>
+        <para>See the <see cref="P:C1.FlexPivot.C1FlexPivotEngine.Fields" /> property for details and an example.</para>
+      </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.IsViewDefined">
+      <summary>
+            Gets a value that determines whether an FlexPivot view is currently defined.
+            </summary>
+      <remarks>
+            An FlexPivot view is defined if the <see cref="P:C1.FlexPivot.C1FlexPivotEngine.ValueFields" /> list is not
+            empty and either the <see cref="P:C1.FlexPivot.C1FlexPivotEngine.RowFields" /> or <see cref="P:C1.FlexPivot.C1FlexPivotEngine.ColumnFields" />
+            lists are not empty.
+            </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.ShowTotalsRows">
+      <summary>
+            Gets or sets a value that determines whether the FlexPivot output table
+            should include rows containing subtotals or grand totals.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.ShowTotalsColumns">
+      <summary>
+            Gets or sets a value that determines whether the FlexPivot output table
+            should include columns containing subtotals or grand totals.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.ShowKeyColumns">
+      <summary>
+            Gets or sets a value that determines whether the FlexPivot output table
+            should include columns containing the row keys.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.ShowZeros">
+      <summary>
+            Gets or sets a value that determines whether the FlexPivot output table
+            should use zeros to indicate missing values.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.FlexPivotTable">
+      <summary>
+            Gets the <see cref="T:System.Data.DataTable" /> that contains the output of
+            the FlexPivot analysis.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.FlexPivotDefaultView">
+      <summary>
+            Gets the default <see cref="T:System.ComponentModel.IBindingList" /> that exposes the data 
+            in the <see cref="P:C1.FlexPivot.C1FlexPivotEngine.FlexPivotTable" />.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.ItemCount">
+      <summary>
+            Gets the number of elements that in the data source.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.FilteredItemCount">
+      <summary>
+            Gets the number of elements that are represented in the current view.
+            </summary>
+      <remarks>
+            If no filters are active, this is the number of elements in the data source.
+            If filters are active, only elements that pass the filter are included in
+            the count.
+            </remarks>
+    </member>
+    <member name="E:C1.FlexPivot.C1FlexPivotEngine.Updating">
+      <summary>
+            Fires before the <see cref="T:C1.FlexPivot.C1FlexPivotEngine" /> starts updating 
+            the output <see cref="P:C1.FlexPivot.C1FlexPivotEngine.FlexPivotTable" />.
+            </summary>
+    </member>
+    <member name="E:C1.FlexPivot.C1FlexPivotEngine.Updated">
+      <summary>
+            Fires after the <see cref="T:C1.FlexPivot.C1FlexPivotEngine" /> finishes the FlexPivot analysis 
+            and the output <see cref="P:C1.FlexPivot.C1FlexPivotEngine.FlexPivotTable" /> is ready.
+            </summary>
+    </member>
+    <member name="E:C1.FlexPivot.C1FlexPivotEngine.LoadedFields">
+      <summary>
+            Fires after the <see cref="T:C1.FlexPivot.C1FlexPivotEngine" /> finishes loading the fields for
+            the current DataSource.
+            </summary>
+    </member>
+    <member name="E:C1.FlexPivot.C1FlexPivotEngine.UpdateProgressChanged">
+      <summary>
+            Fires when the update progress of the <see cref="T:C1.FlexPivot.C1FlexPivotEngine" /> is changed.
+            </summary>
+    </member>
+    <member name="E:C1.FlexPivot.C1FlexPivotEngine.UpdateCompleted">
+      <summary>
+            Fires after the update of the <see cref="T:C1.FlexPivot.C1FlexPivotEngine" /> is finished.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotEngine.ViewDefinition">
+      <summary>
+            Gets or sets the FlexPivot view definition as an Xml string.
+            </summary>
+      <remarks>
+            This property is typically used to persist the current FlexPivot
+            view as an application setting.
+            </remarks>
+      <example>
+        <para>The code below shows how to save an FlexPivot view as an 
+            application setting when the application ends and how to 
+            load it when the application starts.</para>
+        <para>The code assumes that the application settings contain a 
+            string property called "FlexPivotView".</para>
+        <code>
+            public Form1()
+            {
+              InitializeComponent();
+            
+              // load default view
+              C1FlexPivotEngine fp = GetFlexPivotEngine();
+              string view = Properties.Settings.Default.FlexPivotView;
+              if (!string.IsNullOrEmpty(view))
+              {
+                fp.ViewDefinition = Properties.Settings.Default.FlexPivotView;
+              }
+            }
+            protected override void OnClosed(EventArgs e)
+            {
+              // save current view as default
+              C1FlexPivotEngine fp = GetFlexPivotEngine();
+              Properties.Settings.Default.FlexPivotView = fp.ViewDefinition;
+              Properties.Settings.Default.Save();
+            }
+            </code>
+      </example>
+    </member>
+    <member name="E:C1.FlexPivot.C1FlexPivotEngine.StartUpdating">
+      <summary>
+      </summary>
+    </member>
+    <member name="T:C1.FlexPivot.C1FlexPivotField">
+      <summary>
+            Represents a property of the items in the data source.
+            </summary>
+      <remarks>
+        <para>
+          <see cref="T:C1.FlexPivot.C1FlexPivotField" /> objects represent 'dimensions' in 
+            the output FlexPivot table.</para>
+        <para>Each row and column on the output table is uniquely identified 
+            by a <see cref="T:C1.FlexPivot.C1FlexPivotKey" /> object. These objects contain a list
+            of <see cref="T:C1.FlexPivot.C1FlexPivotField" /> objects and specific values.</para>
+      </remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotField.GetUniqueValues">
+      <summary>
+            Gets a list of unique values found in the data source for this field.
+            </summary>
+      <returns>A list of unique values found in the data source for this field.</returns>
+      <remarks>
+            This list is updated whenever the <see cref="P:C1.FlexPivot.C1FlexPivotField.FlexPivotEngine" /> traverses
+            the data to build the output table. Calling this method before the engine
+            builds the output table returns an empty collection.
+            </remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotField.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.FlexPivot.C1FlexPivotField.PropertyChanged" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:System.ComponentModel.PropertyChangedEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotField.WriteXml(System.Xml.XmlWriter)">
+      <summary>
+            Saves the field into an <see cref="T:System.Xml.XmlWriter" />.
+            </summary>
+      <param name="xw">
+        <see cref="T:System.Xml.XmlWriter" /> where the field will be saved.</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotField.ReadXml(System.Xml.XmlReader)">
+      <summary>
+            Reads the field from an <see cref="T:System.Xml.XmlReader" />.
+            </summary>
+      <param name="xr">
+        <see cref="T:System.Xml.XmlReader" /> that contains the field information.</param>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.Name">
+      <summary>
+            Gets the name of the field source column.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.Caption">
+      <summary>
+            Gets or sets a string to be displayed in the user interface.
+            </summary>
+      <remarks>
+            If this property is set to null or to an empty string, the <see cref="P:C1.FlexPivot.C1FlexPivotField.Name" />
+            property will be used instead.
+            </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.Width">
+      <summary>
+            Gets or sets the preferred width to be used for showing the field in the user interface.
+            </summary>
+      <remarks>
+            Setting this property to zero or to a negative value disables it. Setting it
+            to a positive value causes any bound grid controls to use the value when 
+            setting column widths.
+            </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.Type">
+      <summary>
+            Gets the type of the field source column.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.Subtotal">
+      <summary>
+            Gets or sets the type of subtotal to use when combining field values.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.WeightField">
+      <summary>
+            Gets or sets the <see cref="T:C1.FlexPivot.C1FlexPivotField" /> used as a weight for calculating
+            subtotals on this field.
+            </summary>
+      <remarks>
+        <para>If this property is set to null, all values are assumed to have weight one.</para>
+        <para>This property allows you to calculate weighted averages and totals. 
+            For example, if the data contains a 'Quantity' field and a 'Price' field,
+            you could use the 'Price' field as a value field and the 'Quantity' field as
+            a weight. The output would contain a weighted average of the data.</para>
+      </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.Format">
+      <summary>
+            Gets or sets the format to use when displaying field values.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.Style">
+      <summary>
+            Gets the <see cref="T:C1.FlexPivot.C1FlexPivotFieldStyle" /> used to display the field values on the grid.
+            </summary>
+      <remarks>
+        <para>This property allows you to assign style properties to a specific <see cref="T:C1.FlexPivot.C1FlexPivotField" />,
+            customizing the way the field values are displayed to the user.</para>
+        <para>Customizing the appearance of a field can be useful in views that contain
+            multiple value fields.</para>
+        <para>For example, the code below creates a view with two value fields and gives one
+            of the fields a green background:</para>
+        <code>
+            // create view
+            var fp = this.c1FlexPivotPage1.FlexPivotEngine;
+            fp.RowFields.Add("ProductName");
+            fp.ColumnFields.Add("Country");
+            fp.ValueFields.MaxItems = 2;
+            fp.ValueFields.Add("ExtendedPrice", "Freight");
+            
+            // give the "ExtendedPrice" field a green background
+            var f = fp.Fields["ExtendedPrice"];
+            f.Style.BackColor = Color.FromArgb(240, 255, 240);
+            </code>
+        <para>You can also create conditional styles using the <see cref="P:C1.FlexPivot.C1FlexPivotField.StyleHigh" />
+            and <see cref="P:C1.FlexPivot.C1FlexPivotField.StyleLow" /> properties.</para>
+      </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.StyleHigh">
+      <summary>
+            Gets the <see cref="T:C1.FlexPivot.C1FlexPivotConditionalFieldStyle" /> used to display high values.
+            </summary>
+      <remarks>
+        <para>This property allows you to apply conditional formatting to a field, making
+            certain values stand out when displayed on to the user.</para>
+        <para>For example, the code below shows values in the top 10% range in bold
+            with a green background and values in the bottom 10% range in bold with a
+            red background:</para>
+        <code>
+            // apply formatting to all value fields
+            var fp = this.c1FlexPivotPage1.FlexPivotEngine;
+            foreach (var f in fp.ValueFields)
+            {
+              // show top 10% values in green, bold
+              var sh = f.StyleHigh;
+              sh.ConditionType = C1.FlexPivot.ConditionType.Percentage;
+              sh.Value = .9;
+              sh.BackColor = Color.FromArgb(210, 255, 210);
+              sh.FontBold = true;
+              
+              // show bottom 10% values in red, bold
+              var sl = f.StyleLow;
+              sl.ConditionType = C1.FlexPivot.ConditionType.Percentage;
+              sl.Value = .1;
+              sl.BackColor = Color.FromArgb(255, 210, 210);
+              sl.FontBold = true;
+            }
+            </code>
+      </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.StyleLow">
+      <summary>
+            Gets the <see cref="T:C1.FlexPivot.C1FlexPivotConditionalFieldStyle" /> used to display low values.
+            </summary>
+      <remarks>
+        <para>This property allows you to apply conditional formatting to a field, making
+            certain values stand out when displayed to the user.</para>
+        <para>For an example, see the <see cref="P:C1.FlexPivot.C1FlexPivotField.StyleHigh" /> property.</para>
+      </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.Filter">
+      <summary>
+            Gets the filter used to select field values.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.IsActive">
+      <summary>
+            Gets or sets whether this field is active in the FlexPivot view.
+            </summary>
+      <remarks>
+            Setting this property to true causes the field to be added to the
+            <see cref="P:C1.FlexPivot.C1FlexPivotEngine.RowFields" /> list of the parent <see cref="T:C1.FlexPivot.C1FlexPivotEngine" />.
+            </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.FlexPivotEngine">
+      <summary>
+            Gets the <see cref="T:C1.FlexPivot.C1FlexPivotEngine" /> that owns this field.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotField.ParentList">
+      <summary>
+            Gets the <see cref="T:C1.FlexPivot.C1FlexPivotFieldList" /> that contains this field.
+            </summary>
+    </member>
+    <!-- Badly formed XML comment ignored for member "P:C1.FlexPivot.C1FlexPivotField.Lookup" -->
+    <member name="E:C1.FlexPivot.C1FlexPivotField.PropertyChanged">
+      <summary>
+            Fires when a property changes.
+            </summary>
+    </member>
+    <member name="T:C1.FlexPivot.C1FlexPivotFieldList">
+      <summary>
+            Represents a list of <see cref="T:C1.FlexPivot.C1FlexPivotField" /> objects.
+            </summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldList.Add(System.String[])">
+      <summary>
+            Adds an existing <see cref="T:C1.FlexPivot.C1FlexPivotField" /> to the list.
+            </summary>
+      <param name="fieldNames">One or more field names to add to the list.</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldList.Insert(System.Int32,System.String)">
+      <summary>
+            Inserts a <see cref="T:C1.FlexPivot.C1FlexPivotField" /> at a specified position in the list.
+            </summary>
+      <param name="index">Position where the field will be inserted.</param>
+      <param name="fieldName">Name of the existing <see cref="T:C1.FlexPivot.C1FlexPivotField" />,</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldList.IndexOf(System.String)">
+      <summary>
+            Gets the position of a given <see cref="T:C1.FlexPivot.C1FlexPivotField" /> in the list.
+            </summary>
+      <param name="fieldName">Name of the field to look for.</param>
+      <returns>The index of the field in the list, or -1 if the field is
+            not a member of the list.</returns>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldList.InsertItem(System.Int32,C1.FlexPivot.C1FlexPivotField)">
+      <summary>
+            Inserts an <see cref="T:C1.FlexPivot.C1FlexPivotField" /> at a specified position in the list.
+            </summary>
+      <param name="index">Position where the field will be inserted.</param>
+      <param name="item">
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" /> to add to the list.</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldList.Remove(System.String)">
+      <summary>
+            Removes the first occurrence of the <see cref="T:C1.FlexPivot.C1FlexPivotField" /> with a name that matches
+            the one passed as parameter.
+            </summary>
+      <param name="fieldName">Name of the <see cref="T:C1.FlexPivot.C1FlexPivotField" /> to remove</param>
+      <returns>true if item is successfully removed; otherwise, false. This method also
+            returns false if item was not found in the list.</returns>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldList.RemoveItem(System.Int32)">
+      <summary>
+            Removes an item from the list.
+            </summary>
+      <param name="index">Index of the item to remove from the list.</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldList.ClearItems">
+      <summary>
+            Removes all items from the list.
+            </summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldList.SetItem(System.Int32,C1.FlexPivot.C1FlexPivotField)">
+      <summary>
+            Replaces the item at a specified position.
+            </summary>
+      <param name="index">Index of the item to replace.</param>
+      <param name="item">New value for the item at the specified index.</param>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFieldList.MaxItems">
+      <summary>
+            Gets or sets the maximum number of fields allowed in this list.
+            </summary>
+      <remarks>
+            Negative values mean the list can have any number of items.
+            </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFieldList.Item(System.String)">
+      <summary>
+            Gets a <see cref="T:C1.FlexPivot.C1FlexPivotField" /> by name.
+            </summary>
+      <param name="fieldName">Name of the field to retrieve.</param>
+      <returns>The requested <see cref="T:C1.FlexPivot.C1FlexPivotField" />.</returns>
+      <remarks>
+            If the list does not contain a field with the specified name,
+            an exception is thrown.
+            </remarks>
+    </member>
+    <member name="T:C1.FlexPivot.C1FlexPivotFieldStyle">
+      <summary>
+            Style used to display field values to the user.
+            </summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldStyle.Clear">
+      <summary>
+            Clears this style.
+            </summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldStyle.WriteXml(System.Xml.XmlWriter,System.String)">
+      <summary>
+            Saves the style into an <see cref="T:System.Xml.XmlWriter" />.
+            </summary>
+      <param name="xw">
+        <see cref="T:System.Xml.XmlWriter" /> where the style will be saved.</param>
+      <param name="styleName">
+        <see cref="T:System.Xml.XmlWriter" /> name of the style to be saved.</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldStyle.ReadXml(System.Xml.XmlReader)">
+      <summary>
+            Reads the style from an <see cref="T:System.Xml.XmlReader" />.
+            </summary>
+      <param name="xr">
+        <see cref="T:System.Xml.XmlReader" /> that contains the style information.</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldStyle.OnPropertyChanged">
+      <summary>
+            Notifies the parent field that the style has changed.
+            </summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldStyle.SaveAttributes(System.Xml.XmlWriter)">
+      <summary>
+            Saves the style properties to an <see cref="T:System.Xml.XmlWriter" />.
+            </summary>
+      <param name="xw">
+        <see cref="T:System.Xml.XmlWriter" /> where the style properties will be saved.</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFieldStyle.LoadAttributes(System.Xml.XmlReader)">
+      <summary>
+            Loads the style properties from an <see cref="T:System.Xml.XmlReader" />.
+            </summary>
+      <param name="xr">
+        <see cref="T:System.Xml.XmlReader" /> that contains the style properties.</param>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFieldStyle.BackColor">
+      <summary>
+            Gets or sets the color used to paint the background of cells in this field.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFieldStyle.ForeColor">
+      <summary>
+            Gets or sets the color used to paint the content of cells in this field.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFieldStyle.FontBold">
+      <summary>
+            Gets or sets a value that determines whether cells in this field should be shown in bold.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFieldStyle.Field">
+      <summary>
+            Gets the <see cref="T:C1.FlexPivot.C1FlexPivotField" /> that owns this style.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFieldStyle.IsEmpty">
+      <summary>
+            Gets a value that indicates whether this style is empty.
+            </summary>
+    </member>
+    <member name="T:C1.FlexPivot.ConditionType">
+      <summary>
+            Specifies the type of comparison to be used when applying a
+            <see cref="T:C1.FlexPivot.C1FlexPivotConditionalFieldStyle" />.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionType.NotSet">
+      <summary>
+            Disable conditional formatting for this style.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionType.Absolute">
+      <summary>
+            Compare field values to the specified absolute value.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionType.Percentage">
+      <summary>
+            Compare field values to the specified value as a percentage.
+            </summary>
+    </member>
+    <member name="T:C1.FlexPivot.C1FlexPivotConditionalFieldStyle">
+      <summary>
+            Conditional style applied to cells depending on their value.
+            </summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotConditionalFieldStyle.AppliesTo(System.Double,System.Double,System.Double)">
+      <summary>
+             Determines whether this style should be applied to a given value.
+            </summary>
+      <param name="value">Value to test for.</param>
+      <param name="min">Lower value of the value range to use with conditional formatting.</param>
+      <param name="max">Upper value of the value range to use with conditional formatting.</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotConditionalFieldStyle.SaveAttributes(System.Xml.XmlWriter)">
+      <summary>
+            Saves the style properties to an <see cref="T:System.Xml.XmlWriter" />.
+            </summary>
+      <param name="xw">
+        <see cref="T:System.Xml.XmlWriter" /> where the style properties will be saved.</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotConditionalFieldStyle.LoadAttributes(System.Xml.XmlReader)">
+      <summary>
+            Reads the style from an <see cref="T:System.Xml.XmlReader" />.
+            </summary>
+      <param name="xr">
+        <see cref="T:System.Xml.XmlReader" /> that contains the style information.</param>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotConditionalFieldStyle.ConditionType">
+      <summary>
+            Gets or sets the condition that determines whether this style should be applied.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotConditionalFieldStyle.Value">
+      <summary>
+            Gets or sets the threshold that determines whether this style should be applied.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotConditionalFieldStyle.IsEmpty">
+      <summary>
+            Gets a value that indicates whether this style is empty.
+            </summary>
+    </member>
+    <member name="T:C1.FlexPivot.ConditionOperator">
+      <summary>
+            Represents operators that can be used in filter conditions.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionOperator.None">
+      <summary>
+            Disables the operator.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionOperator.Equals">
+      <summary>
+            Return true if the value equals the operator parameter.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionOperator.NotEquals">
+      <summary>
+            Return true if the value does not equal the operator parameter.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionOperator.GreaterThan">
+      <summary>
+            Return true if the value is greater than the operator parameter.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionOperator.LessThan">
+      <summary>
+            Return true if the value is less than the operator parameter.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionOperator.GreaterThanOrEqualTo">
+      <summary>
+            Return true if the value is greater than or equal to the operator parameter.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionOperator.LessThanOrEqualTo">
+      <summary>
+            Return true if the value is less than or equal to the operator parameter.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionOperator.Contains">
+      <summary>
+            Return true if the string representation of the value contains the operator parameter.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionOperator.DoesNotContain">
+      <summary>
+            Return true if the string representation of the value does not contain the operator parameter.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionOperator.BeginsWith">
+      <summary>
+            Return true if the string representation of the value begins with the operator parameter.
+            </summary>
+    </member>
+    <member name="F:C1.FlexPivot.ConditionOperator.EndsWith">
+      <summary>
+            Return true if the string representation of the value ends with the operator parameter.
+            </summary>
+    </member>
+    <member name="T:C1.FlexPivot.C1FlexPivotFilter">
+      <summary>
+            Represents a filter used to select values for a field.
+            </summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFilter.#ctor(C1.FlexPivot.C1FlexPivotField)">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.FlexPivot.C1FlexPivotFilter" />.
+            </summary>
+      <param name="field">
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" /> that owns the new filter.</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFilter.Apply(System.Object)">
+      <summary>
+            Applies the filter to a value.
+            </summary>
+      <param name="value">Value to test.</param>
+      <returns>True if the values passes through the filter, false otherwise.</returns>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFilter.Clear">
+      <summary>
+            Clears the filter.
+            </summary>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFilter.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.FlexPivot.C1FlexPivotFilter.PropertyChanged" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:System.ComponentModel.PropertyChangedEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFilter.WriteXml(System.Xml.XmlWriter)">
+      <summary>
+            Persist filter to Xml.
+            </summary>
+      <param name="xw">
+        <see cref="T:System.Xml.XmlWriter" /> where the filter will be saved.</param>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotFilter.ReadXml(System.Xml.XmlReader)">
+      <summary>
+            Reads a filter from Xml.
+            </summary>
+      <param name="xr">
+        <see cref="T:System.Xml.XmlReader" /> that contains the filter definition.</param>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFilter.Field">
+      <summary>
+            Gets the field that this filter is acting on.
+            </summary>
+    </member>
+    <member name="E:C1.FlexPivot.C1FlexPivotFilter.PropertyChanged">
+      <summary>
+            Fires when a property changes.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFilter.Condition1">
+      <summary>
+            Gets the first filter condition.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFilter.Condition2">
+      <summary>
+            Gets the second filter condition.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFilter.AndConditions">
+      <summary>
+            Gets or sets whether the filter conditions should be combined
+            with an 'And' or with an 'Or' operator.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFilter.IsCustomFilterActive">
+      <summary>
+            Gets a value that indicates the custom filter is active.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFilter.IsActive">
+      <summary>
+            Gets a value that indicates the filter is active.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFilter.ShowValues">
+      <summary>
+            Gets or sets an array with the values that should be included in the output.
+            </summary>
+      <remarks>
+            Setting this property to null causes the filter to include all values in the output.
+            </remarks>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotFilter.Values">
+      <summary>
+            Gets or sets the list of values to be displayed in the value filter list editor.
+            </summary>
+      <remarks>
+            Setting this property to null causes the filter build the value list automatically
+            using the values present in the data source.
+            </remarks>
+    </member>
+    <member name="T:C1.FlexPivot.FilterCondition">
+      <summary>
+            Represents a condition within a <see cref="T:C1.FlexPivot.C1FlexPivotFilter" />.
+            </summary>
+      <remarks>
+            Each <see cref="T:C1.FlexPivot.C1FlexPivotFilter" /> contains up to two conditions that
+            can be combined with 'And' or 'Or' operators.
+            </remarks>
+    </member>
+    <member name="M:C1.FlexPivot.FilterCondition.Clear">
+      <summary>
+            Clears this condition by setting the <see cref="P:C1.FlexPivot.FilterCondition.Operator" /> to 'None' 
+            and the <see cref="P:C1.FlexPivot.FilterCondition.Parameter" /> to null.
+            </summary>
+    </member>
+    <member name="M:C1.FlexPivot.FilterCondition.Apply(System.Object)">
+      <summary>
+            Applies the condition to a given value.
+            </summary>
+      <param name="value">Value to test.</param>
+      <returns>True if the value satisfies the condition, false otherwise.</returns>
+    </member>
+    <member name="M:C1.FlexPivot.FilterCondition.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.FlexPivot.FilterCondition.PropertyChanged" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:System.ComponentModel.PropertyChangedEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="P:C1.FlexPivot.FilterCondition.IsActive">
+      <summary>
+            Gets a value that indicates whether the condition is active.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.FilterCondition.Operator">
+      <summary>
+            Gets or sets the operator used by this condition.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.FilterCondition.Parameter">
+      <summary>
+            Gets or sets the parameter used by this condition.
+            </summary>
+    </member>
+    <member name="E:C1.FlexPivot.FilterCondition.PropertyChanged">
+      <summary>
+            Fires when a property changes.
+            </summary>
+    </member>
+    <member name="T:C1.FlexPivot.C1FlexPivotKey">
+      <summary>
+            Represents a combination of <see cref="T:C1.FlexPivot.C1FlexPivotField" /> objects and their values.
+            </summary>
+      <remarks>
+        <para>Each row and column on the output FlexPivot table is defined by a unique
+            <see cref="T:C1.FlexPivot.C1FlexPivotKey" />. The values in the table cells represent an aggregation
+            of the value field for all items that match the row and column keys.</para>
+        <para>For example, if a column key is set to 'Country:UK;Customer:Joe' and 
+            the row key is set to 'Category:Desserts;Product:Pie', then the corresponding 
+            cell contains the aggregate for all items with the following properties:
+            'Country:UK;Customer:Joe;Category:Desserts;Product:Pie'.</para>
+      </remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotKey.GetFormattedValue(System.Int32)">
+      <summary>
+            Gets a formatted value from the <see cref="P:C1.FlexPivot.C1FlexPivotKey.Values" /> array.
+            </summary>
+      <param name="index">Index of the field whose value should be retrieved.</param>
+      <returns>The formatted value for the given index.</returns>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotKey.GetFormattedValue(System.Int32,System.Object)">
+      <summary>
+            Gets a formatted value from the <see cref="P:C1.FlexPivot.C1FlexPivotKey.Values" /> array.
+            </summary>
+      <param name="index">Index of the field whose value should be retrieved.</param>
+      <param name="item">Object that provides the unformatted value.</param>
+      <returns>The formatted value for the given index.</returns>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotKey.MatchesItem(System.Object)">
+      <summary>
+            Gets a value that determines whether a given data object matches the
+            content of this <see cref="T:C1.FlexPivot.C1FlexPivotKey" />.
+            </summary>
+      <param name="item">Item that contains the raw data.</param>
+      <returns>True if the <paramref name="item" /> matches this 
+            <see cref="T:C1.FlexPivot.C1FlexPivotKey" />.</returns>
+      <remarks>
+        <para>The match is determined by comparing the formatted values for each
+            <see cref="T:C1.FlexPivot.C1FlexPivotField" /> in the key to the formatted values in the
+            <paramref name="item" />. Therefore, matches may occur even if the raw 
+            values are different.</para>
+      </remarks>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotKey.ToString">
+      <summary>
+            Returns a string that represents this <see cref="T:C1.FlexPivot.C1FlexPivotKey" />.
+            </summary>
+      <returns>A string that represents this <see cref="T:C1.FlexPivot.C1FlexPivotKey" />.</returns>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotKey.GetHashCode">
+      <summary>
+            Serves as a hash function for a <see cref="T:C1.FlexPivot.C1FlexPivotKey" /> object. 
+            </summary>
+      <returns>An integer that serves as a hash function for a <see cref="T:C1.FlexPivot.C1FlexPivotKey" /> object.</returns>
+    </member>
+    <member name="M:C1.FlexPivot.C1FlexPivotKey.Equals(System.Object)">
+      <summary>
+            Returns true if two <see cref="T:C1.FlexPivot.C1FlexPivotKey" /> objects represent the 
+            same set of <see cref="T:C1.FlexPivot.C1FlexPivotField" /> objects and values.
+            </summary>
+      <param name="obj">
+        <see cref="T:C1.FlexPivot.C1FlexPivotKey" /> to compare with this key.</param>
+      <returns>True if both keys represent the same fields and values.</returns>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotKey.Fields">
+      <summary>
+            Gets the list of <see cref="T:C1.FlexPivot.C1FlexPivotField" /> pivot fields associated with this
+            <see cref="T:C1.FlexPivot.C1FlexPivotKey" />.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotKey.Values">
+      <summary>
+            Gets an array of values for the <see cref="T:C1.FlexPivot.C1FlexPivotField" /> pivot fields
+            associated with this <see cref="T:C1.FlexPivot.C1FlexPivotKey" />.
+            </summary>
+    </member>
+    <member name="P:C1.FlexPivot.C1FlexPivotKey.ValueField">
+      <summary>
+            Gets the <see cref="T:C1.FlexPivot.C1FlexPivotField" /> that represents the value field 
+            associated with this <see cref="T:C1.FlexPivot.C1FlexPivotKey" />.
+            </summary>
+    </member>
+    <member name="T:C1.FlexPivot.ValueSet`1">
+      <summary>
+            Represents a collection of unique values of type <b>T</b>.
+            </summary>
+    </member>
+    <member name="M:C1.FlexPivot.ValueSet`1.#ctor">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.FlexPivot.ValueSet`1" />.
+            </summary>
+    </member>
+    <member name="M:C1.FlexPivot.ValueSet`1.#ctor(System.Collections.Generic.IEqualityComparer{`0})">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.FlexPivot.ValueSet`1" />.
+            </summary>
+      <param name="comparer">The comparer to use when comparing keys.</param>
+    </member>
+    <member name="M:C1.FlexPivot.ValueSet`1.Add(`0)">
+      <summary>
+            Adds a value to the collection if not already present.
+            </summary>
+      <param name="value">Value to add to the collection.</param>
+    </member>
+    <member name="M:C1.FlexPivot.ValueSet`1.Contains(`0)">
+      <summary>
+            Determines whether the collection contains a specific value.
+            </summary>
+      <param name="value">Value to look for.</param>
+      <returns>True if the collection contains the value.</returns>
+    </member>
+    <member name="M:C1.FlexPivot.ValueSet`1.Clear">
+      <summary>
+            Removes all objects from the collection.
+            </summary>
+    </member>
+    <member name="M:C1.FlexPivot.ValueSet`1.Sort">
+      <summary>
+            Sorts the elements in the collection.
+            </summary>
+      <remarks>
+            This method assumes the elements support the <see cref="T:System.IComparable" /> interface.
+            </remarks>
+    </member>
+    <member name="M:C1.FlexPivot.ValueSet`1.ToList">
+      <summary>
+            Creates a <see cref="T:System.Collections.Generic.List`1" /> from this collection.
+            </summary>
+      <returns>A <see cref="T:System.Collections.Generic.List`1" /> that contains the objects in this collection.</returns>
+    </member>
+    <member name="M:C1.FlexPivot.ValueSet`1.ToArray">
+      <summary>
+            Creates an array from this collection.
+            </summary>
+      <returns>An array that contains the objects in this collection.</returns>
+    </member>
+    <member name="P:C1.FlexPivot.ValueSet`1.Count">
+      <summary>
+            Gets the number of objects in the collection.
+            </summary>
+    </member>
+    <member name="T:C1.Win.FlexPivot.C1BasePanel">
+      <summary>
+            Base class for <see cref="T:C1.Win.FlexPivot.C1FlexPivotPage" /> and <see cref="T:C1.Win.FlexPivot.C1FlexPivotPanel" />.
+            </summary>
+    </member>
+    <member name="T:C1.Win.FlexPivot.ChartType">
+      <summary>
+            Specifies the type of chart to display.
+            </summary>
+    </member>
+    <member name="F:C1.Win.FlexPivot.ChartType.Bar">
+      <summary>
+            Series are represented by horizontal bars.
+            </summary>
+    </member>
+    <member name="F:C1.Win.FlexPivot.ChartType.Column">
+      <summary>
+            Series are represented by vertical columns.
+            </summary>
+    </member>
+    <member name="F:C1.Win.FlexPivot.ChartType.Area">
+      <summary>
+            Series are represented by filled polygons.
+            </summary>
+    </member>
+    <member name="F:C1.Win.FlexPivot.ChartType.Line">
+      <summary>
+            Series are represented by polygons with symbols at the data points.
+            </summary>
+    </member>
+    <member name="F:C1.Win.FlexPivot.ChartType.Scatter">
+      <summary>
+            Series are represented by groups of symbols.
+            </summary>
+    </member>
+    <member name="T:C1.Win.FlexPivot.ShowLegend">
+      <summary>
+            Specifies whether a legend should be displayed.
+            </summary>
+    </member>
+    <member name="F:C1.Win.FlexPivot.ShowLegend.Automatic">
+      <summary>
+            Show legend if there are two or more series.
+            </summary>
+    </member>
+    <member name="F:C1.Win.FlexPivot.ShowLegend.Always">
+      <summary>
+            Always show legend.
+            </summary>
+    </member>
+    <member name="F:C1.Win.FlexPivot.ShowLegend.Never">
+      <summary>
+            Never show legend.
+            </summary>
+    </member>
+    <member name="T:C1.Win.FlexPivot.C1FlexPivotChart">
+      <summary>
+            Custom chart control for visualizing FlexPivot data.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotChart.#ctor">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.FlexPivot.C1FlexPivotChart" />.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotChart.Update">
+      <summary>
+            Rebuilds the chart even when it is not visible.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotChart.Dispose(System.Boolean)">
+      <summary> 
+            Clean up any resources being used.
+            </summary>
+      <param name="disposing">True if managed resources should be disposed; otherwise, False.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotChart.OnVisibleChanged(System.EventArgs)">
+      <summary>
+            Overridden to update the chart when it becomes visible.
+            </summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> that provides the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotChart.WriteXml(System.String)">
+      <summary>
+            Saves the control settings into an Xml file.
+            </summary>
+      <param name="path">Name of the file to save.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotChart.WriteXml(System.Xml.XmlWriter)">
+      <summary>
+            Saves the control settings into an <see cref="T:System.Xml.XmlWriter" />.
+            </summary>
+      <param name="xw">
+        <see cref="T:System.Xml.XmlWriter" /> where the control settings will be saved.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotChart.ReadXml(System.String)">
+      <summary>
+            Reads the control settings from a file.
+            </summary>
+      <param name="path">Name of the file that contains the control settings.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotChart.ReadXml(System.Xml.XmlReader)">
+      <summary>
+            Reads the control settings from an <see cref="T:System.Xml.XmlReader" />.
+            </summary>
+      <param name="xr">
+        <see cref="T:System.Xml.XmlReader" /> that contains the control settings.</param>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.ChartTitle">
+      <summary>
+            Sets the title of the C1FlexPivotChart.
+            </summary>
+      <remarks>
+            If ChartTitle is not set (or set to null), C1FlexPivotChart will use the title
+            of the current view.
+            </remarks>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.ChartType">
+      <summary>
+            Gets or sets the chart type (Bar, Column, Line, Area, etc).
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.Stacked">
+      <summary>
+            Gets or sets a value that determines whether the series should
+            be stacked or placed side-by-side.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.ShowLegend">
+      <summary>
+            Gets or sets whether the chart includes a legend describing each series.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.ShowTitle">
+      <summary>
+            Gets or sets whether the chart contains a title above the data.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.ShowGridLines">
+      <summary>
+            Gets or sets whether the chart includes gridlines along the X axis.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.ColorGeneration">
+      <summary>
+            Gets or sets the color scheme used for the data series.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.PropBag">
+      <summary>
+            Overridden to modify the default value and attributes.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.ToolTip">
+      <summary>
+            Overridden to modify the default value and attributes.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.BackColor">
+      <summary>
+            Overridden to modify the default value and attributes.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.DataSource">
+      <summary>
+            Gets or sets the <see cref="T:C1.Win.FlexPivot.C1FlexPivotPanel" /> that provides data for this chart.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.MaxSeries">
+      <summary>
+            Gets or sets the maximum number of data series shown in the chart.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.MaxPoints">
+      <summary>
+            Gets or sets the maximum number of points shown in each series.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotChart.ChartTotals">
+      <summary>
+            Gets or sets whether the chart should include only totals.
+            </summary>
+      <remarks>
+        <para>This property allows you to create summary charts that include only the 
+            totals, as opposed to one series for each column in the data source.</para>
+        <para>It is useful when creating views that have so many individual values
+            that the default detailed chart becomes too crowded to be readable.</para>
+      </remarks>
+    </member>
+    <member name="T:C1.Win.FlexPivot.C1FlexPivotGrid">
+      <summary>
+            Custom grid control for visualizing FlexPivot data.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.#ctor">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.FlexPivot.C1FlexPivotGrid" />.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.GetDetail(System.Int32,System.Int32)">
+      <summary>
+            Gets a <see cref="T:System.Data.DataTable" /> containing the raw records represented by an FlexPivot cell.
+            </summary>
+      <param name="row">Index of the row that contains the FlexPivot cell.</param>
+      <param name="col">Index of the column that contains the FlexPivot cell.</param>
+      <returns>A <see cref="T:System.Data.DataTable" /> containing the raw records represented 
+            by the given FlexPivot cell.</returns>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.CollapseAllCols">
+      <summary>
+            Collapse all the columns of subtotal groups.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.CollapseAllRows">
+      <summary>
+            Collapse all the rows of subtotal groups.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.ExpandAllCols">
+      <summary>
+            Expand all the columns of subtotal groups.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.ExpandAllRows">
+      <summary>
+            Expand all the rows of subtotal groups.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.Dispose(System.Boolean)">
+      <summary>
+            Overriden to unsubscribe from FlexPivotPanel events.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.OnOwnerDrawCell(C1.Win.C1FlexGrid.OwnerDrawCellEventArgs)">
+      <summary>
+            Overridden to apply conditional formatting.
+            </summary>
+      <param name="e">
+        <see cref="T:C1.Win.C1FlexGrid.OwnerDrawCellEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.EndInit">
+      <summary>
+            Overridden to create custom styles for subtotals.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.OnDataRefresh(System.ComponentModel.ListChangedEventArgs)">
+      <summary>
+            Overridden to update headers when the grid is sorted.
+            </summary>
+      <param name="e">
+        <see cref="T:System.ComponentModel.ListChangedEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.OnBeforeSort(C1.Win.C1FlexGrid.SortColEventArgs)">
+      <summary>
+            Overridden to provide three-state sorting (up, down, none).
+            </summary>
+      <param name="e">
+        <see cref="T:C1.Win.C1FlexGrid.SortColEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.OnAfterSort(C1.Win.C1FlexGrid.SortColEventArgs)">
+      <summary>
+            Overridden to update row and column headers after sorting.
+            </summary>
+      <param name="e">
+        <see cref="T:C1.Win.C1FlexGrid.SortColEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.OnAfterResizeColumn(C1.Win.C1FlexGrid.RowColEventArgs)">
+      <summary>
+            Overridden to resize all data columns uniformly.
+            </summary>
+      <param name="e">
+        <see cref="T:C1.Win.C1FlexGrid.RowColEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+            Overridden to show cell details when the user right-clicks a cell and to
+            collapse/expand subtotal rows/columns.
+            </summary>
+      <param name="e">
+        <see cref="T:System.Windows.Forms.MouseEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotGrid.OnFontChanged(System.EventArgs)">
+      <summary>
+            Overriden to update Total cells style.
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.DataSource">
+      <summary>
+            Gets or sets the <see cref="T:C1.Win.FlexPivot.C1FlexPivotPanel" /> that provides data for this grid.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.DataMember">
+      <summary>
+            Gets or sets the specific list in a <see cref="P:C1.Win.FlexPivot.C1FlexPivotGrid.DataSource" /> object that should be analyzed.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.ShowDetailOnRightClick">
+      <summary>
+            Gets or sets a value that determines whether the grid should show a popup containing
+            the detail records when the user right-clicks a cell.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.CollapsibleSubtotals">
+      <summary>
+            Gets or sets a value that determines whether the grid should allow users to collapse 
+            and expand subtotal groups.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.SubtotalBackground">
+      <summary>
+            Gets or sets the color used to paint the background of cells that contain totals.
+            </summary>
+      <remarks>
+            Setting this property to <b>Color.Empty</b> (the default value) causes the subtotal
+            background color to change automatically and match the current <see cref="P:C1.Win.FlexPivot.C1FlexPivotGrid.VisualStyle" />.
+            </remarks>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.AllowSorting">
+      <summary>
+            Gets or sets whether the grid can be sorted by clicking the column headers.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.AutoResize">
+      <summary>
+            Overridden to modify the default value and attributes.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.AllowMergingFixed">
+      <summary>
+            Overridden to modify the default value and attributes.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.AllowDragging">
+      <summary>
+            Overridden to modify the default value and attributes.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.AutoSearch">
+      <summary>
+            Overridden to modify the default value and attributes.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.AllowEditing">
+      <summary>
+            Overridden to modify the default value and attributes.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.EditOptions">
+      <summary>
+            Overridden to modify the default value and attributes.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.AutoClipboard">
+      <summary>
+            Overridden to modify the default value and attributes.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.ClipboardCopyMode">
+      <summary>
+            Overridden to modify the default value and attributes.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.AllowAddNew">
+      <summary>
+            Overridden to modify the default value and attributes.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.AllowDelete">
+      <summary>
+            Overridden to modify the default value and attributes.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.AllowFreezing">
+      <summary>
+            Overridden to modify the default value and attributes.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotGrid.VisualStyle">
+      <summary>
+            Overridden to modify the default value.
+            </summary>
+    </member>
+    <member name="T:C1.Win.FlexPivot.C1FlexPivotPage">
+      <summary>
+            Provides a complete user interface for Olap applications.
+            </summary>
+      <remarks>
+        <para>The control contains a <see cref="T:C1.Win.FlexPivot.C1FlexPivotPanel" /> on the left and 
+            a tabbed content area on the right.</para>
+        <para>The <see cref="T:C1.Win.FlexPivot.C1FlexPivotPanel" /> allows users to select and customize
+            the fields that should be included in the Olap analysis.</para>
+        <para>The tabbed content area contains three pages: a <see cref="T:C1.Win.FlexPivot.C1FlexPivotGrid" />
+            and a <see cref="T:C1.Win.FlexPivot.C1FlexPivotChart" /> that show the Olap analysis, and a plain 
+            grid that shows the raw data.</para>
+        <para>The control also provides a customizable <see cref="T:System.Windows.Forms.ToolStrip" /> 
+            with commonly used commands.</para>
+      </remarks>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.#ctor">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.FlexPivot.C1FlexPivotPage" />.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.OnUpdating(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.FlexPivot.C1FlexPivotPage.Updating" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.OnUpdated(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.FlexPivot.C1FlexPivotPage.Updated" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.OnLoadedFields(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.FlexPivot.C1FlexPivotPage.LoadedFields" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.OnViewDefinitionChanged(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.FlexPivot.C1FlexPivotPage.ViewDefinitionChanged" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.OnDataSourceChanged(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.FlexPivot.C1FlexPivotPage.DataSourceChanged" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.OnDataEngineConnectionChanged(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.FlexPivot.C1FlexPivotPage.DataEngineConnectionChanged" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.OnFontChanged(System.EventArgs)">
+      <summary>
+            Overriden to update toolbar and status bar size and font.
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.Dispose(System.Boolean)">
+      <summary> 
+            Clean up any resources being used.
+            </summary>
+      <param name="disposing">True if managed resources should be disposed; otherwise, False.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+      <summary>
+            Overridden to process shortcut keys.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.WriteXml(System.String)">
+      <summary>
+            Saves the control settings into an Xml file.
+            </summary>
+      <param name="path">Name of the file to save.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.WriteXml(System.Xml.XmlWriter)">
+      <summary>
+            Saves the control settings into an <see cref="T:System.Xml.XmlWriter" />.
+            </summary>
+      <param name="xw">
+        <see cref="T:System.Xml.XmlWriter" /> where the control settings will be saved.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.ReadXml(System.String)">
+      <summary>
+            Reads the control settings from a file.
+            </summary>
+      <param name="path">Name of the file that contains the control settings.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPage.ReadXml(System.Xml.XmlReader)">
+      <summary>
+            Reads the control settings from an <see cref="T:System.Xml.XmlReader" />.
+            </summary>
+      <param name="xr">
+        <see cref="T:System.Xml.XmlReader" /> that contains the control settings.</param>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.DataSource">
+      <summary>
+            Gets or sets the object that contains the data to be analyzed.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.DataMember">
+      <summary>
+            Gets or sets the specific list in a <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.DataSource" /> object to be analyzed.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ShowTotalsRows">
+      <summary>
+            Gets or sets a value that determines whether the FlexPivot output table
+            should include rows containing subtotals or grand totals.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ShowTotalsColumns">
+      <summary>
+            Gets or sets a value that determines whether the FlexPivot output table
+            should include columns containing subtotals or grand totals.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ShowZeros">
+      <summary>
+            Gets or sets a value that determines whether the FlexPivot output table
+            should use zeros to indicate missing values or leave the cells empty.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ShowRawData">
+      <summary>
+            Gets or sets a value that determines whether the page should include a
+            tab showing the raw data.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.RawGridLimit">
+      <summary>
+            Gets or sets maximum raw data rows to show when connected to C1 DataEngine.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ShowDetailOnRightClick">
+      <summary>
+            Gets or sets a value that determines whether right-clicking the
+            FlexPivot grid should cause the control to display the raw records 
+            represented by the cell clicked.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.VisualStyle">
+      <summary>
+            Gets or sets a value that determines the appearance of the grid.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ChartType">
+      <summary>
+            Gets or sets the type of chart to create.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.Palette">
+      <summary>
+            Gets or sets the color scheme used for the data series.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ShowTitle">
+      <summary>
+            Gets or sets whether the chart should include a title.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ShowLegend">
+      <summary>
+            Gets or sets whether the chart should include a legend.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ShowGridLines">
+      <summary>
+            Gets or sets whether the chart should include gridlines along the X axis.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.Stacked">
+      <summary>
+            Gets or sets a value that determines whether the series should
+            be stacked or placed side-by-side.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ChartTotals">
+      <summary>
+            Gets or sets a value that determines whether the <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.FlexPivotChart" />
+            should display only totals.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.Document">
+      <summary>
+            Gets the <see cref="T:C1.Win.FlexPivot.C1FlexPivotPrintDocument" /> used to render the 
+            current view.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ShortcutsEnabled">
+      <summary>
+            Gets or sets a value that determines whether the page should automatically
+            handle shortcut keys (e.g. Ctrl+S to save a view, Ctrl+O to open a view,
+            Ctrl+Z to undo, Ctrl+Y to redo).
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ShowUndoRedo">
+      <summary>
+            Gets or sets a value that determines whether the toolbar should include 
+            undo/redo buttons.
+            </summary>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPage.Updating">
+      <summary>
+            Occurs before the <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.FlexPivotPanel" /> starts updating the output FlexPivot table.
+            </summary>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPage.Updated">
+      <summary>
+            Occurs after the <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.FlexPivotPanel" /> finishes the FlexPivot analysis.
+            </summary>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPage.LoadedFields">
+      <summary>
+            Occurs after the <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.FlexPivotPanel" /> finishes loading the fields for
+            the current DataSource.
+            </summary>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPage.ViewDefinitionChanged">
+      <summary>
+            Occurs when the view definition changes, before the output table is updated.
+            </summary>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPage.DataSourceChanged">
+      <summary>
+            Occurs when the data source changes.
+            </summary>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPage.DataEngineConnectionChanged">
+      <summary>
+            Occurs when data engine table connected.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.FlexPivotPanel">
+      <summary>
+            Gets the <see cref="T:C1.Win.FlexPivot.C1FlexPivotPanel" /> docked to the left of the page.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.FlexPivotEngine">
+      <summary>
+            Gets the <see cref="T:C1.FlexPivot.C1FlexPivotEngine" /> contained on the page.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.TabControl">
+      <summary>
+            Gets the <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.TabControl" /> where the <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.FlexPivotGrid" /> and <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.FlexPivotChart" /> controls appear.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ToolBar">
+      <summary>
+            Gets the <see cref="T:C1.Win.C1Command.C1ToolBar" /> docked to the top of the page.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.CommandOpen">
+      <summary>
+            Gets the <see cref="T:C1.Win.C1Command.C1Command" /> used to open FlexPivot view files.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.CommandSave">
+      <summary>
+            Gets the <see cref="T:C1.Win.C1Command.C1Command" /> used to save FlexPivot view files.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.MenuGrid">
+      <summary>
+            Gets the <see cref="T:C1.Win.C1Command.C1CommandMenu" /> used to control grid options.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.MenuChart">
+      <summary>
+            Gets the <see cref="T:C1.Win.C1Command.C1CommandMenu" /> used to control chart options.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.MenuReport">
+      <summary>
+            Gets the <see cref="T:C1.Win.C1Command.C1CommandMenu" /> used to control report options.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.LabelStatus">
+      <summary>
+            Gets the <see cref="T:System.Windows.Forms.ToolStripStatusLabel" /> that appears on the 
+            left of the status strip docked to the bottom of the page.
+            </summary>
+      <example>
+            The code below implements a simple method to show a status message
+            on the bottom of a <see cref="T:C1.Win.FlexPivot.C1FlexPivotPage" /> called <b>_c1FlexPivotPage</b>.
+            <code>
+            // show status message
+            void ShowStatus(string msg)
+            {
+              _c1FlexPivotPage.LabelStatus.Text = msg;
+            }
+            </code></example>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.LabelSelection">
+      <summary>
+            Gets the <see cref="T:System.Windows.Forms.ToolStripStatusLabel" /> that appears on the 
+            right of the status strip docked to the bottom of the page.
+            </summary>
+      <remarks>
+        <para>By default, the text in this label is updated automatically when
+            the uses changes the selection on the <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.FlexPivotGrid" /> or the
+            <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.RawDataGrid" />.</para>
+        <para>To change this behavior and show custom messages, set the 
+            <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.ShowSelectionStatus" /> property to false and assign the text 
+            directly to the <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.LabelStatus" /> control.</para>
+      </remarks>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ShowSelectionStatus">
+      <summary>
+            Gets or sets a value that determines whether the control should 
+            automatically set the content of the <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.LabelSelection" />
+            to show the sum of the selected cells when the user makes selections 
+            on the grids.
+            </summary>
+      <remarks>
+            If you want to customize the selection messages, set this property
+            to false and set the text on the <see cref="P:C1.Win.FlexPivot.C1FlexPivotPage.LabelStatus" /> to the 
+            custom messages you want to show.
+            </remarks>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.FlexPivotGrid">
+      <summary>
+            Gets the <see cref="T:C1.Win.FlexPivot.C1FlexPivotGrid" /> used to display the FlexPivot results.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.FlexPivotChart">
+      <summary>
+            Gets the <see cref="T:C1.Win.FlexPivot.C1FlexPivotChart" /> used to display the FlexPivot results.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.RawDataGrid">
+      <summary>
+            Gets the <see cref="T:C1.Win.C1FlexGrid.C1FlexGrid" /> used to display the raw data.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPage.ViewDefinition">
+      <summary>
+            Gets or sets the FlexPivot view definition as an Xml string.
+            </summary>
+    </member>
+    <member name="T:C1.Win.FlexPivot.C1FlexPivotPanel">
+      <summary>
+            Provides a user interface for interactively transforming regular data tables into Olap
+            pivot tables.
+            </summary>
+      <remarks>
+        <para>Olap pivot tables group data into one or more dimensions. The dimensions are represented
+            by rows and columns on a grid, and the data is stored in the grid cells.</para>
+        <para>Use the <see cref="P:C1.Win.FlexPivot.C1FlexPivotPanel.DataSource" /> property to set the source table, then use the 
+            <see cref="P:C1.Win.FlexPivot.C1FlexPivotPanel.FlexPivotTable" /> property to get the output table.</para>
+        <para>If you use a <see cref="T:C1.Win.FlexPivot.C1FlexPivotGrid" /> to show the output data, then set the grid's
+            <see cref="P:C1.Win.FlexPivot.C1FlexPivotGrid.DataSource" /> property to the appropriate <b>C1FlexPivotPanel</b>.</para>
+      </remarks>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPanel.#ctor">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.FlexPivot.C1FlexPivotPanel" />.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPanel.OnUpdating(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.FlexPivot.C1FlexPivotPanel.Updating" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPanel.OnUpdated(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.FlexPivot.C1FlexPivotPanel.Updated" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPanel.OnLoadedFields(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.FlexPivot.C1FlexPivotPanel.LoadedFields" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPanel.OnViewDefinitionChanged(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.FlexPivot.C1FlexPivotPanel.ViewDefinitionChanged" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPanel.OnDataSourceChanged(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.FlexPivot.C1FlexPivotPanel.DataSourceChanged" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPanel.ConnectDataEngine(System.String)">
+      <summary>
+            Connect to a C1.DataEngine table.
+            </summary>
+      <param name="tableName">Table name to connect to.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPanel.OnDataEngineConnectionChanged(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.FlexPivot.C1FlexPivotPanel.DataEngineConnectionChanged" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPanel.OnFontChanged(System.EventArgs)">
+      <summary>
+            Overriden to update context menu font.
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPanel.Dispose(System.Boolean)">
+      <summary> 
+            Clean up any resources being used.
+            </summary>
+      <param name="disposing">True if managed resources should be disposed; otherwise, False.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPanel.ConnectCube(System.String,System.String)">
+      <summary>
+            Connect to cube data source.
+            </summary>
+      <param name="cubeName">The name of the cube data source.</param>
+      <param name="connectionString">The connection string of cube data source.</param>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPanel.DataSource">
+      <summary>
+            Gets or sets the object that contains the data to be analyzed.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPanel.DataMember">
+      <summary>
+            Gets or sets the specific list in a <see cref="P:C1.Win.FlexPivot.C1FlexPivotPanel.DataSource" /> object to be analyzed.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPanel.ViewDefinition">
+      <summary>
+            Gets or sets an XML string containing an FlexPivot view definition.
+            </summary>
+      <remarks>
+        <para>This property is typically used to persist the current view as
+            an application setting, so views are preserved across sessions.</para>
+      </remarks>
+      <example>
+            The code below loads an FlexPivot view from the application settings when
+            the application starts, and saves them back when the application ends.
+            <code>
+            public Form1()
+            {
+              InitializeComponent();
+              
+              // assign data to FlexPivot panel
+              _c1FlexPivotPanel.DataSource = GetDataTable();
+              
+              // load/create default view
+              try
+              {
+                _c1FlexPivotPanel.ViewDefinition = Properties.Settings.Default.FlexPivotView;
+              }
+              catch { }
+            }
+            
+            // save this view as the default
+            void _btnSaveAsDefault_Click(object sender, EventArgs e)
+            {
+              try
+              {
+                Properties.Settings.Default.FlexPivotView = _c1FlexPivotPanel.ViewDefinition;
+                Properties.Settings.Default.Save();
+              }
+              catch (Exception x)
+              {
+                MessageBox.Show(x.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+              }
+            }
+            </code></example>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPanel.ShowTotalsRows">
+      <summary>
+            Gets or sets a value that determines whether the FlexPivot output table
+            should include rows containing subtotals or grand totals.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPanel.ShowTotalsColumns">
+      <summary>
+            Gets or sets a value that determines whether the FlexPivot output table
+            should include columns containing subtotals or grand totals.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPanel.ShowZeros">
+      <summary>
+            Gets or sets a value that determines whether the FlexPivot output table
+            should use zeros to indicate missing values.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPanel.FlexPivotTable">
+      <summary>
+            Gets a reference to the <see cref="T:System.Data.DataTable" /> that contains the
+            output of the FlexPivot analysis.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPanel.FlexPivotDefaultView">
+      <summary>
+            Gets the default <see cref="T:System.ComponentModel.IBindingList" /> that exposes the data 
+            in the <see cref="P:C1.Win.FlexPivot.C1FlexPivotPanel.FlexPivotTable" />.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPanel.FlexPivotEngine">
+      <summary>
+            Gets a reference to the <see cref="T:C1.FlexPivot.C1FlexPivotEngine" /> that performs
+            the FlexPivot analysis for this <see cref="T:C1.Win.FlexPivot.C1FlexPivotPanel" />.
+            </summary>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPanel.Updating">
+      <summary>
+            Occurs before the <see cref="P:C1.Win.FlexPivot.C1FlexPivotPanel.FlexPivotEngine" /> starts updating the output FlexPivot table.
+            </summary>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPanel.Updated">
+      <summary>
+            Occurs after the <see cref="P:C1.Win.FlexPivot.C1FlexPivotPanel.FlexPivotEngine" /> finishes the FlexPivot analysis.
+            </summary>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPanel.LoadedFields">
+      <summary>
+            Occurs after the <see cref="P:C1.Win.FlexPivot.C1FlexPivotPanel.FlexPivotEngine" /> finishes loading the fields for
+            the current DataSource.
+            </summary>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPanel.ViewDefinitionChanged">
+      <summary>
+            Occurs when the view definition changes, before the output table is updated.
+            </summary>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPanel.DataSourceChanged">
+      <summary>
+            Occurs when the data source changes.
+            </summary>
+    </member>
+    <member name="E:C1.Win.FlexPivot.C1FlexPivotPanel.DataEngineConnectionChanged">
+      <summary>
+            Occurs when data engine table connected.
+            </summary>
+    </member>
+    <member name="T:C1.Win.FlexPivot.Localization.Strings">
+      <summary>
+            The <see cref="T:C1.Win.FlexPivot.Localization.Strings" /> class contains static properties used for localization.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.Localization.Strings.ResourceManager">
+      <summary>
+            The <see cref="P:C1.Win.FlexPivot.Localization.Strings.ResourceManager" /> object used for lookup resources.
+            </summary>
+      <remarks>Set this property to the valid value if 
+            you define resources in a Custom Control assembly.</remarks>
+    </member>
+    <member name="P:C1.Win.FlexPivot.Localization.Strings.UICulture">
+      <summary>
+            Returns default <see cref="T:System.Globalization.CultureInfo" /> object used as fallback culture.
+            </summary>
+    </member>
+    <member name="T:C1.Win.FlexPivot.C1FlexPivotPrintPreviewDialog">
+      <summary>
+            Represents a dialog used to preview and print <see cref="T:System.Drawing.Printing.PrintDocument" /> 
+            objects.
+            </summary>
+      <remarks>
+            This dialog is similar to the standard <see cref="T:System.Windows.Forms.PrintPreviewDialog" />
+            but provides additional options such printer and page setup buttons,
+            a better UI based on the <see cref="T:System.Windows.Forms.ToolStrip" /> control, and built-in
+            PDF export.
+            </remarks>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintPreviewDialog.#ctor">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.FlexPivot.C1FlexPivotPrintPreviewDialog" />.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintPreviewDialog.#ctor(System.Windows.Forms.Control)">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.FlexPivot.C1FlexPivotPrintPreviewDialog" />.
+            </summary>
+      <param name="parentForm">Parent form that defines the initial size for this dialog.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintPreviewDialog.ApplyTheme(System.Object)">
+      <summary>
+            Changes the dialog theme.
+            </summary>
+      <param name="theme">A theme to apply.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintPreviewDialog.OnShown(System.EventArgs)">
+      <summary>
+            Overridden to assign document to preview control only after the 
+            initial activation.
+            </summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintPreviewDialog.OnFormClosing(System.Windows.Forms.FormClosingEventArgs)">
+      <summary>
+            Overridden to cancel any ongoing previews when closing form.
+            </summary>
+      <param name="e">
+        <see cref="T:System.Windows.Forms.FormClosingEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintPreviewDialog.OnFontChanged(System.EventArgs)">
+      <summary>
+            Overriden to update the toolbar size.
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintPreviewDialog.Dispose(System.Boolean)">
+      <summary>
+            Clean up any resources being used.
+            </summary>
+      <param name="disposing">True if managed resources should be disposed; otherwise, False.</param>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintPreviewDialog.Document">
+      <summary>
+            Gets or sets the <see cref="T:System.Drawing.Printing.PrintDocument" /> to preview.
+            </summary>
+    </member>
+    <member name="T:C1.Win.FlexPivot.C1FlexPivotPrintDocument">
+      <summary>
+            Represents a <see cref="T:System.Drawing.Printing.PrintDocument" /> that contains the information
+            in the current FlexPivot view.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintDocument.#ctor">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.FlexPivot.C1FlexPivotPrintDocument" />.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintDocument.#ctor(C1.Win.FlexPivot.C1FlexPivotPage)">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.FlexPivot.C1FlexPivotPrintDocument" />.
+            </summary>
+      <param name="page">
+        <see cref="T:C1.Win.FlexPivot.C1FlexPivotPage" /> that owns this document.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintDocument.GetCurrentPage">
+      <summary>
+            Gets the number of the page currently being printed.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintDocument.GetViewTitle">
+      <summary>
+            Gets a string that describes the current view.
+            </summary>
+      <remarks>
+        <para>Use the <b>$[viewTitle]</b> tag in the <see cref="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.HeaderText" /> or 
+            <see cref="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.FooterText" /> properties to display the <b>ViewTitle</b> 
+            in the header or footer of the document.</para>
+      </remarks>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintDocument.ShowOptions(System.Object)">
+      <summary>
+            Shows a dialog box that allows the user to set various document options, including
+            page setup, headers and footers, and content scaling.
+            </summary>
+      <param name="theme">Theme to apply.</param>
+      <returns>A <see cref="T:System.Windows.Forms.DialogResult" /></returns>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintDocument.WriteXml(System.Xml.XmlWriter)">
+      <summary>
+            Saves the document settings into an <see cref="T:System.Xml.XmlWriter" />.
+            </summary>
+      <param name="xw">
+        <see cref="T:System.Xml.XmlWriter" /> where the document settings will be saved.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintDocument.WriteXml(System.String)">
+      <summary>
+            Saves the document settings into an Xml file.
+            </summary>
+      <param name="path">Name of the file to save.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintDocument.ReadXml(System.Xml.XmlReader)">
+      <summary>
+            Reads the document settings from an <see cref="T:System.Xml.XmlReader" />.
+            </summary>
+      <param name="xr">
+        <see cref="T:System.Xml.XmlReader" /> that contains the document settings.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintDocument.ReadXml(System.String)">
+      <summary>
+            Reads the document settings from a file.
+            </summary>
+      <param name="path">Name of the file that contains the document settings.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintDocument.OnBeginPrint(System.Drawing.Printing.PrintEventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Drawing.Printing.PrintDocument.BeginPrint" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:System.Drawing.Printing.PrintEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotPrintDocument.OnPrintPage(System.Drawing.Printing.PrintPageEventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Drawing.Printing.PrintDocument.PrintPage" /> event.
+            </summary>
+      <param name="e">
+        <see cref="T:System.Drawing.Printing.PrintPageEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.FlexPivotGrid">
+      <summary>
+            Gets or sets the <see cref="T:C1.Win.FlexPivot.C1FlexPivotGrid" /> that shows the <see cref="T:C1.Win.FlexPivot.C1FlexPivotGrid" /> 
+            in the report.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.ShowGrid">
+      <summary>
+            Gets or sets a value that determines whether the <see cref="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.FlexPivotGrid" /> 
+            is displayed in the report.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.GridOptions">
+      <summary>
+            Gets or sets options to be used when rendering the <see cref="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.FlexPivotGrid" />.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.FlexPivotChart">
+      <summary>
+            Gets or sets the <see cref="T:C1.Win.FlexPivot.C1FlexPivotChart" /> that shows the FlexPivot chart in the report.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.ChartFillsPage">
+      <summary>
+            Gets or sets a value that determines whether the <see cref="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.FlexPivotChart" /> fills the page
+            or whether it preserves its original aspect ratio.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.ShowChart">
+      <summary>
+            Gets or sets a value that determines whether the <see cref="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.FlexPivotChart" /> 
+            is displayed in the report.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.RawDataGrid">
+      <summary>
+            Gets or sets the <see cref="T:C1.Win.C1FlexGrid.C1FlexGrid" /> that contains the raw data for the report.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.RawDataOptions">
+      <summary>
+            Gets or sets options used to render the <see cref="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.RawDataGrid" />.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.ShowRawData">
+      <summary>
+            Gets or sets a value that determines whether the <see cref="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.RawDataGrid" /> should
+            be displayed in the report.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.FlexPivotEngine">
+      <summary>
+            Gets the <see cref="T:C1.FlexPivot.C1FlexPivotEngine" /> that contains the data and parameters 
+            used to generate this document.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.HeaderText">
+      <summary>
+            Gets or sets a string used as a report header.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.HeaderSeparator">
+      <summary>
+            Gets or sets a value that specifies whether a separator is drawn below the header.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.HeaderFont">
+      <summary>
+            Gets or sets the <see cref="T:System.Drawing.Font" /> used to render the report header.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.FooterText">
+      <summary>
+            Gets or sets the string used as a report footer.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.FooterSeparator">
+      <summary>
+            Gets or sets a value that specifies whether a separator is drawn above the footer.
+            </summary>
+    </member>
+    <member name="P:C1.Win.FlexPivot.C1FlexPivotPrintDocument.FooterFont">
+      <summary>
+            Gets or sets the <see cref="T:System.Drawing.Font" /> used to render the report footer.
+            </summary>
+    </member>
+    <member name="T:C1.Win.FlexPivot.PrintDocumentOptions">
+      <summary>
+            Lets users view and edit the options in a <see cref="T:C1.Win.FlexPivot.C1FlexPivotPrintDocument" />.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.PrintDocumentOptions.#ctor">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.FlexPivot.PrintDocumentOptions" />.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.PrintDocumentOptions.ApplyTheme(System.Object)">
+      <summary>
+            Changes the dialog theme.
+            </summary>
+      <param name="theme">A theme to apply.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.PrintDocumentOptions.OnFontChanged(System.EventArgs)">
+      <summary>
+            Overriden to update the toolbar size.
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.PrintDocumentOptions.Dispose(System.Boolean)">
+      <summary>
+            Clean up any resources being used.
+            </summary>
+      <param name="disposing">True if managed resources should be disposed; otherwise, False.</param>
+    </member>
+    <member name="P:C1.Win.FlexPivot.PrintDocumentOptions.Document">
+      <summary>
+            Gets or sets the <see cref="T:C1.Win.FlexPivot.C1FlexPivotPrintDocument" /> being edited by this 
+            <see cref="T:C1.Win.FlexPivot.PrintDocumentOptions" />.
+            </summary>
+    </member>
+    <member name="T:C1.Win.FlexPivot.C1FlexPivotFieldDialog">
+      <summary>
+            Represents a dialog box used to edit the properties of 
+            <see cref="T:C1.FlexPivot.C1FlexPivotField" /> objects.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotFieldDialog.#ctor">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.FlexPivot.C1FlexPivotFieldDialog" />.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotFieldDialog.#ctor(C1.FlexPivot.C1FlexPivotField)">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.FlexPivot.C1FlexPivotFieldDialog" />.
+            </summary>
+      <param name="field">
+        <see cref="T:C1.FlexPivot.C1FlexPivotField" /> to be edited with this dialog.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotFieldDialog.OnActivated(System.EventArgs)">
+      <summary>
+            Overridden so set focus to the filter editor when the form activates.
+            </summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> that provides the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotFieldDialog.OnFontChanged(System.EventArgs)">
+      <summary>
+            Overriden to update toolbar size.
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.C1FlexPivotFieldDialog.Dispose(System.Boolean)">
+      <summary>
+            Clean up any resources being used.
+            </summary>
+      <param name="disposing">True if managed resources should be disposed; otherwise, False.</param>
+    </member>
+    <member name="T:C1.Win.FlexPivot.CustomFilterDialog">
+      <summary>
+            Represents a dialog box used to edit the custom conditions
+            in a <see cref="T:C1.FlexPivot.C1FlexPivotFilter" />.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.CustomFilterDialog.#ctor">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.FlexPivot.CustomFilterDialog" />.
+            </summary>
+    </member>
+    <member name="M:C1.Win.FlexPivot.CustomFilterDialog.#ctor(C1.FlexPivot.C1FlexPivotFilter)">
+      <summary>
+            Initializes a new instance of a <see cref="T:C1.Win.FlexPivot.CustomFilterDialog" />.
+            </summary>
+      <param name="filter">
+        <see cref="T:C1.FlexPivot.C1FlexPivotFilter" /> being edited with this dialog.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.CustomFilterDialog.OnActivated(System.EventArgs)">
+      <summary>
+            Overridden to initialize the focus when the form is activated.
+            </summary>
+      <param name="e">
+        <see cref="T:System.EventArgs" /> that provides the event data.</param>
+    </member>
+    <member name="M:C1.Win.FlexPivot.CustomFilterDialog.Dispose(System.Boolean)">
+      <summary>
+            Clean up any resources being used.
+            </summary>
+      <param name="disposing">True if managed resources should be disposed; otherwise, False.</param>
+    </member>
+  </members>
+</doc>
