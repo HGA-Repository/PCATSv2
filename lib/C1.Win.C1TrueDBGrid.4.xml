@@ -252,16 +252,16 @@
     </member>
     <member name="M:C1.Util.CodeRange.#ctor(System.Char)">
       <summary>
-      </summary>
+            Initialization of the range of character codes
+            </summary>
       <param name="ch">Adding character.</param>
     </member>
     <member name="M:C1.Util.CodeRange.#ctor(System.Char,System.Char)">
       <summary>
-      </summary>
-      <param name="first">
-      </param>
-      <param name="last">
-      </param>
+            Initialization of the range of character codes
+            </summary>
+      <param name="first">The first character code.</param>
+      <param name="last">The last character code.</param>
     </member>
     <member name="M:C1.Util.CodeRange.Clone">
       <summary>
@@ -4992,6 +4992,11 @@
             Gets or sets the key used to initiate the filtering operation as the user types in the filterbar.
             </summary>
     </member>
+    <member name="P:C1.Win.C1TrueDBGrid.C1DataColumn.FilterCount">
+      <summary>
+            Gets the number of values in the filter drop-down list.
+            </summary>
+    </member>
     <member name="P:C1.Win.C1TrueDBGrid.C1DataColumn.FooterText">
       <summary>
             Gets or sets the text displayed in the column footer.
@@ -7857,6 +7862,11 @@
             Grouped columns contain a header and footer row.
             </summary>
     </member>
+    <member name="F:C1.Win.C1TrueDBGrid.GroupPositionEnum.Footer">
+      <summary>
+            Grouped columns contain a header and footer row, but aggregates are shown only in the footer row.
+            </summary>
+    </member>
     <member name="T:C1.Win.C1TrueDBGrid.AggregateEnum">
       <summary>
             Specifies the type of aggregate that is computed for a grouped row.
@@ -9208,6 +9218,11 @@
     <member name="P:C1.Win.C1TrueDBGrid.GroupInfo.FooterText">
       <summary>
             Gets or sets the text that is displayed in the group footer row.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1TrueDBGrid.GroupInfo.AggregatesText">
+      <summary>
+            Gets or sets the text that is displayed with the Aggregates value
             </summary>
     </member>
     <member name="P:C1.Win.C1TrueDBGrid.GroupInfo.Interval">

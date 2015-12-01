@@ -21,12 +21,17 @@
     </member>
     <member name="F:C1.C1Excel.FileFormat.OpenXml">
       <summary>
-            Office 2007/2010 format. (Compressed Xml format).
+            Office 2007/2013 format. (Compressed Xml format).
             </summary>
     </member>
     <member name="F:C1.C1Excel.FileFormat.OpenXmlTemplate">
       <summary>
-            Office 2007/2010 template format. (Compressed Xml format).
+            Office 2007/2013 template format. (Compressed Xml format).
+            </summary>
+    </member>
+    <member name="F:C1.C1Excel.FileFormat.OpenXmlMacro">
+      <summary>
+            Office 2007/2013 format with enable VBA macro. (Compressed Xml format).
             </summary>
     </member>
     <member name="F:C1.C1Excel.FileFormat.Csv">
@@ -420,12 +425,12 @@
     </member>
     <member name="P:C1.C1Excel.XLShape.Row">
       <summary>
-            Gets the index of the row to which the shape is attached.
+            Gets or sets the index of the row to which the shape is attached.
             </summary>
     </member>
     <member name="P:C1.C1Excel.XLShape.Column">
       <summary>
-            Gets the index of the column to which the shape is attached.
+            Gets or sets the index of the column to which the shape is attached.
             </summary>
     </member>
     <member name="P:C1.C1Excel.XLShape.Sheet">
@@ -2545,6 +2550,54 @@
         <para>If <see cref="P:C1.C1Excel.XLPrintSettings.AutoScale" /> is set to false, then the printed sheet will be 
             scaled according to the value of the <see cref="P:C1.C1Excel.XLPrintSettings.ScalingFactor" /> property.</para>
       </remarks>
+    </member>
+    <member name="P:C1.C1Excel.XLPrintSettings.HeaderEven">
+      <summary>
+            Gets or sets the string to be displayed as a even page header when the sheet is printed.
+            </summary>
+      <remarks>
+            The string for a odd page header in the <see cref="P:C1.C1Excel.XLPrintSettings.Header" /> property.
+            This string has the same structure and embedded commands as the main header string. 
+            See the <see cref="P:C1.C1Excel.XLPrintSettings.Header" /> property for details.
+            </remarks>
+    </member>
+    <member name="P:C1.C1Excel.XLPrintSettings.FooterEven">
+      <summary>
+            Gets or sets the string to be displayed as a even page footer when the sheet is printed.
+            </summary>
+      <remarks>
+            The string for a odd page footer in the <see cref="P:C1.C1Excel.XLPrintSettings.Footer" /> property.
+            This string has the same structure and embedded commands as the main header string. 
+            See the <see cref="P:C1.C1Excel.XLPrintSettings.Header" /> property for details.
+            </remarks>
+    </member>
+    <member name="P:C1.C1Excel.XLPrintSettings.HeaderFirst">
+      <summary>
+            Gets or sets the string to be displayed as a first page header when the sheet is printed.
+            </summary>
+      <remarks>
+            This string has the same structure and embedded commands as the main header string. 
+            See the <see cref="P:C1.C1Excel.XLPrintSettings.Header" /> property for details.
+            </remarks>
+    </member>
+    <member name="P:C1.C1Excel.XLPrintSettings.FooterFirst">
+      <summary>
+            Gets or sets the string to be displayed as a first page footer when the sheet is printed.
+            </summary>
+      <remarks>
+            This string has the same structure and embedded commands as the main header string. 
+            See the <see cref="P:C1.C1Excel.XLPrintSettings.Header" /> property for details.
+            </remarks>
+    </member>
+    <member name="P:C1.C1Excel.XLPrintSettings.ScaleWithDocument">
+      <summary>
+            Gets or sets the scales header/footer with document used for printed output.
+            </summary>
+    </member>
+    <member name="P:C1.C1Excel.XLPrintSettings.AlignWithMargins">
+      <summary>
+            Gets or sets the align header/footer with page margins used for printed output.
+            </summary>
     </member>
     <member name="P:C1.C1Excel.XLPrintSettings.StartPage">
       <summary>

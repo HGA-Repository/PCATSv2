@@ -46,7 +46,7 @@ namespace RSMPS
             this.Text = "FWS" + group.Code;
             groupBox1.Text = _Group.Code + " Specifications and Procurement";
             if (!show_specification)
-            { 
+            {
                 groupBox1.Visible = false;
                 this.Height = this.Height - groupBox1.Height;
             }
@@ -152,7 +152,7 @@ namespace RSMPS
 
             if (OnWorkSheetChanged != null)
                 OnWorkSheetChanged(mdsWSData.Copy());
-
+         //   MessageBox.Show("Worksheet updated");
             this.Close();
         }
 
@@ -169,7 +169,7 @@ namespace RSMPS
                     DataRow dr = mdsWSData.Worksheet.Rows[tdbgWS.Bookmark];
                     DataRow dd = mdsWSData.WorksheetDeleted.NewRow();
                     dd["ID"] = dr["ID"];
-                    
+
                     mdsWSData.WorksheetDeleted.Rows.Add(dd);
                     tdbgWS.Delete(tdbgWS.Row);
 
@@ -352,7 +352,7 @@ namespace RSMPS
 
         }
 
-
+       
 
     }
 }

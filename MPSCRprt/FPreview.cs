@@ -18,7 +18,9 @@ namespace RSMPS
         public event RevSol.PassDataString OnProjectProcessed;
 
         private SectionReport rprt;
-
+        public string reportType; ////******************Added 11/18
+        public  string projNumber;
+        public string Report_Name;
         public FPreview()
         {
             InitializeComponent();
@@ -27,11 +29,12 @@ namespace RSMPS
         public void ViewReport(SectionReport ar)
         {
             rprt = ar;
-            viewer1.Document = rprt.Document;
-            rprt.Run();
+            reportType = ar.GetType().ToString(); ////******************Added and Commented for M-File button*****11/18
+            //viewer1.Document = rprt.Document;
+            //rprt.Run();
             //Cursor.Current = Cursors.Default;
-        }
 
+        }
         public void LoadReportForProject(string project, int rprtCase)
         {
             DataSet ds;
@@ -40,7 +43,7 @@ namespace RSMPS
             SqlCommand cmd;
             SqlParameter prm;
             string currDate;
-
+            int record = 0; //**********************Added 7/22/2015
             this.Cursor = Cursors.WaitCursor;
 
 
@@ -50,11 +53,17 @@ namespace RSMPS
 
             if (UseNewCodes(project) == true)
                 cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision", cnn.GetConnection());
+              //   cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision_Test", cnn.GetConnection());
             else
                 cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision", cnn.GetConnection());
 
             cmd.CommandType = CommandType.StoredProcedure;
 
+
+            prm = cmd.Parameters.Add("@records", SqlDbType.Int);
+            prm.Direction = ParameterDirection.Output;
+           
+          
             prm = cmd.Parameters.Add("@Project", SqlDbType.VarChar, 50);
             prm.Value = project;
             prm = cmd.Parameters.Add("@Rprtdate", SqlDbType.SmallDateTime);
@@ -63,27 +72,37 @@ namespace RSMPS
             prm.Value = rprtCase;
 
 
+         //   cmd.ExecuteNonQuery();
+       
+
             da = new SqlDataAdapter();
             ds = new DataSet();
             da.SelectCommand = cmd;
             da.Fill(ds);
             FtcCalculator.UpdateCalculatedField(ds);
 
+            record = Convert.ToInt32(cmd.Parameters["@records"].Value);
+
             cnn.CloseConnection();
 
             rprtCostReport1 rprt = new rprtCostReport1();
-
+            projNumber = project;
+           // p.ViewReport(rprt);
+           ViewReport(rprt);
             rprt.CutoffDate = currDate;
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
             viewer1.Document = rprt.Document;
+            rprt.records = record; //**********************Added 7/22/2015
+           
             rprt.Run();
-
+           // MessageBox.Show(record.ToString());
+            //MessageBox.Show(rprt.CutoffDate.ToString());
+            //MessageBox.Show(rprt.records.ToString() + "************************");
             this.Cursor = Cursors.Default;
         }
-
-        public void LoadReportForProjectRollup(string project, int rprtCase)
-        {
+             public void LoadReportForProjectRollup(string project, int rprtCase)
+           {
             string currDate;
             DSForecastRprt rprtDs;
 
@@ -93,13 +112,16 @@ namespace RSMPS
             rprtDs = ru.LoadReportForProjectRollup(project, rprtCase);
 
             currDate = DateTime.Now.ToShortDateString();
-
             rprtCostReport1 rprt = new rprtCostReport1();
-
+          projNumber = project + "-RollUp";
+            ViewReport(rprt);
+            ViewReport(rprt);
             rprt.CutoffDate = currDate;
             rprt.DataSource = rprtDs;
             rprt.DataMember = "EngrInfo";
             viewer1.Document = rprt.Document;
+            rprt.IsRollup = true ; //**********************Added 7/23/2015
+            
             rprt.Run();
 
             this.Cursor = Cursors.Default;
@@ -131,8 +153,8 @@ namespace RSMPS
             da = new SqlDataAdapter();
             ds = new DataSet();
             da.SelectCommand = cmd;
-            try
-            {
+          //  try
+           // {
 
                 da.Fill(ds);
 
@@ -145,11 +167,15 @@ namespace RSMPS
                 rprt.DataSource = ds;
                 rprt.DataMember = "Table";
                 viewer1.Document = rprt.Document;
+                // By default rprtCostReport1.records = 0. So, when its Called for Report for Department, Detail part becomes invisible.
+
+                rprt.records = 10; //**********************Added 10/20/2015 *******************To Test
+
                 rprt.Run();
-            }
-            catch {
-                MessageBox.Show("Exception");
-            }
+            //}
+            //catch {
+            //    MessageBox.Show("Exception");
+            //}
             this.Cursor = Cursors.Default;
         }
 
@@ -186,6 +212,9 @@ namespace RSMPS
             cnn.CloseConnection();
 
             rprtCostReportDetail1 rprt = new rprtCostReportDetail1();
+            projNumber = project;
+            //  p.ViewReport(rprt);
+            ViewReport(rprt);
 
             //rprt.CutoffDate = currDate;
             rprt.DataSource = ds;
@@ -226,7 +255,9 @@ namespace RSMPS
             cnn.CloseConnection();
 
             rprtCostReportDetail2 rprt = new rprtCostReportDetail2();
-
+            ViewReport(rprt);
+            projNumber = project;
+            
             //rprt.CutoffDate = currDate;
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
@@ -281,6 +312,9 @@ namespace RSMPS
 
             cmd.CommandType = CommandType.StoredProcedure;
 
+            prm = cmd.Parameters.Add("@records", SqlDbType.Int); //*******Added 10/1/2015, because, it was throwing exception in PM Report
+            prm.Direction = ParameterDirection.Output;
+
             prm = cmd.Parameters.Add("@Project", SqlDbType.VarChar, 50);
             prm.Value = project;
             prm = cmd.Parameters.Add("@Rprtdate", SqlDbType.SmallDateTime);
@@ -307,5 +341,37 @@ namespace RSMPS
             this.Cursor = Cursors.Default;
 
         }
+
+        private void c1Button1_Click(object sender, EventArgs e) //******************Added 11/18
+        {
+            GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport PDFEx = new GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport();           
+         //  MessageBox.Show(reportType);
+        Report_Name = CreateFileNAme();
+            SaveFileDialog sv1 = new SaveFileDialog();            
+            sv1.InitialDirectory = "v:\\HGA\\";          
+            sv1.FileName = Report_Name;
+            sv1.Filter = "PDF Files | *.pdf";
+            sv1.DefaultExt = "pdf";
+      
+         if (sv1.ShowDialog() == DialogResult.OK)
+         {
+             viewer1.Export(PDFEx, new System.IO.FileInfo(sv1.FileName));   
+         }
+        
+        }
+
+             public string CreateFileNAme() //******************Added 11/18
+        {
+            DateTime dt = DateTime.Now;
+            string fileName = "";
+           if(reportType == "RSMPS.rprtCostReport1")
+             fileName = "Project Forecasting Report-" + projNumber + "-"+ dt.ToString("yyyMMdd-hhmmss");
+           else if (reportType == "RSMPS.rprtCostReportDetail2")
+               fileName = "Project Forecasting Report-Detail-" + projNumber + "-" + dt.ToString("yyyMMdd-hhmmss");
+            // MessageBox.Show(fileName);
+            return fileName;
+
+        }       
+        
     }
 }

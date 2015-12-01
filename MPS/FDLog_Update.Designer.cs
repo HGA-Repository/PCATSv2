@@ -45,6 +45,7 @@ namespace RSMPS
             this.ttlbbSwitch = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblProjectLead = new System.Windows.Forms.Label();
             this.tdbgQuikUpdate = new C1.Win.C1TrueDBGrid.C1TrueDBGrid();
@@ -54,7 +55,6 @@ namespace RSMPS
             this.fgQuikUpdate = new C1.Win.C1FlexGrid.C1FlexGrid();
             this.cboWBS = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tdbgQuikUpdate)).BeginInit();
@@ -208,6 +208,15 @@ namespace RSMPS
             this.toolStripButton5.Text = "Close";
             this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(87, 22);
+            this.toolStripButton4.Text = "Export to Excel";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -314,15 +323,6 @@ namespace RSMPS
             this.label19.Size = new System.Drawing.Size(35, 13);
             this.label19.TabIndex = 21;
             this.label19.Text = "WBS:";
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(87, 22);
-            this.toolStripButton4.Text = "Export to Excel";
-            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // FDLog_Update
             // 

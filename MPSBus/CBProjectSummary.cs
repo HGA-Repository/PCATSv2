@@ -87,6 +87,31 @@ namespace RSMPS
         }
 
 
+        public int SaveSummary() //***************************Added****8/6/2015
+        {
+            CDbProjectSummary dbDt = new CDbProjectSummary();
+            string tmpDat;
+            int retVal;
+
+            tmpDat = GetDataString();
+
+            if (base.ID > 0)
+            {
+                dbDt.SavePrev(tmpDat);
+                retVal = base.ID;
+            }
+            else
+            {
+                retVal = dbDt.SaveNewSummary(tmpDat);
+                base.ID = retVal;
+            }
+
+            dbDt = null;
+
+            return retVal;
+        }
+      
+
         public static void Delete(int cID)
         {
             CDbProjectSummary dbDt = new CDbProjectSummary();
@@ -165,5 +190,12 @@ namespace RSMPS
 
             return dbDt.GetForecastRemainingNew(EngPLSPM);
         }
+        public static DataSet GetForecastRemainingBHam()//************************* Added 11/23
+        {
+            CDbProjectSummary dbDt = new CDbProjectSummary();
+
+            return dbDt.GetForecastRemainingBHam();
+        }        
+
     }
 }

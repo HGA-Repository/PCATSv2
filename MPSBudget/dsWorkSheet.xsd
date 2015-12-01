@@ -80,6 +80,7 @@
               <xs:element name="E593" msprop:Generator_ColumnVarNameInTable="columnE593" msprop:Generator_ColumnPropNameInRow="E593" msprop:Generator_ColumnPropNameInTable="E593Column" msprop:Generator_UserColumnName="E593" type="xs:string" minOccurs="0" />
               <xs:element name="E594" msprop:Generator_ColumnVarNameInTable="columnE594" msprop:Generator_ColumnPropNameInRow="E594" msprop:Generator_ColumnPropNameInTable="E594Column" msprop:Generator_UserColumnName="E594" type="xs:string" minOccurs="0" />
               <xs:element name="E595" msprop:Generator_ColumnVarNameInTable="columnE595" msprop:Generator_ColumnPropNameInRow="E595" msprop:Generator_ColumnPropNameInTable="E595Column" msprop:Generator_UserColumnName="E595" type="xs:string" minOccurs="0" />
+              <xs:element name="DeptGroup" msprop:Generator_ColumnVarNameInTable="columnDeptGroup" msprop:Generator_ColumnPropNameInRow="DeptGroup" msprop:Generator_ColumnPropNameInTable="DeptGroupColumn" msprop:Generator_UserColumnName="DeptGroup" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

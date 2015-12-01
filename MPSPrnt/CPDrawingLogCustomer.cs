@@ -36,6 +36,7 @@ namespace RSMPS
             rprt.DataMember = "DrawingList";
 
             pv = new FPreviewAR();
+            pv.Title = "DRAWING/SPEC LOG"; //********************************12/01
             pv.ViewReport(rprt);
             pv.ShowDialog();
         }
@@ -191,6 +192,7 @@ namespace RSMPS
 
 
             pv = new FPreviewAR(); //************** Done 6/29/15
+            pv.Title = "DRAWING/SPEC LOG"; //********************************12/01
             pv.ViewReport(rprt);
 
             if (isPreview == true)
@@ -226,11 +228,11 @@ namespace RSMPS
             rprt.SetDrawingLogAsCustomerReport();
             rprt.DataSource = dl;
             rprt.DataMember = "DrawingList";
-
             pv = new FPreviewAR(); //************** Done 6/29/15
             //pv.ViewReport(rprt);
+             pv.Title = "DRAWING/SPEC LOG"; //********************************12/01
             pv.ViewDrawingLogWithExcel(rprt);
-
+           
 
             if (isPreview == true)
             {
@@ -260,6 +262,7 @@ namespace RSMPS
             rprt.DataMember = "DrawingList";
 
             pv = new FPreviewAR(); //************** Done 6/29/15
+            pv.Title = "DRAWING/SPEC LOG"; //********************************12/01
             pv.ViewReport(rprt);
 
 
@@ -290,6 +293,8 @@ namespace RSMPS
             rprt.DataMember = "DrawingList";
 
             pv = new FPreviewAR(); //************** Done 6/29/15
+
+            pv.Title = "DRAWING/SPEC LOG"; //********************************12/01
             pv.ViewReport(rprt);
 
 

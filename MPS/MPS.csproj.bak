@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -9,8 +9,8 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RSMPS</RootNamespace>
-    <AssemblyName>MPS</AssemblyName>
-    <ApplicationIcon>address_book.ico</ApplicationIcon>
+    <AssemblyName>PCATS</AssemblyName>
+    <ApplicationIcon>PCATS - 2015.ico</ApplicationIcon>
     <ManifestCertificateThumbprint>3B5C89FE254DA382D1AB8E0512076EF894601BBB</ManifestCertificateThumbprint>
     <ManifestKeyFile>MPS_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>false</GenerateManifests>
@@ -21,7 +21,7 @@
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <PublishUrl>\\fileserver\corporate\IT Department\Revsol\</PublishUrl>
     <Install>true</Install>
@@ -50,6 +50,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -58,6 +59,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -74,6 +76,7 @@
     <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
     <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -83,45 +86,35 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ActiveReports.Document, Version=6.2.4238.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ActiveReports.PdfExport, Version=6.2.4238.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ActiveReports.Viewer6, Version=6.2.4238.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ActiveReports.XlsExport, Version=6.2.4238.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ActiveReports6, Version=6.2.4238.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="C1.C1Excel.2, Version=2.1.20121.228, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
-    <Reference Include="C1.Win.C1Command.2, Version=2.0.20123.19538, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL">
+    <Reference Include="C1.C1Excel.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\C1.Win.C1Command.2.dll</HintPath>
+      <HintPath>..\lib\C1.C1Excel.4.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.C1FlexGrid.2, Version=2.6.20123.730, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
+    <Reference Include="C1.Win.C1Command.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\C1.Win.C1FlexGrid.2.dll</HintPath>
+      <HintPath>..\lib\C1.Win.C1Command.4.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.C1Input.2, Version=2.0.20123.33290, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL">
+    <Reference Include="C1.Win.C1FlexGrid.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\C1.Win.C1Input.2.dll</HintPath>
+      <HintPath>..\lib\C1.Win.C1FlexGrid.4.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.C1List.2, Version=2.1.20123.220, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc, processorArchitecture=MSIL">
+    <Reference Include="C1.Win.C1Input.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\C1.Win.C1List.2.dll</HintPath>
+      <HintPath>..\lib\C1.Win.C1Input.4.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.C1TrueDBGrid.2, Version=2.0.20123.61277, Culture=neutral, PublicKeyToken=75ae3fb0e2b1e0da, processorArchitecture=MSIL">
+    <Reference Include="C1.Win.C1List.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\C1.Win.C1TrueDBGrid.2.dll</HintPath>
+      <HintPath>..\lib\C1.Win.C1List.4.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1SpellChecker.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1TrueDBGrid.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=75ae3fb0e2b1e0da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\C1.Win.C1TrueDBGrid.4.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
@@ -130,6 +123,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FBusiness_Unit_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FBusiness_Unit_List.Designer.cs">
+      <DependentUpon>FBusiness_Unit_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FBusiness_Unit_AddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FBusiness_Unit_AddEdit.Designer.cs">
+      <DependentUpon>FBusiness_Unit_AddEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="FPnt_JobStat_Customer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -289,8 +294,14 @@
     <Compile Include="FScd_AddEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FScd_AddEdit.Designer.cs">
+    <Compile Include="FScd_AddEdit.designer.cs">
       <DependentUpon>FScd_AddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FScd_AddEdit_View_MPP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FScd_AddEdit_View_MPP.Designer.cs">
+      <DependentUpon>FScd_AddEdit_View_MPP.cs</DependentUpon>
     </Compile>
     <Compile Include="FScd_AddProjEmp.cs">
       <SubType>Form</SubType>
@@ -358,8 +369,17 @@
     <Compile Include="FWeekCount.Designer.cs">
       <DependentUpon>FWeekCount.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListViewColumnSorter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FBusiness_Unit_List.resx">
+      <DependentUpon>FBusiness_Unit_List.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FBusiness_Unit_AddEdit.resx">
+      <DependentUpon>FBusiness_Unit_AddEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="FPnt_JobStat_Customer.resx">
       <DependentUpon>FPnt_JobStat_Customer.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -448,8 +468,11 @@
       <DependentUpon>FProj_List.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FScd_AddEdit.resx">
-      <SubType>Designer</SubType>
       <DependentUpon>FScd_AddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FScd_AddEdit_View_MPP.resx">
+      <DependentUpon>FScd_AddEdit_View_MPP.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FScd_AddProjEmp.resx">
       <SubType>Designer</SubType>
@@ -505,6 +528,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
     <None Include="dsReleaseDocs.xsc">
       <DependentUpon>dsReleaseDocs.xsd</DependentUpon>
     </None>
@@ -554,6 +578,7 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -600,19 +625,24 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="address_book.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="AppConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="AppConfig.xml" />
     <Content Include="AppState.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Config\Debug\AppConfig.xml" />
+    <Content Include="Config\Debug\AppState.xml" />
     <Content Include="Config\Debug\DataConfigCR.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Config\Release\AppConfig.xml" />
+    <Content Include="Config\Release\AppState.xml" />
     <Content Include="Config\Release\DataConfigCR.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Config\Test\AppConfig.xml" />
+    <Content Include="Config\Test\AppState.xml" />
     <Content Include="Config\Test\DataConfig.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -624,13 +654,19 @@
     <Content Include="Config\Test\DataConfigCR.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="DataConfig.xml">
+    <Content Include="Corporate.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DataConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="DataConfigCR.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Save.bmp" />
+    <Content Include="PCATS - 2015.ico" />
+    <Content Include="Resources\Save.PNG" />
     <None Include="Resources\testing.png" />
     <None Include="Resources\CheckX.png" />
     <None Include="Resources\CheckXAlt.png" />
@@ -666,54 +702,44 @@
     <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
   </ItemGroup>
   <ItemGroup>
-    <PublishFile Include="ActiveReports.Chart">
-      <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <FileType>Assembly</FileType>
-    </PublishFile>
     <PublishFile Include="Config\Debug\DataConfig.xml">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="Config\Release\DataConfig.xml">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="Config\Test\DataConfig.xml">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="RevSolLb">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>

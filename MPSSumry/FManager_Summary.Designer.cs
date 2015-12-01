@@ -44,6 +44,12 @@ namespace RSMPS
             this.scheduleBulletIndent = new System.Windows.Forms.ToolStripMenuItem();
             this.scheduleBulletRemove = new System.Windows.Forms.ToolStripMenuItem();
             this.scheduleBold = new System.Windows.Forms.ToolStripMenuItem();
+
+            this.cmnuTdbgSchedule = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.TdbgScheduleDeleteLine = new System.Windows.Forms.ToolStripMenuItem();
+            this.TdbgScheduleCancel = new System.Windows.Forms.ToolStripMenuItem();
+
+
             this.indentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.rtbActHigh = new System.Windows.Forms.RichTextBox();
@@ -94,12 +100,12 @@ namespace RSMPS
             this.c1CommandLink3 = new C1.Win.C1Command.C1CommandLink();
             this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.Location = new System.Windows.Forms.TextBox();
             this.Job = new System.Windows.Forms.TextBox();
             this.Client = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fgForecast)).BeginInit();
@@ -256,6 +262,31 @@ namespace RSMPS
             this.scheduleBold.Text = "Bold";
             this.scheduleBold.Click += new System.EventHandler(this.scheduleBold_Click);
             // 
+            //
+            //************************************************************************************
+            // cmnuTdbgSchedule
+            // 
+            this.cmnuTdbgSchedule.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TdbgScheduleDeleteLine,
+            this.TdbgScheduleCancel });
+            this.cmnuTdbgSchedule.Name = "cmnuTdbgSchedule";
+            this.cmnuTdbgSchedule.Size = new System.Drawing.Size(151, 92);
+            // 
+            // TdbgScheduleDeleteLine
+            // 
+            this.TdbgScheduleDeleteLine.Name = "TdbgScheduleDeleteLine";
+            this.TdbgScheduleDeleteLine.Size = new System.Drawing.Size(150, 22);
+            this.TdbgScheduleDeleteLine.Text = "Delete Line";
+            this.TdbgScheduleDeleteLine.Click += new System.EventHandler(this.TdbgScheduleDeleteLine_Click);
+            // 
+            // TdbgScheduleCancel
+            // 
+            this.TdbgScheduleCancel.Name = "TdbgScheduleCancel";
+            this.TdbgScheduleCancel.Size = new System.Drawing.Size(150, 22);
+            this.TdbgScheduleCancel.Text = "Cancel";
+            //this.TdbgScheduleCancel.Click += new System.EventHandler(this.TdbgScheduleCancel_Click);
+            //**************************************************************************************
+            //
             // indentToolStripMenuItem
             // 
             this.indentToolStripMenuItem.Name = "indentToolStripMenuItem";
@@ -499,7 +530,16 @@ namespace RSMPS
             this.tdbgSchedule.Size = new System.Drawing.Size(730, 137);
             this.tdbgSchedule.TabIndex = 0;
             this.tdbgSchedule.Text = "Schedule";
+
+            this.tdbgSchedule.ContextMenuStrip = this.cmnuTdbgSchedule;
+
+
+
+
+
+            this.tdbgSchedule.AfterColUpdate += new C1.Win.C1TrueDBGrid.ColEventHandler(this.tdbgSchedule_AfterColUpdate);
             this.tdbgSchedule.AfterDelete += new System.EventHandler(this.tdbgSchedule_AfterDelete);
+            this.tdbgSchedule.AfterInsert += new System.EventHandler(this.tdbgSchedule_AfterInsert);
             this.tdbgSchedule.AfterUpdate += new System.EventHandler(this.tdbgSchedule_AfterUpdate);
             this.tdbgSchedule.BeforeUpdate += new C1.Win.C1TrueDBGrid.CancelEventHandler(this.tdbgSchedule_BeforeUpdate);
             this.tdbgSchedule.PropBag = resources.GetString("tdbgSchedule.PropBag");
@@ -807,6 +847,24 @@ namespace RSMPS
             this.panel1.Size = new System.Drawing.Size(130, 288);
             this.panel1.TabIndex = 12;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(1, 176);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(54, 13);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Client Info";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(1, 103);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(96, 13);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Project Description";
+            // 
             // Location
             // 
             this.Location.Enabled = false;
@@ -820,7 +878,7 @@ namespace RSMPS
             // 
             this.Job.Enabled = false;
             this.Job.Location = new System.Drawing.Point(1, 125);
-            this.Job.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.Job.Margin = new System.Windows.Forms.Padding(0);
             this.Job.Multiline = true;
             this.Job.Name = "Job";
             this.Job.Size = new System.Drawing.Size(124, 50);
@@ -844,24 +902,6 @@ namespace RSMPS
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Visible = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1, 103);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(96, 13);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Project Description";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(1, 176);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(54, 13);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Client Info";
             // 
             // FManager_Summary
             // 
@@ -980,5 +1020,12 @@ namespace RSMPS
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
+
+        private System.Windows.Forms.ContextMenuStrip cmnuTdbgSchedule; //**************Added 8/17/2015
+        private System.Windows.Forms.ToolStripMenuItem TdbgScheduleDeleteLine;
+        private System.Windows.Forms.ToolStripMenuItem TdbgScheduleCancel;
+       
+
+
     }
 }

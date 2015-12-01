@@ -8,8 +8,17 @@ using System.Windows.Forms;
 
 using System.Collections;
 using System.Data.SqlClient;
+//using Microsoft.Office.Interop.Excel.Extensions;
+using Excel = Microsoft.Office.Interop.Excel; //********************Added 10/9/2015
+using Word = Microsoft.Office.Interop.Word;
+using Microsoft.Office.Core;
+//using Microsoft.Office.Interop.Excel;
+using System.IO;
+using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
 
-
+//using System.Globalization.CultureInfo;
 namespace RSMPS
 {
     public partial class FDLog_AddEdit : Form
@@ -148,6 +157,7 @@ namespace RSMPS
             CBEmployee emp = new CBEmployee();
             emp.Load(leadID);
             miCurrLead = leadID;
+            
             txtProjectLead.Text = emp.Name;
             bttProjectLead.Enabled = false;
 
@@ -376,8 +386,19 @@ namespace RSMPS
             cboActivityCodes.Text = ac.Code;
 
             //chkIsTask.Checked = moDrwLog.IsTask;
-            SetDrawingType(moDrwLog.IsTaskDrwgSpec);
 
+            //******************************************************* Added 9/29/2015
+       //     MessageBox.Show(moDrwLog.DepartmentID.ToString() + "Previous task/drawing/specification?   " + moDrwLog.IsTaskDrwgSpec);
+            if (moDrwLog.DepartmentID == 10)
+            {
+                SetDrawingType(1);
+                bttSave.Enabled = true;
+            }
+
+            else
+                SetDrawingType(moDrwLog.IsTaskDrwgSpec);
+                    // MessageBox.Show("New task/drawing/specification?    " + moDrwLog.IsTaskDrwgSpec);
+            //*******************************************************
             ds = new CBDrawingSize();
             ds.Load(moDrwLog.DrawingSizeID);
             cboDrawingSizes.Text = ds.Size;
@@ -443,7 +464,7 @@ namespace RSMPS
                 dtpDateLate.Value = moDrwLog.DateLate;
             }
 
-            bttSave.Enabled = false;
+           // bttSave.Enabled = false;
             bttSaveNew.Enabled = false;
         }
 
@@ -791,13 +812,17 @@ namespace RSMPS
         }
 
         private void LoadSelectedItem()
+
         {
+            //MessageBox.Show("selected");
             if (lvwLogs.SelectedItems.Count > 0)
             {
                 CheckForSave();
 
                 int tmpID = Convert.ToInt32(lvwLogs.SelectedItems[0].Text);
                 ClearLog();
+                //MessageBox.Show(lvwLogs.SelectedItems[0].Text);
+
                 moDrwLog.Load(tmpID);
                 LoadObjectToScreen();
             }
@@ -1168,6 +1193,8 @@ namespace RSMPS
 
         private void SetDrawingType(int taskVal)
         {
+
+          //  MessageBox.Show("Task val  .........."+taskVal.ToString());
             if (taskVal == 0)
             {
                 rdoDrawing.Checked = true;
@@ -1283,42 +1310,102 @@ namespace RSMPS
 
             //MessageBox.Show("Pass Level" + passLvl, "Pass Level", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+        CDrawingExport de = new CDrawingExport();
+        DateTime dt = DateTime.Now;
+       
+        public string Get_File_Name()//***************Added 10/8/2015}
+        {
+            string ExFile = "JobStat Add-Edit-" + msCurrProj + "-" + "-" + miCurrDept + "_" + dt.ToString("yyyMMdd-hhmmss");
+          //  string ExFile = "JobStat Update-" + msCurrProj;
+            return ExFile;
+        }
+      
+
+        public string ExportedFileName;
+        private void bttOpenExcel2_Click(object sender, EventArgs e)
+        {
+            MakeFormNotEditable();
+
+           de.ExportDrawing_ToExcel_Test2(miCurrProj, miCurrDept, miCurrLead, Get_File_Name());
+           
+         //   MessageBox.Show(",,,,,, Loading Again!!!");
+
+            LoadDrawingList();
+            SetAccessForSecurityLevel(miCurrDept);
+        }
+         
+
+       
+
+                 public void MakeFormNotEditable()
+         {
+
+             txtHGANumber.Enabled = false;
+             txtClientNumber.Enabled = false;
+             txtCADNumber.Enabled = false;
+             cboActivityCodes.Enabled = false;
+             groupBox1.Enabled = false;
+             panel1.Enabled = false;
+             panel2.Enabled = false;
+             txtBudgetHrs.Enabled = false;
+             txtRemainingHrs.Enabled = false;
+             txtWBS.Enabled = false;
+
+             bttProjectLead.Enabled = false;
+         }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+              
+
+        }
+
+       
     }
 
-    public class SortDrawingList : System.Collections.IComparer
+ 
+
+
+
+
+public class SortDrawingList : System.Collections.IComparer
+{
+    private bool mbSortAsc = true;
+    private int miSortCol = 1;
+
+    public int SortColumnNumber
     {
-        private bool mbSortAsc = true;
-        private int miSortCol = 1;
+        get { return miSortCol; }
+        set { miSortCol = value; }
+    }
 
-        public int SortColumnNumber
+    public bool SortColumnAsc
+    {
+        get { return mbSortAsc; }
+        set { mbSortAsc = value; }
+    }
+
+    int IComparer.Compare(object x, object y)
+    {
+        ListViewItem lvi1;
+        ListViewItem lvi2;
+
+        if (mbSortAsc == true)
         {
-            get { return miSortCol; }
-            set { miSortCol = value; }
+            lvi1 = (ListViewItem)x;
+            lvi2 = (ListViewItem)y;
+        }
+        else
+        {
+            lvi1 = (ListViewItem)y;
+            lvi2 = (ListViewItem)x;
         }
 
-        public bool SortColumnAsc
-        {
-            get { return mbSortAsc; }
-            set { mbSortAsc = value; }
-        }
-
-        int IComparer.Compare(object x, object y)
-        {
-            ListViewItem lvi1;
-            ListViewItem lvi2;
-
-            if (mbSortAsc == true)
-            {
-                lvi1 = (ListViewItem)x;
-                lvi2 = (ListViewItem)y;
-            }
-            else
-            {
-                lvi1 = (ListViewItem)y;
-                lvi2 = (ListViewItem)x;
-            }
-
-            return ((new CaseInsensitiveComparer().Compare(lvi1.SubItems[miSortCol].Text, lvi2.SubItems[miSortCol].Text)));
-        }
+        return ((new CaseInsensitiveComparer().Compare(lvi1.SubItems[miSortCol].Text, lvi2.SubItems[miSortCol].Text)));
     }
 }
+    
+

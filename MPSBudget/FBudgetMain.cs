@@ -68,6 +68,7 @@ namespace RSMPS
         private bool mbIsPipeline = false;
         private bool mbUseAllGroups = false;
 
+        private bool mbIsFixedRate = false; //*****************************Added 9/30/2015
         private CBBudget moCurrBudget;
 
 
@@ -130,6 +131,9 @@ namespace RSMPS
                 mbProcessing = false;
             }
            //    MessageBox.Show(" SetNewProjectBudget "); //***************************7
+
+            mbIsFixedRate = p.IsFixedRate;
+         //   MessageBox.Show(mbIsFixedRate.ToString());
         }
 
 
@@ -142,9 +146,11 @@ namespace RSMPS
             if (_Groups.Count() == 0) _Groups.Add(CBActivityCodeDisc.GetAll().ToList().First());
             _Default_Group = _Groups.First().Code;
             InitializeDynamicComponent();
-            Init();
+            Init();        
+            
         }
-
+        public CDbLog moLog = new CDbLog(); //*******************Added 10/28  
+        public  int miCurrentUserLoginID;  
 
         private void Init()
         {
@@ -338,6 +344,14 @@ namespace RSMPS
         private void SubTotal(string group)
         {
             var fg = fgForGroup(group);
+
+
+            fg.Subtotal(AggregateEnum.Sum, 0, BUDCOL2, BUDCOL11);   //*******************Added 7/16/2015
+            fg.Subtotal(AggregateEnum.Sum, 1, BUDCOL3, BUDCOL11);
+            fg.Subtotal(AggregateEnum.Sum, 2, BUDCOL4, BUDCOL11);
+
+
+
             fg.Subtotal(AggregateEnum.Sum, 0, BUDCOL2, BUDCOL13);
             fg.Subtotal(AggregateEnum.Sum, 1, BUDCOL3, BUDCOL13);
             fg.Subtotal(AggregateEnum.Sum, 2, BUDCOL4, BUDCOL13);
@@ -506,8 +520,167 @@ namespace RSMPS
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
+         //   LoadBudget(SelectedGroupTab);           
+        
+         ////*********************************************************************11/4/2015
+         //  // moLog.UpdateForSelectedGroup(moLog.GetCurrentUserID(u.Username), Convert.ToInt32(SelectedGroupTab)); //*************************trying with next line
+
+         // //  moLog.UpdateForSelectedGroup(moLog.GetCurrentUserLoginID(miCurrUser), Convert.ToInt32(SelectedGroupTab));
+         //   moLog.UpdateForSelectedGroup(miCurrentUserLoginID, Convert.ToInt32(SelectedGroupTab));             
+         //   //moLog.UpdateForBudgetWindow(moLog.GetCurrentUserLoginID(miCurrUser), Convert.ToInt32(SelectedGroupTab));            
+         //  // ListUserSecurity(miCurrUser);
+         //   if (tabControl1.SelectedTab.Text == "PCN's" || tabControl1.SelectedTab.Text == "Clarifications")
+         //   {
+         //    //   MessageBox.Show("PCN's or Clarifications");
+         //       return;
+         //   }
+
+
+         //   else if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 3)
+         //   {
+         //       LockTheCurrentGroupTab();
+         //               //    CurrentUserSecurityForThisTab(miCurrUser, SelectedGroupTab);
+         //       tlbbEdit.Enabled = false;
+         //       return;
+         //   }
+
+         //   else if (moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
+         //   {
+         //       LockTheCurrentGroupTab();
+
+         //       tlbbEdit.Enabled = true;
+
+         //  //     MessageBox.Show("The following users are working on GroupTab " + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n" + "This Tab is Locked ");
+
+         //       //DialogResult retVal = MessageBox.Show("Are you sure that you wish to unlock? \"" +  "\"", "Unlock", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+         //       //if (retVal == DialogResult.Yes)
+         //       //{
+         //       //    UnLockTheCurrentGroupTab();
+         //       //    MessageBox.Show("unlocked !!!!");
+         //       //}
+
+
+
+
+         //   }
+
+            //*************************************************************
             LoadBudget(SelectedGroupTab);
+                      
+            moLog.UpdateForSelectedGroup(miCurrentUserLoginID, Convert.ToInt32(SelectedGroupTab));
+           
+         if (tabControl1.SelectedTab.Text == "PCN's" || tabControl1.SelectedTab.Text == "Clarifications")
+            {
+                return;
+            }
+
+         else if (moCurrBudget.IsActive == true)
+         {
+             tlbbEdit.Enabled = false;
+             return;
+         }
+         else
+         {
+
+             if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 2) //Means moderator
+             {
+                 //MessageBox.Show("User is Moderator");
+                 if (moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
+                 {
+                     LockTheCurrentGroupTab();
+                     tlbbEdit.Enabled = true;
+                     MessageBox.Show("The following users r working on GroupTab" + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n" + "This Tab is Locked, Click Edit Budget button");
+
+                 }
+
+             }
+
+             else if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 3) //Means view only
+             {
+                 //MessageBox.Show("User is Viewer only");
+                 LockTheCurrentGroupTab();
+                 tlbbEdit.Enabled = false;
+
+             }
+         }     
         }
+
+        private void LockTheCurrentGroupTab()
+        {
+            
+               // MessageBox.Show(_Groups.Code);
+                fgForGroup(SelectedGroupTab).AllowEditing = false;
+                fgExpForGroup(SelectedGroupTab).AllowEditing = false;
+           
+        }
+
+        private void UnLockTheCurrentGroupTab()
+        {
+            foreach (var group in _Groups)
+            {
+                fgForGroup(SelectedGroupTab).AllowEditing = true;
+                fgExpForGroup(SelectedGroupTab).AllowEditing = true;
+            }
+        }
+
+        private void ListUserSecurity(int ID)
+        { 
+            SqlDataReader dr=moLog.GetList_UserSecurityLevel(ID) ;
+
+            string [] li = new string [13];
+            int i = 0;
+            string id = "";
+            while (dr.Read())
+
+            {
+                id = dr["UserID"].ToString() +", "+ dr["UserName"].ToString() ;
+
+                li[i] = dr["DeptName"].ToString() + ", " + dr["AcctGroup"].ToString() + ", " + (Convert.ToInt32(dr["passlevel"])).ToString() + ", " + dr["SecurityName"].ToString();
+
+               
+                
+                i++;
+            }
+
+            //MessageBox.Show(id + "\n" +li[0] + "\n " + li[1] + "\n " + li[2] + "\n " + li[3] + "\n " + li[4] + "\n " + li[5] +
+            //                    "\n " + li[6] + "\n " + li[7] + "\n " + li[8] + "\n " + li[9] + "\n " + li[10] +
+            //                            "\n " + li[11] + "\n " + li[12]);
+
+
+
+        }
+        private int CurrentUserPassLevelForThisTab(int userID, string tab )
+        {
+            SqlDataReader dr = moLog.GetCurrUserSecurityLevelForThisTab(userID, tab);
+            int passlevel = 0;
+            while (dr.Read())
+            {               
+                passlevel = Convert.ToInt32(dr["passlevel"]);
+            }
+
+            return passlevel;
+
+        }
+
+        private void CurrentUserSecurityForThisTab(int userID, string tab)
+        {
+            SqlDataReader dr = moLog.GetCurrUserSecurityLevelForThisTab(userID, tab);
+          
+            string UserInfo = "";
+            while (dr.Read())
+            {
+                // UserInfo = dr["UserID"].ToString() + ", " + dr["UserName"].ToString() + ", " + dr["DeptName"].ToString() + ", " + dr["AcctGroup"].ToString() + ", " + (Convert.ToInt32(dr["passlevel"])).ToString() + ", " + dr["SecurityName"].ToString();
+                UserInfo = dr["UserID"].ToString() + ", " + dr["UserName"].ToString() + ", " + dr["AcctGroup"].ToString() + ", " + (Convert.ToInt32(dr["passlevel"])).ToString() + ", " + dr["SecurityName"].ToString();
+              
+            }
+
+        //    MessageBox.Show(UserInfo + "--- Tab is Locked" );
+          
+
+        }
+        
+
+        
 
         private void LoadBudget(string group)
         {
@@ -533,6 +706,7 @@ namespace RSMPS
             LoadPCNStatus();
 
             SetBudgetUserLevel();
+          //  SetBudgetRateLevel(); //***************************************************************Added 9/30
             
             richTextBox1.Text = moCurrBudget.Clarification11000.ToString();
             richTextBox2.Text = moCurrBudget.Clarification12000.ToString();
@@ -542,14 +716,80 @@ namespace RSMPS
             richTextBox6.Text = moCurrBudget.Clarification16000.ToString();
             richTextBox7.Text = moCurrBudget.Clarification18000.ToString();
             richTextBox8.Text = moCurrBudget.Clarification50000.ToString();
-         //   MessageBox.Show("FBudgetMain_Load"); //**************************10
 
-        }
+           // MessageBox.Show(moLog.GetCurrentUserID(u.Username) + "   ...........   " + miCurrUser);                        
+           // MessageBox.Show(moLog.GetCurrentUserLoginID(miCurrUser).ToString());
+            
+         //   moLog.UpdateForBudgetWindow(moLog.GetCurrentUserID(u.Username), miProjectID, 1); //*******************trying next line, instead of this line
+            miCurrentUserLoginID = moLog.GetCurrentUserLoginID(miCurrUser);
+          //  MessageBox.Show((miCurrUser + "..........."+ moLog.GetCurrentUserLoginID(miCurrUser)).ToString());
+            //moLog.UpdateForBudgetWindow(moLog.GetCurrentUserLoginID(miCurrUser), miProjectID, 1);
+            //moLog.UpdateForBudgetWindow(miCurrentUserLoginID, miProjectID, 1);
+            moLog.UpdateForBudgetWindow(miCurrentUserLoginID, miProjectID);
+          
+        //      MessageBox.Show("list of all user Logged in PCAT- " + moLog.list_Of_User());//***********This gives all PCAT User looged in, currently...*********10/28*****MZ 
+        //      MessageBox.Show("List of user in this project's"  + miProjectID +"budgetwindow are-- " + moLog.list_Of_User_OnBudgetWindow(miProjectID) + "   number= " + moLog.No_Of_User_OnBudgetWindow(miProjectID));
 
+            if (moCurrBudget.IsActive == true)
+            {
+               // MessageBox.Show(moCurrBudget.IsActive.ToString());
+                tlbbEdit.Enabled = false;
+                return;
+            }
+
+            else
+            {
+
+                                                //    if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 3)
+                                                //    {
+                                                //        LockTheCurrentGroupTab();
+                                                //        tlbbEdit.Enabled = false;
+                                                //        //    CurrentUserSecurityForThisTab(miCurrUser, SelectedGroupTab);  @@@@@@@@@@@@@@@@@@@I am not sure to keep it
+                                                //        return;
+                                                //    }
+
+                                                //    else if (moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
+                                                //  //  else if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 2 || moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
+                                                //    {
+                                                //        LockTheCurrentGroupTab();
+                                                //        tlbbEdit.Enabled = true;
+                                                //         MessageBox.Show("The following users are working on GroupTab " + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n" + "This Tab is Locked, please reopen budget window");
+                                                //    }
+                 
+                               //}
+                if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 2) //Means moderator
+                {
+                   // MessageBox.Show("User is Moderator");
+                                    if (moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
+                                    {
+                                        LockTheCurrentGroupTab();
+                                        tlbbEdit.Enabled = true;
+                                        MessageBox.Show("The following users are working on GroupTab " + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n" + "This Tab is Locked, Click Edit Budget button");
+                                                                
+                                    }
+                    
+                }
+
+                else if(CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 3) //Means view only
+                {  //MessageBox.Show("User is Viewer only");
+                    LockTheCurrentGroupTab();
+                    tlbbEdit.Enabled = false;
+                    
+                }
+
+              
+                
+            }
+
+              }
+                   
+        
+        CBUser u;// = new CBUser(); //***************************************Moved outside*******10/29
         private void SetBudgetUserLevel()
         {
             RSLib.COSecurity sec = new RSLib.COSecurity();
-            CBUser u = new CBUser();
+            u = new CBUser();
+            //     CBUser u = new CBUser();//***************************************Moved outside*******10/29
 
             sec.InitAppSettings();
             u.Load(sec.UserID);
@@ -584,6 +824,7 @@ namespace RSMPS
                 tlbbPrintAll.Enabled = true;
                 tlbbBudgetEntry.Enabled = true;
                 tlbbBudgetExport.Enabled = true;
+                removeToolStripMenuItem.Enabled = false; //******************************************11/19
             }
             else if (u.IsManager == true)
             {
@@ -601,6 +842,7 @@ namespace RSMPS
                 tlbbMakeActive.Visible = false;
                 tlbbMakeActive.Visible = false;
                 makeActiveToolStripMenuItem.Visible = false;
+                removeToolStripMenuItem.Enabled = false; //******************************************11/19
                 
             }
             else
@@ -622,6 +864,9 @@ namespace RSMPS
                 tlbbPrintAll.Visible = false;
                 tlbbBudgetExport.Enabled = false;
                 tlbbBudgetExport.Visible = false;
+                tlbbExpenseReport.Visible = false; //******************Added 10/5/2015
+                removeToolStripMenuItem.Enabled = false; //******************************************11/19
+                tlbbSummaryWORate.Visible = false;
 
                 // hide dollars for non-admin
                 foreach (var group in _Groups)
@@ -643,14 +888,50 @@ namespace RSMPS
                 }
 
                 tdbgBudgetPCN.Splits[0].DisplayColumns[4].Visible = false;
+
+                //if (mbIsFixedRate == true)
+                //    SetBudgetRateLevel();
+
             }
 
            // MessageBox.Show(" SetBudgetUserLevel"); //***************************8
         }
 
+        private void SetBudgetRateLevel() //***************************Added 9/29/2015 ************** 
+                                            //******************* If Flat Rate display Budget screen with limited column
+        {
+           // if (mbIsFixedRate == true)
+          //  {
+               // MessageBox.Show("Fixed rate");
+
+                foreach (var group in _Groups)
+                {
+                    txtSumDlrsForGroup(group.Code).Visible = false;
+                    txtSumRateForGroup(group.Code).Visible = false;
+                    txtSumExpForGroup(group.Code).Visible = false;
+                }
+
+                txtTotalDlrs.Visible = false;
+                txtTotalRate.Visible = false;
+                txtTotalExp.Visible = false;
+
+                foreach (var group in _Groups)
+                {
+                    // hide dollar columns in grid
+                    fgForGroup(group.Code).Cols[13].Visible = false;
+                    fgForGroup(group.Code).Cols[14].Visible = false;
+                }
+                 tdbgBudgetPCN.Splits[0].DisplayColumns[4].Visible = false;
+           // }
+
+
+        }
+
         private void tlbbWorksheet_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
+            //MessageBox.Show(SelectedGroupTab);
             OpenWorksheet(SelectedGroupTab);
+            
         }
 
         private void OpenWorksheet(string group)
@@ -658,11 +939,25 @@ namespace RSMPS
             var has_no_worksheet_codes = new[] { "1000", "10000", "20000" };
             var group_obj = _Groups.FirstOrDefault(x => x.Code == group);
             FWS worksheet = new FWS(group_obj, !has_no_worksheet_codes.Contains(group) );
+
+           // worksheet.cboWBS_Text = cboWBS.Text; // *****************************Added 7/1/15
+           // worksheet.miProjectID = miProjectID;
+           
+           // MessageBox.Show(worksheet.miProjectID.ToString());
+            //MessageBox.Show(cboWBS.Text);
+
             var handler = new WorksheetChangedHandler((ds) => { f1_OnWorkSheetChanged(group, ds); });
             worksheet.OnWorkSheetChanged += handler;
             worksheet.SetDataValues(mdsWS[group], moCurrBudget.ID);
+
+           // MessageBox.Show(mdsWS[group].ToString());
+            //MessageBox.Show(moCurrBudget.ID.ToString());
+          
+            
             worksheet.ShowDialog();
             worksheet.OnWorkSheetChanged -= handler;
+            
+
         }
 
         private decimal WorksheetRate(int code, List<CBBudgetLine> removed)
@@ -719,10 +1014,12 @@ namespace RSMPS
                         InsertLineFromWorkSheet(valID, group_int, code, wbs, locDesc, qtyEach, value, rate);
                     }
                     index++;
+
+                    //MessageBox.Show("inserted");
                 }
 
             }
-
+// MessageBox.Show(" f1_OnWorkSheetChanged..................");
             ClearExpenseLines(group);
 
             int travelFare, autoRental, tolls, fuel, mileage, meals, lodging, perdiem, miscExp, survey1, survey2, survey3, survey4, survsup, engserv, surveying, geotinv, environ, specsub, atv, oruv, boat, digcam, cphone, fldcomp, trimbler8, trimblegeo, etotstat, lasrange, pipeloc;
@@ -1115,6 +1412,7 @@ namespace RSMPS
 
         private void InsertLineFromWorkSheet(int wsID, int acctGroup, int acctCode, string wbs, string description, int qty, int hrs, decimal rate)
         {
+// MessageBox.Show("InsertLineFromWorkSheet...........");
             string group = acctGroup + "";
             var fg = fgForGroup(group);
             int rowIndx = 0;
@@ -1129,6 +1427,7 @@ namespace RSMPS
             task = 0;
             cat = 0;
             act = 0;
+         //   MessageBox.Show("Account Code" + acctCode.ToString());
 
             foreach (Row r in fg.Rows)
             {
@@ -1143,6 +1442,9 @@ namespace RSMPS
                         rowGrp = Convert.ToInt32(r[BUDCOL7]);
                     }
 
+                    //MessageBox.Show("(r.Index > 0)============ is invoked");
+                //    MessageBox.Show("rowGrp-----" + rowGrp.ToString() + "----acctCode---------" + acctCode.ToString());
+
                     if (rowGrp == acctCode)
                     {
                         foundFirst = true;
@@ -1154,15 +1456,19 @@ namespace RSMPS
                         task = Convert.ToInt32(r[BUDCOL5]);
                         cat = Convert.ToInt32(r[BUDCOL6]);
                         act = Convert.ToInt32(r[BUDCOL7]);
+
+                     //   MessageBox.Show("(rowGrp == acctCode)============ is invoked");
                     }
                     else if (rowGrp != acctCode && foundFirst == true)
                     {
                         rowIndx = r.Index;
+                      //  MessageBox.Show("else if (rowGrp != acctCode && foundFirst == true)============ is invoked");
                         break;
                     }
                 }
+               // MessageBox.Show(foundFirst.ToString() + rowIndx.ToString());
             }
-
+          //  MessageBox.Show(foundFirst.ToString() + rowIndx.ToString());
             if (foundFirst == true && rowIndx != 0)
             {
                 //  insert a new row into the grid
@@ -1189,6 +1495,7 @@ namespace RSMPS
                 bl.BareDollars = 0;
 
                 bl.Save();
+            //    MessageBox.Show("Inserted to Budgetline From WorkSheet");
 
                 newRow[1] = taskVal;
                 newRow[2] = catVal;
@@ -1212,6 +1519,7 @@ namespace RSMPS
 
         private void InsertLineFromPCN(int wsID, int acctGroup, int acctCode, string wbs, string description, int qty, int hrs, decimal rate)
         {
+ //MessageBox.Show("InsertLineFromPCN started");
             string group = acctGroup + "";
             var fg = fgForGroup(group);
             int rowIndx = 0;
@@ -1286,6 +1594,7 @@ namespace RSMPS
                 bl.BareDollars = 0;
 
                 bl.Save();
+                //MessageBox.Show("Inserted from pcn");
 
                 newRow[1] = taskVal;
                 newRow[2] = catVal;
@@ -1789,8 +2098,58 @@ namespace RSMPS
 
 
 
-        private void deleteRowToolStripMenuItem_Click(object sender, EventArgs e)
-        { RemoveCurrentLine(SelectedGroupTab); }
+        //private void deleteRowToolStripMenuItem_Click(object sender, EventArgs e)
+        //{RemoveCurrentLine(SelectedGroupTab); }
+
+
+        private void deleteRowToolStripMenuItem_Click(object sender, EventArgs e) ///****************Experimenting 7/14/2015
+        {
+           
+                //do something
+                        
+                int currRw = fgForGroup(SelectedGroupTab).Row;
+                int currID;
+                var fg = fgForGroup(SelectedGroupTab);
+                if (currRw < 0) return;
+
+                //don't delete the last node
+               // if (CountChildren(fg, fg.Rows[currRw].Node) == 1) return;
+
+                currID = Convert.ToInt32(fg.Rows[currRw][BUDCOL16]);
+
+                //MessageBox.Show(currID.ToString());
+
+                CBBudgetLine bl= new CBBudgetLine();
+                bl.Load(currID);
+                      int el = bl.EntryLevel;
+            // MessageBox.Show(el.ToString());
+           
+            if (el == 2)
+
+            {   
+                  MessageBox.Show("This record is associated with Work Sheet, Please remove it from WorkSheet");
+                    return;
+            }
+            else
+                RemoveCurrentLine(SelectedGroupTab);           
+            
+            }
+
+        private static int IndexOf_Hyphen(string str, char c, int n)
+        {
+            int s = -1;
+
+            for (int i = 0; i < n; i++)
+            {
+                s = str.IndexOf(c, s + 1);
+
+                if (s == -1) break;
+            }
+
+            return s;
+        }
+
+
 
         public int CountChildren(C1FlexGrid fg, Node node) 
         {
@@ -1874,16 +2233,18 @@ namespace RSMPS
                 {
                     bl = CBBudgetLineFromFg(r, group_int);
                     bl.Save();
+               
                     r[BUDCOL16] = bl.ID;
                 }
             }
-
+            
            // MessageBox.Show("SaveBudgetLines");
         }
 
         private void SaveExpenseLines(string group)
         {
             CBBudgetExpenseLine el;
+            
             var fgExp = fgExpForGroup(group);
             var group_int = Int32.Parse(group);
 
@@ -1908,11 +2269,43 @@ namespace RSMPS
 
                     el.Save();
 
+                                    //el2 = new CBBudgetExpenseLine_FromWorkSheet();
+
+                                    //el2.ID = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(r[9]));
+                                    //el2.BudgetID = moCurrBudget.ID;
+                                    //el2.DeptGroup = group_int;
+                                    //el2.EntryLevel = 1;
+                                    //el2.Code = r[1].ToString();
+                                    //el2.MarkUp = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(r[2]));
+                                    //el2.Description = r[3].ToString();
+                                    //el2.UOMID = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(r[10]));
+                                    //el2.DollarsEach = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(r[5]));
+                                    //el2.Quantity = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(r[6]));
+                                    //el2.MarkupDollars = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(r[7]));
+                                    //el2.TotalDollars = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(r[8]));
+
+                                    //el2.ID = el.ID;
+                                    //el2.BudgetID = el.BudgetID;
+                                    //el2.DeptGroup = el.DeptGroup;
+                                    //el2.EntryLevel = 1;
+                                    //el2.Code = el.Code;
+                                    //el2.MarkUp = el.MarkUp;
+                                    //el2.Description = el.Description;
+                                    //el2.UOMID = el.UOMID;
+                                    //el2.DollarsEach = el.DollarsEach;
+                                    //el2.Quantity = el.Quantity;
+                                    //el2.MarkupDollars = el.MarkupDollars;
+                                    //el2.TotalDollars = el.TotalDollars;
+
+
+                                    //el2.Save();
                     r[9] = el.ID;
+
+                    
                 }
             }
-
-           // MessageBox.Show("SaveExpenseLines");
+        //    MessageBox.Show("SaveExpenseLines....................................................");
+           
         }
 
         private void SaveExpenseLines(string group, int row)
@@ -1938,8 +2331,29 @@ namespace RSMPS
 
             el.Save();
 
-            fgExp[row, 9] = el.ID;
+                          //  CBBudgetExpenseLine_FromWorkSheet el2;
+                            //var fgExp = fgExpForGroup(group);
+                           // var group_int = Int32.Parse(group);
 
+                            //el2 = new CBBudgetExpenseLine_FromWorkSheet();
+
+                            //el2.ID = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(fgExp[row, 9]));
+                            //el2.BudgetID = moCurrBudget.ID;
+                            //el2.DeptGroup = group_int;
+                            //el2.EntryLevel = 1;
+                            //el2.Code = fgExp[row, 1].ToString(); ;
+                            //el2.MarkUp = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(fgExp[row, 2]));
+                            //el2.Description = fgExp[row, 3].ToString(); ;
+                            //el2.UOMID = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(fgExp[row, 10]));
+                            //el2.DollarsEach = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(fgExp[row, 5]));
+                            //el2.Quantity = Convert.ToInt32(RevSol.RSMath.IsIntegerEx(fgExp[row, 6]));
+                            //el2.MarkupDollars = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(fgExp[row, 7]));
+                            //el2.TotalDollars = Convert.ToDecimal(RevSol.RSMath.IsDecimalEx(fgExp[row, 8]));
+
+                            //el2.Save();
+
+            fgExp[row, 9] = el.ID;
+          //  MessageBox.Show("SaveExpenseLines.......................................!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
            // MessageBox.Show("SaveExpenseLines(string group, int row)");
         }
 
@@ -2010,6 +2424,7 @@ namespace RSMPS
             bl.BareDollars = 0;
 
             bl.Save();
+         //   MessageBox.Show("Saved changed to DB");
 
             fg[rw, BUDCOL16] = bl.ID;
            // MessageBox.Show("SaveChangeToDB");
@@ -2196,13 +2611,16 @@ namespace RSMPS
             }
 
             SaveExpenseChangeToDB(group, e.Row);
+           // MessageBox.Show("SaveExpenseChangeToDB............***************************");
             TotalBudget(group, true);
+ 
         }
 
 
         private void SaveExpenseChangeToDB(string group, int rw)
         {
             CBBudgetExpenseLine el = new CBBudgetExpenseLine();
+            //CBBudgetExpenseLine_FromWorkSheet el2 = new CBBudgetExpenseLine_FromWorkSheet();
             var fgExp = fgExpForGroup(group);
 
             el.ID = Convert.ToInt32(fgExp[rw, 9]);
@@ -2219,11 +2637,45 @@ namespace RSMPS
             el.MarkupDollars = Convert.ToDecimal(fgExp[rw, 7]);
             el.TotalDollars = Convert.ToDecimal(fgExp[rw, 8]);
 
-            el.Save();
+                                    //            //el2.ID = Convert.ToInt32(fgExp[rw, 9]);
+                                    //            //el2.BudgetID = moCurrBudget.ID;
+                                    //            //el2.DeptGroup = Int32.Parse(group);
+                                    //            //el2.EntryLevel = 0;
+                                    //            //el2.Code = fgExp[rw, 1].ToString();
+                                    //            //el2.Description = fgExp[rw, 3].ToString();
+                                    //            //el2.MarkUp = Convert.ToDecimal(fgExp[rw, 2]);
+                                    //            ////el.UOMID = Convert.ToInt32(fgExp[rw, 10]);
+                                    //            //el2.UOMID = UOMIDFromUomText(fgExp[rw, 4].ToString());
+                                    //            //el2.DollarsEach = Convert.ToDecimal(fgExp[rw, 5]);
+                                    //            //el2.Quantity = Convert.ToInt32(fgExp[rw, 6]);
+                                    //            //el2.MarkupDollars = Convert.ToDecimal(fgExp[rw, 7]);
+                                    //            //el2.TotalDollars = Convert.ToDecimal(fgExp[rw, 8]);
+                                    //el2.ID = el.ID;
+                                    //el2.BudgetID = el.BudgetID;
+                                    //el2.DeptGroup = el.DeptGroup;
+                                    //el2.EntryLevel = 0;
+                                    //el2.Code = el.Code;
+                                    //el2.Description = el.Description;
+                                    //el2.MarkUp = el.MarkUp;
+                                    ////el.UOMID = Convert.ToInt32(fgExp[rw, 10]);
+                                    //el2.UOMID = el.UOMID;
+                                    //el2.DollarsEach = el.DollarsEach;
+                                    //el2.Quantity = el.Quantity;
+                                    //el2.MarkupDollars = el.MarkupDollars;
+                                    //el2.TotalDollars = el.TotalDollars;
+
+                                    el.Save();
+            //el2.Save();
+            
 
             fgExp[rw, 9] = el.ID;
             fgExp[rw, 10] = el.UOMID;
+
+            //MessageBox.Show("SaveExpenseChangeToDB............***************************");
         }
+        
+
+
 
         private int UOMIDFromUomText(string uom)
         {
@@ -2235,12 +2687,26 @@ namespace RSMPS
             return uomID;
         }
 
+                public string OldStatus;
+
+
+            
+
+
+
+
 
         private void tdbgBudgetPCN_AfterColEdit(object sender, C1.Win.C1TrueDBGrid.ColEventArgs e)
         {
-            //DataRow d4 = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
+          //  DataRow d4 = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
+            //string O_st = Convert.ToString(d4["PCNStatus"]);
 
-            if (e.ColIndex == 5 && Convert.ToBoolean(tdbgBudgetPCN.Tag) == true)
+            //MessageBox.Show("tdbgBudgetPCN_AfterColEdit,,,," + e.ColIndex + "........." + tdbgBudgetPCN.Columns["Status"].Value.ToString());
+
+       //     MessageBox.Show("tdbgBudgetPCN_AfterColEdit,,,," );
+
+         //   if (e.ColIndex == 5 && Convert.ToBoolean(tdbgBudgetPCN.Tag) == true) //***************************Edited, because no other Column is editable
+                if ( Convert.ToBoolean(tdbgBudgetPCN.Tag) == true)
             {
                 CBBudgetPCN pcn = new CBBudgetPCN();
                 DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
@@ -2268,11 +2734,12 @@ namespace RSMPS
                     makeActiveToolStripMenuItem.Enabled = false;
 
                     MakeProjectActiveInJobStat(li.ID);
+                    //MessageBox.Show("Project active");
                 }
 
                 //**************************************added on 5/6
-                        string st = Convert.ToString(d["PCNStatus"]);
-                        if (st == "Approved" || st == "Disapprove" || st == "Pending" || st == "Prepare Control Estimate") { bttEditPCN.Enabled = false; }
+                string st = Convert.ToString(d["PCNStatus"]);
+                if (st == "Approved" || st == "Disapprove" || st == "Pending" || st == "Prepare Control Estimate") { bttEditPCN.Enabled = false; }
                 //**************************************
 
 
@@ -2290,78 +2757,83 @@ namespace RSMPS
                 pcn.Save();
             }*/
 
-            if (e.ColIndex == 2)
-            {
-                DataRow d3 = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
-                string st_status = Convert.ToString(d3["PCNStatus"]);
-                              
-                if (st_status == "Initiated")
-                {
-                    CBBudgetPCN pcn = new CBBudgetPCN();
-                    DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
+                                    //if (e.ColIndex == 2) //********************************************************************Commented, because nott needed, from truedbgrid it is made readonly
+                                    //{
+                                    //    DataRow d3 = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
+                                    //    string st_status = Convert.ToString(d3["PCNStatus"]);
 
-                    int pcnID = Convert.ToInt32(d["ID"]);
-                    pcn.Load(pcnID);
+                                    //    if (st_status == "Initiated")
+                                    //    {
+                                    //        CBBudgetPCN pcn = new CBBudgetPCN();
+                                    //        DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
 
-                    pcn.PCNTitle = d["Description"].ToString();
-                    pcn.Save();
-                }
-                else
-                {                   
-                    int r_i = tdbgBudgetPCN.Row;
-                    tdbgBudgetPCN[r_i, 2] = st_Description;
-                 }
-                //MessageBox.Show("You cannot edit Description with Approved/Pendind/Disapprove PCN");
-            }
+                                    //        int pcnID = Convert.ToInt32(d["ID"]);
+                                    //        pcn.Load(pcnID);
 
+                                    //        pcn.PCNTitle = d["Description"].ToString();
+                                    //        pcn.Save();
+                                    //    }
+                                    //    else
+                                    //    {
+                                    //        int r_i = tdbgBudgetPCN.Row;
+                                    //        tdbgBudgetPCN[r_i, 2] = st_Description;
+                                    //    }
+                                    //    //MessageBox.Show("You cannot edit Description with Approved/Pendind/Disapprove PCN");
+                                    //}
 
-
-
+                tdbgBudgetPCN.Tag = false;//***********************************************************
 
         }
 
         private void tdbgBudgetPCN_BeforeColUpdate(object sender, C1.Win.C1TrueDBGrid.BeforeColUpdateEventArgs e)
         {
-            //MessageBox.Show("Please Hit enter to Change PCN Status");
+            //MessageBox.Show("tdbgBudgetPCN_BeforeColUpdate started, " + e.Column.Name + " Old Status =" + e.OldValue.ToString() + ".................." + OldStatus);
+        //    MessageBox.Show("Please Hit enter to Change PCN Status");
             tdbgBudgetPCN.Tag = true;
 
-            if (e.Column.Name == "Status")
+       //     MessageBox.Show("e.OldValue = " + e.OldValue.ToString());
+          //  if (e.Column.Name == "Status")
+            //{
+                //MessageBox.Show("e.OldValue = " + e.OldValue.ToString() );
+                //   if (e.OldValue.ToString() == "Approved")
+                //if (OldStatus == "Approved")
+               // {
+            if (tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Disapprove")
             {
-                if (e.OldValue.ToString() == "Approved")
+                if (UnApprovePCN() == false)
                 {
-                    if (UnApprovePCN() == false)
-                    {
-                        e.Cancel = true;
+                    e.Cancel = true;
 
-                        tdbgBudgetPCN.Tag = false;    // tell other functions to not update
+                    tdbgBudgetPCN.Tag = false;    // tell other functions to not update
 
-                        pa_OnChangeCancelled(e.OldValue.ToString(), 0);
-                    }
-                }
-                else
-                {
-                    FBudgetPCNApproval pa = new FBudgetPCNApproval();
-                    //SSS02192014
-                    if (tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Approved" | tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Pending")
-                    {
-                        pa.IsChangeOnly = false;
-
-
-                    }
-                    else
-                        pa.IsChangeOnly = true;
-
-                    pa.PreviousEntry = e.OldValue.ToString();
-                    pa.OnChangeApproved += new RevSol.PassDataStringWithIndex(pa_OnChangeApproved);
-                    pa.OnChangeCancelled += new RevSol.PassDataStringWithIndex(pa_OnChangeCancelled);
-                    pa.ShowDialog();
-                    pa.OnChangeApproved -= new RevSol.PassDataStringWithIndex(pa_OnChangeApproved);
-                    pa.OnChangeCancelled -= new RevSol.PassDataStringWithIndex(pa_OnChangeCancelled);
+                    pa_OnChangeCancelled(e.OldValue.ToString(), 0);
                 }
             }
+                
+            if (tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Approved" | tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Pending" | tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Prepare Control Estimate")
+            {
+                FBudgetPCNApproval pa = new FBudgetPCNApproval();
+                //SSS02192014
 
+                if (tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Approved" | tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Pending")
+                {
+                    pa.IsChangeOnly = false;
+
+                    // MessageBox.Show("OldStatus =" + e.OldValue.ToString() + "...New Status= " + tdbgBudgetPCN.Columns["Status"].Value.ToString());
+                }
+                else
+                    pa.IsChangeOnly = true;
+                //   MessageBox.Show("tdbgBudgetPCN_BeforeColUpdate.......Middle" + "OldStatus =" + e.OldValue.ToString()  + "...New Status= " + tdbgBudgetPCN.Columns["Status"].Value.ToString());
+                pa.PreviousEntry = e.OldValue.ToString();
+                pa.OnChangeApproved += new RevSol.PassDataStringWithIndex(pa_OnChangeApproved);
+                pa.OnChangeCancelled += new RevSol.PassDataStringWithIndex(pa_OnChangeCancelled);
+                pa.ShowDialog();
+                pa.OnChangeApproved -= new RevSol.PassDataStringWithIndex(pa_OnChangeApproved);
+                pa.OnChangeCancelled -= new RevSol.PassDataStringWithIndex(pa_OnChangeCancelled);
+
+            }
+          //  MessageBox.Show("tdbgBudgetPCN_BeforeColUpdate.......Ended");
             //bttEditPCN.Enabled = false; // Added 5/6 **************@10:52
-
         }
 
         private bool UnApprovePCN()
@@ -2416,7 +2888,7 @@ namespace RSMPS
                 //tdbgBudgetPCN.UpdateData();
 
                 int pcnID = Convert.ToInt32(d["ID"]);
-
+             //   MessageBox.Show("pa_OnChangeApproved....." + val + " " + index);
                 AddPCNToCurrentBudget(pcnID);
             }
         }
@@ -2429,6 +2901,18 @@ namespace RSMPS
             pcn.StartNewPCN(moCurrBudget.ProjectID);
             pcn.ShowDialog();
             pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNAdded);
+
+
+         //   MessageBox.Show("PCN Added ..., Group added? " + pcn.mbIsCodeAdded);
+
+
+            if (pcn.mbIsCodeAdded == true)
+            {
+                this.ReloadForm = true;
+                this.Close();
+               
+            }
+          
         }
 
 
@@ -2453,6 +2937,13 @@ namespace RSMPS
 
             mdsPCNs.Tables["PCNs"].Rows.Add(dr);
 
+
+           // MessageBox.Show("PCN ADDED Called");
+            //this.ReloadForm = true;
+            //this.Close();
+
+
+
             //bttEditPCN.Enabled = true;    //**************************************commented on 5/6
         }
 
@@ -2473,10 +2964,22 @@ namespace RSMPS
                 pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNChanged);
           //      }
 
+
+           //     MessageBox.Show("GroupCode added ?    "+pcn.mbIsCodeAdded);
+
+                if (pcn.mbIsCodeAdded == true)
+                {
+                    this.ReloadForm = true;
+                    this.Close();
+                }
+             
+
+
         }
 
         void PCNChanged(int itmID, string name)
         {
+
             CBBudgetPCN pcn = new CBBudgetPCN();
 
             pcn.Load(itmID);
@@ -2488,8 +2991,10 @@ namespace RSMPS
             d["TotalDlrs"] = CBBudgetPCN.TotalDollars(itmID);
             if (pcn.PCNNumber != null)
             { d["PCNNumber"] = pcn.PCNNumber; }
-        
-            
+
+          //  MessageBox.Show("Pcn Changed 444444444444444444444");
+           // this.ReloadForm = true;
+           // this.Close();
          }
         private void bttCopyPCN_Click_1(object sender, EventArgs e)
         {
@@ -2507,12 +3012,21 @@ namespace RSMPS
             pcn.ShowDialog();
             pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNAdded);
 
-          
+            MessageBox.Show("PCN Copied, Group added?  " + pcn.mbIsCodeAdded);
+
+            if (pcn.mbIsCodeAdded == true)
+            {
+                this.ReloadForm = true;
+                this.Close();
+            }
+           // this.ReloadForm = true;
+           //this.Close();
 
         }
 
         private void AddPCNToCurrentBudget(int pcnID)
         {
+          //  MessageBox.Show("AddPCNToCurrentBudget....." + pcnID);
             CBBudgetPCN pcn = new CBBudgetPCN();
             int code;
             string wbs;
@@ -2527,7 +3041,9 @@ namespace RSMPS
 
             foreach (DataRow d in pcn.PCNData.Tables["PCNHours"].Rows)
             {
+               
                 code = Convert.ToInt32(d["Code"]);
+              //  MessageBox.Show(code.ToString());
                 wbs = d["WBS"].ToString();
                 desc = d["Description"].ToString();
                 hrs = Convert.ToInt32(d["SubtotalHrs"]);
@@ -2536,11 +3052,24 @@ namespace RSMPS
                 AddPCNByCode(pcn.PCNNumber, code, wbs, desc, hrs, rate);
             }
 
-            AddPCNExpenses(pcn.ID, pcn.PCNNumber, pcn.PCNData);
+            //AddPCNExpenses(pcn.ID, pcn.PCNNumber, pcn.PCNData); //**********Commented***********************************
+            //***************************************************Added to put PCN to Proper Dept Group********************
+            DataView view = new DataView(pcn.PCNData.Tables["PCNExpenses"]);
+            DataTable distinctValues = view.ToTable(true, "DeptGroup");
+
+            foreach (DataRow de in distinctValues.Rows)
+            {
+              //  MessageBox.Show(de["DeptGroup"].ToString());
+                AddPCNExpenses(pcn.ID, pcn.PCNNumber, pcn.PCNData, Convert.ToInt32(de["DeptGroup"]));
+            }
+            //*******************************************************************************************
+
+
         }
 
         private void AddPCNByCode(string pcnNum, int code, string wbs, string desc, int hrs, decimal rate)
         {
+            //MessageBox.Show("AddPCNByCode...................... Started");
             string newDesc;
 
             newDesc = "PCN" + pcnNum + " " + wbs + " " + desc;
@@ -2550,9 +3079,11 @@ namespace RSMPS
             InsertLineFromPCN(0, group, code, wbs, newDesc, 1, hrs, rate);
         }
 
-        private void AddPCNExpenses(int pcnID, string pcnNum, dsPCN pcns)
+     //   private void AddPCNExpenses(int pcnID, string pcnNum, dsPCN pcns)
+             private void AddPCNExpenses(int pcnID, string pcnNum, dsPCN pcns, int dept) //********************Edited 10/19/2015
         {
-            var group = _Default_Group;
+            //var group = _Default_Group;
+            var group = dept.ToString(); //******************//********************Edited 10/19/2015
 
             int travelFare, autoRental, tolls, fuel, mileage, meals, lodging, perdiem, miscExp, survey1, survey2, survey3, survey4, survsup, engserv, surveying, geotinv, environ, specsub, atv, oruv, boat, digcam, cphone, fldcomp, trimbler8, trimblegeo, etotstat, lasrange, pipeloc; 
             string rowCode;
@@ -2591,104 +3122,109 @@ namespace RSMPS
             // find entries to make new worksheet line
             foreach (DataRow d in pcns.Tables["PCNExpenses"].Rows)
             {
-
-                rowCode = d["Code"].ToString();
-
-                switch (rowCode)
+                int dg = Convert.ToInt32(d["DeptGroup"]);// ****************************************10/19
+                if (dg == dept)                             //***************************************10/19
                 {
-                    case "E110":
-                        travelFare += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E120":
-                        autoRental += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E130":
-                        tolls += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E140":
-                        fuel += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E150":
-                        mileage += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E160":
-                        meals += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E170":
-                        lodging += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E180":
-                        perdiem += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E190":
-                        miscExp += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E281":
-                        survey1 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E282":
-                        survey2 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E283":
-                        survey3 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E284":
-                        survey4 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E290":
-                        survsup  += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E310":
-                        engserv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E320":
-                        surveying += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E330":
-                        geotinv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E340":
-                        environ += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E350":
-                        specsub += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E541":
-                        atv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E542":
-                        oruv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E543":
-                        boat += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E561":
-                        digcam += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E562":
-                        cphone += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E580":
-                        fldcomp += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E591":
-                        trimbler8 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E592":
-                        trimblegeo += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E593":
-                        etotstat += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E594":
-                        lasrange += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    case "E595":
-                        pipeloc += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
-                        break;
-                    default:
-                        AddPCNExpensesNonWorksheet(pcnID, rowCode, Convert.ToInt32(d["NumItems"]), Convert.ToDecimal(d["DlrsPerItem"]), Convert.ToDecimal(d["MUPerc"]));
-                        break;
+
+                    rowCode = d["Code"].ToString();
+
+                    switch (rowCode)
+                    {
+                        case "E110":
+                            travelFare += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E120":
+                            autoRental += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E130":
+                            tolls += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E140":
+                            fuel += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E150":
+                            mileage += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E160":
+                            meals += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E170":
+                            lodging += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E180":
+                            perdiem += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E190":
+                            miscExp += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E281":
+                            survey1 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E282":
+                            survey2 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E283":
+                            survey3 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E284":
+                            survey4 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E290":
+                            survsup += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E310":
+                            engserv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E320":
+                            surveying += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E330":
+                            geotinv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E340":
+                            environ += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E350":
+                            specsub += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E541":
+                            atv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E542":
+                            oruv += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E543":
+                            boat += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E561":
+                            digcam += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E562":
+                            cphone += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E580":
+                            fldcomp += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E591":
+                            trimbler8 += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E592":
+                            trimblegeo += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E593":
+                            etotstat += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E594":
+                            lasrange += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        case "E595":
+                            pipeloc += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(d["NumItems"]));
+                            break;
+                        default:
+                            //AddPCNExpensesNonWorksheet(pcnID, rowCode, Convert.ToInt32(d["NumItems"]), Convert.ToDecimal(d["DlrsPerItem"]), Convert.ToDecimal(d["MUPerc"]));
+                            AddPCNExpensesNonWorksheet(pcnID, rowCode, Convert.ToInt32(d["NumItems"]), Convert.ToDecimal(d["DlrsPerItem"]), Convert.ToDecimal(d["MUPerc"]), dg);
+                            break;
+                    }
                 }
             }
 
@@ -2739,6 +3275,7 @@ namespace RSMPS
             es.E595 = pipeloc;
 
             es.Save();
+          //  MessageBox.Show("BudgetExpenseSheet data saved");
 
             DataRow eRow = mdsWS[group].Tables["Expenses"].NewRow();
             eRow["ID"] = es.ID;
@@ -2780,15 +3317,19 @@ namespace RSMPS
             eRow["E593"] = etotstat;
             eRow["E594"] = lasrange;
             eRow["E595"] = pipeloc;
-
+            
+            eRow["DeptGroup"] = dept;//********************************10/16
             mdsWS[group].Tables["Expenses"].Rows.Add(eRow);
 
-            AddPCNWorksheetExpenses();
+          //  AddPCNWorksheetExpenses();
+            AddPCNWorksheetExpenses(eRow["DeptGroup"].ToString()); //*********************************************10/16
         }
 
-        private void AddPCNWorksheetExpenses()
+        //private void AddPCNWorksheetExpenses()
+            private void AddPCNWorksheetExpenses(string dg) //*************************10/16
         {
-            var group = _Default_Group;
+            //var group = _Default_Group;
+            var group = dg;
 
             ClearExpenseLines(group);
 
@@ -2859,7 +3400,7 @@ namespace RSMPS
                 lasrange += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E594"]));
                 pipeloc += Convert.ToInt32(RevSol.RSMath.IsIntegerEx(dr["E595"]));
             }
-
+            //MessageBox.Show("worked untill here.........................................Checking where exception is happening");
             var fgExp = fgExpForGroup(group);
             foreach (C1.Win.C1FlexGrid.Row r in fgExp.Rows)
             {
@@ -2992,16 +3533,19 @@ namespace RSMPS
             }
         }
 
-        private void AddPCNExpensesNonWorksheet(int pcnID, string rowCode, int quantity, decimal dlrsPer, decimal mu)
+                    //private void AddPCNExpensesNonWorksheet(int pcnID, string rowCode, int quantity, decimal dlrsPer, decimal mu) //**********************************************************Edited 10/19
+             private void AddPCNExpensesNonWorksheet(int pcnID, string rowCode, int quantity, decimal dlrsPer, decimal mu, int dept)
         {
             CBBudgetPCN pcn = new CBBudgetPCN();
             pcn.Load(pcnID);
-            AddPCNExpensesNonWorkSheet(_Default_Group, pcn.PCNNumber, rowCode, rowCode, quantity, dlrsPer, mu, 0);
+                    // AddPCNExpensesNonWorkSheet(_Default_Group, pcn.PCNNumber, rowCode, rowCode, quantity, dlrsPer, mu, 0);
+            AddPCNExpensesNonWorkSheet(dept.ToString(), pcn.PCNNumber, rowCode, rowCode, quantity, dlrsPer, mu, 0); 
         }
 
 
         private void AddPCNExpensesNonWorkSheet(string group, string pcnNumber, string rowCode, string description, int quantity, decimal dlrsPer, decimal mu, int uomID)
-        {
+             {
+                 //MessageBox.Show("AddPCNExpensesNonWorkSheet started");
             string gridCode;
             int currIndx = -1;
             C1FlexGrid fgExp = fgExpForGroup(group);
@@ -3052,6 +3596,11 @@ namespace RSMPS
 
                 el.Save();
 
+               
+
+
+               // MessageBox.Show("AddPCNExpensesNonWorkSheet......>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+
                 rw[9] = el.ID;
             }
         }
@@ -3063,12 +3612,12 @@ namespace RSMPS
         {
             if (tdbgBudgetPCN.Bookmark >= 0)
             {
-               // bttEditPCN.Enabled = true; //***********************Commented****MZ
-            }          
-            
-            
-            
-            
+                // bttEditPCN.Enabled = true; //***********************Commented****MZ
+            }
+
+
+
+
             //string stat = tdbgBudgetPCN.Columns["Status"].Value.ToString();
 
             //Console.WriteLine("The Status is: " + stat);
@@ -3077,9 +3626,9 @@ namespace RSMPS
             DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];//***********************Added 9:48
             st_Description = Convert.ToString(d["Description"]);
 
-           // Set_Description(st_Description);
+            // Set_Description(st_Description);
             //string st = Convert.ToString(d["PCNStatus"]);
-           // MessageBox.Show(st_Description); 
+            // MessageBox.Show(st_Description); 
             //return(st_Description);
 
             //********************5/4 *******************Uncommented below
@@ -3094,7 +3643,7 @@ namespace RSMPS
             //}
                 
             
-  }
+        }
         //public void Set_Description(string s)
 
         //{ 
@@ -3132,51 +3681,87 @@ namespace RSMPS
 
         private void tdbgBudgetPCN_Change(object sender, EventArgs e)
         {
-            //MessageBox.Show("Please Hit Enter to Change PCN");
+                                        //if (tdbgBudgetPCN.Bookmark >= 0)
+                                        //{
+                                        //    // bttEditPCN.Enabled = true; //***********************Commented****MZ
+                                        //}
 
 
+
+
+                                        ////string stat = tdbgBudgetPCN.Columns["Status"].Value.ToString();
+
+                                        ////Console.WriteLine("The Status is: " + stat);
+
+
+                                        //DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];//***********************Added 9:48
+                                        //st_Description = Convert.ToString(d["Description"]);
+
+                                        //// Set_Description(st_Description);
+                                        ////string st = Convert.ToString(d["PCNStatus"]);
+                                        //// MessageBox.Show(st_Description); 
+                                        ////return(st_Description);
+
+                                        ////********************5/4 *******************Uncommented below
+                                        ////if (stat == "Initiated")
+                                        ////{
+                                        ////    bttEditPCN.Enabled = true;
+                                        ////    tdbgBudgetPCN.Columns["Status"].DropDown.AllowDrop = false;
+                                        ////}
+                                        ////else
+                                        ////{
+                                        ////    bttEditPCN.Enabled = false;
+                                        ////}
+            //***************************The Above part is commented, because looks like, not needed any more
+            //******Bottom part is from old Copy
             DataRow d_MC = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
             string st = Convert.ToString(d_MC["PCNStatus"]);
             if (st == "Approved")
-            {
-                bttEditPCN.Enabled = false;
-               }
+            {                bttEditPCN.Enabled = false;            }
 
+                
         }
 
-
+        //public string OldStatus;
 
 
         private void tdbgBudgetPCN_MouseClick(object sender, MouseEventArgs e)
+    //      private void tdbgBudgetPCN_MouseClick(object sender, C1.Win.C1TrueDBGrid.FetchCellStyleEventArgs e)
+            
         {
             DataRow d_MC = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
-            string st = Convert.ToString(d_MC["PCNStatus"]);
+           
+            string st  = Convert.ToString(d_MC["PCNStatus"]);
             //MessageBox.Show(st);
-
+         //  OldStatus = st;
 
             //if (st == "Approved")
             //{
             //    bttEditPCN.Enabled = false;
             //tdbgBudgetPCN.EditRows = olumns["Description"].Text. = false;
             //    //MessageBox.Show("Can not Edit   " + st + " PCN"); //******************Commented on 5/6
-            
+
             //}
-            
-            
-             
-                
-                
-                if (st == "Initiated")
+
+            if (st == "Approved")
+            {
+                bttEditPCN.Enabled = false;
+              //  MessageBox.Show("Should not edit");
+            }
+
+
+
+            if (st == "Initiated")
             {
                 bttEditPCN.Enabled = true;
                 //tdbgBudgetPCN.Columns["Status"].DropDown.AllowDrop = false;
             }
-            
+
             else
             {
                 bttEditPCN.Enabled = false;
                 //MessageBox.Show("Can not Edit   " + st +" PCN");
-               
+
             }
 
         }
@@ -3184,13 +3769,43 @@ namespace RSMPS
         private void tlbbSummary_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
             CPBudget bud = new CPBudget();
-
             this.Cursor = Cursors.WaitCursor;
-
             bud.PreviewBudgetSummary(moCurrBudget.ID, cboWBS.Text);
-
             this.Cursor = Cursors.Default;
         }
+
+
+        private void tlbbSummaryWORate_Click(object sender, C1.Win.C1Command.ClickEventArgs e) //*****************************Added 7/22/2015
+        {
+            CPBudget bud = new CPBudget();
+            this.Cursor = Cursors.WaitCursor;
+            bool rate = false;
+            bud.PreviewBudgetSummary(moCurrBudget.ID, cboWBS.Text,rate);
+            this.Cursor = Cursors.Default;
+
+        }
+
+        private void tlbbExpenseReport_Click(object sender, C1.Win.C1Command.ClickEventArgs e) //*****************************Added 9/17/2015
+        {
+            CPBudget bud = new CPBudget();
+            this.Cursor = Cursors.WaitCursor;
+            bool rate = false;
+            bud.PreviewGetTravelExpenseReport(moCurrBudget.ID, cboWBS.Text, rate); //*******************************I have to work on it
+            this.Cursor = Cursors.Default;
+           
+        }
+
+        private void tlbbEdit_Click(object sender, C1.Win.C1Command.ClickEventArgs e) //*****************************Added 9/17/2015
+        {
+            MessageBox.Show("you can edit current Group Tab");
+            UnLockTheCurrentGroupTab();
+
+
+        }
+
+
+
+
 
         private void tlbbPreviewDetails_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
@@ -3201,7 +3816,12 @@ namespace RSMPS
            // MessageBox.Show(moCurrBudget.ProjectID.ToString());
             //MessageBox.Show(moCurrBudget.Description);
 
-            bud.PreviewBudgetDetails(moCurrBudget.ID, cboWBS.Text);
+            //worksheet.cboWBS_Text = cboWBS.Text; // *****************************Added 7/1/15
+            //MessageBox.Show("#################################");
+            //MessageBox.Show(cboWBS.Text);
+            
+
+            bud.PreviewBudgetDetails(moCurrBudget.ID, cboWBS.Text); 
             
             //MessageBox.Show(moCurrBudget.ID.ToString());
 
@@ -3749,6 +4369,8 @@ namespace RSMPS
         private void tlbbBudgetExport_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
             CBudgetExport be = new CBudgetExport();
+            DateTime dt = DateTime.Now;
+            saveFileDialog1.FileName = "Budget-" + msProject + "-" + dt.ToString("yyyMMdd hhmmss") ; //*******************Added 10/4/2015
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -3984,7 +4606,7 @@ namespace RSMPS
             }
         }
 
-        private void tlbbSelectCodes_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
+     private void tlbbSelectCodes_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
             var code_selector = new CodeGroupSelector(this.miProjectID);
             code_selector.ShowDialog();
@@ -4023,16 +4645,21 @@ namespace RSMPS
             pcn.OnPCNChanged -= new RevSol.ItemValueChangedHandler(PCNChanged);
         }
 
-     
-       
+        private void FBudgetMain_FormClosing(object sender, FormClosingEventArgs e)
+        { 
+            
+           
+           // moLog.UpdateForBudgetWindowClosing(moLog.GetCurrentUserID(u.Username));
+            moLog.UpdateForBudgetWindowClosing(miCurrentUserLoginID);
+           
+           // MessageBox.Show("Budget Closed");
 
-        
-        
+        }
 
-       
+        private void button6_Click(object sender, EventArgs e)
+        {
 
-
-
-     
+        }
+                       
     }
 }

@@ -26,6 +26,13 @@ namespace RSMPS
             DataSet ds;
             FPreviewAR pv = new FPreviewAR();
 
+
+            CBProject proj = new CBProject(); //***********************************Added 9/30/2015
+            CBTransmittalRelease r = new CBTransmittalRelease();
+            r.Load(releaseID);
+            proj.Load(r.ProjectID);
+            pv.projNumber = proj.Number;
+
             ds = CBTransmittalRelease.GetTransmittalReleaseForReport(releaseID);
 
             rprt.DataSource = ds;
@@ -40,8 +47,14 @@ namespace RSMPS
             DataSet ds;
             FPreviewAR pv = new FPreviewAR();
 
-            ds = CBTransmittal.GetTransmittalForReport(transmittalID);
+            CBProject proj = new CBProject(); //***********************************Added 9/30/2015
+            CBTransmittal t = new CBTransmittal();
+            t.Load(transmittalID);
+            proj.Load(t.ProjectID);
+            pv.projNumber = proj.Number;
 
+            ds = CBTransmittal.GetTransmittalForReport(transmittalID);
+                  
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
             pv.ViewReport(rprt);

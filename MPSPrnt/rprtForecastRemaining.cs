@@ -32,6 +32,26 @@ namespace RSMPS
             label12.Text = "Pipeline Forecast Remaining Report";
         }
 
+        public string SetAsEngineering()      //*************************Added 9/30
+        {   string Title = "Engineering Forecast Remaining Report";
+            label12.Text = Title;
+            return Title;
+        }
+
+        public string SetAsPM()           //*************************Added 9/30
+        {
+            string Title = "Program Management Forecast Remaining Report";
+            label12.Text = Title;
+            return Title;
+        }
+
+        public string SetAsBHam()           //*************************Added 9/30
+        {
+            string Title = "Birmingham Forecast Remaining Report";
+            label12.Text = Title;
+            return Title;
+        }
+
         private void detail_Format(object sender, EventArgs e)
         {
             int totalVal = 0;

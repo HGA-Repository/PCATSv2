@@ -136,6 +136,48 @@ namespace RSMPS
             return retVal;
         }
 
+        public int SaveNewSummary(string strXml) //***************************Added 8/6/2015
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            int retVal = 0;
+
+            LoadVals(strXml);
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spProjectSummary_PM_Insert", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            prm = cmd.Parameters.Add("@ID", SqlDbType.Int);
+            prm.Direction = ParameterDirection.Output;
+
+            prm = cmd.Parameters.Add("@EmployeeID", SqlDbType.Int);
+            prm.Value = oVar.EmployeeID;
+            
+            cmd.ExecuteNonQuery();
+
+            retVal = Convert.ToInt32(cmd.Parameters["@ID"].Value);
+
+            prm = null;
+            cmd = null;
+            cnn.CloseConnection();
+            cnn = null;
+
+            return retVal;
+        }
+
+
+
+
+
+
+
+
+
+
+                               
 
         public int SavePrev(string strXml)
         {
@@ -173,7 +215,7 @@ namespace RSMPS
             return oVar.ID;
         }
 
-
+                                    
         private string GetDataString()
         {
             string tmpStr;
@@ -429,6 +471,28 @@ namespace RSMPS
                 cmd = new SqlCommand("spRPRT_ForecastRemainingPGM", cnn.GetConnection(120));
             else
                 cmd = new SqlCommand("spRPRT_ForecastRemaining", cnn.GetConnection(120));
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandTimeout = 60 * 2;
+
+            da = new SqlDataAdapter();
+            ds = new DataSet();
+            da.SelectCommand = cmd;
+            da.Fill(ds);
+
+            cnn.CloseConnection();
+
+            return ds;
+        }      
+            public DataSet GetForecastRemainingBHam()//******************************Added 11/23***
+        {
+            DataSet ds;
+            RSLib.CDbConnection cnn;
+            SqlDataAdapter da;
+            SqlCommand cmd;
+
+            cnn = new RSLib.CDbConnection();         
+            cmd = new SqlCommand("spRPRT_ForecastRemainingBHam", cnn.GetConnection(120));          
 
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandTimeout = 60 * 2;

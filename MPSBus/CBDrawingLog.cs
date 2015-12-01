@@ -71,6 +71,66 @@ namespace RSMPS
             return retVal;
         }
 
+
+        public int Save_Update() //********************************Added 10/8/2015
+        {
+            CDbDrawingLog dbDt = new CDbDrawingLog();
+            string tmpDat;
+            int retVal = 0;
+
+        //    tmpDat = GetDataString_Test();
+            tmpDat = GetDataString();
+
+            if (base.ID > 0)
+            {
+               // dbDt.SavePrev_Test(tmpDat);
+                dbDt.SavePrev(tmpDat);
+                retVal = base.ID;
+            }
+            else
+            {
+                //retVal = dbDt.SaveNew_Test(tmpDat);
+                base.ID = retVal;
+            }
+
+            dbDt = null;
+
+            return retVal;
+
+        }
+
+        public int Save_Insert()//********************************Added 10/8/2015
+        {
+            CDbDrawingLog dbDt = new CDbDrawingLog();
+            string tmpDat;
+            int retVal = 0;
+
+        //    tmpDat = GetDataString_Test();
+            tmpDat = GetDataString();
+            if (base.ID > 0)
+            {
+                //dbDt.SavePrev_Test(tmpDat);
+                retVal = base.ID;
+            }
+            else
+            {
+                ///retVal = dbDt.SaveNew_Test(tmpDat);
+                retVal = dbDt.SaveNew(tmpDat);
+                base.ID = retVal;
+            }
+
+            dbDt = null;
+
+            return retVal;
+
+        }
+
+
+
+
+
+
+
         public static decimal GetPercentComplete(decimal bHrs, decimal rHrs)
         {
             decimal pComp;
@@ -194,6 +254,13 @@ namespace RSMPS
             return dbDt.GetListbyDeptProj(dID, pID, wbs, sortCol, sortAsc);
         }
 
+        
+        public static SqlDataReader GetListAcctCodes() //************************Added 11/20
+        {
+            CDbDrawingLog dbDt = new CDbDrawingLog();
+
+            return dbDt.GetListAcctCodes();
+        }
         public static SqlDataReader GetListbyDeptProjForTrans(int deptID, int projID)
         {
             CDbDrawingLog dbDt = new CDbDrawingLog();
@@ -214,6 +281,32 @@ namespace RSMPS
 
             return dbDt.GetWBSListByProject(projectID);
         }
+
+        public static SqlDataReader GetExportListForDrawingLog(string dXml, string pXml, int sortCode, int drwgSpec)//*****************Added 10/2/2015
+        {
+          //  CDbBudgetLine dbDt = new CDbBudgetLine();
+            
+           // return dbDt.GetExportListByBudget(budID);
+            CDbDrawingLog dbDt = new CDbDrawingLog();
+            return  dbDt.GetDrawingLogMainByDeptListProjList_Test(dXml, pXml, sortCode, drwgSpec);
+        }
+        public static SqlDataReader GetExportListForDrawingLog_Dept( string xml, int sortCode, int drwgSpec)//*****************Added 10/2/2015
+        {
+            CDbDrawingLog dbDt = new CDbDrawingLog();
+            return dbDt.GetDrawingLogMainByDeptList_Test(xml, sortCode, drwgSpec);
+        }
+        public static SqlDataReader GetExportListForDrawingLog_Proj(string xml, int sortCode, int drwgSpec)//*****************Added 10/2/2015
+        {
+            CDbDrawingLog dbDt = new CDbDrawingLog();
+            return dbDt.GetDrawingLogMainByProjList_Test(xml, sortCode, drwgSpec);
+        }
+        public static SqlDataReader GetExportListForDrawingLog_Lead(string dXml, string lXml, int sortCode, int drwgSpec)//*****************Added10/2/2015
+        {
+            CDbDrawingLog dbDt = new CDbDrawingLog();
+            return dbDt.GetDrawingLogMainByLeadList_Test(dXml, lXml, sortCode, drwgSpec);
+        }
+
+
 
         public static DataSet GetListbyDeptProjForUpdate(int deptID, int projID, string wbs)
         {

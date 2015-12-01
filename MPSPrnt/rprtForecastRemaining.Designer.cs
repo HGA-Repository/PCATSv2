@@ -51,6 +51,7 @@ namespace RSMPS
             this.label19 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.label20 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.Picture = new GrapeCity.ActiveReports.SectionReportModel.Picture();
+            this.reportInfo2 = new GrapeCity.ActiveReports.SectionReportModel.ReportInfo();
             this.detail = new GrapeCity.ActiveReports.SectionReportModel.Detail();
             this.textBox1 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox2 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
@@ -72,7 +73,6 @@ namespace RSMPS
             this.textBox10 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.pageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
             this.reportInfo1 = new GrapeCity.ActiveReports.SectionReportModel.ReportInfo();
-            this.reportInfo2 = new GrapeCity.ActiveReports.SectionReportModel.ReportInfo();
             this.reportHeader1 = new GrapeCity.ActiveReports.SectionReportModel.ReportHeader();
             this.reportFooter1 = new GrapeCity.ActiveReports.SectionReportModel.ReportFooter();
             this.textBox12 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
@@ -113,6 +113,7 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportInfo2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox3)).BeginInit();
@@ -132,7 +133,6 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.textBox30)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportInfo1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reportInfo2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox14)).BeginInit();
@@ -316,13 +316,13 @@ namespace RSMPS
             // 
             this.label12.Height = 0.3125F;
             this.label12.HyperLink = null;
-            this.label12.Left = 3.806F;
+            this.label12.Left = 3.386F;
             this.label12.Name = "label12";
             this.label12.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold; text-align: cen" +
     "ter; ddo-char-set: 0";
             this.label12.Text = "Engineering Forecast Remaining Report";
             this.label12.Top = 0F;
-            this.label12.Width = 3.3125F;
+            this.label12.Width = 4.156001F;
             // 
             // line2
             // 
@@ -445,10 +445,20 @@ namespace RSMPS
             this.Picture.Top = 0F;
             this.Picture.Width = 1.248F;
             // 
+            // reportInfo2
+            // 
+            this.reportInfo2.FormatString = "{RunDateTime:M/d/yyyy}";
+            this.reportInfo2.Height = 0.1875F;
+            this.reportInfo2.Left = 8.674001F;
+            this.reportInfo2.Name = "reportInfo2";
+            this.reportInfo2.Style = "font-family: Times New Roman; font-size: 9.75pt; text-align: right; ddo-char-set:" +
+    " 0";
+            this.reportInfo2.Top = 0.694F;
+            this.reportInfo2.Width = 1.75F;
+            // 
             // detail
             // 
             this.detail.CanGrow = false;
-            this.detail.ColumnSpacing = 0F;
             this.detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.textBox1,
             this.textBox2,
@@ -734,17 +744,6 @@ namespace RSMPS
     "0";
             this.reportInfo1.Top = 0.063F;
             this.reportInfo1.Width = 1F;
-            // 
-            // reportInfo2
-            // 
-            this.reportInfo2.FormatString = "{RunDateTime:M/d/yyyy}";
-            this.reportInfo2.Height = 0.1875F;
-            this.reportInfo2.Left = 8.674001F;
-            this.reportInfo2.Name = "reportInfo2";
-            this.reportInfo2.Style = "font-family: Times New Roman; font-size: 9.75pt; text-align: right; ddo-char-set:" +
-    " 0";
-            this.reportInfo2.Top = 0.694F;
-            this.reportInfo2.Width = 1.75F;
             // 
             // reportHeader1
             // 
@@ -1077,6 +1076,7 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportInfo2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox3)).EndInit();
@@ -1096,7 +1096,6 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.textBox30)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportInfo1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reportInfo2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox14)).EndInit();

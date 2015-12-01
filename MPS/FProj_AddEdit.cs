@@ -18,9 +18,12 @@ namespace RSMPS
         public event NewItemCreated OnNewItem;
 
         private bool mbItemChanged;
+        private bool mbPMChanged;   //*********************Added 7/28/2015
         private CBProject moProj;
         private DataSet mdsBudget;
+        public bool IsNewProject; //**********************Added 8/3/2015
 
+        private int previousPM, newPM;
 
         public FProj_AddEdit()
         {
@@ -35,7 +38,10 @@ namespace RSMPS
 
             moProj.Load(itmID);
             LoadObjectToScreen();
+
+            previousPM = moProj.ProjMngrID; //************************Added 7/28/2017
             mbItemChanged = false;
+            mbPMChanged = false;
         }
 
         private void ClearForm()
@@ -65,6 +71,8 @@ namespace RSMPS
             cboMasterJobs.Text = "";
 
             rtbNotes.Text = "";
+
+            
 
             LoadCustomerBox();
             LoadManagerBox();
@@ -199,7 +207,9 @@ namespace RSMPS
             SqlDataReader dr;
             RSLib.COListItem li;
 
-            dr = CBEmployee.GetList();
+            //dr = CBEmployee.GetList();
+
+            dr = CBEmployee.GetRelationshipManagerList(); //***********************Edited 7/13/2015
 
             cboRelationship.Items.Clear();
 
@@ -317,7 +327,10 @@ namespace RSMPS
             chkIsBooked.Checked = moProj.IsBooked;
             chkIsActive.Checked = moProj.IsActive;
             chkIsGovernment.Checked = moProj.IsGovernment;
-            chkIsMaster.Checked = moProj.IsMaster;
+            chkIsMaster.Checked = moProj.IsMaster; //*******************************************************************************
+            chkIsFixedRate.Checked = moProj.IsFixedRate;
+
+            
 
             if (moProj.MasterID > 0)
             {
@@ -390,6 +403,7 @@ namespace RSMPS
             moProj.ReportingStatus = cboReportStatus.SelectedIndex;
 
             moProj.Notes = rtbNotes.Text;
+            moProj.IsFixedRate = chkIsFixedRate.Checked;
         }
 
         private void TotalBudget()
@@ -406,6 +420,59 @@ namespace RSMPS
             txtBudgetTotal.Text = tmpVal.ToString("###0.00");
         }
 
+        //private void bttOK_Click(object sender, EventArgs e)
+        //{
+        //    RSLib.COSecurity sec = new RSLib.COSecurity();
+        //    CBUser u = new CBUser();
+
+        //    sec.InitAppSettings();
+        //    u.Load(sec.UserID);
+
+        //    if (u.IsAdministrator == true || u.IsEngineerAdmin)
+        //    {
+        //        if (mbItemChanged == true && IsValid() == true)
+        //        {
+        //            LoadScreenToObject();
+        //            moProj.Save();
+        //            SaveBudgets(moProj.ID);
+        //            //*************************** update dt_ProjectSummarys and DT_ProjectSummaryInfos, added 7/28/2015
+
+        //            newPM = moProj.ProjMngrID;
+        //            MessageBox.Show(moProj.ID.ToString());
+                    
+        //            if (OnNewItem != null)
+        //            {
+        //                OnNewItem(moProj.ID);
+        //                MessageBox.Show("New Project Added"+newPM.ToString() + "  " + moProj.ID.ToString());
+        //                Save_Summary_NewProject(newPM, moProj.ID);
+        //            }
+
+        //            else
+        //            {
+        //                if (mbPMChanged == true)
+        //                {
+        //                    MessageBox.Show(previousPM.ToString());
+        //                    MessageBox.Show(newPM.ToString()); 
+        //                    Save_PMUpdate(previousPM, newPM, moProj.ID);
+        //                    MessageBox.Show("Proj Summary info updated");
+        //                }
+        //                else MessageBox.Show("PM not changed");
+
+        //            }
+                    
+        //        }
+        //        //************************ Security Check for Creating new project !!
+        //        //else
+        //        //{
+        //        //     MessageBox.Show("No change Allowed");
+        //        //    return;// **************** Added 5/26
+        //        //}
+
+        //    }
+        //    //MessageBox.Show("Closing out ****************************************************"); 
+        //    this.Close();
+        //}
+
         private void bttOK_Click(object sender, EventArgs e)
         {
             RSLib.COSecurity sec = new RSLib.COSecurity();
@@ -420,17 +487,50 @@ namespace RSMPS
                 {
                     LoadScreenToObject();
                     moProj.Save();
-
                     SaveBudgets(moProj.ID);
+                    //*************************** update dt_ProjectSummarys and DT_ProjectSummaryInfos, added 7/28/2015
+                    newPM = moProj.ProjMngrID;
+
+                    if (mbPMChanged == true)
+                    {
+                        if (IsNewProject == true)
+                        {
+                            //MessageBox.Show("New Project Added" + "New PM" + newPM.ToString() + "ProjID  " + moProj.ID.ToString());
+                            Save_Summary_NewProject(newPM, moProj.ID);
+                        }
+                        else
+                        {
+                            // MessageBox.Show("Not a new Project, PM changed");
+                            // MessageBox.Show("Prev PM--" + previousPM.ToString() + " New PM--" + newPM.ToString()+"  Project ID--" + moProj.ID.ToString());
+                            Save_PMUpdate(previousPM, newPM, moProj.ID);
+                            //  MessageBox.Show("Proj Summary info updated");
+                        }
+                    }
+                    else
+                    { //MessageBox.Show("Not a new Project and PM not changed"); 
+                    }
 
                     if (OnNewItem != null)
+                    {
                         OnNewItem(moProj.ID);
-                }
-                else return; // **************** Added 5/26
-            }
+                      }
+                          
 
+                }
+                //************************ Security Check for Creating new project !!
+                else
+                {
+                    MessageBox.Show("No change Allowed");
+                    return;// **************** Added 5/26
+                }
+
+            }
+            //MessageBox.Show("Closing out ****************************************************"); 
             this.Close();
         }
+        
+
+
 
         private void bttCancel_Click(object sender, EventArgs e)
         {
@@ -544,6 +644,7 @@ namespace RSMPS
         private void cboManager_SelectedIndexChanged(object sender, EventArgs e)
         {
             mbItemChanged = true;
+            mbPMChanged = true; //***************Added 7/28/2015
         }
         private void cboManagerLead_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -717,5 +818,83 @@ namespace RSMPS
         {
 
         }
+
+        private void Save_PMUpdate(int prevID, int newID, int projID)  //************Added*****7/28/2015
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+
+            //LoadVals(strXml);
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spProjectSummary_PM_Update", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            prm = cmd.Parameters.Add("@PrevPMID", SqlDbType.Int);
+            prm.Value = prevID;
+            prm = cmd.Parameters.Add("@NewPMID", SqlDbType.Int);
+            prm.Value = newID;
+            prm = cmd.Parameters.Add("@projectID", SqlDbType.Int);
+            prm.Value = projID;
+
+
+            cmd.ExecuteNonQuery();
+
+            prm = null;
+            cmd = null;
+            cnn.CloseConnection();
+            cnn = null;
+
+            //return oVar.ID;
+        }
+
+        private void Save_Summary_NewProject(int EmployeeID, int ProjectID)  //************Added*****7/28/2015
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+
+            //LoadVals(strXml);
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spProjectSummary_SummaryInfo_NewProject_Insert", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            prm = cmd.Parameters.Add("@ID", SqlDbType.Int);
+            prm.Direction = ParameterDirection.Output;
+
+
+            prm = cmd.Parameters.Add("@EmployeeID", SqlDbType.Int);
+            prm.Value = EmployeeID;
+            
+            prm = cmd.Parameters.Add("@ProjectID", SqlDbType.Int);
+            prm.Value = ProjectID;
+
+
+            cmd.ExecuteNonQuery();
+
+            prm = null;
+            cmd = null;
+            cnn.CloseConnection();
+            cnn = null;
+
+            //return oVar.ID;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            mbItemChanged = true;
+
+            MessageBox.Show("check changed");
+        }
+
+       
+
+
+
+
     }
 }

@@ -30,14 +30,14 @@ namespace RSMPS
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FBudgetMain));
-            C1.Win.C1TrueDBGrid.Style style1 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style2 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style3 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style4 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style5 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style6 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style7 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style8 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style9 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style10 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style11 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style12 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style13 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style14 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style15 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style16 = new C1.Win.C1TrueDBGrid.Style();
             this.c1ToolBar1 = new C1.Win.C1Command.C1ToolBar();
             this.c1CommandHolder1 = new C1.Win.C1Command.C1CommandHolder();
             this.tlbbSaveRev = new C1.Win.C1Command.C1Command();
@@ -53,12 +53,18 @@ namespace RSMPS
             this.tlbbBudgetExport = new C1.Win.C1Command.C1Command();
             this.tlbbPrintAll = new C1.Win.C1Command.C1Command();
             this.tlbbSelectCodes = new C1.Win.C1Command.C1Command();
+            this.tlbbSummaryWORate = new C1.Win.C1Command.C1Command();
+            this.tlbbExpenseReport = new C1.Win.C1Command.C1Command();
+            this.tlbbEdit = new C1.Win.C1Command.C1Command();
             this.c1CommandLink1 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink7 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink5 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink12 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink4 = new C1.Win.C1Command.C1CommandLink();
+            this.c1CommandLink14 = new C1.Win.C1Command.C1CommandLink();
+            this.c1CommandLink15 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink2 = new C1.Win.C1Command.C1CommandLink();
+            this.c1CommandLink13 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink6 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink8 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink9 = new C1.Win.C1Command.C1CommandLink();
@@ -101,7 +107,6 @@ namespace RSMPS
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-           // this.tabPage3 = new System.Windows.Forms.TabPage();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmnuAddRow = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteRowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -184,19 +189,23 @@ namespace RSMPS
             this.c1CommandLink5,
             this.c1CommandLink12,
             this.c1CommandLink4,
+            
+            this.c1CommandLink14,
             this.c1CommandLink2,
+            this.c1CommandLink13,
             this.c1CommandLink6,
             this.c1CommandLink8,
             this.c1CommandLink9,
             this.c1CommandLink11,
             this.c1CommandLink10,
+             this.c1CommandLink15,
             this.c1CommandLink3});
             this.c1ToolBar1.Dock = System.Windows.Forms.DockStyle.Top;
             this.c1ToolBar1.Location = new System.Drawing.Point(0, 0);
             this.c1ToolBar1.Movable = false;
             this.c1ToolBar1.Name = "c1ToolBar1";
             this.c1ToolBar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.c1ToolBar1.Size = new System.Drawing.Size(1142, 24);
+            this.c1ToolBar1.Size = new System.Drawing.Size(1172, 24);
             this.c1ToolBar1.Text = "c1ToolBar1";
             this.c1ToolBar1.VisualStyleBase = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
@@ -215,6 +224,9 @@ namespace RSMPS
             this.c1CommandHolder1.Commands.Add(this.tlbbBudgetExport);
             this.c1CommandHolder1.Commands.Add(this.tlbbPrintAll);
             this.c1CommandHolder1.Commands.Add(this.tlbbSelectCodes);
+            this.c1CommandHolder1.Commands.Add(this.tlbbSummaryWORate);
+            this.c1CommandHolder1.Commands.Add(this.tlbbExpenseReport);
+            this.c1CommandHolder1.Commands.Add(this.tlbbEdit);
             this.c1CommandHolder1.Owner = this;
             this.c1CommandHolder1.VisualStyle = C1.Win.C1Command.VisualStyle.Office2010Blue;
             // 
@@ -322,6 +334,30 @@ namespace RSMPS
             this.tlbbSelectCodes.Text = "Select Codes";
             this.tlbbSelectCodes.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbSelectCodes_Click);
             // 
+            // tlbbSummaryWORate
+            // 
+            this.tlbbSummaryWORate.Name = "tlbbSummaryWORate";
+            this.tlbbSummaryWORate.ShortcutText = "";
+            this.tlbbSummaryWORate.Text = "SummaryWORate";
+            this.tlbbSummaryWORate.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbSummaryWORate_Click);
+            // 
+            // tlbbExpenseReport
+            // 
+            this.tlbbExpenseReport.Name = "tlbbExpenseReport";
+            this.tlbbExpenseReport.ShortcutText = "";
+            this.tlbbExpenseReport.Text = "Worksheet Itemization";
+            this.tlbbExpenseReport.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbExpenseReport_Click);
+            // 
+
+            // tlbbEdit
+            // 
+            this.tlbbEdit.Name = "tlbbEdit";
+            this.tlbbEdit.ShortcutText = "";
+            this.tlbbEdit.Text = "Edit Budget";
+            this.tlbbEdit.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbEdit_Click);
+            // 
+
+
             // c1CommandLink1
             // 
             this.c1CommandLink1.ButtonLook = ((C1.Win.C1Command.ButtonLookFlags)((C1.Win.C1Command.ButtonLookFlags.Text | C1.Win.C1Command.ButtonLookFlags.Image)));
@@ -348,40 +384,60 @@ namespace RSMPS
             this.c1CommandLink4.Command = this.tlbbWorksheet;
             this.c1CommandLink4.SortOrder = 4;
             // 
+            // c1CommandLink14
+            // 
+            this.c1CommandLink14.Command = this.tlbbExpenseReport;
+            this.c1CommandLink14.SortOrder = 5;
+            // 
+            // 
+            // c1CommandLink15
+            // 
+            this.c1CommandLink15.Command = this.tlbbEdit;
+            this.c1CommandLink15.SortOrder = 15;
+            //
+
+
+
+
             // c1CommandLink2
             // 
             this.c1CommandLink2.Command = this.tlbbSummary;
-            this.c1CommandLink2.SortOrder = 5;
+            this.c1CommandLink2.SortOrder = 6;
+            // 
+            // c1CommandLink13
+            // 
+            this.c1CommandLink13.Command = this.tlbbSummaryWORate;
+            this.c1CommandLink13.SortOrder = 7;
             // 
             // c1CommandLink6
             // 
             this.c1CommandLink6.Command = this.tlbbPreviewDetails;
-            this.c1CommandLink6.SortOrder = 6;
+            this.c1CommandLink6.SortOrder = 8;
             // 
             // c1CommandLink8
             // 
             this.c1CommandLink8.Command = this.tlbbJobStat;
-            this.c1CommandLink8.SortOrder = 7;
+            this.c1CommandLink8.SortOrder = 9;
             // 
             // c1CommandLink9
             // 
             this.c1CommandLink9.Command = this.tlbbBudgetEntry;
-            this.c1CommandLink9.SortOrder = 8;
+            this.c1CommandLink9.SortOrder = 10;
             // 
             // c1CommandLink11
             // 
             this.c1CommandLink11.Command = this.tlbbPrintAll;
-            this.c1CommandLink11.SortOrder = 9;
+            this.c1CommandLink11.SortOrder = 11;
             // 
             // c1CommandLink10
             // 
             this.c1CommandLink10.Command = this.tlbbBudgetExport;
-            this.c1CommandLink10.SortOrder = 10;
+            this.c1CommandLink10.SortOrder = 12;
             // 
             // c1CommandLink3
             // 
             this.c1CommandLink3.Command = this.tlbbExit;
-            this.c1CommandLink3.SortOrder = 11;
+            this.c1CommandLink3.SortOrder = 13;
             // 
             // lstBudgets
             // 
@@ -472,14 +528,13 @@ namespace RSMPS
             this.tabControl1.ContextMenuStrip = this.cmnuBudget;
             this.tabControl1.Controls.Add(this.tbpPCN);
             this.tabControl1.Controls.Add(this.tbpClarification);
-           // this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.ItemSize = new System.Drawing.Size(105, 30);
             this.tabControl1.Location = new System.Drawing.Point(165, 30);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(969, 771);
+            this.tabControl1.Size = new System.Drawing.Size(999, 730);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 3;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
@@ -495,7 +550,7 @@ namespace RSMPS
             this.tbpPCN.Location = new System.Drawing.Point(4, 34);
             this.tbpPCN.Name = "tbpPCN";
             this.tbpPCN.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tbpPCN.Size = new System.Drawing.Size(961, 733);
+            this.tbpPCN.Size = new System.Drawing.Size(991, 692);
             this.tbpPCN.TabIndex = 5;
             this.tbpPCN.Text = "PCN\'s";
             this.tbpPCN.UseVisualStyleBackColor = true;
@@ -526,25 +581,25 @@ namespace RSMPS
             this.tdbdPCNStatus.AllowColSelect = true;
             this.tdbdPCNStatus.AllowRowSizing = C1.Win.C1TrueDBGrid.RowSizingEnum.AllRows;
             this.tdbdPCNStatus.AlternatingRows = false;
-            this.tdbdPCNStatus.CaptionStyle = style1;
+            this.tdbdPCNStatus.CaptionStyle = style9;
             this.tdbdPCNStatus.ColumnCaptionHeight = 17;
             this.tdbdPCNStatus.ColumnFooterHeight = 17;
-            this.tdbdPCNStatus.EvenRowStyle = style2;
+            this.tdbdPCNStatus.EvenRowStyle = style10;
             this.tdbdPCNStatus.FetchRowStyles = false;
-            this.tdbdPCNStatus.FooterStyle = style3;
-            this.tdbdPCNStatus.HeadingStyle = style4;
-            this.tdbdPCNStatus.HighLightRowStyle = style5;
+            this.tdbdPCNStatus.FooterStyle = style11;
+            this.tdbdPCNStatus.HeadingStyle = style12;
+            this.tdbdPCNStatus.HighLightRowStyle = style13;
             this.tdbdPCNStatus.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbdPCNStatus.Images"))));
             this.tdbdPCNStatus.Location = new System.Drawing.Point(26, 95);
             this.tdbdPCNStatus.Name = "tdbdPCNStatus";
-            this.tdbdPCNStatus.OddRowStyle = style6;
-            this.tdbdPCNStatus.RecordSelectorStyle = style7;
+            this.tdbdPCNStatus.OddRowStyle = style14;
+            this.tdbdPCNStatus.RecordSelectorStyle = style15;
             this.tdbdPCNStatus.RowDivider.Color = System.Drawing.Color.DarkGray;
             this.tdbdPCNStatus.RowDivider.Style = C1.Win.C1TrueDBGrid.LineStyleEnum.Single;
             this.tdbdPCNStatus.RowSubDividerColor = System.Drawing.Color.DarkGray;
             this.tdbdPCNStatus.ScrollTips = false;
             this.tdbdPCNStatus.Size = new System.Drawing.Size(297, 138);
-            this.tdbdPCNStatus.Style = style8;
+            this.tdbdPCNStatus.Style = style16;
             this.tdbdPCNStatus.TabIndex = 3;
             this.tdbdPCNStatus.TabStop = false;
             this.tdbdPCNStatus.Text = "c1TrueDBDropdown1";
@@ -589,7 +644,7 @@ namespace RSMPS
             this.tdbgBudgetPCN.PreviewInfo.Size = new System.Drawing.Size(0, 0);
             this.tdbgBudgetPCN.PreviewInfo.ZoomFactor = 75D;
             this.tdbgBudgetPCN.PrintInfo.PageSettings = ((System.Drawing.Printing.PageSettings)(resources.GetObject("tdbgBudgetPCN.PrintInfo.PageSettings")));
-            this.tdbgBudgetPCN.Size = new System.Drawing.Size(952, 694);
+            this.tdbgBudgetPCN.Size = new System.Drawing.Size(985, 653);
             this.tdbgBudgetPCN.TabIndex = 0;
             this.tdbgBudgetPCN.Text = "c1TrueDBGrid1";
             this.tdbgBudgetPCN.BeforeColUpdate += new C1.Win.C1TrueDBGrid.BeforeColUpdateEventHandler(this.tdbgBudgetPCN_BeforeColUpdate);
@@ -624,7 +679,7 @@ namespace RSMPS
             this.tbpClarification.Name = "tbpClarification";
             this.tbpClarification.Padding = new System.Windows.Forms.Padding(3);
             this.tbpClarification.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tbpClarification.Size = new System.Drawing.Size(961, 733);
+            this.tbpClarification.Size = new System.Drawing.Size(991, 733);
             this.tbpClarification.TabIndex = 6;
             this.tbpClarification.Text = "Clarifications";
             this.tbpClarification.UseVisualStyleBackColor = true;
@@ -790,16 +845,6 @@ namespace RSMPS
             this.c1SpellChecker1.SetSpellChecking(this.richTextBox1, true);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
-            // 
-            // tabPage3
-            // 
-            //this.tabPage3.Location = new System.Drawing.Point(4, 34);
-            //this.tabPage3.Name = "tabPage3";
-            //this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            //this.tabPage3.Size = new System.Drawing.Size(961, 733);
-            //this.tabPage3.TabIndex = 7;
-            //this.tabPage3.Text = "tabPage3";
-            //this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // contextMenuStrip1
             // 
@@ -1259,7 +1304,7 @@ namespace RSMPS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1142, 774);
+            this.ClientSize = new System.Drawing.Size(1172, 774);
             this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.label45);
             this.Controls.Add(this.cboWBS);
@@ -1275,6 +1320,7 @@ namespace RSMPS
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PCATS Budget Add/Edit";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FBudgetMain_FormClosing);
             this.Load += new System.EventHandler(this.FBudgetMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).EndInit();
             this.cmnuBudget.ResumeLayout(false);
@@ -1322,7 +1368,6 @@ namespace RSMPS
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem cancelToolStripMenuItem;
         private C1.Win.C1Command.C1Command tlbbExit;
-        private C1.Win.C1Command.C1CommandLink c1CommandLink3;
         private C1.Win.C1Command.C1Command tlbbWorksheet;
         private C1.Win.C1Command.C1CommandLink c1CommandLink4;
         private C1.Win.C1TrueDBGrid.C1TrueDBGrid tdbgBudgetPCN;
@@ -1341,6 +1386,12 @@ namespace RSMPS
         private System.Windows.Forms.Button bttAddPCN;
         private C1.Win.C1Command.C1Command tlbbSummary;
         private C1.Win.C1Command.C1CommandLink c1CommandLink2;
+
+        private C1.Win.C1Command.C1Command tlbbSummaryWORate;
+        private C1.Win.C1Command.C1CommandLink c1CommandLink13;
+
+
+
         private C1.Win.C1TrueDBGrid.C1TrueDBDropdown tdbdPCNStatus;
         private C1.Win.C1Command.C1Command tlbbPreviewDetails;
         private C1.Win.C1Command.C1CommandLink c1CommandLink6;
@@ -1381,7 +1432,8 @@ namespace RSMPS
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private C1.Win.C1Command.C1Command tlbbSelectCodes;
+       // private C1.Win.C1Command.C1Command tlbbSelectCodes;
+        public C1.Win.C1Command.C1Command tlbbSelectCodes;
         private C1.Win.C1Command.C1CommandLink c1CommandLink12;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.TextBox txtTotalExp;
@@ -1418,6 +1470,13 @@ namespace RSMPS
         private C1.Win.C1SpellChecker.C1SpellChecker c1SpellChecker1;
         private System.Windows.Forms.Button button5;
         private C1.C1Pdf.C1PdfDocument c1PdfDocument1;
+        private C1.Win.C1Command.C1CommandLink c1CommandLink3;
+        private C1.Win.C1Command.C1CommandLink c1CommandLink14;
+        private C1.Win.C1Command.C1Command tlbbExpenseReport;
+
+        private C1.Win.C1Command.C1CommandLink c1CommandLink15;
+        private C1.Win.C1Command.C1Command tlbbEdit;
+
        // private System.Windows.Forms.TabPage tabPage3; //*****************Added 5/20
     }
 }

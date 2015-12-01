@@ -203,6 +203,21 @@ namespace RSMPS
 
             return dbDt.GetListProj();
         }
+
+        public static SqlDataReader GetListProj_ByMngrId(int mngrID) //*****************Added 7/27/2015
+        {
+            CDbProject dbDt = new CDbProject();
+
+            return dbDt.GetListProj_ByProjMngr(mngrID);
+        }
+
+        public static SqlDataReader GetListProj_ByPM_SumID(int mngrID, int sumID) //*****************Added 8/4/2015/2015
+        {
+            CDbProject dbDt = new CDbProject();
+
+            return dbDt.GetListProj_ByPM_SumID(mngrID, sumID);
+        }
+
         public static SqlDataReader GetListProjRev()
         {
             CDbProject dbDt = new CDbProject();

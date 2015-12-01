@@ -15,6 +15,7 @@ namespace RSMPS
         private decimal mdMUPerc;
         private decimal mdMarkUp;
         private decimal mdTotalCost;
+        private int miDeptGroup; // ******************Added 9/22/2015
 
         #region Properties
 
@@ -72,6 +73,13 @@ namespace RSMPS
             set { mdTotalCost = value; }
         }
 
+
+        public int DeptGroup
+        {
+            get { return miDeptGroup; }
+            set { miDeptGroup = value; }
+        }
+
         #endregion
 
         public virtual void Clear()
@@ -85,6 +93,7 @@ namespace RSMPS
             mdMUPerc = 0;
             mdMarkUp = 0;
             mdTotalCost = 0;
+            miDeptGroup = 0;
         }
 
         public void Copy(COBudgetPCNExpense oNew)
@@ -98,6 +107,7 @@ namespace RSMPS
             oNew.MUPerc = mdMUPerc;
             oNew.MarkUp = mdMarkUp;
             oNew.TotalCost = mdTotalCost;
+            oNew.DeptGroup = miDeptGroup;
         }
 
         public void LoadFromObj(COBudgetPCNExpense oOrg)
@@ -111,6 +121,7 @@ namespace RSMPS
             mdMUPerc = oOrg.MUPerc;
             mdMarkUp = oOrg.MarkUp;
             mdTotalCost = oOrg.TotalCost;
+            miDeptGroup = oOrg.DeptGroup;
         }
     }
 }

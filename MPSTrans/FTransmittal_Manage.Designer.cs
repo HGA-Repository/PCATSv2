@@ -37,23 +37,24 @@
             this.bttEditRelease = new System.Windows.Forms.Button();
             this.bttCreateFromRelease = new System.Windows.Forms.Button();
             this.lvwReleases = new System.Windows.Forms.ListView();
-            this.colID = new System.Windows.Forms.ColumnHeader();
-            this.colDateIssued = new System.Windows.Forms.ColumnHeader();
-            this.colNumber = new System.Windows.Forms.ColumnHeader();
-            this.colIssuedBy = new System.Windows.Forms.ColumnHeader();
-            this.colDescription = new System.Windows.Forms.ColumnHeader();
-            this.colCount = new System.Windows.Forms.ColumnHeader();
+            this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDateIssued = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colIssuedBy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tbpTransmittals = new System.Windows.Forms.TabPage();
+            this.bttRenameTransmittal = new System.Windows.Forms.Button();
             this.bttNewTransmittal = new System.Windows.Forms.Button();
             this.bttPrintTransmittal = new System.Windows.Forms.Button();
             this.bttEditTransmittal = new System.Windows.Forms.Button();
             this.lvwTransmittals = new System.Windows.Forms.ListView();
-            this.colTranID = new System.Windows.Forms.ColumnHeader();
-            this.colTranNumber = new System.Windows.Forms.ColumnHeader();
-            this.colTranClient = new System.Windows.Forms.ColumnHeader();
-            this.colTranDate = new System.Windows.Forms.ColumnHeader();
-            this.colTranTitle = new System.Windows.Forms.ColumnHeader();
-            this.colTranCnt = new System.Windows.Forms.ColumnHeader();
+            this.colTranID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTranNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTranClient = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTranDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTranTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTranCnt = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tbpReleases.SuspendLayout();
@@ -62,8 +63,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.cboProjects);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -93,9 +94,9 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tbpReleases);
             this.tabControl1.Controls.Add(this.tbpTransmittals);
             this.tabControl1.Location = new System.Drawing.Point(12, 65);
@@ -202,6 +203,7 @@
             // 
             // tbpTransmittals
             // 
+            this.tbpTransmittals.Controls.Add(this.bttRenameTransmittal);
             this.tbpTransmittals.Controls.Add(this.bttNewTransmittal);
             this.tbpTransmittals.Controls.Add(this.bttPrintTransmittal);
             this.tbpTransmittals.Controls.Add(this.bttEditTransmittal);
@@ -213,6 +215,17 @@
             this.tbpTransmittals.TabIndex = 1;
             this.tbpTransmittals.Text = "Transmittals";
             this.tbpTransmittals.UseVisualStyleBackColor = true;
+            // 
+            // bttRenameTransmittal
+            // 
+            this.bttRenameTransmittal.Enabled = false;
+            this.bttRenameTransmittal.Location = new System.Drawing.Point(719, 156);
+            this.bttRenameTransmittal.Name = "bttRenameTransmittal";
+            this.bttRenameTransmittal.Size = new System.Drawing.Size(92, 44);
+            this.bttRenameTransmittal.TabIndex = 7;
+            this.bttRenameTransmittal.Text = "Rename Transmittal";
+            this.bttRenameTransmittal.UseVisualStyleBackColor = true;
+            this.bttRenameTransmittal.Click += new System.EventHandler(this.bttRenameTransmittal_Click);
             // 
             // bttNewTransmittal
             // 
@@ -347,5 +360,6 @@
         private System.Windows.Forms.ColumnHeader colTranDate;
         private System.Windows.Forms.ColumnHeader colTranTitle;
         private System.Windows.Forms.ColumnHeader colTranCnt;
+        private System.Windows.Forms.Button bttRenameTransmittal;
     }
 }

@@ -62,6 +62,9 @@ namespace RSMPS
                 oVar.ReportingStatus = Convert.ToInt32(dr["ReportingStatus"]);
                 oVar.Budget = Convert.ToDecimal(dr["Budget"]);
                 oVar.POAmount = dr["POAmount"].ToString();
+             //   oVar.IsFixedRate = Convert.ToBoolean(dr["IsFixedRate"]); //*******************************************Added 9/15
+                if (dr["IsFixedRate"] == DBNull.Value) oVar.IsFixedRate = false;// *********************Added 9/15***to handle Exception
+                else oVar.IsFixedRate = Convert.ToBoolean(dr["IsFixedRate"]); //*************************Added 9/15
                 tmpStr = GetDataString();
             }
 
@@ -117,6 +120,59 @@ namespace RSMPS
             cnn = null;
 
             return tmpStr;
+        }
+        public string[] GetByID_ProjectDescription(int id) //************************Added 11/2/2015
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            string retVal = "";
+            string [] ProjectDescription = new string[4];
+
+
+            //LoadVals(strXml);
+
+            cnn = new RSLib.CDbConnection();
+          //  cmd = new SqlCommand("spDrawingLog_Test_ID", cnn.GetConnection());
+            cmd = new SqlCommand("spProject_ByID_OutputDescription", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            prm = cmd.Parameters.Add("@ID", SqlDbType.Int);
+            prm.Value = id;
+
+            prm = cmd.Parameters.Add("@Description", SqlDbType.VarChar,100);
+            prm.Direction = ParameterDirection.Output;
+
+            prm = cmd.Parameters.Add("@Number", SqlDbType.VarChar, 100);
+            prm.Direction = ParameterDirection.Output;
+
+            prm = cmd.Parameters.Add("@CustomerName", SqlDbType.VarChar, 100);
+            prm.Direction = ParameterDirection.Output;
+
+            prm = cmd.Parameters.Add("@City", SqlDbType.VarChar, 100);
+            prm.Direction = ParameterDirection.Output;
+
+
+            cmd.ExecuteNonQuery();
+
+            ProjectDescription[0] = cmd.Parameters["@Description"].Value.ToString();
+            ProjectDescription[1] = cmd.Parameters["@Number"].Value.ToString();
+            ProjectDescription[2] = cmd.Parameters["@CustomerName"].Value.ToString();
+            ProjectDescription[3] = cmd.Parameters["@City"].Value.ToString();
+        
+            
+
+         //   MessageBox.Show(retVal);
+
+            prm = null;
+            cmd = null;
+            cnn.CloseConnection();
+            cnn = null;
+
+           // return retVal;
+            return ProjectDescription;
+
         }
 
 
@@ -278,6 +334,9 @@ namespace RSMPS
             prm = cmd.Parameters.Add("@POAmount", SqlDbType.VarChar, 50);
             prm.Value = oVar.POAmount;
 
+            prm = cmd.Parameters.Add("@IsFixedRate", SqlDbType.VarChar, 50); //****************************************Added 9/15
+            prm.Value = oVar.IsFixedRate;
+
             cmd.ExecuteNonQuery();
 
             retVal = Convert.ToInt32(cmd.Parameters["@ID"].Value);
@@ -350,6 +409,9 @@ namespace RSMPS
             prm.Value = oVar.ReportingStatus;
             prm = cmd.Parameters.Add("@POAmount", SqlDbType.VarChar, 50);
             prm.Value = oVar.POAmount;
+
+            prm = cmd.Parameters.Add("@IsfixedRate", SqlDbType.VarChar, 50);
+            prm.Value = oVar.IsFixedRate;
 
             cmd.ExecuteNonQuery();
 
@@ -501,6 +563,58 @@ namespace RSMPS
 
             return dr;
         }
+
+        public SqlDataReader GetListProj_ByProjMngr(int mngrID) //*****************Added 7/27/2015
+        {
+            SqlDataReader dr;
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spProject_ListAllProj_ByProjMngr", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            prm = cmd.Parameters.Add("@ProjMngrID", SqlDbType.Int);
+            prm.Value = mngrID;
+
+
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            cmd = null;
+
+            return dr;
+        }
+
+        public SqlDataReader GetListProj_ByPM_SumID(int mngrID, int sumID ) //*****************Added 8/4/2015
+        {
+            SqlDataReader dr;
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spProjectSummaryInfos_ByPMID_SumID", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            prm = cmd.Parameters.Add("@PMID", SqlDbType.Int);
+            prm.Value = mngrID;
+
+            prm = cmd.Parameters.Add("@ProjSumID", SqlDbType.Int);
+            prm.Value = sumID;
+
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            cmd = null;
+
+            return dr;
+        }
+
+
+
+
+
+
         public SqlDataReader GetListProjRev()
         {
             SqlDataReader dr;

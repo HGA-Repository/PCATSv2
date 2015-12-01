@@ -77,9 +77,127 @@ namespace RSMPS
            
             
             pv.projNumber = proj.Number; // **************************Added 6/29/2015 **************************
+            pv.Title = rprt.MainReportTitle; //************************Added 10/1/2015
             pv.ViewReport(rprt);
             pv.ShowDialog();
         }
+
+        public void PreviewBudgetSummary(int budID, string wbs,bool rate) //***********************Added 7/22/2015
+        {
+            FPreviewAR pv = new FPreviewAR();
+            rprtBudgetSummary1 rprt = new rprtBudgetSummary1();
+            DataSet ds;
+
+
+            int totalHours;
+            decimal totalHourDollars;
+            decimal totalExpenses;
+            decimal contingency;
+            CBBudget bud = new CBBudget();
+            CBProject proj = new CBProject();
+            CBCustomer cust = new CBCustomer();
+            CBLocation loc = new CBLocation();
+            CBState state = new CBState();
+
+            bud.Load(budID);
+            proj.Load(bud.ProjectID);
+            cust.Load(proj.CustomerID);
+            loc.Load(proj.LocationID);
+            state.Load(loc.StateID);
+
+            totalHours = CBBudget.GetTotalBudgetHours(budID, wbs);
+            totalHourDollars = CBBudget.GetTotalBudgetHourDollars(budID, wbs);
+            totalExpenses = CBBudget.GetTotalBudgetExpenses(budID);
+            contingency = CBBudget.GetContingencyForBudget(budID);
+
+            ds = CBBudget.GetBudgetSummaryForReport(budID, wbs);
+            //ds = CBBudget.GetBudgetSummaryForReport(budID, wbs);
+            if (proj.BusinessUnit() == 1) rprt.MainReportTitle = "Staffing Estimate Loaded Summary";
+            if (proj.BusinessUnit() == 2) rprt.MainReportTitle = "Engineering Estimate Loaded Summary";
+            if (proj.BusinessUnit() == 3) rprt.MainReportTitle = "Pipeline Services Estimate Loaded Summary";
+            if (proj.BusinessUnit() == 4) rprt.MainReportTitle = "Program Management Estimate Loaded Summary";
+            if (proj.BusinessUnit() == 5) rprt.MainReportTitle = "EPC Estimate Loaded Summary";
+
+
+
+
+            rprt.SetTitles(proj.Number, proj.Description, bud.GetNumber(), cust.Name, loc.City + "," + state.Abbrev, wbs);
+            rprt.TotalHours = totalHours;
+            rprt.TotalHourDollars = totalHourDollars;
+            rprt.TotalExpenses = totalExpenses;
+            rprt.Contingency = contingency;
+            rprt.Rate = rate;
+            rprt.DataSource = ds;
+            rprt.DataMember = "Table";
+
+            
+            pv.projNumber = proj.Number; // **************************Added 6/29/2015 **************************
+                    if (rate == false)//************************Added 10/1/2015
+                         pv.Title = rprt.MainReportTitle + "WO Rate"; 
+                    else
+                        pv.Title = rprt.MainReportTitle; 
+            pv.ViewReport(rprt);
+            pv.ShowDialog();
+        }
+
+        public void PreviewGetTravelExpenseReport(int budID, string wbs, bool rate) //***********************Added 7/22/2015 //*******************************I have to work on it
+        {
+            FPreviewAR pv = new FPreviewAR();
+            //rprtBudgetSummary1 rprt = new rprtBudgetSummary1();
+
+            rprtTravelExpenseDetail rprt = new rprtTravelExpenseDetail();
+            DataSet ds;
+
+
+            //int totalHours;
+            //decimal totalHourDollars;
+            //decimal totalExpenses;
+            //decimal contingency;
+            CBBudget bud = new CBBudget();
+            CBProject proj = new CBProject();
+            CBCustomer cust = new CBCustomer();
+            CBLocation loc = new CBLocation();
+            CBState state = new CBState();
+
+            bud.Load(budID);
+            proj.Load(bud.ProjectID);
+            cust.Load(proj.CustomerID);
+            loc.Load(proj.LocationID);
+            state.Load(loc.StateID);
+
+            //totalHours = CBBudget.GetTotalBudgetHours(budID, wbs);
+            //totalHourDollars = CBBudget.GetTotalBudgetHourDollars(budID, wbs);
+            //totalExpenses = CBBudget.GetTotalBudgetExpenses(budID);
+            //contingency = CBBudget.GetContingencyForBudget(budID);
+
+            ds = CBBudget.GetTravelExpenseReport(budID);
+           // ds = CBBudget.GetBudgetDetailsForReport(budID, wbs);
+
+            if (proj.BusinessUnit() == 1) rprt.MainReportTitle = "Staffing Estimate Travel Expense Report";
+            if (proj.BusinessUnit() == 2) rprt.MainReportTitle = "Engineering Estimate Travel Expense Report";
+            if (proj.BusinessUnit() == 3) rprt.MainReportTitle = "Pipeline Services Estimate Travel Expense Report";
+            if (proj.BusinessUnit() == 4) rprt.MainReportTitle = "Program Management Estimate Travel Expense Report";
+            if (proj.BusinessUnit() == 5) rprt.MainReportTitle = "EPC Estimate Travel Expense Report";
+
+            rprt.SetTitles(proj.Number, proj.Description, bud.GetNumber(), cust.Name, loc.City + "," + state.Abbrev, wbs);
+            //rprt.TotalHours = totalHours;
+            //rprt.TotalHourDollars = totalHourDollars;
+            //rprt.TotalExpenses = totalExpenses;
+           // rprt.Contingency = contingency;
+           // rprt.Rate = rate;
+           
+            rprt.DataSource = ds;
+            rprt.DataMember = "Table";
+
+
+            pv.projNumber = proj.Number; // **************************Added 6/29/2015 **************************
+            pv.ViewReport(rprt);
+            pv.ShowDialog();
+        }
+
+
+
+
 
         public void PreviewBudgetDetails(int budID, string wbs)
         {
@@ -115,10 +233,30 @@ namespace RSMPS
             rprt.SetTitles(cust.Name + " / " + loc.City + "," + state.Abbrev, proj.Description, proj.Number, bud.GetNumber(), wbs);
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
-
+            pv.Title = rprt.MainReportTitle; //************************Added 10/1/2015
             pv.ViewReport(rprt);
             pv.ShowDialog();
         }
+
+        
+
+       
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
        
 
@@ -159,7 +297,7 @@ namespace RSMPS
 
             GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport PDFEx = new GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport();
             
-
+             pv.Title = rprt.MainReportTitle; //************************Added 10/1/2015
             rprt.Run();
 
             SaveFileDialog sv1 = new SaveFileDialog();
@@ -266,8 +404,9 @@ namespace RSMPS
             rprt.SetInformation(pcn);
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
-
+            pv.Title = pcn.PCNTitle; //************************Added 10/1/2015
             //rprt.Run();
+
             pv.ViewReport(rprt);
             pv.ShowDialog();
         }
@@ -289,8 +428,8 @@ namespace RSMPS
             //rprt.Run();
             pv.projNumber = projNumber;
             pv.pcnNumber = pcnNumber;
-
-           // MessageBox.Show(pv.projNumber);
+            pv.Title = pcn.PCNTitle; //************************Added 10/1/2015
+           
 
 
             pv.ViewReport(rprt);

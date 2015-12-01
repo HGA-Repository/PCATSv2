@@ -150,7 +150,7 @@ namespace RSMPS
             base.bttNew_Click(sender, e);
 
             FProj_AddEdit pae = new FProj_AddEdit();
-
+            pae.IsNewProject = true; //**********************Added*****8/3/2015
             pae.OnNewItem += new NewItemCreated(EditChange);
             pae.ShowDialog();
             pae.OnNewItem -= new NewItemCreated(EditChange);

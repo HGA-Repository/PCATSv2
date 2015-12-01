@@ -25,15 +25,28 @@ namespace RSMPS
             // dr = CBBudgetLine.GetExportListByBudget(budgetID);
             dr = CBBudgetLine.GetExportList_Expense_ByPCNID(PCNID);
 
-            indx = 0;
+            indx = 1;
             tmpRate = 0;
+            
+            sheet[0, 3].Value = "PCNID"; 
+            sheet[0, 4].Value = "Code";
+            sheet[0, 5].Value = "Description";
+            sheet[0, 6].Value = "DlrsPerItem";  //  quantity
+            sheet[0, 7].Value = "NumItems";
+            sheet[0, 8].Value = "MUPerc";
+            sheet[0, 9].Value = "MarkUp";                                                           //  uom
+            sheet[0, 10].Value = "TotalCost";
+
+
+
+
 
             
             while (dr.Read())
             {
                 sheet[indx, 3].Value = dr["PCNID"];                                                      //  code
-                //sheet[indx, 4].Value = "";     
-                sheet[indx, 4].Value = dr["Code"];
+                  
+               sheet[indx, 4].Value = dr["Code"];
                                                                //  description
                 sheet[indx, 5].Value = dr["Description"].ToString();
                 sheet[indx, 6].Value = dr["DlrsPerItem"];  //  quantity

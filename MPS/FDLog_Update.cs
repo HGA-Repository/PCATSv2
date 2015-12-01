@@ -668,12 +668,15 @@ namespace RSMPS
         {
             
             string newFile;
+            DateTime dt = DateTime.Now;
+            String fileName = "JobStat Update-" + msCurrProj + "-" + dt.ToString("yyyMMdd hhmmss"); //***************Added 10/6/2015
 
             SaveFileDialog savefiledialog1 = new SaveFileDialog();
             savefiledialog1.Filter = "Excel files (*.xls)|*.xls|All files (*.*)|*.*";
+            savefiledialog1.DefaultExt = "xls";
             savefiledialog1.FilterIndex = 1;
             savefiledialog1.RestoreDirectory = true;
-
+            savefiledialog1.FileName = fileName;
 
             if (savefiledialog1.ShowDialog() != DialogResult.Cancel)
             {
@@ -684,6 +687,8 @@ namespace RSMPS
                 {
                  
                     tdbgQuikUpdate.ExportToExcel(newFile);
+                    
+                    MessageBox.Show("JobStat update saved in " + newFile + ".xls");
 
                 }
                 catch (Exception ex)

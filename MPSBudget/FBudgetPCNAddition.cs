@@ -25,10 +25,14 @@ namespace RSMPS
         private CBBudgetPCN moPCN;
         private dsAccts mdsAccnts;
         private dsAccts mdsExpensAccts;
+        private dsAccts mdsDeptGroup;   //********************Added 9/23/2015
+       // public int projID;
 
+        public int project_ID; //************************For PCN Update Code Validation
 
         //private CBBudget moCurrBudget; added 6/3/15 ***************Commented
        
+        private bool mbIsFixedRate = false; //*****************************Added 9/30/2015
         public event RevSol.ItemValueChangedHandler OnPCNChanged;
 
         public void StartNewPCN(int projID)
@@ -46,7 +50,18 @@ namespace RSMPS
 
             this.Text = "PCN: Job-" + moProj.Number + " PCN-" + moPCN.PCNNumber;
 
+            project_ID = moPCN.ProjectID;
+            List<CBActivityCodeDisc> _Groups = CBActivityCodeDisc.GetAllForProject(project_ID).ToList();
+            foreach (var group in _Groups)
+            {
+                codes[i] = group.Code;
+               // MessageBox.Show(_Groups.Count() + " " + i + " " + codes[i]);
+                i++;
+
+            }
             SetPCNSecurityLevel();
+            mbIsFixedRate = moProj.IsFixedRate; //*****************************Added 9/30/2015
+            //SetPCN_RateLevel(); //***************************Added 9/30/2015 //**************Commented 10/08/2015
         }
         public void CopyPCN(int projID, int pcnID)
         {
@@ -72,8 +87,19 @@ namespace RSMPS
             lblProjectTitle.Text = moProj.Description;
             txtPCNNumber.Text = moPCN.PCNNumber;
             this.Text = "PCN: Job-" + moProj.Number + " PCN-" + moPCN.PCNNumber;
+            project_ID = moPCN.ProjectID;
+            List<CBActivityCodeDisc> _Groups = CBActivityCodeDisc.GetAllForProject(project_ID).ToList();
+            foreach (var group in _Groups)
+            {
+                codes[i] = group.Code;
+              //  MessageBox.Show(_Groups.Count() + " " + i + " " + codes[i]);
+                i++;
+
+            }
 
             SetPCNSecurityLevel();
+            mbIsFixedRate = moProj.IsFixedRate; //*****************************Added 9/30/2015
+            SetPCN_RateLevel();                 //***************************Added 9/30/2015
             
             
         }
@@ -86,20 +112,41 @@ namespace RSMPS
 
             moPCN.LoadWithData(pcnID);
             moProj.Load(moPCN.ProjectID);
+            project_ID = moPCN.ProjectID;
+           
+                //List<CBActivityCodeDisc> _Groups = CBActivityCodeDisc.GetAllForProject(projID).ToList();
+                List<CBActivityCodeDisc> _Groups = CBActivityCodeDisc.GetAllForProject(project_ID).ToList();
+
+                foreach (var group in _Groups)
+                {
+                    codes[i]=group.Code;
+                    //MessageBox.Show(_Groups.Count() + " " + i + " " +codes[i]);
+                    i++;
+
+                }
+          
+                     
             moBudg.LoadByProject(moProj.ID);
 
             LoadFromPCN();
 
             this.Text = "PCN: Job-" + moProj.Number + " PCN-" + moPCN.PCNNumber;
-
+            
             SetPCNSecurityLevel();
+            mbIsFixedRate = moProj.IsFixedRate; //*****************************Added 9/30/2015
+            SetPCN_RateLevel();                 //*********************    
         }
+
+        string[] codes = new string[13]; // Added 9/9/2015, to store Codes. The Array size needs to be increased if, no of Codes ever increases.
+        public List<CBActivityCodeDisc> _Groups = null;
+        int i = 0;
 
         public FBudgetPCNAddition()
         {
             InitializeComponent();
         }
-
+     
+	 
         public void ViewForm() //*******************Added 5/28
         {
             moPCN = new CBBudgetPCN();
@@ -147,7 +194,8 @@ namespace RSMPS
 
 
         public void ClearForm()
-        {
+        { //  moProj = new CBProject();
+        //MessageBox.Show("Clear started &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&" + moProj.ID.ToString());
             moPCN = new CBBudgetPCN();
             moPCN.Clear();
 
@@ -189,13 +237,12 @@ namespace RSMPS
             DataRow d;
             mdsAccnts = new dsAccts();
             mdsExpensAccts = new dsAccts();
-
+            mdsDeptGroup = new dsAccts();
             while (dr.Read())
             {
                 d = mdsAccnts.Tables["Accounts"].NewRow();
                 d["Code"] = dr["Code"];
                 d["Description"] = dr["Description"];
-
                 mdsAccnts.Tables["Accounts"].Rows.Add(d);
             }
 
@@ -214,12 +261,26 @@ namespace RSMPS
 
                 mdsExpensAccts.Tables["Accounts"].Rows.Add(d);
             }
-
             dr.Close();
-
             tdbdExpenseAccts.SetDataBinding(mdsExpensAccts, "Accounts", true);
-        }
+            
 
+            dr = CBActivityCode.GetDeptGroup();//*****************************Added for DeptGroup Dropdown
+
+            while (dr.Read())
+            {
+                 d = mdsDeptGroup.Tables["Accounts"].NewRow();
+                d["Code"] = dr["Code"];
+                d["Description"] = dr["Description"];
+                //d["DefaultMU"] = dr["DefaultMU"];
+
+                mdsDeptGroup.Tables["Accounts"].Rows.Add(d);
+            }
+            dr.Close();
+            tdbdDeptGroup.SetDataBinding(mdsDeptGroup, "Accounts", true);
+
+            //*******************************************************************************************************************
+        }   
         private void SetPCNSecurityLevel()
         {
             RSLib.COSecurity sec = new RSLib.COSecurity();
@@ -255,6 +316,24 @@ namespace RSMPS
                 */
             }
         }
+        private void SetPCN_RateLevel()     ////***************************Added 9/30/2015 ************** 
+                                            //******************* If Flat Rate display Budget screen with limited column
+        {
+
+
+                if(mbIsFixedRate==true)   
+                { 
+                    //MessageBox.Show(mbIsFixedRate.ToString());
+                tdbgHours.Splits[0].DisplayColumns[5].Visible = false;
+                tdbgHours.Splits[0].DisplayColumns[7].Visible = false;
+                }
+                           
+        }
+
+
+
+
+
 
         private void tlbbClose_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
@@ -313,16 +392,22 @@ namespace RSMPS
 
         private void tdbgHours_AfterColUpdate(object sender, C1.Win.C1TrueDBGrid.ColEventArgs e)
         {
-            if (e.ColIndex < 3 || e.ColIndex > 5)
-                return;
 
+          
 
+        }
+        private void tdbgHour_Validate_Update() //*********************Edited, Moved from tdbgHours_AfterColUpdate(object sender, C1.Win.C1TrueDBGrid.ColEventArgs e), because it was conflicting*****10/08/2015
+        {  
+            //   if (e.ColIndex < 3 || e.ColIndex > 5)
+           //    return;
+
+          
             if (tdbgHours.Columns[2].Text == "")      //**************6/11/15*************MZ
             {
                 MessageBox.Show("Item Qty Field cannot be Empty");
                 return;
             }
-
+ 
             if (tdbgHours.Columns[3].Text == "")      //**************6/11/15*************MZ
             {
                 MessageBox.Show("Hours/Item Field cannot be Empty");
@@ -334,13 +419,6 @@ namespace RSMPS
                 MessageBox.Show("Rate Field cannot be Empty");
                 return;
             }
-
-
-
-
-
-
-
             decimal quantity, hrsPer, rate;
 
             quantity = RevSol.RSMath.IsDecimalEx(tdbgHours.Columns[2].Value);
@@ -353,11 +431,12 @@ namespace RSMPS
             subDlrs = quantity * hrsPer * rate;
 
             tdbgHours.Columns[5].Value = subHrs;
-            tdbgHours.Columns[6].Value = subDlrs;
-        }
+            tdbgHours.Columns[6].Value = subDlrs;}
+
 
         private void tdbgHours_AfterUpdate(object sender, EventArgs e)
-        {
+        {   
+            tdbgHour_Validate_Update()  ;    //
             //20131218 - Added Code to trap missing Activity Code which causes system crash
             string acct = tdbgHours.Columns[0].Value.ToString();
 
@@ -367,22 +446,108 @@ namespace RSMPS
                 MessageBox.Show("Input an Activity Code", "Missing Activity Code", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            else
-                tlbbSave.Enabled = true;
+                //else
+                //if (test == false)
+                //{ tlbbSave.Enabled = false; }
+
+                else   tlbbSave.Enabled = true;
+
+
+            //******************** This part is probably not needed***************************************************************************
+
+
 
             //if (tdbgHours.Columns[2].Text == "" || tdbgHours.Columns[3].Text == "" || tdbgHours.Columns[4].Text == "")      //**************6/11/15*************MZ
             //{
             //    MessageBox.Show("Fields Cannot be Empty");
             //    return;
             //}
-
-                TotalHoursGrid();
-                
-                
+            TotalHoursGrid();
+                          
             //tlbbSave.Enabled = true;
             
         }
+        private void tdbgHours_ComboSelect(object sender, C1.Win.C1TrueDBGrid.ColEventArgs e)
+        {
+            tdbgHours.UpdateData(); //******************Added 10/8/2015
 
+            string acct = tdbgHours.Columns[0].Value.ToString().Substring(0, 2);
+            for (int j = 0; j < i; j++)
+            {
+                string y = codes[j].Substring(0, 2);
+                if (y.Equals(acct))
+                {
+                    test_Hour = true;
+                    break;
+
+                }
+          
+            }
+           // MessageBox.Show(test_Hour.ToString());
+            if (test_Hour == false)
+            {             
+                
+                int c = Convert.ToInt32(acct) * 1000;
+               CBActivityCodeDisc.UpdateForProject(c, project_ID, true);
+               mbIsCodeAdded = true;
+             
+                MessageBox.Show("This Expense isn't valid. Group will be Added in the budget " + c.ToString());
+               
+            }
+            else
+            { test_Hour = false; }
+
+        }
+
+bool test_Hour = false; // Added 9/9 to store expense code Validating
+bool test_Expense = false; // Added 9/23 to store Dept Group Validating
+public bool mbIsCodeAdded = false;// Added 9/21 to store, whether group is added
+
+private void tdbgExpenses_ComboSelect(object sender, C1.Win.C1TrueDBGrid.ColEventArgs e)
+{
+   // MessageBox.Show("Combo selected");
+    tdbgExpenses.UpdateData();
+}
+
+
+private void tdbdDeptGroup_MouseLeave(object sender, EventArgs e)
+{
+    string Dept = tdbgExpenses.Columns[2].Value.ToString();
+   // MessageBox.Show(Dept);
+    for (int j = 0; j < i; j++)
+    {
+        string y = codes[j];
+
+        if (y.Equals(Dept))
+        {
+            test_Expense = true;
+           // MessageBox.Show("Match");
+            break;
+        }
+
+    }
+    if (test_Expense == false)
+    {   int D;
+    if (Dept == "")
+        D = 11000;
+    else
+         D = Convert.ToInt32(Dept);                          //*********************************************Expection is happening here,,,, I have to check it!!!!!!!!!!!!
+                                                            // **************** Default Dept is 11000
+        CBActivityCodeDisc.UpdateForProject(D, project_ID, true);
+        mbIsCodeAdded = true;
+        MessageBox.Show("This Department isn't valid, will be Added in the budget " + Dept);
+
+    }
+    else
+    { test_Expense = false; }
+}
+
+
+
+  /// if set to return the form will reopen when it is closed
+  /// </summary>
+  //public bool ReloadForm { get; private set; }
+  
         private void TotalHoursGrid()
         {
             decimal hours;
@@ -412,7 +577,7 @@ namespace RSMPS
             foreach (DataRow d in mdsAccnts.Tables["Accounts"].Rows)
             {
                 rowVal = d["Code"].ToString();
-
+               // MessageBox.Show(rowVal);
                 if (rowVal == acct)
                 {
                     retVal = d["Description"].ToString();
@@ -568,19 +733,21 @@ namespace RSMPS
         }
 
         private void tlbbSave_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
-        {
-           
-            
-            SaveCurrentPCN();
-           // MessageBox.Show("Saved");
-
-            tlbbSave.Enabled = false;
+        {                      
+                SaveCurrentPCN();
+                //MessageBox.Show("Saved");
+                tlbbSave.Enabled = false;
         }
 
         private void FBudgetPCNAddition_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (tlbbSave.Enabled == true)
+           // if (tlbbSave.Enabled == true)
+            //    SaveCurrentPCN();
+            // ********************************* Commented on 9/9/2015 to stop Saving wrong input******* MZ
+
+            if (tlbbSave.Enabled == true)   // *********************************Added again 9/10/2015 ******* MZ
                 SaveCurrentPCN();
+
 
             if (OnPCNChanged != null)
                 OnPCNChanged(moPCN.ID, moPCN.PCNNumber);
@@ -599,54 +766,176 @@ namespace RSMPS
                 e.Cancel = true;
             else
                 tdbgExpenses.Columns[1].Value = desc;
-                tdbgExpenses.Columns[4].Value = mudefault;
+                //tdbgExpenses.Columns[4].Value = mudefault;
+                tdbgExpenses.Columns[5].Value = mudefault;
         }
 
         private void tdbgExpenses_AfterColUpdate(object sender, C1.Win.C1TrueDBGrid.ColEventArgs e)
         {
-            if (e.ColIndex < 2)
-                return;
+            ////if (e.ColIndex < 2)
+            ////    return;
 
-            if (tdbgExpenses.Columns[2].Text == "")      //**************6/11/15*************MZ
+            ////if (tdbgExpenses.Columns[2].Text == "")      //**************6/11/15*************MZ
+            ////{
+            ////    MessageBox.Show("Per Item Field cannot be Empty");
+            ////    return;
+            ////}
+
+            ////if (tdbgExpenses.Columns[3].Text == "")      //**************6/11/15*************MZ
+            ////{
+            ////    MessageBox.Show("#Item Field cannot be Empty");
+            ////    return;
+            ////}
+
+            ////if (tdbgExpenses.Columns[4].Text == "")      //**************6/11/15*************MZ
+            ////{
+            ////    MessageBox.Show("MarkUp Field cannot be Empty");
+            ////    return;
+            ////}
+
+
+
+            ////decimal dllrPerItem, numItems, percMU, markup, total;
+
+            ////dllrPerItem = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[2].Value);
+            ////numItems = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[3].Value);
+            ////percMU = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[4].Value);
+            ////markup = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[5].Value);
+            ////total = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[6].Value);
+
+            ////markup = dllrPerItem * numItems * (percMU / 100.0m);
+            ////total = (dllrPerItem * numItems) + markup;
+
+            ////tdbgExpenses.Columns[5].Value = markup;
+            ////tdbgExpenses.Columns[6].Value = total;
+
+            ////if (e.ColIndex < 2)
+            ////    return;
+
+            ////if (tdbgExpenses.Columns[2].Text == "")      //**************6/11/15*************MZ
+            ////{
+            ////    MessageBox.Show("Per Item Field cannot be Empty");
+            ////    return;
+            ////}
+
+            ////if (tdbgExpenses.Columns[3].Text == "")      //**************6/11/15*************MZ
+            ////{
+            ////    MessageBox.Show("#Item Field cannot be Empty");
+            ////    return;
+            ////}
+
+            ////if (tdbgExpenses.Columns[4].Text == "")      //**************6/11/15*************MZ
+            ////{
+            ////    MessageBox.Show("MarkUp Field cannot be Empty");
+            ////    return;
+            ////}
+            ////**************************************************************************************************************************************************************************
+            //// if (e.ColIndex < 2)
+            ////   return;
+
+            //if (tdbgExpenses.Columns[3].Text == "")      //**************6/11/15*************MZ
+            //{
+            //    MessageBox.Show("Per Item Field cannot be Empty");
+            //    return;
+            //}
+
+            //if (tdbgExpenses.Columns[4].Text == "")      //**************6/11/15*************MZ
+            //{
+            //    MessageBox.Show("#Item Field cannot be Empty");
+            //    return;
+            //}
+
+            //if (tdbgExpenses.Columns[5].Text == "")      //**************6/11/15*************MZ
+            //{
+            //    MessageBox.Show("MarkUp Field cannot be Empty");
+            //    return;
+            //}
+
+
+
+
+
+            //decimal dllrPerItem, numItems, percMU, markup, total;
+
+            ////dllrPerItem = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[2].Value);
+            ////numItems = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[3].Value);
+            ////percMU = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[4].Value);
+            ////markup = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[5].Value);
+            ////total = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[6].Value);
+
+            ////markup = dllrPerItem * numItems * (percMU / 100.0m);
+            ////total = (dllrPerItem * numItems) + markup;
+
+            ////tdbgExpenses.Columns[5].Value = markup;
+            ////tdbgExpenses.Columns[6].Value = total;
+
+            //dllrPerItem = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[3].Value);
+            //numItems = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[4].Value);
+            //percMU = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[5].Value);
+            //markup = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[6].Value);
+            //total = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[7].Value);
+
+            //markup = dllrPerItem * numItems * (percMU / 100.0m);
+            //total = (dllrPerItem * numItems) + markup;
+
+            //tdbgExpenses.Columns[6].Value = markup;
+            //tdbgExpenses.Columns[7].Value = total;
+        }
+
+        private void tdbgExpenses_Validation_Total()//*********************Edited, Moved from tdbgExpenses_AfterColUpdate(object sender, C1.Win.C1TrueDBGrid.ColEventArgs e), because it was conflicting*****10/08/2015
+        {          
+            // if (e.ColIndex < 2)
+            //   return;
+
+            if (tdbgExpenses.Columns[3].Text == "")      //**************6/11/15*************MZ
             {
                 MessageBox.Show("Per Item Field cannot be Empty");
                 return;
             }
 
-            if (tdbgExpenses.Columns[3].Text == "")      //**************6/11/15*************MZ
+            if (tdbgExpenses.Columns[4].Text == "")      //**************6/11/15*************MZ
             {
                 MessageBox.Show("#Item Field cannot be Empty");
                 return;
             }
 
-            if (tdbgExpenses.Columns[4].Text == "")      //**************6/11/15*************MZ
+            if (tdbgExpenses.Columns[5].Text == "")      //**************6/11/15*************MZ
             {
                 MessageBox.Show("MarkUp Field cannot be Empty");
                 return;
             }
-
-
-
+            
             decimal dllrPerItem, numItems, percMU, markup, total;
 
-            dllrPerItem = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[2].Value);
-            numItems = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[3].Value);
-            percMU = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[4].Value);
-            markup = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[5].Value);
-            total = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[6].Value);
+            //dllrPerItem = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[2].Value);
+            //numItems = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[3].Value);
+            //percMU = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[4].Value);
+            //markup = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[5].Value);
+            //total = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[6].Value);
+
+            //markup = dllrPerItem * numItems * (percMU / 100.0m);
+            //total = (dllrPerItem * numItems) + markup;
+
+            //tdbgExpenses.Columns[5].Value = markup;
+            //tdbgExpenses.Columns[6].Value = total;
+
+            dllrPerItem = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[3].Value);
+            numItems = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[4].Value);
+            percMU = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[5].Value);
+            markup = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[6].Value);
+            total = RevSol.RSMath.IsDecimalEx(tdbgExpenses.Columns[7].Value);
 
             markup = dllrPerItem * numItems * (percMU / 100.0m);
             total = (dllrPerItem * numItems) + markup;
 
-            tdbgExpenses.Columns[5].Value = markup;
-            tdbgExpenses.Columns[6].Value = total;
+            tdbgExpenses.Columns[6].Value = markup;
+            tdbgExpenses.Columns[7].Value = total;
         }
-
+        
         private void tdbgExpenses_AfterUpdate(object sender, EventArgs e)
         {
-            
+            tdbgExpenses_Validation_Total();
             TotalExpenseGrid();
-
             tlbbSave.Enabled = true;
         }
 
@@ -664,8 +953,11 @@ namespace RSMPS
                 dollars += Convert.ToDecimal(dr["TotalCost"]);
             }
 
-            tdbgExpenses.Columns[5].FooterText = muAmnt.ToString("$#,##0.00");
-            tdbgExpenses.Columns[6].FooterText = dollars.ToString("$#,##0.00");
+            // tdbgExpenses.Columns[5].FooterText = muAmnt.ToString("$#,##0.00");
+            // tdbgExpenses.Columns[6].FooterText = dollars.ToString("$#,##0.00");
+
+            tdbgExpenses.Columns[6].FooterText = muAmnt.ToString("$#,##0.00");
+            tdbgExpenses.Columns[7].FooterText = dollars.ToString("$#,##0.00");
 
             txtEstimatedDollars.Text = TotalDollars().ToString("#,##0.00");
         }
@@ -1030,10 +1322,13 @@ namespace RSMPS
         {
            // CBudgetExport be = new CBudgetExport();
             CHourExport he = new CHourExport();
+            DateTime dt = DateTime.Now;
+            saveFileDialog1.FileName = "PCN Hour-" + moProj.Number + "-" + moPCN.PCNTitle + "-" + moPCN.PCNNumber + "-" + dt.ToString("yyyMMdd hhmmss"); //*******************Added 10/4/2015
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                he.ExportBudgetForPrimavera(saveFileDialog1.FileName, moPCN.ID);
+               
             }
         }
 
@@ -1041,14 +1336,43 @@ namespace RSMPS
         {
             
             CExpenseExport ee = new CExpenseExport();
-
+            DateTime dt = DateTime.Now;
+            saveFileDialog1.FileName = "PCN Expense-" + moProj.Number + "-" + moPCN.PCNTitle + "-" + moPCN.PCNNumber + "-" + dt.ToString("yyyMMdd hhmmss"); //*******************Added 10/4/2015
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                ee.ExportBudgetForPrimavera(saveFileDialog1.FileName, moPCN.ID);
             }
         }
 
+        //private void ClearCurrentRow_Click(object sender, C1.Win.C1Command.ClickEventArgs e) //*****************************Commented 9/30/2015, not needed
+        //{
+        //   MessageBox.Show("Are you sure you wish to delete the current line?");
+        //   if (MessageBox.Show("Are you sure you wish to delete the current line?", "Delete Hours", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+        //   {
+        //       DataRow dr = moPCN.PCNData.PCNHours.Rows[tdbgHours.Bookmark];
+        //       DataRow dd = moPCN.PCNData.PCNHoursDeleted.NewRow();
+        //       dd["ID"] = dr["ID"];
+        //       moPCN.PCNData.PCNHoursDeleted.Rows.Add(dd);
+
+        //       tdbgHours.Delete();
+        //   }
+        //}
 
 
-    }
+        private void DeleteCurrentRow()
+        {
+            MessageBox.Show("Are you sure you wish to delete the current line?");
+            if (MessageBox.Show("Are you sure you wish to delete the current line?", "Delete Hours", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                DataRow dr = moPCN.PCNData.PCNHours.Rows[tdbgHours.Bookmark];
+                DataRow dd = moPCN.PCNData.PCNHoursDeleted.NewRow();
+                dd["ID"] = dr["ID"];
+                moPCN.PCNData.PCNHoursDeleted.Rows.Add(dd);
+
+                tdbgHours.Delete();
+            }
+        }
+
+
+     }
 }

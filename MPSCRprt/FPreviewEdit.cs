@@ -133,7 +133,7 @@ namespace RSMPS
             SqlCommand cmd;
             SqlParameter prm;
             string currDate;
-
+            int record = 0; //**************************************************10/20/2015
             this.Cursor = Cursors.WaitCursor;
 
             currDate = DateTime.Now.ToShortDateString();
@@ -146,6 +146,10 @@ namespace RSMPS
                 cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision", cnn.GetConnection());
 
             cmd.CommandType = CommandType.StoredProcedure;
+
+
+            prm = cmd.Parameters.Add("@records", SqlDbType.Int); //*******Added 10/1/2015, because, it was throwing exception in PM Report
+            prm.Direction = ParameterDirection.Output;
 
             prm = cmd.Parameters.Add("@Project", SqlDbType.VarChar, 50);
             prm.Value = msCurrProj;
@@ -160,14 +164,16 @@ namespace RSMPS
 
             da.Fill(ds);
             FtcCalculator.UpdateCalculatedField(ds);
-
+            record = Convert.ToInt32(cmd.Parameters["@records"].Value); //****************************************Added 10/20/2015
             cnn.CloseConnection();
 
             rprtCostReport1 rprt = new rprtCostReport1();
-
+            rprt.records = record;
+       //     MessageBox.Show(rprt.records.ToString());
             rprt.CutoffDate = currDate;
             rprt.DataSource = ds;
             rprt.DataMember = "Table";
+           
             viewer1.Document = rprt.Document;
             rprt.Run();
 

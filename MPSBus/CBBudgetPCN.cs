@@ -96,6 +96,7 @@ namespace RSMPS
                 d["PCNID"] = dr["PCNID"];
                 d["Code"] = dr["Code"];
                 d["Description"] = dr["Description"];
+                d["DeptGroup"] = dr["DeptGroup"]; //****************************Added 9/22/2015
                 d["DlrsPerItem"] = dr["DlrsPerItem"];
                 d["NumItems"] = dr["NumItems"];
                 d["MUPerc"] = dr["MUPerc"];
@@ -159,6 +160,7 @@ namespace RSMPS
                 d["PCNID"] = dr["PCNID"];
                 d["Code"] = dr["Code"];
                 d["Description"] = dr["Description"];
+                d["DeptGroup"] = dr["DeptGroup"]; //****************************Added 9/22/2015
                 d["DlrsPerItem"] = dr["DlrsPerItem"];
                 d["NumItems"] = dr["NumItems"];
                 d["MUPerc"] = dr["MUPerc"];
@@ -253,15 +255,30 @@ namespace RSMPS
                 hr.Code = dr["Code"].ToString();
                 hr.WBS = dr["WBS"].ToString();
                 hr.Description = dr["Description"].ToString();
-                try                                 //*********************Added 6/11/15*************MZ
-                {
-                    hr.Quantity = Convert.ToInt32(dr["Quantity"]);
-                    hr.HoursPerItem = Convert.ToInt32(dr["HoursPerItem"]);
-                    hr.Rate = Convert.ToDecimal(dr["Rate"]);
-                }
-                catch { 
+                //try                                 //*********************Added 6/11/15*************MZ
+                //{
+                //    hr.Quantity = Convert.ToInt32(dr["Quantity"]);
+                //    hr.HoursPerItem = Convert.ToInt32(dr["HoursPerItem"]);
+                //    hr.Rate = Convert.ToDecimal(dr["Rate"]);
+                //}
+                //catch { 
                     
-                }
+                //}
+
+
+
+                if (dr["Quantity"] == DBNull.Value) hr.Quantity = 0; //****************************Added/Edited 9/22/2015, 
+                else hr.Quantity = Convert.ToInt32(dr["Quantity"]);
+
+                if (dr["HoursPerItem"] == DBNull.Value) hr.HoursPerItem = 0; //****************************Added/Edited 9/22/2015, 
+                else hr.HoursPerItem = Convert.ToInt32(dr["HoursPerItem"]);
+
+
+                if (dr["Rate"] == DBNull.Value) hr.Rate= 0; //****************************Added/Edited 9/22/2015, 
+                else  hr.Rate = Convert.ToDecimal(dr["Rate"]);
+                
+
+
                 hr.SubtotalHrs = Convert.ToInt32(dr["SubtotalHrs"]);
                 hr.SubtotalDlrs = Convert.ToDecimal(dr["SubtotalDlrs"]);
 
@@ -287,14 +304,30 @@ namespace RSMPS
                 exp.PCNID = retVal;
                 exp.Code = dr["Code"].ToString();
                 exp.Description = dr["Description"].ToString();
-                try                             //*********************Added 6/11/15*************MZ
-                {
-                    exp.DlrsPerItem = Convert.ToDecimal(dr["DlrsPerItem"]);
-                    exp.NumItems = Convert.ToInt32(dr["NumItems"]);
-                    exp.MUPerc = Convert.ToDecimal(dr["MUPerc"]);
-                }
-                catch { 
-                }
+                if (dr["DeptGroup"] == DBNull.Value) exp.DeptGroup = 11000; //****************************Added 9/22/2015, Default DeptGroup = 11000, May revisit
+                else exp.DeptGroup = Convert.ToInt32(dr["DeptGroup"]);
+
+                //try                             //*********************Added 6/11/15*************MZ
+                //{
+                //    exp.DlrsPerItem = Convert.ToDecimal(dr["DlrsPerItem"]);
+                //    exp.NumItems = Convert.ToInt32(dr["NumItems"]);
+                //    exp.MUPerc = Convert.ToDecimal(dr["MUPerc"]);
+                //}
+                //catch { 
+                //}
+
+                if (dr["DlrsPerItem"] == DBNull.Value) exp.DlrsPerItem = 0;//****************************Added/Edited 9/22/2015,
+                else exp.DlrsPerItem = Convert.ToDecimal(dr["DlrsPerItem"]);
+
+
+                if (dr["NumItems"] == DBNull.Value) exp.NumItems = 0;//****************************Added/Edited 9/22/2015,
+                else exp.NumItems = Convert.ToInt32(dr["NumItems"]);
+
+                if (dr["NumItems"] == DBNull.Value) exp.MUPerc = 0;//****************************Added/Edited 9/22/2015,
+                else exp.MUPerc = Convert.ToDecimal(dr["MUPerc"]);
+
+
+
                 exp.MarkUp = Convert.ToDecimal(dr["MarkUp"]);
                 exp.TotalCost = Convert.ToDecimal(dr["TotalCost"]);
 
@@ -361,6 +394,9 @@ namespace RSMPS
                 exp.PCNID = retVal;
                 exp.Code = dr["Code"].ToString();
                 exp.Description = dr["Description"].ToString();
+               // exp.DeptGroup = Convert.ToInt32(dr["DeptGroup"]); //****************************Added 9/22/2015
+                if (dr["DeptGroup"] == DBNull.Value) exp.DeptGroup = 11000; //****************************Added 9/22/2015, Default DeptGroup = 11000, May revisit
+                else exp.DeptGroup = Convert.ToInt32(dr["DeptGroup"]);
                 exp.DlrsPerItem = Convert.ToDecimal(dr["DlrsPerItem"]);
                 exp.NumItems = Convert.ToInt32(dr["NumItems"]);
                 exp.MUPerc = Convert.ToDecimal(dr["MUPerc"]);

@@ -1716,9 +1716,9 @@ namespace RSMPS
             this.Label1.Left = 0.313F;
             this.Label1.Name = "Label1";
             this.Label1.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
-            this.Label1.Text = "-  Pending PCN\'s";
+            this.Label1.Text = "-  Initiated PCN\'s";
             this.Label1.Top = 0F;
-            this.Label1.Width = 1.249F;
+            this.Label1.Width = 1.509F;
             // 
             // SubReport
             // 

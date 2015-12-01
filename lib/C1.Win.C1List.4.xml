@@ -252,16 +252,16 @@
     </member>
     <member name="M:C1.Util.CodeRange.#ctor(System.Char)">
       <summary>
-      </summary>
+            Initialization of the range of character codes
+            </summary>
       <param name="ch">Adding character.</param>
     </member>
     <member name="M:C1.Util.CodeRange.#ctor(System.Char,System.Char)">
       <summary>
-      </summary>
-      <param name="first">
-      </param>
-      <param name="last">
-      </param>
+            Initialization of the range of character codes
+            </summary>
+      <param name="first">The first character code.</param>
+      <param name="last">The last character code.</param>
     </member>
     <member name="M:C1.Util.CodeRange.Clone">
       <summary>
@@ -692,6 +692,12 @@
       <param name="e">
       </param>
     </member>
+    <member name="M:C1.Win.C1List.ComboBoxContainer.OnRightToLeftChanged(System.EventArgs)">
+      <summary>
+      </summary>
+      <param name="e">
+      </param>
+    </member>
     <member name="M:C1.Win.C1List.ComboBoxContainer.SetBoundsCore(System.Int32,System.Int32,System.Int32,System.Int32,System.Windows.Forms.BoundsSpecified)">
       <summary>
       </summary>
@@ -906,18 +912,6 @@
       <summary>
             Signals the object that initialization is complete.
             </summary>
-    </member>
-    <member name="M:C1.Win.C1List.C1Combo.ShouldSerializeCaptionHeight">
-      <summary>
-      </summary>
-    </member>
-    <member name="M:C1.Win.C1List.C1Combo.ShouldSerializeColumnCaptionHeight">
-      <summary>
-      </summary>
-    </member>
-    <member name="M:C1.Win.C1List.C1Combo.ShouldSerializeColumnFooterHeight">
-      <summary>
-      </summary>
     </member>
     <member name="M:C1.Win.C1List.C1Combo.ShouldSerializeItemHeight">
       <summary>
@@ -1677,6 +1671,8 @@
     <member name="P:C1.Win.C1List.C1Combo.CaptionHeight">
       <summary>
             Returns or sets the height of the list caption area.
+            The default value is -1, which means that actual height is set automatically according to the font size.
+            Set this property to 0 to hide the caption.
             </summary>
     </member>
     <member name="P:C1.Win.C1List.C1Combo.CaptionStyle">
@@ -1686,7 +1682,7 @@
     </member>
     <member name="P:C1.Win.C1List.C1Combo.CaptionVisible">
       <summary>
-            Returns or sets the flag indicating if list¡¯s caption is visible.
+            Returns or sets the flag indicating if list's caption is visible.
             </summary>
     </member>
     <member name="P:C1.Win.C1List.C1Combo.CellTips">
@@ -2367,12 +2363,6 @@
       <param name="first">
       </param>
     </member>
-    <member name="M:C1.Win.C1List.ListBase.Frame.ShouldSerializeCaptionHeight">
-      <summary>
-      </summary>
-      <returns>
-      </returns>
-    </member>
     <member name="M:C1.Win.C1List.ListBase.Frame.ResetVisualStyle">
       <summary>
             Resets <see cref="P:C1.Win.C1List.ListBase.Frame.VisualStyle" /> to the default value.
@@ -2752,6 +2742,8 @@
     <member name="P:C1.Win.C1List.ListBase.Frame.CaptionHeight">
       <summary>
             Returns or sets the height of the list caption area.
+            The default value is -1, which means that actual height is set automatically according to the font size.
+            Set this property to 0 to hide the caption.
             </summary>
     </member>
     <member name="P:C1.Win.C1List.ListBase.Frame.DataMember">
@@ -2814,23 +2806,11 @@
       <param name="force">
       </param>
     </member>
-    <member name="M:C1.Win.C1List.ListBase.C1ListBase.ShouldSerializeColumnCaptionHeight">
+    <member name="M:C1.Win.C1List.ListBase.C1ListBase.OnFontChanged(System.EventArgs)">
       <summary>
       </summary>
-      <returns>
-      </returns>
-    </member>
-    <member name="M:C1.Win.C1List.ListBase.C1ListBase.ShouldSerializeColumnFooterHeight">
-      <summary>
-      </summary>
-      <returns>
-      </returns>
-    </member>
-    <member name="M:C1.Win.C1List.ListBase.C1ListBase.ShouldSerializeItemHeight">
-      <summary>
-      </summary>
-      <returns>
-      </returns>
+      <param name="e">
+      </param>
     </member>
     <member name="M:C1.Win.C1List.ListBase.C1ListBase.AddCellStyle(C1.Win.C1List.CellStyleFlag,C1.Win.C1List.Style)">
       <summary>
@@ -7474,9 +7454,9 @@
     </member>
     <member name="M:C1.Win.C1List.Util.Xml.Serialization.TypeSerializationAttribute.ToString">
       <summary>
-      </summary>
-      <returns>
-      </returns>
+            Returns string representation of the attribute
+            </summary>
+      <returns> string representation of the attribute</returns>
     </member>
     <member name="P:C1.Win.C1List.Util.Xml.Serialization.TypeSerializationAttribute.TypeSerialization">
       <summary>

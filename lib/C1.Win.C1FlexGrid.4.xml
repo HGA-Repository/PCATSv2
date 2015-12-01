@@ -345,6 +345,19 @@
             column can be displayed. This method returns that value.
             </remarks>
     </member>
+    <member name="T:C1.Win.C1FlexGrid.IC1MultiColumnDictionary2">
+      <summary>
+            Interface that extends <see cref="T:C1.Win.C1FlexGrid.IC1MultiColumnDictionary" /> and can be used to implement multi-column data maps.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1FlexGrid.IC1MultiColumnDictionary2.GetColumnValue(System.Object,System.Int32)">
+      <summary>
+            Gets the string which is in given column of the dictionary.
+            </summary>
+      <param name="key">Value to look up in the dictionary.</param>
+      <param name="columnIndex">&gt;Column index in the dictionary.</param>
+      <returns>The string that should be displayed in the grid while not in edit mode.</returns>
+    </member>
     <member name="T:C1.Win.C1FlexGrid.MultiColumnDictionary">
       <summary>
             Class that implements the <see cref="T:C1.Win.C1FlexGrid.IC1MultiColumnDictionary" /> and can be used as
@@ -452,6 +465,17 @@
       <summary>
             Removes all entries from the <see cref="T:C1.Win.C1FlexGrid.MultiColumnDictionary" />.
             </summary>
+    </member>
+    <member name="M:C1.Win.C1FlexGrid.MultiColumnDictionary.Add(System.Object,System.Object)">
+      <summary>
+            Adds an entry with the specified key and value into the <see cref="T:C1.Win.C1FlexGrid.MultiColumnDictionary" />.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1FlexGrid.MultiColumnDictionary.Item(System.Object)">
+      <summary>
+            Gets or sets the value associated with the specified key
+            </summary>
+      <param name="i">The key of the value to get or set.</param>
     </member>
     <member name="T:C1.Win.C1FlexGrid.AllowMergingEnum">
       <summary>
@@ -10111,6 +10135,15 @@
       <returns>Index of the column that has the given name in this collection, or -1 if the collection
             does not contain a column with the given name.</returns>
     </member>
+    <member name="M:C1.Win.C1FlexGrid.ColumnCollection.IndexOf(System.String,System.Int32)">
+      <summary>
+            Gets the index of the <see cref="T:C1.Win.C1FlexGrid.Column" /> with the specified name. The search starts at a specified index.
+            </summary>
+      <param name="columnName">Column name to look for (case-insensitive).</param>
+      <param name="startIndex">The search starting index.</param>
+      <returns>Index of the column that has the given name in this collection, or -1 if the collection
+            does not contain a column with the given name.</returns>
+    </member>
     <member name="M:C1.Win.C1FlexGrid.ColumnCollection.IndexOf(System.String,System.Boolean)">
       <summary>
             Gets the index of the <see cref="T:C1.Win.C1FlexGrid.Column" /> with the specified name, optionally
@@ -10118,6 +10151,30 @@
             </summary>
       <param name="columnName">Column name to look for (case-insensitive).</param>
       <param name="throwIfNotFound">Whether to throw and exception if the column cannot be found.</param>
+      <returns>Index of the column that has the given name in this collection, or -1 if the collection
+            does not contain a column with the given name.</returns>
+      <remarks>If the <paramref name="throwIfNotFound" /> parameter is set to true and
+            a column named <paramref name="columnName" /> cannot be found, the control throws
+            an <see cref="T:System.ArgumentOutOfRangeException" />. This makes it easier to write
+            compact code that relies on column names.</remarks>
+      <example>
+            The example below uses the <b>IndexOf</b> method to convert column names into
+            indices. Note that if the column names are invalid, the exception will be thrown
+            by the <b>IndexOf</b> method (column not found) rather than in the following 
+            method, where it would not be as clear (invalid index).
+            <code>
+            int columnIndex = _flex.Cols.IndexOf("total");
+            _flex.AutoSizeCol(columnIndex);
+            </code></example>
+    </member>
+    <member name="M:C1.Win.C1FlexGrid.ColumnCollection.IndexOf(System.String,System.Boolean,System.Int32)">
+      <summary>
+            Gets the index of the <see cref="T:C1.Win.C1FlexGrid.Column" /> with the specified name, optionally
+            throwing an exception if the column is not found. The search starts at a specified index.
+            </summary>
+      <param name="columnName">Column name to look for (case-insensitive).</param>
+      <param name="throwIfNotFound">Whether to throw and exception if the column cannot be found.</param>
+      <param name="startIndex">The search starting index.</param>
       <returns>Index of the column that has the given name in this collection, or -1 if the collection
             does not contain a column with the given name.</returns>
       <remarks>If the <paramref name="throwIfNotFound" /> parameter is set to true and
@@ -12074,6 +12131,15 @@
     <member name="F:C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.XpThemes">
       <summary>
             A border drawn using XP themes.
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1FlexGrid.Util.Styles.StyleContext">
+      <summary>
+            StyleContext contains a base Style definition and a list of
+            named Styles. It provides the following services:
+            - Style management (create, edit, and remove Styles)
+            - Style inheritance mechanism
+            - Rendering and measuring methods
             </summary>
     </member>
     <member name="T:C1.Win.C1FlexGrid.Util.Styles.Style">

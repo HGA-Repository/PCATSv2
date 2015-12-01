@@ -182,14 +182,16 @@ namespace RSMPS
             FPreviewAR pv;
             rprtDrawingLogTranAlt2 rprt = new rprtDrawingLogTranAlt2();
             dsDrawingLog dl;
-
+            string name_of_Method; //**************************Added 10/3/2015
             if (isDept == true)
             {
                 dl = CBDrawingLog.GetDrawingLogMainByDeptList(xml, sortCode, drwgSpec);
+                name_of_Method = "GetDrawingLogMainByDeptList";
             }
             else
             {
                 dl = CBDrawingLog.GetDrawingLogMainByProjList(xml, sortCode, drwgSpec);
+                name_of_Method = "GetDrawingLogMainByProjList";
             }
 
             rprt.DataSource = dl;
@@ -197,6 +199,12 @@ namespace RSMPS
             rprt.SetTitle = GetDrawingSpecTitle(drwgSpec);
 
             pv = new FPreviewAR();//************** Done 6/29/15
+            pv.Title = rprt.SetTitle; //********************************12/01
+            pv.xml = xml; //****************Added 10/3
+            pv.isPreview = isPreview;
+            pv.sortCode = sortCode;
+            pv.drwgSpec = drwgSpec;
+            pv.name_of_Method = name_of_Method;
             pv.ViewDrawingLogWithExcel(rprt);
 
 
@@ -220,14 +228,24 @@ namespace RSMPS
             dsDrawingLog dl;
 
             dl = CBDrawingLog.GetDrawingLogMainByDeptListProjList(deptXml, projXml, sortCode, drwgSpec);
+            string name_of_Method = "GetDrawingLogMainByDeptListProjList"; //**************************Added 10/3/2015
 
             rprt.DataSource = dl;
             rprt.DataMember = "DrawingList";
             rprt.SetTitle = GetDrawingSpecTitle(drwgSpec);
 
             pv = new FPreviewAR();//************** Done 6/29/15
-            pv.ViewDrawingLogWithExcel(rprt);
+            
 
+            pv.deptXml = deptXml; //****************Added 10/3
+            pv.projXml = projXml;
+            pv.isPreview = isPreview;
+
+            pv.Title = rprt.SetTitle; //********************************12/01
+            pv.sortCode = sortCode;
+            pv.drwgSpec = drwgSpec;
+            pv.name_of_Method = name_of_Method;
+            pv.ViewDrawingLogWithExcel(rprt);
             if (isPreview == true)
             {
                 //pv = new FPreviewAR();
@@ -248,12 +266,18 @@ namespace RSMPS
             dsDrawingLog dl;
 
             dl = CBDrawingLog.GetDrawingLogMainByLeadList(deptXml, leadXml, sortCode, drwgSpec);
-
+            string name_of_Method = "GetDrawingLogMainByLeadList"; //**************************Added 10/3/2015
             rprt.DataSource = dl;
             rprt.DataMember = "DrawingList";
             rprt.SetTitle = GetDrawingSpecTitle(drwgSpec);
 
             pv = new FPreviewAR(); //************** Done 6/29/15
+            pv.name_of_Method = name_of_Method;
+            pv.leadXml = leadXml;
+            pv.deptXml = deptXml;
+            pv.sortCode = sortCode;
+            pv.drwgSpec = drwgSpec;
+            pv.Title = rprt.SetTitle; //********************************12/01
             pv.ViewDrawingLogWithExcel(rprt);
 
 

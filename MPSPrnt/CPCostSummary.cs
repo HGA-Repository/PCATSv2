@@ -45,6 +45,7 @@ namespace RSMPS
             rprt.RowsInfo = ri;
             rprt.Run();
 
+            pv.projNumber = si.project; //*******************************Added 9/30/2015
             pv.ViewReport(rprt);
             pv.ShowDialog();
         }
@@ -53,6 +54,8 @@ namespace RSMPS
         {
             rprtCostSummary rprt = new rprtCostSummary();
             FPreviewAR pv = new FPreviewAR();
+
+            pv.projNumber = si.project;
 
             rprt.SummaryInformation = si;
             rprt.RowsInfo = ri;

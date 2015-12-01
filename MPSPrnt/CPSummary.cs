@@ -43,22 +43,43 @@ namespace RSMPS
 
         public void PrintVariance(int indx, int pmID)
         {
+                                        //DataSet ds = CBProjectSummary.GetVarianceReport(indx, pmID);
+                                        //var title = "RESOURCE VARIANCE REPORT";
+
+                                        //var pipeline_services_reports = new[]{ 3, 4 };
+                                        //if (pipeline_services_reports.Contains(indx))
+                                        //    title = title + " - PIPELINE SERVICES";
+
+                                        //var eng_only_reports = new[]{ 0, 2 };
+                                        //if (eng_only_reports.Contains(indx))
+                                        //    title = title + " - ENGINEERING";
+
+                                        //var summary_reports = new[]{ 2, 4 };
+                                        //if( summary_reports.Contains( indx ) )
+                                        //    PrintVarianceSummary(ds, title);
+                                        //else
+                                        //    PrintVariance(ds, title);
             DataSet ds = CBProjectSummary.GetVarianceReport(indx, pmID);
-            var title = "RESOURCE VARIANCE REPORT";
+            var title = "RESOURCE VARIANCE REPORT" + indx + "-" + pmID;
 
-            var pipeline_services_reports = new[]{ 3, 4 };
+            var pipeline_services_reports = new[] { 3, 4 };
             if (pipeline_services_reports.Contains(indx))
-                title = title + " - PIPELINE SERVICES";
+              //  title = title + " - PIPELINE SERVICES";
+                 title = title + " - PIPELINE SERVICES" + indx+ "-" + pmID;
 
-            var eng_only_reports = new[]{ 0, 2 };
+            var eng_only_reports = new[] { 0, 2 };
             if (eng_only_reports.Contains(indx))
-                title = title + " - ENGINEERING";
+              //  title = title + " - ENGINEERING";
+                title = title + " - ENGINEERING" + indx + "-" + pmID;
 
-            var summary_reports = new[]{ 2, 4 };
-            if( summary_reports.Contains( indx ) )
+            var summary_reports = new[] { 2, 4 };
+            if (summary_reports.Contains(indx))
                 PrintVarianceSummary(ds, title);
             else
                 PrintVariance(ds, title);
+
+
+
         }
 
         public void PrintVariance(DataSet ds, string title)
@@ -69,6 +90,7 @@ namespace RSMPS
             r.DataSource = ds;
             r.DataMember = "Table";
             pv.ViewReport(r);
+            pv.Title = title; //*****************************Added 10/1/2015
             pv.ShowDialog();
         }
 
@@ -80,6 +102,7 @@ namespace RSMPS
             r.DataSource = ds;
             r.DataMember = "Table";
             pv.ViewReport(r);
+            pv.Title = title; //*****************************Added 10/1/2015
             pv.ShowDialog();
         }
 
@@ -94,7 +117,7 @@ namespace RSMPS
             DataSet ds = CBProjectSummary.GetForecastRemaining(usePipe);
             r.DataSource = ds;
             r.DataMember = "Table";
-
+            pv.Title = "Pipeline Forecast Remaining Report"; //********************Added 9/30/2015
             pv.ViewReportWithExcel(r);
             pv.ShowDialog();
         }
@@ -106,6 +129,13 @@ namespace RSMPS
             //if (usePipe == true)
               //  r.SetAsPipeline();
 
+            if (ENGPLSPM == 1)      //********************Added 9/30/2015
+            { pv.Title = r.SetAsEngineering(); }
+
+            if (ENGPLSPM == 3)
+            { pv.Title = r.SetAsPM(); }
+
+
             DataSet ds = CBProjectSummary.GetForecastRemainingNew(ENGPLSPM);
             r.DataSource = ds;
             r.DataMember = "Table";
@@ -113,5 +143,24 @@ namespace RSMPS
             pv.ViewReportWithExcel(r);
             pv.ShowDialog();
         }
+
+        public void PrintForecastRemainingBHam()
+        {
+            rprtForecastRemaining r = new rprtForecastRemaining();
+            FPreviewAR pv = new FPreviewAR();
+            pv.Title = r.SetAsBHam();
+
+            DataSet ds = CBProjectSummary.GetForecastRemainingBHam();
+            r.DataSource = ds;
+            r.DataMember = "Table";
+
+            pv.ViewReportWithExcel(r);
+            pv.ShowDialog();
+        }
+
+
+
+
+
     }
 }

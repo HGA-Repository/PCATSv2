@@ -177,6 +177,9 @@ namespace RSMPS
 
             cmd.CommandType = CommandType.StoredProcedure;
 
+
+            prm = cmd.Parameters.Add("@records", SqlDbType.Int); //*******Added 10/1/2015, because, it was throwing exception in PM Report
+            prm.Direction = ParameterDirection.Output;
             prm = cmd.Parameters.Add("@Project", SqlDbType.VarChar, 50);
             prm.Value = project;
             prm = cmd.Parameters.Add("@Rprtdate", SqlDbType.SmallDateTime);
@@ -401,6 +404,8 @@ namespace RSMPS
 
             cmd.CommandType = CommandType.StoredProcedure;
 
+            prm = cmd.Parameters.Add("@records", SqlDbType.Int); //*******Added 10/1/2015, because, it was throwing exception in ForeCast Batch Report
+            prm.Direction = ParameterDirection.Output;
             prm = cmd.Parameters.Add("@Project", SqlDbType.VarChar, 50);
             prm.Value = project;
             prm = cmd.Parameters.Add("@Rprtdate", SqlDbType.SmallDateTime);
@@ -516,10 +521,23 @@ namespace RSMPS
 
         private void bttPrintPDF_Click(object sender, EventArgs e)
         {
+            //if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            //{
+            //    LoadReportsForPDF(saveFileDialog1.FileName);
+            //}
+
+            saveFileDialog1.InitialDirectory = "v:\\HGA\\"; //************************** Commented and Added 11/19m to save in Default File Name
+            saveFileDialog1.FileName = "Project_Forecast_Report-Batch";
+            saveFileDialog1.Filter = "PDF Files | *.pdf";
+            saveFileDialog1.DefaultExt = "pdf";
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 LoadReportsForPDF(saveFileDialog1.FileName);
             }
+        
+
+
+
         }
     }
 }

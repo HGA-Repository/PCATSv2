@@ -169,17 +169,20 @@ namespace RSMPS
         {
             if (e.Index != 0 && e.NewValue == CheckState.Checked)
             {
+               
                 mbListWork = true;
                 clstDepartments.SetItemCheckState(0, CheckState.Unchecked);
                 mbListWork = false;
 
                 if (clstDepartments.CheckedItems.Count == 0)
                 {
+                  
                     rdoProjects.Enabled = true;
                     rdoLeads.Enabled = true;
                 }
                 else
                 {
+                   
                     rdoProjects.Checked = true;
                     rdoProjects.Enabled = false;
                     rdoLeads.Enabled = false;
@@ -191,6 +194,7 @@ namespace RSMPS
                 {
                     rdoProjects.Enabled = true;
                     rdoLeads.Enabled = true;
+                  
                 }
                 else
                 {
@@ -201,6 +205,7 @@ namespace RSMPS
             }
             else if (e.Index == 0 && e.NewValue == CheckState.Checked)
             {
+                
                 if (mbListWork == true)
                     return;
 
@@ -219,6 +224,7 @@ namespace RSMPS
             }
             else if (e.Index == 0 && clstDepartments.CheckedItems.Count <= 1 && mbListWork == false)
             {
+                
                 e.NewValue = CheckState.Checked;
             }
         }
@@ -227,30 +233,36 @@ namespace RSMPS
         {
             if (e.Index != 0 && e.NewValue == CheckState.Checked)
             {
+               
                 mbListWork = true;
                 clstProjects.SetItemCheckState(0, CheckState.Unchecked);
                 mbListWork = false;
             }
             else if (e.Index == 0 && e.NewValue == CheckState.Checked)
             {
+              
                 if (mbListWork == true)
                     return;
 
                 mbListWork = true;
-
+               
                 for (int i = 1; i < clstProjects.Items.Count; i++)
+                {
                     clstProjects.SetItemCheckState(i, CheckState.Unchecked);
-
+                    j++;
+                }
+              
                 clstProjects.SetItemChecked(0, true);
 
                 mbListWork = false;
             }
             else if (e.Index == 0 && clstProjects.CheckedItems.Count <= 1 && mbListWork == false)
             {
+                
                 e.NewValue = CheckState.Checked;
             }
         }
-
+         int j = 0;
         private void CreateDepartmentXMLList(ref string dXml)
         {
             DataSet ds;
@@ -260,18 +272,22 @@ namespace RSMPS
             ds = new DataSet();
             dt = new DataTable("Dept");
             dt.Columns.Add("DeptID", Type.GetType("System.Int32"));
-
+            int dept_id = 0;
             foreach (Object o in clstDepartments.CheckedItems)
             {
                 dr = dt.NewRow();
                 dr["DeptID"] = ((RSLib.COListItem)o).ID;
+                dept_id = ((RSLib.COListItem)o).ID;
                 dt.Rows.Add(dr);
             }
 
             ds.Tables.Add(dt);
 
             if (clstDepartments.CheckedItems.Count > 0)
+            {
                 dXml = ds.GetXml();
+               // MessageBox.Show("Dept dXml" + dXml);
+            }
             else
                 dXml = "";
         }
@@ -285,18 +301,22 @@ namespace RSMPS
             ds = new DataSet();
             dt = new DataTable("Proj");
             dt.Columns.Add("ProjID", Type.GetType("System.Int32"));
-
+            int k = 0;
             foreach (Object o in clstProjects.CheckedItems)
             {
                 dr = dt.NewRow();
                 dr["ProjID"] = ((RSLib.COListItem)o).ID;
-                dt.Rows.Add(dr);
+               k = ((RSLib.COListItem)o).ID;
+               dt.Rows.Add(dr);
+                
             }
 
             ds.Tables.Add(dt);
 
             if (clstProjects.CheckedItems.Count > 0)
+            {
                 pXml = ds.GetXml();
+                           }
             else
                 pXml = "";
         }
@@ -452,11 +472,14 @@ namespace RSMPS
             if (IsDepartmentAllChecked() == true)
             {
                 CreateProjectXMLList(ref xml1);
+               // CreateDepartmentXMLList(ref xml1); // *********************** Added to check
                 dl.PrintJobStatList(xml1, false, isPreview, sortCode);
             }
             else if (IsProjectLeadAllChecked() == true)
             {
                 CreateDepartmentXMLList(ref xml1);
+              //  CreateProjectXMLList(ref xml1); // *********************** Added to check
+
                 dl.PrintJobStatList(xml1, true, isPreview, sortCode);
             }
             else
@@ -519,7 +542,9 @@ namespace RSMPS
             //*************************************************************
 
 
-
+            CPDrawingLog dl = new CPDrawingLog(); //*********************************MOved 9/11 to test !!!!!!!!!!!!!!!!!!!!!!
+            string xml1 = "";
+            string xml2 = "";
 
 
 
@@ -527,21 +552,27 @@ namespace RSMPS
             if (IsDepartmentAllChecked() == true && IsProjectLeadAllChecked() == true)
             {
                 MessageBox.Show("Please limit your search, selecting all departments and projects will return too large a result set", "Search Limit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CreateProjectXMLList(ref xml1); //*********************************Added 9/11 to test !!!!!!!!!!!!!!!!!!!!!!
+                CreateDepartmentXMLList(ref xml1);
                 return;
             }
 
-            CPDrawingLog dl = new CPDrawingLog();
-            string xml1 = "";
-            string xml2 = "";
+            //CPDrawingLog dl = new CPDrawingLog();
+            //string xml1 = "";
+            //string xml2 = "";
 
             if (IsDepartmentAllChecked() == true)
             {
                 CreateProjectXMLList(ref xml1);
+                            //CreateDepartmentXMLList(ref xml1); // *********************** Added to check
+
                 dl.PrintDrawingLogList(xml1, false, isPreview, sortCode, drwgSpec);
             }
             else if (IsProjectLeadAllChecked() == true)
             {
                 CreateDepartmentXMLList(ref xml1);
+                            //CreateProjectXMLList(ref xml1); // *********************** Added to check
+
                 dl.PrintDrawingLogList(xml1, true, isPreview, sortCode, drwgSpec);
             }
             else

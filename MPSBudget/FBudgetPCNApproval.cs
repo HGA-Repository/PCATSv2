@@ -15,7 +15,7 @@ namespace RSMPS
         private bool mbIsUserCheckOnly = false;
         private bool mbIsApproved = false;
 
-        //public event RevSol.PassDataString OnChangeApproved;
+      //  public event RevSol.PassDataString OnChangeApproved;
         public event RevSol.PassDataStringWithIndex OnChangeCancelled;
         public event RevSol.PassDataStringWithIndex OnChangeApproved;
 

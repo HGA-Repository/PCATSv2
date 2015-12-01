@@ -1,6 +1,7 @@
-:setvar path "C:\Users\administrator.HGA\Documents\SQL Server Management Studio\Scripts\PCATS 2015 Release\ProductionTest"
+:setvar path "C:\Users\administrator.HGA\Documents\SQL Server Management Studio\Scripts\PCATS 2015 Release\Production"
 :r $(path)\CreateTable_DT_Business_Unit.sql
 :r $(path)\CreateTable_DT_UserLoginInfo.sql
+:r $(path)\AlterTable_DT_Employees.sql
 :r $(path)\AddFieldstoDT_BudgetExpenseSheets.sql
 :r $(path)\spBudgetExpenseSheet_ByID.sql
 :r $(path)\spBudgetExpenseSheet_Insert.sql
@@ -15,6 +16,12 @@
 :r $(path)\spBudget_ListAll.sql
 :r $(path)\spBudget_ListByProject.sql
 :r $(path)\spBudget_Update.sql
+:r $(path)\spEmployee_Insert2.sql
+:r $(path)\spEmployee_ListAll2.sql
+:r $(path)\spEmployee_Update2.sql
+:r $(path)\spEmployee_ByID2.sql
+:r $(path)\spEmployee_ListRelManager.sql
+:r $(path)\spRPRT_BudgetPCNInfo.sql
 :r $(path)\spRPRT_CostReport_ByDept.sql
 :r $(path)\spRPRT_DrawingLogByDept.sql
 :r $(path)\spRPRT_DrawingLogByDeptList.sql
@@ -24,9 +31,11 @@
 :r $(path)\spRPRT_DrawingLogMainByDeptListProjList_FromTrans.sql
 :r $(path)\spRPRT_DrawingLogMainByDeptProjList.sql
 :r $(path)\spRPRT_DrawingLogByProjList.sql
+:r $(path)\spRPRT_CostReport_NewAcct2_Vision.sql
 :r $(path)\spBusiness_Unit_ListForDisp.sql
 :r $(path)\spBusiness_Unit_ListAll.sql
 :r $(path)\spBusiness_Unit_ByID.sql
+:r $(path)\spProject_ByID_Description.sql
 :r $(path)\spProjectEmployee_ListActiveWithHours.sql
 :r $(path)\spProjectEmployee_ListActiveWithHoursSTAFF.sql
 :r $(path)\spProjectEmployee_ListActiveWithHoursProp.sql

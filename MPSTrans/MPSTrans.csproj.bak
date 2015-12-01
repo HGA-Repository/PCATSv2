@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C683EAD8-4ECD-481B-B8AB-FBDA10D3A2D9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RSMPS</RootNamespace>
+    <AssemblyName>MPSTrans</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\MPSTrans.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="C1.Win.C1Command.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\C1.Win.C1Command.4.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1Input.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\C1.Win.C1Input.4.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1SpellChecker.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1TrueDBGrid.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=75ae3fb0e2b1e0da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\C1.Win.C1TrueDBGrid.4.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="DSDeletes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSDeletes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSDistribution.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSDistribution.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSReleaseDrawings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSReleaseDrawings.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSTransmittalDocs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSTransmittalDocs.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FReleaseCopyToProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FReleaseCopyToProject.Designer.cs">
+      <DependentUpon>FReleaseCopyToProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRelease_AddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRelease_AddEdit.Designer.cs">
+      <DependentUpon>FRelease_AddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRelease_Manage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRelease_Manage.Designer.cs">
+      <DependentUpon>FRelease_Manage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FTransmittal_AddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FTransmittal_AddEdit.Designer.cs">
+      <DependentUpon>FTransmittal_AddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FTransmittal_Manage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FTransmittal_Manage.Designer.cs">
+      <DependentUpon>FTransmittal_Manage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FReleaseCopyToProject.resx">
+      <DependentUpon>FReleaseCopyToProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRelease_AddEdit.resx">
+      <DependentUpon>FRelease_AddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRelease_Manage.resx">
+      <DependentUpon>FRelease_Manage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FTransmittal_AddEdit.resx">
+      <DependentUpon>FTransmittal_AddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FTransmittal_Manage.resx">
+      <DependentUpon>FTransmittal_Manage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DSDeletes.xsc">
+      <DependentUpon>DSDeletes.xsd</DependentUpon>
+    </None>
+    <None Include="DSDeletes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSDeletes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DSDeletes.xss">
+      <DependentUpon>DSDeletes.xsd</DependentUpon>
+    </None>
+    <None Include="DSDistribution.xsc">
+      <DependentUpon>DSDistribution.xsd</DependentUpon>
+    </None>
+    <None Include="DSDistribution.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSDistribution.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DSDistribution.xss">
+      <DependentUpon>DSDistribution.xsd</DependentUpon>
+    </None>
+    <None Include="DSReleaseDrawings.xsc">
+      <DependentUpon>DSReleaseDrawings.xsd</DependentUpon>
+    </None>
+    <None Include="DSReleaseDrawings.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSReleaseDrawings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DSReleaseDrawings.xss">
+      <DependentUpon>DSReleaseDrawings.xsd</DependentUpon>
+    </None>
+    <None Include="DSTransmittalDocs.xsc">
+      <DependentUpon>DSTransmittalDocs.xsd</DependentUpon>
+    </None>
+    <None Include="DSTransmittalDocs.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSTransmittalDocs.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DSTransmittalDocs.xss">
+      <DependentUpon>DSTransmittalDocs.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MPSBus\MPSBus.csproj">
+      <Project>{12E92C40-6B50-4255-87B2-C9C010B6C284}</Project>
+      <Name>MPSBus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MPSLib\MPSLib.csproj">
+      <Project>{442DCC3C-E62D-41E8-BBEF-BD7C38D002EF}</Project>
+      <Name>MPSLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MPSPrnt\MPSPrnt.csproj">
+      <Project>{03CA7A04-6B0B-4F01-A2B3-B7EA29EE4B6E}</Project>
+      <Name>MPSPrnt</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RevSolLb\RevSolLb.csproj">
+      <Project>{4AAE51B8-8EF7-4794-95B3-F4175F982CBE}</Project>
+      <Name>RevSolLb</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

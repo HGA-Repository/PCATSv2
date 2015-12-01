@@ -116,6 +116,7 @@ namespace RSMPS
 
             cnn = new RSLib.CDbConnection();
             cmd = new SqlCommand("spDrawingLog_Insert", cnn.GetConnection());
+        //    cmd = new SqlCommand("spDrawingLog_Test_Insert", cnn.GetConnection()); //*************************testin 11/9
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -219,6 +220,7 @@ namespace RSMPS
 
             cnn = new RSLib.CDbConnection();
             cmd = new SqlCommand("spDrawingLog_Update", cnn.GetConnection());
+       //     cmd = new SqlCommand("spDrawingLog_Test_Update", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -307,6 +309,40 @@ namespace RSMPS
 
             return oVar.ID;
         }
+
+        public int ID_Test(int id) //***********************************Added 10/8/2015
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            int retVal = 0;
+
+            //LoadVals(strXml);
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spDrawingLog_Test_ID", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            prm = cmd.Parameters.Add("@ID", SqlDbType.Int);
+            prm.Value = id;
+
+            prm = cmd.Parameters.Add("@ID_Exists", SqlDbType.Int);
+            prm.Direction = ParameterDirection.Output;
+
+            cmd.ExecuteNonQuery();
+
+            //retVal = Convert.ToInt32(cmd.Parameters["@ID"].Value);
+            retVal = Convert.ToInt32(cmd.Parameters["@ID_Exists"].Value);
+
+            prm = null;
+            cmd = null;
+            cnn.CloseConnection();
+            cnn = null;
+
+            return retVal;
+        }
+
 
 
         private string GetDataString()
@@ -422,6 +458,60 @@ namespace RSMPS
 
             return dr;
         }
+
+        public SqlDataReader GetListAcctCodes() //********************************Added 11/20
+        {
+            SqlDataReader dr;
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spAcctCodes_ListAll_ForExcelDropDown", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+           
+
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            cmd = null;
+
+            return dr;
+        }
+
+        public SqlDataReader GetListbyDeptProj(int deptID, int projID) //*************Added 10/9/2015
+        {
+            SqlDataReader dr;
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spDrawingLog_ListAll_DeptProj", cnn.GetConnection()); //************************************11/9
+
+        //    cmd = new SqlCommand("spDrawingLog_ListAll_DeptProj_Test", cnn.GetConnection()); //**********************************************10/28
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@DepartmentID", SqlDbType.Int);
+            prm.Value = deptID;
+            prm = cmd.Parameters.Add("@ProjectID", SqlDbType.Int);
+            prm.Value = projID;
+            
+
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            cmd = null;
+
+            return dr;
+        }
+
+
+
+
+
+
+
+
+
+
 
         public SqlDataReader GetListbyDeptProjNoTask(int deptID, int projID, string wbs, int sortColumn, bool sortAsc)
         {
@@ -727,7 +817,36 @@ namespace RSMPS
 
             return ds;
         }
+        public SqlDataReader GetDrawingLogForExport(int deptID, int projID) //******************************Added 10/8/2015
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            dsDrawingLog ds;
+            SqlDataReader dr;
+            string wbs = "";
 
+            cnn = new RSLib.CDbConnection();
+         //   cmd = new SqlCommand("spRPRT_DrawingLogByDeptProj2", cnn.GetConnection());
+            cmd = new SqlCommand("spDrawingLog_ListForUpdate", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            prm = cmd.Parameters.Add("@DepartmentID", SqlDbType.Int);
+            prm.Value = deptID;
+            prm = cmd.Parameters.Add("@ProjectID", SqlDbType.Int);
+            prm.Value = projID;
+            prm = cmd.Parameters.Add("@WBS", SqlDbType.Text);
+            prm.Value = wbs;
+
+
+
+           // dr = cmd.ExecuteReader();
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            cmd = null;
+
+            return dr;
+        }
         public DataSet GetJobStatForRprt(int deptID, int projID)
         {
             RSLib.CDbConnection cnn;
@@ -1105,6 +1224,116 @@ namespace RSMPS
 
             return ds;
         }
+
+        public SqlDataReader GetDrawingLogMainByDeptListProjList_Test(string dXml, string pXml, int sortCode, int drwgSpec) //************************Added 10/3/2015
+        {
+            SqlDataReader dr;
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spRPRT_DrawingLogMainByDeptListProjList_FromTrans", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@DeptXML", SqlDbType.Text);
+            prm.Value = dXml;
+            prm = cmd.Parameters.Add("@ProjXML", SqlDbType.Text);
+            prm.Value = pXml;
+            prm = cmd.Parameters.Add("@SortCode", SqlDbType.Int);
+            prm.Value = sortCode;
+            prm = cmd.Parameters.Add("@DrwgSpecVal", SqlDbType.Int);
+            prm.Value = drwgSpec;
+
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            cmd = null;
+
+            return dr;
+
+        }
+        public SqlDataReader  GetDrawingLogMainByDeptList_Test(string dXml, int sortCode, int drwgSpec)
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            dsDrawingLog ds;
+            SqlDataReader dr;
+            int drawingID = 0;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spRPRT_DrawingLogMainByDeptListProj", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@DeptXML", SqlDbType.Text);
+            prm.Value = dXml;
+            prm = cmd.Parameters.Add("@SortCode", SqlDbType.Int);
+            prm.Value = sortCode;
+            prm = cmd.Parameters.Add("@DrwgSpecVal", SqlDbType.Int);
+            prm.Value = drwgSpec;
+
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            cmd = null;
+            return dr;
+            
+            
+        }
+            public SqlDataReader GetDrawingLogMainByProjList_Test(string pXml, int sortCode, int drwgSpec)
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            dsDrawingLog ds;
+            SqlDataReader dr;
+            int drawingID = 0;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spRPRT_DrawingLogMainByDeptProjList_FromTrans", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@ProjXML", SqlDbType.Text);
+            prm.Value = pXml;
+            prm = cmd.Parameters.Add("@SortCode", SqlDbType.Int);
+            prm.Value = sortCode;
+            prm = cmd.Parameters.Add("@DrwgSpecVal", SqlDbType.Int);
+            prm.Value = drwgSpec;
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            cmd = null;
+            return dr;
+        }
+                public SqlDataReader GetDrawingLogMainByLeadList_Test(string dXml, string lXml, int sortCode, int drwgSpec)
+        {
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+            dsDrawingLog ds;
+            SqlDataReader dr;
+            int drawingID = 0;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spRPRT_DrawingLogMainByDeptListLeadList_FromTrans", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@DeptXML", SqlDbType.Text);
+            prm.Value = dXml;
+            prm = cmd.Parameters.Add("@LeadXML", SqlDbType.Text);
+            prm.Value = lXml;
+            prm = cmd.Parameters.Add("@SortCode", SqlDbType.Int);
+            prm.Value = sortCode;
+            prm = cmd.Parameters.Add("@DrwgSpecVal", SqlDbType.Int);
+            prm.Value = drwgSpec;
+
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            cmd = null;
+            return dr;
+        }
+
+
+
+
+
 
         public dsDrawingLog GetDrawingLogMainByLeadList(string dXml, string lXml, int sortCode, int drwgSpec)
         {

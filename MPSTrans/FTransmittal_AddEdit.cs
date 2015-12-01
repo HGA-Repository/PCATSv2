@@ -78,7 +78,14 @@ namespace RSMPS
 
             int tranCount = CBTransmittal.GetCountByProject(proj.ID);
             tranCount++;
-            string tranNum = proj.NumberOnly + '-' + tranCount.ToString("000");
+             string tranNum;
+
+           if (proj.NumberOnly == "5.M01002.00.0")
+                 tranNum = "HGAT" + '-' + tranCount.ToString("000"); //******************Edited 7/20/2015
+ 
+            else    tranNum = proj.NumberOnly + '-' + tranCount.ToString("000");
+
+            
 
             txtTransNumber.Text = tranNum;
             txtProjectNumber.Text = proj.NumberOnly + "-" + cust.Name + ", " + loc.FullName;

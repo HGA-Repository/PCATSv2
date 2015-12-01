@@ -46,6 +46,7 @@ namespace RSMPS
                 oVar.MUPerc = Convert.ToDecimal(dr["MUPerc"]);
                 oVar.MarkUp = Convert.ToDecimal(dr["MarkUp"]);
                 oVar.TotalCost = Convert.ToDecimal(dr["TotalCost"]);
+                oVar.DeptGroup = Convert.ToInt32(dr["DeptGroup"]);
                 tmpStr = GetDataString();
             }
 
@@ -92,6 +93,8 @@ namespace RSMPS
             prm.Value = oVar.MarkUp;
             prm = cmd.Parameters.Add("@TotalCost", SqlDbType.Money);
             prm.Value = oVar.TotalCost;
+            prm = cmd.Parameters.Add("@DeptGroup", SqlDbType.Money); // ******************************Added 9/22/2015
+            prm.Value = oVar.DeptGroup;
             cmd.ExecuteNonQuery();
 
             retVal = Convert.ToInt32(cmd.Parameters["@ID"].Value);
@@ -136,6 +139,8 @@ namespace RSMPS
             prm.Value = oVar.MarkUp;
             prm = cmd.Parameters.Add("@TotalCost", SqlDbType.Money);
             prm.Value = oVar.TotalCost;
+            prm = cmd.Parameters.Add("@DeptGroup", SqlDbType.Money); // ******************************Added 9/22/2015
+            prm.Value = oVar.DeptGroup;
             cmd.ExecuteNonQuery();
 
             prm = null;
