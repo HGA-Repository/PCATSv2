@@ -73,7 +73,7 @@
     <Reference Include="Accessibility" />
     <Reference Include="C1.C1Excel.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\C1.C1Excel.4.dll</HintPath>
+      <HintPath>..\lib\C1.C1Excel.4.dll</HintPath>
     </Reference>
     <Reference Include="C1.Win.C1Input.4, Version=4.0.20153.102, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
