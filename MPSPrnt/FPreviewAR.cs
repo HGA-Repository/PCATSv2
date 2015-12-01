@@ -291,7 +291,7 @@ namespace RSMPS
            
       //      MessageBox.Show(projNumber);
             //MessageBox.Show(pcnNumber);
-        //   MessageBox.Show(reportType);
+    //       MessageBox.Show(reportType);
            //MessageBox.Show(BusinessUnit);
         //    MessageBox.Show(ForeCastTitle);
          
@@ -403,7 +403,7 @@ namespace RSMPS
                                                                 fileName = Title + "-" + " " + dt.ToString("yyyMMdd hhmmss");
                                                             else
                                                                 if (reportType == "RSMPS.rprtDrawingLogTranAlt2")
-                                                                    fileName = "Drawing Log- " + " " + dt.ToString("yyyMMdd hhmmss"); //******No project No, because there may be many
+                                                                   fileName = Title + " " + dt.ToString("yyyMMdd hhmmss"); //******No project No, because there may be many
 
                                                                 else
                                                                     if (reportType == "RSMPS.rprtForecastRemaining")

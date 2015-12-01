@@ -199,7 +199,7 @@ namespace RSMPS
             rprt.SetTitle = GetDrawingSpecTitle(drwgSpec);
 
             pv = new FPreviewAR();//************** Done 6/29/15
-
+            pv.Title = rprt.SetTitle; //********************************12/01
             pv.xml = xml; //****************Added 10/3
             pv.isPreview = isPreview;
             pv.sortCode = sortCode;
@@ -240,6 +240,8 @@ namespace RSMPS
             pv.deptXml = deptXml; //****************Added 10/3
             pv.projXml = projXml;
             pv.isPreview = isPreview;
+
+            pv.Title = rprt.SetTitle; //********************************12/01
             pv.sortCode = sortCode;
             pv.drwgSpec = drwgSpec;
             pv.name_of_Method = name_of_Method;
@@ -275,6 +277,7 @@ namespace RSMPS
             pv.deptXml = deptXml;
             pv.sortCode = sortCode;
             pv.drwgSpec = drwgSpec;
+            pv.Title = rprt.SetTitle; //********************************12/01
             pv.ViewDrawingLogWithExcel(rprt);
 
 
