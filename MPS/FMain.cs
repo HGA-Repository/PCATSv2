@@ -82,7 +82,7 @@ namespace RSMPS
             calcelClicked = true;
             SetAccessForSecurityLevel();
 
-            MessageBox.Show("fl_OnSuccessLogin working again"); //***********************************************11/24
+          //  MessageBox.Show("fl_OnSuccessLogin working again"); //***********************************************11/24
         }
 
         private void FMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -120,6 +120,9 @@ namespace RSMPS
              //   e.Cancel = true;
              //   this.Activate();
             //}
+           
+            CDbLog.UpdateFor_LogOff(msCurrentUserName);
+              //  MessageBox.Show(msCurrentUserName + ".....logging off");
       
         }
 
@@ -348,6 +351,7 @@ namespace RSMPS
            // SetAccessForSecurityLevel(); //*******************************************************************
         }
 
+        public string msCurrentUserName; //******* added 12/1 for testing
         private void SetAccessForSecurityLevel()
         {
             RSLib.COSecurity sec = new RSLib.COSecurity();
@@ -360,7 +364,8 @@ namespace RSMPS
             maxLvl = CBUserLevel.GetMaxLevelForUser(u.ID);
 
             tssUsername.Text = u.Username;
-
+            msCurrentUserName = u.Username;
+   //         MessageBox.Show(msCurrentUserName);
           
             // turn everything back on in case of logout
             mnuToolsEmpTitle.Enabled = true;
@@ -388,7 +393,7 @@ namespace RSMPS
                 systemUsersToolStripMenuItem.Visible = false;
 
 
-                costSummaryToolStripMenuItem.Visible = true;
+               // costSummaryToolStripMenuItem.Visible = true;
                 costSummaryToolStripMenuItem1.Visible = true;
                 projectForecastingToolStripMenuItem.Visible = true;
                 projectForecastingReportRollupToolStripMenuItem.Visible = true;
@@ -489,7 +494,11 @@ namespace RSMPS
             //*****************************Added 6/12/15
             moLog.Name = this.UserName;
             //moLog.Save();
-            moLog.Save_LogOff();
+        //    moLog.Save_LogOff();
+            
+            MessageBox.Show(msCurrentUserName + ".....logging off");
+            CDbLog.UpdateFor_LogOff(msCurrentUserName);
+
             calcelClicked = false; //************************Added 6/25/15
             // redo the login
             FLogin fl = new FLogin();
@@ -500,6 +509,9 @@ namespace RSMPS
             fl.OnSuccessLogin -= new LoginSuccessful(fl_OnSuccessLogin);
             //fl.OnCancelLogin -= new EventHandler(fl_OnCancelLogin);
             fl.Close();
+
+
+           
         }
 
         private void CloseAllOpenWindows()

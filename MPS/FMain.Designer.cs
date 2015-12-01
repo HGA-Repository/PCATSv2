@@ -82,6 +82,7 @@ namespace RSMPS
             this.forecastRemainingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pipelineForecastRemainingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.programManagementForecastRemainingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.forecastRemainingBirminghamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projectForecastingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projectForecastingReportRollupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resourceVarianceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -115,7 +116,6 @@ namespace RSMPS
             this.tssStatus2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssProgress = new System.Windows.Forms.ToolStripProgressBar();
             this.tmrClose = new System.Windows.Forms.Timer(this.components);
-            this.forecastRemainingBirminghamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMain.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -579,6 +579,13 @@ namespace RSMPS
             this.programManagementForecastRemainingToolStripMenuItem.Text = "Forecast Remaining - Program Management";
             this.programManagementForecastRemainingToolStripMenuItem.Click += new System.EventHandler(this.programManagementForecastRemainingToolStripMenuItem_Click);
             // 
+            // forecastRemainingBirminghamToolStripMenuItem
+            // 
+            this.forecastRemainingBirminghamToolStripMenuItem.Name = "forecastRemainingBirminghamToolStripMenuItem";
+            this.forecastRemainingBirminghamToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.forecastRemainingBirminghamToolStripMenuItem.Text = "Forecast Remaining - Birmingham";
+            this.forecastRemainingBirminghamToolStripMenuItem.Click += new System.EventHandler(this.forecastRemainingBirminghamToolStripMenuItem_Click);
+            // 
             // projectForecastingToolStripMenuItem
             // 
             this.projectForecastingToolStripMenuItem.Name = "projectForecastingToolStripMenuItem";
@@ -842,13 +849,6 @@ namespace RSMPS
             // tmrClose
             // 
             this.tmrClose.Tick += new System.EventHandler(this.tmrClose_Tick);
-            // 
-            // forecastRemainingBirminghamToolStripMenuItem
-            // 
-            this.forecastRemainingBirminghamToolStripMenuItem.Name = "forecastRemainingBirminghamToolStripMenuItem";
-            this.forecastRemainingBirminghamToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
-            this.forecastRemainingBirminghamToolStripMenuItem.Text = "Forecast Remaining - Birmingham";
-            this.forecastRemainingBirminghamToolStripMenuItem.Click += new System.EventHandler(this.forecastRemainingBirminghamToolStripMenuItem_Click);
             // 
             // FMain
             // 

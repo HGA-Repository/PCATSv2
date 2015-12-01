@@ -145,7 +145,8 @@ namespace RSMPS
 
 
         }
-        public int UpdateFor_LogOff(string userName)
+         public static int UpdateFor_LogOff(string userName)
+        //public int UpdateFor_LogOff(string userName)
         {
             RSLib.CDbConnection cnn;
             SqlCommand cmd;
@@ -159,7 +160,7 @@ namespace RSMPS
 
             cmd.CommandType = CommandType.StoredProcedure;
 
-            prm = cmd.Parameters.Add("@UserName", SqlDbType.VarChar, 20);
+            prm = cmd.Parameters.Add("@User_Name", SqlDbType.VarChar, 20);
             prm.Value = userName;
             cmd.ExecuteNonQuery();
 
@@ -172,6 +173,42 @@ namespace RSMPS
 
 
         }
+
+
+
+         public static int Save_Insert(string userName) //******************************************
+         {
+             RSLib.CDbConnection cnn;
+             SqlCommand cmd;
+             SqlParameter prm;
+             int retVal = 0;
+
+             cnn = new RSLib.CDbConnection();
+             //cmd = new SqlCommand("spEmployeeTitle_Insert", cnn.GetConnection());
+             cmd = new SqlCommand("spLogin_Insert", cnn.GetConnection());
+             cmd.CommandType = CommandType.StoredProcedure;
+
+
+             prm = cmd.Parameters.Add("@ID", SqlDbType.Int);
+             prm.Direction = ParameterDirection.Output;
+
+             prm = cmd.Parameters.Add("@UserName", SqlDbType.VarChar, 50);
+             prm.Value = userName;
+             cmd.ExecuteNonQuery();
+
+             retVal = Convert.ToInt32(cmd.Parameters["@ID"].Value);
+
+             prm = null;
+             cmd = null;
+             cnn.CloseConnection();
+             cnn = null;
+             Console.Read();
+             return retVal;
+         }
+
+
+
+
 
 
 
@@ -265,7 +302,7 @@ namespace RSMPS
              SqlDataReader dr;
              RSLib.CDbConnection cnn;
              SqlCommand cmd;
-             SqlParameter prm;
+        //     SqlParameter prm;
              string tmpStr = "";
 
              cnn = new RSLib.CDbConnection();

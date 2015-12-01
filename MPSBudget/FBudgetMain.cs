@@ -717,12 +717,12 @@ namespace RSMPS
             richTextBox7.Text = moCurrBudget.Clarification18000.ToString();
             richTextBox8.Text = moCurrBudget.Clarification50000.ToString();
 
-        //    MessageBox.Show(moLog.GetCurrentUserID(u.Username) + "   ...........   " + miCurrUser);
-                        
+           // MessageBox.Show(moLog.GetCurrentUserID(u.Username) + "   ...........   " + miCurrUser);                        
            // MessageBox.Show(moLog.GetCurrentUserLoginID(miCurrUser).ToString());
             
          //   moLog.UpdateForBudgetWindow(moLog.GetCurrentUserID(u.Username), miProjectID, 1); //*******************trying next line, instead of this line
             miCurrentUserLoginID = moLog.GetCurrentUserLoginID(miCurrUser);
+          //  MessageBox.Show((miCurrUser + "..........."+ moLog.GetCurrentUserLoginID(miCurrUser)).ToString());
             //moLog.UpdateForBudgetWindow(moLog.GetCurrentUserLoginID(miCurrUser), miProjectID, 1);
             //moLog.UpdateForBudgetWindow(miCurrentUserLoginID, miProjectID, 1);
             moLog.UpdateForBudgetWindow(miCurrentUserLoginID, miProjectID);
