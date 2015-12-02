@@ -1916,6 +1916,10 @@ namespace RSMPS
         private void tsbSaveAsExcel_Click(object sender, EventArgs e)
         {
             string newFile;
+            saveFileDialog1.InitialDirectory = "v:\\HGA\\"; //******************************12/1
+            saveFileDialog1.Filter = "XLS Files | *.xls";
+            DateTime dt = DateTime.Now;
+            saveFileDialog1.FileName = "ManPower"+ dt.ToString("yyyMMdd-hhmmss");
 
             DialogResult sf = saveFileDialog1.ShowDialog();
 
