@@ -1,14 +1,4 @@
-/****** Object:  StoredProcedure [dbo].[spLogin_Insert]    Script Date: 6/17/2015 8:16:20 AM ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-
-
-
-CREATE PROCEDURE [dbo].[spLogin_Insert]
+create PROCEDURE [dbo].[spLogin_Insert]
 @ID		int	output,
 @UserName	Char(20)
 --@Data		int
@@ -18,7 +8,7 @@ INSERT INTO
 	DT_UserLoginInfo
 (
 	[UserName],
-	[DateTime],
+	[LogInTime],
 	[Log_In_Off]
 )
 VALUES
@@ -30,6 +20,7 @@ VALUES
 
 
 SELECT @ID = @@IDENTITY
+
 
 
 GO
