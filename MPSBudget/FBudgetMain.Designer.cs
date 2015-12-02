@@ -393,7 +393,7 @@ namespace RSMPS
             // c1CommandLink15
             // 
             this.c1CommandLink15.Command = this.tlbbEdit;
-            this.c1CommandLink15.SortOrder = 15;
+            this.c1CommandLink15.SortOrder = 14;
             //
 
 
@@ -437,7 +437,7 @@ namespace RSMPS
             // c1CommandLink3
             // 
             this.c1CommandLink3.Command = this.tlbbExit;
-            this.c1CommandLink3.SortOrder = 13;
+            this.c1CommandLink3.SortOrder = 15;
             // 
             // lstBudgets
             // 
