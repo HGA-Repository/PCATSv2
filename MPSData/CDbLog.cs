@@ -157,6 +157,7 @@ namespace RSMPS
 
             cnn = new RSLib.CDbConnection();
             cmd = new SqlCommand("spLogOff_Test", cnn.GetConnection());
+    
 
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -174,8 +175,34 @@ namespace RSMPS
 
         }
 
+         public static int UpdateFor_LogOff_Global(int ID) //***************Added 12/1
+        {
+             RSLib.CDbConnection cnn;
+             SqlCommand cmd;
+             SqlParameter prm;
+             int retVal = 0;
+
+             //LoadVals(strXml);
+
+             cnn = new RSLib.CDbConnection();
+             cmd = new SqlCommand("spLogOff_Test_Global", cnn.GetConnection());
 
 
+             cmd.CommandType = CommandType.StoredProcedure;
+
+             prm = cmd.Parameters.Add("@ID", SqlDbType.Int);
+             prm.Value = ID;
+             cmd.ExecuteNonQuery();
+
+             prm = null;
+             cmd = null;
+             cnn.CloseConnection();
+             cnn = null;
+             Console.Read();
+             return retVal;
+
+
+         }
          public static int Save_Insert(string userName) //******************************************
          {
              RSLib.CDbConnection cnn;

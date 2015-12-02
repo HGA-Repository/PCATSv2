@@ -613,6 +613,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{4a089fc1-e105-4694-8da5-f9e9f8c5dbe8}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MPSBudget\MPSBudget.csproj">
       <Project>{ED200D7A-E10B-477A-8D5C-9891956AEF26}</Project>
       <Name>MPSBudget</Name>

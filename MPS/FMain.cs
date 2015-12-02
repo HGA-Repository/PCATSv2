@@ -111,7 +111,8 @@ namespace RSMPS
                 if (calcelClicked == true)
                 {
                     moLog.Name = this.UserName;
-                             moLog.Save_LogOff(); }//tried 6/25/2015
+                          //   moLog.Save_LogOff(); //****************************************12/1 commented
+                }//tried 6/25/2015
             //*************************************************************
 
             //}
@@ -121,7 +122,9 @@ namespace RSMPS
              //   this.Activate();
             //}
            
-            CDbLog.UpdateFor_LogOff(msCurrentUserName);
+          //  CDbLog.UpdateFor_LogOff(msCurrentUserName);
+            CDbLog.UpdateFor_LogOff_Global(Common.GlobalVar.GlobalValue);
+
               //  MessageBox.Show(msCurrentUserName + ".....logging off");
       
         }
@@ -496,8 +499,10 @@ namespace RSMPS
             //moLog.Save();
         //    moLog.Save_LogOff();
             
-            MessageBox.Show(msCurrentUserName + ".....logging off");
-            CDbLog.UpdateFor_LogOff(msCurrentUserName);
+          //  MessageBox.Show(msCurrentUserName + ".....logging off");
+            //CDbLog.UpdateFor_LogOff(msCurrentUserName);
+
+            CDbLog.UpdateFor_LogOff_Global(Common.GlobalVar.GlobalValue); //*************************12/1
 
             calcelClicked = false; //************************Added 6/25/15
             // redo the login

@@ -71,8 +71,7 @@ namespace RSMPS
         private bool mbIsFixedRate = false; //*****************************Added 9/30/2015
         private CBBudget moCurrBudget;
 
-
-
+     
         private Dictionary<string, bool> mbLoaded = new Dictionary<string,bool>();
         private dsBudgetPCN mdsPCNs;
         private dsPCNStatus mdsPCNStatus;
@@ -567,7 +566,10 @@ namespace RSMPS
             //*************************************************************
             LoadBudget(SelectedGroupTab);
                       
-            moLog.UpdateForSelectedGroup(miCurrentUserLoginID, Convert.ToInt32(SelectedGroupTab));
+        //    moLog.UpdateForSelectedGroup(miCurrentUserLoginID, Convert.ToInt32(SelectedGroupTab));
+
+            moLog.UpdateForSelectedGroup(Common.GlobalVar.GlobalValue, Convert.ToInt32(SelectedGroupTab));
+
            
          if (tabControl1.SelectedTab.Text == "PCN's" || tabControl1.SelectedTab.Text == "Clarifications")
             {
@@ -717,15 +719,23 @@ namespace RSMPS
             richTextBox7.Text = moCurrBudget.Clarification18000.ToString();
             richTextBox8.Text = moCurrBudget.Clarification50000.ToString();
 
+            //MessageBox.Show(Common.GlobalVar.GlobalValue.ToString());
+
+
            // MessageBox.Show(moLog.GetCurrentUserID(u.Username) + "   ...........   " + miCurrUser);                        
            // MessageBox.Show(moLog.GetCurrentUserLoginID(miCurrUser).ToString());
             
          //   moLog.UpdateForBudgetWindow(moLog.GetCurrentUserID(u.Username), miProjectID, 1); //*******************trying next line, instead of this line
-            miCurrentUserLoginID = moLog.GetCurrentUserLoginID(miCurrUser);
+       //     miCurrentUserLoginID = moLog.GetCurrentUserLoginID(miCurrUser);
+         
+
           //  MessageBox.Show((miCurrUser + "..........."+ moLog.GetCurrentUserLoginID(miCurrUser)).ToString());
             //moLog.UpdateForBudgetWindow(moLog.GetCurrentUserLoginID(miCurrUser), miProjectID, 1);
             //moLog.UpdateForBudgetWindow(miCurrentUserLoginID, miProjectID, 1);
-            moLog.UpdateForBudgetWindow(miCurrentUserLoginID, miProjectID);
+          //  moLog.UpdateForBudgetWindow(miCurrentUserLoginID, miProjectID);
+
+
+            moLog.UpdateForBudgetWindow(Common.GlobalVar.GlobalValue, miProjectID);
           
         //      MessageBox.Show("list of all user Logged in PCAT- " + moLog.list_Of_User());//***********This gives all PCAT User looged in, currently...*********10/28*****MZ 
         //      MessageBox.Show("List of user in this project's"  + miProjectID +"budgetwindow are-- " + moLog.list_Of_User_OnBudgetWindow(miProjectID) + "   number= " + moLog.No_Of_User_OnBudgetWindow(miProjectID));
@@ -4650,7 +4660,9 @@ namespace RSMPS
             
            
            // moLog.UpdateForBudgetWindowClosing(moLog.GetCurrentUserID(u.Username));
-            moLog.UpdateForBudgetWindowClosing(miCurrentUserLoginID);
+          //  moLog.UpdateForBudgetWindowClosing(miCurrentUserLoginID);
+
+            moLog.UpdateForBudgetWindowClosing(Common.GlobalVar.GlobalValue); //**************************12/1
            
            // MessageBox.Show("Budget Closed");
 
