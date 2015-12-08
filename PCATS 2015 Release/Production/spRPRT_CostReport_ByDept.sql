@@ -1,15 +1,4 @@
-/****** Object:  StoredProcedure [dbo].[spRPRT_CostReport_ByDept]    Script Date: 4/14/2015 9:29:25 AM ******/
-DROP PROCEDURE [dbo].[spRPRT_CostReport_ByDept]
-GO
-
-/****** Object:  StoredProcedure [dbo].[spRPRT_CostReport_ByDept]    Script Date: 4/14/2015 9:29:25 AM ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-CREATE PROCEDURE [dbo].[spRPRT_CostReport_ByDept]
+alter PROCEDURE [dbo].[spRPRT_CostReport_ByDept]
 @ProjXML	text,
 @AcctCode	varchar(10)
 AS
@@ -53,7 +42,8 @@ FROM
 			[AcctNumber]
 			,[AcctGroup]
 		FROM
-			SY_AccountGroups
+			--SY_AccountGroups Edited 10/1/2015
+			SY_AccountGroups2
 		WHERE
 			[StartNew] <> 0
 		) ag
@@ -643,5 +633,7 @@ ORDER BY
 
 EXEC sp_xml_removedocument @idocStyles1
 
+
 GO
+
 

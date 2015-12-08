@@ -1,16 +1,3 @@
-USE [RSManpowerSchDbBeta2]
-GO
-
-/****** Object:  StoredProcedure [dbo].[spEmployee_ListRelManager]    Script Date: 7/13/2015 1:54:45 PM ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-
-
-
 CREATE PROCEDURE [dbo].[spEmployee_ListRelManager]
 AS
 SELECT
@@ -39,6 +26,6 @@ ORDER BY
 
 
 
-
 GO
+
 
