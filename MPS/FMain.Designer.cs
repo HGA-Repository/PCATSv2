@@ -116,6 +116,7 @@ namespace RSMPS
             this.tssStatus2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssProgress = new System.Windows.Forms.ToolStripProgressBar();
             this.tmrClose = new System.Windows.Forms.Timer(this.components);
+            this.projectForecastingReportPipelinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMain.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -495,6 +496,7 @@ namespace RSMPS
             this.programManagementForecastRemainingToolStripMenuItem,
             this.forecastRemainingBirminghamToolStripMenuItem,
             this.projectForecastingToolStripMenuItem,
+            this.projectForecastingReportPipelinesToolStripMenuItem,
             this.projectForecastingReportRollupToolStripMenuItem,
             this.resourceVarianceToolStripMenuItem,
             this.resourceVarianceSummaryToolStripMenuItem,
@@ -850,6 +852,13 @@ namespace RSMPS
             // 
             this.tmrClose.Tick += new System.EventHandler(this.tmrClose_Tick);
             // 
+            // projectForecastingReportPipelinesToolStripMenuItem
+            // 
+            this.projectForecastingReportPipelinesToolStripMenuItem.Name = "projectForecastingReportPipelinesToolStripMenuItem";
+            this.projectForecastingReportPipelinesToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.projectForecastingReportPipelinesToolStripMenuItem.Text = "Project Forecasting Report - PLS";
+            this.projectForecastingReportPipelinesToolStripMenuItem.Click += new System.EventHandler(this.projectForecastingReportPipelinesToolStripMenuItem_Click);
+            // 
             // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -965,6 +974,7 @@ namespace RSMPS
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem viewMPPlanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem forecastRemainingBirminghamToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem projectForecastingReportPipelinesToolStripMenuItem;
     }
 }
 

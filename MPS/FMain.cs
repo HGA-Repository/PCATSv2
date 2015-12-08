@@ -402,7 +402,7 @@ namespace RSMPS
                 projectForecastingReportRollupToolStripMenuItem.Visible = true;
                 weeklyPMReportsToolStripMenuItem.Visible = true;
                 pCNLogToolStripMenuItem.Visible = true;
-
+                projectForecastingReportPipelinesToolStripMenuItem.Visible = true; //*******************Added 12/8
 
                 if (u.IsAdministrator == true)
                 {
@@ -440,6 +440,7 @@ namespace RSMPS
                     pipelineForecastRemainingToolStripMenuItem.Visible = false;
                     programManagementForecastRemainingToolStripMenuItem.Visible = false;
                     forecastRemainingBirminghamToolStripMenuItem.Visible = false; //*******************Added 7/24
+                    projectForecastingReportPipelinesToolStripMenuItem.Visible = true; //*******************Added 12/8
                     manageReleaseTransmittalToolStripMenuItem.Visible = false;
                     tsbProject.Visible = false;
                     tsbCustomer.Visible = false;
@@ -466,6 +467,7 @@ namespace RSMPS
                     pipelineForecastRemainingToolStripMenuItem.Visible = false;
                     programManagementForecastRemainingToolStripMenuItem.Visible = false;
                     forecastRemainingBirminghamToolStripMenuItem.Visible = false; //*******************Added 7/24
+                    projectForecastingReportPipelinesToolStripMenuItem.Visible = true; //*******************Added 12/8
                     manageReleaseTransmittalToolStripMenuItem.Visible = false;
                     tsbProject.Visible = false;
                     tsbCustomer.Visible = false;
@@ -1037,6 +1039,14 @@ namespace RSMPS
             this.Cursor = Cursors.WaitCursor;
             sum.PrintForecastRemainingBHam();
             this.Cursor = Cursors.Default;
+        }
+
+        private void projectForecastingReportPipelinesToolStripMenuItem_Click(object sender, EventArgs e) //***********************Added 12/8
+        {
+            RSMPS.FCRMain crm = new FCRMain();
+            crm.IsForPipeline = true;
+
+            crm.ShowDialog();
         }
 
 

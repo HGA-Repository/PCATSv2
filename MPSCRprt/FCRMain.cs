@@ -19,6 +19,8 @@ namespace RSMPS
         private int sortColumn = -1; //****************************Added 6/16****MZ
         int index=0;
 
+        public bool IsForPipeline = false;
+
         public FCRMain()
         {
             InitializeComponent();
@@ -294,20 +296,34 @@ namespace RSMPS
 
         private void bttSetForecast_Click(object sender, EventArgs e)
         {
-            FPreviewEdit pve = new FPreviewEdit();
+            FPreviewEdit pve = new FPreviewEdit();           
+
 
             bttSetForecast.Enabled = false;
 
             //int index = this.lvwItems.SelectedIndices[0];
-
-            try
+            if (this.IsForPipeline == true) // ******************************This if block is added 12/8
             {
-                index = this.lvwItems.SelectedIndices[0];
+               // MessageBox.Show("For pipe lines................");
+                try
+                {
+                    index = this.lvwItems.SelectedIndices[0];
+                }
+                catch { }                
+               // pve.LoadCurrentProject(lvwItems.Items[index].SubItems[1].Text, GetRprtCase(lvwItems.Items[index].SubItems[1].Text));
+                pve.LoadCurrentProject_Pipelines(lvwItems.Items[index].SubItems[1].Text, GetRprtCase(lvwItems.Items[index].SubItems[1].Text));
             }
-            catch { }
-            //pve.LoadCurrentProject(lstProjects.Text, GetRprtCase(lstProjects.Text));
-            pve.LoadCurrentProject(lvwItems.Items[index].SubItems[1].Text, GetRprtCase(lvwItems.Items[index].SubItems[1].Text));   //*********************************************************
+            else
+            {
 
+                try
+                {
+                    index = this.lvwItems.SelectedIndices[0];
+                }
+                catch { }
+                //pve.LoadCurrentProject(lstProjects.Text, GetRprtCase(lstProjects.Text));
+                pve.LoadCurrentProject(lvwItems.Items[index].SubItems[1].Text, GetRprtCase(lvwItems.Items[index].SubItems[1].Text));   //*********************************************************
+            }
             pve.ShowDialog();
             bttSetForecast.Enabled = true;
         }
@@ -318,38 +334,73 @@ namespace RSMPS
 
             bttPrint.Enabled = false;
 
-            // MessageBox.Show(lstProjects.Text); //******************Commented 6/16/15***11 am***MZ
+            if (this.IsForPipeline == true) // ******************************This if block is added 12/8
 
-           // int index = this.lvwItems.SelectedIndices[0];
+            {
+                //MessageBox.Show("this is for Pipeline............");
+
             try
             {
                 index = this.lvwItems.SelectedIndices[0];
             }
             catch { }
-            //MessageBox.Show(lvwItems.Items[index].SubItems[2].Text);
-            // MessageBox.Show(lvwItems.SelectedItems[1].Text);
+            
+                        if (mbIsMasterList == true)
+                        {
+                            lblProcessing.Visible = true;
+                            pv.OnProjectProcessed += new RevSol.PassDataString(pv_OnProjectProcessed);
+                            Application.DoEvents();
+                            pv.LoadReportForProjectRollup_Pipelines(lvwItems.Items[index].SubItems[1].Text, GetRprtCase(lvwItems.Items[index].SubItems[1].Text)); //*********************************************************
+                            lblProcessing.Visible = false;
+                        }
+                        else
+                        {
+                           
+                            pv.LoadReportForProject_Pipelines(lvwItems.Items[index].SubItems[1].Text, GetRprtCase(lvwItems.Items[index].SubItems[1].Text));  //*********************************************************
+                           
+                        }
 
+                        pv.ShowDialog();
+                        bttPrint.Enabled = true;
 
-            if (mbIsMasterList == true)
-            {
-                lblProcessing.Visible = true;
-                pv.OnProjectProcessed += new RevSol.PassDataString(pv_OnProjectProcessed);
-                Application.DoEvents();
-                //pv.LoadReportForProjectRollup(lstProjects.Text, GetRprtCase(lstProjects.Text));
-
-                pv.LoadReportForProjectRollup(lvwItems.Items[index].SubItems[1].Text, GetRprtCase(lvwItems.Items[index].SubItems[1].Text)); //*********************************************************
-                lblProcessing.Visible = false;
+            
             }
             else
             {
-                // pv.LoadReportForProject(lstProjects.Text, GetRprtCase(lstProjects.Text));
-                pv.LoadReportForProject(lvwItems.Items[index].SubItems[1].Text, GetRprtCase(lvwItems.Items[index].SubItems[1].Text));  //*********************************************************
+
+                // MessageBox.Show(lstProjects.Text); //******************Commented 6/16/15***11 am***MZ
+
+                // int index = this.lvwItems.SelectedIndices[0];
+                try
+                {
+                    index = this.lvwItems.SelectedIndices[0];
+                }
+                catch { }
+                //MessageBox.Show(lvwItems.Items[index].SubItems[2].Text);
+                // MessageBox.Show(lvwItems.SelectedItems[1].Text);
+
+
+                if (mbIsMasterList == true)
+                {
+                    lblProcessing.Visible = true;
+                    pv.OnProjectProcessed += new RevSol.PassDataString(pv_OnProjectProcessed);
+                    Application.DoEvents();
+                    //pv.LoadReportForProjectRollup(lstProjects.Text, GetRprtCase(lstProjects.Text));
+
+                    pv.LoadReportForProjectRollup(lvwItems.Items[index].SubItems[1].Text, GetRprtCase(lvwItems.Items[index].SubItems[1].Text)); //*********************************************************
+                    lblProcessing.Visible = false;
+                }
+                else
+                {
+                    // pv.LoadReportForProject(lstProjects.Text, GetRprtCase(lstProjects.Text));
+                    pv.LoadReportForProject(lvwItems.Items[index].SubItems[1].Text, GetRprtCase(lvwItems.Items[index].SubItems[1].Text));  //*********************************************************
+                }
+
+
+
+                pv.ShowDialog();
+                bttPrint.Enabled = true;
             }
-
-
-
-            pv.ShowDialog();
-            bttPrint.Enabled = true;
         }
 
         void pv_OnProjectProcessed(string val)
