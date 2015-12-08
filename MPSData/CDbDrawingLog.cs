@@ -486,7 +486,9 @@ namespace RSMPS
             SqlParameter prm;
 
             cnn = new RSLib.CDbConnection();
-            cmd = new SqlCommand("spDrawingLog_ListAll_DeptProj", cnn.GetConnection()); //************************************11/9
+           // cmd = new SqlCommand("spDrawingLog_ListAll_DeptProj", cnn.GetConnection()); //************************************11/9
+            cmd = new SqlCommand("spDrawingLog_ListAll_DeptProj_ForJobStatExcel", cnn.GetConnection()); //************************************12/8
+            
 
         //    cmd = new SqlCommand("spDrawingLog_ListAll_DeptProj_Test", cnn.GetConnection()); //**********************************************10/28
             cmd.CommandType = CommandType.StoredProcedure;
