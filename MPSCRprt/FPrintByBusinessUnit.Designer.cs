@@ -35,6 +35,7 @@
             this.bttProposals = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.bttFixedRateProject = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // bttEngineering
@@ -115,11 +116,24 @@
             this.lblStatus.Text = "Ready";
             this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // bttFixedRateProject
+            // 
+            this.bttFixedRateProject.BackColor = System.Drawing.SystemColors.Highlight;
+            this.bttFixedRateProject.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.bttFixedRateProject.Location = new System.Drawing.Point(34, 185);
+            this.bttFixedRateProject.Name = "bttFixedRateProject";
+            this.bttFixedRateProject.Size = new System.Drawing.Size(111, 20);
+            this.bttFixedRateProject.TabIndex = 23;
+            this.bttFixedRateProject.Text = "Fixed Rate Project";
+            this.bttFixedRateProject.UseVisualStyleBackColor = false;
+            this.bttFixedRateProject.Click += new System.EventHandler(this.bttFixedRateProject_Click);
+            // 
             // FPrintByBusinessUnit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.bttFixedRateProject);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.bttProposals);
             this.Controls.Add(this.bttStaffing);
@@ -142,5 +156,6 @@
         private System.Windows.Forms.Button bttProposals;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Button bttFixedRateProject;
     }
 }

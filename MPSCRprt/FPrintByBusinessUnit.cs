@@ -376,6 +376,26 @@ namespace RSMPS
             return rprt.Document.Pages;
         }
 
+        private void bttFixedRateProject_Click(object sender, EventArgs e)
+        {
+            FPrinterList pl = new FPrinterList();
+            businessUnit = 10;
+            if (this.IsSavePDF == true)
+            {
+                SaveAsPDF("FixedRateProject");
+            }
+
+            else
+            {
+
+                pl.OnPrinterSelect += new PrinterSelectHandler(pl_OnPrinterSelect);
+                pl.OnPrinterCancel += new EventHandler(pl_OnPrinterCancel);
+                pl.ShowDialog();
+                pl.OnPrinterSelect -= new PrinterSelectHandler(pl_OnPrinterSelect);
+                pl.OnPrinterCancel -= new EventHandler(pl_OnPrinterCancel);
+            }
+        }
+
 
 
 
