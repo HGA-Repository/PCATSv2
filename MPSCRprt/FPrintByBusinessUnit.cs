@@ -28,18 +28,27 @@ namespace RSMPS
 
         public int businessUnit;
 
-
+        public bool IsSavePDF = false;
 
         private void bttEngineering_Click(object sender, EventArgs e)
         {
             FPrinterList pl = new FPrinterList();
             businessUnit = 1;
+            if (this.IsSavePDF == true)
+            {
+                //MessageBox.Show("Saving.......");
+                SaveAsPDF("Engg");
+            }
 
-            pl.OnPrinterSelect += new PrinterSelectHandler(pl_OnPrinterSelect);
-            pl.OnPrinterCancel += new EventHandler(pl_OnPrinterCancel);
-            pl.ShowDialog();
-            pl.OnPrinterSelect -= new PrinterSelectHandler(pl_OnPrinterSelect);
-            pl.OnPrinterCancel -= new EventHandler(pl_OnPrinterCancel);
+            else
+            {
+               // MessageBox.Show("Printing");
+                pl.OnPrinterSelect += new PrinterSelectHandler(pl_OnPrinterSelect);
+                pl.OnPrinterCancel += new EventHandler(pl_OnPrinterCancel);
+                pl.ShowDialog();
+                pl.OnPrinterSelect -= new PrinterSelectHandler(pl_OnPrinterSelect);
+                pl.OnPrinterCancel -= new EventHandler(pl_OnPrinterCancel);
+            }
         }
 
 
@@ -52,7 +61,8 @@ namespace RSMPS
 
         void pl_OnPrinterSelect(string printer)
         {
-            PrintSelectedProjects(printer,businessUnit);
+                PrintSelectedProjects(printer, businessUnit);
+           
         }
 
         
@@ -62,33 +72,20 @@ namespace RSMPS
          //   MessageBox.Show(printer + "selected");                     
             SqlDataReader dr;
 
+            lblStatus.Text = "Printing - ";
+            Application.DoEvents();
+
 
             dr = GetListbyBusinessUnit(businessUnit);
-
-           // dr = GetListbyBusinessUnit(1);
-
             while (dr.Read())
             {
                 proj = dr["number"].ToString();
-
+                lblStatus.Text = "Printing - " + proj;
+                Application.DoEvents();
 
                  LoadReportforBatchPrint(proj, FCRMain.GetRprtCase(proj), printer, 1);
 
-            }
-            //    }
-
-            //    // roll up forecast
-            //    for (int j = chkRollups.CheckedItems.Count; j > 0; j--)
-            //    {
-            //        o = chkRollups.CheckedItems[j - 1];
-            //        proj = o.ToString();
-            //        indx++;
-            //        lblStatus.Text = "Printing - " + proj;
-            //        Application.DoEvents();
-
-                 //  LoadReportRollupforBatchPrint(proj, FCRMain.GetRprtCase(proj), printer, 1);
-            //    }
-            //}
+            }            
 
             this.Close();
         }
@@ -187,54 +184,197 @@ namespace RSMPS
         {
             FPrinterList pl = new FPrinterList();
             businessUnit = 2;
+            if (this.IsSavePDF == true)
+            {
+                SaveAsPDF("PGM");
+            }
 
-            pl.OnPrinterSelect += new PrinterSelectHandler(pl_OnPrinterSelect);
-            pl.OnPrinterCancel += new EventHandler(pl_OnPrinterCancel);
-            pl.ShowDialog();
-            pl.OnPrinterSelect -= new PrinterSelectHandler(pl_OnPrinterSelect);
-            pl.OnPrinterCancel -= new EventHandler(pl_OnPrinterCancel);
+            else
+            {
+
+                pl.OnPrinterSelect += new PrinterSelectHandler(pl_OnPrinterSelect);
+                pl.OnPrinterCancel += new EventHandler(pl_OnPrinterCancel);
+                pl.ShowDialog();
+                pl.OnPrinterSelect -= new PrinterSelectHandler(pl_OnPrinterSelect);
+                pl.OnPrinterCancel -= new EventHandler(pl_OnPrinterCancel);
+            }
         }
 
         private void bttPLS_Click(object sender, EventArgs e)
         {
             FPrinterList pl = new FPrinterList();
             businessUnit = 3;
+            if (this.IsSavePDF == true)
+            {
+                SaveAsPDF("PLS");
+            }
 
-            pl.OnPrinterSelect += new PrinterSelectHandler(pl_OnPrinterSelect);
-            pl.OnPrinterCancel += new EventHandler(pl_OnPrinterCancel);
-            pl.ShowDialog();
-            pl.OnPrinterSelect -= new PrinterSelectHandler(pl_OnPrinterSelect);
-            pl.OnPrinterCancel -= new EventHandler(pl_OnPrinterCancel);
+            else
+            {
+
+                pl.OnPrinterSelect += new PrinterSelectHandler(pl_OnPrinterSelect);
+                pl.OnPrinterCancel += new EventHandler(pl_OnPrinterCancel);
+                pl.ShowDialog();
+                pl.OnPrinterSelect -= new PrinterSelectHandler(pl_OnPrinterSelect);
+                pl.OnPrinterCancel -= new EventHandler(pl_OnPrinterCancel);
+            }
         }
 
         private void bttStaffing_Click(object sender, EventArgs e)
         {
             FPrinterList pl = new FPrinterList();
             businessUnit = 4;
+            if (this.IsSavePDF == true)
+            {
+                SaveAsPDF("Staff");
+            }
 
-            pl.OnPrinterSelect += new PrinterSelectHandler(pl_OnPrinterSelect);
-            pl.OnPrinterCancel += new EventHandler(pl_OnPrinterCancel);
-            pl.ShowDialog();
-            pl.OnPrinterSelect -= new PrinterSelectHandler(pl_OnPrinterSelect);
-            pl.OnPrinterCancel -= new EventHandler(pl_OnPrinterCancel);
+            else
+            {
+
+                pl.OnPrinterSelect += new PrinterSelectHandler(pl_OnPrinterSelect);
+                pl.OnPrinterCancel += new EventHandler(pl_OnPrinterCancel);
+                pl.ShowDialog();
+                pl.OnPrinterSelect -= new PrinterSelectHandler(pl_OnPrinterSelect);
+                pl.OnPrinterCancel -= new EventHandler(pl_OnPrinterCancel);
+            }
         }
 
         private void bttProposals_Click(object sender, EventArgs e)
         {
             FPrinterList pl = new FPrinterList();
             businessUnit = 5;
+            if (this.IsSavePDF == true)
+            {
+                SaveAsPDF("Proposal");
+            }
 
-            pl.OnPrinterSelect += new PrinterSelectHandler(pl_OnPrinterSelect);
-            pl.OnPrinterCancel += new EventHandler(pl_OnPrinterCancel);
-            pl.ShowDialog();
-            pl.OnPrinterSelect -= new PrinterSelectHandler(pl_OnPrinterSelect);
-            pl.OnPrinterCancel -= new EventHandler(pl_OnPrinterCancel);
+            else
+            {
+
+                pl.OnPrinterSelect += new PrinterSelectHandler(pl_OnPrinterSelect);
+                pl.OnPrinterCancel += new EventHandler(pl_OnPrinterCancel);
+                pl.ShowDialog();
+                pl.OnPrinterSelect -= new PrinterSelectHandler(pl_OnPrinterSelect);
+                pl.OnPrinterCancel -= new EventHandler(pl_OnPrinterCancel);
+            }
         }
 
-     
+        private void LoadReportsForPDF(string pdfLoc)
+        {
+            string proj;
+            
+            this.Cursor = Cursors.WaitCursor;
+
+            GrapeCity.ActiveReports.SectionReport rprtMain = new GrapeCity.ActiveReports.SectionReport();
+            GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport pdfOut;
 
 
 
+            lblStatus.Text = "Saving - ";
+            Application.DoEvents();
+           
+            GrapeCity.ActiveReports.Document.Section.PagesCollection pagesForecast;
+
+                               
+            SqlDataReader dr;
+
+
+            dr = GetListbyBusinessUnit(businessUnit);
+
+            while (dr.Read())
+            {
+                proj = dr["number"].ToString();
+
+
+                lblStatus.Text = "Saving - " + proj; 
+                Application.DoEvents();
+
+
+
+                pagesForecast = CreatePagesForecast(proj, FCRMain.GetRprtCase(proj));
+
+                for (int k = 0; k < pagesForecast.Count; k++)
+                {
+                    rprtMain.Document.Pages.Add(pagesForecast[k]);
+                }
+
+
+            }
+
+
+            pdfOut = new GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport();
+
+            pdfOut.Export(rprtMain.Document, pdfLoc);
+
+            this.Cursor = Cursors.Default;
+
+            MessageBox.Show("Reports created");
+            this.Close();
+        }
+
+        private void SaveAsPDF(string BusUnit)
+        {
+            DateTime dt = DateTime.Now;
+            saveFileDialog1.InitialDirectory = "v:\\HGA\\"; 
+            saveFileDialog1.FileName = "Project_Forecast_Report-Batch-" +BusUnit +"-" + dt.ToString("yyyMMdd-hhmmss");
+            saveFileDialog1.Filter = "PDF Files | *.pdf";
+            saveFileDialog1.DefaultExt = "pdf";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                LoadReportsForPDF(saveFileDialog1.FileName);
+            }
+            
+        }
+        private GrapeCity.ActiveReports.Document.Section.PagesCollection CreatePagesForecast(string project, int rprtCase)
+        {
+            DataSet ds;
+            RevSol.RSConnection cnn;
+            SqlDataAdapter da;
+            SqlCommand cmd;
+            SqlParameter prm;
+            string currDate;
+
+            this.Cursor = Cursors.WaitCursor;
+
+            currDate = DateTime.Now.ToShortDateString();
+
+            cnn = new RevSol.RSConnection("CR");
+
+            if (UseNewCodes(project) == true)
+                cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision", cnn.GetConnection());
+            else
+                cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision", cnn.GetConnection());
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            prm = cmd.Parameters.Add("@records", SqlDbType.Int); //*******Added 10/1/2015, because, it was throwing exception in ForeCast Batch Report
+            prm.Direction = ParameterDirection.Output;
+            prm = cmd.Parameters.Add("@Project", SqlDbType.VarChar, 50);
+            prm.Value = project;
+            prm = cmd.Parameters.Add("@Rprtdate", SqlDbType.SmallDateTime);
+            prm.Value = currDate;
+            prm = cmd.Parameters.Add("@ReportCase", SqlDbType.Int);
+            prm.Value = rprtCase;
+
+            da = new SqlDataAdapter();
+            ds = new DataSet();
+            da.SelectCommand = cmd;
+
+            da.Fill(ds);
+            FtcCalculator.UpdateCalculatedField(ds);
+
+            cnn.CloseConnection();
+
+            rprtCostReport1 rprt = new rprtCostReport1();
+
+            rprt.CutoffDate = currDate;
+            rprt.DataSource = ds;
+            rprt.DataMember = "Table";
+            rprt.Run(false);
+
+            return rprt.Document.Pages;
+        }
 
 
 

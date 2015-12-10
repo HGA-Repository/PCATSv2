@@ -33,6 +33,8 @@
             this.bttPLS = new System.Windows.Forms.Button();
             this.bttStaffing = new System.Windows.Forms.Button();
             this.bttProposals = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // bttEngineering
@@ -95,11 +97,30 @@
             this.bttProposals.UseVisualStyleBackColor = false;
             this.bttProposals.Click += new System.EventHandler(this.bttProposals_Click);
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.DefaultExt = "pdf";
+            this.saveFileDialog1.Filter = "PDF files|*.pdf";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.BackColor = System.Drawing.SystemColors.Window;
+            this.lblStatus.Location = new System.Drawing.Point(3, 240);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(38, 13);
+            this.lblStatus.TabIndex = 22;
+            this.lblStatus.Text = "Ready";
+            this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FPrintByBusinessUnit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.bttProposals);
             this.Controls.Add(this.bttStaffing);
             this.Controls.Add(this.bttPLS);
@@ -108,6 +129,7 @@
             this.Name = "FPrintByBusinessUnit";
             this.Text = "FPrintByBusinessUnit";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -118,6 +140,7 @@
         private System.Windows.Forms.Button bttPLS;
         private System.Windows.Forms.Button bttStaffing;
         private System.Windows.Forms.Button bttProposals;
-
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

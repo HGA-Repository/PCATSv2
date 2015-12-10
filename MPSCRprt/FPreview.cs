@@ -251,9 +251,7 @@ namespace RSMPS
             cnn = new RevSol.RSConnection("CR");
 
             //cmd = new SqlCommand("spRPRT_CostReport_ByDept_Vision", cnn.GetConnection());
-          //  cmd = new SqlCommand("spRPRT_CostReport_ByDept", cnn.GetConnection());
-
-            cmd = new SqlCommand("spRPRT_CostReport_ByDept_ForForeCast", cnn.GetConnection());
+            cmd = new SqlCommand("spRPRT_CostReport_ByDept", cnn.GetConnection());        
             cmd.CommandType = CommandType.StoredProcedure;
 
             prm = cmd.Parameters.Add("@ProjXml", SqlDbType.Text);

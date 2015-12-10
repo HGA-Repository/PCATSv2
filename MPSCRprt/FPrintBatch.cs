@@ -333,7 +333,8 @@ namespace RSMPS
             prntCnt = clstProjects.CheckedItems.Count;
 
             lblStatus.Visible = true;
-            lblStatus.Text = "Printing";
+        //    lblStatus.Text = "Printing";
+            lblStatus.Text = "Saving"; //*******************Edited 12/10
 
             copy = Convert.ToInt32(numPrint.Value);
 
@@ -346,7 +347,8 @@ namespace RSMPS
                 o = clstProjects.CheckedItems[j - 1];
                 proj = o.ToString();
                 indx++;
-                lblStatus.Text = "Printing - " + proj;
+               // lblStatus.Text = "Printing - " + proj;
+                lblStatus.Text = "Saving - " + proj; //*******************Edited 12/10
                 Application.DoEvents();
 
                 pagesForecast = CreatePagesForecast(proj, FCRMain.GetRprtCase(proj));
@@ -362,7 +364,8 @@ namespace RSMPS
                 o = chkRollups.CheckedItems[j - 1];
                 proj = o.ToString();
                 indx++;
-                lblStatus.Text = "Printing - " + proj;
+              //  lblStatus.Text = "Printing - " + proj;
+                lblStatus.Text = "Saving - " + proj; //*******************Edited 12/10
                 Application.DoEvents();
 
                 pagesForecast = CreatePagesForecastForRollup(proj);
@@ -525,9 +528,9 @@ namespace RSMPS
             //{
             //    LoadReportsForPDF(saveFileDialog1.FileName);
             //}
-
+            DateTime dt = DateTime.Now;
             saveFileDialog1.InitialDirectory = "v:\\HGA\\"; //************************** Commented and Added 11/19m to save in Default File Name
-            saveFileDialog1.FileName = "Project_Forecast_Report-Batch";
+            saveFileDialog1.FileName = "Project_Forecast_Report-Batch-" + dt.ToString("yyyMMdd-hhmmss");
             saveFileDialog1.Filter = "PDF Files | *.pdf";
             saveFileDialog1.DefaultExt = "pdf";
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
@@ -543,6 +546,13 @@ namespace RSMPS
         private void button1_Click(object sender, EventArgs e)
         {
             FPrintByBusinessUnit pbu = new FPrintByBusinessUnit();
+            pbu.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FPrintByBusinessUnit pbu = new FPrintByBusinessUnit();
+            pbu.IsSavePDF = true;
             pbu.ShowDialog();
         }
     }
