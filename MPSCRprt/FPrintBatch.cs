@@ -551,9 +551,8 @@ namespace RSMPS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FPrintByBusinessUnit pbu = new FPrintByBusinessUnit();
-            pbu.IsSavePDF = true;
-            pbu.ShowDialog();
+            FPrintByBillType pbt = new FPrintByBillType();
+            pbt.ShowDialog();
         }
     }
 }

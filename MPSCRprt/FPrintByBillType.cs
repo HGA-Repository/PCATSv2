@@ -12,25 +12,18 @@ using System.Data.SqlClient;
 using GrapeCity.ActiveReports;
 
 
-
-
-
-
-
 namespace RSMPS
 {
-    public partial class FPrintByBusinessUnit : Form
+    public partial class FPrintByBillType : Form
     {
-        public FPrintByBusinessUnit()
+        public FPrintByBillType()
         {
             InitializeComponent();
         }
 
-        public int businessUnit;
-
-        public string busUnitName;
-
-       
+        public int BillID;
+        string BillType;  
+                     
         void pl_OnPrinterCancel(object sender, EventArgs e)
         {
             this.Close();
@@ -38,12 +31,10 @@ namespace RSMPS
 
         void pl_OnPrinterSelect(string printer)
         {
-                PrintSelectedProjects(printer, businessUnit);
+            PrintSelectedProjects(printer, BillID);
            
-        }
-
-        
-              private void PrintSelectedProjects(string printer, int businessUnit)
+        }        
+         private void PrintSelectedProjects(string printer, int billType)
         {
             string proj;
          //   MessageBox.Show(printer + "selected");                     
@@ -53,7 +44,7 @@ namespace RSMPS
             Application.DoEvents();
 
 
-            dr = GetListbyBusinessUnit(businessUnit);
+            dr = GetListbyBillType(billType);
             while (dr.Read())
             {
                 proj = dr["number"].ToString();
@@ -68,7 +59,7 @@ namespace RSMPS
         }
 
 
-        public SqlDataReader GetListbyBusinessUnit(int businessUnit) 
+              public SqlDataReader GetListbyBillType(int billType) 
         {
             SqlDataReader dr;
             RSLib.CDbConnection cnn;
@@ -77,20 +68,19 @@ namespace RSMPS
 
             cnn = new RSLib.CDbConnection();
 
-            cmd = new SqlCommand("spProjectList_ByBusinessUnit", cnn.GetConnection()); 
+            cmd = new SqlCommand("spProjectList_ByBillType", cnn.GetConnection()); 
 
             cmd.CommandType = CommandType.StoredProcedure;
             prm = cmd.Parameters.Add("@Project", SqlDbType.Int);
             prm.Direction = ParameterDirection.Output;
 
 
-            prm = cmd.Parameters.Add("@businessUnit", SqlDbType.Int);
-            prm.Value = businessUnit;                  
+            prm = cmd.Parameters.Add("@BillType", SqlDbType.Int);
+            prm.Value = billType;          
 
 
             dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
             cmd = null;
-          //  cnn.CloseConnection();
             return dr;
         }
 
@@ -154,7 +144,6 @@ namespace RSMPS
         {
             return FCRMain.UseNewCodes(project);
         }
-
        
 
         private void LoadReportsForPDF(string pdfLoc)
@@ -177,7 +166,7 @@ namespace RSMPS
             SqlDataReader dr;
 
 
-            dr = GetListbyBusinessUnit(businessUnit);
+            dr = GetListbyBillType(BillID);
 
             while (dr.Read())
             {
@@ -273,82 +262,103 @@ namespace RSMPS
             return rprt.Document.Pages;
         }
 
-       
+      
+        
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            businessUnit = 1;
-            busUnitName = "Engg";
+            BillType = "Cost Plus";
+            BillID = 1;
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            businessUnit = 2;
-            busUnitName = "PMG";
+        BillType = "FIXED FEE";
+        BillID = 2;
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-            businessUnit = 3;
-            busUnitName = "PLS";
+        BillType = "Proposal";
+        BillID = 3;
         }
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
-            businessUnit = 4;
-            busUnitName = "Staffing";
+        BillType = "Specified Fee";
+        BillID = 5;
         }
 
         private void radioButton5_CheckedChanged(object sender, EventArgs e)
         {
-            businessUnit = 5;
-            busUnitName = "Proposal";
+        BillType = "Phased Cost Plus to a Maximum";
+        BillID = 6;
         }
 
         private void radioButton6_CheckedChanged(object sender, EventArgs e)
         {
-            businessUnit = 6;
-            busUnitName = "All_Business_Unit";
+        BillType = "Phased Cost Plus";
+        BillID = 7;
         }
 
+        private void radioButton7_CheckedChanged(object sender, EventArgs e)
+        {
+        BillType = "Overhead";
+        BillID = 8;
+        }
+
+        private void radioButton8_CheckedChanged(object sender, EventArgs e)
+        {
+        BillType = "Milestone Billing";
+        BillID = 9;
+        }
+
+        private void radioButton9_CheckedChanged(object sender, EventArgs e)
+        {
+            BillType = "Cost Plus to a Maximum";
+            BillID = 10;
+        }
+         private void radioButton10_CheckedChanged(object sender, EventArgs e)
+                {
+                    BillType = "NULL";
+                    BillID = 4;
+
+                }
         private void bttPrint_Click(object sender, EventArgs e)
         {
-            if (!radioButton1.Checked && !radioButton2.Checked && !radioButton3.Checked && !radioButton4.Checked && !radioButton5.Checked && !radioButton6.Checked)
+
+            if (!radioButton1.Checked && !radioButton2.Checked && !radioButton3.Checked && !radioButton4.Checked && !radioButton5.Checked && !radioButton6.Checked && !radioButton7.Checked && !radioButton8.Checked && !radioButton9.Checked && !radioButton10.Checked)
             {
-                MessageBox.Show("Please select Business Unit");
+                MessageBox.Show("Please select one Bill Type");
                 return;
             }
 
             else
             {
 
-
+             //   MessageBox.Show(BillType);
                 FPrinterList pl = new FPrinterList();
-
-               //  MessageBox.Show(busUnitName);
                 pl.OnPrinterSelect += new PrinterSelectHandler(pl_OnPrinterSelect);
                 pl.OnPrinterCancel += new EventHandler(pl_OnPrinterCancel);
                 pl.ShowDialog();
                 pl.OnPrinterSelect -= new PrinterSelectHandler(pl_OnPrinterSelect);
                 pl.OnPrinterCancel -= new EventHandler(pl_OnPrinterCancel);
             }
-            
+           
         }
 
         private void bttSavePDF_Click(object sender, EventArgs e)
         {
-            if (!radioButton1.Checked && !radioButton2.Checked && !radioButton3.Checked && !radioButton4.Checked && !radioButton5.Checked && !radioButton6.Checked)
+            if (!radioButton1.Checked && !radioButton2.Checked && !radioButton3.Checked && !radioButton4.Checked && !radioButton5.Checked && !radioButton6.Checked && !radioButton7.Checked && !radioButton8.Checked && !radioButton9.Checked && !radioButton10.Checked)
             {
-                MessageBox.Show("Please select Business Unit");
+              //  MessageBox.Show("Please select one Bill Type");
                 return;
             }
 
-            else
-            {
-              //  MessageBox.Show(busUnitName);
-                SaveAsPDF(busUnitName);
+            else{
+            MessageBox.Show(BillType);
+            SaveAsPDF(BillType);
             }
-
-            
-        }
+        }    
+        
     }
 }

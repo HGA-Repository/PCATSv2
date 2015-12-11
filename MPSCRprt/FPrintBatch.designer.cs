@@ -194,7 +194,7 @@ namespace RSMPS
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(80, 49);
             this.button2.TabIndex = 10;
-            this.button2.Text = "Print PDF by Business Unit";
+            this.button2.Text = "Print by      Bill Type";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
