@@ -350,12 +350,12 @@ namespace RSMPS
         {
             if (!radioButton1.Checked && !radioButton2.Checked && !radioButton3.Checked && !radioButton4.Checked && !radioButton5.Checked && !radioButton6.Checked && !radioButton7.Checked && !radioButton8.Checked && !radioButton9.Checked && !radioButton10.Checked)
             {
-              //  MessageBox.Show("Please select one Bill Type");
+                MessageBox.Show("Please select one Bill Type");
                 return;
             }
 
             else{
-            MessageBox.Show(BillType);
+         //   MessageBox.Show(BillType);
             SaveAsPDF(BillType);
             }
         }    
