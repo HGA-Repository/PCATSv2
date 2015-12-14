@@ -87,7 +87,8 @@ namespace RSMPS
             this.TextBox.Style = "";
             this.TextBox.Text = "TextBox";
             this.TextBox.Top = 0F;
-            this.TextBox.Width = 0.625F;
+      //      this.TextBox.Width = 0.625F;
+            this.TextBox.Width = 3.0F; //*************************************************
             // 
             // TextBox1
             // 
@@ -101,7 +102,9 @@ namespace RSMPS
             this.TextBox1.Border.TopStyle = GrapeCity.ActiveReports.BorderLineStyle.None;
             this.TextBox1.DataField = "Description";
             this.TextBox1.Height = 0.1875F;
-            this.TextBox1.Left = 0.75F;
+            this.TextBox1.Left = 1.1F;
+            //this.TextBox1.Left = 0.75F;
+
             this.TextBox1.Name = "TextBox1";
             this.TextBox1.Style = "";
             this.TextBox1.Text = "TextBox";
@@ -165,8 +168,11 @@ namespace RSMPS
             this.Line8.Name = "Line8";
             this.Line8.Top = 0F;
             this.Line8.Width = 0F;
-            this.Line8.X1 = 0.6875F;
-            this.Line8.X2 = 0.6875F;
+            //this.Line8.X1 = 0.6875F;
+            //this.Line8.X2 = 0.6875F;
+
+            this.Line8.X1 = 0.98F;
+            this.Line8.X2 = 0.98F;
             this.Line8.Y1 = 0F;
             this.Line8.Y2 = 0.1875F;
             // 
