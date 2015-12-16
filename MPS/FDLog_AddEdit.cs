@@ -1284,6 +1284,8 @@ namespace RSMPS
                 txtBudgetHrs.Enabled = true;
                 txtRemainingHrs.Enabled = true;
                 txtWBS.Enabled = true;
+                bttOpenExcel2.Enabled = true; //********12/2
+
               }
             else
             {
@@ -1298,6 +1300,8 @@ namespace RSMPS
                 txtBudgetHrs.Enabled = false;
                 txtRemainingHrs.Enabled = false;
                 txtWBS.Enabled = false;
+                bttOpenExcel2.Enabled = false;//********12/2
+
             }
             if (u.IsAdministrator == true)
             {

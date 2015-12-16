@@ -1923,7 +1923,8 @@ namespace RSMPS
             this.TextBox1.Style = "font-size: 12pt; font-weight: bold";
             this.TextBox1.Text = "POValue";
             this.TextBox1.Top = 0.375F;
-            this.TextBox1.Width = 1.8125F;
+           // this.TextBox1.Width = 1.8125F; *************************************12/11
+            this.TextBox1.Width = 2.5F;
             // 
             // txtFTCUpdate
             // 

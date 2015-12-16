@@ -9,7 +9,6 @@ using System.Windows.Forms;
 namespace RSMPS
 {
     public delegate void LoginSuccessful(int userID, string sessionID);
-
     public partial class FLogin : Form
     {
         public FLogin()
@@ -25,8 +24,7 @@ namespace RSMPS
         //private CBEmployeeTitle moTitle;
         private CBLog moLog;
         public String UserName;
-       
-
+      
 
         private void bttCancel_Click(object sender, EventArgs e)
         {
@@ -81,10 +79,13 @@ namespace RSMPS
                // MessageBox.Show("Loading User");
                 LoadScreenToObject();
                // MessageBox.Show(moLog.Name);
-
-                moLog.Save();
+               
+              Common.GlobalVar.GlobalValue = moLog.Save();
                
                 UserName =txtUser.Text ;
+
+             //   MessageBox.Show(Common.GlobalVar.GlobalValue + "----" + UserName);
+              
                
                 this.Close();
             }

@@ -125,6 +125,17 @@ namespace RSMPS
             LoadReportForProject(rprtCase);
         }
 
+        public void LoadCurrentProject_Pipelines(string project, int rprtCase) //*********************************Added 12/8
+        {
+            msCurrProj = project;
+
+            LoadCurrentGroups();
+
+            LoadReportForProject_Pipelines(rprtCase);
+        }
+
+
+
         public void LoadReportForProject(int rprtCase)
         {
             DataSet ds;
@@ -179,6 +190,73 @@ namespace RSMPS
 
             this.Cursor = Cursors.Default;
         }
+        public void LoadReportForProject_Pipelines(int rprtCase)
+        {
+            DataSet ds;
+            RevSol.RSConnection cnn;
+            SqlDataAdapter da;
+            SqlCommand cmd;
+            SqlParameter prm;
+            string currDate;
+            int record = 0; //**************************************************10/20/2015
+            this.Cursor = Cursors.WaitCursor;
+
+            currDate = DateTime.Now.ToShortDateString();
+
+            cnn = new RevSol.RSConnection("CR");
+
+            if (UseNewCodes(msCurrProj) == true)
+               // cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision", cnn.GetConnection());
+                cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision_Pipelines", cnn.GetConnection());
+            else
+               // cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision", cnn.GetConnection());
+                cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision_Pipelines", cnn.GetConnection());
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            prm = cmd.Parameters.Add("@records", SqlDbType.Int); //*******Added 10/1/2015, because, it was throwing exception in PM Report
+            prm.Direction = ParameterDirection.Output;
+
+            prm = cmd.Parameters.Add("@Project", SqlDbType.VarChar, 50);
+            prm.Value = msCurrProj;
+            prm = cmd.Parameters.Add("@Rprtdate", SqlDbType.SmallDateTime);
+            prm.Value = currDate;
+            prm = cmd.Parameters.Add("@ReportCase", SqlDbType.Int);
+            prm.Value = rprtCase;
+
+            da = new SqlDataAdapter();
+            ds = new DataSet();
+            da.SelectCommand = cmd;
+
+            da.Fill(ds);
+            FtcCalculator.UpdateCalculatedField(ds);
+            record = Convert.ToInt32(cmd.Parameters["@records"].Value); //****************************************Added 10/20/2015
+            cnn.CloseConnection();
+
+            rprtCostReport1 rprt = new rprtCostReport1();
+            rprt.records = record;
+            //     MessageBox.Show(rprt.records.ToString());
+            rprt.CutoffDate = currDate;
+            rprt.DataSource = ds;
+            rprt.DataMember = "Table";
+
+            viewer1.Document = rprt.Document;
+            rprt.Run();
+
+            this.Cursor = Cursors.Default;
+        }
+
+
+
+
+
+
+
+
+
+
+
 
         public bool UseNewCodes(string project)
         {

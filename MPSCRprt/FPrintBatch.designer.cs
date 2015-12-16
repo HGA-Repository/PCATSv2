@@ -41,22 +41,24 @@ namespace RSMPS
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.bttPrintPDF = new System.Windows.Forms.Button();
             this.chkRollups = new System.Windows.Forms.CheckedListBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numPrint)).BeginInit();
             this.SuspendLayout();
             // 
             // clstProjects
             // 
-            this.clstProjects.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.clstProjects.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.clstProjects.CheckOnClick = true;
             this.clstProjects.FormattingEnabled = true;
             this.clstProjects.Location = new System.Drawing.Point(12, 12);
             this.clstProjects.Name = "clstProjects";
             this.clstProjects.Size = new System.Drawing.Size(158, 304);
             this.clstProjects.TabIndex = 0;
-            this.clstProjects.SelectedIndexChanged += new System.EventHandler(this.clstProjects_SelectedIndexChanged);
             this.clstProjects.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clstProjects_ItemCheck);
+            this.clstProjects.SelectedIndexChanged += new System.EventHandler(this.clstProjects_SelectedIndexChanged);
             // 
             // bttPrint
             // 
@@ -94,8 +96,8 @@ namespace RSMPS
             // 
             // lblStatus
             // 
-            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblStatus.AutoSize = true;
             this.lblStatus.BackColor = System.Drawing.SystemColors.Window;
             this.lblStatus.Location = new System.Drawing.Point(9, 393);
@@ -165,8 +167,8 @@ namespace RSMPS
             // 
             // chkRollups
             // 
-            this.chkRollups.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkRollups.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.chkRollups.CheckOnClick = true;
             this.chkRollups.FormattingEnabled = true;
             this.chkRollups.Location = new System.Drawing.Point(12, 325);
@@ -174,12 +176,36 @@ namespace RSMPS
             this.chkRollups.Size = new System.Drawing.Size(158, 49);
             this.chkRollups.TabIndex = 8;
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(177, 199);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(80, 49);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Print by Business Unit";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(177, 254);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(80, 49);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Print by      Bill Type";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FPrintBatch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(264, 409);
             this.ControlBox = false;
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.chkRollups);
             this.Controls.Add(this.bttPrintPDF);
             this.Controls.Add(this.bttClearAll);
@@ -215,5 +241,7 @@ namespace RSMPS
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button bttPrintPDF;
         private System.Windows.Forms.CheckedListBox chkRollups;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -101,6 +101,82 @@ namespace RSMPS
             //MessageBox.Show(rprt.records.ToString() + "************************");
             this.Cursor = Cursors.Default;
         }
+
+        public void LoadReportForProject_Pipelines(string project, int rprtCase) //*************************Added 12/8
+        {
+            DataSet ds;
+            RevSol.RSConnection cnn;
+            SqlDataAdapter da;
+            SqlCommand cmd;
+            SqlParameter prm;
+            string currDate;
+            int record = 0; //**********************Added 7/22/2015
+            this.Cursor = Cursors.WaitCursor;
+
+
+            currDate = DateTime.Now.ToShortDateString();
+
+            cnn = new RevSol.RSConnection("CR");
+
+            if (UseNewCodes(project) == true)
+            //    cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision", cnn.GetConnection());
+                cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision_Pipelines", cnn.GetConnection());
+            else
+                //cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision", cnn.GetConnection());
+                cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision_Pipelines", cnn.GetConnection());
+
+            
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            prm = cmd.Parameters.Add("@records", SqlDbType.Int);
+            prm.Direction = ParameterDirection.Output;
+
+
+            prm = cmd.Parameters.Add("@Project", SqlDbType.VarChar, 50);
+            prm.Value = project;
+            prm = cmd.Parameters.Add("@Rprtdate", SqlDbType.SmallDateTime);
+            prm.Value = currDate;
+            prm = cmd.Parameters.Add("@ReportCase", SqlDbType.Int);
+            prm.Value = rprtCase;
+
+
+            //   cmd.ExecuteNonQuery();
+
+
+            da = new SqlDataAdapter();
+            ds = new DataSet();
+            da.SelectCommand = cmd;
+            da.Fill(ds);
+            FtcCalculator.UpdateCalculatedField(ds);
+
+            record = Convert.ToInt32(cmd.Parameters["@records"].Value);
+
+            cnn.CloseConnection();
+
+            rprtCostReport1 rprt = new rprtCostReport1();
+            projNumber = project;
+            // p.ViewReport(rprt);
+            ViewReport(rprt);
+            rprt.CutoffDate = currDate;
+            rprt.DataSource = ds;
+            rprt.DataMember = "Table";
+            viewer1.Document = rprt.Document;
+            rprt.records = record; //**********************Added 7/22/2015
+
+            rprt.Run();
+            // MessageBox.Show(record.ToString());
+            //MessageBox.Show(rprt.CutoffDate.ToString());
+            //MessageBox.Show(rprt.records.ToString() + "************************");
+            this.Cursor = Cursors.Default;
+        }
+
+
+
+
+
+
              public void LoadReportForProjectRollup(string project, int rprtCase)
            {
             string currDate;
@@ -127,6 +203,39 @@ namespace RSMPS
             this.Cursor = Cursors.Default;
         }
 
+             public void LoadReportForProjectRollup_Pipelines(string project, int rprtCase) //*******************Added 12/8
+             {
+                 string currDate;
+                 DSForecastRprt rprtDs;
+
+                 this.Cursor = Cursors.WaitCursor;
+
+                 CRolllups ru = new CRolllups();
+                 rprtDs = ru.LoadReportForProjectRollup(project, rprtCase);
+
+                 currDate = DateTime.Now.ToShortDateString();
+                 rprtCostReport1 rprt = new rprtCostReport1();
+                 projNumber = project + "-RollUp";
+                 ViewReport(rprt);
+                 ViewReport(rprt);
+                 rprt.CutoffDate = currDate;
+                 rprt.DataSource = rprtDs;
+                 rprt.DataMember = "EngrInfo";
+                 viewer1.Document = rprt.Document;
+                 rprt.IsRollup = true; //**********************Added 7/23/2015
+
+                 rprt.Run();
+
+                 this.Cursor = Cursors.Default;
+             }
+
+
+
+
+
+
+
+
         public void LoadReportForDeptList(string projects, string acct)
         {
             DataSet ds;
@@ -142,7 +251,7 @@ namespace RSMPS
             cnn = new RevSol.RSConnection("CR");
 
             //cmd = new SqlCommand("spRPRT_CostReport_ByDept_Vision", cnn.GetConnection());
-            cmd = new SqlCommand("spRPRT_CostReport_ByDept", cnn.GetConnection());
+            cmd = new SqlCommand("spRPRT_CostReport_ByDept", cnn.GetConnection());        
             cmd.CommandType = CommandType.StoredProcedure;
 
             prm = cmd.Parameters.Add("@ProjXml", SqlDbType.Text);

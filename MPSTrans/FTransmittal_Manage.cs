@@ -222,6 +222,9 @@ namespace RSMPS
             if (ftr.IsRenamed)
             {
                 LoadTransmittals();
+
+                bttEditTransmittal.Enabled = false; // ********************Added 12/8
+                bttPrintTransmittal.Enabled = false;
                 //  MessageBox.Show("reloaded");
             }
 

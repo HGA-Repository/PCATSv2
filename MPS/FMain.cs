@@ -111,7 +111,8 @@ namespace RSMPS
                 if (calcelClicked == true)
                 {
                     moLog.Name = this.UserName;
-                             moLog.Save_LogOff(); }//tried 6/25/2015
+                          //   moLog.Save_LogOff(); //****************************************12/1 commented
+                }//tried 6/25/2015
             //*************************************************************
 
             //}
@@ -121,7 +122,9 @@ namespace RSMPS
              //   this.Activate();
             //}
            
-            CDbLog.UpdateFor_LogOff(msCurrentUserName);
+          //  CDbLog.UpdateFor_LogOff(msCurrentUserName);
+            CDbLog.UpdateFor_LogOff_Global(Common.GlobalVar.GlobalValue);
+
               //  MessageBox.Show(msCurrentUserName + ".....logging off");
       
         }
@@ -399,7 +402,7 @@ namespace RSMPS
                 projectForecastingReportRollupToolStripMenuItem.Visible = true;
                 weeklyPMReportsToolStripMenuItem.Visible = true;
                 pCNLogToolStripMenuItem.Visible = true;
-
+                projectForecastingReportPipelinesToolStripMenuItem.Visible = true; //*******************Added 12/8
 
                 if (u.IsAdministrator == true)
                 {
@@ -437,6 +440,7 @@ namespace RSMPS
                     pipelineForecastRemainingToolStripMenuItem.Visible = false;
                     programManagementForecastRemainingToolStripMenuItem.Visible = false;
                     forecastRemainingBirminghamToolStripMenuItem.Visible = false; //*******************Added 7/24
+                    projectForecastingReportPipelinesToolStripMenuItem.Visible = true; //*******************Added 12/8
                     manageReleaseTransmittalToolStripMenuItem.Visible = false;
                     tsbProject.Visible = false;
                     tsbCustomer.Visible = false;
@@ -463,6 +467,7 @@ namespace RSMPS
                     pipelineForecastRemainingToolStripMenuItem.Visible = false;
                     programManagementForecastRemainingToolStripMenuItem.Visible = false;
                     forecastRemainingBirminghamToolStripMenuItem.Visible = false; //*******************Added 7/24
+                    projectForecastingReportPipelinesToolStripMenuItem.Visible = true; //*******************Added 12/8
                     manageReleaseTransmittalToolStripMenuItem.Visible = false;
                     tsbProject.Visible = false;
                     tsbCustomer.Visible = false;
@@ -496,8 +501,10 @@ namespace RSMPS
             //moLog.Save();
         //    moLog.Save_LogOff();
             
-            MessageBox.Show(msCurrentUserName + ".....logging off");
-            CDbLog.UpdateFor_LogOff(msCurrentUserName);
+          //  MessageBox.Show(msCurrentUserName + ".....logging off");
+            //CDbLog.UpdateFor_LogOff(msCurrentUserName);
+
+            CDbLog.UpdateFor_LogOff_Global(Common.GlobalVar.GlobalValue); //*************************12/1
 
             calcelClicked = false; //************************Added 6/25/15
             // redo the login
@@ -1032,6 +1039,14 @@ namespace RSMPS
             this.Cursor = Cursors.WaitCursor;
             sum.PrintForecastRemainingBHam();
             this.Cursor = Cursors.Default;
+        }
+
+        private void projectForecastingReportPipelinesToolStripMenuItem_Click(object sender, EventArgs e) //***********************Added 12/8
+        {
+            RSMPS.FCRMain crm = new FCRMain();
+            crm.IsForPipeline = true;
+
+            crm.ShowDialog();
         }
 
 

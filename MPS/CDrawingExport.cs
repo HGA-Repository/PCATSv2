@@ -276,34 +276,34 @@ namespace RSMPS
                 Excel.Range RangeQ = workSheet.get_Range("Q2", a);
                 RangeQ.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, "true,false", Type.Missing);
                 RangeQ.Validation.InCellDropdown = true;
-                RangeQ.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 217, 217, 0));
+               // RangeQ.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 217, 217, 0));
                 a = "R" + iTotalRows;
                 // Excel.Range RangeR = workSheet.get_Range("R2", "R20");
                 Excel.Range RangeR = workSheet.get_Range("R2", a);
                 RangeR.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, "true,false", Type.Missing);
                 RangeR.Validation.InCellDropdown = true;
-                RangeR.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 255, 0, 0));
+               // RangeR.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 255, 0, 0));
                 a = "T" + iTotalRows;
                 Excel.Range RangeT = workSheet.get_Range("T2", a);
                 RangeT.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, "true,false", Type.Missing);
                 RangeT.Validation.InCellDropdown = true;
-                RangeT.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 255, 0, 0));
+               // RangeT.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 255, 0, 0));
                 a = "U" + iTotalRows;
                 Excel.Range RangeU = workSheet.get_Range("U2", a);
                 RangeU.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, "true,false", Type.Missing);
                 RangeU.Validation.InCellDropdown = true;
-                RangeU.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 0, 255, 0));
+              //  RangeU.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 0, 255, 0));
                 a = "W" + iTotalRows;
                 Excel.Range RangeW = workSheet.get_Range("W2", a);
                 RangeW.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, "true,false", Type.Missing);
                 RangeW.Validation.InCellDropdown = true;
-                RangeW.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 0, 0, 255));
+               // RangeW.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 0, 0, 255));
                 a = "X" + iTotalRows;
              
                 Excel.Range RangeX = workSheet.get_Range("X2", a);
                 RangeX.Validation.Add(Excel.XlDVType.xlValidateList, Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, "true,false", Type.Missing);
                 RangeX.Validation.InCellDropdown = true;
-                RangeX.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 255, 0, 0));
+              //  RangeX.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 255, 0, 0));
 
                 a = "Z" + iTotalRows;
                 Excel.Range RangeZ = workSheet.get_Range("Z2", a);
@@ -347,14 +347,12 @@ namespace RSMPS
                 RangeI.Validation.InCellDropdown = true;
               
 
-                Excel.Range RangeTop = workSheet.get_Range("A1", "AL1");
-                RangeTop.Font.Bold = true;
-                RangeTop.Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 255, 0, 0));
+                //Excel.Range RangeTop = workSheet.get_Range("A1", "AL1");
+                //RangeTop.Font.Bold = true;
+                //RangeTop.Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 255, 0, 0));
                             
 
-                a = "O" + iTotalRows;
-
-   
+                a = "O" + iTotalRows;  
 
                 workSheet.get_Range("O2", a).Formula = "=L2-N2";
 
@@ -366,6 +364,33 @@ namespace RSMPS
 
                 workSheet.Columns.AutoFit();
                 workSheet.Columns[3].Style.Locked = true;
+
+
+                a = "AL" + iTotalRows;
+                Excel.Range T = workSheet.get_Range("A1", a);
+                workSheet.ListObjects.AddEx(Excel.XlListObjectSourceType.xlSrcRange, T,Missing, XlListObjectHasHeaders: Excel.XlYesNoGuess.xlYes).Name = "WFTableStyle";
+                                     // workSheet.ListObjects.AddEx(SourceType: Excel.XlListObjectSourceType.xlSrcRange, Source: T, XlListObjectHasHeaders: Excel.XlYesNoGuess.xlYes).Name = "WFTableStyle";
+                workSheet.ListObjects.get_Item("WFTableStyle").TableStyle = "TableStyleMedium9";
+
+
+
+
+
+
+                Excel.Range rngA = workSheet.Range["A1"];
+                rngA.EntireColumn.Hidden = true;
+
+                Excel.Range rngB = workSheet.Range["B1"];
+                rngB.EntireColumn.Hidden = true;
+
+                Excel.Range rngC = workSheet.Range["C1"];
+                rngC.EntireColumn.Hidden = true;
+
+                Excel.Range rngD = workSheet.Range["D1"];
+                rngD.EntireColumn.Hidden = true;
+
+
+
 
                 //Excel.Range fit = workSheet.get_Range("A1", "AL100");
                 //fit.Columns.AutoFit();
@@ -390,33 +415,32 @@ namespace RSMPS
                
                 //**********************************
 
-                this.excelApp2.Cells.Locked = false;
-              //  this.excelApp2.get_Range("A1", "C3").Locked = true;                
+              //  this.excelApp2.Cells.Locked = false;
+              ////  this.excelApp2.get_Range("A1", "C3").Locked = true;                
 
-                Excel.Range rngA = workSheet.Range["A1"];
-                rngA.EntireColumn.Locked = true;
+              //  Excel.Range rngA = workSheet.Range["A1"];
+              //  rngA.EntireColumn.Locked = true;
                 
-                Excel.Range rngB = workSheet.Range["B1"];
-                rngB.EntireColumn.Locked = true;
+              //  Excel.Range rngB = workSheet.Range["B1"];
+              //  rngB.EntireColumn.Locked = true;
 
-                Excel.Range rngC = workSheet.Range["C1"];
-                rngC.EntireColumn.Locked = true;
+              //  Excel.Range rngC = workSheet.Range["C1"];
+              //  rngC.EntireColumn.Locked = true;
 
-                Excel.Range rngD = workSheet.Range["D1"];
-                rngD.EntireColumn.Locked = true;
+              //  Excel.Range rngD = workSheet.Range["D1"];
+              //  rngD.EntireColumn.Locked = true;
 
-                Excel.Range rngL = workSheet.Range["L1"];
-                rngL.EntireColumn.Locked = true;
+              //  Excel.Range rngL = workSheet.Range["L1"];
+              //  rngL.EntireColumn.Locked = true;
 
-                Excel.Range rngM = workSheet.Range["M1"];
-                rngM.EntireColumn.Locked = true;
+              //  Excel.Range rngM = workSheet.Range["M1"];
+              //  rngM.EntireColumn.Locked = true;
 
-                Excel.Range rngO = workSheet.Range["O1"];
-                rngO.EntireColumn.Locked = true;
-                
+              //  Excel.Range rngO = workSheet.Range["O1"];
+              //  rngO.EntireColumn.Locked = true;              
 
 
-                workSheet.Protect(Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing);
+             //   workSheet.Protect(Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing, Missing);
                 //*************************************                                           
                 
                 return noOfRows;
@@ -450,26 +474,49 @@ namespace RSMPS
 
                 }
 
-                for (int indx = 2; indx < lastRow; indx++)
+                                                //for (int indx = 2; indx < lastRow; indx++)
+                                                //{
+
+                                                //    int ID = LoadScreenToObject_X(indx, deptID, projID,leadID, workSheet3);
+
+
+
+                                                //    if (ID == 0)
+                                                //    {
+                                                //        //   MessageBox.Show("Return of ID Test for..." + ID + "....."  + "..So   Insert");
+                                                //        moDrwLog.Save_Insert();
+
+                                                //    }
+                                                //    else
+                                                //    {
+                                                //       //  MessageBox.Show("Return of ID Test for..." + ID + "....."  + "..So   Update");
+
+                                                //        moDrwLog.Save_Update();
+                                                //    }
+                    
+                                                //}
+              
+              for (int indx = 2; indx < lastRow; indx++)
                 {
 
-                    int ID = LoadScreenToObject_X(indx, deptID, projID,leadID, workSheet3);
+                   LoadScreenToObject_X(indx, deptID, projID, leadID, workSheet3);
 
 
 
-                    if (ID == 0)
+                   if (indx <= no)
                     {
                         //   MessageBox.Show("Return of ID Test for..." + ID + "....."  + "..So   Insert");
-                        moDrwLog.Save_Insert();
+                        //MessageBox.Show(indx.ToString() + ".....update");
+                       moDrwLog.Save_Update();
 
                     }
                     else
                     {
-                       //  MessageBox.Show("Return of ID Test for..." + ID + "....."  + "..So   Update");
-
-                        moDrwLog.Save_Update();
+                        //  MessageBox.Show("Return of ID Test for..." + ID + "....."  + "..So   Update");
+                    //    MessageBox.Show(indx.ToString() + ".....insert");
+                         moDrwLog.Save_Insert();
                     }
-                    
+
                 }
 
 
@@ -489,11 +536,16 @@ namespace RSMPS
 
                 moDrwLog = new CBDrawingLog();
               
-                if (WS.Cells[indx, 1].Text == "")
-                    moDrwLog.ID = 0;
-                else
-                    moDrwLog.ID = Convert.ToInt32(WS.Cells[indx, 1].Value.ToString());
-                moDrwLog.DepartmentID = deptID;
+                //if (WS.Cells[indx, 1].Text == "")
+                //    moDrwLog.ID = 0;
+                //else
+                //    moDrwLog.ID = Convert.ToInt32(WS.Cells[indx, 1].Value.ToString());
+
+
+                moDrwLog.ID = Convert.ToInt32(WS.Cells[indx, "A"].Value);
+         //      MessageBox.Show(moDrwLog.ID.ToString());
+            
+              moDrwLog.DepartmentID = deptID;
                 moDrwLog.ProjectID = projID;
                 moDrwLog.ProjectLeadID = leadID; // ******* Added 11/30
 

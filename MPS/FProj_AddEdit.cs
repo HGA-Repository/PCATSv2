@@ -888,7 +888,7 @@ namespace RSMPS
         {
             mbItemChanged = true;
 
-            MessageBox.Show("check changed");
+         //   MessageBox.Show("check changed"); //*******************Commended 12/8, not needed
         }
 
        

@@ -1,9 +1,3 @@
-USE [RSManpowerSchDbBeta2]
-GO
-
-/****** Object:  StoredProcedure [dbo].[spProject_ByID_Description]    Script Date: 7/8/2015 12:30:06 PM ******/
-DROP PROCEDURE [dbo].[spProject_ByID_Description]
-GO
 
 /****** Object:  StoredProcedure [dbo].[spProject_ByID_Description]    Script Date: 7/8/2015 12:30:06 PM ******/
 SET ANSI_NULLS ON
@@ -11,8 +5,6 @@ GO
 
 SET QUOTED_IDENTIFIER ON
 GO
-
-
 
 CREATE PROCEDURE [dbo].[spProject_ByID_Description]
 @ID		int
