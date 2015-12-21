@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSLib", "RSLib\RSLib.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevSolLb", "RevSolLb\RevSolLb.csproj", "{4AAE51B8-8EF7-4794-95B3-F4175F982CBE}"
 EndProject
+Project("{E729F059-12D4-455F-A2A4-FDA8DD25E08A}") = "Test #1", "..\..\..\..\..\InstallShield 2015 Projects\Test #1.isproj", "{E01D9152-390F-4EF4-8FE6-D0D2389E58E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -107,6 +109,12 @@ Global
 		{4AAE51B8-8EF7-4794-95B3-F4175F982CBE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4AAE51B8-8EF7-4794-95B3-F4175F982CBE}.Test|Any CPU.ActiveCfg = Release|Any CPU
 		{4AAE51B8-8EF7-4794-95B3-F4175F982CBE}.Test|Any CPU.Build.0 = Release|Any CPU
+		{E01D9152-390F-4EF4-8FE6-D0D2389E58E4}.Debug|Any CPU.ActiveCfg = Debug
+		{E01D9152-390F-4EF4-8FE6-D0D2389E58E4}.Debug|Any CPU.Build.0 = Debug
+		{E01D9152-390F-4EF4-8FE6-D0D2389E58E4}.Release|Any CPU.ActiveCfg = Release
+		{E01D9152-390F-4EF4-8FE6-D0D2389E58E4}.Release|Any CPU.Build.0 = Release
+		{E01D9152-390F-4EF4-8FE6-D0D2389E58E4}.Test|Any CPU.ActiveCfg = Release
+		{E01D9152-390F-4EF4-8FE6-D0D2389E58E4}.Test|Any CPU.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
