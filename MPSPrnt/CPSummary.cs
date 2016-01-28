@@ -60,17 +60,20 @@ namespace RSMPS
                                         //else
                                         //    PrintVariance(ds, title);
             DataSet ds = CBProjectSummary.GetVarianceReport(indx, pmID);
-            var title = "RESOURCE VARIANCE REPORT" + indx + "-" + pmID;
+            //var title = "RESOURCE VARIANCE REPORT" + indx + "-" + pmID;
+            var title = "RESOURCE VARIANCE REPORT";
 
             var pipeline_services_reports = new[] { 3, 4 };
             if (pipeline_services_reports.Contains(indx))
-              //  title = title + " - PIPELINE SERVICES";
-                 title = title + " - PIPELINE SERVICES" + indx+ "-" + pmID;
+                //  title = title + " - PIPELINE SERVICES";
+                //title = title + " - PIPELINE SERVICES" + indx + "-" + pmID;
+                title = title + " - PIPELINE SERVICES";
 
             var eng_only_reports = new[] { 0, 2 };
             if (eng_only_reports.Contains(indx))
-              //  title = title + " - ENGINEERING";
-                title = title + " - ENGINEERING" + indx + "-" + pmID;
+                //  title = title + " - ENGINEERING";
+                //title = title + " - ENGINEERING" + indx + "-" + pmID;
+                title = title + " - ENGINEERING";
 
             var summary_reports = new[] { 2, 4 };
             if (summary_reports.Contains(indx))
