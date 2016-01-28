@@ -2734,17 +2734,29 @@ namespace RSMPS
 
                 msg = "This will make " + li.Description + " the active project\nThis will also enter the information into the JobStat\nDo you wish to continue?";
 
-                if (MessageBox.Show(msg, "Make Project Active", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                string newStatus = Convert.ToString(d["PCNStatus"]);
+
+                if (newStatus == "Disapprove" || newStatus == "Pending" || newStatus == "Prepare Control Estimate")
                 {
-                    CBBudget.MakeBudgetActive(li.ID);
+                  //  MessageBox.Show("Status Has been changed to " + newStatus + " -This PCN wont be on Job Status");
+                }
 
-                    SetActiveInList();
+                else
+                {
+                   // MessageBox.Show("Status Has been changed to " + newStatus );
 
-                    tlbbMakeActive.Enabled = false;
-                    makeActiveToolStripMenuItem.Enabled = false;
+                    if (MessageBox.Show(msg, "Make Project Active", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        CBBudget.MakeBudgetActive(li.ID);
 
-                    MakeProjectActiveInJobStat(li.ID);
-                    //MessageBox.Show("Project active");
+                        SetActiveInList();
+
+                        tlbbMakeActive.Enabled = false;
+                        makeActiveToolStripMenuItem.Enabled = false;
+
+                        MakeProjectActiveInJobStat(li.ID);
+                        //MessageBox.Show("Project active");
+                    }
                 }
 
                 //**************************************added on 5/6
@@ -2797,7 +2809,7 @@ namespace RSMPS
 
         private void tdbgBudgetPCN_BeforeColUpdate(object sender, C1.Win.C1TrueDBGrid.BeforeColUpdateEventArgs e)
         {
-            //MessageBox.Show("tdbgBudgetPCN_BeforeColUpdate started, " + e.Column.Name + " Old Status =" + e.OldValue.ToString() + ".................." + OldStatus);
+           // MessageBox.Show("tdbgBudgetPCN_BeforeColUpdate started, " + e.Column.Name + " Old Status =" + e.OldValue.ToString() + ".................." + OldStatus);
         //    MessageBox.Show("Please Hit enter to Change PCN Status");
             tdbgBudgetPCN.Tag = true;
 
@@ -2825,7 +2837,8 @@ namespace RSMPS
                 FBudgetPCNApproval pa = new FBudgetPCNApproval();
                 //SSS02192014
 
-                if (tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Approved" | tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Pending")
+              //  if (tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Approved" | tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Pending") //******************1/28/2016
+                    if (tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Approved")
                 {
                     pa.IsChangeOnly = false;
 
