@@ -82,24 +82,24 @@ namespace RSMPS
             this.toolStripMenuItem1,
             this.cancelToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(133, 54);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(128, 54);
             // 
             // deleteLineToolStripMenuItem
             // 
             this.deleteLineToolStripMenuItem.Name = "deleteLineToolStripMenuItem";
-            this.deleteLineToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.deleteLineToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.deleteLineToolStripMenuItem.Text = "Delete Line";
             this.deleteLineToolStripMenuItem.Click += new System.EventHandler(this.deleteLineToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(129, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(124, 6);
             // 
             // cancelToolStripMenuItem
             // 
             this.cancelToolStripMenuItem.Name = "cancelToolStripMenuItem";
-            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.cancelToolStripMenuItem.Text = "Cancel";
             // 
             // groupBox1
@@ -115,7 +115,7 @@ namespace RSMPS
             // bttOK
             // 
             this.bttOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.bttOK.Location = new System.Drawing.Point(764, 416);
+            this.bttOK.Location = new System.Drawing.Point(764, 400);
             this.bttOK.Name = "bttOK";
             this.bttOK.Size = new System.Drawing.Size(80, 30);
             this.bttOK.TabIndex = 2;
@@ -126,7 +126,7 @@ namespace RSMPS
             // bttCancel
             // 
             this.bttCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.bttCancel.Location = new System.Drawing.Point(850, 416);
+            this.bttCancel.Location = new System.Drawing.Point(850, 400);
             this.bttCancel.Name = "bttCancel";
             this.bttCancel.Size = new System.Drawing.Size(80, 30);
             this.bttCancel.TabIndex = 3;
@@ -138,7 +138,7 @@ namespace RSMPS
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.tdbgExpense);
-            this.groupBox2.Location = new System.Drawing.Point(12, 189);
+            this.groupBox2.Location = new System.Drawing.Point(12, 173);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1804, 300);
             this.groupBox2.TabIndex = 1;
@@ -176,24 +176,24 @@ namespace RSMPS
             this.toolStripMenuItem2,
             this.cancelToolStripMenuItem1});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(133, 54);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(128, 54);
             // 
             // deleteLineToolStripMenuItem1
             // 
             this.deleteLineToolStripMenuItem1.Name = "deleteLineToolStripMenuItem1";
-            this.deleteLineToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
+            this.deleteLineToolStripMenuItem1.Size = new System.Drawing.Size(127, 22);
             this.deleteLineToolStripMenuItem1.Text = "Delete Line";
             this.deleteLineToolStripMenuItem1.Click += new System.EventHandler(this.deleteLineToolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(129, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(124, 6);
             // 
             // cancelToolStripMenuItem1
             // 
             this.cancelToolStripMenuItem1.Name = "cancelToolStripMenuItem1";
-            this.cancelToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
+            this.cancelToolStripMenuItem1.Size = new System.Drawing.Size(127, 22);
             this.cancelToolStripMenuItem1.Text = "Cancel";
             // 
             // FWS
@@ -201,7 +201,7 @@ namespace RSMPS
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(984, 483);
+            this.ClientSize = new System.Drawing.Size(984, 499);
             this.Controls.Add(this.bttCancel);
             this.Controls.Add(this.bttOK);
             this.Controls.Add(this.groupBox2);
