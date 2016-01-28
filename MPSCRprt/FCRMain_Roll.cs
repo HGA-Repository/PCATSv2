@@ -167,12 +167,16 @@ namespace RSMPS
                 pv.OnProjectProcessed += new RevSol.PassDataString(pv_OnProjectProcessed);
                 Application.DoEvents();
                 pv.LoadReportForProjectRollup(lstProjects.Text, GetRprtCase(lstProjects.Text));
+                // MessageBox.Show("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
                 lblProcessing.Visible = false;
             }
             else
             {
+               // MessageBox.Show("xxxxxxxxxxxxxx");
                 pv.LoadReportForProject(lstProjects.Text, GetRprtCase(lstProjects.Text));
              }
+
+           // MessageBox.Show("xxxxxxxxx....................................xxxxx");
 
             pv.ShowDialog();
             bttPrint.Enabled = true;

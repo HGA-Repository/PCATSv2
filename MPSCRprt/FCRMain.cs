@@ -347,6 +347,7 @@ namespace RSMPS
             
                         if (mbIsMasterList == true)
                         {
+                           // MessageBox.Show("iiiiiiii");
                             lblProcessing.Visible = true;
                             pv.OnProjectProcessed += new RevSol.PassDataString(pv_OnProjectProcessed);
                             Application.DoEvents();
@@ -355,7 +356,7 @@ namespace RSMPS
                         }
                         else
                         {
-                           
+                           // MessageBox.Show("mmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
                             pv.LoadReportForProject_Pipelines(lvwItems.Items[index].SubItems[1].Text, GetRprtCase(lvwItems.Items[index].SubItems[1].Text));  //*********************************************************
                            
                         }
@@ -367,6 +368,7 @@ namespace RSMPS
             }
             else
             {
+              //  MessageBox.Show("nooooooooooooooooooooooooo");
 
                 // MessageBox.Show(lstProjects.Text); //******************Commented 6/16/15***11 am***MZ
 
