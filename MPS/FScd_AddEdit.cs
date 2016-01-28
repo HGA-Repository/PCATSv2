@@ -436,20 +436,13 @@ namespace RSMPS
 
         private void fgSchedule_AfterEdit(object sender, RowColEventArgs e)
         {
-            string v ;
-            if (fgSchedule[e.Row, e.Col] != null)
-                v = fgSchedule[e.Row, e.Col].ToString();
-            else v = "0";
+            string v = fgSchedule[e.Row, e.Col].ToString();
            
             try
             {
                 value = Convert.ToDecimal(v);
-                //MessageBox.Show(value.ToString());
             }
-            catch {
-               // MessageBox.Show(value.ToString()); 
-                MessageBox.Show("Please Insert Integer Number, Fraction Data wont be saved");
-            }
+            catch { MessageBox.Show("Please Insert Integer Number, Fraction Data wont be saved"); }
 
             //MessageBox.Show(v);
             //MessageBox.Show(value.ToString());
