@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RSDataServer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <DBServer>HGASQLSERVER</DBServer>
-   <DBName>PCATS2015</DBName>
+  <DBName>RSManpowerSchDB</DBName>
   <UseWinAuth>false</UseWinAuth>
-  <Username>jgCDXCZw90hVoIXhdaM4fg==</Username>
-  <Password>gq7WZRSPB32QAbO4NzutJw==</Password>
+  <Username>gDZ5HPXDW1zXlo2wmvgCbA==</Username>
+  <Password>dBjTGtrfmuXXQq/7x6MaOA==</Password>
 </RSDataServer>

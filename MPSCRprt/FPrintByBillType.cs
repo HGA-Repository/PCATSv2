@@ -102,15 +102,17 @@ namespace RSMPS
             cnn = new RevSol.RSConnection("CR");
 
             if (UseNewCodes(project) == true)
-                cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision", cnn.GetConnection());
+               // cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision", cnn.GetConnection());
+                cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision_Batch", cnn.GetConnection());
             else
-                cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision", cnn.GetConnection());
+                //cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision", cnn.GetConnection());
+            cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision_Batch", cnn.GetConnection());
 
             cmd.CommandType = CommandType.StoredProcedure;
 
 
-            prm = cmd.Parameters.Add("@records", SqlDbType.Int); //*******Added 10/1/2015, because, it was throwing exception in PM Report
-            prm.Direction = ParameterDirection.Output;
+          //  prm = cmd.Parameters.Add("@records", SqlDbType.Int); //*******Added 10/1/2015, because, it was throwing exception in PM Report
+           // prm.Direction = ParameterDirection.Output;
             prm = cmd.Parameters.Add("@Project", SqlDbType.VarChar, 50);
             prm.Value = project;
             prm = cmd.Parameters.Add("@Rprtdate", SqlDbType.SmallDateTime);
@@ -127,7 +129,8 @@ namespace RSMPS
 
             cnn.CloseConnection();
 
-            rprtCostReport1 rprt = new rprtCostReport1();
+            //rprtCostReport1 rprt = new rprtCostReport1();
+            rprtCostReport2 rprt = new rprtCostReport2();
 
             rprt.Document.Printer.PrinterName = printer;
             rprt.Document.Printer.PrinterSettings.Copies = (short)copy;
@@ -228,14 +231,16 @@ namespace RSMPS
             cnn = new RevSol.RSConnection("CR");
 
             if (UseNewCodes(project) == true)
-                cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision", cnn.GetConnection());
+                //cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision", cnn.GetConnection());
+                cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision_Batch", cnn.GetConnection());
             else
-                cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision", cnn.GetConnection());
+                //cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision", cnn.GetConnection());
+            cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision_Batch", cnn.GetConnection());
 
             cmd.CommandType = CommandType.StoredProcedure;
 
-            prm = cmd.Parameters.Add("@records", SqlDbType.Int); //*******Added 10/1/2015, because, it was throwing exception in ForeCast Batch Report
-            prm.Direction = ParameterDirection.Output;
+            //prm = cmd.Parameters.Add("@records", SqlDbType.Int); //*******Added 10/1/2015, because, it was throwing exception in ForeCast Batch Report
+           // prm.Direction = ParameterDirection.Output;
             prm = cmd.Parameters.Add("@Project", SqlDbType.VarChar, 50);
             prm.Value = project;
             prm = cmd.Parameters.Add("@Rprtdate", SqlDbType.SmallDateTime);
@@ -252,7 +257,8 @@ namespace RSMPS
 
             cnn.CloseConnection();
 
-            rprtCostReport1 rprt = new rprtCostReport1();
+            //rprtCostReport1 rprt = new rprtCostReport1();
+            rprtCostReport2 rprt = new rprtCostReport2();
 
             rprt.CutoffDate = currDate;
             rprt.DataSource = ds;
