@@ -84,6 +84,7 @@ namespace RSMPS
             this.programManagementForecastRemainingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forecastRemainingBirminghamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projectForecastingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.projectForecastingReportPipelinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projectForecastingReportRollupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resourceVarianceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resourceVarianceSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -116,7 +117,6 @@ namespace RSMPS
             this.tssStatus2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssProgress = new System.Windows.Forms.ToolStripProgressBar();
             this.tmrClose = new System.Windows.Forms.Timer(this.components);
-            this.projectForecastingReportPipelinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMain.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -595,6 +595,13 @@ namespace RSMPS
             this.projectForecastingToolStripMenuItem.Text = "Project Forecasting Reports";
             this.projectForecastingToolStripMenuItem.Click += new System.EventHandler(this.projectForecastingToolStripMenuItem_Click);
             // 
+            // projectForecastingReportPipelinesToolStripMenuItem
+            // 
+            this.projectForecastingReportPipelinesToolStripMenuItem.Name = "projectForecastingReportPipelinesToolStripMenuItem";
+            this.projectForecastingReportPipelinesToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.projectForecastingReportPipelinesToolStripMenuItem.Text = "Project Forecasting Report - PLS";
+            this.projectForecastingReportPipelinesToolStripMenuItem.Click += new System.EventHandler(this.projectForecastingReportPipelinesToolStripMenuItem_Click);
+            // 
             // projectForecastingReportRollupToolStripMenuItem
             // 
             this.projectForecastingReportRollupToolStripMenuItem.Name = "projectForecastingReportRollupToolStripMenuItem";
@@ -852,13 +859,6 @@ namespace RSMPS
             // 
             this.tmrClose.Tick += new System.EventHandler(this.tmrClose_Tick);
             // 
-            // projectForecastingReportPipelinesToolStripMenuItem
-            // 
-            this.projectForecastingReportPipelinesToolStripMenuItem.Name = "projectForecastingReportPipelinesToolStripMenuItem";
-            this.projectForecastingReportPipelinesToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
-            this.projectForecastingReportPipelinesToolStripMenuItem.Text = "Project Forecasting Report - PLS";
-            this.projectForecastingReportPipelinesToolStripMenuItem.Click += new System.EventHandler(this.projectForecastingReportPipelinesToolStripMenuItem_Click);
-            // 
             // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -872,7 +872,7 @@ namespace RSMPS
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HGA - Project Controls & Tracking (PCATS)";
+            this.Text = "PCATS 2015.2.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FMain_FormClosing);
             this.Load += new System.EventHandler(this.FMain_Load);
             this.tsMain.ResumeLayout(false);
