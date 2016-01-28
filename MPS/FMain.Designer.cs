@@ -222,32 +222,32 @@ namespace RSMPS
             this.toolStripMenuItem2,
             this.mnuFileExit});
             this.mnuFile.Name = "mnuFile";
-            this.mnuFile.Size = new System.Drawing.Size(37, 20);
+            this.mnuFile.Size = new System.Drawing.Size(35, 20);
             this.mnuFile.Text = "&File";
             // 
             // mnuFileChangePassword
             // 
             this.mnuFileChangePassword.Name = "mnuFileChangePassword";
-            this.mnuFileChangePassword.Size = new System.Drawing.Size(168, 22);
+            this.mnuFileChangePassword.Size = new System.Drawing.Size(160, 22);
             this.mnuFileChangePassword.Text = "Change password";
             this.mnuFileChangePassword.Click += new System.EventHandler(this.mnuFileChangePassword_Click);
             // 
             // mnuFileLogoff
             // 
             this.mnuFileLogoff.Name = "mnuFileLogoff";
-            this.mnuFileLogoff.Size = new System.Drawing.Size(168, 22);
+            this.mnuFileLogoff.Size = new System.Drawing.Size(160, 22);
             this.mnuFileLogoff.Text = "Log off";
             this.mnuFileLogoff.Click += new System.EventHandler(this.mnuFileLogoff_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(165, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(157, 6);
             // 
             // mnuFileExit
             // 
             this.mnuFileExit.Name = "mnuFileExit";
-            this.mnuFileExit.Size = new System.Drawing.Size(168, 22);
+            this.mnuFileExit.Size = new System.Drawing.Size(160, 22);
             this.mnuFileExit.Text = "E&xit";
             this.mnuFileExit.Click += new System.EventHandler(this.mnuFileExit_Click);
             // 
@@ -270,13 +270,13 @@ namespace RSMPS
             this.mnuToolsDocRelease,
             this.viewMPPlanToolStripMenuItem});
             this.mnuTools.Name = "mnuTools";
-            this.mnuTools.Size = new System.Drawing.Size(48, 20);
+            this.mnuTools.Size = new System.Drawing.Size(44, 20);
             this.mnuTools.Text = "&Tools";
             // 
             // mnuToolsEmpTitle
             // 
             this.mnuToolsEmpTitle.Name = "mnuToolsEmpTitle";
-            this.mnuToolsEmpTitle.Size = new System.Drawing.Size(202, 22);
+            this.mnuToolsEmpTitle.Size = new System.Drawing.Size(188, 22);
             this.mnuToolsEmpTitle.Text = "Employee title";
             this.mnuToolsEmpTitle.Visible = false;
             this.mnuToolsEmpTitle.Click += new System.EventHandler(this.mnuToolEmpTitle_Click);
@@ -284,7 +284,7 @@ namespace RSMPS
             // mnuToolsDept
             // 
             this.mnuToolsDept.Name = "mnuToolsDept";
-            this.mnuToolsDept.Size = new System.Drawing.Size(202, 22);
+            this.mnuToolsDept.Size = new System.Drawing.Size(188, 22);
             this.mnuToolsDept.Text = "Departments";
             this.mnuToolsDept.Visible = false;
             this.mnuToolsDept.Click += new System.EventHandler(this.mnuToolDept_Click);
@@ -292,7 +292,7 @@ namespace RSMPS
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(199, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(185, 6);
             this.toolStripMenuItem1.Visible = false;
             // 
             // mnuToolsOptions
@@ -300,21 +300,21 @@ namespace RSMPS
             this.mnuToolsOptions.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuToolsOptionsUsers});
             this.mnuToolsOptions.Name = "mnuToolsOptions";
-            this.mnuToolsOptions.Size = new System.Drawing.Size(202, 22);
+            this.mnuToolsOptions.Size = new System.Drawing.Size(188, 22);
             this.mnuToolsOptions.Text = "Options";
             this.mnuToolsOptions.Visible = false;
             // 
             // mnuToolsOptionsUsers
             // 
             this.mnuToolsOptionsUsers.Name = "mnuToolsOptionsUsers";
-            this.mnuToolsOptionsUsers.Size = new System.Drawing.Size(142, 22);
+            this.mnuToolsOptionsUsers.Size = new System.Drawing.Size(138, 22);
             this.mnuToolsOptionsUsers.Text = "System users";
             this.mnuToolsOptionsUsers.Click += new System.EventHandler(this.mnuToolsOptionsUsers_Click);
             // 
             // mnuToolsTest
             // 
             this.mnuToolsTest.Name = "mnuToolsTest";
-            this.mnuToolsTest.Size = new System.Drawing.Size(202, 22);
+            this.mnuToolsTest.Size = new System.Drawing.Size(188, 22);
             this.mnuToolsTest.Text = "Test";
             this.mnuToolsTest.Visible = false;
             this.mnuToolsTest.Click += new System.EventHandler(this.mnuToolsTest_Click);
@@ -325,14 +325,14 @@ namespace RSMPS
             this.drawingLogToolStripMenuItem,
             this.importBudgetToolStripMenuItem});
             this.logToolStripMenuItem.Name = "logToolStripMenuItem";
-            this.logToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.logToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.logToolStripMenuItem.Text = "Logs";
             this.logToolStripMenuItem.Visible = false;
             // 
             // drawingLogToolStripMenuItem
             // 
             this.drawingLogToolStripMenuItem.Name = "drawingLogToolStripMenuItem";
-            this.drawingLogToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.drawingLogToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.drawingLogToolStripMenuItem.Text = "Drawing Log";
             this.drawingLogToolStripMenuItem.Visible = false;
             this.drawingLogToolStripMenuItem.Click += new System.EventHandler(this.drawingLogToolStripMenuItem_Click);
@@ -340,7 +340,7 @@ namespace RSMPS
             // importBudgetToolStripMenuItem
             // 
             this.importBudgetToolStripMenuItem.Name = "importBudgetToolStripMenuItem";
-            this.importBudgetToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.importBudgetToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.importBudgetToolStripMenuItem.Text = "Import Budget";
             this.importBudgetToolStripMenuItem.Visible = false;
             this.importBudgetToolStripMenuItem.Click += new System.EventHandler(this.importBudgetToolStripMenuItem_Click);
@@ -348,7 +348,7 @@ namespace RSMPS
             // projectSummaryToolStripMenuItem
             // 
             this.projectSummaryToolStripMenuItem.Name = "projectSummaryToolStripMenuItem";
-            this.projectSummaryToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.projectSummaryToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.projectSummaryToolStripMenuItem.Text = "Weekly PM Report";
             this.projectSummaryToolStripMenuItem.Visible = false;
             this.projectSummaryToolStripMenuItem.Click += new System.EventHandler(this.projectSummaryToolStripMenuItem_Click);
@@ -356,7 +356,7 @@ namespace RSMPS
             // costSummaryToolStripMenuItem
             // 
             this.costSummaryToolStripMenuItem.Name = "costSummaryToolStripMenuItem";
-            this.costSummaryToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.costSummaryToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.costSummaryToolStripMenuItem.Text = "Cost Summary";
             this.costSummaryToolStripMenuItem.Visible = false;
             this.costSummaryToolStripMenuItem.Click += new System.EventHandler(this.costSummaryToolStripMenuItem_Click);
@@ -364,7 +364,7 @@ namespace RSMPS
             // costReportsToolStripMenuItem
             // 
             this.costReportsToolStripMenuItem.Name = "costReportsToolStripMenuItem";
-            this.costReportsToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.costReportsToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.costReportsToolStripMenuItem.Text = "Forecasting Reports";
             this.costReportsToolStripMenuItem.Visible = false;
             this.costReportsToolStripMenuItem.Click += new System.EventHandler(this.costReportsToolStripMenuItem_Click);
@@ -372,28 +372,28 @@ namespace RSMPS
             // testBudgetToolStripMenuItem
             // 
             this.testBudgetToolStripMenuItem.Name = "testBudgetToolStripMenuItem";
-            this.testBudgetToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.testBudgetToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.testBudgetToolStripMenuItem.Text = "Budget Manager";
             this.testBudgetToolStripMenuItem.Click += new System.EventHandler(this.testBudgetToolStripMenuItem_Click);
             // 
             // updateMPPlanToolStripMenuItem
             // 
             this.updateMPPlanToolStripMenuItem.Name = "updateMPPlanToolStripMenuItem";
-            this.updateMPPlanToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.updateMPPlanToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.updateMPPlanToolStripMenuItem.Text = "Update MP Plan";
             this.updateMPPlanToolStripMenuItem.Click += new System.EventHandler(this.updateMPPlanToolStripMenuItem_Click);
             // 
             // updateJobStatToolStripMenuItem
             // 
             this.updateJobStatToolStripMenuItem.Name = "updateJobStatToolStripMenuItem";
-            this.updateJobStatToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.updateJobStatToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.updateJobStatToolStripMenuItem.Text = "Update JobStat";
             this.updateJobStatToolStripMenuItem.Click += new System.EventHandler(this.updateJobStatToolStripMenuItem_Click);
             // 
             // pCIManagerToolStripMenuItem
             // 
             this.pCIManagerToolStripMenuItem.Name = "pCIManagerToolStripMenuItem";
-            this.pCIManagerToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.pCIManagerToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.pCIManagerToolStripMenuItem.Text = "PCI Manager";
             this.pCIManagerToolStripMenuItem.Click += new System.EventHandler(this.pCIManagerToolStripMenuItem_Click);
             // 
@@ -409,13 +409,13 @@ namespace RSMPS
             this.issueANewTransmittalToolStripMenuItem,
             this.manageReleaseTransmittalToolStripMenuItem});
             this.mnuToolsDocRelease.Name = "mnuToolsDocRelease";
-            this.mnuToolsDocRelease.Size = new System.Drawing.Size(202, 22);
+            this.mnuToolsDocRelease.Size = new System.Drawing.Size(188, 22);
             this.mnuToolsDocRelease.Text = "Issue Documents";
             // 
             // mnuToolsTransmittalList
             // 
             this.mnuToolsTransmittalList.Name = "mnuToolsTransmittalList";
-            this.mnuToolsTransmittalList.Size = new System.Drawing.Size(284, 22);
+            this.mnuToolsTransmittalList.Size = new System.Drawing.Size(266, 22);
             this.mnuToolsTransmittalList.Text = "Transmittal list";
             this.mnuToolsTransmittalList.Visible = false;
             this.mnuToolsTransmittalList.Click += new System.EventHandler(this.mnuToolsTransmittalList_Click);
@@ -423,7 +423,7 @@ namespace RSMPS
             // mnuIssueDocRelease
             // 
             this.mnuIssueDocRelease.Name = "mnuIssueDocRelease";
-            this.mnuIssueDocRelease.Size = new System.Drawing.Size(284, 22);
+            this.mnuIssueDocRelease.Size = new System.Drawing.Size(266, 22);
             this.mnuIssueDocRelease.Text = "Issue release";
             this.mnuIssueDocRelease.Visible = false;
             this.mnuIssueDocRelease.Click += new System.EventHandler(this.mnuIssueDocRelease_Click);
@@ -431,7 +431,7 @@ namespace RSMPS
             // mnuToolsNewTransmittal
             // 
             this.mnuToolsNewTransmittal.Name = "mnuToolsNewTransmittal";
-            this.mnuToolsNewTransmittal.Size = new System.Drawing.Size(284, 22);
+            this.mnuToolsNewTransmittal.Size = new System.Drawing.Size(266, 22);
             this.mnuToolsNewTransmittal.Text = "New Transmittal";
             this.mnuToolsNewTransmittal.Visible = false;
             this.mnuToolsNewTransmittal.Click += new System.EventHandler(this.mnuToolsNewTransmittal_Click);
@@ -439,7 +439,7 @@ namespace RSMPS
             // mnuToolsTestIssue
             // 
             this.mnuToolsTestIssue.Name = "mnuToolsTestIssue";
-            this.mnuToolsTestIssue.Size = new System.Drawing.Size(284, 22);
+            this.mnuToolsTestIssue.Size = new System.Drawing.Size(266, 22);
             this.mnuToolsTestIssue.Text = "Test Issue";
             this.mnuToolsTestIssue.Visible = false;
             this.mnuToolsTestIssue.Click += new System.EventHandler(this.mnuToolsTestIssue_Click);
@@ -447,21 +447,21 @@ namespace RSMPS
             // issueANewReleaseToolStripMenuItem
             // 
             this.issueANewReleaseToolStripMenuItem.Name = "issueANewReleaseToolStripMenuItem";
-            this.issueANewReleaseToolStripMenuItem.Size = new System.Drawing.Size(284, 22);
+            this.issueANewReleaseToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
             this.issueANewReleaseToolStripMenuItem.Text = "Create Issue Release Form";
             this.issueANewReleaseToolStripMenuItem.Click += new System.EventHandler(this.issueANewReleaseToolStripMenuItem_Click);
             // 
             // manageIssueReleaseFormToolStripMenuItem
             // 
             this.manageIssueReleaseFormToolStripMenuItem.Name = "manageIssueReleaseFormToolStripMenuItem";
-            this.manageIssueReleaseFormToolStripMenuItem.Size = new System.Drawing.Size(284, 22);
+            this.manageIssueReleaseFormToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
             this.manageIssueReleaseFormToolStripMenuItem.Text = "Manage Issue Release Form";
             this.manageIssueReleaseFormToolStripMenuItem.Click += new System.EventHandler(this.manageIssueReleaseFormToolStripMenuItem_Click);
             // 
             // issueANewTransmittalToolStripMenuItem
             // 
             this.issueANewTransmittalToolStripMenuItem.Name = "issueANewTransmittalToolStripMenuItem";
-            this.issueANewTransmittalToolStripMenuItem.Size = new System.Drawing.Size(284, 22);
+            this.issueANewTransmittalToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
             this.issueANewTransmittalToolStripMenuItem.Text = "Issue a new transmittal";
             this.issueANewTransmittalToolStripMenuItem.Visible = false;
             this.issueANewTransmittalToolStripMenuItem.Click += new System.EventHandler(this.issueANewTransmittalToolStripMenuItem_Click);
@@ -469,14 +469,14 @@ namespace RSMPS
             // manageReleaseTransmittalToolStripMenuItem
             // 
             this.manageReleaseTransmittalToolStripMenuItem.Name = "manageReleaseTransmittalToolStripMenuItem";
-            this.manageReleaseTransmittalToolStripMenuItem.Size = new System.Drawing.Size(284, 22);
+            this.manageReleaseTransmittalToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
             this.manageReleaseTransmittalToolStripMenuItem.Text = "Manage Issue Release Form/Transmittal";
             this.manageReleaseTransmittalToolStripMenuItem.Click += new System.EventHandler(this.manageReleaseTransmittalToolStripMenuItem_Click);
             // 
             // viewMPPlanToolStripMenuItem
             // 
             this.viewMPPlanToolStripMenuItem.Name = "viewMPPlanToolStripMenuItem";
-            this.viewMPPlanToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.viewMPPlanToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.viewMPPlanToolStripMenuItem.Text = "View MP Plan by Project";
             this.viewMPPlanToolStripMenuItem.Click += new System.EventHandler(this.viewMPPlanToolStripMenuItem_Click);
             // 
@@ -502,124 +502,124 @@ namespace RSMPS
             this.resourceVarianceSummaryToolStripMenuItem,
             this.weeklyPMReportsToolStripMenuItem});
             this.mnuReports.Name = "mnuReports";
-            this.mnuReports.Size = new System.Drawing.Size(59, 20);
+            this.mnuReports.Size = new System.Drawing.Size(57, 20);
             this.mnuReports.Text = "&Reports";
             this.mnuReports.Click += new System.EventHandler(this.mnuReports_Click);
             // 
             // drawingLogToolStripMenuItem1
             // 
             this.drawingLogToolStripMenuItem1.Name = "drawingLogToolStripMenuItem1";
-            this.drawingLogToolStripMenuItem1.Size = new System.Drawing.Size(309, 22);
+            this.drawingLogToolStripMenuItem1.Size = new System.Drawing.Size(283, 22);
             this.drawingLogToolStripMenuItem1.Text = "Drawing Log";
             this.drawingLogToolStripMenuItem1.Click += new System.EventHandler(this.drawingLogToolStripMenuItem1_Click);
             // 
             // drawingLogForCustomerToolStripMenuItem
             // 
             this.drawingLogForCustomerToolStripMenuItem.Name = "drawingLogForCustomerToolStripMenuItem";
-            this.drawingLogForCustomerToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.drawingLogForCustomerToolStripMenuItem.Size = new System.Drawing.Size(283, 22);
             this.drawingLogForCustomerToolStripMenuItem.Text = "Drawing Log for Customer";
             this.drawingLogForCustomerToolStripMenuItem.Click += new System.EventHandler(this.drawingLogForCustomerToolStripMenuItem_Click);
             // 
             // jobStatToolStripMenuItem
             // 
             this.jobStatToolStripMenuItem.Name = "jobStatToolStripMenuItem";
-            this.jobStatToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.jobStatToolStripMenuItem.Size = new System.Drawing.Size(283, 22);
             this.jobStatToolStripMenuItem.Text = "JobStat";
             this.jobStatToolStripMenuItem.Click += new System.EventHandler(this.jobStatToolStripMenuItem_Click);
             // 
             // manpowerPlanToolStripMenuItem
             // 
             this.manpowerPlanToolStripMenuItem.Name = "manpowerPlanToolStripMenuItem";
-            this.manpowerPlanToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.manpowerPlanToolStripMenuItem.Size = new System.Drawing.Size(283, 22);
             this.manpowerPlanToolStripMenuItem.Text = "Manpower Plan";
             this.manpowerPlanToolStripMenuItem.Click += new System.EventHandler(this.manpowerPlanToolStripMenuItem_Click);
             // 
             // pCILogToolStripMenuItem
             // 
             this.pCILogToolStripMenuItem.Name = "pCILogToolStripMenuItem";
-            this.pCILogToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.pCILogToolStripMenuItem.Size = new System.Drawing.Size(283, 22);
             this.pCILogToolStripMenuItem.Text = "PCI Log";
             this.pCILogToolStripMenuItem.Click += new System.EventHandler(this.pCILogToolStripMenuItem_Click);
             // 
             // pCNLogToolStripMenuItem
             // 
             this.pCNLogToolStripMenuItem.Name = "pCNLogToolStripMenuItem";
-            this.pCNLogToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.pCNLogToolStripMenuItem.Size = new System.Drawing.Size(283, 22);
             this.pCNLogToolStripMenuItem.Text = "PCN Log";
             this.pCNLogToolStripMenuItem.Click += new System.EventHandler(this.pCNLogToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(306, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(280, 6);
             // 
             // costSummaryToolStripMenuItem1
             // 
             this.costSummaryToolStripMenuItem1.Name = "costSummaryToolStripMenuItem1";
-            this.costSummaryToolStripMenuItem1.Size = new System.Drawing.Size(309, 22);
+            this.costSummaryToolStripMenuItem1.Size = new System.Drawing.Size(283, 22);
             this.costSummaryToolStripMenuItem1.Text = "Cost Summary";
             this.costSummaryToolStripMenuItem1.Click += new System.EventHandler(this.costSummaryToolStripMenuItem1_Click);
             // 
             // forecastRemainingToolStripMenuItem
             // 
             this.forecastRemainingToolStripMenuItem.Name = "forecastRemainingToolStripMenuItem";
-            this.forecastRemainingToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.forecastRemainingToolStripMenuItem.Size = new System.Drawing.Size(283, 22);
             this.forecastRemainingToolStripMenuItem.Text = "Forecast Remaining - Engineering";
             this.forecastRemainingToolStripMenuItem.Click += new System.EventHandler(this.forecastRemainingToolStripMenuItem_Click);
             // 
             // pipelineForecastRemainingToolStripMenuItem
             // 
             this.pipelineForecastRemainingToolStripMenuItem.Name = "pipelineForecastRemainingToolStripMenuItem";
-            this.pipelineForecastRemainingToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.pipelineForecastRemainingToolStripMenuItem.Size = new System.Drawing.Size(283, 22);
             this.pipelineForecastRemainingToolStripMenuItem.Text = "Forecast Remaining - Pipeline";
             this.pipelineForecastRemainingToolStripMenuItem.Click += new System.EventHandler(this.pipelineForecastRemainingToolStripMenuItem_Click);
             // 
             // programManagementForecastRemainingToolStripMenuItem
             // 
             this.programManagementForecastRemainingToolStripMenuItem.Name = "programManagementForecastRemainingToolStripMenuItem";
-            this.programManagementForecastRemainingToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.programManagementForecastRemainingToolStripMenuItem.Size = new System.Drawing.Size(283, 22);
             this.programManagementForecastRemainingToolStripMenuItem.Text = "Forecast Remaining - Program Management";
             this.programManagementForecastRemainingToolStripMenuItem.Click += new System.EventHandler(this.programManagementForecastRemainingToolStripMenuItem_Click);
             // 
             // forecastRemainingBirminghamToolStripMenuItem
             // 
             this.forecastRemainingBirminghamToolStripMenuItem.Name = "forecastRemainingBirminghamToolStripMenuItem";
-            this.forecastRemainingBirminghamToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.forecastRemainingBirminghamToolStripMenuItem.Size = new System.Drawing.Size(283, 22);
             this.forecastRemainingBirminghamToolStripMenuItem.Text = "Forecast Remaining - Birmingham";
             this.forecastRemainingBirminghamToolStripMenuItem.Click += new System.EventHandler(this.forecastRemainingBirminghamToolStripMenuItem_Click);
             // 
             // projectForecastingToolStripMenuItem
             // 
             this.projectForecastingToolStripMenuItem.Name = "projectForecastingToolStripMenuItem";
-            this.projectForecastingToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.projectForecastingToolStripMenuItem.Size = new System.Drawing.Size(283, 22);
             this.projectForecastingToolStripMenuItem.Text = "Project Forecasting Reports";
             this.projectForecastingToolStripMenuItem.Click += new System.EventHandler(this.projectForecastingToolStripMenuItem_Click);
             // 
             // projectForecastingReportPipelinesToolStripMenuItem
             // 
             this.projectForecastingReportPipelinesToolStripMenuItem.Name = "projectForecastingReportPipelinesToolStripMenuItem";
-            this.projectForecastingReportPipelinesToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.projectForecastingReportPipelinesToolStripMenuItem.Size = new System.Drawing.Size(283, 22);
             this.projectForecastingReportPipelinesToolStripMenuItem.Text = "Project Forecasting Report - PLS";
             this.projectForecastingReportPipelinesToolStripMenuItem.Click += new System.EventHandler(this.projectForecastingReportPipelinesToolStripMenuItem_Click);
             // 
             // projectForecastingReportRollupToolStripMenuItem
             // 
             this.projectForecastingReportRollupToolStripMenuItem.Name = "projectForecastingReportRollupToolStripMenuItem";
-            this.projectForecastingReportRollupToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.projectForecastingReportRollupToolStripMenuItem.Size = new System.Drawing.Size(283, 22);
             this.projectForecastingReportRollupToolStripMenuItem.Text = "Project Forecasting Report Rollup";
             this.projectForecastingReportRollupToolStripMenuItem.Click += new System.EventHandler(this.projectForecastingReportRollupToolStripMenuItem_Click);
             // 
             // resourceVarianceToolStripMenuItem
             // 
             this.resourceVarianceToolStripMenuItem.Name = "resourceVarianceToolStripMenuItem";
-            this.resourceVarianceToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.resourceVarianceToolStripMenuItem.Size = new System.Drawing.Size(283, 22);
             this.resourceVarianceToolStripMenuItem.Text = "Resource Variance";
             this.resourceVarianceToolStripMenuItem.Click += new System.EventHandler(this.resourceVarianceToolStripMenuItem_Click);
             // 
             // resourceVarianceSummaryToolStripMenuItem
             // 
             this.resourceVarianceSummaryToolStripMenuItem.Name = "resourceVarianceSummaryToolStripMenuItem";
-            this.resourceVarianceSummaryToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.resourceVarianceSummaryToolStripMenuItem.Size = new System.Drawing.Size(283, 22);
             this.resourceVarianceSummaryToolStripMenuItem.Text = "Resource Variance Summary";
             this.resourceVarianceSummaryToolStripMenuItem.Visible = false;
             this.resourceVarianceSummaryToolStripMenuItem.Click += new System.EventHandler(this.resourceVarianceSummaryToolStripMenuItem_Click);
@@ -627,7 +627,7 @@ namespace RSMPS
             // weeklyPMReportsToolStripMenuItem
             // 
             this.weeklyPMReportsToolStripMenuItem.Name = "weeklyPMReportsToolStripMenuItem";
-            this.weeklyPMReportsToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.weeklyPMReportsToolStripMenuItem.Size = new System.Drawing.Size(283, 22);
             this.weeklyPMReportsToolStripMenuItem.Text = "Weekly PM Reports";
             this.weeklyPMReportsToolStripMenuItem.Click += new System.EventHandler(this.weeklyPMReportsToolStripMenuItem_Click);
             // 
@@ -645,13 +645,13 @@ namespace RSMPS
             this.importBudgetToolStripMenuItem1,
             this.copyBudgetToolStripMenuItem});
             this.mnuNavigate.Name = "mnuNavigate";
-            this.mnuNavigate.Size = new System.Drawing.Size(66, 20);
+            this.mnuNavigate.Size = new System.Drawing.Size(62, 20);
             this.mnuNavigate.Text = "Navigate";
             // 
             // mnuNavSchedule
             // 
             this.mnuNavSchedule.Name = "mnuNavSchedule";
-            this.mnuNavSchedule.Size = new System.Drawing.Size(178, 22);
+            this.mnuNavSchedule.Size = new System.Drawing.Size(169, 22);
             this.mnuNavSchedule.Text = "Manpower Plan";
             this.mnuNavSchedule.Visible = false;
             this.mnuNavSchedule.Click += new System.EventHandler(this.mnuNavSchedule_Click);
@@ -659,54 +659,54 @@ namespace RSMPS
             // mnuNavProjects
             // 
             this.mnuNavProjects.Name = "mnuNavProjects";
-            this.mnuNavProjects.Size = new System.Drawing.Size(178, 22);
+            this.mnuNavProjects.Size = new System.Drawing.Size(169, 22);
             this.mnuNavProjects.Text = "Proposals / Projects";
             this.mnuNavProjects.Click += new System.EventHandler(this.mnuNavProjects_Click);
             // 
             // mnuNavCust
             // 
             this.mnuNavCust.Name = "mnuNavCust";
-            this.mnuNavCust.Size = new System.Drawing.Size(178, 22);
+            this.mnuNavCust.Size = new System.Drawing.Size(169, 22);
             this.mnuNavCust.Text = "Customers";
             this.mnuNavCust.Click += new System.EventHandler(this.mnuNavCust_Click);
             // 
             // departmentsToolStripMenuItem
             // 
             this.departmentsToolStripMenuItem.Name = "departmentsToolStripMenuItem";
-            this.departmentsToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.departmentsToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.departmentsToolStripMenuItem.Text = "Departments";
             this.departmentsToolStripMenuItem.Click += new System.EventHandler(this.departmentsToolStripMenuItem_Click);
             // 
             // mnuNavEmp
             // 
             this.mnuNavEmp.Name = "mnuNavEmp";
-            this.mnuNavEmp.Size = new System.Drawing.Size(178, 22);
+            this.mnuNavEmp.Size = new System.Drawing.Size(169, 22);
             this.mnuNavEmp.Text = "Employees";
             this.mnuNavEmp.Click += new System.EventHandler(this.mnuNavEmp_Click);
             // 
             // employeeTitlesToolStripMenuItem
             // 
             this.employeeTitlesToolStripMenuItem.Name = "employeeTitlesToolStripMenuItem";
-            this.employeeTitlesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.employeeTitlesToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.employeeTitlesToolStripMenuItem.Text = "Employee Titles";
             this.employeeTitlesToolStripMenuItem.Click += new System.EventHandler(this.employeeTitlesToolStripMenuItem_Click);
             // 
             // systemUsersToolStripMenuItem
             // 
             this.systemUsersToolStripMenuItem.Name = "systemUsersToolStripMenuItem";
-            this.systemUsersToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.systemUsersToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.systemUsersToolStripMenuItem.Text = "System Users";
             this.systemUsersToolStripMenuItem.Click += new System.EventHandler(this.systemUsersToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(175, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(166, 6);
             // 
             // importBudgetToolStripMenuItem1
             // 
             this.importBudgetToolStripMenuItem1.Name = "importBudgetToolStripMenuItem1";
-            this.importBudgetToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
+            this.importBudgetToolStripMenuItem1.Size = new System.Drawing.Size(169, 22);
             this.importBudgetToolStripMenuItem1.Text = "Import Budget";
             this.importBudgetToolStripMenuItem1.Visible = false;
             this.importBudgetToolStripMenuItem1.Click += new System.EventHandler(this.importBudgetToolStripMenuItem1_Click);
@@ -714,7 +714,7 @@ namespace RSMPS
             // copyBudgetToolStripMenuItem
             // 
             this.copyBudgetToolStripMenuItem.Name = "copyBudgetToolStripMenuItem";
-            this.copyBudgetToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.copyBudgetToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.copyBudgetToolStripMenuItem.Text = "Copy Budget";
             this.copyBudgetToolStripMenuItem.Click += new System.EventHandler(this.copyBudgetToolStripMenuItem_Click);
             // 
@@ -723,13 +723,13 @@ namespace RSMPS
             this.mnuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuHelpAbout});
             this.mnuHelp.Name = "mnuHelp";
-            this.mnuHelp.Size = new System.Drawing.Size(44, 20);
+            this.mnuHelp.Size = new System.Drawing.Size(40, 20);
             this.mnuHelp.Text = "&Help";
             // 
             // mnuHelpAbout
             // 
             this.mnuHelpAbout.Name = "mnuHelpAbout";
-            this.mnuHelpAbout.Size = new System.Drawing.Size(107, 22);
+            this.mnuHelpAbout.Size = new System.Drawing.Size(152, 22);
             this.mnuHelpAbout.Text = "&About";
             this.mnuHelpAbout.Click += new System.EventHandler(this.mnuHelpAbout_Click);
             // 
@@ -737,7 +737,7 @@ namespace RSMPS
             // 
             this.mnuWindow.Enabled = false;
             this.mnuWindow.Name = "mnuWindow";
-            this.mnuWindow.Size = new System.Drawing.Size(63, 20);
+            this.mnuWindow.Size = new System.Drawing.Size(57, 20);
             this.mnuWindow.Text = "&Window";
             this.mnuWindow.Visible = false;
             // 
@@ -753,56 +753,56 @@ namespace RSMPS
             this.mnuTestInitCalendar});
             this.mnuTest.Enabled = false;
             this.mnuTest.Name = "mnuTest";
-            this.mnuTest.Size = new System.Drawing.Size(41, 20);
+            this.mnuTest.Size = new System.Drawing.Size(40, 20);
             this.mnuTest.Text = "Test";
             this.mnuTest.Visible = false;
             // 
             // mnuTestListtest
             // 
             this.mnuTestListtest.Name = "mnuTestListtest";
-            this.mnuTestListtest.Size = new System.Drawing.Size(157, 22);
+            this.mnuTestListtest.Size = new System.Drawing.Size(147, 22);
             this.mnuTestListtest.Text = "List Title";
             this.mnuTestListtest.Click += new System.EventHandler(this.mnuTestListtest_Click);
             // 
             // mnuTestListCust
             // 
             this.mnuTestListCust.Name = "mnuTestListCust";
-            this.mnuTestListCust.Size = new System.Drawing.Size(157, 22);
+            this.mnuTestListCust.Size = new System.Drawing.Size(147, 22);
             this.mnuTestListCust.Text = "List Cust";
             this.mnuTestListCust.Click += new System.EventHandler(this.mnuTestListCust_Click);
             // 
             // mnuTestListDept
             // 
             this.mnuTestListDept.Name = "mnuTestListDept";
-            this.mnuTestListDept.Size = new System.Drawing.Size(157, 22);
+            this.mnuTestListDept.Size = new System.Drawing.Size(147, 22);
             this.mnuTestListDept.Text = "List Dept";
             this.mnuTestListDept.Click += new System.EventHandler(this.mnuTestListDept_Click);
             // 
             // mnuTestListEmp
             // 
             this.mnuTestListEmp.Name = "mnuTestListEmp";
-            this.mnuTestListEmp.Size = new System.Drawing.Size(157, 22);
+            this.mnuTestListEmp.Size = new System.Drawing.Size(147, 22);
             this.mnuTestListEmp.Text = "List Emp";
             this.mnuTestListEmp.Click += new System.EventHandler(this.mnuTestListEmp_Click);
             // 
             // mnuTestListProj
             // 
             this.mnuTestListProj.Name = "mnuTestListProj";
-            this.mnuTestListProj.Size = new System.Drawing.Size(157, 22);
+            this.mnuTestListProj.Size = new System.Drawing.Size(147, 22);
             this.mnuTestListProj.Text = "List Proj";
             this.mnuTestListProj.Click += new System.EventHandler(this.mnuTestListProj_Click);
             // 
             // mnuTestSchedule
             // 
             this.mnuTestSchedule.Name = "mnuTestSchedule";
-            this.mnuTestSchedule.Size = new System.Drawing.Size(157, 22);
+            this.mnuTestSchedule.Size = new System.Drawing.Size(147, 22);
             this.mnuTestSchedule.Text = "Manpower Plan";
             this.mnuTestSchedule.Click += new System.EventHandler(this.mnuTestSchedule_Click);
             // 
             // mnuTestInitCalendar
             // 
             this.mnuTestInitCalendar.Name = "mnuTestInitCalendar";
-            this.mnuTestInitCalendar.Size = new System.Drawing.Size(157, 22);
+            this.mnuTestInitCalendar.Size = new System.Drawing.Size(147, 22);
             this.mnuTestInitCalendar.Text = "Init calendar";
             this.mnuTestInitCalendar.Click += new System.EventHandler(this.mnuTestInitCalendar_Click);
             // 
