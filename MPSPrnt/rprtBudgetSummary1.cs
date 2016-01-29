@@ -70,9 +70,11 @@ namespace RSMPS
         public void SetTitles(string jobNumber, string Desc, string revision, string customer, string location, string wbs)
         {
             if (wbs.Length > 0)
-                lblJobNumber.Text = jobNumber + " - WBS (Hello): " + wbs + " - Revision:" + revision;
+                //lblJobNumber.Text = jobNumber + " - WBS (Hello): " + wbs + " - Revision:" + revision;
+                lblJobNumber.Text = jobNumber + " - WBS: " + wbs + " - Revision:" + revision;   //****************Edited 1/29/2016
             else
-                lblJobNumber.Text = jobNumber + " - Revision (Bye):" + revision;
+                //lblJobNumber.Text = jobNumber + " - Revision (Bye):" + revision;
+            lblJobNumber.Text = jobNumber + " - Revision: " + revision;
 
             lblProject.Text = customer + "/" + location;
             lblRevision.Text = Desc;
