@@ -174,6 +174,7 @@ namespace RSMPS
             txtTotalDollars.Value = mdTotalHourDollars + mdTotalExpenses + mdContingency;
 
             string first_jobNumber = JNum.Substring(0, 1);
+            string firstthreedigits = JNum.Substring(0, 3);
 
             t_b_a = Convert.ToDecimal(mdContingency + mdTotalExpenses + mdTotalHourDollars);
 
@@ -187,15 +188,10 @@ namespace RSMPS
                 label24.Text = "";
                 label11.Text = "";
                 label13.Text = "";
-                int f_Digit = Convert.ToInt16(first_jobNumber);
-                string t_Digit = "";
-                //if (f_Digit == 7)
-                //{
-                    t_Digit = JNum.Substring(0, 3);
-                //}
+                string f_Digit = first_jobNumber;
+                string t_digit = firstthreedigits;
 
-                //else 
-                if (f_Digit == 1)
+                if (f_Digit == "1" || t_digit == "P.1")
                 {
                     label18.Text = "Project Manager";
                     label20.Text = "Business Analyst";
@@ -208,7 +204,7 @@ namespace RSMPS
                     line16.Visible = false;
                 }
 
-                else if (f_Digit == 3 || f_Digit == 6)
+                else if (f_Digit == "3" || f_Digit == "6" || t_digit == "P.3" || t_digit == "P.6" || t_digit == "5.M")
                 {
                     label18.Text = "Business Analyst";
                     label20.Text = "Project Manager";
@@ -219,7 +215,7 @@ namespace RSMPS
 
                 }
 
-                else if (f_Digit == 8 || t_Digit == "7.J")
+                else if (f_Digit == "8" || t_digit == "7.J" || t_digit == "P.8" || t_digit == "5.P")
                 {
                     label18.Text = "Business Analyst";
                     label20.Text = "Project Manager";
@@ -229,7 +225,7 @@ namespace RSMPS
                     label13.Text = "President";
 
                 }
-                else if (f_Digit == 0 || f_Digit == 2 || f_Digit == 4 || t_Digit == "7.R")
+                else if (f_Digit == "0" || f_Digit == "2" || f_Digit == "4" || t_digit == "7.R" || t_digit == "P.0" || t_digit == "P.2" || t_digit == "P.4" || t_digit == "5.E" || t_digit == "P.5" || t_digit == "P.7")
                 {
 
                     //if (total_Budget_Amount < 75000)

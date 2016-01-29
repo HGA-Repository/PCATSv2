@@ -93,16 +93,6 @@ namespace RSMPS
             chkApprovedProceed.Checked = info.IsApproved;
             chkDisApproved.Checked = info.IsDisapproved;
             chkPrepareControlEstimate.Checked = info.PrepareControlEstimate;
-            //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-            //label23.Text = info.EstimatedEngrDlrs.ToString("#,##0.00");
-
-                                            //if (info.EstimatedEngrDlrs > 40000)
- 
-                                            //label56.Text = "More than 40000";
-
-            //if (info.EstimatedEngrDlrs < 75000)
-                    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
 
             try
             {
@@ -113,17 +103,21 @@ namespace RSMPS
                 label15.Text = "";
                 label24.Text = "";
 
+                string first_jobNumber = JNum.Substring(0, 1);
+                string firstthreedigits = JNum.Substring(0, 3);
+                string f_Digit = first_jobNumber;
+                string t_digit = firstthreedigits;
+                //string f_Digit_s = "";
+                //f_Digit_s = JNum.Substring(0, 1);
+                //int f_Digit = Convert.ToInt16(f_Digit_s);
 
-                string f_Digit_s = "";
-                f_Digit_s = JNum.Substring(0, 1);
-                int f_Digit = Convert.ToInt16(f_Digit_s);
-
-                string t_Digit = "";
-                t_Digit = JNum.Substring(0, 3);
+                //string t_Digit = "";
+                //t_Digit = JNum.Substring(0, 3);
 
                 
 
-                if (f_Digit == 1)
+                //if (f_Digit == 1)
+                if (f_Digit == "1" || t_digit == "P.1")
                 {
                     label56.Text = "Project Manager";
                     label58.Text = "Business Analyst";
@@ -141,7 +135,8 @@ namespace RSMPS
 
 
 
-                else if (f_Digit == 3 || f_Digit == 6)
+                //else if (f_Digit == 3 || f_Digit == 6)
+                else if (f_Digit == "3" || f_Digit == "6" || t_digit == "P.3" || t_digit == "P.6" || t_digit == "5.M")
                 {
                     label56.Text = "Business Analyst";
                     label58.Text = "Project Manager";
@@ -152,7 +147,8 @@ namespace RSMPS
 
                 }
 
-                else if (f_Digit == 8 || t_Digit == "7.J")
+                //else if (f_Digit == 8 || t_Digit == "7.J")
+                else if (f_Digit == "8" || t_digit == "7.J" || t_digit == "P.8" || t_digit == "5.P")
                 {
                     label56.Text = "Business Analyst";
                     label58.Text = "Project Manager";
@@ -163,9 +159,11 @@ namespace RSMPS
 
                 }
 
-                else if (f_Digit == 0 || f_Digit == 2 || f_Digit == 4 || t_Digit == "7.R")
+                //else if (f_Digit == 0 || f_Digit == 2 || f_Digit == 4 || t_Digit == "7.R")
+                else if (f_Digit == "0" || f_Digit == "2" || f_Digit == "4" || t_digit == "7.R" || t_digit == "P.0" || t_digit == "P.2" || t_digit == "P.4" || t_digit == "5.E" || t_digit == "P.5" || t_digit == "P.7")
+   
                 {
-                    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                   
 
                     if (info.EstimatedEngrDlrs < 75000)
                     {
