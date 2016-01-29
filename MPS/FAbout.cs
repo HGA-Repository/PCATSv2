@@ -38,7 +38,7 @@ namespace RSMPS
             version = Application.ProductVersion;
 
 
-            lblVersion.Text = "Version: PCATS 2015.2.2";// +version;
+            lblVersion.Text = "Version: PCATS 2015.2.3";// +version;
 
         }
 
