@@ -175,6 +175,8 @@ namespace RSMPS
             txtTotalDlrs.Text = "";
             txtTotalExp.Text = "";
             txtTotalRate.Text = "";
+            txtLabor_Exp.Text = ""; //**************************Added 1/29
+
            // MessageBox.Show("Init()"); //*********************1
             LoadUOMExp();
         }
@@ -3906,6 +3908,7 @@ namespace RSMPS
             decimal dlrsTot;
             decimal rateTot;
             decimal expTot;
+            decimal L_ETot = 0;
 
             hrsTot = 0;
             dlrsTot = 0;
@@ -3919,6 +3922,7 @@ namespace RSMPS
                 expTot += RevSol.RSMath.IsDecimalEx(txtSumExpForGroup(group.Code).Text);
             }
 
+
             txtTotalHrs.Text = hrsTot.ToString(DEFAULTINTEGER);
             txtTotalDlrs.Text = dlrsTot.ToString(DEFAULTDOLLARS);
             txtTotalExp.Text = expTot.ToString(DEFAULTDOLLARS);
@@ -3929,6 +3933,9 @@ namespace RSMPS
             }
 
             txtTotalRate.Text = rateTot.ToString(DEFAULTDOLLARS);
+
+            L_ETot = dlrsTot + expTot;
+            txtLabor_Exp.Text = L_ETot.ToString(DEFAULTDOLLARS); //**************Added 1/29/16
         }
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)

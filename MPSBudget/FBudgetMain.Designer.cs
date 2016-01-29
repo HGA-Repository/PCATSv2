@@ -154,6 +154,8 @@ namespace RSMPS
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components);
             this.c1PdfDocument1 = new C1.C1Pdf.C1PdfDocument();
+            this.txtLabor_Exp = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).BeginInit();
             this.cmnuBudget.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -984,6 +986,8 @@ namespace RSMPS
             // 
             this.grpSummary.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.grpSummary.Controls.Add(this.label11);
+            this.grpSummary.Controls.Add(this.txtLabor_Exp);
             this.grpSummary.Controls.Add(this.label37);
             this.grpSummary.Controls.Add(this.panel4);
             this.grpSummary.Controls.Add(this.txtTotalExp);
@@ -1006,7 +1010,7 @@ namespace RSMPS
             // 
             this.label37.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(25, 614);
+            this.label37.Location = new System.Drawing.Point(25, 598);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(28, 13);
             this.label37.TabIndex = 60;
@@ -1029,7 +1033,7 @@ namespace RSMPS
             // 
             this.txtTotalExp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtTotalExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalExp.Location = new System.Drawing.Point(80, 612);
+            this.txtTotalExp.Location = new System.Drawing.Point(80, 596);
             this.txtTotalExp.Name = "txtTotalExp";
             this.txtTotalExp.ReadOnly = true;
             this.txtTotalExp.Size = new System.Drawing.Size(71, 18);
@@ -1040,7 +1044,7 @@ namespace RSMPS
             // 
             this.txtTotalHrs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtTotalHrs.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalHrs.Location = new System.Drawing.Point(80, 559);
+            this.txtTotalHrs.Location = new System.Drawing.Point(80, 543);
             this.txtTotalHrs.Name = "txtTotalHrs";
             this.txtTotalHrs.ReadOnly = true;
             this.txtTotalHrs.Size = new System.Drawing.Size(71, 18);
@@ -1051,7 +1055,7 @@ namespace RSMPS
             // 
             this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(8, 559);
+            this.label25.Location = new System.Drawing.Point(8, 543);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(18, 76);
             this.label25.TabIndex = 32;
@@ -1061,7 +1065,7 @@ namespace RSMPS
             // 
             this.txtTotalRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtTotalRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalRate.Location = new System.Drawing.Point(80, 595);
+            this.txtTotalRate.Location = new System.Drawing.Point(80, 579);
             this.txtTotalRate.Name = "txtTotalRate";
             this.txtTotalRate.ReadOnly = true;
             this.txtTotalRate.Size = new System.Drawing.Size(71, 18);
@@ -1072,7 +1076,7 @@ namespace RSMPS
             // 
             this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(25, 556);
+            this.label24.Location = new System.Drawing.Point(25, 540);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(26, 13);
             this.label24.TabIndex = 33;
@@ -1082,7 +1086,7 @@ namespace RSMPS
             // 
             this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(25, 596);
+            this.label31.Location = new System.Drawing.Point(25, 580);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(58, 13);
             this.label31.TabIndex = 47;
@@ -1092,7 +1096,7 @@ namespace RSMPS
             // 
             this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(25, 578);
+            this.label20.Location = new System.Drawing.Point(25, 562);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(46, 13);
             this.label20.TabIndex = 34;
@@ -1102,7 +1106,7 @@ namespace RSMPS
             // 
             this.txtTotalDlrs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtTotalDlrs.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalDlrs.Location = new System.Drawing.Point(80, 577);
+            this.txtTotalDlrs.Location = new System.Drawing.Point(80, 561);
             this.txtTotalDlrs.Name = "txtTotalDlrs";
             this.txtTotalDlrs.ReadOnly = true;
             this.txtTotalDlrs.Size = new System.Drawing.Size(71, 18);
@@ -1295,6 +1299,28 @@ namespace RSMPS
             this.c1PdfDocument1.DocumentInfo.Title = "";
             this.c1PdfDocument1.MaxHeaderBookmarkLevel = 0;
             this.c1PdfDocument1.RotateAngle = 0F;
+            this.c1PdfDocument1.UseFastTextOut = true;
+            // 
+            // txtLabor_Exp
+            // 
+            this.txtLabor_Exp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtLabor_Exp.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLabor_Exp.Location = new System.Drawing.Point(80, 620);
+            this.txtLabor_Exp.Name = "txtLabor_Exp";
+            this.txtLabor_Exp.ReadOnly = true;
+            this.txtLabor_Exp.Size = new System.Drawing.Size(71, 18);
+            this.txtLabor_Exp.TabIndex = 61;
+            this.txtLabor_Exp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(10, 622);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(64, 13);
+            this.label11.TabIndex = 62;
+            this.label11.Text = "Labor + Exp";
             // 
             // FBudgetMain
             // 
@@ -1472,6 +1498,8 @@ namespace RSMPS
 
         private C1.Win.C1Command.C1CommandLink c1CommandLink15;
         private C1.Win.C1Command.C1Command tlbbEdit;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtLabor_Exp;
 
        // private System.Windows.Forms.TabPage tabPage3; //*****************Added 5/20
     }
