@@ -463,12 +463,13 @@ namespace RSMPS
            // else
             //{ MessageBox.Show("whole no"); }
 
-            //MessageBox.Show("Saving started");
-
+          //  MessageBox.Show("Saving started");
             SaveTimeChange(e.Row, e.Col);
             SaveTimeChange_Test(e.Row, e.Col, value);
             CreateSubtotals();
-            SumRowHours(e.Row);           
+            SumRowHours(e.Row);
+            SumAllRowHours(); //*****************Added 2/1/2015
+            
         }
 
         private void fgSchedule_SelChange(object sender, EventArgs e)
@@ -529,6 +530,8 @@ namespace RSMPS
 
             fgSchedule[currRow, EMPLOYEEPTOTCOL] = totP.ToString(HOURDISPLAYFORMAT);
             fgSchedule[currRow, EMPLOYEEFTOTCOL] = totF.ToString(HOURDISPLAYFORMAT);
+
+            //MessageBox.Show("thiiiiis part");
         }
 
         private void chkActual_CheckedChanged(object sender, EventArgs e)
