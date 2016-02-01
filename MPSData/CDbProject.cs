@@ -595,6 +595,9 @@ namespace RSMPS
 
             cnn = new RSLib.CDbConnection();
             cmd = new SqlCommand("spProjectSummaryInfos_ByPMID_SumID", cnn.GetConnection());
+
+        //    cmd = new SqlCommand("spProjectSummaryInfos_ByPMID_SumID_new", cnn.GetConnection());
+
             cmd.CommandType = CommandType.StoredProcedure;
 
 

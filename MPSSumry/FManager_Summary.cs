@@ -76,7 +76,9 @@ namespace RSMPS
             pl.sumID = moProjSum.ID;
             pl.OnItemSelected += new RSLib.ListItemAction(pl_OnItemSelected);
             pl.ShowDialog();
-            pl.OnItemSelected -= new RSLib.ListItemAction(pl_OnItemSelected);
+            pl.OnItemSelected -= new RSLib.ListItemAction(pl_OnItemSelected);       
+
+
 
         }
 
@@ -112,8 +114,12 @@ namespace RSMPS
                 mdsProjInfos.Tables["ProjectInfos"].Rows.Add(d);
 
                 InfoChanged();
-                MessageBox.Show("Please Save the list");
+             
+              //  MessageBox.Show("before update" + moProjSum.ID + " ------ " + miCurrentProjectID);
+             // MessageBox.Show("Please Save the list");
             }
+
+          
         }
 
         private void bttRemoveProject_Click(object sender, EventArgs e)
@@ -592,7 +598,7 @@ namespace RSMPS
                         //ps.Save();
                         
 
-           // MessageBox.Show("Project Summary ID--" + moProjSum.ID);
+          //  MessageBox.Show("Project Summary ID--" + moProjSum.ID);
             foreach (DataRow dr in mdsProjInfos.Tables["ProjectInfos"].Rows)
             {
                 psi.Clear();
@@ -621,7 +627,8 @@ namespace RSMPS
                     if (dr["Outstanding"] == DBNull.Value) psi.Outstanding = 0;
                     else psi.Outstanding = Outstanding.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["Outstanding"]);
 
-                    psi.Save();
+                 //   psi.Save();
+                    psi.Update();
                 }
             }
                             //****************************************************************************************************************************************

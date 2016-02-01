@@ -27,12 +27,19 @@ namespace RSMPS
 
         public int mngrID;
         public int sumID;
+        public string proj;
+        public int projID;
 
         protected override void bttOpen_Click(object sender, EventArgs e)
         {
             base.bttOpen_Click(sender, e);
 
             int tmpID = Convert.ToInt32(lvwItems.SelectedItems[0].Text);
+
+
+            projID = tmpID;
+
+          
 
             if (base.mbIsSelect == true)
             {
@@ -52,6 +59,14 @@ namespace RSMPS
 
             //    pae.Close();
             //}
+
+//  MessageBox.Show(tmpID + "updating,,,....." + projID + "......" + sumID);
+
+  CBProjectSummaryInfo.Update_SummaryInfo(sumID, projID);
+
+
+  //MessageBox.Show(" Done updating,,,....." + projID + "......" + sumID);
+
         }
 
         protected override void lvwItems_DoubleClick(object sender, EventArgs e)
@@ -213,6 +228,8 @@ namespace RSMPS
 
         private void LoadItemList_ByPMSumID(int mngrID,int sumID) //*******************Added 8/4/2015
         {
+          //  MessageBox.Show("This is called");
+
             SqlDataReader dr;
             ListViewItem lvi;
 
@@ -240,15 +257,15 @@ namespace RSMPS
             sbPanStatus.Text = lvwItems.Items.Count.ToString() + " project(s)";
 
             this.Cursor = Cursors.Default;
-        }
 
 
+           // MessageBox.Show("This is called..................................................");
+        }     
+        
 
+    
 
-
-
-
-        protected override void lvwItems_SelectedIndexChanged(object sender, EventArgs e)
+        protected override void  lvwItems_SelectedIndexChanged(object sender, EventArgs e)
         {
             base.lvwItems_SelectedIndexChanged(sender, e);
 
@@ -257,5 +274,7 @@ namespace RSMPS
                 bttDelete.Enabled = false;
             }
         }
+      
     }
+
 }
