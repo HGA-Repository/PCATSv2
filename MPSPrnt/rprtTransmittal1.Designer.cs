@@ -42,6 +42,8 @@ namespace RSMPS
             this.label11 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.textBox1 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.Picture = new GrapeCity.ActiveReports.SectionReportModel.Picture();
+            this.label23 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label25 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.detail = new GrapeCity.ActiveReports.SectionReportModel.Detail();
             this.textBox8 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox9 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
@@ -109,7 +111,7 @@ namespace RSMPS
             this.label22 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.label24 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.groupFooter2 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
-            this.label23 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.textBox11 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.label1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label3)).BeginInit();
@@ -118,6 +120,8 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label25)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox10)).BeginInit();
@@ -164,7 +168,7 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label24)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // line6
@@ -194,8 +198,10 @@ namespace RSMPS
             this.label11,
             this.textBox1,
             this.Picture,
-            this.label23});
-            this.pageHeader.Height = 1.8F;
+            this.label23,
+            this.label25,
+            this.textBox11});
+            this.pageHeader.Height = 1.775F;
             this.pageHeader.Name = "pageHeader";
             this.pageHeader.Format += new System.EventHandler(this.pageHeader_Format);
             // 
@@ -310,7 +316,7 @@ namespace RSMPS
             // 
             this.textBox1.DataField = "TransmittalNumber";
             this.textBox1.Height = 0.313F;
-            this.textBox1.Left = 3.187F;
+            this.textBox1.Left = 3.312F;
             this.textBox1.Name = "textBox1";
             this.textBox1.Style = "font-size: 15.75pt; font-weight: bold; ddo-char-set: 0";
             this.textBox1.Text = "textBox1";
@@ -328,6 +334,30 @@ namespace RSMPS
             this.Picture.SizeMode = GrapeCity.ActiveReports.SectionReportModel.SizeModes.Zoom;
             this.Picture.Top = 0F;
             this.Picture.Width = 1.248F;
+            // 
+            // label23
+            // 
+            this.label23.Height = 0.625F;
+            this.label23.HyperLink = null;
+            this.label23.Left = 4.322F;
+            this.label23.Name = "label23";
+            this.label23.Style = "font-family: Times New Roman; font-size: 9.75pt; font-style: italic; text-align: " +
+    "center; ddo-char-set: 0";
+            this.label23.Text = null;
+            this.label23.Top = 0.7220001F;
+            this.label23.Width = 3.178F;
+            // 
+            // label25
+            // 
+            this.label25.Height = 0.625F;
+            this.label25.HyperLink = null;
+            this.label25.Left = 2.005F;
+            this.label25.Name = "label25";
+            this.label25.Style = "font-family: Times New Roman; font-size: 9.75pt; font-style: italic; text-align: " +
+    "center; ddo-char-set: 0";
+            this.label25.Text = null;
+            this.label25.Top = 0.7220001F;
+            this.label25.Width = 3.178F;
             // 
             // detail
             // 
@@ -625,11 +655,11 @@ namespace RSMPS
             // 
             this.textBox6.DataField = "ReleasedBy";
             this.textBox6.Height = 0.1875F;
-            this.textBox6.Left = 0.875F;
+            this.textBox6.Left = 0.8750001F;
             this.textBox6.Name = "textBox6";
             this.textBox6.Style = "font-size: 9pt; text-align: center; ddo-char-set: 0";
             this.textBox6.Text = "textBox2";
-            this.textBox6.Top = 1.187F;
+            this.textBox6.Top = 1.125F;
             this.textBox6.Width = 2.4375F;
             // 
             // textBox7
@@ -640,7 +670,7 @@ namespace RSMPS
             this.textBox7.Name = "textBox7";
             this.textBox7.Style = "font-size: 9pt; text-align: center; ddo-char-set: 0";
             this.textBox7.Text = "textBox2";
-            this.textBox7.Top = 1.187F;
+            this.textBox7.Top = 1.125F;
             this.textBox7.Width = 2.4375F;
             // 
             // groupHeader1
@@ -1133,18 +1163,16 @@ namespace RSMPS
             this.groupFooter2.Height = 0F;
             this.groupFooter2.Name = "groupFooter2";
             // 
-            // label23
+            // textBox11
             // 
-            this.label23.Height = 0.625F;
-            this.label23.HyperLink = null;
-            this.label23.Left = 4.322F;
-            this.label23.Name = "label23";
-            this.label23.Style = "font-family: Times New Roman; font-size: 9.75pt; font-style: italic; text-align: " +
-    "center; ddo-char-set: 0";
-          //  this.label23.Text = "Birmingham Office\r\nOne Metroplex Drive\r\nBirmingham, AL 35209\r\n205.970.4977 - Fax" +    " 205-970.4928";
-            //this.label23.Top = 0.659F;
-            this.label23.Top = 0.7220001F;
-            this.label23.Width = 3.178F;
+            this.textBox11.DataField = "TransmittalNumber";
+            this.textBox11.Height = 0.313F;
+            this.textBox11.Left = 0F;
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Style = "font-size: 15.75pt; font-weight: bold; text-align: center; ddo-char-set: 0";
+            this.textBox11.Text = "textBox1";
+            this.textBox11.Top = 1.461F;
+            this.textBox11.Width = 7.5F;
             // 
             // rprtTransmittal1
             // 
@@ -1178,6 +1206,8 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label25)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox10)).EndInit();
@@ -1224,7 +1254,7 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label24)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -1386,5 +1416,7 @@ namespace RSMPS
         private GrapeCity.ActiveReports.SectionReportModel.Picture Picture;
         private GrapeCity.ActiveReports.SectionReportModel.SubReport subReport4;
         private GrapeCity.ActiveReports.SectionReportModel.Label label23;
+        private GrapeCity.ActiveReports.SectionReportModel.Label label25;
+        private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox11;
     }
 }

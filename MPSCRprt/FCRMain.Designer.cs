@@ -136,8 +136,8 @@ namespace RSMPS
             // 
             // bttClose2
             // 
-            this.bttClose2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bttClose2.Location = new System.Drawing.Point(787, 289);
+            this.bttClose2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bttClose2.Location = new System.Drawing.Point(787, 229);
             this.bttClose2.Name = "bttClose2";
             this.bttClose2.Size = new System.Drawing.Size(80, 30);
             this.bttClose2.TabIndex = 13;
