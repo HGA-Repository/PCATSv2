@@ -627,8 +627,8 @@ namespace RSMPS
                     if (dr["Outstanding"] == DBNull.Value) psi.Outstanding = 0;
                     else psi.Outstanding = Outstanding.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["Outstanding"]);
 
-                 //   psi.Save();
-                    psi.Update();
+                    psi.Save();
+                  //  psi.Update();
                 }
             }
                             //****************************************************************************************************************************************
