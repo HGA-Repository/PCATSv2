@@ -317,7 +317,8 @@ namespace RSMPS
             else
             {
                 if (UseNewCodes(project) == true)
-                    cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision", cnn.GetConnection());
+                 //   cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision", cnn.GetConnection());
+                    cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision_TestOnFeb", cnn.GetConnection());
                 else
                     cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision", cnn.GetConnection());
             }
