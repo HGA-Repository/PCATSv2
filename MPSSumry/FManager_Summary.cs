@@ -492,7 +492,7 @@ namespace RSMPS
             mdsProjInfos = new dsProjectValues();
 
             dr = CBProjectSummaryInfo.GetListByProjSum(moProjSum.ID);
-            MessageBox.Show("Summary ID--" + moProjSum.ID.ToString() + "    EmployeeID --" + moProjSum.EmployeeID.ToString());
+           // MessageBox.Show("Summary ID--" + moProjSum.ID.ToString() + "    EmployeeID --" + moProjSum.EmployeeID.ToString());
 
             while (dr.Read())
             {
