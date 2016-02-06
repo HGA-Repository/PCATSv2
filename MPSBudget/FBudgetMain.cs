@@ -2747,18 +2747,18 @@ namespace RSMPS
                 {
                    // MessageBox.Show("Status Has been changed to " + newStatus );
 
-                    if (MessageBox.Show(msg, "Make Project Active", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    {
-                        CBBudget.MakeBudgetActive(li.ID);
+                    //if (MessageBox.Show(msg, "Make Project Active", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    //{
+                    //    CBBudget.MakeBudgetActive(li.ID);
 
-                        SetActiveInList();
+                    //    SetActiveInList();
 
-                        tlbbMakeActive.Enabled = false;
-                        makeActiveToolStripMenuItem.Enabled = false;
+                    //    tlbbMakeActive.Enabled = false;
+                    //    makeActiveToolStripMenuItem.Enabled = false;
 
-                        MakeProjectActiveInJobStat(li.ID);
-                        //MessageBox.Show("Project active");
-                    }
+                    //    MakeProjectActiveInJobStat(li.ID);
+                    //    //MessageBox.Show("Project active");
+                    //}
                 }
 
                 //**************************************added on 5/6

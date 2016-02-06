@@ -59,10 +59,12 @@ namespace RSMPS
                 msCurrProj = p.Number;
 
                 sbProject.Text = "for " + p.Number + "  " + p.Description;
+         
 
                 LoadDrawingList();
                 LoadWBSCodesForFilter();
                 SetAccessForSecurityLevel(miCurrDept);
+                
             }
         }
 
@@ -331,7 +333,7 @@ namespace RSMPS
             txtDepartment.Text = d.Description;
             miCurrDept = itmID;
 
-            CheckForSave();
+           // CheckForSave();
             ClearLog();
             LoadDrawingList();
             SetAccessForSecurityLevel(miCurrDept);
@@ -817,7 +819,7 @@ namespace RSMPS
             //MessageBox.Show("selected");
             if (lvwLogs.SelectedItems.Count > 0)
             {
-                CheckForSave();
+                //CheckForSave();
 
                 int tmpID = Convert.ToInt32(lvwLogs.SelectedItems[0].Text);
                 ClearLog();
@@ -830,7 +832,7 @@ namespace RSMPS
 
         private void LoadSelectedItem(int indx)
         {
-            CheckForSave();
+            //CheckForSave();
 
             int tmpID = Convert.ToInt32(lvwLogs.Items[indx].Text);
             ClearLog();
@@ -1258,6 +1260,10 @@ namespace RSMPS
             RSLib.COSecurity sec = new RSLib.COSecurity();
             CBUser u = new CBUser();
             decimal passLvl;
+            string plsoverride;
+            string plsoverridevalue;
+            plsoverride = msCurrProj;
+            plsoverridevalue = plsoverride.Substring(0, 3);
 
 
             sec.InitAppSettings();
@@ -1269,6 +1275,8 @@ namespace RSMPS
 
 
             miCurrUserID = u.ID;
+
+
             if (passLvl != 3 || u.IsAdministrator == true)
             // SSS - Removing u.IsManager - will require Moderator Configuration
             //if (passLvl != 3 || u.IsAdministrator == true || u.IsManager == true)
@@ -1297,7 +1305,7 @@ namespace RSMPS
                 groupBox1.Enabled = false;
                 panel1.Enabled = false;
                 panel2.Enabled = false;
-                txtBudgetHrs.Enabled = false;
+                //txtBudgetHrs.Enabled = false;
                 txtRemainingHrs.Enabled = false;
                 txtWBS.Enabled = false;
                 bttOpenExcel2.Enabled = false;//********12/2
@@ -1312,6 +1320,19 @@ namespace RSMPS
                 bttProjectLead.Enabled = false;
             }
 
+            if (plsoverridevalue == "8.J" || plsoverridevalue == "8.H" || plsoverridevalue == "8.A" || plsoverridevalue == "0.A" )
+            { 
+                txtBudgetHrs.Enabled = true;
+                txtBudgetHrs.Visible = true;
+                label7.Visible = false;
+                label5.Visible = false;
+                txtEarnedHrs.Visible = false;
+                txtPercentComplete.Visible = false;
+            }
+            else
+            {
+                txtBudgetHrs.Enabled = false;
+            }
             //MessageBox.Show("Pass Level" + passLvl, "Pass Level", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         CDrawingExport de = new CDrawingExport();
@@ -1361,6 +1382,11 @@ namespace RSMPS
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtBudgetHrs_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
 
               
