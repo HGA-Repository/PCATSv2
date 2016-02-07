@@ -148,6 +148,13 @@ namespace RSMPS
             return dbDt.GetCostReport(project, rprtCase, isRollup);
         }
 
+        public static DataSet GetCostReport_ForPM(string project, int rprtCase, bool isRollup) //Added 2/6/2015
+        {
+            CDbProjectBudget dbDt = new CDbProjectBudget();
+
+            return dbDt.GetCostReport_ForPM(project, rprtCase, isRollup);
+        }
+
         public static DataSet GetPCNByProject(int projSumID, int projID)
         {
             CDbProjectBudget dbDt = new CDbProjectBudget();

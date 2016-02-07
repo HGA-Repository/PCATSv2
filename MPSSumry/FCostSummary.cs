@@ -70,7 +70,8 @@ namespace RSMPS
         {
             DataSet ds;
 
-            ds = CBProjectBudget.GetCostReport(projNum, CPBudget.GetRprtCase(projNum), false);
+            //ds = CBProjectBudget.GetCostReport(projNum, CPBudget.GetRprtCase(projNum), false);
+            ds = CBProjectBudget.GetCostReport_ForPM(projNum, CPBudget.GetRprtCase(projNum), false); // added 2/6/2016
 
             int indx = 1;
             decimal tmp1, fcast;

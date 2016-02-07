@@ -142,7 +142,8 @@ namespace RSMPS
             }
             else
             {
-                ds = CBProjectBudget.GetCostReport(proj, CPBudget.GetRprtCase(proj), p.IsMaster);
+                //ds = CBProjectBudget.GetCostReport(proj, CPBudget.GetRprtCase(proj), p.IsMaster);
+                ds = CBProjectBudget.GetCostReport_ForPM(proj, CPBudget.GetRprtCase(proj), p.IsMaster); //Added 2/16/10
             }
 
             //SSS 20131104 decimal tmp1, tmp2;
