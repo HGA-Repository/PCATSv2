@@ -606,9 +606,13 @@ namespace RSMPS
                 if (Convert.ToInt32(dr["ProjectID"]) > 0)
                 {
                     psi.ID = Convert.ToInt32(dr["ID"]);
+
+                  
                     //psi.ProjSumID = ps.ID;
                     psi.ProjSumID = moProjSum.ID;
                     psi.ProjectID = Convert.ToInt32(dr["ProjectID"]);
+
+                    //MessageBox.Show(psi.ProjectID.ToString());
                     psi.Schedule = dr["Schedule"].ToString();
                     psi.ActHigh = dr["ActHigh"].ToString();
                     psi.StaffNeeds = dr["StaffNeeds"].ToString();
@@ -627,8 +631,8 @@ namespace RSMPS
                     if (dr["Outstanding"] == DBNull.Value) psi.Outstanding = 0;
                     else psi.Outstanding = Outstanding.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["Outstanding"]);
 
-                    psi.Save();
-                  //  psi.Update();
+                 //   psi.Save();
+                    psi.Update();
                 }
             }
                             //****************************************************************************************************************************************
@@ -828,7 +832,10 @@ namespace RSMPS
             }
             else
             {
-                ds = CBProjectBudget.GetCostReport(proj, CPBudget.GetRprtCase(proj), p.IsMaster);
+               // ds = CBProjectBudget.GetCostReport(proj, CPBudget.GetRprtCase(proj), p.IsMaster);
+                ds = CBProjectBudget.GetCostReport_ForPM(proj, CPBudget.GetRprtCase(proj), p.IsMaster); //Added 2/6
+
+
             }
 
             decimal tmp1, tmp2;
