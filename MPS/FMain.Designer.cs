@@ -87,7 +87,6 @@ namespace RSMPS
             this.projectForecastingReportPipelinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projectForecastingReportRollupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resourceVarianceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.resourceVarianceSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.weeklyPMReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuNavigate = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuNavSchedule = new System.Windows.Forms.ToolStripMenuItem();
@@ -499,7 +498,6 @@ namespace RSMPS
             this.projectForecastingReportPipelinesToolStripMenuItem,
             this.projectForecastingReportRollupToolStripMenuItem,
             this.resourceVarianceToolStripMenuItem,
-            this.resourceVarianceSummaryToolStripMenuItem,
             this.weeklyPMReportsToolStripMenuItem});
             this.mnuReports.Name = "mnuReports";
             this.mnuReports.Size = new System.Drawing.Size(59, 20);
@@ -599,7 +597,7 @@ namespace RSMPS
             // 
             this.projectForecastingReportPipelinesToolStripMenuItem.Name = "projectForecastingReportPipelinesToolStripMenuItem";
             this.projectForecastingReportPipelinesToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
-            this.projectForecastingReportPipelinesToolStripMenuItem.Text = "Project Forecasting Report - PLS";
+            this.projectForecastingReportPipelinesToolStripMenuItem.Text = "Project Forecasting Reports - PLS (Custom)";
             this.projectForecastingReportPipelinesToolStripMenuItem.Click += new System.EventHandler(this.projectForecastingReportPipelinesToolStripMenuItem_Click);
             // 
             // projectForecastingReportRollupToolStripMenuItem
@@ -615,14 +613,6 @@ namespace RSMPS
             this.resourceVarianceToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
             this.resourceVarianceToolStripMenuItem.Text = "Resource Variance";
             this.resourceVarianceToolStripMenuItem.Click += new System.EventHandler(this.resourceVarianceToolStripMenuItem_Click);
-            // 
-            // resourceVarianceSummaryToolStripMenuItem
-            // 
-            this.resourceVarianceSummaryToolStripMenuItem.Name = "resourceVarianceSummaryToolStripMenuItem";
-            this.resourceVarianceSummaryToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
-            this.resourceVarianceSummaryToolStripMenuItem.Text = "Resource Variance Summary";
-            this.resourceVarianceSummaryToolStripMenuItem.Visible = false;
-            this.resourceVarianceSummaryToolStripMenuItem.Click += new System.EventHandler(this.resourceVarianceSummaryToolStripMenuItem_Click);
             // 
             // weeklyPMReportsToolStripMenuItem
             // 
@@ -960,7 +950,6 @@ namespace RSMPS
         private System.Windows.Forms.ToolStripMenuItem pCILogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pCNLogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resourceVarianceToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem resourceVarianceSummaryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem issueANewReleaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem issueANewTransmittalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageReleaseTransmittalToolStripMenuItem;

@@ -460,7 +460,7 @@ namespace RSMPS
                 else
                 {
                     resourceVarianceToolStripMenuItem.Visible = true;
-                    resourceVarianceSummaryToolStripMenuItem.Visible = true;
+                    //resourceVarianceSummaryToolStripMenuItem.Visible = true;
 
                     mnuNavigate.Visible = false;
                     forecastRemainingToolStripMenuItem.Visible = false;
