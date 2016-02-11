@@ -32,7 +32,7 @@ namespace RSMPS
             // 
             // bttDelete
             // 
-            this.bttDelete.Visible = false;
+            this.bttDelete.Enabled = true;
             // 
             // FEmp_List
             // 

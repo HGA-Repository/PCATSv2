@@ -45,6 +45,10 @@ namespace RSMPS
         private Line line16;
         private decimal mdContingency = 0;
         private decimal t_b_a;
+        private Label label15;
+        private Line line22;
+        private Label label27;
+        private Line line23;
 
              
         private bool mbRate = true; //************************Added 7/22/2015
@@ -70,10 +74,8 @@ namespace RSMPS
         public void SetTitles(string jobNumber, string Desc, string revision, string customer, string location, string wbs)
         {
             if (wbs.Length > 0)
-                //lblJobNumber.Text = jobNumber + " - WBS (Hello): " + wbs + " - Revision:" + revision;
                 lblJobNumber.Text = jobNumber + " - WBS: " + wbs + " - Revision:" + revision;   //****************Edited 1/29/2016
             else
-                //lblJobNumber.Text = jobNumber + " - Revision (Bye):" + revision;
             lblJobNumber.Text = jobNumber + " - Revision: " + revision;
 
             lblProject.Text = customer + "/" + location;
@@ -180,8 +182,6 @@ namespace RSMPS
 
             t_b_a = Convert.ToDecimal(mdContingency + mdTotalExpenses + mdTotalHourDollars);
 
-            //if (t_b_a < 75000)
-            //label18.Text = "less than 75000";
             try
             {
                 label18.Text = "";
@@ -190,6 +190,7 @@ namespace RSMPS
                 label24.Text = "";
                 label11.Text = "";
                 label13.Text = "";
+                label15.Text = "";
                 string f_Digit = first_jobNumber;
                 string t_digit = firstthreedigits;
 
@@ -202,8 +203,12 @@ namespace RSMPS
                     label11.Text = "President";
                     label13.Visible = false;
                     label14.Visible = false;
+                    label15.Visible = false;
+                    label27.Visible = false;
                     line10.Visible = false;
                     line16.Visible = false;
+                    line22.Visible = false;
+                    line23.Visible = false;
                 }
 
                 else if (f_Digit == "3" || f_Digit == "6" || t_digit == "P.3" || t_digit == "P.6" || t_digit == "5.M")
@@ -214,23 +219,16 @@ namespace RSMPS
                     label24.Text = "VP of Program Management";
                     label11.Text = "Executive VP";
                     label13.Text = "President";
+                    label15.Visible = false;
+                    label27.Visible = false;
+                    line22.Visible = false;
+                    line23.Visible = false;
 
                 }
 
-                else if (f_Digit == "8" || t_digit == "7.J" || t_digit == "P.8" || t_digit == "5.P")
-                {
-                    label18.Text = "Business Analyst";
-                    label20.Text = "Project Manager";
-                    label22.Text = "Director of Projects";
-                    label24.Text = "PLS Manager";
-                    label11.Text = "Executive VP";
-                    label13.Text = "President";
-
-                }
-                else if (f_Digit == "0" || f_Digit == "2" || f_Digit == "4" || t_digit == "7.R" || t_digit == "P.0" || t_digit == "P.2" || t_digit == "P.4" || t_digit == "5.E" || t_digit == "P.5" || t_digit == "P.7")
+                else if (f_Digit == "0"  && t_digit != "0.A" || f_Digit == "2" || f_Digit == "4" || t_digit == "7.R" || t_digit == "P.0" || t_digit == "P.2" || t_digit == "P.4" || t_digit == "5.E" || t_digit == "P.5" || t_digit == "P.7")
                 {
 
-                    //if (total_Budget_Amount < 75000)
                     if (t_b_a < 75000)
                     {
                         label18.Text = "Project Management";
@@ -239,78 +237,186 @@ namespace RSMPS
                         label24.Visible = false;
                         label11.Visible = false;
                         label13.Visible = false;
+                        label15.Visible = false;
 
                         line18.Visible = false;
                         line20.Visible = false;
                         line8.Visible = false;
                         line10.Visible = false;
+                        line22.Visible = false;
 
 
                         label23.Visible = false;
                         label25.Visible = false;
                         label12.Visible = false;
                         label14.Visible = false;
+                        label27.Visible = false;
 
                         line19.Visible = false;
                         line21.Visible = false;
                         line9.Visible = false;
                         line16.Visible = false;
+                        line23.Visible = false;
 
 
                     }
 
-                    // if (total_Budget_Amount > 75000 && total_Budget_Amount <= 250000)
                     else if (t_b_a > 75000 && t_b_a <= 250000)
                     {
-                        label18.Text = "Director of Projects";
-                        label20.Text = "Engineering Manager";
-                        label22.Text = "Vice President of Sales";
-                        label24.Visible = false;
+                        label18.Text = "Relationship Manager";
+                        label20.Text = "Director of Projects";
+                        label22.Text = "Engineering Manager";
+                        label24.Text = "Vice President of Sales";
                         label11.Visible = false;
                         label13.Visible = false;
+                        label15.Visible = false;
 
-                        line20.Visible = false;
                         line8.Visible = false;
                         line10.Visible = false;
+                        line22.Visible = false;
 
-                        label25.Visible = false;
                         label12.Visible = false;
                         label14.Visible = false;
+                        label27.Visible = false;
 
-                        line21.Visible = false;
                         line9.Visible = false;
                         line16.Visible = false;
+                        line23.Visible = false;
                     }
 
-
-
-                    //if (total_Budget_Amount > 250000)
-                    else if (t_b_a > 250000)
+                    else if (t_b_a > 250000 && t_b_a <= 999999)
                     {
-                        label18.Text = "Director of Projects";
-                        label20.Text = "Engineering Manager";
-                        label22.Text = "Vice President of Sales";
-                        label24.Text = "President";
-                        label11.Visible = false;
+                        label18.Text = "Relationship Manager";
+                        label20.Text = "Director of Projects";
+                        label22.Text = "Engineering Manager";
+                        label24.Text = "Vice President of Sales";
+                        label11.Text = "VP of Engineering";
                         label13.Visible = false;
+                        label15.Visible = false;
 
-                        line8.Visible = false;
                         line10.Visible = false;
+                        line22.Visible = false;
 
-                        label12.Visible = false;
                         label14.Visible = false;
+                        label27.Visible = false;
 
-                        line9.Visible = false;
                         line16.Visible = false;
+                        line23.Visible = false;
+                    }
+                    else if (t_b_a > 999999)
+                    {
+                        label18.Text = "Relationship Manager";
+                        label20.Text = "Director of Projects";
+                        label22.Text = "Engineering Manager";
+                        label24.Text = "Vice President of Sales";
+                        label11.Text = "VP of Engineering";
+                        label13.Text = "President";
+                        label15.Visible = false;
+
+                        line22.Visible = false;
+
+                        label27.Visible = false;
+
+                        line23.Visible = false;
                     }
                 }
+                    else if (f_Digit == "8" || t_digit == "7.J" || t_digit == "P.8" || t_digit == "5.P" || t_digit == "0.A")
+                    {
 
+                        if (t_b_a < 75000)
+                        {
+                            label18.Text = "Project Manager";
+                            label20.Text = "Relationship Manager";
+                            label22.Text = "Projects Director";
+                            label24.Text = "Reg. Ops/FS Manager";
+                            label11.Visible = false;
+                            label13.Visible = false;
+                            label15.Visible = false;
+
+                            line8.Visible = false;
+                            line10.Visible = false;
+                            line22.Visible = false;
+
+                            label12.Visible = false;
+                            label14.Visible = false;
+                            label27.Visible = false;
+
+                            line9.Visible = false;
+                            line16.Visible = false;
+                            line23.Visible = false;
+
+                        }
+
+                        else if (t_b_a > 75000 && t_b_a <= 250000)
+                        {
+                            label18.Text = "Project Manager";
+                            label20.Text = "Relationship Manager";
+                            label22.Text = "Projects Director";
+                            label24.Text = "Reg. Ops/FS Manager";
+                            label11.Text = "VP of Sales";
+                            label13.Visible = false;
+                            label15.Visible = false;
+
+                            line10.Visible = false;
+                            line22.Visible = false;
+
+                            label14.Visible = false;
+                            label27.Visible = false;
+
+                            line16.Visible = false;
+                            line23.Visible = false;
+                        }
+
+                        else if (t_b_a > 250000 && t_b_a <= 999999)
+                        {
+                            label18.Text = "Project Manager";
+                            label20.Text = "Relationship Manager";
+                            label22.Text = "Projects Director";
+                            label24.Text = "Reg. Ops/FS Manager";
+                            label11.Text = "VP of Sales";
+                            label13.Text = "Executive VP";
+                            label15.Visible = false;
+
+                            line22.Visible = false;
+
+                            label27.Visible = false;
+
+                            line23.Visible = false;
+                        }
+                        else if (t_b_a > 999999)
+                        {
+                            label18.Text = "Project Manager";
+                            label20.Text = "Relationship Manager";
+                            label22.Text = "Projects Director";
+                            label24.Text = "Reg. Ops/FS Manager";
+                            label11.Text = "VP of Sales";
+                            label13.Text = "Executive VP";
+                            label15.Text = "President";
+
+                        }
+                    
+                }
 
             }
 
-            catch { Label28.Text = "###########################"; }
+            catch {
 
+                label18.Text = "Relationship Manager";
+                label20.Text = "Director of Projects";
+                label22.Text = "Engineering Manager";
+                label24.Text = "Vice President of Sales";
+                label11.Text = "VP of Engineering";
+                label13.Text = "President";
+                label15.Visible = false;
 
+                line22.Visible = false;
+
+                label27.Visible = false;
+
+                line23.Visible = false;
+            
+            }
+            
         }
 
         private void rprtBudgetSummary1_PageStart(object sender, System.EventArgs eArgs)
@@ -473,6 +579,10 @@ namespace RSMPS
             this.line10 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.label14 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.line16 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.label15 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.line22 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.label27 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.line23 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             ((System.ComponentModel.ISupportInitialize)(this.Label7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEngrLoadedDollars)).BeginInit();
@@ -523,6 +633,8 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label27)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -1198,8 +1310,12 @@ namespace RSMPS
             this.label13,
             this.line10,
             this.label14,
-            this.line16});
-            this.PageFooter.Height = 2.5F;
+            this.line16,
+            this.label15,
+            this.line22,
+            this.label27,
+            this.line23});
+            this.PageFooter.Height = 2.8F;
             this.PageFooter.Name = "PageFooter";
             this.PageFooter.Format += new System.EventHandler(this.PageFooter_Format);
             // 
@@ -1207,22 +1323,22 @@ namespace RSMPS
             // 
             this.Label28.Height = 0.2F;
             this.Label28.HyperLink = null;
-            this.Label28.Left = 0F;
+            this.Label28.Left = 0.00150001F;
             this.Label28.Name = "Label28";
             this.Label28.Style = "";
             this.Label28.Text = "Rate Schedule:";
-            this.Label28.Top = 2.019F;
+            this.Label28.Top = 2.572F;
             this.Label28.Width = 1.125F;
             // 
             // lblRateSchedule
             // 
             this.lblRateSchedule.Height = 0.1875F;
             this.lblRateSchedule.HyperLink = null;
-            this.lblRateSchedule.Left = 1.0625F;
+            this.lblRateSchedule.Left = 1.064F;
             this.lblRateSchedule.Name = "lblRateSchedule";
             this.lblRateSchedule.Style = "";
             this.lblRateSchedule.Text = "Standard";
-            this.lblRateSchedule.Top = 2.019F;
+            this.lblRateSchedule.Top = 2.572F;
             this.lblRateSchedule.Width = 2.6875F;
             // 
             // label18
@@ -1315,7 +1431,7 @@ namespace RSMPS
             this.line17.LineWeight = 1F;
             this.line17.Name = "line17";
             this.line17.Top = 0.84F;
-            this.line17.Width = 0.9999986F;
+            this.line17.Width = 0.999999F;
             this.line17.X1 = 6F;
             this.line17.X2 = 6.999999F;
             this.line17.Y1 = 0.84F;
@@ -1363,7 +1479,7 @@ namespace RSMPS
             this.line19.LineWeight = 1F;
             this.line19.Name = "line19";
             this.line19.Top = 1.14F;
-            this.line19.Width = 0.9999986F;
+            this.line19.Width = 0.999999F;
             this.line19.X1 = 5.988F;
             this.line19.X2 = 6.987999F;
             this.line19.Y1 = 1.14F;
@@ -1411,7 +1527,7 @@ namespace RSMPS
             this.line21.LineWeight = 1F;
             this.line21.Name = "line21";
             this.line21.Top = 1.44F;
-            this.line21.Width = 0.9999986F;
+            this.line21.Width = 0.999999F;
             this.line21.X1 = 5.988F;
             this.line21.X2 = 6.987999F;
             this.line21.Y1 = 1.44F;
@@ -1524,6 +1640,54 @@ namespace RSMPS
             this.line16.Y1 = 2.04F;
             this.line16.Y2 = 2.04F;
             // 
+            // label15
+            // 
+            this.label15.Height = 0.2F;
+            this.label15.HyperLink = null;
+            this.label15.Left = 0.1130006F;
+            this.label15.Name = "label15";
+            this.label15.Style = "font-weight: bold";
+            this.label15.Text = "President";
+            this.label15.Top = 2.123F;
+            this.label15.Width = 1.720001F;
+            // 
+            // line22
+            // 
+            this.line22.Height = 0F;
+            this.line22.Left = 1.913001F;
+            this.line22.LineWeight = 1F;
+            this.line22.Name = "line22";
+            this.line22.Top = 2.363F;
+            this.line22.Width = 3.375F;
+            this.line22.X1 = 1.913001F;
+            this.line22.X2 = 5.288001F;
+            this.line22.Y1 = 2.363F;
+            this.line22.Y2 = 2.363F;
+            // 
+            // label27
+            // 
+            this.label27.Height = 0.2F;
+            this.label27.HyperLink = null;
+            this.label27.Left = 5.408F;
+            this.label27.Name = "label27";
+            this.label27.Style = "font-weight: bold";
+            this.label27.Text = "Date";
+            this.label27.Top = 2.123F;
+            this.label27.Width = 0.4700003F;
+            // 
+            // line23
+            // 
+            this.line23.Height = 0F;
+            this.line23.Left = 5.988001F;
+            this.line23.LineWeight = 1F;
+            this.line23.Name = "line23";
+            this.line23.Top = 2.363F;
+            this.line23.Width = 0.9999995F;
+            this.line23.X1 = 5.988001F;
+            this.line23.X2 = 6.988001F;
+            this.line23.Y1 = 2.363F;
+            this.line23.Y2 = 2.363F;
+            // 
             // rprtBudgetSummary1
             // 
             this.MasterReport = false;
@@ -1597,6 +1761,8 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.label12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label27)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
