@@ -27,6 +27,9 @@ namespace RSMPS
         private Line line12;
         private Label label20;
         private RichTextBox richTextBox1;
+        private PageBreak pageBreak1;
+        private ReportHeader reportHeader1;
+        private ReportFooter reportFooter1;
         private decimal mdTotalExpenses = 0;
 
         public rprtPCNMain()
@@ -312,7 +315,6 @@ namespace RSMPS
 
         private SubReport subPCNHours;
         private SubReport subPCNExpenses;
-        private PageBreak pageBreak1;
         private Label label48;
         private TextBox txtDescOfChange;
         private Line line30;
@@ -402,7 +404,6 @@ namespace RSMPS
             this.Detail = new GrapeCity.ActiveReports.SectionReportModel.Detail();
             this.subPCNHours = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
             this.subPCNExpenses = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
-            this.pageBreak1 = new GrapeCity.ActiveReports.SectionReportModel.PageBreak();
             this.label48 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.txtDescOfChange = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.line30 = new GrapeCity.ActiveReports.SectionReportModel.Line();
@@ -506,6 +507,9 @@ namespace RSMPS
             this.PageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
             this.Label11 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.Label12 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.reportHeader1 = new GrapeCity.ActiveReports.SectionReportModel.ReportHeader();
+            this.reportFooter1 = new GrapeCity.ActiveReports.SectionReportModel.ReportFooter();
+            this.pageBreak1 = new GrapeCity.ActiveReports.SectionReportModel.PageBreak();
             ((System.ComponentModel.ISupportInitialize)(this.label48)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescOfChange)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label7)).BeginInit();
@@ -581,7 +585,6 @@ namespace RSMPS
             this.Detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.subPCNHours,
             this.subPCNExpenses,
-            this.pageBreak1,
             this.label48,
             this.txtDescOfChange,
             this.line30,
@@ -655,41 +658,33 @@ namespace RSMPS
             this.line11,
             this.line12,
             this.label20,
-            this.richTextBox1});
-            this.Detail.Height = 8.706F;
+            this.richTextBox1,
+            this.pageBreak1});
+            this.Detail.Height = 8.2F;
             this.Detail.Name = "Detail";
             this.Detail.Format += new System.EventHandler(this.Detail_Format);
             // 
             // subPCNHours
             // 
             this.subPCNHours.CloseBorder = false;
-            this.subPCNHours.Height = 0.1875F;
+            this.subPCNHours.Height = 0.188F;
             this.subPCNHours.Left = 0F;
             this.subPCNHours.Name = "subPCNHours";
             this.subPCNHours.Report = null;
             this.subPCNHours.ReportName = "subReport1";
-            this.subPCNHours.Top = 7.638F;
-            this.subPCNHours.Width = 7.25F;
+            this.subPCNHours.Top = 6.927001F;
+            this.subPCNHours.Width = 7.2F;
             // 
             // subPCNExpenses
             // 
             this.subPCNExpenses.CloseBorder = false;
-            this.subPCNExpenses.Height = 0.2080011F;
+            this.subPCNExpenses.Height = 0.208F;
             this.subPCNExpenses.Left = 0F;
             this.subPCNExpenses.Name = "subPCNExpenses";
             this.subPCNExpenses.Report = null;
             this.subPCNExpenses.ReportName = "subReport2";
-            this.subPCNExpenses.Top = 7.888F;
-            this.subPCNExpenses.Width = 7.25F;
-            // 
-            // pageBreak1
-            // 
-            this.pageBreak1.Height = 0.01F;
-            this.pageBreak1.Left = 0F;
-            this.pageBreak1.Name = "pageBreak1";
-            this.pageBreak1.Size = new System.Drawing.SizeF(6.5F, 0.01F);
-            this.pageBreak1.Top = 7.573F;
-            this.pageBreak1.Width = 6.5F;
+            this.subPCNExpenses.Top = 7.211F;
+            this.subPCNExpenses.Width = 7.2F;
             // 
             // label48
             // 
@@ -897,31 +892,31 @@ namespace RSMPS
             // chkApprovedProceed
             // 
             this.chkApprovedProceed.Height = 0.1874998F;
-            this.chkApprovedProceed.Left = 0.125F;
+            this.chkApprovedProceed.Left = 0.1430001F;
             this.chkApprovedProceed.Name = "chkApprovedProceed";
             this.chkApprovedProceed.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.chkApprovedProceed.Text = "Approved";
-            this.chkApprovedProceed.Top = 7.076F;
+            this.chkApprovedProceed.Top = 6.594F;
             this.chkApprovedProceed.Width = 1.062F;
             // 
             // chkDisApproved
             // 
             this.chkDisApproved.Height = 0.1874999F;
-            this.chkDisApproved.Left = 1.375F;
+            this.chkDisApproved.Left = 1.393F;
             this.chkDisApproved.Name = "chkDisApproved";
             this.chkDisApproved.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.chkDisApproved.Text = "Disapproved";
-            this.chkDisApproved.Top = 7.076F;
+            this.chkDisApproved.Top = 6.594F;
             this.chkDisApproved.Width = 1.4375F;
             // 
             // chkPrepareControlEstimate
             // 
             this.chkPrepareControlEstimate.Height = 0.1874999F;
-            this.chkPrepareControlEstimate.Left = 3.312F;
+            this.chkPrepareControlEstimate.Left = 3.33F;
             this.chkPrepareControlEstimate.Name = "chkPrepareControlEstimate";
             this.chkPrepareControlEstimate.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.chkPrepareControlEstimate.Text = "Prepare Control Estimate";
-            this.chkPrepareControlEstimate.Top = 7.076F;
+            this.chkPrepareControlEstimate.Top = 6.594F;
             this.chkPrepareControlEstimate.Width = 2.4375F;
             // 
             // txtEngrHrs
@@ -1279,49 +1274,49 @@ namespace RSMPS
             // 
             this.label64.Height = 0.225F;
             this.label64.HyperLink = null;
-            this.label64.Left = 0.0625F;
+            this.label64.Left = 0.08050013F;
             this.label64.Name = "label64";
             this.label64.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.label64.Text = "Client Authorization";
-            this.label64.Top = 6.701F;
+            this.label64.Top = 6.219F;
             this.label64.Width = 2.6875F;
             // 
             // label65
             // 
             this.label65.Height = 0.225F;
             this.label65.HyperLink = null;
-            this.label65.Left = 5.4375F;
+            this.label65.Left = 5.4555F;
             this.label65.Name = "label65";
             this.label65.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.label65.Text = "Date:";
-            this.label65.Top = 6.701F;
+            this.label65.Top = 6.219F;
             this.label65.Width = 0.4375F;
             // 
             // line48
             // 
             this.line48.Height = 0F;
-            this.line48.Left = 2.125F;
+            this.line48.Left = 2.143F;
             this.line48.LineWeight = 1F;
             this.line48.Name = "line48";
-            this.line48.Top = 6.951F;
+            this.line48.Top = 6.469F;
             this.line48.Width = 3.25F;
-            this.line48.X1 = 2.125F;
-            this.line48.X2 = 5.375F;
-            this.line48.Y1 = 6.951F;
-            this.line48.Y2 = 6.951F;
+            this.line48.X1 = 2.143F;
+            this.line48.X2 = 5.393F;
+            this.line48.Y1 = 6.469F;
+            this.line48.Y2 = 6.469F;
             // 
             // line49
             // 
             this.line49.Height = 0F;
-            this.line49.Left = 5.9375F;
+            this.line49.Left = 5.9555F;
             this.line49.LineWeight = 1F;
             this.line49.Name = "line49";
-            this.line49.Top = 6.951F;
+            this.line49.Top = 6.469F;
             this.line49.Width = 1.2125F;
-            this.line49.X1 = 5.9375F;
-            this.line49.X2 = 7.15F;
-            this.line49.Y1 = 6.951F;
-            this.line49.Y2 = 6.951F;
+            this.line49.X1 = 5.9555F;
+            this.line49.X2 = 7.168F;
+            this.line49.Y1 = 6.469F;
+            this.line49.Y2 = 6.469F;
             // 
             // line1
             // 
@@ -1363,36 +1358,36 @@ namespace RSMPS
             // 
             this.label1.Height = 0.2F;
             this.label1.HyperLink = null;
-            this.label1.Left = 4.687F;
+            this.label1.Left = 4.562F;
             this.label1.Name = "label1";
             this.label1.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.label1.Text = "Total Change:";
-            this.label1.Top = 8.2F;
+            this.label1.Top = 7.579F;
             this.label1.Width = 1.063F;
             // 
             // txtTotalChange
             // 
             this.txtTotalChange.Height = 0.2F;
-            this.txtTotalChange.Left = 6F;
+            this.txtTotalChange.Left = 5.767F;
             this.txtTotalChange.Name = "txtTotalChange";
             this.txtTotalChange.Style = "font-family: Times New Roman; font-size: 12pt; text-align: right; ddo-char-set: 0" +
     "";
             this.txtTotalChange.Text = "textBox4";
-            this.txtTotalChange.Top = 8.2F;
+            this.txtTotalChange.Top = 7.579F;
             this.txtTotalChange.Width = 1.18F;
             // 
             // line8
             // 
             this.line8.Height = 0F;
-            this.line8.Left = 6F;
+            this.line8.Left = 5.767F;
             this.line8.LineWeight = 1F;
             this.line8.Name = "line8";
-            this.line8.Top = 8.426001F;
+            this.line8.Top = 7.779F;
             this.line8.Width = 1.18F;
-            this.line8.X1 = 6F;
-            this.line8.X2 = 7.18F;
-            this.line8.Y1 = 8.426001F;
-            this.line8.Y2 = 8.426001F;
+            this.line8.X1 = 5.767F;
+            this.line8.X2 = 6.947F;
+            this.line8.Y1 = 7.779F;
+            this.line8.Y2 = 7.779F;
             // 
             // label4
             // 
@@ -1531,7 +1526,7 @@ namespace RSMPS
             this.label20.Name = "label20";
             this.label20.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.label20.Text = "Comments";
-            this.label20.Top = 8.096001F;
+            this.label20.Top = 7.554F;
             this.label20.Width = 2.6875F;
             // 
             // richTextBox1
@@ -1540,10 +1535,10 @@ namespace RSMPS
             this.richTextBox1.DataField = "Comments";
             this.richTextBox1.Font = new System.Drawing.Font("Arial", 10F);
             this.richTextBox1.Height = 0.2799995F;
-            this.richTextBox1.Left = 0.125F;
+            this.richTextBox1.Left = 0F;
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.RTF = resources.GetString("richTextBox1.RTF");
-            this.richTextBox1.Top = 8.321F;
+            this.richTextBox1.Top = 7.889F;
             this.richTextBox1.Width = 3.874F;
             // 
             // PageHeader
@@ -1888,6 +1883,23 @@ namespace RSMPS
             this.Label12.Top = 0.375F;
             this.Label12.Width = 7.25F;
             // 
+            // reportHeader1
+            // 
+            this.reportHeader1.Name = "reportHeader1";
+            // 
+            // reportFooter1
+            // 
+            this.reportFooter1.Name = "reportFooter1";
+            // 
+            // pageBreak1
+            // 
+            this.pageBreak1.Height = 0.01F;
+            this.pageBreak1.Left = 0F;
+            this.pageBreak1.Name = "pageBreak1";
+            this.pageBreak1.Size = new System.Drawing.SizeF(7.25F, 0.01F);
+            this.pageBreak1.Top = 6.855F;
+            this.pageBreak1.Width = 7.25F;
+            // 
             // rprtPCNMain
             // 
             this.MasterReport = false;
@@ -1899,9 +1911,11 @@ namespace RSMPS
             this.PageSettings.PaperHeight = 11F;
             this.PageSettings.PaperWidth = 8.5F;
             this.PrintWidth = 7.25F;
+            this.Sections.Add(this.reportHeader1);
             this.Sections.Add(this.PageHeader);
             this.Sections.Add(this.Detail);
             this.Sections.Add(this.PageFooter);
+            this.Sections.Add(this.reportFooter1);
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule(resources.GetString("$this.StyleSheet"), "Normal"));
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bo" +
             "ld; font-size: 16pt; font-size-adjust: inherit; font-stretch: inherit", "Heading1", "Normal"));

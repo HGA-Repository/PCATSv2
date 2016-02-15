@@ -150,48 +150,6 @@
   <data name="txtTotalDollars.OutputFormat" xml:space="preserve">
     <value>$#,##0.00;($#,##0.00)</value>
   </data>
-  <data name="txtEngrLoadedDollars.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00;($#,##0.00)</value>
-  </data>
-  <data name="txtEngrLoadedRate.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00;($#,##0.00)</value>
-  </data>
-  <data name="txtEngrMHrs.OutputFormat" xml:space="preserve">
-    <value>#,##0.0;(#,##0.0)</value>
-  </data>
-  <data name="txtEngrPerOfHrs.OutputFormat" xml:space="preserve">
-    <value>0.0%</value>
-  </data>
-  <data name="txtTotalLoadedDollars.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00;($#,##0.00)</value>
-  </data>
-  <data name="txtTotalLoadedRate.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00;($#,##0.00)</value>
-  </data>
-  <data name="txtTotalMHrs.OutputFormat" xml:space="preserve">
-    <value>#,##0.0;(#,##0.0)</value>
-  </data>
-  <data name="TextBox3.OutputFormat" xml:space="preserve">
-    <value>0.0%</value>
-  </data>
-  <data name="txtContingencyPerc.OutputFormat" xml:space="preserve">
-    <value>#,##0.0;(#,##0.0)</value>
-  </data>
-  <data name="txtContengency.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00;($#,##0.00)</value>
-  </data>
-  <data name="txtTotalDollars.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00;($#,##0.00)</value>
-  </data>
-  <data name="txtRateMultiplier.OutputFormat" xml:space="preserve">
-    <value>#,##0.00;(#,##0.00)</value>
-  </data>
-  <data name="txtRateOverlay.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00;($#,##0.00)</value>
-  </data>
-  <data name="textBox2.OutputFormat" xml:space="preserve">
-    <value>MM/dd/yyyy</value>
-  </data>
   <data name="Picture.ImageData" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAEAQAAABZTeXN0ZW0uSU8uTWVtb3J5U3RyZWFtCgAAAAdfYnVmZmVyB19v

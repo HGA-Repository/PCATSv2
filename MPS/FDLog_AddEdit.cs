@@ -163,11 +163,6 @@ namespace RSMPS
             txtProjectLead.Text = emp.Name;
             bttProjectLead.Enabled = false;
 
-            //if (lvwLogs.Items.Count > 0 && txtProjectLead.Text.Length > 0)
-            //    bttProjectLead.Enabled = false;
-            //else
-            //    bttProjectLead.Enabled = true;
-
             sbStatus1.Text = lvwLogs.Items.Count.ToString() + " Drawing(s)";
 
             SortDrawingList sorter = new SortDrawingList();
@@ -183,7 +178,6 @@ namespace RSMPS
                 lvwLogs.Focus();
                 lvwLogs.Items[0].Selected = true;
 
-                //LoadSelectedItem(0);
             }
         }
 
@@ -218,11 +212,6 @@ namespace RSMPS
             miCurrLead = leadID;
             txtProjectLead.Text = emp.Name;
             bttProjectLead.Enabled = false;
-
-            //if (lvwLogs.Items.Count > 0 && txtProjectLead.Text.Length > 0)
-            //    bttProjectLead.Enabled = false;
-            //else
-            //    bttProjectLead.Enabled = true;
 
             sbStatus1.Text = lvwLogs.Items.Count.ToString() + " Drawing(s)";
 
@@ -333,7 +322,6 @@ namespace RSMPS
             txtDepartment.Text = d.Description;
             miCurrDept = itmID;
 
-           // CheckForSave();
             ClearLog();
             LoadDrawingList();
             SetAccessForSecurityLevel(miCurrDept);
@@ -370,10 +358,23 @@ namespace RSMPS
         }
 
         private void bttNew_Click(object sender, EventArgs e)
+<<<<<<< HEAD
         {    ClearLog();
              if (miCurrDept == 10)
                 rdoTask.Checked = true;
            
+=======
+        {
+            ClearLog();
+            if (moDrwLog.DepartmentID == 10)
+            {
+                SetDrawingType(1);
+
+            }
+
+            else
+                SetDrawingType(moDrwLog.IsTaskDrwgSpec);
+>>>>>>> 2f2ed60c0e46bf6c84e22b052f0b818c8f7b8f09
         }
 
         private void LoadObjectToScreen()
@@ -389,20 +390,6 @@ namespace RSMPS
             ac.Load(moDrwLog.ActCodeID);
             cboActivityCodes.Text = ac.Code;
 
-            //chkIsTask.Checked = moDrwLog.IsTask;
-
-            //******************************************************* Added 9/29/2015
-       //     MessageBox.Show(moDrwLog.DepartmentID.ToString() + "Previous task/drawing/specification?   " + moDrwLog.IsTaskDrwgSpec);
-            if (moDrwLog.DepartmentID == 10)
-            {
-                SetDrawingType(1);
-                bttSave.Enabled = true;
-            }
-
-            else
-                SetDrawingType(moDrwLog.IsTaskDrwgSpec);
-                    // MessageBox.Show("New task/drawing/specification?    " + moDrwLog.IsTaskDrwgSpec);
-            //*******************************************************
             ds = new CBDrawingSize();
             ds.Load(moDrwLog.DrawingSizeID);
             cboDrawingSizes.Text = ds.Size;
@@ -468,7 +455,7 @@ namespace RSMPS
                 dtpDateLate.Value = moDrwLog.DateLate;
             }
 
-           // bttSave.Enabled = false;
+            bttSave.Enabled = false;
             bttSaveNew.Enabled = false;
         }
 
@@ -482,43 +469,42 @@ namespace RSMPS
             moDrwLog.CADNumber = txtCADNumber.Text;
             moDrwLog.ActCodeID = GetActivityCode();
 
-            //moDrwLog.IsTask = chkIsTask.Checked;
             moDrwLog.IsTaskDrwgSpec = GetDrawingType();
 
             moDrwLog.DrawingSizeID = GetDrawingSizeCode();
             moDrwLog.WBS = txtWBS.Text;
-            try
-            {
+            //try
+            //{
                 moDrwLog.BudgetHrs = Convert.ToDecimal(txtBudgetHrs.Text);
-            }
-            catch
-            {
-                moDrwLog.BudgetHrs = 0;
-            }
-            try
-            {
+            //}
+            //catch
+            //{
+            //    moDrwLog.BudgetHrs = 0;
+            //}
+            //try
+            //{
                 moDrwLog.PercentComplete = Convert.ToDecimal(txtPercentComplete.Text);
-            }
-            catch
-            {
-                moDrwLog.PercentComplete = 0;
-            }
-            try
-            {
+            //}
+            //catch
+            //{
+            //    moDrwLog.PercentComplete = 0;
+            //}
+            //try
+            //{
                 moDrwLog.RemainingHrs = Convert.ToDecimal(txtRemainingHrs.Text);
-            }
-            catch
-            {
-                moDrwLog.RemainingHrs = 0;
-            }
-            try
-            {
+            //}
+            //catch
+            //{
+            //    moDrwLog.RemainingHrs = 0;
+            //}
+            //try
+            //{
                 moDrwLog.EarnedHrs = Convert.ToDecimal(txtEarnedHrs.Text);
-            }
-            catch
-            {
-                moDrwLog.EarnedHrs = 0;
-            }
+            //}
+            //catch
+            //{
+            //    moDrwLog.EarnedHrs = 0;
+            //}
 
             moDrwLog.Title1 = txtTitle1.Text;
             moDrwLog.Title2 = txtTitle2.Text;
@@ -652,7 +638,8 @@ namespace RSMPS
 
             try
             {
-                budHrs = Convert.ToDecimal(txtBudgetHrs.Text);
+                //budHrs = Convert.ToDecimal(txtBudgetHrs.Text);
+                budHrs = txtBudgetHrs.Text.Trim() == "" ? 0 : Convert.ToDecimal(txtBudgetHrs.Text);
                 remHrs = Convert.ToDecimal(txtRemainingHrs.Text);
             }
             catch
@@ -771,8 +758,6 @@ namespace RSMPS
 
                 CheckToAddNewWBSCode(txtWBS.Text);
 
-                // clear required items
-                //txtHGANumber.Text = "";
                 txtCADNumber.Text = "";
                 EnableSaveButtons(false);
             }
@@ -810,8 +795,8 @@ namespace RSMPS
             }
         }
 
-        private void lvwLogs_DoubleClick(object sender, EventArgs e)
-        {
+        private void lvwLogs_Click(object sender, EventArgs e)
+        {// above was DoubleClick
             LoadSelectedItem();
         }
 
@@ -834,8 +819,6 @@ namespace RSMPS
 
         private void LoadSelectedItem(int indx)
         {
-            //CheckForSave();
-
             int tmpID = Convert.ToInt32(lvwLogs.Items[indx].Text);
             ClearLog();
             moDrwLog.Load(tmpID);
@@ -852,8 +835,9 @@ namespace RSMPS
                 {
                     LoadScreenToObject();
                     moDrwLog.Save();
-
                     CheckToAddNewWBSCode(txtWBS.Text);
+                    bttSave.Enabled = false;
+                    bttSaveNew.Enabled = false;
                 }
             }
         }
@@ -1249,7 +1233,7 @@ namespace RSMPS
 
         private void lvwLogs_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            CheckForSave();
         }
 
         private void txtDepartment_TextChanged(object sender, EventArgs e)
@@ -1270,19 +1254,12 @@ namespace RSMPS
             sec.InitAppSettings();
             u.Load(sec.UserID);
             passLvl = CBUserLevel.GetLevelForDepartment(u.ID, deptID);
-
-            // enable everything in case of change
-          
-
-
+         
             miCurrUserID = u.ID;
 
 
             if (passLvl != 3 || u.IsAdministrator == true)
-            // SSS - Removing u.IsManager - will require Moderator Configuration
-            //if (passLvl != 3 || u.IsAdministrator == true || u.IsManager == true)
             {
-                //mbIsModerator = true;
                 txtHGANumber.Enabled = true;
                 txtClientNumber.Enabled = true;
                 txtCADNumber.Enabled = true;
@@ -1298,7 +1275,7 @@ namespace RSMPS
               }
             else
             {
-                //mbIsModerator = false;
+
                 txtHGANumber.Enabled = false;
                 txtClientNumber.Enabled = false;
                 txtCADNumber.Enabled = false;
@@ -1306,7 +1283,8 @@ namespace RSMPS
                 groupBox1.Enabled = false;
                 panel1.Enabled = false;
                 panel2.Enabled = false;
-                //txtBudgetHrs.Enabled = false;
+                txtBudgetHrs.Enabled = true;
+                txtBudgetHrs.Visible = false;
                 txtRemainingHrs.Enabled = false;
                 txtWBS.Enabled = false;
                 bttOpenExcel2.Enabled = false;//********12/2
@@ -1334,7 +1312,6 @@ namespace RSMPS
             {
                 txtBudgetHrs.Enabled = false;
             }
-            //MessageBox.Show("Pass Level" + passLvl, "Pass Level", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         CDrawingExport de = new CDrawingExport();
         DateTime dt = DateTime.Now;
@@ -1342,7 +1319,6 @@ namespace RSMPS
         public string Get_File_Name()//***************Added 10/8/2015}
         {
             string ExFile = "JobStat Add-Edit-" + msCurrProj + "-" + "-" + miCurrDept + "_" + dt.ToString("yyyMMdd-hhmmss");
-          //  string ExFile = "JobStat Update-" + msCurrProj;
             return ExFile;
         }
       
@@ -1354,8 +1330,6 @@ namespace RSMPS
 
            de.ExportDrawing_ToExcel_Test2(miCurrProj, miCurrDept, miCurrLead, Get_File_Name());
            
-         //   MessageBox.Show(",,,,,, Loading Again!!!");
-
             LoadDrawingList();
             SetAccessForSecurityLevel(miCurrDept);
         }

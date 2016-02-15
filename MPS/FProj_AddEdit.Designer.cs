@@ -149,7 +149,7 @@ namespace RSMPS
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNumber.Location = new System.Drawing.Point(75, 19);
             this.txtNumber.Name = "txtNumber";
-            this.txtNumber.Size = new System.Drawing.Size(200, 20);
+            this.txtNumber.Size = new System.Drawing.Size(206, 20);
             this.txtNumber.TabIndex = 1;
             this.txtNumber.TextChanged += new System.EventHandler(this.txtNumber_TextChanged);
             // 
@@ -159,7 +159,7 @@ namespace RSMPS
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDescription.Location = new System.Drawing.Point(75, 45);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(200, 20);
+            this.txtDescription.Size = new System.Drawing.Size(206, 20);
             this.txtDescription.TabIndex = 3;
             this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
             // 
@@ -173,7 +173,7 @@ namespace RSMPS
             this.cboCustomer.FormattingEnabled = true;
             this.cboCustomer.Location = new System.Drawing.Point(75, 71);
             this.cboCustomer.Name = "cboCustomer";
-            this.cboCustomer.Size = new System.Drawing.Size(200, 21);
+            this.cboCustomer.Size = new System.Drawing.Size(206, 21);
             this.cboCustomer.TabIndex = 5;
             this.cboCustomer.SelectedIndexChanged += new System.EventHandler(this.cboCustomer_SelectedIndexChanged);
             // 
@@ -187,7 +187,7 @@ namespace RSMPS
             this.cboManager.FormattingEnabled = true;
             this.cboManager.Location = new System.Drawing.Point(75, 151);
             this.cboManager.Name = "cboManager";
-            this.cboManager.Size = new System.Drawing.Size(200, 21);
+            this.cboManager.Size = new System.Drawing.Size(206, 21);
             this.cboManager.TabIndex = 11;
             this.cboManager.SelectedIndexChanged += new System.EventHandler(this.cboManager_SelectedIndexChanged);
             // 
@@ -196,9 +196,9 @@ namespace RSMPS
             this.rtbNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbNotes.Location = new System.Drawing.Point(9, 19);
+            this.rtbNotes.Location = new System.Drawing.Point(15, 19);
             this.rtbNotes.Name = "rtbNotes";
-            this.rtbNotes.Size = new System.Drawing.Size(266, 315);
+            this.rtbNotes.Size = new System.Drawing.Size(272, 93);
             this.c1SpellChecker1.SetSpellChecking(this.rtbNotes, true);
             this.rtbNotes.TabIndex = 0;
             this.rtbNotes.Text = "";
@@ -253,7 +253,7 @@ namespace RSMPS
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(287, 337);
+            this.groupBox1.Size = new System.Drawing.Size(293, 337);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Description";
@@ -278,7 +278,7 @@ namespace RSMPS
             this.cboManagerLead.FormattingEnabled = true;
             this.cboManagerLead.Location = new System.Drawing.Point(75, 178);
             this.cboManagerLead.Name = "cboManagerLead";
-            this.cboManagerLead.Size = new System.Drawing.Size(200, 21);
+            this.cboManagerLead.Size = new System.Drawing.Size(206, 21);
             this.cboManagerLead.TabIndex = 12;
             this.cboManagerLead.SelectedIndexChanged += new System.EventHandler(this.cboManagerLead_SelectedIndexChanged);
             // 
@@ -297,7 +297,7 @@ namespace RSMPS
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCustomerNumber.Location = new System.Drawing.Point(75, 98);
             this.txtCustomerNumber.Name = "txtCustomerNumber";
-            this.txtCustomerNumber.Size = new System.Drawing.Size(200, 20);
+            this.txtCustomerNumber.Size = new System.Drawing.Size(206, 20);
             this.txtCustomerNumber.TabIndex = 7;
             this.txtCustomerNumber.TextChanged += new System.EventHandler(this.txtCustomerNumber_TextChanged);
             // 
@@ -307,7 +307,7 @@ namespace RSMPS
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtOverlay.Location = new System.Drawing.Point(227, 274);
             this.txtOverlay.Name = "txtOverlay";
-            this.txtOverlay.Size = new System.Drawing.Size(48, 20);
+            this.txtOverlay.Size = new System.Drawing.Size(54, 20);
             this.txtOverlay.TabIndex = 19;
             this.txtOverlay.Text = "6";
             this.txtOverlay.Visible = false;
@@ -319,7 +319,7 @@ namespace RSMPS
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMultiplier.Location = new System.Drawing.Point(127, 274);
             this.txtMultiplier.Name = "txtMultiplier";
-            this.txtMultiplier.Size = new System.Drawing.Size(48, 20);
+            this.txtMultiplier.Size = new System.Drawing.Size(54, 20);
             this.txtMultiplier.TabIndex = 17;
             this.txtMultiplier.Text = "1.85";
             this.txtMultiplier.Visible = false;
@@ -364,7 +364,7 @@ namespace RSMPS
             this.cboRateSched.FormattingEnabled = true;
             this.cboRateSched.Location = new System.Drawing.Point(75, 247);
             this.cboRateSched.Name = "cboRateSched";
-            this.cboRateSched.Size = new System.Drawing.Size(200, 21);
+            this.cboRateSched.Size = new System.Drawing.Size(206, 21);
             this.cboRateSched.TabIndex = 15;
             this.cboRateSched.SelectedIndexChanged += new System.EventHandler(this.cboRateSched_SelectedIndexChanged);
             // 
@@ -387,7 +387,7 @@ namespace RSMPS
             this.cboRelationship.FormattingEnabled = true;
             this.cboRelationship.Location = new System.Drawing.Point(75, 220);
             this.cboRelationship.Name = "cboRelationship";
-            this.cboRelationship.Size = new System.Drawing.Size(200, 21);
+            this.cboRelationship.Size = new System.Drawing.Size(206, 21);
             this.cboRelationship.TabIndex = 13;
             this.cboRelationship.SelectedIndexChanged += new System.EventHandler(this.cboRelationship_SelectedIndexChanged);
             // 
@@ -406,7 +406,7 @@ namespace RSMPS
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPOAmount.Location = new System.Drawing.Point(75, 300);
             this.txtPOAmount.Name = "txtPOAmount";
-            this.txtPOAmount.Size = new System.Drawing.Size(200, 20);
+            this.txtPOAmount.Size = new System.Drawing.Size(206, 20);
             this.txtPOAmount.TabIndex = 21;
             this.txtPOAmount.TextChanged += new System.EventHandler(this.txtPOAmount_TextChanged);
             // 
@@ -429,7 +429,7 @@ namespace RSMPS
             this.cboLocation.FormattingEnabled = true;
             this.cboLocation.Location = new System.Drawing.Point(75, 124);
             this.cboLocation.Name = "cboLocation";
-            this.cboLocation.Size = new System.Drawing.Size(200, 21);
+            this.cboLocation.Size = new System.Drawing.Size(206, 21);
             this.cboLocation.TabIndex = 9;
             this.cboLocation.SelectedIndexChanged += new System.EventHandler(this.cboLocation_SelectedIndexChanged);
             // 
@@ -448,7 +448,7 @@ namespace RSMPS
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.dtpEnd);
             this.groupBox2.Controls.Add(this.dtpStart);
-            this.groupBox2.Location = new System.Drawing.Point(305, 12);
+            this.groupBox2.Location = new System.Drawing.Point(311, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(210, 285);
             this.groupBox2.TabIndex = 1;
@@ -561,7 +561,7 @@ namespace RSMPS
             this.groupBox3.Controls.Add(this.rtbNotes);
             this.groupBox3.Location = new System.Drawing.Point(12, 355);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(287, 348);
+            this.groupBox3.Size = new System.Drawing.Size(293, 118);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Notes";
@@ -582,7 +582,7 @@ namespace RSMPS
             this.tdbgBudget.PreviewInfo.Size = new System.Drawing.Size(0, 0);
             this.tdbgBudget.PreviewInfo.ZoomFactor = 75D;
             this.tdbgBudget.PrintInfo.PageSettings = ((System.Drawing.Printing.PageSettings)(resources.GetObject("tdbgBudget.PrintInfo.PageSettings")));
-            this.tdbgBudget.Size = new System.Drawing.Size(190, 289);
+            this.tdbgBudget.Size = new System.Drawing.Size(190, 60);
             this.tdbgBudget.TabIndex = 0;
             this.tdbgBudget.Text = "c1TrueDBGrid1";
             this.tdbgBudget.AfterColUpdate += new C1.Win.C1TrueDBGrid.ColEventHandler(this.tdbgBudget_AfterColUpdate);
@@ -595,9 +595,9 @@ namespace RSMPS
             this.groupBox4.Controls.Add(this.txtBudgetTotal);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.tdbgBudget);
-            this.groupBox4.Location = new System.Drawing.Point(305, 355);
+            this.groupBox4.Location = new System.Drawing.Point(311, 319);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(210, 348);
+            this.groupBox4.Size = new System.Drawing.Size(210, 118);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Budget";
@@ -605,7 +605,7 @@ namespace RSMPS
             // txtBudgetTotal
             // 
             this.txtBudgetTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBudgetTotal.Location = new System.Drawing.Point(99, 314);
+            this.txtBudgetTotal.Location = new System.Drawing.Point(93, 89);
             this.txtBudgetTotal.Name = "txtBudgetTotal";
             this.txtBudgetTotal.ReadOnly = true;
             this.txtBudgetTotal.Size = new System.Drawing.Size(100, 20);
@@ -617,7 +617,7 @@ namespace RSMPS
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(59, 317);
+            this.label5.Location = new System.Drawing.Point(53, 92);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(34, 13);
             this.label5.TabIndex = 1;
@@ -626,7 +626,7 @@ namespace RSMPS
             // bttCancel
             // 
             this.bttCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bttCancel.Location = new System.Drawing.Point(437, 709);
+            this.bttCancel.Location = new System.Drawing.Point(443, 443);
             this.bttCancel.Name = "bttCancel";
             this.bttCancel.Size = new System.Drawing.Size(78, 30);
             this.bttCancel.TabIndex = 5;
@@ -637,7 +637,7 @@ namespace RSMPS
             // bttOK
             // 
             this.bttOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bttOK.Location = new System.Drawing.Point(353, 709);
+            this.bttOK.Location = new System.Drawing.Point(359, 443);
             this.bttOK.Name = "bttOK";
             this.bttOK.Size = new System.Drawing.Size(78, 30);
             this.bttOK.TabIndex = 4;
@@ -648,7 +648,7 @@ namespace RSMPS
             // chkIsFixedRate
             // 
             this.chkIsFixedRate.AutoSize = true;
-            this.chkIsFixedRate.Location = new System.Drawing.Point(314, 312);
+            this.chkIsFixedRate.Location = new System.Drawing.Point(311, 296);
             this.chkIsFixedRate.Name = "chkIsFixedRate";
             this.chkIsFixedRate.Size = new System.Drawing.Size(77, 17);
             this.chkIsFixedRate.TabIndex = 7;
@@ -660,7 +660,7 @@ namespace RSMPS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(529, 742);
+            this.ClientSize = new System.Drawing.Size(535, 485);
             this.ControlBox = false;
             this.Controls.Add(this.chkIsFixedRate);
             this.Controls.Add(this.bttOK);

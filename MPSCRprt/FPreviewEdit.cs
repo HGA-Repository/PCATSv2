@@ -206,10 +206,8 @@ namespace RSMPS
             cnn = new RevSol.RSConnection("CR");
 
             if (UseNewCodes(msCurrProj) == true)
-               // cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision", cnn.GetConnection());
                 cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision_Pipelines", cnn.GetConnection());
             else
-               // cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision", cnn.GetConnection());
                 cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision_Pipelines", cnn.GetConnection());
 
             cmd.CommandType = CommandType.StoredProcedure;
