@@ -601,7 +601,7 @@ namespace RSMPS
                 }
 
                 moDrwLog.Title1 = WS.Cells[indx, 16].Text;
-                moDrwLog.Title2 = WS.Cells[indx, 18].Text;
+                moDrwLog.Title2 = WS.Cells[indx, 19].Text;
                 moDrwLog.Title3 = WS.Cells[indx, 22].Text;
                 moDrwLog.Title4 = WS.Cells[indx, 25].Text;
                 moDrwLog.Title5 = WS.Cells[indx, 28].Text;
