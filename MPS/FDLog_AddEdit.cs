@@ -370,8 +370,10 @@ namespace RSMPS
         }
 
         private void bttNew_Click(object sender, EventArgs e)
-        {
-            ClearLog();
+        {    ClearLog();
+             if (miCurrDept == 10)
+                rdoTask.Checked = true;
+           
         }
 
         private void LoadObjectToScreen()
@@ -1196,7 +1198,6 @@ namespace RSMPS
         private void SetDrawingType(int taskVal)
         {
 
-          //  MessageBox.Show("Task val  .........."+taskVal.ToString());
             if (taskVal == 0)
             {
                 rdoDrawing.Checked = true;
