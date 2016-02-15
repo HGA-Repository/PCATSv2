@@ -358,23 +358,10 @@ namespace RSMPS
         }
 
         private void bttNew_Click(object sender, EventArgs e)
-<<<<<<< HEAD
+
         {    ClearLog();
-             if (miCurrDept == 10)
-                rdoTask.Checked = true;
-           
-=======
-        {
-            ClearLog();
-            if (moDrwLog.DepartmentID == 10)
-            {
-                SetDrawingType(1);
-
-            }
-
-            else
-                SetDrawingType(moDrwLog.IsTaskDrwgSpec);
->>>>>>> 2f2ed60c0e46bf6c84e22b052f0b818c8f7b8f09
+             if (miCurrDept == 10)      //**************** Added 2/15/2016
+                rdoTask.Checked = true;                   
         }
 
         private void LoadObjectToScreen()
@@ -389,6 +376,19 @@ namespace RSMPS
             ac = new CBActivityCode();
             ac.Load(moDrwLog.ActCodeID);
             cboActivityCodes.Text = ac.Code;
+
+
+            if (moDrwLog.DepartmentID == 10)
+            {
+                SetDrawingType(1);
+               // bttSave.Enabled = true;
+            }
+
+            else
+                SetDrawingType(moDrwLog.IsTaskDrwgSpec);
+            // MessageBox.Show("New task/drawing/specification?    " + moDrwLog.IsTaskDrwgSpec);
+
+
 
             ds = new CBDrawingSize();
             ds.Load(moDrwLog.DrawingSizeID);
