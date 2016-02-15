@@ -155,7 +155,8 @@ namespace RSMPS
             this.lvwLogs.View = System.Windows.Forms.View.Details;
             this.lvwLogs.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvwLogs_ColumnClick);
             this.lvwLogs.SelectedIndexChanged += new System.EventHandler(this.lvwLogs_SelectedIndexChanged);
-            this.lvwLogs.DoubleClick += new System.EventHandler(this.lvwLogs_DoubleClick);
+            this.lvwLogs.Click += new System.EventHandler(this.lvwLogs_Click);
+       
             // 
             // colID
             // 
