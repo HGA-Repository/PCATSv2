@@ -107,13 +107,14 @@ namespace RSMPS
             this.groupBox1.Controls.Add(this.tdbgWS);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1697, 350);
+            this.groupBox1.Size = new System.Drawing.Size(1697, 226);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Specifications and Procurement";
             // 
             // bttOK
             // 
+            this.bttOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bttOK.Location = new System.Drawing.Point(710, 518);
             this.bttOK.Name = "bttOK";
             this.bttOK.Size = new System.Drawing.Size(80, 30);
@@ -124,6 +125,7 @@ namespace RSMPS
             // 
             // bttCancel
             // 
+            this.bttCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bttCancel.Location = new System.Drawing.Point(796, 518);
             this.bttCancel.Name = "bttCancel";
             this.bttCancel.Size = new System.Drawing.Size(80, 30);
