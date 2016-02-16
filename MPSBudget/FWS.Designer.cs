@@ -58,9 +58,6 @@ namespace RSMPS
             this.tdbgWS.AllowColMove = false;
             this.tdbgWS.AllowSort = false;
             this.tdbgWS.AlternatingRows = true;
-            this.tdbgWS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tdbgWS.ContextMenuStrip = this.contextMenuStrip1;
             this.tdbgWS.GroupByCaption = "Drag a column header here to group by that column";
             this.tdbgWS.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbgWS.Images"))));
@@ -107,9 +104,6 @@ namespace RSMPS
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.tdbgWS);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -121,7 +115,7 @@ namespace RSMPS
             // bttOK
             // 
             this.bttOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bttOK.Location = new System.Drawing.Point(1543, 442);
+            this.bttOK.Location = new System.Drawing.Point(1532, 442);
             this.bttOK.Name = "bttOK";
             this.bttOK.Size = new System.Drawing.Size(80, 30);
             this.bttOK.TabIndex = 2;
@@ -132,7 +126,7 @@ namespace RSMPS
             // bttCancel
             // 
             this.bttCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bttCancel.Location = new System.Drawing.Point(1629, 442);
+            this.bttCancel.Location = new System.Drawing.Point(1618, 442);
             this.bttCancel.Name = "bttCancel";
             this.bttCancel.Size = new System.Drawing.Size(80, 30);
             this.bttCancel.TabIndex = 3;
@@ -142,8 +136,7 @@ namespace RSMPS
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.tdbgExpense);
             this.groupBox2.Location = new System.Drawing.Point(12, 158);
             this.groupBox2.Name = "groupBox2";
@@ -160,9 +153,7 @@ namespace RSMPS
             this.tdbgExpense.AllowRowSizing = C1.Win.C1TrueDBGrid.RowSizingEnum.None;
             this.tdbgExpense.AllowSort = false;
             this.tdbgExpense.AlternatingRows = true;
-            this.tdbgExpense.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tdbgExpense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.tdbgExpense.ContextMenuStrip = this.contextMenuStrip2;
             this.tdbgExpense.GroupByCaption = "Drag a column header here to group by that column";
             this.tdbgExpense.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbgExpense.Images"))));
@@ -210,7 +201,8 @@ namespace RSMPS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1721, 483);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1710, 483);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.bttCancel);
             this.Controls.Add(this.bttOK);
