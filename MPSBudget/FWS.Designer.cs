@@ -115,7 +115,7 @@ namespace RSMPS
             // bttOK
             // 
             this.bttOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bttOK.Location = new System.Drawing.Point(1532, 442);
+            this.bttOK.Location = new System.Drawing.Point(1531, 426);
             this.bttOK.Name = "bttOK";
             this.bttOK.Size = new System.Drawing.Size(80, 30);
             this.bttOK.TabIndex = 2;
@@ -126,7 +126,7 @@ namespace RSMPS
             // bttCancel
             // 
             this.bttCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bttCancel.Location = new System.Drawing.Point(1618, 442);
+            this.bttCancel.Location = new System.Drawing.Point(1617, 426);
             this.bttCancel.Name = "bttCancel";
             this.bttCancel.Size = new System.Drawing.Size(80, 30);
             this.bttCancel.TabIndex = 3;
@@ -138,7 +138,7 @@ namespace RSMPS
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.tdbgExpense);
-            this.groupBox2.Location = new System.Drawing.Point(12, 158);
+            this.groupBox2.Location = new System.Drawing.Point(12, 142);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1697, 278);
             this.groupBox2.TabIndex = 1;
@@ -202,7 +202,7 @@ namespace RSMPS
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1710, 483);
+            this.ClientSize = new System.Drawing.Size(1120, 483);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.bttCancel);
             this.Controls.Add(this.bttOK);
