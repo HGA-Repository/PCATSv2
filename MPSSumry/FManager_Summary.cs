@@ -510,6 +510,7 @@ namespace RSMPS
                 d["BilledtoDate"] = dr["BilledToDate"];
                 d["PaidtoDate"] = dr["PaidToDate"];
                 d["Outstanding"] = dr["Outstanding"];
+                d["DateLastModified"] = dr["DateLastModified"];
               //  d["Client"] = dr["Client"];
               //  d["Job"] = dr["Job"];
               //  d["Location"] = dr["Location"];
@@ -574,7 +575,7 @@ namespace RSMPS
                     dr["BilledToDate"] = BilledToDate.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["BilledToDate"]);
                     dr["PaidToDate"] = PaidToDate.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["PaidToDate"]);
                     dr["Outstanding"] = Outstanding.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["Outstanding"]);
-
+                    dr["DateLastModified"] = DateTime.Now; //*************Added 2/18/2016
                     break;
                 }
             }
@@ -630,10 +631,12 @@ namespace RSMPS
                     else psi.PaidtoDate = PaidToDate.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["PaidToDate"]);
                     if (dr["Outstanding"] == DBNull.Value) psi.Outstanding = 0;
                     else psi.Outstanding = Outstanding.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["Outstanding"]);
-
+                    psi.DateLastModified = dr["DateLastModified"].ToString(); //*************Added 2/18/2016
                  //   psi.Save();
                     psi.Update();
                 }
+
+              //  MessageBox.Show(psi.ID + "---------" +psi.DateLastModified);
             }
                             //****************************************************************************************************************************************
                             //********************* Commented, because No more required, 8/13/2015***********************************************************************

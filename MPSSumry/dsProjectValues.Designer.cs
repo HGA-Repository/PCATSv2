@@ -301,6 +301,8 @@ namespace RSMPS {
             
             private global::System.Data.DataColumn columnOutstanding;
             
+            private global::System.Data.DataColumn columnDateLastModified;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ProjectInfosDataTable() {
@@ -424,6 +426,14 @@ namespace RSMPS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DateLastModifiedColumn {
+                get {
+                    return this.columnDateLastModified;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -459,7 +469,7 @@ namespace RSMPS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectInfosRow AddProjectInfosRow(int ID, int ProjSumID, int ProjectID, string Schedule, string ActHigh, string StaffNeeds, string CFeedBack, decimal POAmt, decimal BilledToDate, decimal PaidToDate, decimal Outstanding) {
+            public ProjectInfosRow AddProjectInfosRow(int ID, int ProjSumID, int ProjectID, string Schedule, string ActHigh, string StaffNeeds, string CFeedBack, decimal POAmt, decimal BilledToDate, decimal PaidToDate, decimal Outstanding, string DateLastModified) {
                 ProjectInfosRow rowProjectInfosRow = ((ProjectInfosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
@@ -472,7 +482,8 @@ namespace RSMPS {
                         POAmt,
                         BilledToDate,
                         PaidToDate,
-                        Outstanding};
+                        Outstanding,
+                        DateLastModified};
                 rowProjectInfosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProjectInfosRow);
                 return rowProjectInfosRow;
@@ -506,6 +517,7 @@ namespace RSMPS {
                 this.columnBilledToDate = base.Columns["BilledToDate"];
                 this.columnPaidToDate = base.Columns["PaidToDate"];
                 this.columnOutstanding = base.Columns["Outstanding"];
+                this.columnDateLastModified = base.Columns["DateLastModified"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -533,6 +545,8 @@ namespace RSMPS {
                 base.Columns.Add(this.columnPaidToDate);
                 this.columnOutstanding = new global::System.Data.DataColumn("Outstanding", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOutstanding);
+                this.columnDateLastModified = new global::System.Data.DataColumn("DateLastModified", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateLastModified);
                 this.columnID.DefaultValue = ((int)(0));
                 this.columnProjSumID.DefaultValue = ((int)(0));
                 this.columnProjectID.DefaultValue = ((int)(0));
@@ -854,6 +868,22 @@ namespace RSMPS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DateLastModified {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectInfos.DateLastModifiedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DateLastModified\' in table \'ProjectInfos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectInfos.DateLastModifiedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsIDNull() {
                 return this.IsNull(this.tableProjectInfos.IDColumn);
             }
@@ -982,6 +1012,18 @@ namespace RSMPS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetOutstandingNull() {
                 this[this.tableProjectInfos.OutstandingColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDateLastModifiedNull() {
+                return this.IsNull(this.tableProjectInfos.DateLastModifiedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDateLastModifiedNull() {
+                this[this.tableProjectInfos.DateLastModifiedColumn] = global::System.Convert.DBNull;
             }
         }
         
