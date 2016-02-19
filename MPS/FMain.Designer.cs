@@ -862,7 +862,7 @@ namespace RSMPS
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PCATS 2015.2.1";
+            this.Text = "PCATS 2015.2.5";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FMain_FormClosing);
             this.Load += new System.EventHandler(this.FMain_Load);
             this.tsMain.ResumeLayout(false);
