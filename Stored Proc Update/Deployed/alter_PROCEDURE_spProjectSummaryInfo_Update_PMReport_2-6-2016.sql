@@ -1,6 +1,3 @@
-USE [RSManpowerSchDb2014]
-GO
-
 /****** Object:  StoredProcedure [dbo].[spProjectSummaryInfo_Update_PMReport]    Script Date: 2/6/2016 7:58:02 PM ******/
 SET ANSI_NULLS ON
 GO
