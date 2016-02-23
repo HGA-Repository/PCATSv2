@@ -194,6 +194,24 @@
     <Compile Include="rprtBudgetAccountingExps.Designer.cs">
       <DependentUpon>rprtBudgetAccountingExps.cs</DependentUpon>
     </Compile>
+    <Compile Include="rprtBudgetPCN_Innitieted.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtBudgetPCN_Innitieted.Designer.cs">
+      <DependentUpon>rprtBudgetPCN_Innitieted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtBudgetPCN_DisApproved.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtBudgetPCN_DisApproved.Designer.cs">
+      <DependentUpon>rprtBudgetPCN_DisApproved.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtBudgetPCN_Approved.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtBudgetPCN_Approved.Designer.cs">
+      <DependentUpon>rprtBudgetPCN_Approved.cs</DependentUpon>
+    </Compile>
     <Compile Include="rprtTransmittal_DocsCount.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -417,6 +435,15 @@
     <EmbeddedResource Include="rprtBudgetAccountingExps.resx">
       <DependentUpon>rprtBudgetAccountingExps.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtBudgetPCN_Innitieted.resx">
+      <DependentUpon>rprtBudgetPCN_Innitieted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtBudgetPCN_DisApproved.resx">
+      <DependentUpon>rprtBudgetPCN_DisApproved.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtBudgetPCN_Approved.resx">
+      <DependentUpon>rprtBudgetPCN_Approved.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rprtTransmittal_DocsCount.resx">
       <DependentUpon>rprtTransmittal_DocsCount.cs</DependentUpon>

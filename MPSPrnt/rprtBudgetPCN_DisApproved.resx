@@ -117,47 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="textBox4.OutputFormat" xml:space="preserve">&#xD;
-    <value>#,##0;(#,##0)</value>&#xD;
-  </data>
-  <data name="textBox5.OutputFormat" xml:space="preserve">&#xD;
-    <value>$#,##0;($#,##0)</value>&#xD;
-  </data>
-  <data name="textBox6.OutputFormat" xml:space="preserve">&#xD;
-    <value>MM/dd/yy</value>&#xD;
-  </data>
-  <data name="textBox7.OutputFormat" xml:space="preserve">&#xD;
-    <value>MM/dd/yy</value>&#xD;
-  </data>
-  <data name="textBox9.OutputFormat" xml:space="preserve">&#xD;
-    <value>$#,##0;($#,##0)</value>&#xD;
-  </data>
-  <data name="textBox10.OutputFormat" xml:space="preserve">&#xD;
-    <value>$#,##0;($#,##0)</value>&#xD;
-  </data>
-  <data name="textBox8.OutputFormat" xml:space="preserve">&#xD;
-    <value>#,##0;(#,##0)</value>&#xD;
-  </data>
-  <data name="textBox17.OutputFormat" xml:space="preserve">&#xD;
-    <value>$#,##0;($#,##0)</value>&#xD;
-  </data>
-  <data name="richTextBox1.RTF" xml:space="preserve">&#xD;
-    <value>{\rtf1{\fonttbl{\f0\fnil\fcharset0 Arial;}}{\stylesheet{\ql\li0\ri0\nowidctlpar\sl240\slmult\faauto\fs20\f0 Normal;}}\pard\plain\s0\li0\ri0\ql\nowidctlpar\sl240\slmult\faauto\f0\fs20{\f0 richTextBox1\par}}</value>&#xD;
-  </data>
-  <data name="textBox12.OutputFormat" xml:space="preserve">&#xD;
-    <value>#,##0;(#,##0)</value>&#xD;
-  </data>
-  <data name="textBox13.OutputFormat" xml:space="preserve">&#xD;
-    <value>$#,##0;($#,##0)</value>&#xD;
-  </data>
-  <data name="textBox14.OutputFormat" xml:space="preserve">&#xD;
-    <value>#,##0;(#,##0)</value>&#xD;
-  </data>
-  <data name="textBox15.OutputFormat" xml:space="preserve">&#xD;
-    <value>$#,##0;($#,##0)</value>&#xD;
-  </data>
-  <data name="textBox16.OutputFormat" xml:space="preserve">&#xD;
-    <value>$#,##0;($#,##0)</value>&#xD;
+  <data name="textBox1.OutputFormat" xml:space="preserve">
+    <value>$#,##0;($#,##0)</value>
   </data>
   <metadata name="$this.ScriptEditorPositionForUndo" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 0</value>

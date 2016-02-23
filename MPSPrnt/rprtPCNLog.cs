@@ -55,5 +55,35 @@ namespace RSMPS
                 textBox7.Value = "";
             }
         }
+
+        private void Footer_Format(object sender, EventArgs e)
+        {
+            rprtBudgetPCN_Innitieted rprtInn = new rprtBudgetPCN_Innitieted();
+            rprtBudgetPCN_Approved rprtApp = new rprtBudgetPCN_Approved();
+            rprtBudgetPCN_DisApproved rprtDis = new rprtBudgetPCN_DisApproved();
+
+            //rprtGen.TotalHours = miTotalHours;
+            rprtInn.DataSource = this.DataSource;
+            rprtInn.DataMember = "Table1";
+           // rprtGen.Rate = mbRate;
+            subReport1.Report = rprtInn;
+
+
+            rprtApp.DataSource = this.DataSource;
+            rprtApp.DataMember = "Table2";
+            // rprtGen.Rate = mbRate;
+            subReport2.Report = rprtApp;
+
+
+            rprtDis.DataSource = this.DataSource;
+            rprtDis.DataMember = "Table3";
+            // rprtGen.Rate = mbRate;
+            subReport3.Report = rprtDis;
+
+
+        }
+
+
+
     }
 }
