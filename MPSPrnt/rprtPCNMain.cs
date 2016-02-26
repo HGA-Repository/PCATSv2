@@ -155,9 +155,67 @@ namespace RSMPS
                     if (info.EstimatedEngrDlrs < 75000)
                     {
                         label56.Text = "Project Manager";
-                        label58.Text = "Relationship Manager";
-                        label59.Text = "Projects Director";
-                        label60.Text = "Reg. Ops/FS Manager";
+                        label58.Text = "Projects Director";
+                        label59.Visible = false;
+                        label60.Visible = false;
+                        label15.Visible = false;
+                        label24.Visible = false;
+                        label19.Visible = false;
+
+
+                        line43.Visible = false;
+                        line44.Visible = false;
+                        line9.Visible = false;
+                        line11.Visible = false;
+                        line13.Visible = false;
+
+                        label62.Visible = false;
+                        label63.Visible = false;
+                        label18.Visible = false;
+                        label25.Visible = false;
+                        label22.Visible = false;
+
+                        line46.Visible = false;
+                        line47.Visible = false;
+                        line10.Visible = false;
+                        line12.Visible = false;
+                        line14.Visible = false;
+
+                    }
+
+                    else if (info.EstimatedEngrDlrs > 75000 && info.EstimatedEngrDlrs <= 250000)
+                    {
+                        label56.Text = "Project Manager";
+                        label58.Text = "Projects Director";
+                        label59.Text = "Reg. Ops/FS Manager";
+                        label60.Visible = false;
+                        label15.Visible = false;
+                        label24.Visible = false;
+                        label19.Visible = false;
+
+
+                        line44.Visible = false;
+                        line9.Visible = false;
+                        line11.Visible = false;
+                        line13.Visible = false;
+
+                        label63.Visible = false;
+                        label18.Visible = false;
+                        label25.Visible = false;
+                        label22.Visible = false;
+
+                        line47.Visible = false;
+                        line10.Visible = false;
+                        line12.Visible = false;
+                        line14.Visible = false;
+                    }
+
+                    else if (info.EstimatedEngrDlrs > 250000 && info.EstimatedEngrDlrs <= 999999)
+                    {
+                        label56.Text = "Project Manager";
+                        label58.Text = "Projects Director";
+                        label59.Text = "Reg. Ops/FS Manager";
+                        label60.Text = "Executive VP";
                         label15.Visible = false;
                         label24.Visible = false;
                         label19.Visible = false;
@@ -173,16 +231,14 @@ namespace RSMPS
                         line10.Visible = false;
                         line12.Visible = false;
                         line14.Visible = false;
-
                     }
-
-                    else if (info.EstimatedEngrDlrs > 75000 && info.EstimatedEngrDlrs <= 250000)
+                    else if (info.EstimatedEngrDlrs > 999999)
                     {
                         label56.Text = "Project Manager";
-                        label58.Text = "Relationship Manager";
-                        label59.Text = "Projects Director";
-                        label60.Text = "Reg. Ops/FS Manager";
-                        label15.Text = "VP of Sales";
+                        label58.Text = "Projects Director";
+                        label59.Text = "Reg. Ops/FS Manager";
+                        label60.Text = "Executive VP";
+                        label15.Text = "President";
                         label24.Visible = false;
                         label19.Visible = false;
 
@@ -195,34 +251,7 @@ namespace RSMPS
                         line12.Visible = false;
                         line14.Visible = false;
                     }
-
-                    else if (info.EstimatedEngrDlrs > 250000 && info.EstimatedEngrDlrs <= 999999)
-                    {
-                        label56.Text = "Project Manager";
-                        label58.Text = "Relationship Manager";
-                        label59.Text = "Projects Director";
-                        label60.Text = "Reg. Ops/FS Manager";
-                        label15.Text = "VP of Sales";
-                        label24.Text = "Executive VP";
-                        label19.Visible = false;
-
-                        line13.Visible = false;
-
-                        label22.Visible = false;
-
-                        line14.Visible = false;
-                    }
-                    else if (info.EstimatedEngrDlrs > 999999)
-                    {
-                        label56.Text = "Project Manager";
-                        label58.Text = "Relationship Manager";
-                        label59.Text = "Projects Director";
-                        label60.Text = "Reg. Ops/FS Manager";
-                        label15.Text = "VP of Sales";
-                        label24.Text = "Executive VP";
-                        label19.Text = "President";
-                    }
-
+                }
                     else if (f_Digit == "0" || f_Digit == "2" || f_Digit == "4" || t_digit == "7.R" || t_digit == "P.0" || t_digit == "P.2" || t_digit == "P.4" || t_digit == "5.E" || t_digit == "P.5" || t_digit == "P.7")
                     {
 
@@ -316,7 +345,7 @@ namespace RSMPS
                             line14.Visible = false;
                         }
                     }
-                }
+                
             }
 
             catch

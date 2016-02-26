@@ -1500,7 +1500,7 @@ namespace RSMPS
         private C1.Win.C1Command.C1Command tlbbEdit;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtLabor_Exp;
-
+        private System.Windows.Forms.Button bttPrintAllPCN;
        // private System.Windows.Forms.TabPage tabPage3; //*****************Added 5/20
     }
 }
