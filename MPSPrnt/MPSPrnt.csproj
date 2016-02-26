@@ -176,6 +176,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CDrawingLogExport.cs" />
+    <Compile Include="FPrintPCNBatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FPrintPCNBatch.designer.cs">
+      <DependentUpon>FPrintPCNBatch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -424,6 +430,9 @@
     <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FPrintPCNBatch.resx">
+      <DependentUpon>FPrintPCNBatch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -83,6 +83,7 @@ namespace RSMPS
             this.cancelToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbpPCN = new System.Windows.Forms.TabPage();
+            this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.bttCopyPCN = new System.Windows.Forms.Button();
             this.tdbdPCNStatus = new C1.Win.C1TrueDBGrid.C1TrueDBDropdown();
@@ -124,6 +125,8 @@ namespace RSMPS
             this.button2 = new System.Windows.Forms.Button();
             this.tmrLoad = new System.Windows.Forms.Timer(this.components);
             this.grpSummary = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtLabor_Exp = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtTotalExp = new System.Windows.Forms.TextBox();
@@ -154,8 +157,6 @@ namespace RSMPS
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.c1SpellChecker1 = new C1.Win.C1SpellChecker.C1SpellChecker(this.components);
             this.c1PdfDocument1 = new C1.C1Pdf.C1PdfDocument();
-            this.txtLabor_Exp = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).BeginInit();
             this.cmnuBudget.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -456,60 +457,60 @@ namespace RSMPS
             this.toolStripMenuItem2,
             this.cancelToolStripMenuItem1});
             this.cmnuBudget.Name = "cmnuBudget";
-            this.cmnuBudget.Size = new System.Drawing.Size(182, 164);
+            this.cmnuBudget.Size = new System.Drawing.Size(192, 164);
             this.cmnuBudget.Opening += new System.ComponentModel.CancelEventHandler(this.cmnuBudget_Opening);
             // 
             // newBlankBudgetToolStripMenuItem
             // 
             this.newBlankBudgetToolStripMenuItem.Name = "newBlankBudgetToolStripMenuItem";
-            this.newBlankBudgetToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.newBlankBudgetToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.newBlankBudgetToolStripMenuItem.Text = "New Blank Budget";
             this.newBlankBudgetToolStripMenuItem.Click += new System.EventHandler(this.newBlankBudgetToolStripMenuItem_Click);
             // 
             // makeDefaultToolStripMenuItem
             // 
             this.makeDefaultToolStripMenuItem.Name = "makeDefaultToolStripMenuItem";
-            this.makeDefaultToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.makeDefaultToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.makeDefaultToolStripMenuItem.Text = "Make Default";
             this.makeDefaultToolStripMenuItem.Click += new System.EventHandler(this.makeDefaultToolStripMenuItem_Click);
             // 
             // makeActiveToolStripMenuItem
             // 
             this.makeActiveToolStripMenuItem.Name = "makeActiveToolStripMenuItem";
-            this.makeActiveToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.makeActiveToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.makeActiveToolStripMenuItem.Text = "Make Active";
             this.makeActiveToolStripMenuItem.Click += new System.EventHandler(this.makeActiveToolStripMenuItem_Click);
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.removeToolStripMenuItem.Text = "Remove Entire Budget";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
             // lockToolStripMenuItem
             // 
             this.lockToolStripMenuItem.Name = "lockToolStripMenuItem";
-            this.lockToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.lockToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.lockToolStripMenuItem.Text = "Lock";
             this.lockToolStripMenuItem.Click += new System.EventHandler(this.lockToolStripMenuItem_Click);
             // 
             // propertiesToolStripMenuItem
             // 
             this.propertiesToolStripMenuItem.Name = "propertiesToolStripMenuItem";
-            this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.propertiesToolStripMenuItem.Text = "Properties";
             this.propertiesToolStripMenuItem.Click += new System.EventHandler(this.propertiesToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(178, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(188, 6);
             // 
             // cancelToolStripMenuItem1
             // 
             this.cancelToolStripMenuItem1.Name = "cancelToolStripMenuItem1";
-            this.cancelToolStripMenuItem1.Size = new System.Drawing.Size(181, 22);
+            this.cancelToolStripMenuItem1.Size = new System.Drawing.Size(191, 22);
             this.cancelToolStripMenuItem1.Text = "Cancel";
             // 
             // tabControl1
@@ -534,6 +535,7 @@ namespace RSMPS
             // 
             // tbpPCN
             // 
+            this.tbpPCN.Controls.Add(this.button6);
             this.tbpPCN.Controls.Add(this.button5);
             this.tbpPCN.Controls.Add(this.bttCopyPCN);
             this.tbpPCN.Controls.Add(this.tdbdPCNStatus);
@@ -547,6 +549,16 @@ namespace RSMPS
             this.tbpPCN.TabIndex = 5;
             this.tbpPCN.Text = "PCN\'s";
             this.tbpPCN.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(433, 3);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(127, 30);
+            this.button6.TabIndex = 6;
+            this.button6.Text = "Print All PCN";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.bttPrintAllPCN_Click);
             // 
             // button5
             // 
@@ -847,32 +859,32 @@ namespace RSMPS
             this.toolStripMenuItem1,
             this.cancelToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(130, 76);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(134, 76);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // cmnuAddRow
             // 
             this.cmnuAddRow.Name = "cmnuAddRow";
-            this.cmnuAddRow.Size = new System.Drawing.Size(129, 22);
+            this.cmnuAddRow.Size = new System.Drawing.Size(133, 22);
             this.cmnuAddRow.Text = "Add Row";
             this.cmnuAddRow.Click += new System.EventHandler(this.addRowToolStripMenuItem_Click);
             // 
             // deleteRowToolStripMenuItem
             // 
             this.deleteRowToolStripMenuItem.Name = "deleteRowToolStripMenuItem";
-            this.deleteRowToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.deleteRowToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.deleteRowToolStripMenuItem.Text = "Delete Row";
             this.deleteRowToolStripMenuItem.Click += new System.EventHandler(this.deleteRowToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(126, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(130, 6);
             // 
             // cancelToolStripMenuItem
             // 
             this.cancelToolStripMenuItem.Name = "cancelToolStripMenuItem";
-            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.cancelToolStripMenuItem.Text = "Cancel";
             // 
             // label2
@@ -1005,6 +1017,27 @@ namespace RSMPS
             this.grpSummary.TabIndex = 7;
             this.grpSummary.TabStop = false;
             this.grpSummary.Text = "Hours Summary";
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(10, 622);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(64, 13);
+            this.label11.TabIndex = 62;
+            this.label11.Text = "Labor + Exp";
+            // 
+            // txtLabor_Exp
+            // 
+            this.txtLabor_Exp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtLabor_Exp.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLabor_Exp.Location = new System.Drawing.Point(80, 620);
+            this.txtLabor_Exp.Name = "txtLabor_Exp";
+            this.txtLabor_Exp.ReadOnly = true;
+            this.txtLabor_Exp.Size = new System.Drawing.Size(71, 18);
+            this.txtLabor_Exp.TabIndex = 61;
+            this.txtLabor_Exp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label37
             // 
@@ -1301,32 +1334,11 @@ namespace RSMPS
             this.c1PdfDocument1.RotateAngle = 0F;
             this.c1PdfDocument1.UseFastTextOut = true;
             // 
-            // txtLabor_Exp
-            // 
-            this.txtLabor_Exp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtLabor_Exp.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLabor_Exp.Location = new System.Drawing.Point(80, 620);
-            this.txtLabor_Exp.Name = "txtLabor_Exp";
-            this.txtLabor_Exp.ReadOnly = true;
-            this.txtLabor_Exp.Size = new System.Drawing.Size(71, 18);
-            this.txtLabor_Exp.TabIndex = 61;
-            this.txtLabor_Exp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(10, 622);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(64, 13);
-            this.label11.TabIndex = 62;
-            this.label11.Text = "Labor + Exp";
-            // 
             // FBudgetMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1172, 774);
+            this.ClientSize = new System.Drawing.Size(1172, 750);
             this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.label45);
             this.Controls.Add(this.cboWBS);
@@ -1501,6 +1513,7 @@ namespace RSMPS
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtLabor_Exp;
         private System.Windows.Forms.Button bttPrintAllPCN;
+        private System.Windows.Forms.Button button6;
        // private System.Windows.Forms.TabPage tabPage3; //*****************Added 5/20
     }
 }

@@ -80,10 +80,6 @@ namespace RSMPS
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Enabled = false;
-          //  LoadProjectList();
-            
-          //  LoadPCNList(1443);
-
             LoadPCNList(projectID);
         }
 
@@ -157,15 +153,11 @@ namespace RSMPS
             {
                 o = clstProjects.CheckedItems[j];               
                 pcnNumber = o.ToString().Substring(0, 2);
-                //MessageBox.Show(pcnNumber);
                 pcnID = GetPCNID_From_PCNNumber(pcnNumber, projID);
-             //    MessageBox.Show(pcnID.ToString());
                 indx++;
                  lblStatus.Text = "Printing - " + projNumber;
-              //  lblStatus.Text = "Saving - " + pcnNumber; //*******************Edited 12/10
                 Application.DoEvents();
                 pagesPCN = CreatePagesPCN(projNumber, pcnNumber, pcnID);
-                // MessageBox.Show(pagesPCN.Count.ToString());
 
                 for (int k = 0; k < pagesPCN.Count; k++)
                 {
@@ -173,16 +165,12 @@ namespace RSMPS
                 }
             }
 
-
             rprtMain.Document.Printer.PrinterName = printer;
             rprtMain.Document.Printer.PrinterSettings.Copies = (short)copy;
-            //rprt.Run();
             rprtMain.Document.Print(false, false);
             this.Close();
         }
-
-        
-
+      
         private void clstProjects_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             if (mbLoadingList == false)
@@ -199,9 +187,6 @@ namespace RSMPS
             RevSol.RSConnection cnn;
             SqlCommand cmd;
             SqlParameter prm;
-            //SSS 20131104 string tmpProj;
-            //SSS 20131104 string tmpLst;
-            //SSS 20131104 int cnt = 0;
 
             cnn = new RevSol.RSConnection("CR");
 
@@ -276,39 +261,24 @@ namespace RSMPS
 
             GrapeCity.ActiveReports.SectionReport rprtMain = new GrapeCity.ActiveReports.SectionReport();
             GrapeCity.ActiveReports.Export.Pdf.Section.PdfExport pdfOut;
-
-            //prntCnt = clstProjects.CheckedItems.Count;
-
             lblStatus.Visible = true;
-            ////    lblStatus.Text = "Printing";
             lblStatus.Text = "Saving"; //*******************Edited 12/10
-
-            //copy = Convert.ToInt32(numPrint.Value);
 
             Application.DoEvents();
             GrapeCity.ActiveReports.Document.Section.PagesCollection pagesPCN;
-
-            //for (int j = clstProjects.CheckedItems.Count; j > 0; j--)                
-            //    {
-            //         o = clstProjects.CheckedItems[j - 1];
 
             for (int j=0;j < clstProjects.CheckedItems.Count;j++)
             {
                 o = clstProjects.CheckedItems[j];
 
                 
-                    pcnNumber = o.ToString().Substring(0,2);
-                    //MessageBox.Show(pcnNumber);
-     
+                    pcnNumber = o.ToString().Substring(0,2);   
                    pcnID = GetPCNID_From_PCNNumber(pcnNumber, projID);
-             //      MessageBox.Show(o.ToString() + " " +  pcnNumber + "_" + pcnID.ToString());
                     indx++;
                    
-                    lblStatus.Text = "Saving - " + pcnNumber; //*******************Edited 12/10
+                    lblStatus.Text = "Saving - " + pcnNumber;
                     Application.DoEvents();
                     pagesPCN = CreatePagesPCN(projNumber, pcnNumber, pcnID);
-                   // MessageBox.Show(pagesPCN.Count.ToString());
-
                     for (int k = 0; k < pagesPCN.Count; k++)
                     {
                         rprtMain.Document.Pages.Add(pagesPCN[k]);

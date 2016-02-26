@@ -4505,11 +4505,7 @@ namespace RSMPS
             pcn.ViewForm();
             
             DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
-            int currID = Convert.ToInt32(d["ID"]);
-            //    string stat = tdbgBudgetPCN.Columns["Status"].Value.ToString();
-            //Console.WriteLine("The Status is: " + stat);
-            // if (stat == "Approved" || stat == "Pending" || stat == "Disapprove" || stat == "Prepare Control Estimate" || stat != "Initiated") { bttEditPCN.Enabled = false; }
-            //else {             
+            int currID = Convert.ToInt32(d["ID"]);           
             pcn.OnPCNChanged += new RevSol.ItemValueChangedHandler(PCNChanged);
             pcn.EditPreviousPCN(currID);
             pcn.ShowDialog();
@@ -4519,20 +4515,17 @@ namespace RSMPS
         private void FBudgetMain_FormClosing(object sender, FormClosingEventArgs e)
         { 
             
-           
-           // moLog.UpdateForBudgetWindowClosing(moLog.GetCurrentUserID(u.Username));
-          //  moLog.UpdateForBudgetWindowClosing(miCurrentUserLoginID);
-
             moLog.UpdateForBudgetWindowClosing(Common.GlobalVar.GlobalValue); //**************************12/1
-           
-           // MessageBox.Show("Budget Closed");
-
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void bttPrintAllPCN_Click(object sender, EventArgs e)
         {
-
+            FPrintPCNBatch fpb = new FPrintPCNBatch();
+            fpb.projectID = miProjectID;
+            fpb.projectNumber = msProject;
+            fpb.ShowDialog();
         }
-                       
+
+                      
     }
 }

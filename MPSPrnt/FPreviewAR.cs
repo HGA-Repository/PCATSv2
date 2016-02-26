@@ -9,13 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
-
-
 using GrapeCity.ActiveReports;
-
-//using C1.C1Excel;
-
 using DataDynamics.ActiveReports;
 
 namespace RSMPS
