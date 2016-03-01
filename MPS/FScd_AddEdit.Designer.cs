@@ -418,46 +418,46 @@ namespace RSMPS
             this.mnuSch_ProjSummary,
             this.mnuShowProjAllDepts});
             this.cmnuSchedule.Name = "cmnuSchedule";
-            this.cmnuSchedule.Size = new System.Drawing.Size(217, 214);
+            this.cmnuSchedule.Size = new System.Drawing.Size(232, 214);
             this.cmnuSchedule.Opening += new System.ComponentModel.CancelEventHandler(this.cmnuSchedule_Opening);
             // 
             // mnuSch_AddProject
             // 
             this.mnuSch_AddProject.Name = "mnuSch_AddProject";
-            this.mnuSch_AddProject.Size = new System.Drawing.Size(216, 22);
+            this.mnuSch_AddProject.Size = new System.Drawing.Size(231, 22);
             this.mnuSch_AddProject.Text = "Add Project";
             this.mnuSch_AddProject.Click += new System.EventHandler(this.mnuSch_AddProject_Click);
             // 
             // mnuSch_RmvProject
             // 
             this.mnuSch_RmvProject.Name = "mnuSch_RmvProject";
-            this.mnuSch_RmvProject.Size = new System.Drawing.Size(216, 22);
+            this.mnuSch_RmvProject.Size = new System.Drawing.Size(231, 22);
             this.mnuSch_RmvProject.Text = "Remove Project";
             this.mnuSch_RmvProject.Click += new System.EventHandler(this.mnuSch_RmvProject_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(213, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(228, 6);
             // 
             // mnuSch_AddEmployee
             // 
             this.mnuSch_AddEmployee.Name = "mnuSch_AddEmployee";
-            this.mnuSch_AddEmployee.Size = new System.Drawing.Size(216, 22);
+            this.mnuSch_AddEmployee.Size = new System.Drawing.Size(231, 22);
             this.mnuSch_AddEmployee.Text = "Add Employee";
             this.mnuSch_AddEmployee.Click += new System.EventHandler(this.mnuSch_AddEmployee_Click);
             // 
             // mnuSch_RmvEmployee
             // 
             this.mnuSch_RmvEmployee.Name = "mnuSch_RmvEmployee";
-            this.mnuSch_RmvEmployee.Size = new System.Drawing.Size(216, 22);
+            this.mnuSch_RmvEmployee.Size = new System.Drawing.Size(231, 22);
             this.mnuSch_RmvEmployee.Text = "Remove Employee";
             this.mnuSch_RmvEmployee.Click += new System.EventHandler(this.mnuSch_RmvEmployee_Click);
             // 
             // mnuSch_SwapEmployee
             // 
             this.mnuSch_SwapEmployee.Name = "mnuSch_SwapEmployee";
-            this.mnuSch_SwapEmployee.Size = new System.Drawing.Size(216, 22);
+            this.mnuSch_SwapEmployee.Size = new System.Drawing.Size(231, 22);
             this.mnuSch_SwapEmployee.Text = "Swap Employee";
             this.mnuSch_SwapEmployee.Click += new System.EventHandler(this.mnuSch_SwapEmployee_Click);
             // 
@@ -470,41 +470,41 @@ namespace RSMPS
             this.mnuMove4Week,
             this.mnuMoveOtherWeek});
             this.mnuMoveEmpOut.Name = "mnuMoveEmpOut";
-            this.mnuMoveEmpOut.Size = new System.Drawing.Size(216, 22);
+            this.mnuMoveEmpOut.Size = new System.Drawing.Size(231, 22);
             this.mnuMoveEmpOut.Text = "Move Employee Time";
             // 
             // mnuMove1Week
             // 
             this.mnuMove1Week.Name = "mnuMove1Week";
-            this.mnuMove1Week.Size = new System.Drawing.Size(115, 22);
+            this.mnuMove1Week.Size = new System.Drawing.Size(117, 22);
             this.mnuMove1Week.Text = "1 Week";
             this.mnuMove1Week.Click += new System.EventHandler(this.mnuMove1Week_Click);
             // 
             // mnuMove2Week
             // 
             this.mnuMove2Week.Name = "mnuMove2Week";
-            this.mnuMove2Week.Size = new System.Drawing.Size(115, 22);
+            this.mnuMove2Week.Size = new System.Drawing.Size(117, 22);
             this.mnuMove2Week.Text = "2 Weeks";
             this.mnuMove2Week.Click += new System.EventHandler(this.mnuMove2Week_Click);
             // 
             // mnuMove3Week
             // 
             this.mnuMove3Week.Name = "mnuMove3Week";
-            this.mnuMove3Week.Size = new System.Drawing.Size(115, 22);
+            this.mnuMove3Week.Size = new System.Drawing.Size(117, 22);
             this.mnuMove3Week.Text = "3 Weeks";
             this.mnuMove3Week.Click += new System.EventHandler(this.mnuMove3Week_Click);
             // 
             // mnuMove4Week
             // 
             this.mnuMove4Week.Name = "mnuMove4Week";
-            this.mnuMove4Week.Size = new System.Drawing.Size(115, 22);
+            this.mnuMove4Week.Size = new System.Drawing.Size(117, 22);
             this.mnuMove4Week.Text = "4 Weeks";
             this.mnuMove4Week.Click += new System.EventHandler(this.mnuMove4Week_Click);
             // 
             // mnuMoveOtherWeek
             // 
             this.mnuMoveOtherWeek.Name = "mnuMoveOtherWeek";
-            this.mnuMoveOtherWeek.Size = new System.Drawing.Size(115, 22);
+            this.mnuMoveOtherWeek.Size = new System.Drawing.Size(117, 22);
             this.mnuMoveOtherWeek.Text = "Other";
             this.mnuMoveOtherWeek.Click += new System.EventHandler(this.mnuMoveOtherWeek_Click);
             // 
@@ -518,54 +518,54 @@ namespace RSMPS
             this.mnuMoveAllOtherWeek});
             this.mnuMoveAllEmpTime.Enabled = false;
             this.mnuMoveAllEmpTime.Name = "mnuMoveAllEmpTime";
-            this.mnuMoveAllEmpTime.Size = new System.Drawing.Size(216, 22);
+            this.mnuMoveAllEmpTime.Size = new System.Drawing.Size(231, 22);
             this.mnuMoveAllEmpTime.Text = "Move All Employee Time";
             this.mnuMoveAllEmpTime.Visible = false;
             // 
             // mnuMoveAll1Week
             // 
             this.mnuMoveAll1Week.Name = "mnuMoveAll1Week";
-            this.mnuMoveAll1Week.Size = new System.Drawing.Size(115, 22);
+            this.mnuMoveAll1Week.Size = new System.Drawing.Size(117, 22);
             this.mnuMoveAll1Week.Text = "1 Week";
             this.mnuMoveAll1Week.Click += new System.EventHandler(this.mnuMoveAll1Week_Click);
             // 
             // mnuMoveAll2Week
             // 
             this.mnuMoveAll2Week.Name = "mnuMoveAll2Week";
-            this.mnuMoveAll2Week.Size = new System.Drawing.Size(115, 22);
+            this.mnuMoveAll2Week.Size = new System.Drawing.Size(117, 22);
             this.mnuMoveAll2Week.Text = "2 Weeks";
             this.mnuMoveAll2Week.Click += new System.EventHandler(this.mnuMoveAll2Week_Click);
             // 
             // mnuMoveAll3Week
             // 
             this.mnuMoveAll3Week.Name = "mnuMoveAll3Week";
-            this.mnuMoveAll3Week.Size = new System.Drawing.Size(115, 22);
+            this.mnuMoveAll3Week.Size = new System.Drawing.Size(117, 22);
             this.mnuMoveAll3Week.Text = "3 Weeks";
             this.mnuMoveAll3Week.Click += new System.EventHandler(this.mnuMoveAll3Week_Click);
             // 
             // mnuMoveAll4Week
             // 
             this.mnuMoveAll4Week.Name = "mnuMoveAll4Week";
-            this.mnuMoveAll4Week.Size = new System.Drawing.Size(115, 22);
+            this.mnuMoveAll4Week.Size = new System.Drawing.Size(117, 22);
             this.mnuMoveAll4Week.Text = "4 Weeks";
             this.mnuMoveAll4Week.Click += new System.EventHandler(this.mnuMoveAll4Week_Click);
             // 
             // mnuMoveAllOtherWeek
             // 
             this.mnuMoveAllOtherWeek.Name = "mnuMoveAllOtherWeek";
-            this.mnuMoveAllOtherWeek.Size = new System.Drawing.Size(115, 22);
+            this.mnuMoveAllOtherWeek.Size = new System.Drawing.Size(117, 22);
             this.mnuMoveAllOtherWeek.Text = "Other";
             this.mnuMoveAllOtherWeek.Click += new System.EventHandler(this.mnuMoveAllOtherWeek_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(213, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(228, 6);
             // 
             // mnuSch_ProjSummary
             // 
             this.mnuSch_ProjSummary.Name = "mnuSch_ProjSummary";
-            this.mnuSch_ProjSummary.Size = new System.Drawing.Size(216, 22);
+            this.mnuSch_ProjSummary.Size = new System.Drawing.Size(231, 22);
             this.mnuSch_ProjSummary.Text = "Show Project Summary";
             this.mnuSch_ProjSummary.Click += new System.EventHandler(this.mnuSch_ProjSummary_Click);
             // 
@@ -573,24 +573,24 @@ namespace RSMPS
             // 
             this.mnuShowProjAllDepts.Enabled = false;
             this.mnuShowProjAllDepts.Name = "mnuShowProjAllDepts";
-            this.mnuShowProjAllDepts.Size = new System.Drawing.Size(216, 22);
+            this.mnuShowProjAllDepts.Size = new System.Drawing.Size(231, 22);
             this.mnuShowProjAllDepts.Text = "Show Project All Departments";
             this.mnuShowProjAllDepts.Visible = false;
             this.mnuShowProjAllDepts.Click += new System.EventHandler(this.mnuShowProjAllDepts_Click);
             // 
             // tbcGroupBy
             // 
-            this.tbcGroupBy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tbcGroupBy.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tbcGroupBy.Controls.Add(this.tbpEmployee);
             this.tbcGroupBy.Controls.Add(this.tbpProject);
-            this.tbcGroupBy.Location = new System.Drawing.Point(1260, 97);
+            this.tbcGroupBy.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tbcGroupBy.Location = new System.Drawing.Point(1272, 0);
             this.tbcGroupBy.Multiline = true;
             this.tbcGroupBy.Name = "tbcGroupBy";
             this.tbcGroupBy.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tbcGroupBy.RightToLeftLayout = true;
             this.tbcGroupBy.SelectedIndex = 0;
-            this.tbcGroupBy.Size = new System.Drawing.Size(312, 100);
+            this.tbcGroupBy.Size = new System.Drawing.Size(312, 674);
             this.tbcGroupBy.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tbcGroupBy.TabIndex = 11;
             this.tbcGroupBy.SelectedIndexChanged += new System.EventHandler(this.tbcGroupBy_SelectedIndexChanged);
@@ -611,7 +611,7 @@ namespace RSMPS
             this.tbpProject.Location = new System.Drawing.Point(4, 25);
             this.tbpProject.Name = "tbpProject";
             this.tbpProject.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpProject.Size = new System.Drawing.Size(304, 71);
+            this.tbpProject.Size = new System.Drawing.Size(304, 645);
             this.tbpProject.TabIndex = 1;
             this.tbpProject.Text = "Sort Project";
             this.tbpProject.ToolTipText = "Sort the list by project";
@@ -694,7 +694,7 @@ namespace RSMPS
             this.tsbClose});
             this.tsSchedule.Location = new System.Drawing.Point(0, 0);
             this.tsSchedule.Name = "tsSchedule";
-            this.tsSchedule.Size = new System.Drawing.Size(1584, 25);
+            this.tsSchedule.Size = new System.Drawing.Size(1272, 25);
             this.tsSchedule.TabIndex = 13;
             this.tsSchedule.Text = "toolStrip1";
             // 
@@ -793,7 +793,7 @@ namespace RSMPS
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(35, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(39, 22);
             this.toolStripLabel1.Text = "Hours";
             this.toolStripLabel1.ToolTipText = "Set the format for the hours display";
             this.toolStripLabel1.Visible = false;
