@@ -467,7 +467,7 @@ namespace RSMPS
                     pipelineForecastRemainingToolStripMenuItem.Visible = false;
                     programManagementForecastRemainingToolStripMenuItem.Visible = false;
                     forecastRemainingBirminghamToolStripMenuItem.Visible = false; //*******************Added 7/24
-                    projectForecastingReportPipelinesToolStripMenuItem.Visible = true; //*******************Added 12/8
+                    projectForecastingReportPipelinesToolStripMenuItem.Visible = false; //*******************Added 12/8
                     manageReleaseTransmittalToolStripMenuItem.Visible = false;
                     tsbProject.Visible = false;
                     tsbCustomer.Visible = false;
@@ -1020,17 +1020,7 @@ namespace RSMPS
 
         private void mPPlanTestToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            //FScd_AddEdit_Test s;
 
-            //if (CheckIfScheduleOpen() == false)
-            //{
-            //    s = new FScd_AddEdit_Test();
-            //    tsMain.Visible = false;
-            //    s.MdiParent = this;
-            //    s.OnScheduleClose += new EventHandler(s_OnScheduleClose);
-            //    s.Show();
-            //    s.WindowState = FormWindowState.Maximized;
-            //}
         }
 
         private void forecastRemainingBirminghamToolStripMenuItem_Click(object sender, EventArgs e) //***********************Added 11/23
@@ -1050,11 +1040,5 @@ namespace RSMPS
         }
 
 
-
-        //SSS 20131209 - Removing from Menu
-        //private void mnuReportByDepartment_Click(object sender, EventArgs e)
-        //{
-
-        //}
     }
 }
