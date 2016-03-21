@@ -361,7 +361,11 @@ namespace RSMPS
 
         {    ClearLog();
              if (miCurrDept == 10)      //**************** Added 2/15/2016
-                rdoTask.Checked = true;                   
+                rdoTask.Checked = true;
+             txtBudgetHrs.Text = "0";
+             txtRemainingHrs.Text = "0";
+             txtEarnedHrs.Text = "0";
+             txtPercentComplete.Text = "0";
         }
 
         private void LoadObjectToScreen()
@@ -381,14 +385,11 @@ namespace RSMPS
             if (moDrwLog.DepartmentID == 10)
             {
                 SetDrawingType(1);
-               // bttSave.Enabled = true;
+
             }
 
             else
                 SetDrawingType(moDrwLog.IsTaskDrwgSpec);
-            // MessageBox.Show("New task/drawing/specification?    " + moDrwLog.IsTaskDrwgSpec);
-
-
 
             ds = new CBDrawingSize();
             ds.Load(moDrwLog.DrawingSizeID);
@@ -473,9 +474,14 @@ namespace RSMPS
 
             moDrwLog.DrawingSizeID = GetDrawingSizeCode();
             moDrwLog.WBS = txtWBS.Text;
+            moDrwLog.BudgetHrs = Convert.ToDecimal(txtBudgetHrs.Text);
+            moDrwLog.PercentComplete = Convert.ToDecimal(txtPercentComplete.Text);
+            moDrwLog.RemainingHrs = Convert.ToDecimal(txtRemainingHrs.Text);
+            moDrwLog.EarnedHrs = Convert.ToDecimal(txtEarnedHrs.Text);
+
             //try
             //{
-                moDrwLog.BudgetHrs = Convert.ToDecimal(txtBudgetHrs.Text);
+            //    moDrwLog.BudgetHrs = Convert.ToDecimal(txtBudgetHrs.Text);
             //}
             //catch
             //{
@@ -483,7 +489,7 @@ namespace RSMPS
             //}
             //try
             //{
-                moDrwLog.PercentComplete = Convert.ToDecimal(txtPercentComplete.Text);
+            //    moDrwLog.PercentComplete = Convert.ToDecimal(txtPercentComplete.Text);
             //}
             //catch
             //{
@@ -491,7 +497,7 @@ namespace RSMPS
             //}
             //try
             //{
-                moDrwLog.RemainingHrs = Convert.ToDecimal(txtRemainingHrs.Text);
+            //    moDrwLog.RemainingHrs = Convert.ToDecimal(txtRemainingHrs.Text);
             //}
             //catch
             //{
@@ -499,7 +505,7 @@ namespace RSMPS
             //}
             //try
             //{
-                moDrwLog.EarnedHrs = Convert.ToDecimal(txtEarnedHrs.Text);
+            //    moDrwLog.EarnedHrs = Convert.ToDecimal(txtEarnedHrs.Text);
             //}
             //catch
             //{
@@ -733,6 +739,16 @@ namespace RSMPS
                 retVal = false;
                 msg = "Please select an Activity Code";
             }
+            else if (txtBudgetHrs.Text.Length < 1) // new code added by SSS on 03/21/2016
+            {
+                retVal = false;
+                msg = "Please enter the budget hours 0 or greater";
+            }
+            else if (txtRemainingHrs.Text.Length < 1) // new code added by SSS on 03/21/2016
+            {
+                retVal = false;
+                msg = "Please enter the remaining hours 0 or greater";
+            }
             else
             {
                 retVal = true;
@@ -871,6 +887,7 @@ namespace RSMPS
         {
             EnableSaveButtons();
         }
+
 
         private void txtTitle2_TextChanged(object sender, EventArgs e)
         {
