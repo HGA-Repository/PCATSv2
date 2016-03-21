@@ -1290,16 +1290,17 @@ namespace RSMPS
                 bttOpenExcel2.Enabled = false;//********12/2
 
             }
-            if (u.IsAdministrator == true)
+            if (u.IsAdministrator == true || u.IsEngineerAdmin == true)
             {
                 bttProjectLead.Enabled = true;
+                txtBudgetHrs.Visible = true;
             }
             else
             {
                 bttProjectLead.Enabled = false;
             }
 
-            if (plsoverridevalue == "8.J" || plsoverridevalue == "8.H" || plsoverridevalue == "8.A" || plsoverridevalue == "0.A" )
+            if (plsoverridevalue == "8.J" || plsoverridevalue == "8.H" || plsoverridevalue == "8.A" || plsoverridevalue == "0.A")
             { 
                 txtBudgetHrs.Enabled = true;
                 txtBudgetHrs.Visible = true;
@@ -1310,6 +1311,12 @@ namespace RSMPS
             }
             else
             {
+                if (u.IsAdministrator == true || u.IsEngineerAdmin == true)
+                
+                    txtBudgetHrs.Visible = true; 
+                
+                else
+
                 txtBudgetHrs.Enabled = false;
             }
         }
