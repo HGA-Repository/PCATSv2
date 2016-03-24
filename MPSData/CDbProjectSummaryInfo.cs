@@ -209,7 +209,7 @@ namespace RSMPS
             prm.Value = oVar.PaidtoDate;
             prm = cmd.Parameters.Add("@Outstanding", SqlDbType.Money);
             prm.Value = oVar.Outstanding;
-            prm = cmd.Parameters.Add("@DateLastModified", SqlDbType.VarChar, 20); //*************Added 2/18/2016
+            prm = cmd.Parameters.Add("@DateLastModified", SqlDbType.DateTime); //*************Added 2/18/2016
             prm.Value = oVar.DateLastModified;
             cmd.ExecuteNonQuery();
             prm = null;
