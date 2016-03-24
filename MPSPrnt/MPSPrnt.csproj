@@ -176,6 +176,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CDrawingLogExport.cs" />
+    <Compile Include="FPrintPCNBatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FPrintPCNBatch.designer.cs">
+      <DependentUpon>FPrintPCNBatch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -193,6 +199,24 @@
     </Compile>
     <Compile Include="rprtBudgetAccountingExps.Designer.cs">
       <DependentUpon>rprtBudgetAccountingExps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtBudgetPCN_Innitieted.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtBudgetPCN_Innitieted.Designer.cs">
+      <DependentUpon>rprtBudgetPCN_Innitieted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtBudgetPCN_DisApproved.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtBudgetPCN_DisApproved.Designer.cs">
+      <DependentUpon>rprtBudgetPCN_DisApproved.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rprtBudgetPCN_Approved.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rprtBudgetPCN_Approved.Designer.cs">
+      <DependentUpon>rprtBudgetPCN_Approved.cs</DependentUpon>
     </Compile>
     <Compile Include="rprtTransmittal_DocsCount.cs">
       <SubType>Component</SubType>
@@ -406,6 +430,9 @@
     <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FPrintPCNBatch.resx">
+      <DependentUpon>FPrintPCNBatch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -417,6 +444,15 @@
     <EmbeddedResource Include="rprtBudgetAccountingExps.resx">
       <DependentUpon>rprtBudgetAccountingExps.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtBudgetPCN_Innitieted.resx">
+      <DependentUpon>rprtBudgetPCN_Innitieted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtBudgetPCN_DisApproved.resx">
+      <DependentUpon>rprtBudgetPCN_DisApproved.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rprtBudgetPCN_Approved.resx">
+      <DependentUpon>rprtBudgetPCN_Approved.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rprtTransmittal_DocsCount.resx">
       <DependentUpon>rprtTransmittal_DocsCount.cs</DependentUpon>

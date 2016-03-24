@@ -15,8 +15,6 @@ using System.Reflection;
 
 
 using GrapeCity.ActiveReports;
-//using DataDynamics.ActiveReports.Export.Pdf.PdfDocumentOptions
-//using DataDynamics.ActiveReports;
 
 namespace RSMPS
 {
@@ -68,7 +66,7 @@ namespace RSMPS
         private bool mbIsPipeline = false;
         private bool mbUseAllGroups = false;
 
-        private bool mbIsFixedRate = false; //*****************************Added 9/30/2015
+        private bool mbIsFixedRate = false; 
         private CBBudget moCurrBudget;
 
      
@@ -85,8 +83,7 @@ namespace RSMPS
         {
           
             get {
-                //try { return _Groups[tabControl1.SelectedIndex].Code; }
-                //catch{ return _Default_Group; }
+           
                 var group = tabControl1.SelectedTab.Text;
                 int group_int;
                 if (Int32.TryParse(group, out group_int))
@@ -129,10 +126,10 @@ namespace RSMPS
                 StartNewBudget();
                 mbProcessing = false;
             }
-           //    MessageBox.Show(" SetNewProjectBudget "); //***************************7
+
 
             mbIsFixedRate = p.IsFixedRate;
-         //   MessageBox.Show(mbIsFixedRate.ToString());
+         
         }
 
 
@@ -148,7 +145,7 @@ namespace RSMPS
             Init();        
             
         }
-        public CDbLog moLog = new CDbLog(); //*******************Added 10/28  
+        public CDbLog moLog = new CDbLog();  
         public  int miCurrentUserLoginID;  
 
         private void Init()
@@ -175,7 +172,8 @@ namespace RSMPS
             txtTotalDlrs.Text = "";
             txtTotalExp.Text = "";
             txtTotalRate.Text = "";
-           // MessageBox.Show("Init()"); //*********************1
+            txtLabor_Exp.Text = ""; 
+
             LoadUOMExp();
         }
 
@@ -272,7 +270,6 @@ namespace RSMPS
             SubTotal(group);
 
             mbLoaded[group] = true;
-           // MessageBox.Show("LoadGroupWithAccounts");
         }
 
 
@@ -334,7 +331,7 @@ namespace RSMPS
 
             SubTotal(group);
             mbLoaded[group] = true;
-           // MessageBox.Show("LoadGroupWithBudget"); //********************* 3 & 4 With Subtotal
+
         }
 
 
@@ -359,13 +356,9 @@ namespace RSMPS
             fg.Subtotal(AggregateEnum.Average, 1, BUDCOL3, BUDCOL14, "");
             fg.Subtotal(AggregateEnum.Average, 2, BUDCOL4, BUDCOL14, "");
 
-            //var rounder = new SubtotalEventHandler(afterTotal_Round);
-            //fg.AfterSubtotal += rounder;
             fg.Subtotal(AggregateEnum.Sum, 0, BUDCOL2, BUDCOL15);
             fg.Subtotal(AggregateEnum.Sum, 1, BUDCOL3, BUDCOL15);
             fg.Subtotal(AggregateEnum.Sum, 2, BUDCOL4, BUDCOL15);
-            //fg.AfterSubtotal -= rounder;
-
 
             for (int i = 0; i < fg.Rows.Count; i++)
             {
@@ -374,7 +367,6 @@ namespace RSMPS
                     fg[i, BUDCOL14] = "   ";
                 }
             }
-          //  MessageBox.Show("SubTotal(string group)");
         }
 
         private static void afterTotal_Round(object sender, SubtotalEventArgs args)
@@ -384,7 +376,6 @@ namespace RSMPS
                 var rounded = Math.Round((double)args.AggregateValue, 4);
                 args.AggregateValue = rounded;
             }
-          //  MessageBox.Show("afterTotal_Round");
         }
 
         private void LoadExpenseWithAccounts(string group)
@@ -423,7 +414,6 @@ namespace RSMPS
             }
 
             dr.Close();
-           // MessageBox.Show("LoadExpenseWithAccounts(string group)");
         }
 
 
@@ -469,8 +459,6 @@ namespace RSMPS
                 SaveExpenseLines(group);
             }
 
-           // MessageBox.Show("LoadExpenseWithBudget");
-
         }
 
 
@@ -506,7 +494,6 @@ namespace RSMPS
             r[BUDCOL15] = "0";
 
             SaveChangeToDB(group, newRow);
-           // MessageBox.Show("AddNewRow");
         }
 
 
@@ -519,55 +506,8 @@ namespace RSMPS
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-         //   LoadBudget(SelectedGroupTab);           
-        
-         ////*********************************************************************11/4/2015
-         //  // moLog.UpdateForSelectedGroup(moLog.GetCurrentUserID(u.Username), Convert.ToInt32(SelectedGroupTab)); //*************************trying with next line
-
-         // //  moLog.UpdateForSelectedGroup(moLog.GetCurrentUserLoginID(miCurrUser), Convert.ToInt32(SelectedGroupTab));
-         //   moLog.UpdateForSelectedGroup(miCurrentUserLoginID, Convert.ToInt32(SelectedGroupTab));             
-         //   //moLog.UpdateForBudgetWindow(moLog.GetCurrentUserLoginID(miCurrUser), Convert.ToInt32(SelectedGroupTab));            
-         //  // ListUserSecurity(miCurrUser);
-         //   if (tabControl1.SelectedTab.Text == "PCN's" || tabControl1.SelectedTab.Text == "Clarifications")
-         //   {
-         //    //   MessageBox.Show("PCN's or Clarifications");
-         //       return;
-         //   }
-
-
-         //   else if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 3)
-         //   {
-         //       LockTheCurrentGroupTab();
-         //               //    CurrentUserSecurityForThisTab(miCurrUser, SelectedGroupTab);
-         //       tlbbEdit.Enabled = false;
-         //       return;
-         //   }
-
-         //   else if (moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
-         //   {
-         //       LockTheCurrentGroupTab();
-
-         //       tlbbEdit.Enabled = true;
-
-         //  //     MessageBox.Show("The following users are working on GroupTab " + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n" + "This Tab is Locked ");
-
-         //       //DialogResult retVal = MessageBox.Show("Are you sure that you wish to unlock? \"" +  "\"", "Unlock", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-         //       //if (retVal == DialogResult.Yes)
-         //       //{
-         //       //    UnLockTheCurrentGroupTab();
-         //       //    MessageBox.Show("unlocked !!!!");
-         //       //}
-
-
-
-
-         //   }
-
-            //*************************************************************
             LoadBudget(SelectedGroupTab);
                       
-        //    moLog.UpdateForSelectedGroup(miCurrentUserLoginID, Convert.ToInt32(SelectedGroupTab));
-
             moLog.UpdateForSelectedGroup(Common.GlobalVar.GlobalValue, Convert.ToInt32(SelectedGroupTab));
 
            
@@ -586,7 +526,6 @@ namespace RSMPS
 
              if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 2) //Means moderator
              {
-                 //MessageBox.Show("User is Moderator");
                  if (moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
                  {
                      LockTheCurrentGroupTab();
@@ -599,7 +538,6 @@ namespace RSMPS
 
              else if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 3) //Means view only
              {
-                 //MessageBox.Show("User is Viewer only");
                  LockTheCurrentGroupTab();
                  tlbbEdit.Enabled = false;
 
@@ -610,7 +548,6 @@ namespace RSMPS
         private void LockTheCurrentGroupTab()
         {
             
-               // MessageBox.Show(_Groups.Code);
                 fgForGroup(SelectedGroupTab).AllowEditing = false;
                 fgExpForGroup(SelectedGroupTab).AllowEditing = false;
            
@@ -644,12 +581,6 @@ namespace RSMPS
                 i++;
             }
 
-            //MessageBox.Show(id + "\n" +li[0] + "\n " + li[1] + "\n " + li[2] + "\n " + li[3] + "\n " + li[4] + "\n " + li[5] +
-            //                    "\n " + li[6] + "\n " + li[7] + "\n " + li[8] + "\n " + li[9] + "\n " + li[10] +
-            //                            "\n " + li[11] + "\n " + li[12]);
-
-
-
         }
         private int CurrentUserPassLevelForThisTab(int userID, string tab )
         {
@@ -674,10 +605,7 @@ namespace RSMPS
                 // UserInfo = dr["UserID"].ToString() + ", " + dr["UserName"].ToString() + ", " + dr["DeptName"].ToString() + ", " + dr["AcctGroup"].ToString() + ", " + (Convert.ToInt32(dr["passlevel"])).ToString() + ", " + dr["SecurityName"].ToString();
                 UserInfo = dr["UserID"].ToString() + ", " + dr["UserName"].ToString() + ", " + dr["AcctGroup"].ToString() + ", " + (Convert.ToInt32(dr["passlevel"])).ToString() + ", " + dr["SecurityName"].ToString();
               
-            }
-
-        //    MessageBox.Show(UserInfo + "--- Tab is Locked" );
-          
+            }       
 
         }
         
@@ -704,11 +632,9 @@ namespace RSMPS
 
         private void FBudgetMain_Load(object sender, EventArgs e)
         {
-            //mdsPCNs = new dsBudgetPCN();
             LoadPCNStatus();
 
             SetBudgetUserLevel();
-          //  SetBudgetRateLevel(); //***************************************************************Added 9/30
             
             richTextBox1.Text = moCurrBudget.Clarification11000.ToString();
             richTextBox2.Text = moCurrBudget.Clarification12000.ToString();
@@ -719,30 +645,11 @@ namespace RSMPS
             richTextBox7.Text = moCurrBudget.Clarification18000.ToString();
             richTextBox8.Text = moCurrBudget.Clarification50000.ToString();
 
-            //MessageBox.Show(Common.GlobalVar.GlobalValue.ToString());
-
-
-           // MessageBox.Show(moLog.GetCurrentUserID(u.Username) + "   ...........   " + miCurrUser);                        
-           // MessageBox.Show(moLog.GetCurrentUserLoginID(miCurrUser).ToString());
-            
-         //   moLog.UpdateForBudgetWindow(moLog.GetCurrentUserID(u.Username), miProjectID, 1); //*******************trying next line, instead of this line
-       //     miCurrentUserLoginID = moLog.GetCurrentUserLoginID(miCurrUser);
-         
-
-          //  MessageBox.Show((miCurrUser + "..........."+ moLog.GetCurrentUserLoginID(miCurrUser)).ToString());
-            //moLog.UpdateForBudgetWindow(moLog.GetCurrentUserLoginID(miCurrUser), miProjectID, 1);
-            //moLog.UpdateForBudgetWindow(miCurrentUserLoginID, miProjectID, 1);
-          //  moLog.UpdateForBudgetWindow(miCurrentUserLoginID, miProjectID);
-
-
             moLog.UpdateForBudgetWindow(Common.GlobalVar.GlobalValue, miProjectID);
           
-        //      MessageBox.Show("list of all user Logged in PCAT- " + moLog.list_Of_User());//***********This gives all PCAT User looged in, currently...*********10/28*****MZ 
-        //      MessageBox.Show("List of user in this project's"  + miProjectID +"budgetwindow are-- " + moLog.list_Of_User_OnBudgetWindow(miProjectID) + "   number= " + moLog.No_Of_User_OnBudgetWindow(miProjectID));
-
             if (moCurrBudget.IsActive == true)
             {
-               // MessageBox.Show(moCurrBudget.IsActive.ToString());
+
                 tlbbEdit.Enabled = false;
                 return;
             }
@@ -750,26 +657,8 @@ namespace RSMPS
             else
             {
 
-                                                //    if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 3)
-                                                //    {
-                                                //        LockTheCurrentGroupTab();
-                                                //        tlbbEdit.Enabled = false;
-                                                //        //    CurrentUserSecurityForThisTab(miCurrUser, SelectedGroupTab);  @@@@@@@@@@@@@@@@@@@I am not sure to keep it
-                                                //        return;
-                                                //    }
-
-                                                //    else if (moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
-                                                //  //  else if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 2 || moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
-                                                //    {
-                                                //        LockTheCurrentGroupTab();
-                                                //        tlbbEdit.Enabled = true;
-                                                //         MessageBox.Show("The following users are working on GroupTab " + SelectedGroupTab + "-- \n" + moLog.list_Of_User_GroupTab(miProjectID, Convert.ToInt32(SelectedGroupTab)) + "\n" + "This Tab is Locked, please reopen budget window");
-                                                //    }
-                 
-                               //}
                 if (CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 2) //Means moderator
                 {
-                   // MessageBox.Show("User is Moderator");
                                     if (moLog.No_Of_User_GroupTab(Convert.ToInt32(SelectedGroupTab), miProjectID) > 1)
                                     {
                                         LockTheCurrentGroupTab();
@@ -781,31 +670,28 @@ namespace RSMPS
                 }
 
                 else if(CurrentUserPassLevelForThisTab(miCurrUser, SelectedGroupTab) == 3) //Means view only
-                {  //MessageBox.Show("User is Viewer only");
+                {  
                     LockTheCurrentGroupTab();
                     tlbbEdit.Enabled = false;
                     
                 }
-
-              
-                
+                                             
             }
 
               }
                    
         
-        CBUser u;// = new CBUser(); //***************************************Moved outside*******10/29
+        CBUser u;
         private void SetBudgetUserLevel()
         {
             RSLib.COSecurity sec = new RSLib.COSecurity();
             u = new CBUser();
-            //     CBUser u = new CBUser();//***************************************Moved outside*******10/29
-
+           
             sec.InitAppSettings();
             u.Load(sec.UserID);
             miCurrUser = u.ID;
 
-            if (u.IsAdministrator == true)
+            if (u.IsAdministrator == true || u.IsEngineerAdmin)
             {
                 tlbbNewRev.Enabled = true;
                 tlbbMakeDefault.Enabled = true;
@@ -819,25 +705,15 @@ namespace RSMPS
                 tlbbPrintAll.Enabled = true;
                 tlbbBudgetEntry.Enabled = true;
                 tlbbBudgetExport.Enabled = true;
-            }
-            else if (u.IsEngineerAdmin == true)
-            {
-                tlbbNewRev.Enabled = true;
-                tlbbMakeDefault.Enabled = true;
-                tlbbMakeActive.Visible = true;
-                makeActiveToolStripMenuItem.Visible = true;
-                tlbbWorksheet.Enabled = true;
-                tlbbSummary.Enabled = true;
-                tlbbPreviewDetails.Enabled = true;
-                tlbbJobStat.Enabled = true;
-                tlbbBudgetEntry.Enabled = true;
-                tlbbPrintAll.Enabled = true;
-                tlbbBudgetEntry.Enabled = true;
-                tlbbBudgetExport.Enabled = true;
-                removeToolStripMenuItem.Enabled = false; //******************************************11/19
             }
             else if (u.IsManager == true)
             {
+                tlbbMakeDefault.Visible = false;
+                tlbbMakeDefault.Enabled = false;
+                tlbbMakeActive.Visible = false;
+                tlbbMakeActive.Visible = false;
+                makeActiveToolStripMenuItem.Visible = false;
+                removeToolStripMenuItem.Enabled = false;  
                 tlbbNewRev.Enabled = true;
                 tlbbWorksheet.Enabled = true;
                 tlbbSummary.Enabled = true;
@@ -847,18 +723,13 @@ namespace RSMPS
                 tlbbPrintAll.Enabled = true;
                 tlbbBudgetEntry.Enabled = true;
                 tlbbBudgetExport.Enabled = true;
-                tlbbMakeDefault.Enabled = false;
-                tlbbMakeDefault.Visible = false;
-                tlbbMakeActive.Visible = false;
-                tlbbMakeActive.Visible = false;
-                makeActiveToolStripMenuItem.Visible = false;
-                removeToolStripMenuItem.Enabled = false; //******************************************11/19
-                
+                tlbbExpenseReport.Enabled = true;
+                tlbbSummaryWORate.Enabled = true;
+              
             }
             else
             {
-                tlbbNewRev.Enabled = true;
-                tlbbWorksheet.Enabled = true;
+
                 tlbbMakeDefault.Enabled = false;
                 tlbbMakeDefault.Visible = false;
                 tlbbMakeActive.Visible = false;
@@ -867,16 +738,19 @@ namespace RSMPS
                 tlbbSummary.Visible = false;
                 tlbbPreviewDetails.Enabled = false;
                 tlbbPreviewDetails.Visible = false;
-                tlbbJobStat.Enabled = true;
                 tlbbBudgetEntry.Enabled = false;
                 tlbbBudgetEntry.Visible = false;
                 tlbbPrintAll.Enabled = false;
                 tlbbPrintAll.Visible = false;
                 tlbbBudgetExport.Enabled = false;
                 tlbbBudgetExport.Visible = false;
-                tlbbExpenseReport.Visible = false; //******************Added 10/5/2015
-                removeToolStripMenuItem.Enabled = false; //******************************************11/19
-                tlbbSummaryWORate.Visible = false;
+                removeToolStripMenuItem.Enabled = false;
+                tlbbSummaryWORate.Visible = true;
+                tlbbNewRev.Enabled = true;
+                tlbbWorksheet.Enabled = true;
+                tlbbJobStat.Enabled = true;
+                tlbbExpenseReport.Visible = true;
+ 
 
                 // hide dollars for non-admin
                 foreach (var group in _Groups)
@@ -899,20 +773,13 @@ namespace RSMPS
 
                 tdbgBudgetPCN.Splits[0].DisplayColumns[4].Visible = false;
 
-                //if (mbIsFixedRate == true)
-                //    SetBudgetRateLevel();
-
             }
 
-           // MessageBox.Show(" SetBudgetUserLevel"); //***************************8
-        }
+                  }
 
-        private void SetBudgetRateLevel() //***************************Added 9/29/2015 ************** 
-                                            //******************* If Flat Rate display Budget screen with limited column
+        private void SetBudgetRateLevel() 
+
         {
-           // if (mbIsFixedRate == true)
-          //  {
-               // MessageBox.Show("Fixed rate");
 
                 foreach (var group in _Groups)
                 {
@@ -939,7 +806,6 @@ namespace RSMPS
 
         private void tlbbWorksheet_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
-            //MessageBox.Show(SelectedGroupTab);
             OpenWorksheet(SelectedGroupTab);
             
         }
@@ -950,19 +816,9 @@ namespace RSMPS
             var group_obj = _Groups.FirstOrDefault(x => x.Code == group);
             FWS worksheet = new FWS(group_obj, !has_no_worksheet_codes.Contains(group) );
 
-           // worksheet.cboWBS_Text = cboWBS.Text; // *****************************Added 7/1/15
-           // worksheet.miProjectID = miProjectID;
-           
-           // MessageBox.Show(worksheet.miProjectID.ToString());
-            //MessageBox.Show(cboWBS.Text);
-
             var handler = new WorksheetChangedHandler((ds) => { f1_OnWorkSheetChanged(group, ds); });
             worksheet.OnWorkSheetChanged += handler;
-            worksheet.SetDataValues(mdsWS[group], moCurrBudget.ID);
-
-           // MessageBox.Show(mdsWS[group].ToString());
-            //MessageBox.Show(moCurrBudget.ID.ToString());
-          
+            worksheet.SetDataValues(mdsWS[group], moCurrBudget.ID);        
             
             worksheet.ShowDialog();
             worksheet.OnWorkSheetChanged -= handler;
@@ -1025,11 +881,10 @@ namespace RSMPS
                     }
                     index++;
 
-                    //MessageBox.Show("inserted");
                 }
 
             }
-// MessageBox.Show(" f1_OnWorkSheetChanged..................");
+
             ClearExpenseLines(group);
 
             int travelFare, autoRental, tolls, fuel, mileage, meals, lodging, perdiem, miscExp, survey1, survey2, survey3, survey4, survsup, engserv, surveying, geotinv, environ, specsub, atv, oruv, boat, digcam, cphone, fldcomp, trimbler8, trimblegeo, etotstat, lasrange, pipeloc;
@@ -1422,7 +1277,7 @@ namespace RSMPS
 
         private void InsertLineFromWorkSheet(int wsID, int acctGroup, int acctCode, string wbs, string description, int qty, int hrs, decimal rate)
         {
-// MessageBox.Show("InsertLineFromWorkSheet...........");
+
             string group = acctGroup + "";
             var fg = fgForGroup(group);
             int rowIndx = 0;
@@ -1437,8 +1292,7 @@ namespace RSMPS
             task = 0;
             cat = 0;
             act = 0;
-         //   MessageBox.Show("Account Code" + acctCode.ToString());
-
+ 
             foreach (Row r in fg.Rows)
             {
                 if (r.Index > 0)
@@ -1452,9 +1306,6 @@ namespace RSMPS
                         rowGrp = Convert.ToInt32(r[BUDCOL7]);
                     }
 
-                    //MessageBox.Show("(r.Index > 0)============ is invoked");
-                //    MessageBox.Show("rowGrp-----" + rowGrp.ToString() + "----acctCode---------" + acctCode.ToString());
-
                     if (rowGrp == acctCode)
                     {
                         foundFirst = true;
@@ -1467,18 +1318,15 @@ namespace RSMPS
                         cat = Convert.ToInt32(r[BUDCOL6]);
                         act = Convert.ToInt32(r[BUDCOL7]);
 
-                     //   MessageBox.Show("(rowGrp == acctCode)============ is invoked");
                     }
                     else if (rowGrp != acctCode && foundFirst == true)
                     {
                         rowIndx = r.Index;
-                      //  MessageBox.Show("else if (rowGrp != acctCode && foundFirst == true)============ is invoked");
-                        break;
+                         break;
                     }
                 }
-               // MessageBox.Show(foundFirst.ToString() + rowIndx.ToString());
             }
-          //  MessageBox.Show(foundFirst.ToString() + rowIndx.ToString());
+
             if (foundFirst == true && rowIndx != 0)
             {
                 //  insert a new row into the grid
@@ -1505,7 +1353,6 @@ namespace RSMPS
                 bl.BareDollars = 0;
 
                 bl.Save();
-            //    MessageBox.Show("Inserted to Budgetline From WorkSheet");
 
                 newRow[1] = taskVal;
                 newRow[2] = catVal;
@@ -1524,12 +1371,10 @@ namespace RSMPS
                 newRow[15] = bl.ID;
             }
 
-           // MessageBox.Show("InsertLineFromWorkSheet");
         }
 
         private void InsertLineFromPCN(int wsID, int acctGroup, int acctCode, string wbs, string description, int qty, int hrs, decimal rate)
         {
- //MessageBox.Show("InsertLineFromPCN started");
             string group = acctGroup + "";
             var fg = fgForGroup(group);
             int rowIndx = 0;
@@ -1800,7 +1645,6 @@ namespace RSMPS
             tlbbMakeActive.Enabled = false;
             tlbbSaveRev.Enabled = true;
             makeActiveToolStripMenuItem.Enabled = false;
-           // MessageBox.Show("StartNewBudget"); //************************5
         }
 
 
@@ -1847,7 +1691,6 @@ namespace RSMPS
 
             LoadPCNStatus();
             LoadBudgetPCNs();
-          //  MessageBox.Show("LoadPreviousBudget"); //***********************************6
 
         }
 
@@ -1982,7 +1825,7 @@ namespace RSMPS
 
                 mdsPCNs.Tables["PCNs"].Rows.Add(d);
             }
-           // MessageBox.Show("LoadBudgetPCNs()");
+
             dr.Close();
         }
 
@@ -2734,17 +2577,29 @@ namespace RSMPS
 
                 msg = "This will make " + li.Description + " the active project\nThis will also enter the information into the JobStat\nDo you wish to continue?";
 
-                if (MessageBox.Show(msg, "Make Project Active", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                string newStatus = Convert.ToString(d["PCNStatus"]);
+
+                if (newStatus == "Disapprove" || newStatus == "Pending" || newStatus == "Prepare Control Estimate")
                 {
-                    CBBudget.MakeBudgetActive(li.ID);
+                  //  MessageBox.Show("Status Has been changed to " + newStatus + " -This PCN wont be on Job Status");
+                }
 
-                    SetActiveInList();
+                else
+                {
+                   // MessageBox.Show("Status Has been changed to " + newStatus );
 
-                    tlbbMakeActive.Enabled = false;
-                    makeActiveToolStripMenuItem.Enabled = false;
+                    //if (MessageBox.Show(msg, "Make Project Active", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    //{
+                    //    CBBudget.MakeBudgetActive(li.ID);
 
-                    MakeProjectActiveInJobStat(li.ID);
-                    //MessageBox.Show("Project active");
+                    //    SetActiveInList();
+
+                    //    tlbbMakeActive.Enabled = false;
+                    //    makeActiveToolStripMenuItem.Enabled = false;
+
+                    //    MakeProjectActiveInJobStat(li.ID);
+                    //    //MessageBox.Show("Project active");
+                    //}
                 }
 
                 //**************************************added on 5/6
@@ -2797,7 +2652,7 @@ namespace RSMPS
 
         private void tdbgBudgetPCN_BeforeColUpdate(object sender, C1.Win.C1TrueDBGrid.BeforeColUpdateEventArgs e)
         {
-            //MessageBox.Show("tdbgBudgetPCN_BeforeColUpdate started, " + e.Column.Name + " Old Status =" + e.OldValue.ToString() + ".................." + OldStatus);
+           // MessageBox.Show("tdbgBudgetPCN_BeforeColUpdate started, " + e.Column.Name + " Old Status =" + e.OldValue.ToString() + ".................." + OldStatus);
         //    MessageBox.Show("Please Hit enter to Change PCN Status");
             tdbgBudgetPCN.Tag = true;
 
@@ -2825,7 +2680,8 @@ namespace RSMPS
                 FBudgetPCNApproval pa = new FBudgetPCNApproval();
                 //SSS02192014
 
-                if (tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Approved" | tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Pending")
+              //  if (tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Approved" | tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Pending") //******************1/28/2016
+                    if (tdbgBudgetPCN.Columns["Status"].Value.ToString() == "Approved")
                 {
                     pa.IsChangeOnly = false;
 
@@ -3893,6 +3749,7 @@ namespace RSMPS
             decimal dlrsTot;
             decimal rateTot;
             decimal expTot;
+            decimal L_ETot = 0;
 
             hrsTot = 0;
             dlrsTot = 0;
@@ -3906,6 +3763,7 @@ namespace RSMPS
                 expTot += RevSol.RSMath.IsDecimalEx(txtSumExpForGroup(group.Code).Text);
             }
 
+
             txtTotalHrs.Text = hrsTot.ToString(DEFAULTINTEGER);
             txtTotalDlrs.Text = dlrsTot.ToString(DEFAULTDOLLARS);
             txtTotalExp.Text = expTot.ToString(DEFAULTDOLLARS);
@@ -3916,6 +3774,9 @@ namespace RSMPS
             }
 
             txtTotalRate.Text = rateTot.ToString(DEFAULTDOLLARS);
+
+            L_ETot = dlrsTot + expTot;
+            txtLabor_Exp.Text = L_ETot.ToString(DEFAULTDOLLARS); //**************Added 1/29/16
         }
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
@@ -4644,11 +4505,7 @@ namespace RSMPS
             pcn.ViewForm();
             
             DataRow d = mdsPCNs.Tables["PCNs"].Rows[tdbgBudgetPCN.Bookmark];
-            int currID = Convert.ToInt32(d["ID"]);
-            //    string stat = tdbgBudgetPCN.Columns["Status"].Value.ToString();
-            //Console.WriteLine("The Status is: " + stat);
-            // if (stat == "Approved" || stat == "Pending" || stat == "Disapprove" || stat == "Prepare Control Estimate" || stat != "Initiated") { bttEditPCN.Enabled = false; }
-            //else {             
+            int currID = Convert.ToInt32(d["ID"]);           
             pcn.OnPCNChanged += new RevSol.ItemValueChangedHandler(PCNChanged);
             pcn.EditPreviousPCN(currID);
             pcn.ShowDialog();
@@ -4658,20 +4515,17 @@ namespace RSMPS
         private void FBudgetMain_FormClosing(object sender, FormClosingEventArgs e)
         { 
             
-           
-           // moLog.UpdateForBudgetWindowClosing(moLog.GetCurrentUserID(u.Username));
-          //  moLog.UpdateForBudgetWindowClosing(miCurrentUserLoginID);
-
             moLog.UpdateForBudgetWindowClosing(Common.GlobalVar.GlobalValue); //**************************12/1
-           
-           // MessageBox.Show("Budget Closed");
-
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void bttPrintAllPCN_Click(object sender, EventArgs e)
         {
-
+            FPrintPCNBatch fpb = new FPrintPCNBatch();
+            fpb.projectID = miProjectID;
+            fpb.projectNumber = msProject;
+            fpb.ShowDialog();
         }
-                       
+
+                      
     }
 }

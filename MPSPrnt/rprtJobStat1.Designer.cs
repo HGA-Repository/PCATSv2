@@ -81,7 +81,6 @@ namespace RSMPS
             this.line2 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.txtPerCompProj = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.txtEarnedProj = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
-            this.pageBreak1 = new GrapeCity.ActiveReports.SectionReportModel.PageBreak();
             ((System.ComponentModel.ISupportInitialize)(this.Picture1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).BeginInit();
@@ -502,10 +501,10 @@ namespace RSMPS
             this.txtRmnProj,
             this.line2,
             this.txtPerCompProj,
-            this.txtEarnedProj,
-            this.pageBreak1});
+            this.txtEarnedProj});
             this.groupFooter2.Height = 0.34375F;
             this.groupFooter2.Name = "groupFooter2";
+            this.groupFooter2.NewPage = GrapeCity.ActiveReports.SectionReportModel.NewPage.After;
             this.groupFooter2.Format += new System.EventHandler(this.groupFooter2_Format);
             // 
             // txtBudProj
@@ -574,15 +573,6 @@ namespace RSMPS
             this.txtEarnedProj.Text = "textBox3";
             this.txtEarnedProj.Top = 0.0625F;
             this.txtEarnedProj.Width = 0.625F;
-            // 
-            // pageBreak1
-            // 
-            this.pageBreak1.Height = 0.2F;
-            this.pageBreak1.Left = 0F;
-            this.pageBreak1.Name = "pageBreak1";
-            this.pageBreak1.Size = new System.Drawing.SizeF(6.5F, 0.2F);
-            this.pageBreak1.Top = 0.26F;
-            this.pageBreak1.Width = 6.5F;
             // 
             // rprtJobStat1
             // 
@@ -719,6 +709,5 @@ namespace RSMPS
         private GrapeCity.ActiveReports.SectionReportModel.ReportInfo reportInfo1;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox10;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox7;
-        private GrapeCity.ActiveReports.SectionReportModel.PageBreak pageBreak1;
     }
 }

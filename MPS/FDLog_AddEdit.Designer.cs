@@ -155,7 +155,8 @@ namespace RSMPS
             this.lvwLogs.View = System.Windows.Forms.View.Details;
             this.lvwLogs.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvwLogs_ColumnClick);
             this.lvwLogs.SelectedIndexChanged += new System.EventHandler(this.lvwLogs_SelectedIndexChanged);
-            this.lvwLogs.DoubleClick += new System.EventHandler(this.lvwLogs_DoubleClick);
+            this.lvwLogs.Click += new System.EventHandler(this.lvwLogs_Click);
+       
             // 
             // colID
             // 
@@ -818,10 +819,10 @@ namespace RSMPS
             // 
             this.txtBudgetHrs.Location = new System.Drawing.Point(86, 202);
             this.txtBudgetHrs.Name = "txtBudgetHrs";
-            this.txtBudgetHrs.ReadOnly = true;
             this.txtBudgetHrs.Size = new System.Drawing.Size(121, 20);
             this.txtBudgetHrs.TabIndex = 10;
             this.txtBudgetHrs.ValidatingType = typeof(int);
+            this.txtBudgetHrs.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtBudgetHrs_MaskInputRejected);
             this.txtBudgetHrs.TextChanged += new System.EventHandler(this.txtBudgetHrs_TextChanged);
             // 
             // cboDrawingSizes
@@ -1088,7 +1089,6 @@ namespace RSMPS
             this.bttSaveToExcel.Size = new System.Drawing.Size(77, 22);
             this.bttSaveToExcel.Text = "Save in Excel";
             this.bttSaveToExcel.Visible = false;
-         //   this.bttSaveToExcel.Click += new System.EventHandler(this.bttSaveToExcel_Click);
             // 
             // bttOpenExcel2
             // 

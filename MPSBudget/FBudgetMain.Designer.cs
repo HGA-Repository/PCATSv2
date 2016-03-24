@@ -30,14 +30,14 @@ namespace RSMPS
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FBudgetMain));
-            C1.Win.C1TrueDBGrid.Style style9 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style10 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style11 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style12 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style13 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style14 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style15 = new C1.Win.C1TrueDBGrid.Style();
-            C1.Win.C1TrueDBGrid.Style style16 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style1 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style2 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style3 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style4 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style5 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style6 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style7 = new C1.Win.C1TrueDBGrid.Style();
+            C1.Win.C1TrueDBGrid.Style style8 = new C1.Win.C1TrueDBGrid.Style();
             this.c1ToolBar1 = new C1.Win.C1Command.C1ToolBar();
             this.c1CommandHolder1 = new C1.Win.C1Command.C1CommandHolder();
             this.tlbbSaveRev = new C1.Win.C1Command.C1Command();
@@ -62,7 +62,6 @@ namespace RSMPS
             this.c1CommandLink12 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink4 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink14 = new C1.Win.C1Command.C1CommandLink();
-            this.c1CommandLink15 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink2 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink13 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink6 = new C1.Win.C1Command.C1CommandLink();
@@ -70,6 +69,7 @@ namespace RSMPS
             this.c1CommandLink9 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink11 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink10 = new C1.Win.C1Command.C1CommandLink();
+            this.c1CommandLink15 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink3 = new C1.Win.C1Command.C1CommandLink();
             this.lstBudgets = new System.Windows.Forms.ListBox();
             this.cmnuBudget = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -83,6 +83,7 @@ namespace RSMPS
             this.cancelToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbpPCN = new System.Windows.Forms.TabPage();
+            this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.bttCopyPCN = new System.Windows.Forms.Button();
             this.tdbdPCNStatus = new C1.Win.C1TrueDBGrid.C1TrueDBDropdown();
@@ -124,6 +125,8 @@ namespace RSMPS
             this.button2 = new System.Windows.Forms.Button();
             this.tmrLoad = new System.Windows.Forms.Timer(this.components);
             this.grpSummary = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtLabor_Exp = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtTotalExp = new System.Windows.Forms.TextBox();
@@ -189,7 +192,6 @@ namespace RSMPS
             this.c1CommandLink5,
             this.c1CommandLink12,
             this.c1CommandLink4,
-            
             this.c1CommandLink14,
             this.c1CommandLink2,
             this.c1CommandLink13,
@@ -198,7 +200,7 @@ namespace RSMPS
             this.c1CommandLink9,
             this.c1CommandLink11,
             this.c1CommandLink10,
-             this.c1CommandLink15,
+            this.c1CommandLink15,
             this.c1CommandLink3});
             this.c1ToolBar1.Dock = System.Windows.Forms.DockStyle.Top;
             this.c1ToolBar1.Location = new System.Drawing.Point(0, 0);
@@ -348,7 +350,6 @@ namespace RSMPS
             this.tlbbExpenseReport.Text = "Worksheet Itemization";
             this.tlbbExpenseReport.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbExpenseReport_Click);
             // 
-
             // tlbbEdit
             // 
             this.tlbbEdit.Name = "tlbbEdit";
@@ -356,8 +357,6 @@ namespace RSMPS
             this.tlbbEdit.Text = "Edit Budget";
             this.tlbbEdit.Click += new C1.Win.C1Command.ClickEventHandler(this.tlbbEdit_Click);
             // 
-
-
             // c1CommandLink1
             // 
             this.c1CommandLink1.ButtonLook = ((C1.Win.C1Command.ButtonLookFlags)((C1.Win.C1Command.ButtonLookFlags.Text | C1.Win.C1Command.ButtonLookFlags.Image)));
@@ -389,16 +388,6 @@ namespace RSMPS
             this.c1CommandLink14.Command = this.tlbbExpenseReport;
             this.c1CommandLink14.SortOrder = 5;
             // 
-            // 
-            // c1CommandLink15
-            // 
-            this.c1CommandLink15.Command = this.tlbbEdit;
-            this.c1CommandLink15.SortOrder = 14;
-            //
-
-
-
-
             // c1CommandLink2
             // 
             this.c1CommandLink2.Command = this.tlbbSummary;
@@ -433,6 +422,11 @@ namespace RSMPS
             // 
             this.c1CommandLink10.Command = this.tlbbBudgetExport;
             this.c1CommandLink10.SortOrder = 12;
+            // 
+            // c1CommandLink15
+            // 
+            this.c1CommandLink15.Command = this.tlbbEdit;
+            this.c1CommandLink15.SortOrder = 14;
             // 
             // c1CommandLink3
             // 
@@ -541,6 +535,7 @@ namespace RSMPS
             // 
             // tbpPCN
             // 
+            this.tbpPCN.Controls.Add(this.button6);
             this.tbpPCN.Controls.Add(this.button5);
             this.tbpPCN.Controls.Add(this.bttCopyPCN);
             this.tbpPCN.Controls.Add(this.tdbdPCNStatus);
@@ -554,6 +549,16 @@ namespace RSMPS
             this.tbpPCN.TabIndex = 5;
             this.tbpPCN.Text = "PCN\'s";
             this.tbpPCN.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(433, 3);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(127, 30);
+            this.button6.TabIndex = 6;
+            this.button6.Text = "Print All PCN";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.bttPrintAllPCN_Click);
             // 
             // button5
             // 
@@ -581,25 +586,25 @@ namespace RSMPS
             this.tdbdPCNStatus.AllowColSelect = true;
             this.tdbdPCNStatus.AllowRowSizing = C1.Win.C1TrueDBGrid.RowSizingEnum.AllRows;
             this.tdbdPCNStatus.AlternatingRows = false;
-            this.tdbdPCNStatus.CaptionStyle = style9;
+            this.tdbdPCNStatus.CaptionStyle = style1;
             this.tdbdPCNStatus.ColumnCaptionHeight = 17;
             this.tdbdPCNStatus.ColumnFooterHeight = 17;
-            this.tdbdPCNStatus.EvenRowStyle = style10;
+            this.tdbdPCNStatus.EvenRowStyle = style2;
             this.tdbdPCNStatus.FetchRowStyles = false;
-            this.tdbdPCNStatus.FooterStyle = style11;
-            this.tdbdPCNStatus.HeadingStyle = style12;
-            this.tdbdPCNStatus.HighLightRowStyle = style13;
+            this.tdbdPCNStatus.FooterStyle = style3;
+            this.tdbdPCNStatus.HeadingStyle = style4;
+            this.tdbdPCNStatus.HighLightRowStyle = style5;
             this.tdbdPCNStatus.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbdPCNStatus.Images"))));
             this.tdbdPCNStatus.Location = new System.Drawing.Point(26, 95);
             this.tdbdPCNStatus.Name = "tdbdPCNStatus";
-            this.tdbdPCNStatus.OddRowStyle = style14;
-            this.tdbdPCNStatus.RecordSelectorStyle = style15;
+            this.tdbdPCNStatus.OddRowStyle = style6;
+            this.tdbdPCNStatus.RecordSelectorStyle = style7;
             this.tdbdPCNStatus.RowDivider.Color = System.Drawing.Color.DarkGray;
             this.tdbdPCNStatus.RowDivider.Style = C1.Win.C1TrueDBGrid.LineStyleEnum.Single;
             this.tdbdPCNStatus.RowSubDividerColor = System.Drawing.Color.DarkGray;
             this.tdbdPCNStatus.ScrollTips = false;
             this.tdbdPCNStatus.Size = new System.Drawing.Size(297, 138);
-            this.tdbdPCNStatus.Style = style16;
+            this.tdbdPCNStatus.Style = style8;
             this.tdbdPCNStatus.TabIndex = 3;
             this.tdbdPCNStatus.TabStop = false;
             this.tdbdPCNStatus.Text = "c1TrueDBDropdown1";
@@ -679,7 +684,7 @@ namespace RSMPS
             this.tbpClarification.Name = "tbpClarification";
             this.tbpClarification.Padding = new System.Windows.Forms.Padding(3);
             this.tbpClarification.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tbpClarification.Size = new System.Drawing.Size(991, 733);
+            this.tbpClarification.Size = new System.Drawing.Size(991, 692);
             this.tbpClarification.TabIndex = 6;
             this.tbpClarification.Text = "Clarifications";
             this.tbpClarification.UseVisualStyleBackColor = true;
@@ -993,6 +998,8 @@ namespace RSMPS
             // 
             this.grpSummary.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.grpSummary.Controls.Add(this.label11);
+            this.grpSummary.Controls.Add(this.txtLabor_Exp);
             this.grpSummary.Controls.Add(this.label37);
             this.grpSummary.Controls.Add(this.panel4);
             this.grpSummary.Controls.Add(this.txtTotalExp);
@@ -1006,16 +1013,37 @@ namespace RSMPS
             this.grpSummary.Location = new System.Drawing.Point(5, 134);
             this.grpSummary.Name = "grpSummary";
             this.grpSummary.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.grpSummary.Size = new System.Drawing.Size(158, 663);
+            this.grpSummary.Size = new System.Drawing.Size(158, 640);
             this.grpSummary.TabIndex = 7;
             this.grpSummary.TabStop = false;
             this.grpSummary.Text = "Hours Summary";
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(10, 622);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(64, 13);
+            this.label11.TabIndex = 62;
+            this.label11.Text = "Labor + Exp";
+            // 
+            // txtLabor_Exp
+            // 
+            this.txtLabor_Exp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtLabor_Exp.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLabor_Exp.Location = new System.Drawing.Point(80, 620);
+            this.txtLabor_Exp.Name = "txtLabor_Exp";
+            this.txtLabor_Exp.ReadOnly = true;
+            this.txtLabor_Exp.Size = new System.Drawing.Size(71, 18);
+            this.txtLabor_Exp.TabIndex = 61;
+            this.txtLabor_Exp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label37
             // 
             this.label37.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(25, 637);
+            this.label37.Location = new System.Drawing.Point(25, 598);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(28, 13);
             this.label37.TabIndex = 60;
@@ -1031,14 +1059,14 @@ namespace RSMPS
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(0, 0, 30, 0);
             this.panel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.panel4.Size = new System.Drawing.Size(150, 566);
+            this.panel4.Size = new System.Drawing.Size(150, 502);
             this.panel4.TabIndex = 49;
             // 
             // txtTotalExp
             // 
             this.txtTotalExp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtTotalExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalExp.Location = new System.Drawing.Point(80, 635);
+            this.txtTotalExp.Location = new System.Drawing.Point(80, 596);
             this.txtTotalExp.Name = "txtTotalExp";
             this.txtTotalExp.ReadOnly = true;
             this.txtTotalExp.Size = new System.Drawing.Size(71, 18);
@@ -1049,7 +1077,7 @@ namespace RSMPS
             // 
             this.txtTotalHrs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtTotalHrs.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalHrs.Location = new System.Drawing.Point(80, 582);
+            this.txtTotalHrs.Location = new System.Drawing.Point(80, 543);
             this.txtTotalHrs.Name = "txtTotalHrs";
             this.txtTotalHrs.ReadOnly = true;
             this.txtTotalHrs.Size = new System.Drawing.Size(71, 18);
@@ -1060,7 +1088,7 @@ namespace RSMPS
             // 
             this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(8, 582);
+            this.label25.Location = new System.Drawing.Point(8, 543);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(18, 76);
             this.label25.TabIndex = 32;
@@ -1070,7 +1098,7 @@ namespace RSMPS
             // 
             this.txtTotalRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtTotalRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalRate.Location = new System.Drawing.Point(80, 618);
+            this.txtTotalRate.Location = new System.Drawing.Point(80, 579);
             this.txtTotalRate.Name = "txtTotalRate";
             this.txtTotalRate.ReadOnly = true;
             this.txtTotalRate.Size = new System.Drawing.Size(71, 18);
@@ -1081,7 +1109,7 @@ namespace RSMPS
             // 
             this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(25, 579);
+            this.label24.Location = new System.Drawing.Point(25, 540);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(26, 13);
             this.label24.TabIndex = 33;
@@ -1091,7 +1119,7 @@ namespace RSMPS
             // 
             this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(25, 619);
+            this.label31.Location = new System.Drawing.Point(25, 580);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(58, 13);
             this.label31.TabIndex = 47;
@@ -1101,7 +1129,7 @@ namespace RSMPS
             // 
             this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(25, 601);
+            this.label20.Location = new System.Drawing.Point(25, 562);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(46, 13);
             this.label20.TabIndex = 34;
@@ -1111,7 +1139,7 @@ namespace RSMPS
             // 
             this.txtTotalDlrs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtTotalDlrs.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalDlrs.Location = new System.Drawing.Point(80, 600);
+            this.txtTotalDlrs.Location = new System.Drawing.Point(80, 561);
             this.txtTotalDlrs.Name = "txtTotalDlrs";
             this.txtTotalDlrs.ReadOnly = true;
             this.txtTotalDlrs.Size = new System.Drawing.Size(71, 18);
@@ -1295,16 +1323,22 @@ namespace RSMPS
             // 
             // c1PdfDocument1
             // 
+            this.c1PdfDocument1.DocumentInfo.Author = "";
+            this.c1PdfDocument1.DocumentInfo.CreationDate = new System.DateTime(((long)(0)));
+            this.c1PdfDocument1.DocumentInfo.Creator = "";
+            this.c1PdfDocument1.DocumentInfo.Keywords = "";
+            this.c1PdfDocument1.DocumentInfo.Producer = "ComponentOne C1Pdf";
+            this.c1PdfDocument1.DocumentInfo.Subject = "";
+            this.c1PdfDocument1.DocumentInfo.Title = "";
+            this.c1PdfDocument1.MaxHeaderBookmarkLevel = 0;
             this.c1PdfDocument1.RotateAngle = 0F;
-            this.c1PdfDocument1.UniqueFontsPerPage = false;
-            this.c1PdfDocument1.UseFastTextOut = false;
-            this.c1PdfDocument1.UseFileCaching = false;
+            this.c1PdfDocument1.UseFastTextOut = true;
             // 
             // FBudgetMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1172, 774);
+            this.ClientSize = new System.Drawing.Size(1172, 750);
             this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.label45);
             this.Controls.Add(this.cboWBS);
@@ -1476,7 +1510,10 @@ namespace RSMPS
 
         private C1.Win.C1Command.C1CommandLink c1CommandLink15;
         private C1.Win.C1Command.C1Command tlbbEdit;
-
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtLabor_Exp;
+        private System.Windows.Forms.Button bttPrintAllPCN;
+        private System.Windows.Forms.Button button6;
        // private System.Windows.Forms.TabPage tabPage3; //*****************Added 5/20
     }
 }

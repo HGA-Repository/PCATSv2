@@ -402,7 +402,6 @@ namespace RSMPS
             this.fgSchedule.BeforeEdit += new C1.Win.C1FlexGrid.RowColEventHandler(this.fgSchedule_BeforeEdit);
             this.fgSchedule.AfterEdit += new C1.Win.C1FlexGrid.RowColEventHandler(this.fgSchedule_AfterEdit);
             this.fgSchedule.Click += new System.EventHandler(this.fgSchedule_Click);
-            //this.fgSchedule.Validating += new System.ComponentModel.CancelEventHandler(this.fgSchedule_Validating);
             // 
             // cmnuSchedule
             // 
@@ -581,17 +580,17 @@ namespace RSMPS
             // 
             // tbcGroupBy
             // 
-            this.tbcGroupBy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tbcGroupBy.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tbcGroupBy.Controls.Add(this.tbpEmployee);
             this.tbcGroupBy.Controls.Add(this.tbpProject);
-            this.tbcGroupBy.Location = new System.Drawing.Point(1260, 97);
+            this.tbcGroupBy.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tbcGroupBy.Location = new System.Drawing.Point(1272, 0);
             this.tbcGroupBy.Multiline = true;
             this.tbcGroupBy.Name = "tbcGroupBy";
             this.tbcGroupBy.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tbcGroupBy.RightToLeftLayout = true;
             this.tbcGroupBy.SelectedIndex = 0;
-            this.tbcGroupBy.Size = new System.Drawing.Size(312, 100);
+            this.tbcGroupBy.Size = new System.Drawing.Size(312, 674);
             this.tbcGroupBy.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tbcGroupBy.TabIndex = 11;
             this.tbcGroupBy.SelectedIndexChanged += new System.EventHandler(this.tbcGroupBy_SelectedIndexChanged);
@@ -612,7 +611,7 @@ namespace RSMPS
             this.tbpProject.Location = new System.Drawing.Point(4, 25);
             this.tbpProject.Name = "tbpProject";
             this.tbpProject.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpProject.Size = new System.Drawing.Size(304, 71);
+            this.tbpProject.Size = new System.Drawing.Size(304, 645);
             this.tbpProject.TabIndex = 1;
             this.tbpProject.Text = "Sort Project";
             this.tbpProject.ToolTipText = "Sort the list by project";
@@ -695,7 +694,7 @@ namespace RSMPS
             this.tsbClose});
             this.tsSchedule.Location = new System.Drawing.Point(0, 0);
             this.tsSchedule.Name = "tsSchedule";
-            this.tsSchedule.Size = new System.Drawing.Size(1584, 25);
+            this.tsSchedule.Size = new System.Drawing.Size(1272, 25);
             this.tsSchedule.TabIndex = 13;
             this.tsSchedule.Text = "toolStrip1";
             // 

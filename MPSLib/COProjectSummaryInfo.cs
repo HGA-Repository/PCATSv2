@@ -17,6 +17,7 @@ namespace RSMPS
         private decimal mdBilledtoDate;
         private decimal mdPaidtoDate;
         private decimal mdOutstanding;
+        private string mdDateLastModified; 
         //private string msClient;
         //private string msJob;
         //private string msLocation;
@@ -83,6 +84,14 @@ namespace RSMPS
             get { return mdOutstanding; }
             set { mdOutstanding = value; }
         }
+
+        public string DateLastModified
+        {
+            get { return mdDateLastModified; }
+            set { mdDateLastModified = value; }
+        }
+
+
         //public string Client
         //{
         //    get { return msClient; }
@@ -132,6 +141,8 @@ namespace RSMPS
             oNew.BilledtoDate = mdBilledtoDate;
             oNew.PaidtoDate = mdPaidtoDate;
             oNew.Outstanding = mdOutstanding;
+            oNew.DateLastModified = mdDateLastModified;
+
             //oNew.Client = msClient;
             //oNew.Job = msJob;
             //oNew.Location = msLocation;
@@ -150,6 +161,7 @@ namespace RSMPS
             mdBilledtoDate = oOrg.BilledtoDate;
             mdPaidtoDate = oOrg.PaidtoDate;
             mdOutstanding = oOrg.Outstanding;
+            mdDateLastModified = oOrg.DateLastModified;
             //msClient = oOrg.Client;
             //msJob = oOrg.Job;
             //msLocation = oOrg.msLocation;

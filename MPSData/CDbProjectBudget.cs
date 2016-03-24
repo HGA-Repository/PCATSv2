@@ -318,6 +318,57 @@ namespace RSMPS
             {
                 if (UseNewCodes(project) == true)
                     cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision", cnn.GetConnection());
+                   
+                else
+                    cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision", cnn.GetConnection());
+            }
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandTimeout = 60 * 2;
+
+            prm = cmd.Parameters.Add("@records", SqlDbType.Int); //*******Added 7/24/2015, because, it was throwing exception in PM Report
+            prm.Direction = ParameterDirection.Output;
+
+            prm = cmd.Parameters.Add("@Project", SqlDbType.VarChar, 50);
+            prm.Value = project;
+            prm = cmd.Parameters.Add("@Rprtdate", SqlDbType.SmallDateTime);
+            prm.Value = currDate;
+            prm = cmd.Parameters.Add("@ReportCase", SqlDbType.Int);
+            prm.Value = rprtCase;
+
+            da = new SqlDataAdapter();
+            ds = new DataSet();
+            da.SelectCommand = cmd;
+            da.Fill(ds);
+            FtcCalculator.UpdateCalculatedField(ds);
+
+            cnn.CloseConnection();
+
+            return ds;
+        }
+
+        public DataSet GetCostReport_ForPM(string project, int rprtCase, bool isRollup) // Added 2/1/16
+        {
+            DataSet ds;
+            RSLib.CDbConnection cnn;
+            SqlDataAdapter da;
+            SqlCommand cmd;
+            SqlParameter prm;
+            string currDate;
+
+            currDate = DateTime.Now.ToShortDateString();
+
+            cnn = new RSLib.CDbConnection();
+
+            if (isRollup == true)
+            {
+                cmd = new SqlCommand("spRPRT_CostReport_NewAcct2ForRollup_Vision", cnn.GetConnection());
+            }
+            else
+            {
+                if (UseNewCodes(project) == true)
+                  
+                 cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision_TestOnFeb", cnn.GetConnection());
                 else
                     cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision", cnn.GetConnection());
             }

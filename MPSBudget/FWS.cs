@@ -50,6 +50,7 @@ namespace RSMPS
                 groupBox1.Visible = false;
                 this.Height = this.Height - groupBox1.Height;
             }
+         //   this.WindowState = FormWindowState.Maximized;            
         }
 
         private void Init()

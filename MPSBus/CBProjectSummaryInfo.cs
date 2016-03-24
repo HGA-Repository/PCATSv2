@@ -71,7 +71,38 @@ namespace RSMPS
 
             return retVal;
         }
-       
+
+
+
+
+        public int Update()
+        {
+            CDbProjectSummaryInfo dbDt = new CDbProjectSummaryInfo();
+            string tmpDat;
+            int retVal=0;
+
+            tmpDat = GetDataString();
+
+           // if (base.ID > 0)
+           // {
+                dbDt.SavePrev(tmpDat);
+                retVal = base.ID;
+          //  }
+          //  else
+          //  {
+               // retVal = dbDt.SaveNew(tmpDat);
+               // base.ID = retVal;
+
+        //    }
+
+            dbDt = null;
+
+            return retVal;
+        }
+
+
+
+
 
 
         //public int Save_From_ProjAddEdit_PM_Update() //***********************Added 7/28/2015
@@ -117,7 +148,12 @@ public static void Delete_SummaryInfo(int sumID, int projID)    //**************
             dbDt.Delete_SummaryInfo(sumID,projID);
         }
 
+public static void Update_SummaryInfo(int sumID, int projID)    //***********************2/1/2016
+{
+    CDbProjectSummaryInfo dbDt = new CDbProjectSummaryInfo();
 
+    dbDt.Update_SummaryInfo(sumID, projID);
+}
 
 
         public string GetDataString()

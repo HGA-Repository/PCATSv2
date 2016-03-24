@@ -62,43 +62,28 @@ namespace RSMPS
                         else  dBudgetDlrs = Convert.ToDecimal(dRow["BudgetDlrs"]);
                     if (dRow["BudgetHrs"] == DBNull.Value) dBudgetHrs = 0;
                         else dBudgetHrs = Math.Round(Convert.ToDecimal(dRow["BudgetHrs"]), 0, MidpointRounding.AwayFromZero);
-
                     if (dRow["ActualTime"] == DBNull.Value) dActualTime = 0;
-                    else dActualTime = Math.Round(Convert.ToDecimal(dRow["ActualTime"]), 0, MidpointRounding.AwayFromZero);
-
-
+                        else dActualTime = Math.Round(Convert.ToDecimal(dRow["ActualTime"]), 0, MidpointRounding.AwayFromZero);
                     if (dRow["ActualAmnt"] == DBNull.Value) dActualAmnt = 0;
-                        else                         
-                        dActualAmnt = Convert.ToDecimal(dRow["ActualAmnt"]);
-                    
-                if (dRow["JSBudgetHrs"] == DBNull.Value) dJSBudgetHrs = 0;
-                            else  dJSBudgetHrs = Convert.ToDecimal(dRow["JSBudgetHrs"]);
-
+                        else dActualAmnt = Convert.ToDecimal(dRow["ActualAmnt"]);
+                    if (dRow["JSBudgetHrs"] == DBNull.Value) dJSBudgetHrs = 0;
+                        else  dJSBudgetHrs = Convert.ToDecimal(dRow["JSBudgetHrs"]);
                     if (dRow["RemainingHrs"] == DBNull.Value) dRemainingHrs = 0;
-                                else                dRemainingHrs = Convert.ToDecimal(dRow["RemainingHrs"]);
-
-                    
-                        if (dRow["JSLastUpdated"] == DBNull.Value) dtJSLastUpdated = new DateTime(1901, 1, 1);
+                        else dRemainingHrs = Convert.ToDecimal(dRow["RemainingHrs"]);                            
+                    if (dRow["JSLastUpdated"] == DBNull.Value) dtJSLastUpdated = new DateTime(1901, 1, 1);
                         else dtJSLastUpdated = Convert.ToDateTime(dRow["JSLastUpdated"]);
-                   
-                                    
-                if (dRow["EarnedHrs"] == DBNull.Value) dEarnedHrs = 0;
-                                     else dEarnedHrs = Convert.ToDecimal(dRow["EarnedHrs"]);
-                                    
-                if (dRow["ProjectedHrs"] == DBNull.Value) dProjectedHrs = 0;
-                                            else dProjectedHrs = Convert.ToDecimal(dRow["ProjectedHrs"]);
-                                       
-                if (dRow["ForecastHrs"] == DBNull.Value) dForecastHrs = 0;
-                                                else dForecastHrs = Convert.ToDecimal(dRow["ForecastHrs"]);
-                                           
-                if (dRow["FTCHrs"] == DBNull.Value) dFTCHrs = 0;
-                                                    else dFTCHrs = Math.Round(Convert.ToDecimal(dRow["FTCHrs"]), 0, MidpointRounding.AwayFromZero);
-                                                
-                if (dRow["FTCAmnt"] == DBNull.Value) dFTCAmnt = 0;
-                                                        else dFTCAmnt = Convert.ToDecimal(dRow["FTCAmnt"]);
-                if (dRow["FTCUpdate"] == DBNull.Value) dtFTCUpdate = new DateTime(1901, 1, 1);
-               
-                else     dtFTCUpdate = Convert.ToDateTime(dRow["FTCUpdate"]);
+                    if (dRow["EarnedHrs"] == DBNull.Value) dEarnedHrs = 0;
+                        else dEarnedHrs = Convert.ToDecimal(dRow["EarnedHrs"]);
+                    if (dRow["ProjectedHrs"] == DBNull.Value) dProjectedHrs = 0;
+                        else dProjectedHrs = Convert.ToDecimal(dRow["ProjectedHrs"]);
+                    if (dRow["ForecastHrs"] == DBNull.Value) dForecastHrs = 0;
+                        else dForecastHrs = Convert.ToDecimal(dRow["ForecastHrs"]);
+                    if (dRow["FTCHrs"] == DBNull.Value) dFTCHrs = 0;
+                        else dFTCHrs = Math.Round(Convert.ToDecimal(dRow["FTCHrs"]), 0, MidpointRounding.AwayFromZero);
+                    if (dRow["FTCAmnt"] == DBNull.Value) dFTCAmnt = 0;
+                        else dFTCAmnt = Convert.ToDecimal(dRow["FTCAmnt"]);
+                    if (dRow["FTCUpdate"] == DBNull.Value) dtFTCUpdate = new DateTime(1901, 1, 1);
+                        else dtFTCUpdate = Convert.ToDateTime(dRow["FTCUpdate"]);
                
                
                 eRow.Project = sProject;
@@ -166,7 +151,6 @@ namespace RSMPS
             RevSol.RSConnection cnn;
             SqlCommand cmd;
             SqlParameter prm;
-            //SSS 20131104 string currDate;
             SqlDataReader dr;
             DSForecastRprt dsFor;
 
@@ -179,8 +163,6 @@ namespace RSMPS
 
             dsFor = new DSForecastRprt();
 
-
-            //SSS 20131104 string sProject, sDescription, sCustomer, sLocation, sBudgetGroup, sAcctGroup, sManager, sBillType;
             string sProject, sDescription, sCustomer, sLocation, sManager, sBillType;
             var project_info = GetProjectInfo(project);
             ds = GetCRForProject(project, rprtCase);
@@ -189,8 +171,6 @@ namespace RSMPS
             sDescription = "";
             sCustomer = "";
             sLocation = "";
-            //SSS 20131104 sBudgetGroup = "";
-            //SSS 20131104 sAcctGroup = "";
             sManager = "";
             sBillType = "";
 
@@ -222,8 +202,7 @@ namespace RSMPS
                         eir.Manager = sManager;
                         eir.BillType = sBillType;
                         try
-                        {   //if (d["BudgetDlrs"] == DBNull.Value) eir.BudgetDlrs = 0;
-                           //else                             
+                        {                                
                         eir.BudgetDlrs = Convert.ToDecimal(d["BudgetDlrs"]);                                                                   
                         eir.BudgetHrs = Convert.ToDecimal(d["BudgetHrs"]);
                         eir.ActualTime = Convert.ToDecimal(d["ActualTime"]);

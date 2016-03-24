@@ -53,7 +53,6 @@ namespace RSMPS
 
             if (UseNewCodes(project) == true)
                 cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision", cnn.GetConnection());
-              //   cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision_Test", cnn.GetConnection());
             else
                 cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision", cnn.GetConnection());
 
@@ -119,10 +118,8 @@ namespace RSMPS
             cnn = new RevSol.RSConnection("CR");
 
             if (UseNewCodes(project) == true)
-            //    cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision", cnn.GetConnection());
-                cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision_Pipelines", cnn.GetConnection());
+                           cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision_Pipelines", cnn.GetConnection());
             else
-                //cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision", cnn.GetConnection());
                 cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision_Pipelines", cnn.GetConnection());
 
             
@@ -166,9 +163,6 @@ namespace RSMPS
             rprt.records = record; //**********************Added 7/22/2015
 
             rprt.Run();
-            // MessageBox.Show(record.ToString());
-            //MessageBox.Show(rprt.CutoffDate.ToString());
-            //MessageBox.Show(rprt.records.ToString() + "************************");
             this.Cursor = Cursors.Default;
         }
 
@@ -250,7 +244,6 @@ namespace RSMPS
             currDate = DateTime.Now.ToShortDateString();
             cnn = new RevSol.RSConnection("CR");
 
-            //cmd = new SqlCommand("spRPRT_CostReport_ByDept_Vision", cnn.GetConnection());
             cmd = new SqlCommand("spRPRT_CostReport_ByDept", cnn.GetConnection());        
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -385,14 +378,6 @@ namespace RSMPS
         {
 
         }
-
-        //private void viewer1_ToolClick(object sender, DataDynamics.ActiveReports.Toolbar.ToolClickEventArgs e)
-        //{
-        //    if (e.Tool.Id == 998)
-        //    {
-        //        ExportToExcel();
-        //    }
-        //}
 
         private void ExportToExcel()
         {

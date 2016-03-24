@@ -27,6 +27,13 @@ namespace RSMPS
         private Line line12;
         private Label label20;
         private RichTextBox richTextBox1;
+        private PageBreak pageBreak1;
+        private ReportHeader reportHeader1;
+        private ReportFooter reportFooter1;
+        private Label label19;
+        private Label label22;
+        private Line line13;
+        private Line line14;
         private decimal mdTotalExpenses = 0;
 
         public rprtPCNMain()
@@ -93,16 +100,9 @@ namespace RSMPS
             chkApprovedProceed.Checked = info.IsApproved;
             chkDisApproved.Checked = info.IsDisapproved;
             chkPrepareControlEstimate.Checked = info.PrepareControlEstimate;
-            //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-            //label23.Text = info.EstimatedEngrDlrs.ToString("#,##0.00");
 
-                                            //if (info.EstimatedEngrDlrs > 40000)
- 
-                                            //label56.Text = "More than 40000";
-
-            //if (info.EstimatedEngrDlrs < 75000)
-                    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
+            string first_jobNumber = JNum.Substring(0, 1);
+            string firstthreedigits = JNum.Substring(0, 3);
 
             try
             {
@@ -112,18 +112,13 @@ namespace RSMPS
                 label60.Text = "";
                 label15.Text = "";
                 label24.Text = "";
+                label19.Text = "";
 
 
-                string f_Digit_s = "";
-                f_Digit_s = JNum.Substring(0, 1);
-                int f_Digit = Convert.ToInt16(f_Digit_s);
+                string f_Digit = first_jobNumber;
+                string t_digit = firstthreedigits;
 
-                string t_Digit = "";
-                t_Digit = JNum.Substring(0, 3);
-
-                
-
-                if (f_Digit == 1)
+                if (f_Digit == "1" || t_digit == "P.1")
                 {
                     label56.Text = "Project Manager";
                     label58.Text = "Business Analyst";
@@ -131,17 +126,16 @@ namespace RSMPS
                     label60.Text = "Executive VP";
                     label15.Text = "President";
                     label24.Visible = false;
-
-
+                    label19.Visible = false;
                     line11.Visible = false;
+                    line13.Visible = false;
                     label25.Visible = false;
+                    label22.Visible = false;
                     line12.Visible = false;
+                    line14.Visible = false;
                 }
 
-
-
-
-                else if (f_Digit == 3 || f_Digit == 6)
+                else if (f_Digit == "3" || f_Digit == "6" || t_digit == "P.3" || t_digit == "P.6" || t_digit == "5.M")
                 {
                     label56.Text = "Business Analyst";
                     label58.Text = "Project Manager";
@@ -149,104 +143,229 @@ namespace RSMPS
                     label60.Text = "VP of Program Management";
                     label15.Text = "Executive VP";
                     label24.Text = "President";
+                    label19.Visible = false;
+                    label22.Visible = false;
+                    line13.Visible = false;
+                    line14.Visible = false;
 
                 }
 
-                else if (f_Digit == 8 || t_Digit == "7.J")
+                else if (f_Digit == "8" || t_digit == "7.J" || t_digit == "P.8" || t_digit == "5.P" || t_digit == "0.A")
                 {
-                    label56.Text = "Business Analyst";
-                    label58.Text = "Project Manager";
-                    label59.Text = "Director of Projects";
-                    label60.Text = "PLS Manager";
-                    label15.Text = "Executive VP";
-                    label24.Text = "President";
-
-                }
-
-                else if (f_Digit == 0 || f_Digit == 2 || f_Digit == 4 || t_Digit == "7.R")
-                {
-                    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
                     if (info.EstimatedEngrDlrs < 75000)
                     {
-                        label56.Text = "Project Management";
-                        label58.Text = "Relationship Manager";
+                        label56.Text = "Project Manager";
+                        label58.Text = "Projects Director";
                         label59.Visible = false;
                         label60.Visible = false;
                         label15.Visible = false;
                         label24.Visible = false;
+                        label19.Visible = false;
+
 
                         line43.Visible = false;
                         line44.Visible = false;
                         line9.Visible = false;
                         line11.Visible = false;
-
+                        line13.Visible = false;
 
                         label62.Visible = false;
                         label63.Visible = false;
                         label18.Visible = false;
                         label25.Visible = false;
+                        label22.Visible = false;
 
                         line46.Visible = false;
                         line47.Visible = false;
                         line10.Visible = false;
                         line12.Visible = false;
-
+                        line14.Visible = false;
 
                     }
 
-
                     else if (info.EstimatedEngrDlrs > 75000 && info.EstimatedEngrDlrs <= 250000)
                     {
-                        label56.Text = "Director of Projects";
-                        label58.Text = "Engineering Manager";
-                        label59.Text = "Vice President of Sales";
+                        label56.Text = "Project Manager";
+                        label58.Text = "Projects Director";
+                        label59.Text = "Reg. Ops/FS Manager";
                         label60.Visible = false;
                         label15.Visible = false;
                         label24.Visible = false;
+                        label19.Visible = false;
+
 
                         line44.Visible = false;
                         line9.Visible = false;
                         line11.Visible = false;
+                        line13.Visible = false;
 
                         label63.Visible = false;
                         label18.Visible = false;
                         label25.Visible = false;
+                        label22.Visible = false;
 
                         line47.Visible = false;
                         line10.Visible = false;
                         line12.Visible = false;
+                        line14.Visible = false;
                     }
 
-
-
-
-                    else if (info.EstimatedEngrDlrs > 250000)
-                    
+                    else if (info.EstimatedEngrDlrs > 250000 && info.EstimatedEngrDlrs <= 999999)
                     {
-                        label56.Text = "Director of Projects";
-                        label58.Text = "Engineering Manager";
-                        label59.Text = "Vice President of Sales";
-                        label60.Text = "President";
+                        label56.Text = "Project Manager";
+                        label58.Text = "Projects Director";
+                        label59.Text = "Reg. Ops/FS Manager";
+                        label60.Text = "Executive VP";
                         label15.Visible = false;
                         label24.Visible = false;
+                        label19.Visible = false;
 
                         line9.Visible = false;
                         line11.Visible = false;
+                        line13.Visible = false;
 
                         label18.Visible = false;
                         label25.Visible = false;
+                        label22.Visible = false;
 
                         line10.Visible = false;
                         line12.Visible = false;
+                        line14.Visible = false;
                     }
+                    else if (info.EstimatedEngrDlrs > 999999)
+                    {
+                        label56.Text = "Project Manager";
+                        label58.Text = "Projects Director";
+                        label59.Text = "Reg. Ops/FS Manager";
+                        label60.Text = "Executive VP";
+                        label15.Text = "President";
+                        label24.Visible = false;
+                        label19.Visible = false;
 
+                        line11.Visible = false;
+                        line13.Visible = false;
+
+                        label25.Visible = false;
+                        label22.Visible = false;
+
+                        line12.Visible = false;
+                        line14.Visible = false;
+                    }
                 }
+                    else if (f_Digit == "0" || f_Digit == "2" || f_Digit == "4" || t_digit == "7.R" || t_digit == "P.0" || t_digit == "P.2" || t_digit == "P.4" || t_digit == "5.E" || t_digit == "P.5" || t_digit == "P.7")
+                    {
+
+                        if (info.EstimatedEngrDlrs < 75000)
+                        {
+                            label56.Text = "Project Management";
+                            label58.Text = "Relationship Manager";
+                            label59.Visible = false;
+                            label60.Visible = false;
+                            label15.Visible = false;
+                            label24.Visible = false;
+                            label19.Visible = false;
+
+                            line43.Visible = false;
+                            line44.Visible = false;
+                            line9.Visible = false;
+                            line11.Visible = false;
+                            line13.Visible = false;
+
+
+                            label62.Visible = false;
+                            label63.Visible = false;
+                            label18.Visible = false;
+                            label25.Visible = false;
+                            label22.Visible = false;
+
+                            line46.Visible = false;
+                            line47.Visible = false;
+                            line10.Visible = false;
+                            line12.Visible = false;
+                            line14.Visible = false;
+
+                        }
+
+                        else if (info.EstimatedEngrDlrs > 75000 && info.EstimatedEngrDlrs <= 250000)
+                        {
+                            label56.Text = "Relationship Manager";
+                            label58.Text = "Director of Projects";
+                            label59.Text = "Engineering Manager";
+                            label60.Text = "Vice President of Sales";
+                            label15.Visible = false;
+                            label24.Visible = false;
+                            label19.Visible = false;
+
+                            line9.Visible = false;
+                            line11.Visible = false;
+                            line13.Visible = false;
+
+                            label18.Visible = false;
+                            label25.Visible = false;
+                            label22.Visible = false;
+
+                            line10.Visible = false;
+                            line12.Visible = false;
+                            line14.Visible = false;
+                        }
+
+                        else if (info.EstimatedEngrDlrs > 250000 && info.EstimatedEngrDlrs < 1000000)
+                        {
+                            label56.Text = "Relationship Manager";
+                            label58.Text = "Director of Projects";
+                            label59.Text = "Engineering Manager";
+                            label60.Text = "Vice President of Sales";
+                            label15.Text = "VP of Engineering";
+                            label24.Visible = false;
+                            label19.Visible = false;
+
+                            line11.Visible = false;
+                            line13.Visible = false;
+
+                            label25.Visible = false;
+                            label22.Visible = false;
+
+                            line12.Visible = false;
+                            line14.Visible = false;
+                        }
+                        else if (info.EstimatedEngrDlrs > 1000000)
+                        {
+                            label56.Text = "Relationship Manager";
+                            label58.Text = "Director of Projects";
+                            label59.Text = "Engineering Manager";
+                            label60.Text = "Vice President of Sales";
+                            label15.Text = "VP of Engineering";
+                            label24.Text = "President";
+                            label19.Visible = false;
+
+                            line13.Visible = false;
+
+                            label22.Visible = false;
+
+                            line14.Visible = false;
+                        }
+                    }
+                
             }
 
-            catch { label56.Text = "!!!!!!!!!!!!!!!!!!"; }
+            catch
+            {
 
-            //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                label56.Text = "Relationship Manager";
+                label58.Text = "Director of Projects";
+                label59.Text = "Engineering Manager";
+                label60.Text = "Vice President of Sales";
+                label15.Text = "VP of Engineering";
+                label24.Text = "President";
+                label19.Visible = false;
+
+                line13.Visible = false;
+
+                label22.Visible = false;
+
+                line14.Visible = false;
+            }
+
         }
 
         private void Detail_Format(object sender, System.EventArgs eArgs)
@@ -314,7 +433,6 @@ namespace RSMPS
 
         private SubReport subPCNHours;
         private SubReport subPCNExpenses;
-        private PageBreak pageBreak1;
         private Label label48;
         private TextBox txtDescOfChange;
         private Line line30;
@@ -404,7 +522,6 @@ namespace RSMPS
             this.Detail = new GrapeCity.ActiveReports.SectionReportModel.Detail();
             this.subPCNHours = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
             this.subPCNExpenses = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
-            this.pageBreak1 = new GrapeCity.ActiveReports.SectionReportModel.PageBreak();
             this.label48 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.txtDescOfChange = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.line30 = new GrapeCity.ActiveReports.SectionReportModel.Line();
@@ -479,6 +596,7 @@ namespace RSMPS
             this.line12 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.label20 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.richTextBox1 = new GrapeCity.ActiveReports.SectionReportModel.RichTextBox();
+            this.pageBreak1 = new GrapeCity.ActiveReports.SectionReportModel.PageBreak();
             this.PageHeader = new GrapeCity.ActiveReports.SectionReportModel.PageHeader();
             this.shape2 = new GrapeCity.ActiveReports.SectionReportModel.Shape();
             this.label3 = new GrapeCity.ActiveReports.SectionReportModel.Label();
@@ -508,6 +626,12 @@ namespace RSMPS
             this.PageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
             this.Label11 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.Label12 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.reportHeader1 = new GrapeCity.ActiveReports.SectionReportModel.ReportHeader();
+            this.reportFooter1 = new GrapeCity.ActiveReports.SectionReportModel.ReportFooter();
+            this.label19 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label22 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.line13 = new GrapeCity.ActiveReports.SectionReportModel.Line();
+            this.line14 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             ((System.ComponentModel.ISupportInitialize)(this.label48)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescOfChange)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label7)).BeginInit();
@@ -576,6 +700,8 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -583,7 +709,6 @@ namespace RSMPS
             this.Detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.subPCNHours,
             this.subPCNExpenses,
-            this.pageBreak1,
             this.label48,
             this.txtDescOfChange,
             this.line30,
@@ -657,41 +782,37 @@ namespace RSMPS
             this.line11,
             this.line12,
             this.label20,
-            this.richTextBox1});
-            this.Detail.Height = 8.706F;
+            this.richTextBox1,
+            this.pageBreak1,
+            this.label19,
+            this.label22,
+            this.line13,
+            this.line14});
+            this.Detail.Height = 8.2F;
             this.Detail.Name = "Detail";
             this.Detail.Format += new System.EventHandler(this.Detail_Format);
             // 
             // subPCNHours
             // 
             this.subPCNHours.CloseBorder = false;
-            this.subPCNHours.Height = 0.1875F;
+            this.subPCNHours.Height = 0.188F;
             this.subPCNHours.Left = 0F;
             this.subPCNHours.Name = "subPCNHours";
             this.subPCNHours.Report = null;
             this.subPCNHours.ReportName = "subReport1";
-            this.subPCNHours.Top = 7.638F;
-            this.subPCNHours.Width = 7.25F;
+            this.subPCNHours.Top = 6.927001F;
+            this.subPCNHours.Width = 7.2F;
             // 
             // subPCNExpenses
             // 
             this.subPCNExpenses.CloseBorder = false;
-            this.subPCNExpenses.Height = 0.2080011F;
+            this.subPCNExpenses.Height = 0.208F;
             this.subPCNExpenses.Left = 0F;
             this.subPCNExpenses.Name = "subPCNExpenses";
             this.subPCNExpenses.Report = null;
             this.subPCNExpenses.ReportName = "subReport2";
-            this.subPCNExpenses.Top = 7.888F;
-            this.subPCNExpenses.Width = 7.25F;
-            // 
-            // pageBreak1
-            // 
-            this.pageBreak1.Height = 0.01F;
-            this.pageBreak1.Left = 0F;
-            this.pageBreak1.Name = "pageBreak1";
-            this.pageBreak1.Size = new System.Drawing.SizeF(6.5F, 0.01F);
-            this.pageBreak1.Top = 7.573F;
-            this.pageBreak1.Width = 6.5F;
+            this.subPCNExpenses.Top = 7.211F;
+            this.subPCNExpenses.Width = 7.2F;
             // 
             // label48
             // 
@@ -899,31 +1020,31 @@ namespace RSMPS
             // chkApprovedProceed
             // 
             this.chkApprovedProceed.Height = 0.1874998F;
-            this.chkApprovedProceed.Left = 0.125F;
+            this.chkApprovedProceed.Left = 0.143F;
             this.chkApprovedProceed.Name = "chkApprovedProceed";
             this.chkApprovedProceed.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.chkApprovedProceed.Text = "Approved";
-            this.chkApprovedProceed.Top = 7.076F;
+            this.chkApprovedProceed.Top = 6.667F;
             this.chkApprovedProceed.Width = 1.062F;
             // 
             // chkDisApproved
             // 
             this.chkDisApproved.Height = 0.1874999F;
-            this.chkDisApproved.Left = 1.375F;
+            this.chkDisApproved.Left = 1.393F;
             this.chkDisApproved.Name = "chkDisApproved";
             this.chkDisApproved.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.chkDisApproved.Text = "Disapproved";
-            this.chkDisApproved.Top = 7.076F;
+            this.chkDisApproved.Top = 6.667F;
             this.chkDisApproved.Width = 1.4375F;
             // 
             // chkPrepareControlEstimate
             // 
             this.chkPrepareControlEstimate.Height = 0.1874999F;
-            this.chkPrepareControlEstimate.Left = 3.312F;
+            this.chkPrepareControlEstimate.Left = 3.33F;
             this.chkPrepareControlEstimate.Name = "chkPrepareControlEstimate";
             this.chkPrepareControlEstimate.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.chkPrepareControlEstimate.Text = "Prepare Control Estimate";
-            this.chkPrepareControlEstimate.Top = 7.076F;
+            this.chkPrepareControlEstimate.Top = 6.667F;
             this.chkPrepareControlEstimate.Width = 2.4375F;
             // 
             // txtEngrHrs
@@ -1126,12 +1247,12 @@ namespace RSMPS
             this.line41.Left = 5.8745F;
             this.line41.LineWeight = 1F;
             this.line41.Name = "line41";
-            this.line41.Top = 4.153502F;
+            this.line41.Top = 4.216F;
             this.line41.Width = 1.275F;
             this.line41.X1 = 5.8745F;
             this.line41.X2 = 7.1495F;
-            this.line41.Y1 = 4.153502F;
-            this.line41.Y2 = 4.153502F;
+            this.line41.Y1 = 4.216F;
+            this.line41.Y2 = 4.216F;
             // 
             // label58
             // 
@@ -1142,7 +1263,7 @@ namespace RSMPS
             this.label58.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.label58.Text = "HGA Project Controls";
             this.label58.Top = 4.330502F;
-            this.label58.Width = 2.6875F;
+            this.label58.Width = 2.0105F;
             // 
             // label59
             // 
@@ -1153,18 +1274,18 @@ namespace RSMPS
             this.label59.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.label59.Text = "HGA Projects Director";
             this.label59.Top = 4.695502F;
-            this.label59.Width = 2.6875F;
+            this.label59.Width = 2.0105F;
             // 
             // label60
             // 
             this.label60.Height = 0.225F;
             this.label60.HyperLink = null;
-            this.label60.Left = 0.061F;
+            this.label60.Left = 0.062F;
             this.label60.Name = "label60";
             this.label60.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.label60.Text = "HGA Operations Manager";
-            this.label60.Top = 5.070002F;
-            this.label60.Width = 2.6875F;
+            this.label60.Top = 5.07F;
+            this.label60.Width = 2.061F;
             // 
             // label61
             // 
@@ -1192,22 +1313,22 @@ namespace RSMPS
             // 
             this.label63.Height = 0.225F;
             this.label63.HyperLink = null;
-            this.label63.Left = 5.436F;
+            this.label63.Left = 5.437F;
             this.label63.Name = "label63";
             this.label63.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.label63.Text = "Date:";
-            this.label63.Top = 5.070002F;
+            this.label63.Top = 5.07F;
             this.label63.Width = 0.4375F;
             // 
             // line42
             // 
             this.line42.Height = 0F;
-            this.line42.Left = 2.124F;
+            this.line42.Left = 2.125F;
             this.line42.LineWeight = 1F;
             this.line42.Name = "line42";
             this.line42.Top = 4.580502F;
-            this.line42.Width = 3.25F;
-            this.line42.X1 = 2.124F;
+            this.line42.Width = 3.249F;
+            this.line42.X1 = 2.125F;
             this.line42.X2 = 5.374F;
             this.line42.Y1 = 4.580502F;
             this.line42.Y2 = 4.580502F;
@@ -1215,12 +1336,12 @@ namespace RSMPS
             // line43
             // 
             this.line43.Height = 0F;
-            this.line43.Left = 2.124F;
+            this.line43.Left = 2.125F;
             this.line43.LineWeight = 1F;
             this.line43.Name = "line43";
             this.line43.Top = 4.945502F;
-            this.line43.Width = 3.25F;
-            this.line43.X1 = 2.124F;
+            this.line43.Width = 3.249F;
+            this.line43.X1 = 2.125F;
             this.line43.X2 = 5.374F;
             this.line43.Y1 = 4.945502F;
             this.line43.Y2 = 4.945502F;
@@ -1228,12 +1349,12 @@ namespace RSMPS
             // line44
             // 
             this.line44.Height = 0F;
-            this.line44.Left = 2.1235F;
+            this.line44.Left = 2.125F;
             this.line44.LineWeight = 1F;
             this.line44.Name = "line44";
             this.line44.Top = 5.320002F;
-            this.line44.Width = 3.25F;
-            this.line44.X1 = 2.1235F;
+            this.line44.Width = 3.2485F;
+            this.line44.X1 = 2.125F;
             this.line44.X2 = 5.3735F;
             this.line44.Y1 = 5.320002F;
             this.line44.Y2 = 5.320002F;
@@ -1281,22 +1402,22 @@ namespace RSMPS
             // 
             this.label64.Height = 0.225F;
             this.label64.HyperLink = null;
-            this.label64.Left = 0.0625F;
+            this.label64.Left = 0.081F;
             this.label64.Name = "label64";
             this.label64.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.label64.Text = "Client Authorization";
-            this.label64.Top = 6.701F;
+            this.label64.Top = 6.417F;
             this.label64.Width = 2.6875F;
             // 
             // label65
             // 
             this.label65.Height = 0.225F;
             this.label65.HyperLink = null;
-            this.label65.Left = 5.4375F;
+            this.label65.Left = 5.437F;
             this.label65.Name = "label65";
             this.label65.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.label65.Text = "Date:";
-            this.label65.Top = 6.701F;
+            this.label65.Top = 6.417F;
             this.label65.Width = 0.4375F;
             // 
             // line48
@@ -1305,25 +1426,25 @@ namespace RSMPS
             this.line48.Left = 2.125F;
             this.line48.LineWeight = 1F;
             this.line48.Name = "line48";
-            this.line48.Top = 6.951F;
-            this.line48.Width = 3.25F;
+            this.line48.Top = 6.667F;
+            this.line48.Width = 3.2685F;
             this.line48.X1 = 2.125F;
-            this.line48.X2 = 5.375F;
-            this.line48.Y1 = 6.951F;
-            this.line48.Y2 = 6.951F;
+            this.line48.X2 = 5.3935F;
+            this.line48.Y1 = 6.667F;
+            this.line48.Y2 = 6.667F;
             // 
             // line49
             // 
             this.line49.Height = 0F;
-            this.line49.Left = 5.9375F;
+            this.line49.Left = 5.956F;
             this.line49.LineWeight = 1F;
             this.line49.Name = "line49";
-            this.line49.Top = 6.951F;
+            this.line49.Top = 6.667F;
             this.line49.Width = 1.2125F;
-            this.line49.X1 = 5.9375F;
-            this.line49.X2 = 7.15F;
-            this.line49.Y1 = 6.951F;
-            this.line49.Y2 = 6.951F;
+            this.line49.X1 = 5.956F;
+            this.line49.X2 = 7.1685F;
+            this.line49.Y1 = 6.667F;
+            this.line49.Y2 = 6.667F;
             // 
             // line1
             // 
@@ -1365,36 +1486,36 @@ namespace RSMPS
             // 
             this.label1.Height = 0.2F;
             this.label1.HyperLink = null;
-            this.label1.Left = 4.687F;
+            this.label1.Left = 4.562F;
             this.label1.Name = "label1";
             this.label1.Style = "font-family: Times New Roman; font-size: 12pt; ddo-char-set: 0";
             this.label1.Text = "Total Change:";
-            this.label1.Top = 8.2F;
+            this.label1.Top = 7.579F;
             this.label1.Width = 1.063F;
             // 
             // txtTotalChange
             // 
             this.txtTotalChange.Height = 0.2F;
-            this.txtTotalChange.Left = 6F;
+            this.txtTotalChange.Left = 5.767F;
             this.txtTotalChange.Name = "txtTotalChange";
             this.txtTotalChange.Style = "font-family: Times New Roman; font-size: 12pt; text-align: right; ddo-char-set: 0" +
     "";
             this.txtTotalChange.Text = "textBox4";
-            this.txtTotalChange.Top = 8.2F;
+            this.txtTotalChange.Top = 7.579F;
             this.txtTotalChange.Width = 1.18F;
             // 
             // line8
             // 
             this.line8.Height = 0F;
-            this.line8.Left = 6F;
+            this.line8.Left = 5.767F;
             this.line8.LineWeight = 1F;
             this.line8.Name = "line8";
-            this.line8.Top = 8.426001F;
+            this.line8.Top = 7.779F;
             this.line8.Width = 1.18F;
-            this.line8.X1 = 6F;
-            this.line8.X2 = 7.18F;
-            this.line8.Y1 = 8.426001F;
-            this.line8.Y2 = 8.426001F;
+            this.line8.X1 = 5.767F;
+            this.line8.X2 = 6.947F;
+            this.line8.Y1 = 7.779F;
+            this.line8.Y2 = 7.779F;
             // 
             // label4
             // 
@@ -1433,33 +1554,33 @@ namespace RSMPS
             // 
             this.label15.Height = 0.225F;
             this.label15.HyperLink = null;
-            this.label15.Left = 0.0605F;
+            this.label15.Left = 0.062F;
             this.label15.Name = "label15";
             this.label15.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.label15.Text = "HGA Relationship Manager";
-            this.label15.Top = 5.442503F;
-            this.label15.Width = 2.6875F;
+            this.label15.Top = 5.443F;
+            this.label15.Width = 2.081F;
             // 
             // label18
             // 
             this.label18.Height = 0.225F;
             this.label18.HyperLink = null;
-            this.label18.Left = 5.435499F;
+            this.label18.Left = 5.437F;
             this.label18.Name = "label18";
             this.label18.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.label18.Text = "Date:";
-            this.label18.Top = 5.442503F;
+            this.label18.Top = 5.443F;
             this.label18.Width = 0.4375F;
             // 
             // line9
             // 
             this.line9.Height = 0F;
-            this.line9.Left = 2.123F;
+            this.line9.Left = 2.125F;
             this.line9.LineWeight = 1F;
             this.line9.Name = "line9";
             this.line9.Top = 5.692503F;
-            this.line9.Width = 3.249999F;
-            this.line9.X1 = 2.123F;
+            this.line9.Width = 3.247999F;
+            this.line9.X1 = 2.125F;
             this.line9.X2 = 5.372999F;
             this.line9.Y1 = 5.692503F;
             this.line9.Y2 = 5.692503F;
@@ -1481,33 +1602,33 @@ namespace RSMPS
             // 
             this.label24.Height = 0.225F;
             this.label24.HyperLink = null;
-            this.label24.Left = 0.08050001F;
+            this.label24.Left = 0.062F;
             this.label24.Name = "label24";
             this.label24.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.label24.Text = "HGA Relationship Manager";
-            this.label24.Top = 5.770502F;
-            this.label24.Width = 2.6875F;
+            this.label24.Top = 5.771F;
+            this.label24.Width = 2.061F;
             // 
             // label25
             // 
             this.label25.Height = 0.225F;
             this.label25.HyperLink = null;
-            this.label25.Left = 5.455498F;
+            this.label25.Left = 5.437F;
             this.label25.Name = "label25";
             this.label25.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.label25.Text = "Date:";
-            this.label25.Top = 5.770502F;
+            this.label25.Top = 5.771F;
             this.label25.Width = 0.4375F;
             // 
             // line11
             // 
             this.line11.Height = 0F;
-            this.line11.Left = 2.143F;
+            this.line11.Left = 2.125F;
             this.line11.LineWeight = 1F;
             this.line11.Name = "line11";
             this.line11.Top = 6.020502F;
-            this.line11.Width = 3.249998F;
-            this.line11.X1 = 2.143F;
+            this.line11.Width = 3.267998F;
+            this.line11.X1 = 2.125F;
             this.line11.X2 = 5.392998F;
             this.line11.Y1 = 6.020502F;
             this.line11.Y2 = 6.020502F;
@@ -1533,7 +1654,7 @@ namespace RSMPS
             this.label20.Name = "label20";
             this.label20.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
             this.label20.Text = "Comments";
-            this.label20.Top = 8.096001F;
+            this.label20.Top = 7.554F;
             this.label20.Width = 2.6875F;
             // 
             // richTextBox1
@@ -1542,11 +1663,20 @@ namespace RSMPS
             this.richTextBox1.DataField = "Comments";
             this.richTextBox1.Font = new System.Drawing.Font("Arial", 10F);
             this.richTextBox1.Height = 0.2799995F;
-            this.richTextBox1.Left = 0.125F;
+            this.richTextBox1.Left = 0F;
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.RTF = resources.GetString("richTextBox1.RTF");
-            this.richTextBox1.Top = 8.321F;
+            this.richTextBox1.Top = 7.889F;
             this.richTextBox1.Width = 3.874F;
+            // 
+            // pageBreak1
+            // 
+            this.pageBreak1.Height = 0.01F;
+            this.pageBreak1.Left = 0F;
+            this.pageBreak1.Name = "pageBreak1";
+            this.pageBreak1.Size = new System.Drawing.SizeF(6.5F, 0.01F);
+            this.pageBreak1.Top = 6.855F;
+            this.pageBreak1.Width = 6.5F;
             // 
             // PageHeader
             // 
@@ -1890,6 +2020,62 @@ namespace RSMPS
             this.Label12.Top = 0.375F;
             this.Label12.Width = 7.25F;
             // 
+            // reportHeader1
+            // 
+            this.reportHeader1.Name = "reportHeader1";
+            // 
+            // reportFooter1
+            // 
+            this.reportFooter1.Name = "reportFooter1";
+            // 
+            // label19
+            // 
+            this.label19.Height = 0.225F;
+            this.label19.HyperLink = null;
+            this.label19.Left = 0.07000014F;
+            this.label19.Name = "label19";
+            this.label19.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
+            this.label19.Text = "HGA Relationship Manager";
+            this.label19.Top = 6.094F;
+            this.label19.Width = 2.062F;
+            // 
+            // label22
+            // 
+            this.label22.Height = 0.225F;
+            this.label22.HyperLink = null;
+            this.label22.Left = 5.445F;
+            this.label22.Name = "label22";
+            this.label22.Style = "font-family: Times New Roman; font-size: 12pt; font-weight: bold";
+            this.label22.Text = "Date:";
+            this.label22.Top = 6.094F;
+            this.label22.Width = 0.4375F;
+            // 
+            // line13
+            // 
+            this.line13.Height = 0F;
+            this.line13.Left = 2.133F;
+            this.line13.LineWeight = 1F;
+            this.line13.Name = "line13";
+            this.line13.Top = 6.344F;
+            this.line13.Width = 3.268498F;
+            this.line13.X1 = 2.133F;
+            this.line13.X2 = 5.401498F;
+            this.line13.Y1 = 6.344F;
+            this.line13.Y2 = 6.344F;
+            // 
+            // line14
+            // 
+            this.line14.Height = 0F;
+            this.line14.Left = 5.963999F;
+            this.line14.LineWeight = 1F;
+            this.line14.Name = "line14";
+            this.line14.Top = 6.344F;
+            this.line14.Width = 1.212501F;
+            this.line14.X1 = 5.963999F;
+            this.line14.X2 = 7.176499F;
+            this.line14.Y1 = 6.344F;
+            this.line14.Y2 = 6.344F;
+            // 
             // rprtPCNMain
             // 
             this.MasterReport = false;
@@ -1901,9 +2087,11 @@ namespace RSMPS
             this.PageSettings.PaperHeight = 11F;
             this.PageSettings.PaperWidth = 8.5F;
             this.PrintWidth = 7.25F;
+            this.Sections.Add(this.reportHeader1);
             this.Sections.Add(this.PageHeader);
             this.Sections.Add(this.Detail);
             this.Sections.Add(this.PageFooter);
+            this.Sections.Add(this.reportFooter1);
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule(resources.GetString("$this.StyleSheet"), "Normal"));
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bo" +
             "ld; font-size: 16pt; font-size-adjust: inherit; font-stretch: inherit", "Heading1", "Normal"));
@@ -1979,6 +2167,8 @@ namespace RSMPS
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Label12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }

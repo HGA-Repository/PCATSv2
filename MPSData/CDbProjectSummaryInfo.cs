@@ -209,8 +209,9 @@ namespace RSMPS
             prm.Value = oVar.PaidtoDate;
             prm = cmd.Parameters.Add("@Outstanding", SqlDbType.Money);
             prm.Value = oVar.Outstanding;
+            prm = cmd.Parameters.Add("@DateLastModified", SqlDbType.VarChar, 20); //*************Added 2/18/2016
+            prm.Value = oVar.DateLastModified;
             cmd.ExecuteNonQuery();
-
             prm = null;
             cmd = null;
             cnn.CloseConnection();
@@ -218,7 +219,6 @@ namespace RSMPS
 
             return oVar.ID;
         }
-
 
         private string GetDataString()
         {
@@ -327,6 +327,47 @@ namespace RSMPS
 
             return retVal;
         }
+
+
+
+        public bool Update_SummaryInfo(int sumID, int projID)   //***********************2/1/2016
+        {
+            bool retVal = false;
+
+            RSLib.CDbConnection cnn;
+            SqlCommand cmd;
+            SqlParameter prm;
+
+            cnn = new RSLib.CDbConnection();
+            cmd = new SqlCommand("spProjectSummaryInfo_Update_PMReport", cnn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            prm = cmd.Parameters.Add("@sumID", SqlDbType.Int);
+            prm.Value = sumID;
+
+            prm = cmd.Parameters.Add("@projID", SqlDbType.Int);
+            prm.Value = projID;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+                retVal = true;
+            }
+            catch
+            {
+                retVal = false;
+            }
+
+            prm = null;
+            cmd = null;
+            cnn.CloseConnection();
+            cnn = null;
+
+            return retVal;
+        }
+
 
 
 
