@@ -64,12 +64,6 @@ namespace RSMPS
 
         private void bttAddProject_Click(object sender, EventArgs e)
         {
-                        //FProject_List pl = new FProject_List();
-
-                        //pl.OnItemSelected += new RSLib.ListItemAction(pl_OnItemSelected);
-                        //pl.ShowDialog();
-                        //pl.OnItemSelected -= new RSLib.ListItemAction(pl_OnItemSelected);
-
 
             FProject_List_ByMngrID pl = new FProject_List_ByMngrID(); //****************Edited 7/27/2015
             pl.mngrID = EmployeeID;
@@ -77,8 +71,6 @@ namespace RSMPS
             pl.OnItemSelected += new RSLib.ListItemAction(pl_OnItemSelected);
             pl.ShowDialog();
             pl.OnItemSelected -= new RSLib.ListItemAction(pl_OnItemSelected);       
-
-
 
         }
 
@@ -114,12 +106,8 @@ namespace RSMPS
                 mdsProjInfos.Tables["ProjectInfos"].Rows.Add(d);
 
                 InfoChanged();
-             
-              //  MessageBox.Show("before update" + moProjSum.ID + " ------ " + miCurrentProjectID);
-             // MessageBox.Show("Please Save the list");
-            }
 
-          
+            }        
         }
 
         private void bttRemoveProject_Click(object sender, EventArgs e)
@@ -133,11 +121,8 @@ namespace RSMPS
             lvwProjects.Items.RemoveAt(lvwProjects.SelectedIndices[0]);
             ClearProjectSummary();
             CancelProjectInfo(projID, projNum);
-
-            //CancelProjectPCN(projID, projNum);    // *******************************Commented, Not needed any more 8/11/2015
             CancelProjectSch(projID, projNum);
             CBProjectSummaryInfo.Delete_SummaryInfo(moProjSum.ID, miCurrentProjectID); //**************************Added 7/30/2015
-           //   MessageBox.Show(moProjSum.ID.ToString() + "   " + miCurrentProjectID.ToString() + "Deleted");
             InfoChanged();
         }
 
@@ -178,9 +163,7 @@ namespace RSMPS
             CBProject p = new CBProject(); //******************************Added 7/8/2015, for Project Description
             if (lvwProjects.SelectedItems.Count > 0)
             {
-                // tdbgPCNs.UpdateData();// *******************************Commented, Not needed any more 8/11/2015
                 tdbgSchedule.UpdateData();
-
                 bttRemoveProject.Enabled = true;
                 tdbgPCNs.Enabled = true;
                 tdbgSchedule.Enabled = true;
@@ -217,13 +200,6 @@ namespace RSMPS
                 Outstanding.Enabled = false;
             }
 
-            // tlbbSave.Enabled = tmpChanged;
-            // mbChanged = tmpChanged;
-
-            // if (tmpChanged == false)
-            //     tlbbPrint.Enabled = true;
-            // else
-            //     tlbbPrint.Enabled = false;
             InfoChanged();
         }
 
@@ -274,12 +250,6 @@ namespace RSMPS
                         PaidToDate.Text += Convert.ToInt32(dr["PaidToDate"]);
                     if (dr["Outstanding"].ToString().Length > 0)
                         Outstanding.Text += Convert.ToInt32(dr["Outstanding"]);
-                    //if (dr["Client"].ToString().Length > 0)
-                    //    Client.Text = dr["Client"].ToString();
-                    //if (dr["Job"].ToString().Length > 0)
-                    //    Job.Text = dr["Job"].ToString();
-                    //if (dr["Location"].ToString().Length > 0)
-                    //    Location.Text = dr["Location"].ToString();
 
                     break;
                 }
@@ -287,11 +257,8 @@ namespace RSMPS
 
             tdbgPCNs.Columns["ProjectID"].FilterText = miCurrentProjectID.ToString();
             tdbgSchedule.Columns["ProjectID"].FilterText = miCurrentProjectID.ToString();
-            //tdbgPCNs.Columns["ProjSumID"].FilterText = projsumid.ToString();
             TotalPCNAmount();
-
             LoadForecast(proj);
-
         }
 
         private void ClearProjectSummary()
@@ -348,7 +315,6 @@ namespace RSMPS
 
             if (moProjSum.EmployeeID > 0)
                 tlbbPrint.Enabled = true;
-            //tlbbPrintCust.Enabled = true;
 
             tlbbSave.Enabled = false;
             mbChanged = false;
@@ -359,7 +325,6 @@ namespace RSMPS
         private void LoadProjectSummary()
         {
             moProjSum.LoadByEmp(miEmpID);
-          //  MessageBox.Show("P Manager-" + EmployeeID.ToString() + "Summary ID-" + moProjSum.ID.ToString()); //**********************************************
             if (moProjSum.ClientFeedback.Length > 0)
             {
                 rtbClientFeed.Rtf = moProjSum.ClientFeedback;
@@ -417,13 +382,8 @@ namespace RSMPS
                 ps.Save();
                 moProjSum.ID = ps.ID;
                 newSummary = false;
-              //  MessageBox.Show("New Summary, Summary ID--" + moProjSum.ID);
-
             }
-            //******************************************************************************************************************************************
-
             LoadProjectList();
-            //LoadPCNList();
             LoadSchList();
         }
         bool newSummary = true;
@@ -492,7 +452,6 @@ namespace RSMPS
             mdsProjInfos = new dsProjectValues();
 
             dr = CBProjectSummaryInfo.GetListByProjSum(moProjSum.ID);
-           // MessageBox.Show("Summary ID--" + moProjSum.ID.ToString() + "    EmployeeID --" + moProjSum.EmployeeID.ToString());
 
             while (dr.Read())
             {
@@ -575,7 +534,7 @@ namespace RSMPS
                     dr["BilledToDate"] = BilledToDate.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["BilledToDate"]);
                     dr["PaidToDate"] = PaidToDate.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["PaidToDate"]);
                     dr["Outstanding"] = Outstanding.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["Outstanding"]);
-                    dr["DateLastModified"] = DateTime.Now; //*************Added 2/18/2016
+                    dr["DateLastModified"] = DateTime.Now; 
                     break;
                 }
             }
@@ -586,43 +545,20 @@ namespace RSMPS
         {
                    
             CBProjectSummaryInfo psi = new CBProjectSummaryInfo();
-                    //CBProjectSummaryPCN psp = new CBProjectSummaryPCN();
-                    //CBProjectSummarySch sch = new CBProjectSummarySch();
-                     
 
-                       // CBProjectSummary ps = new CBProjectSummary();
-                       // ps.EmployeeID = miEmpID;
-                        //ps.ClientFeedback = rtbClientFeed.Rtf;
-                        //ps.QualityImp = rtbQuality.Rtf;
-                        //ps.NewWorkProp = rtbNewWork.Rtf;
-                        //ps.Distribution = rtbDists.Rtf;
-                        //ps.Save();
-                        
-
-          //  MessageBox.Show("Project Summary ID--" + moProjSum.ID);
             foreach (DataRow dr in mdsProjInfos.Tables["ProjectInfos"].Rows)
             {
                 psi.Clear();
 
                 if (Convert.ToInt32(dr["ProjectID"]) > 0)
                 {
-                    psi.ID = Convert.ToInt32(dr["ID"]);
-
-                  
-                    //psi.ProjSumID = ps.ID;
+                    psi.ID = Convert.ToInt32(dr["ID"]);                
                     psi.ProjSumID = moProjSum.ID;
                     psi.ProjectID = Convert.ToInt32(dr["ProjectID"]);
-
-                    //MessageBox.Show(psi.ProjectID.ToString());
                     psi.Schedule = dr["Schedule"].ToString();
                     psi.ActHigh = dr["ActHigh"].ToString();
                     psi.StaffNeeds = dr["StaffNeeds"].ToString();
                     psi.CFeedBack = dr["CFeedBack"].ToString();
-                    //********************* Commented and Edited to Handle Exception, 8/13/2015*********************************************************
-                    //psi.POAmt = POAmt.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["POAmt"]);
-                    //psi.BilledtoDate = BilledToDate.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["BilledToDate"]);
-                    //psi.PaidtoDate = PaidToDate.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["PaidToDate"]);
-                    //psi.Outstanding = Outstanding.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["Outstanding"]);
                     if (dr["POAmt"] == DBNull.Value) psi.POAmt = 0;
                     else psi.POAmt = POAmt.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["POAmt"]);
                     if (dr["BilledToDate"] == DBNull.Value) psi.BilledtoDate = 0;
@@ -632,52 +568,12 @@ namespace RSMPS
                     if (dr["Outstanding"] == DBNull.Value) psi.Outstanding = 0;
                     else psi.Outstanding = Outstanding.Text.Trim() == "" ? 0 : Convert.ToDecimal(dr["Outstanding"]);
                     psi.DateLastModified = dr["DateLastModified"].ToString(); //*************Added 2/18/2016
-                 //   psi.Save();
                     psi.Update();
                 }
 
-              //  MessageBox.Show(psi.ID + "---------" +psi.DateLastModified);
             }
-                            //****************************************************************************************************************************************
-                            //********************* Commented, because No more required, 8/13/2015***********************************************************************
-                            //foreach (DataRow dr in mdsProjPCNs.Tables["PCNList"].Rows)
-                            //{
-                            //  //  psp = new CBProjectSummaryPCN();
-
-                            //    if (Convert.ToInt32(dr["ProjectID"]) > 0)
-                            //    {
-                            //        psp.ProjSumID = ps.ID;
-                            //        psp.ProjectID = Convert.ToInt32(dr["ProjectID"]);
-                            //        psp.Number = Convert.ToInt32(dr["Number"]);
-                            //        psp.Description = dr["Description"].ToString();
-                            //        psp.Hours = Convert.ToDecimal(dr["Hours"]);
-                            //        psp.Dollars = Convert.ToDecimal(dr["Dollars"]);
-
-                            //        psp.Save();
-                            //    }
-                            //}
-                            //********************* Commented, Sch table will be updated by tdbgSchedule_AfterUpdate() Method, 8/13/2015 ******************************
-                            //foreach (DataRow dr in mdsProjSch.Tables["ScheduleList"].Rows)
-                            //{
-                            //    sch = new CBProjectSummarySch();
-
-                            //    if (Convert.ToInt32(dr["ProjectID"]) > 0)
-                            //    {
-                            //        sch.ProjSumID = ps.ID;
-                            //        sch.ProjectID = Convert.ToInt32(dr["ProjectID"]);
-                            //        sch.Description = dr["Description"].ToString();
-                            //        sch.InitialTarget = dr["InitialTarget"].ToString();
-                            //        sch.Projected = dr["Projected"].ToString();
-                            //        sch.Actual = dr["Actual"].ToString();
-                            //        sch.Save();
-                            //    }
-                            //}
-                            //****************************************************************************************************************************************
-
-
         }
 
-        //***********************************This part is added for update/ Insert in Sch Table******8/12/2014****************************
         CBProjectSummarySch sch = new CBProjectSummarySch();
         int RowNo;
         int NewSchID;
@@ -689,18 +585,15 @@ namespace RSMPS
             if (sch.ID != 999999999)
             {
                 sch.UpdateSch();
-                //MessageBox.Show("Record Updated");
             }
             else
             {
-               // MessageBox.Show("New record will be inserted");
             }
         }
 
         private void tdbgSchedule_AfterInsert(object sender, EventArgs e)
         {
             NewSchID=sch.InsertSch();
-           // MessageBox.Show("Inserted....ID.." + NewSchID);
             tdbgSchedule[RowNo, 0] = NewSchID;
         }
 
@@ -722,10 +615,8 @@ namespace RSMPS
             sch.InitialTarget = tdbgSchedule[i, 4].ToString();
             sch.Projected = tdbgSchedule[i,5].ToString();
             sch.Actual = tdbgSchedule[i, 6].ToString();
-           // MessageBox.Show("Sch Data--" + sch.ID + "-" + sch.ProjSumID + "-" + sch.ProjectID + "-" + sch.Description + "-" + sch.InitialTarget + "-" + sch.Projected + "-" + sch.Actual); 
 
         }
-        //***********************************End*************************************************
 
         private void tdbgPCNs_AfterUpdate(object sender, EventArgs e)
         {
@@ -738,7 +629,6 @@ namespace RSMPS
         private void TotalPCNAmount()
         {
 
-            //tdbgPCNs.Columns["ProjectID"].FilterText = miCurrentProjectID.ToString();
             decimal hrs;
             decimal amnt;
             int projID;
@@ -835,7 +725,6 @@ namespace RSMPS
             }
             else
             {
-               // ds = CBProjectBudget.GetCostReport(proj, CPBudget.GetRprtCase(proj), p.IsMaster);
                 ds = CBProjectBudget.GetCostReport_ForPM(proj, CPBudget.GetRprtCase(proj), p.IsMaster); //Added 2/6
 
 
@@ -847,8 +736,6 @@ namespace RSMPS
             decimal tcEngHrs, tcLabor, tcDlrMH, tcExpenses, tcTotal;
             decimal ftEngHrs, ftLabor, ftDlrMH, ftExpenses, ftTotal;
             decimal ouEngHrs, ouLabor, ouDlrMH, ouExpenses, ouTotal;
-
-            //SSS 20131104 decimal tmpBud, tmpCost;
 
             cbEngHrs = 0;
             cbLabor = 0;
@@ -1128,7 +1015,6 @@ namespace RSMPS
 
         private void tlbbSave_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
-            // tdbgPCNs.UpdateData(); //***********************Commented 8/11/2015******Not needed
             tdbgSchedule.UpdateData();
 
             if (lvwProjects.SelectedItems.Count > 0)
@@ -1139,7 +1025,6 @@ namespace RSMPS
 
             tlbbSave.Enabled = false;
             tlbbPrint.Enabled = true;
-           // tlbbPrintCust.Enabled = true;
         }
 
         private void rtbSchedule_TextChanged(object sender, EventArgs e)
@@ -1181,7 +1066,6 @@ namespace RSMPS
             mbChanged = true;
             tlbbSave.Enabled = true;
             tlbbPrint.Enabled = false;
-            //tlbbPrintCust.Enabled = false;
         }
 
         private void mnuPmBulletIn_Click(object sender, EventArgs e)
@@ -1282,24 +1166,12 @@ namespace RSMPS
 
         private void tlbbPrint_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
-            //CPSummary pmS = new CPSummary();
-            //this.Cursor = Cursors.WaitCursor;
-            //pmS.PrintPMSummary(moProjSum.EmployeeID);
-            //this.Cursor = Cursors.Default;
-
-            //**************This part is for Printing Report without selecting any Project, added 8/17/2015 *******
             LoadCurrentProject_Test();
                  
  
             if (lvwProjects.Items.Count > 0)
                 SaveCurrentSummary();
-
-
-
-
-           
-
-
+        
             CPSummary pmS = new CPSummary();
             this.Cursor = Cursors.WaitCursor;
             pmS.PrintPMSummary(moProjSum.EmployeeID);
@@ -1333,8 +1205,6 @@ namespace RSMPS
             
             foreach (DataRow dr in mdsProjInfos.Tables["ProjectInfos"].Rows)
             {
-                //if (Convert.ToInt32(dr["ProjectID"]) == projid && Convert.ToInt32(dr["ProjSumID"]) == projsumid)
-                //{
                     if (dr["Schedule"].ToString().Length > 0)
                         rtbSchedule.Rtf = dr["Schedule"].ToString();
 
@@ -1355,27 +1225,14 @@ namespace RSMPS
                         PaidToDate.Text += Convert.ToInt32(dr["PaidToDate"]);
                     if (dr["Outstanding"].ToString().Length > 0) 
                         Outstanding.Text += Convert.ToInt32(dr["Outstanding"]);
-                    //if (dr["Client"].ToString().Length > 0)
-                    //    Client.Text = dr["Client"].ToString();
-                    //if (dr["Job"].ToString().Length > 0)
-                    //    Job.Text = dr["Job"].ToString();
-                    //if (dr["Location"].ToString().Length > 0)
-                    //    Location.Text = dr["Location"].ToString();
-                    
-                   // break;
-                //}
             }
 
             tdbgPCNs.Columns["ProjectID"].FilterText = miCurrentProjectID.ToString();
             tdbgSchedule.Columns["ProjectID"].FilterText = miCurrentProjectID.ToString();
-            //tdbgPCNs.Columns["ProjSumID"].FilterText = projsumid.ToString();
             TotalPCNAmount();
             LoadForecast(proj);
             
         }
-//******************************************************************
-
-        
 
         private void tlbbPrintCust_Click(object sender, C1.Win.C1Command.ClickEventArgs e)
         {
@@ -1444,17 +1301,11 @@ namespace RSMPS
                 DataRow dr = mdsProjSch.Tables["ScheduleList"].Rows[tdbgSchedule.Bookmark];
                 int id = Convert.ToInt32(dr["ID"]);
                 sch.Delete(id);
-              //  MessageBox.Show("Deleted" + id);
                 tdbgSchedule.Delete();
-
                
             }
 
         }
-
-
-
-
 
         private void FManager_Summary_Load(object sender, EventArgs e)
         {
