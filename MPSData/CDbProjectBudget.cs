@@ -324,7 +324,7 @@ namespace RSMPS
             }
 
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandTimeout = 60 * 2;
+            cmd.CommandTimeout = 60 * 3;
 
             prm = cmd.Parameters.Add("@records", SqlDbType.Int); //*******Added 7/24/2015, because, it was throwing exception in PM Report
             prm.Direction = ParameterDirection.Output;
@@ -374,7 +374,7 @@ namespace RSMPS
             }
 
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandTimeout = 60 * 2;
+            cmd.CommandTimeout = 60 * 3;
 
             prm = cmd.Parameters.Add("@records", SqlDbType.Int); //*******Added 7/24/2015, because, it was throwing exception in PM Report
             prm.Direction = ParameterDirection.Output;

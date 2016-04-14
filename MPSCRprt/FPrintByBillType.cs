@@ -107,7 +107,7 @@ namespace RSMPS
             cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision_Batch", cnn.GetConnection());
 
             cmd.CommandType = CommandType.StoredProcedure;
-
+            cmd.CommandTimeout = 60 * 3;
             prm = cmd.Parameters.Add("@Project", SqlDbType.VarChar, 50);
             prm.Value = project;
             prm = cmd.Parameters.Add("@Rprtdate", SqlDbType.SmallDateTime);

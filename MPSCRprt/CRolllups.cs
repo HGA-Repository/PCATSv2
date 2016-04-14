@@ -315,7 +315,7 @@ namespace RSMPS
             cnn = new RevSol.RSConnection("CR");
             cmd = new SqlCommand("spRPRT_CostReport_NewAcct2_Vision", cnn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
-
+            cmd.CommandTimeout = 60 * 3;
             prm = cmd.Parameters.Add("@records", SqlDbType.Int);    //********************Added 7/23/2015
             prm.Direction = ParameterDirection.Output;
 

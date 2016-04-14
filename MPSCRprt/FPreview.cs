@@ -57,7 +57,7 @@ namespace RSMPS
                 cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision", cnn.GetConnection());
 
             cmd.CommandType = CommandType.StoredProcedure;
-
+            cmd.CommandTimeout = 60 * 3;
 
             prm = cmd.Parameters.Add("@records", SqlDbType.Int);
             prm.Direction = ParameterDirection.Output;
@@ -125,7 +125,7 @@ namespace RSMPS
             
 
             cmd.CommandType = CommandType.StoredProcedure;
-
+            cmd.CommandTimeout = 60 * 3;
 
             prm = cmd.Parameters.Add("@records", SqlDbType.Int);
             prm.Direction = ParameterDirection.Output;
@@ -405,7 +405,7 @@ namespace RSMPS
                 cmd = new SqlCommand("spRPRT_CostReport_OldAcct2_Vision", cnn.GetConnection());
 
             cmd.CommandType = CommandType.StoredProcedure;
-
+            cmd.CommandTimeout = 60 * 3;
             prm = cmd.Parameters.Add("@records", SqlDbType.Int); //*******Added 10/1/2015, because, it was throwing exception in PM Report
             prm.Direction = ParameterDirection.Output;
 
