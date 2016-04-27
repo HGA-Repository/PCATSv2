@@ -298,7 +298,6 @@ namespace RSMPS
                 acct = dr["AcctGroup"].ToString();
                 hrs = Convert.ToDecimal(dr["FTCHrs"]);
                 amnt = Convert.ToDecimal(dr["FTCRate"]);
-
                 cmd = new SqlCommand("spForecastToComplete_Insert2_Vision", cnn.GetConnection());
                 cmd.CommandType = CommandType.StoredProcedure;
 
