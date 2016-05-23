@@ -414,6 +414,11 @@ namespace RSMPS
             mbItemChanged = true;
         }
 
+        private void cmbLocation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         
       
     }

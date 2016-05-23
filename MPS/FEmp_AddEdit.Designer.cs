@@ -292,7 +292,7 @@ namespace RSMPS
             "Ruston James",
             "Houston",
             "PA",
-            "Dubai",
+            "Birmingham",
             "Baton Rouge",
             "New Orleans",
             "Lake Charles",
@@ -303,6 +303,7 @@ namespace RSMPS
             this.cmbLocation.Name = "cmbLocation";
             this.cmbLocation.Size = new System.Drawing.Size(176, 21);
             this.cmbLocation.TabIndex = 10;
+            this.cmbLocation.SelectedIndexChanged += new System.EventHandler(this.cmbLocation_SelectedIndexChanged);
             this.cmbLocation.TextChanged += new System.EventHandler(this.cmbLocation_TextChanged);
             // 
             // chkContractor
