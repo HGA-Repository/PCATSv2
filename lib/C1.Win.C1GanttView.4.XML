@@ -2637,6 +2637,11 @@
       <param name="columnName">Name of the column, such as "Task Mode" or "Duration".</param>
       <returns>System.String.</returns>
     </member>
+    <member name="P:C1.Win.C1GanttView.Task.Inactive">
+      <summary>
+            Gets or sets a value indicating if the task is inactive.
+            </summary>
+    </member>
     <member name="P:C1.Win.C1GanttView.Task.Parts">
       <summary>
             Gets parts of the task.
@@ -2714,7 +2719,7 @@
     </member>
     <member name="P:C1.Win.C1GanttView.Task.PercentComplete">
       <summary>
-            Gets or sets the completion stage of this task.
+            Gets or sets the completion stage of this task. The value must be between 0 and 1.
             </summary>
     </member>
     <member name="P:C1.Win.C1GanttView.Task.Deadline">
@@ -2740,6 +2745,11 @@
     <member name="P:C1.Win.C1GanttView.Task.Predecessors">
       <summary>
             Gets a list of tasks that must be finished/started before this task can start/finish.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1GanttView.Task.ReflectOnSummary">
+      <summary>
+            Gets or sets a value indicating whether the task is reflected on summary bar.
             </summary>
     </member>
     <member name="P:C1.Win.C1GanttView.Task.Successors">
@@ -4195,7 +4205,7 @@
             Gets or sets the currently selected task.
             </summary>
     </member>
-    <member name="P:C1.Win.C1GanttView.C1GanttView.ZoomFactor">
+    <member name="P:C1.Win.C1GanttView.C1GanttView.ChartViewZoomFactor">
       <summary>
             Gets or Sets zoom factor of chart view.
             </summary>
@@ -4340,6 +4350,11 @@
             Gets or sets a value that determines whether the Gantt chart draws non-working time.
             </summary>
     </member>
+    <member name="P:C1.Win.C1GanttView.C1GanttView.ShowLinks">
+      <summary>
+            Indicates whether the Gantt chart draws link lines.
+            </summary>
+    </member>
     <member name="P:C1.Win.C1GanttView.C1GanttView.ShowProjectSummary">
       <summary>
             Gets or sets a value that determines whether the project's summary task is shown.
@@ -4378,6 +4393,16 @@
     <member name="P:C1.Win.C1GanttView.C1GanttView.ReadOnly">
       <summary>
             Gets or sets a value that determines whether the gantt view is in read only mode.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1GanttView.C1GanttView.BarHeight">
+      <summary>
+            Gets or sets whether the all bar heights will be adapted according to C1GantView Font.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1GanttView.C1GanttView.AdaptiveBarHeight">
+      <summary>
+            Gets or sets whether the all bar heights will be adapted according to C1GantView Font.
             </summary>
     </member>
     <member name="P:C1.Win.C1GanttView.C1GanttView.GridWidth">
@@ -4616,6 +4641,41 @@
             </summary>
       <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
     </member>
+    <member name="M:C1.Win.C1GanttView.LayoutForm.Dispose(System.Boolean)">
+      <summary>
+            Clean up any resources being used.
+            </summary>
+      <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+    </member>
+    <member name="T:C1.Win.C1GanttView.LinkForm">
+      <summary>
+            Represents a <see cref="T:System.Windows.Forms.Form" /> that allows user to manage task settings.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1GanttView.LinkForm.#ctor">
+      <summary>
+            Initializes a new instance of <see cref="T:C1.Win.C1GanttView.TaskForm" /> class.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1GanttView.LinkForm.OnVisibleChanged(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.VisibleChanged" /> event.
+            </summary>
+      <param name="e">A <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="M:C1.Win.C1GanttView.LinkForm.OnClosing(System.ComponentModel.CancelEventArgs)">
+      <summary>
+            Prevents closing form.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1GanttView.LinkForm.Dispose(System.Boolean)">
+      <summary>
+            Clean up any resources being used.
+            </summary>
+      <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+    </member>
     <member name="T:C1.Win.C1GanttView.TaskForm">
       <summary>
             Represents a <see cref="T:System.Windows.Forms.Form" /> that allows user to manage task settings.
@@ -4688,6 +4748,16 @@
     <member name="F:C1.Win.C1GanttView.BarShape.BottomLine">
       <summary>
             Displays a thin line at the bottom.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1GanttView.BarShape.Frame">
+      <summary>
+            Displays a frame.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1GanttView.BarShape.HalfFrame">
+      <summary>
+            Displays a frame at the top part.
             </summary>
     </member>
     <member name="T:C1.Win.C1GanttView.BarType">
@@ -4763,6 +4833,21 @@
     <member name="F:C1.Win.C1GanttView.BarType.FinishOnly">
       <summary>
             The style is used for drawing tasks with undefined Start and Duration.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1GanttView.BarType.InactiveTask">
+      <summary>
+            The style is used for drawing inactive tasks.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1GanttView.BarType.InactiveSummary">
+      <summary>
+            The style is used for drawing inactive summary tasks.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1GanttView.BarType.InactiveMilestone">
+      <summary>
+            The style is used for drawing inactive summary milestones.
             </summary>
     </member>
     <member name="T:C1.Win.C1GanttView.CommandButton">
@@ -5963,6 +6048,11 @@
             The task infomation dialog.
             </summary>
     </member>
+    <member name="F:C1.Win.C1GanttView.DialogType.LinkInfo">
+      <summary>
+            The link infomation dialog.
+            </summary>
+    </member>
     <member name="T:C1.Win.C1GanttView.FieldStyle">
       <summary>
             Specifies the style settings for the specific field of task on grid view.
@@ -6791,6 +6881,21 @@
     <member name="P:C1.Win.C1GanttView.BarStyle.BottomText2">
       <summary>
             Gets or sets the second column displayed below the bar.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1GanttView.BarStyle.BarHeight">
+      <summary>
+            Gets or sets the height of task bar.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1GanttView.BarStyle.AdaptiveBarHeight">
+      <summary>
+            Gets or sets whether the bar height will be adapted according to C1GantView Font.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1GanttView.BarStyle.UseCommonBarHeightSettings">
+      <summary>
+            Gets or sets whether the common layout bar height settings will be used.
             </summary>
     </member>
     <member name="E:C1.Win.C1GanttView.BarStyle.PropertyChanged">

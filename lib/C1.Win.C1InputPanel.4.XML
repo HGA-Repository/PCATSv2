@@ -619,6 +619,21 @@
       <param name="inputComponent">The input component whose bounds are calculated.</param>
       <param name="elementType">The type of the specific element in the input component.</param>
     </member>
+    <member name="M:C1.Win.C1InputPanel.C1InputPanel.OnFontChanged(System.EventArgs)">
+      <summary>
+            Raises the FontChanged event. 
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1InputPanel.C1InputPanel.ScaleControl(System.Drawing.SizeF,System.Windows.Forms.BoundsSpecified)">
+      <summary>
+             Scales a control's location, size, padding and margin.
+             </summary>
+    </member>
+    <member name="M:C1.Win.C1InputPanel.C1InputPanel.OnRightToLeftChanged(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.RightToLeftChanged" /> event. 
+            </summary>
+    </member>
     <member name="M:C1.Win.C1InputPanel.C1InputPanel.OnBindingContextChanged(System.EventArgs)">
       <summary>
             Notifies input components about changing the binding context.
@@ -637,11 +652,6 @@
     <member name="M:C1.Win.C1InputPanel.C1InputPanel.OnVisibleChanged(System.EventArgs)">
       <summary>
             Raises the <see cref="E:System.Windows.Forms.Control.VisibleChanged" /> event.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1InputPanel.C1InputPanel.OnFontChanged(System.EventArgs)">
-      <summary>
-            Raises the FontChanged event. 
             </summary>
     </member>
     <member name="M:C1.Win.C1InputPanel.C1InputPanel.OnCursorChanged(System.EventArgs)">
@@ -906,6 +916,11 @@
             the <b>ToolTipLinkClicked</b> event fires and provides information about the link. The event handler
             can then take appropriate action.</para>
       </remarks>
+    </member>
+    <member name="P:C1.Win.C1InputPanel.C1InputPanel.ScaleChildren">
+      <summary>
+            Gets a value that determines the scaling of child controls.
+            </summary>
     </member>
     <member name="T:C1.Win.C1InputPanel.BreakType">
       <summary>
@@ -1929,9 +1944,14 @@
             Represents the font delta that can be applied to the base font.
             </summary>
     </member>
-    <member name="M:C1.Win.C1InputPanel.StyleFontDelta.GetFont(System.Drawing.Font)">
+    <member name="M:C1.Win.C1InputPanel.StyleFontDelta.GetFont(System.Drawing.Font,System.Single)">
       <summary>
             Gets the font as a result of applying this 'delta' to the specified base font.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1InputPanel.StyleFontDelta.ClearFontCache">
+      <summary>
+            Resets the cached font data.
             </summary>
     </member>
     <member name="M:C1.Win.C1InputPanel.StyleFontDelta.Reset">
@@ -2230,7 +2250,7 @@
             Gets or sets whether ampersands in the text should be hidden.
             </summary>
       <remarks>
-            Ampersands should be encoded in HTML as <b>'&amp;amp'</b>.
+            Ampersands should be encoded in HTML as '&amp;amp;' or '&amp;#38;'.
             Ampersands that are not properly encoded will not be hidden.
             </remarks>
     </member>
@@ -3450,26 +3470,6 @@
             </summary>
       <param name="control">The control from which to unsubscribe events.</param>
     </member>
-    <member name="M:C1.Win.C1InputPanel.InputControlHost.ShouldSerializeElementHeight">
-      <summary>
-            This member is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1InputPanel.InputControlHost.ResetElementHeight">
-      <summary>
-            This member is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1InputPanel.InputControlHost.ShouldSerializeElementWidth">
-      <summary>
-            This member is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1InputPanel.InputControlHost.ResetElementWidth">
-      <summary>
-            This member is for internal use only.
-            </summary>
-    </member>
     <member name="P:C1.Win.C1InputPanel.InputControlHost.Control">
       <summary>
             Gets or sets the control that this <see cref="T:C1.Win.C1InputPanel.InputControlHost" /> is hosting.
@@ -3614,6 +3614,12 @@
       <summary>
             Fires during a drag operation.
             </summary>
+    </member>
+    <member name="P:C1.Win.C1InputPanel.InputControlHost.DefaultElementHeight">
+      <inheritdoc />
+    </member>
+    <member name="P:C1.Win.C1InputPanel.InputControlHost.DefaultElementWidth">
+      <inheritdoc />
     </member>
     <member name="T:C1.Win.C1InputPanel.InputDataNavigator">
       <summary>
@@ -3965,6 +3971,11 @@
             Raises the <see cref="E:C1.Win.C1InputPanel.InputDatePicker.FormatChanged" /> event.
             </summary>
     </member>
+    <member name="M:C1.Win.C1InputPanel.InputDatePicker.OnDateClick(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.C1InputPanel.InputDatePicker.DateClick" /> event.
+            </summary>
+    </member>
     <member name="P:C1.Win.C1InputPanel.InputDatePicker.Value">
       <summary>
             Gets or sets the date value assigned to the component.
@@ -4046,6 +4057,11 @@
     <member name="E:C1.Win.C1InputPanel.InputDatePicker.FormatChanged">
       <summary>
             Fires when the <see cref="P:C1.Win.C1InputPanel.InputDatePicker.Format" /> property changes.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1InputPanel.InputDatePicker.DateClick">
+      <summary>
+            Fires when a date is clicked in the drop-down calendar.
             </summary>
     </member>
     <member name="P:C1.Win.C1InputPanel.InputDatePicker.DefaultElementWidth">

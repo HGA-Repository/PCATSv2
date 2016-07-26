@@ -1278,7 +1278,7 @@
     </member>
     <member name="E:C1.Win.C1Chart.C1Chart.AxisScroll">
       <summary>
-            Fires whenever the scroll position of the axis scrollbar changes.
+            Occurs whenever the scroll position of the axis scrollbar changes.
             </summary>
     </member>
     <member name="P:C1.Win.C1Chart.C1Chart.DataSource">

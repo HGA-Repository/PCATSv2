@@ -887,6 +887,12 @@
       <returns>
       </returns>
     </member>
+    <member name="M:C1.Win.C1Input.C1TextBox.SetCultureInfo(System.Globalization.CultureInfo)">
+      <summary>
+            Sets culture.
+            </summary>
+      <param name="cultureInfo">New culture.</param>
+    </member>
     <member name="M:C1.Win.C1Input.C1TextBox.SetCutureInfo(System.Globalization.CultureInfo)">
       <summary>
             Sets culture.
@@ -2298,6 +2304,13 @@
             This method is for internal use only.
             </summary>
     </member>
+    <member name="M:C1.Win.C1Input.C1ColorPicker.OnValueChanged(System.EventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
     <member name="P:C1.Win.C1Input.C1ColorPicker.AllowTransparent">
       <summary>
             Gets or sets a value indicating whether the transparent color can de selected.
@@ -2678,6 +2691,19 @@
             Gets or sets the path of the property to use as the actual value for the items in the C1ComboBox control.
             </summary>
     </member>
+    <member name="P:C1.Win.C1Input.C1ComboBox.UseItemsBindingSource">
+      <summary>
+            Keeps <see cref="P:C1.Win.C1Input.C1ComboBox.SelectedIndex" /> property synchronized with <see cref="P:System.Windows.Forms.BindingSource.Position" />.
+            </summary>
+      <remarks>
+        <see cref="P:C1.Win.C1Input.C1ComboBox.UseItemsBindingSource" /> does not have any effect if <see cref="P:C1.Win.C1Input.C1ComboBox.ItemsDataSource" /> value is not a <see cref="T:System.Windows.Forms.BindingSource" />.
+            </remarks>
+    </member>
+    <member name="P:C1.Win.C1Input.C1ComboBox.DropDownForm">
+      <summary>
+            Returns dropdown form instance associated with the control.
+            </summary>
+    </member>
     <member name="E:C1.Win.C1Input.C1ComboBox.SelectedItemChanged">
       <summary>
             Occurs when the <see cref="P:C1.Win.C1Input.C1ComboBox.SelectedItem" /> changes.
@@ -2702,20 +2728,20 @@
       <summary>
             Each combo box item is fragment of HTML. <see cref="T:C1.Win.C1Input.C1ComboBox" /> parses the HTML fragment and displays it as the drop down items.
             </summary>
-      <remakrs>
+      <remarks>
             C1ComboBox uses the same subset of HTML as C1SuperLabel does. 
             It does not support the full HTML features.
-            </remakrs>
+            </remarks>
     </member>
     <member name="F:C1.Win.C1Input.ComboItemMode.HtmlPattern">
       <summary>
             Each combo box item is fragment of HTML defined by <see cref="P:C1.Win.C1Input.C1ComboBox.HtmlPattern" /> property. 
-            <see cref="T:C1.Win.C1Input.C1ComboBox" /> parses the HTML pattern and replaces any of "{Text}" entires with the combo box item text.
+            <see cref="T:C1.Win.C1Input.C1ComboBox" /> parses the HTML pattern and replaces any of "{FieldName}" entires with the combo box item field value.
             </summary>
-      <remakrs>
+      <remarks>
             C1ComboBox uses the same subset of HTML as C1SuperLabel does. 
             It does not support the full HTML features.
-            </remakrs>
+            </remarks>
     </member>
     <member name="T:C1.Win.C1Input.DropDownStyle">
       <summary>
@@ -2743,6 +2769,16 @@
     <member name="T:C1.Win.C1Input.ComboBoxItemList">
       <summary>
             Represents collection of <see cref="T:C1.Win.C1Input.C1ComboBox" /> drop down items.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Input.ComboBoxItemList.OnListChanged">
+      <summary>
+            Raises the <see cref="E:C1.Win.C1Input.ComboBoxItemList.ListChanged" /> event with the provided arguments.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.ComboBoxItemList.ListChanged">
+      <summary>
+            Occurs when an item is added, removed, changed, moved, or the entire list is refreshed.
             </summary>
     </member>
     <member name="T:C1.Win.C1Input.ComboBoxStyle">
@@ -3714,11 +3750,6 @@
                c1DateEdit1.Calendar.AddBoldedDate(new DateTime(dt.Year, dt.Month, dt.Month));
             }
             </code></example>
-    </member>
-    <member name="P:C1.Win.C1Input.DateEditMonthCalendar.CurrentCulture">
-      <summary>
-            Get or sets current culture for the calendar.
-            </summary>
     </member>
     <member name="T:C1.Win.C1Input.DropDownCalendar">
       <summary>
@@ -4816,6 +4847,13 @@
       </param>
     </member>
     <member name="M:C1.Win.C1Input.C1FontPicker.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+      <summary>
+            This method is for internal use only.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1FontPicker.OnValueChanged(System.EventArgs)">
       <summary>
             This method is for internal use only.
             </summary>
@@ -8432,17 +8470,6 @@
       <param name="disposing">
         <b>true</b> to release both managed and unmanaged resources; <b>false</b> to release only unmanaged resources.</param>
     </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.ResetStyles">
-      <summary>
-            This method is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.ShouldSerializeStyles">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <returns>True if Styles should be serialized, false otherwise.</returns>
-    </member>
     <member name="M:C1.Win.C1Input.C1RangeSlider.ResetVisualStyle">
       <summary>
             Resets <see cref="P:C1.Win.C1Input.C1RangeSlider.VisualStyle" /> to the default value.
@@ -8459,17 +8486,6 @@
             Invokes the VisualStyleChanged event.
             </summary>
       <param name="e">The event arguments.</param>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.ResetVisualStyleBaseStyle">
-      <summary>
-            This method is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.ShouldSerializeVisualStyleBaseStyle">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <returns>True if VisualStyleBaseStyle should be serialized, false otherwise.</returns>
     </member>
     <member name="M:C1.Win.C1Input.C1RangeSlider.OnLowerValueChanged(System.EventArgs)">
       <summary>
@@ -8506,55 +8522,6 @@
       <param name="e">
       </param>
     </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.OnPaint(System.Windows.Forms.PaintEventArgs)">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <param name="e">
-      </param>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.OnMouseLeave(System.EventArgs)">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <param name="e">
-      </param>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <param name="e">
-      </param>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <param name="e">
-      </param>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <param name="e">
-      </param>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.OnGotFocus(System.EventArgs)">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <param name="e">
-      </param>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.OnLostFocus(System.EventArgs)">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <param name="e">
-      </param>
-    </member>
     <member name="P:C1.Win.C1Input.C1RangeSlider.LowerValue">
       <summary>
             Gets or sets the current lower magnitude of the range control.
@@ -8575,6 +8542,16 @@
             Gets or sets the maximum possible value of the range element.
             </summary>
     </member>
+    <member name="P:C1.Win.C1Input.C1RangeSlider.SmallChange">
+      <summary>
+            Gets or sets the value to be added to or subtracted from the LowerValue or UpperValue properties when the lower value thumb or upper value thumb is moved a small distance.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1RangeSlider.LargeChange">
+      <summary>
+            Gets or sets the value to be added to or subtracted from the LowerValue or UpperValue properties when the lower value thumb or upper value thumb is moved a large distance.
+            </summary>
+    </member>
     <member name="P:C1.Win.C1Input.C1RangeSlider.IsRangeBarVisible">
       <summary>
             Gets or sets a value that indicates whether C1RangeSlider bar should be displayed.
@@ -8588,6 +8565,11 @@
     <member name="P:C1.Win.C1Input.C1RangeSlider.IsDirectionReversed">
       <summary>
             Gets or sets the direction of increasing value.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Input.C1RangeSlider.ScrollBehavior">
+      <summary>
+            Gets or sets how thumbs will be moved when mouse click will be performed outside selected area.
             </summary>
     </member>
     <member name="P:C1.Win.C1Input.C1RangeSlider.LowerThumbPath">
@@ -8655,28 +8637,6 @@
             Represents a collection of named Style objects.
             </summary>
     </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ResetBarStyle">
-      <summary>
-            This method is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ShouldSerializeBarStyle">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <returns>True if BarStyle should be serialized, false otherwise.</returns>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ResetThumbStyle">
-      <summary>
-            This method is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ShouldSerializeThumbStyle">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <returns>True if ThumbStyle should be serialized, false otherwise.</returns>
-    </member>
     <member name="P:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.BarStyle">
       <summary>
             Gets or sets a collection of named Style objects for bar.
@@ -8691,50 +8651,6 @@
       <summary>
             Represents a collection of named Style objects for bar.
             </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.BarStyleCollection.ResetBackColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.BarStyleCollection.ShouldSerializeBackColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <returns>True if BackSolor should be serialized, false otherwise.</returns>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.BarStyleCollection.ResetBorderColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.BarStyleCollection.ShouldSerializeBorderColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <returns>True if BorderColor should be serialized, false otherwise.</returns>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.BarStyleCollection.ResetDisabledBackColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.BarStyleCollection.ShouldSerializeDisabledBackColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <returns>True if DisabledBackColor should be serialized, false otherwise.</returns>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.BarStyleCollection.ResetDisabledBorderColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.BarStyleCollection.ShouldSerializeDisabledBorderColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <returns>True if DisabledBorderColor should be serialized, false otherwise.</returns>
     </member>
     <member name="P:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.BarStyleCollection.BackColor">
       <summary>
@@ -8756,109 +8672,15 @@
             Gets or sets border color of bar if control is disabled.
             </summary>
     </member>
+    <member name="P:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.BarStyleCollection.SelectedAreaColor">
+      <summary>
+            Gets or sets color of selected area.
+            </summary>
+    </member>
     <member name="T:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ThumbStyleCollection">
       <summary>
             Represents a collection of named Style objects for thumb.
             </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ThumbStyleCollection.ResetBackColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ThumbStyleCollection.ShouldSerializeBackColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <returns>True if BackColor should be serialized, false otherwise.</returns>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ThumbStyleCollection.ResetBorderColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ThumbStyleCollection.ShouldSerializeBorderColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <returns>True if BorderColor should be serialized, false otherwise.</returns>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ThumbStyleCollection.ResetHotBackColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ThumbStyleCollection.ShouldSerializeHotBackColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <returns>True if HotBackColor should be serialized, false otherwise.</returns>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ThumbStyleCollection.ResetHotBorderColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ThumbStyleCollection.ShouldSerializeHotBorderColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <returns>True if HotBorderColor should be serialized, false otherwise.</returns>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ThumbStyleCollection.ResetPressedBackColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ThumbStyleCollection.ShouldSerializePressedBackColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <returns>True if PressedBackColor should be serialized, false otherwise.</returns>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ThumbStyleCollection.ResetPressedBorderColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ThumbStyleCollection.ShouldSerializePressedBorderColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <returns>True if PressedBorderColor should be serialized, false otherwise.</returns>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ThumbStyleCollection.ResetDisabledBackColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ThumbStyleCollection.ShouldSerializeDisabledBackColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <returns>True if DisabledBackColor should be serialized, false otherwise.</returns>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ThumbStyleCollection.ResetDisabledBorderColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ThumbStyleCollection.ShouldSerializeDisabledBorderColor">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <returns>True if DisabledBorderColor should be serialized, false otherwise.</returns>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ThumbStyleCollection.ResetCornerRadius">
-      <summary>
-            This method is for internal use only.
-            </summary>
-    </member>
-    <member name="M:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ThumbStyleCollection.ShouldSerializeCornerRadius">
-      <summary>
-            This method is for internal use only.
-            </summary>
-      <returns>True if CornerRadius should be serialized, false otherwise.</returns>
     </member>
     <member name="P:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ThumbStyleCollection.BackColor">
       <summary>
@@ -8905,6 +8727,11 @@
             Gets or sets corner radius of thumb.
             </summary>
     </member>
+    <member name="P:C1.Win.C1Input.C1RangeSlider.RangeSliderStyleCollection.ThumbStyleCollection.Padding">
+      <summary>
+            Gets or sets padding within the thumb.
+            </summary>
+    </member>
     <member name="T:C1.Win.C1Input.C1CheckBox">
       <summary>
             In addition to the standard CheckBox functionality, 
@@ -8924,6 +8751,18 @@
             </summary>
       <param name="disposing">
         <b>true</b> to release both managed and unmanaged resources; <b>false</b> to release only unmanaged resources.</param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1CheckBox.OnValueChanged(System.EventArgs)">
+      <summary>
+            Invokes the ValueChanged event.
+            </summary>
+      <param name="e">The event arguments.</param>
+    </member>
+    <member name="M:C1.Win.C1Input.C1CheckBox.OnCheckStateChanged(System.EventArgs)">
+      <summary>
+            Invokes the CheckStateChanged event.
+            </summary>
+      <param name="e">The event arguments.</param>
     </member>
     <member name="M:C1.Win.C1Input.C1CheckBox.OnVisualStyleChanged(System.EventArgs)">
       <summary>
@@ -8961,6 +8800,11 @@
     <member name="P:C1.Win.C1Input.C1CheckBox.Value">
       <summary>
             The main bindable property of a C1Input control.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Input.C1CheckBox.ValueChanged">
+      <summary>
+            Occurs when the Value property has changed.
             </summary>
     </member>
     <member name="P:C1.Win.C1Input.C1CheckBox.TranslateValues">
@@ -9887,6 +9731,26 @@
     <member name="F:C1.Win.C1Input.CalendarType.UmAlQuraCalendar">
       <summary>
             Represents UmAlQuraCalendar
+            </summary>
+    </member>
+    <member name="T:C1.Win.C1Input.RangeSliderScrollBehavior">
+      <summary>
+            Specifies how thumbs will be moved when mouse click will be performed outside selected area.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.RangeSliderScrollBehavior.None">
+      <summary>
+            Both thumbs will not move.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.RangeSliderScrollBehavior.Thumb">
+      <summary>
+            Closest thumb will be moved to direction of mouse by a large distance.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1Input.RangeSliderScrollBehavior.Range">
+      <summary>
+            Both thumbs will be moved to direction of mouse by a large distance.
             </summary>
     </member>
     <member name="T:C1.Win.C1Input.UpDownButtonAlignment">

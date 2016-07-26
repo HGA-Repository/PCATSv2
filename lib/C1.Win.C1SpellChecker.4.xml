@@ -754,7 +754,7 @@
         <see cref="T:System.Windows.Forms.Control" /> that will be monitored for spelling mistakes.</param>
       <param name="activeXBrowser">
         <b>IHtmlDocument2</b> interface that exposes the control contents.</param>
-      <param name="spellChecking">True to provide as-you-type spell-checking to the <paramref name="browser" />.</param>
+      <param name="spellChecking">True to provide as-you-type spell-checking to the <paramref name="activeXBrowser" />.</param>
     </member>
     <member name="M:C1.Win.C1SpellChecker.C1SpellChecker.GetActiveSpellChecking(System.Windows.Forms.Control)">
       <summary>

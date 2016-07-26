@@ -775,6 +775,11 @@
             Gets or sets how the form caption is horizontally aligned.
             </summary>
     </member>
+    <member name="P:C1.Win.C1Ribbon.C1Ribbon.ChildCaptionInSquareBrackets">
+      <summary>
+            Gets or sets a value indicating if the title of a maximized MDI child window should appear in square brackets after the main Form's title.
+            </summary>
+    </member>
     <member name="P:C1.Win.C1Ribbon.C1Ribbon.HeaderWatermark">
       <summary>
             Gets or sets an image displayed as the header watermark for the Custom visual style.
@@ -2763,6 +2768,11 @@
             Named style glyphs.
             </summary>
     </member>
+    <member name="T:C1.Win.C1Ribbon.StyleImagePalette">
+      <summary>
+            Named image palettes.
+            </summary>
+    </member>
     <member name="T:C1.Win.C1Ribbon.RibbonGalleryItemCollection">
       <summary>
             Represents a collection of <see cref="T:C1.Win.C1Ribbon.RibbonGalleryItem" /> objects.
@@ -3504,6 +3514,16 @@
     <member name="P:C1.Win.C1Ribbon.RibbonItem.Description">
       <summary>
             Gets or sets the description for this <see cref="T:C1.Win.C1Ribbon.RibbonItem" />.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Ribbon.RibbonItem.FlipImageRtl">
+      <summary>
+            Gets or sets a value indicating if the image should be flipped horizontally in RightToLeft mode.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1Ribbon.RibbonItem.AllowImageScaling">
+      <summary>
+            Gets or sets a value indicating if the image can be scaled in high-resolution applications.
             </summary>
     </member>
     <member name="P:C1.Win.C1Ribbon.RibbonItem.SmallImage">
@@ -7176,7 +7196,7 @@
             Gets or sets whether ampersands in the text should be hidden.
             </summary>
       <remarks>
-            Ampersands should be encoded in HTML as <b>'&amp;amp'</b>.
+            Ampersands should be encoded in HTML as '&amp;amp;' or '&amp;#38;'.
             Ampersands that are not properly encoded will not be hidden.
             </remarks>
     </member>
@@ -7681,6 +7701,16 @@
             </summary>
       <param name="data">String that contains the encoded image data.</param>
       <returns>The <see cref="T:System.Drawing.Image" /> encoded in the string.</returns>
+    </member>
+    <member name="T:C1.Win.C1Ribbon.ThemeImages">
+      <summary>
+            Contains the theme images for the C1Ribbon and C1StatusBar controls.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Ribbon.ThemeImages.LoadCustomImages(System.IO.Stream,C1.Win.C1Ribbon.VisualStyle)">
+      <summary>
+            Loads the custom theme images from a binary stream for the specified Office2007 VisualStyle.
+            </summary>
     </member>
   </members>
 </doc>

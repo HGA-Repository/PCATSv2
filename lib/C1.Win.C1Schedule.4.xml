@@ -842,6 +842,11 @@
             to be bound to the appropriate field in the data source. 
             </summary>
     </member>
+    <member name="P:C1.C1Schedule.AppointmentMappingCollection.Collection">
+      <summary>
+            Gets or sets AppointmentCollection using for mapping.
+            </summary>
+    </member>
     <member name="T:C1.C1Schedule.BaseObjectMappingCollection`1">
       <summary>
             Represents a generic collection of mappings for properties 
@@ -9210,7 +9215,6 @@
       <summary>
             Gets or sets a <see cref="P:C1.Win.C1Schedule.UI.ScheduleTheme.PaletteType" /> value determining which type of palletes should be used.
             </summary>
-      <remarks>When you change this property, the <see cref="!:UseOffice2007Pallettes" /> is changed correspondingly.</remarks>
     </member>
     <member name="P:C1.Win.C1Schedule.UI.ScheduleTheme.ShowTodayBorder">
       <summary>

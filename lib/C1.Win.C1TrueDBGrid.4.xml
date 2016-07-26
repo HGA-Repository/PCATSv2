@@ -781,13 +781,6 @@
       <param name="e">
       </param>
     </member>
-    <member name="M:C1.Win.C1TrueDBGrid.BaseGrid.Frame.OnPaint(System.Windows.Forms.PaintEventArgs)">
-      <summary>
-            Inherited from Control.
-            </summary>
-      <param name="e">
-      </param>
-    </member>
     <member name="M:C1.Win.C1TrueDBGrid.BaseGrid.Frame.CreateView">
       <summary>
             Creates the view.
@@ -1367,6 +1360,16 @@
       <summary>
             Gets or sets the border for the control.
             </summary>
+    </member>
+    <member name="P:C1.Win.C1TrueDBGrid.BaseGrid.Frame.BorderColor">
+      <summary>
+            Gets or sets the border color of the control.
+            </summary>
+      <remarks>
+        <para>Use the <b>BorderColor</b> property to specify the border color of the control. 
+            This property is set using a <see cref="T:System.Drawing.Color" /> object.</para>
+        <para>The <b>BorderColor</b> property has an effect only when the BorderStyle property is set to <b>FixedSingle</b>. </para>
+      </remarks>
     </member>
     <member name="P:C1.Win.C1TrueDBGrid.BaseGrid.Frame.AllowInactiveStyle">
       <summary>
@@ -2417,6 +2420,21 @@
       <param name="e">
       </param>
     </member>
+    <member name="M:C1.Win.C1TrueDBGrid.C1TrueDBGrid.OnBorderColorChanged(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.C1TrueDBGrid.C1TrueDBGrid.BorderColorChanged" /> event.
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+      <remarks>
+        <para>Raising an event invokes the event handler through a delegate. </para>
+        <para>The <b>OnBorderColorChanged</b> method also allows derived classes to handle the event without attaching a delegate. 
+            This is the preferred technique for handling the event in a derived class.</para>
+        <para>
+          <b>Notes to Inheritors.</b> When overriding <b>OnBorderColorChanged</b> in a derived class, 
+            be sure to call the base class's <b>OnBorderColorChanged</b> method so that registered delegates receive the event. 
+            </para>
+      </remarks>
+    </member>
     <member name="M:C1.Win.C1TrueDBGrid.C1TrueDBGrid.OnFetchRowStyle(C1.Win.C1TrueDBGrid.FetchRowStyleEventArgs)">
       <summary>
             Raises the FetchRowStyle event.
@@ -3323,6 +3341,11 @@
             Occurs whenever a grouped cell that contains an aggregate is to be rendered and <see cref="P:C1.Win.C1TrueDBGrid.C1DisplayColumn.FetchStyle" /> is true.
             </summary>
     </member>
+    <member name="E:C1.Win.C1TrueDBGrid.C1TrueDBGrid.BorderColorChanged">
+      <summary>
+            Occurs when the BorderColor property has changed.
+            </summary>
+    </member>
     <member name="E:C1.Win.C1TrueDBGrid.C1TrueDBGrid.FetchRowStyle">
       <summary>
             Occurs whenever the grid renders a row and the <see cref="P:C1.Win.C1TrueDBGrid.C1TrueDBGrid.FetchRowStyles" /> property has been set.
@@ -3656,6 +3679,21 @@
       <summary>
             Occurs whenever the grid has focus and the scrollbar thumb is moved using the mouse.
             </summary>
+    </member>
+    <member name="M:C1.Win.C1TrueDBGrid.C1TrueDBDropdown.OnBorderColorChanged(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.C1TrueDBGrid.C1TrueDBDropdown.BorderColorChanged" /> event.
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+      <remarks>
+        <para>Raising an event invokes the event handler through a delegate. </para>
+        <para>The <b>OnBorderColorChanged</b> method also allows derived classes to handle the event without attaching a delegate. 
+            This is the preferred technique for handling the event in a derived class.</para>
+        <para>
+          <b>Notes to Inheritors.</b> When overriding <b>OnBorderColorChanged</b> in a derived class, 
+            be sure to call the base class's <b>OnBorderColorChanged</b> method so that registered delegates receive the event. 
+            </para>
+      </remarks>
     </member>
     <member name="M:C1.Win.C1TrueDBGrid.C1TrueDBDropdown.GetCurrentSelIndex">
       <summary>
@@ -3998,6 +4036,11 @@
     <member name="E:C1.Win.C1TrueDBGrid.C1TrueDBDropdown.FetchScrollTips">
       <summary>
             Occurs whenever the grid has focus and the scrollbar thumb is moved using the mouse.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1TrueDBGrid.C1TrueDBDropdown.BorderColorChanged">
+      <summary>
+            Occurs when the BorderColor property has changed.
             </summary>
     </member>
     <member name="P:C1.Win.C1TrueDBGrid.C1TrueDBDropdown.CaptionStyle">
@@ -4402,10 +4445,6 @@
       <returns>
       </returns>
     </member>
-    <member name="M:C1.Win.C1TrueDBGrid.BaseGrid.View.RepositionEditor">
-      <summary>
-      </summary>
-    </member>
     <member name="M:C1.Win.C1TrueDBGrid.BaseGrid.View.RowVisibilityChanged(C1.Win.C1TrueDBGrid.BaseGrid.ViewRow)">
       <summary>
       </summary>
@@ -4430,7 +4469,7 @@
     </member>
     <member name="M:C1.Win.C1TrueDBGrid.BaseGrid.View.ResetTopBottomRow">
       <summary>
-            Performs internal reset. 
+            Performs internal reset.
             </summary>
     </member>
     <member name="M:C1.Win.C1TrueDBGrid.BaseGrid.View.ClipDataRect(System.Windows.Forms.PaintEventArgs)">
@@ -4563,12 +4602,12 @@
             Gets or sets the type of border rendered for a split.
             </summary>
     </member>
-    <member name="T:C1.Win.C1TrueDBGrid.baseTypeConverter">
+    <member name="T:C1.Win.C1TrueDBGrid.BaseTypeConverter">
       <summary>
             Base class for typeconverter.
             </summary>
     </member>
-    <member name="M:C1.Win.C1TrueDBGrid.baseTypeConverter.ObjFromString(System.String)">
+    <member name="M:C1.Win.C1TrueDBGrid.BaseTypeConverter.ObjFromString(System.String)">
       <summary>
             Returns an object from it's string representation.
             </summary>
@@ -4577,7 +4616,7 @@
       <returns>
       </returns>
     </member>
-    <member name="M:C1.Win.C1TrueDBGrid.baseTypeConverter.StringFromObj(System.Object)">
+    <member name="M:C1.Win.C1TrueDBGrid.BaseTypeConverter.StringFromObj(System.Object)">
       <summary>
             Returns a string representation from a given object.
             </summary>
@@ -4586,7 +4625,7 @@
       <returns>
       </returns>
     </member>
-    <member name="M:C1.Win.C1TrueDBGrid.baseTypeConverter.CanConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+    <member name="M:C1.Win.C1TrueDBGrid.BaseTypeConverter.CanConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Type)">
       <summary>
             Returns true if the source type is string.
             </summary>
@@ -4597,7 +4636,7 @@
       <returns>
       </returns>
     </member>
-    <member name="M:C1.Win.C1TrueDBGrid.baseTypeConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+    <member name="M:C1.Win.C1TrueDBGrid.BaseTypeConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
       <summary>
             Returns true of the type of string.
             </summary>
@@ -4608,7 +4647,7 @@
       <returns>
       </returns>
     </member>
-    <member name="M:C1.Win.C1TrueDBGrid.baseTypeConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
+    <member name="M:C1.Win.C1TrueDBGrid.BaseTypeConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
       <summary>
             Overloaded. Returns whether this converter can convert an object of one type to the type of this converter.
             </summary>
@@ -4621,7 +4660,7 @@
       <returns>
       </returns>
     </member>
-    <member name="M:C1.Win.C1TrueDBGrid.baseTypeConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+    <member name="M:C1.Win.C1TrueDBGrid.BaseTypeConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
       <summary>
             Overloaded. Converts the given value object to the specified type.
             </summary>

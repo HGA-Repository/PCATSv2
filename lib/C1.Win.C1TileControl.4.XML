@@ -194,6 +194,11 @@
             Raises the <see cref="E:C1.Win.C1Tile.C1TileControl.TileClicked" /> event.
             </summary>
     </member>
+    <member name="M:C1.Win.C1Tile.C1TileControl.OnTileMoved(C1.Win.C1Tile.TileEventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.C1Tile.C1TileControl.TileMoved" /> event.
+            </summary>
+    </member>
     <member name="M:C1.Win.C1Tile.C1TileControl.OnTileChecked(C1.Win.C1Tile.TileEventArgs)">
       <summary>
             Raises the <see cref="E:C1.Win.C1Tile.C1TileControl.TileChecked" /> event.
@@ -739,6 +744,11 @@
     <member name="E:C1.Win.C1Tile.C1TileControl.TileClicked">
       <summary>
             Occurs when some tile is clicked.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Tile.C1TileControl.TileMoved">
+      <summary>
+            Occurs when some tile is moved.
             </summary>
     </member>
     <member name="E:C1.Win.C1Tile.C1TileControl.TileChecked">

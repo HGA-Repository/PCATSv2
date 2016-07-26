@@ -3998,6 +3998,12 @@
         <member name="F:C1.Win.C1Themes.Shared.Gantt_BarShape.BottomLine">
             <summary>For internal use.</summary>
         </member>
+        <member name="F:C1.Win.C1Themes.Shared.Gantt_BarShape.Frame">
+            <summary>For internal use.</summary>
+        </member>
+        <member name="F:C1.Win.C1Themes.Shared.Gantt_BarShape.HalfFrame">
+            <summary>For internal use.</summary>
+        </member>
         <member name="F:C1.Win.C1Themes.Shared.Gantt_HatchPattern.Empty">
             <summary>For internal use.</summary>
         </member>

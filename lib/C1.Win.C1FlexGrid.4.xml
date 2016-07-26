@@ -4,40 +4,6 @@
     <name>C1.Win.C1FlexGrid.4</name>
   </assembly>
   <members>
-    <member name="T:C1.C1Excel.XLUnderlineStyle">
-      <summary>
-            The Excel font underline style.
-            </summary>
-    </member>
-    <member name="F:C1.C1Excel.XLUnderlineStyle.None">
-      <summary>No underline.</summary>
-    </member>
-    <member name="F:C1.C1Excel.XLUnderlineStyle.Single">
-      <summary>Single underline.</summary>
-    </member>
-    <member name="F:C1.C1Excel.XLUnderlineStyle.Double">
-      <summary>Double underline.</summary>
-    </member>
-    <member name="F:C1.C1Excel.XLUnderlineStyle.SingleAccounting">
-      <summary>Single accounting underline.</summary>
-    </member>
-    <member name="F:C1.C1Excel.XLUnderlineStyle.DoubleAccounting">
-      <summary>Double accounting underline.</summary>
-    </member>
-    <member name="T:C1.C1Excel.XLFontScript">
-      <summary>
-            The Excel font superscript/subscript style.
-            </summary>
-    </member>
-    <member name="F:C1.C1Excel.XLFontScript.None">
-      <summary>Normal.</summary>
-    </member>
-    <member name="F:C1.C1Excel.XLFontScript.Superscript">
-      <summary>Superscript.</summary>
-    </member>
-    <member name="F:C1.C1Excel.XLFontScript.Subscript">
-      <summary>Subscript.</summary>
-    </member>
     <member name="T:C1.C1Excel.Strings">
       <summary>
             Static class containing UI strings used by the designer.
@@ -179,6 +145,11 @@
       <remarks>
             Setting this property to null causes the filter to include all values in the output.
             </remarks>
+    </member>
+    <member name="P:C1.Win.C1FlexGrid.ValueFilter.ValuesLimit">
+      <summary>
+            Gets or sets the limit count of displayed values in value filter.
+            </summary>
     </member>
     <member name="P:C1.Win.C1FlexGrid.ValueFilter.IsActive">
       <summary>
@@ -4940,7 +4911,7 @@
         <para>When the user stops typing for about a second, the search buffer is reset. This amount of 
             time can be changed by setting the <see cref="P:C1.Win.C1FlexGrid.C1FlexGridBase.AutoSearchDelay" /> property.</para>
         <para>If <see cref="P:C1.Win.C1FlexGrid.C1FlexGridBase.AutoSearch" /> is on and <see cref="P:C1.Win.C1FlexGrid.C1FlexGridBase.AllowEditing" /> is set to true, the user 
-            will need to hit ENTER, SPACE, or F2 to start editing cells. Other keys are used for searching.</para>
+            will need to hit ENTER, or F2 to start editing cells. Other keys are used for searching.</para>
       </remarks>
     </member>
     <member name="P:C1.Win.C1FlexGrid.C1FlexGridBase.AutoSearchDelay">
@@ -5539,6 +5510,16 @@
             Gets or sets a <see cref="T:C1.Win.C1FlexGrid.ScrollFlags" /> value that specifies the grid scrolling behavior.
             </summary>
     </member>
+    <member name="P:C1.Win.C1FlexGrid.C1FlexGridBase.PreserveEditMode">
+      <summary>
+            Gets or sets flag that specify entering edit mode of cell after exiting from previous cell with arrow keys or tab key.
+            </summary>
+    </member>
+    <member name="P:C1.Win.C1FlexGrid.C1FlexGridBase.C1SuperErrorProvider">
+      <summary>
+            Gets or sets an C1SuperErrorProvider object used to indicate error state of the control.
+            </summary>
+    </member>
     <member name="P:C1.Win.C1FlexGrid.C1FlexGridBase.ScrollableRectangle">
       <summary>
             Gets a rectangle that defines the scrollable portion of the control.
@@ -5754,6 +5735,14 @@
       <returns>A <see cref="T:C1.Win.C1FlexGrid.CellRange" /> object that contains the given cell.</returns>
       <remarks>
             This method returns the entire range, including invisible cells.
+            </remarks>
+    </member>
+    <member name="M:C1.Win.C1FlexGrid.C1FlexGrid.Transpose">
+      <summary>
+            Reflects grid over its main diagonal.
+            </summary>
+      <remarks>
+            The <b>Transpose</b> method also removes sorting and filtering for every columns.
             </remarks>
     </member>
     <member name="M:C1.Win.C1FlexGrid.C1FlexGrid.Clear">
@@ -6310,12 +6299,22 @@
     </member>
     <member name="F:C1.Win.C1FlexGrid.ShowButtonsEnum.WithFocus">
       <summary>
-            Show buttons when the cell has the focus. This is the default setting.
+            Show buttons when the cell has the focus. This is the default setting for grid.
             </summary>
     </member>
     <member name="F:C1.Win.C1FlexGrid.ShowButtonsEnum.Always">
       <summary>
             Always show buttons.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1FlexGrid.ShowButtonsEnum.Never">
+      <summary>
+            Never show buttons.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1FlexGrid.ShowButtonsEnum.Inherit">
+      <summary>
+            ShowButtons property of the column is inherited from the grid. This is default setting for column. Cannot be used with ShowButtons property of the grid.
             </summary>
     </member>
     <member name="T:C1.Win.C1FlexGrid.EditFlags">
@@ -6436,6 +6435,11 @@
       <summary>
             Fire the <see cref="E:C1.Win.C1FlexGrid.C1FlexGridBase.ShowScrollTip" /> event and display a tooltip next to 
             the vertical scrollbar while scrolling vertically.
+            </summary>
+    </member>
+    <member name="F:C1.Win.C1FlexGrid.ScrollFlags.KeepMergedRangePosition">
+      <summary>
+            Do not scroll the control to the first cell of merged range.
             </summary>
     </member>
     <member name="T:C1.Win.C1FlexGrid.ClipboardCopyModeEnum">
@@ -9863,6 +9867,21 @@
             Gets or sets the text of the column's header cell.
             </summary>
     </member>
+    <member name="P:C1.Win.C1FlexGrid.Column.ShowButtons">
+      <summary>
+            Gets or sets when to display combo buttons in cells.
+            </summary>
+      <remarks>
+        <para>By default, the column will show editing buttons in cells only when they
+            have the focus. This is the same behavior used by the <see cref="T:System.Windows.Forms.PropertyGrid" />
+            control.</para>
+        <para>If you set <see cref="P:C1.Win.C1FlexGrid.Column.ShowButtons" /> to <see cref="F:C1.Win.C1FlexGrid.ShowButtonsEnum.Always" />,
+            the column will display buttons on any cells that have associated lists, even if they
+            don't have the focus.</para>
+        <para>For details on how to associate lists with cells, see the <see cref="!:ComboList" />,
+            <see cref="P:C1.Win.C1FlexGrid.RowCol.ComboList" />, and <see cref="P:C1.Win.C1FlexGrid.RowCol.DataMap" /> properties.</para>
+      </remarks>
+    </member>
     <member name="T:C1.Win.C1FlexGrid.RowColCollection">
       <summary>
             Base class for grid row and column collections (<see cref="T:C1.Win.C1FlexGrid.RowCollection" /> 
@@ -10602,6 +10621,11 @@
             Style used to render cells that are frozen (editable and selectable, but not scrollable). 
             </summary>
     </member>
+    <member name="F:C1.Win.C1FlexGrid.CellStyleEnum.FrozenAlternate">
+      <summary>
+            Style used to render cells that are frozen (editable and selectable, but not scrollable) in even-numbered rows. 
+            </summary>
+    </member>
     <member name="F:C1.Win.C1FlexGrid.CellStyleEnum.NewRow">
       <summary>
             Style used to render the last row on the grid when the <see cref="P:C1.Win.C1FlexGrid.C1FlexGridBase.AllowAddNew" /> property is set to true.
@@ -11263,6 +11287,14 @@
       <summary>
             Gets the style used to paint frozen cells (frozen cells are editable and selectable, but not scrollable). 
             </summary>
+    </member>
+    <member name="P:C1.Win.C1FlexGrid.CellStyleCollection.FrozenAlternate">
+      <summary>
+            Gets the style used to paint frozen cells (frozen cells are editable and selectable, but not scrollable) in alternate rows. 
+            </summary>
+      <remarks>
+            This style is empty by default, so frozen cells are rendered using the <see cref="P:C1.Win.C1FlexGrid.CellStyleCollection.Frozen" /> style.
+            </remarks>
     </member>
     <member name="P:C1.Win.C1FlexGrid.CellStyleCollection.NewRow">
       <summary>

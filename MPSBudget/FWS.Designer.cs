@@ -58,6 +58,7 @@ namespace RSMPS
             this.tdbgWS.AllowColMove = false;
             this.tdbgWS.AllowSort = false;
             this.tdbgWS.AlternatingRows = true;
+            this.tdbgWS.BorderColor = System.Drawing.SystemColors.WindowFrame;
             this.tdbgWS.ContextMenuStrip = this.contextMenuStrip1;
             this.tdbgWS.GroupByCaption = "Drag a column header here to group by that column";
             this.tdbgWS.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbgWS.Images"))));
@@ -67,10 +68,11 @@ namespace RSMPS
             this.tdbgWS.PreviewInfo.Size = new System.Drawing.Size(0, 0);
             this.tdbgWS.PreviewInfo.ZoomFactor = 75D;
             this.tdbgWS.PrintInfo.PageSettings = ((System.Drawing.Printing.PageSettings)(resources.GetObject("tdbgWS.PrintInfo.PageSettings")));
-            this.tdbgWS.Size = new System.Drawing.Size(2049, 191);
+            this.tdbgWS.Size = new System.Drawing.Size(2049, 343);
             this.tdbgWS.TabAcrossSplits = true;
             this.tdbgWS.TabIndex = 0;
             this.tdbgWS.Text = "c1TrueDBGrid1";
+            this.tdbgWS.UseCompatibleTextRendering = true;
             this.tdbgWS.WrapCellPointer = true;
             this.tdbgWS.AfterColEdit += new C1.Win.C1TrueDBGrid.ColEventHandler(this.tdbgWS_AfterColEdit);
             this.tdbgWS.PropBag = resources.GetString("tdbgWS.PropBag");
@@ -82,24 +84,24 @@ namespace RSMPS
             this.toolStripMenuItem1,
             this.cancelToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(128, 54);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(133, 54);
             // 
             // deleteLineToolStripMenuItem
             // 
             this.deleteLineToolStripMenuItem.Name = "deleteLineToolStripMenuItem";
-            this.deleteLineToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.deleteLineToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.deleteLineToolStripMenuItem.Text = "Delete Line";
             this.deleteLineToolStripMenuItem.Click += new System.EventHandler(this.deleteLineToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(124, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(129, 6);
             // 
             // cancelToolStripMenuItem
             // 
             this.cancelToolStripMenuItem.Name = "cancelToolStripMenuItem";
-            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.cancelToolStripMenuItem.Text = "Cancel";
             // 
             // groupBox1
@@ -107,7 +109,7 @@ namespace RSMPS
             this.groupBox1.Controls.Add(this.tdbgWS);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1697, 226);
+            this.groupBox1.Size = new System.Drawing.Size(1697, 379);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Specifications and Procurement";
@@ -115,7 +117,7 @@ namespace RSMPS
             // bttOK
             // 
             this.bttOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.bttOK.Location = new System.Drawing.Point(710, 518);
+            this.bttOK.Location = new System.Drawing.Point(710, 515);
             this.bttOK.Name = "bttOK";
             this.bttOK.Size = new System.Drawing.Size(80, 30);
             this.bttOK.TabIndex = 2;
@@ -126,7 +128,7 @@ namespace RSMPS
             // bttCancel
             // 
             this.bttCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.bttCancel.Location = new System.Drawing.Point(796, 518);
+            this.bttCancel.Location = new System.Drawing.Point(796, 515);
             this.bttCancel.Name = "bttCancel";
             this.bttCancel.Size = new System.Drawing.Size(80, 30);
             this.bttCancel.TabIndex = 3;
@@ -138,7 +140,7 @@ namespace RSMPS
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.tdbgExpense);
-            this.groupBox2.Location = new System.Drawing.Point(12, 237);
+            this.groupBox2.Location = new System.Drawing.Point(12, 235);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1697, 278);
             this.groupBox2.TabIndex = 1;
@@ -154,6 +156,7 @@ namespace RSMPS
             this.tdbgExpense.AllowSort = false;
             this.tdbgExpense.AlternatingRows = true;
             this.tdbgExpense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tdbgExpense.BorderColor = System.Drawing.SystemColors.WindowFrame;
             this.tdbgExpense.ContextMenuStrip = this.contextMenuStrip2;
             this.tdbgExpense.GroupByCaption = "Drag a column header here to group by that column";
             this.tdbgExpense.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbgExpense.Images"))));
@@ -166,6 +169,7 @@ namespace RSMPS
             this.tdbgExpense.Size = new System.Drawing.Size(2030, 245);
             this.tdbgExpense.TabIndex = 0;
             this.tdbgExpense.Text = "c1TrueDBGrid1";
+            this.tdbgExpense.UseCompatibleTextRendering = true;
             this.tdbgExpense.AfterColEdit += new C1.Win.C1TrueDBGrid.ColEventHandler(this.tdbgExpense_AfterColEdit);
             this.tdbgExpense.Click += new System.EventHandler(this.tdbgExpense_Click);
             this.tdbgExpense.PropBag = resources.GetString("tdbgExpense.PropBag");
@@ -177,24 +181,24 @@ namespace RSMPS
             this.toolStripMenuItem2,
             this.cancelToolStripMenuItem1});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(128, 54);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(133, 54);
             // 
             // deleteLineToolStripMenuItem1
             // 
             this.deleteLineToolStripMenuItem1.Name = "deleteLineToolStripMenuItem1";
-            this.deleteLineToolStripMenuItem1.Size = new System.Drawing.Size(127, 22);
+            this.deleteLineToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.deleteLineToolStripMenuItem1.Text = "Delete Line";
             this.deleteLineToolStripMenuItem1.Click += new System.EventHandler(this.deleteLineToolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(124, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(129, 6);
             // 
             // cancelToolStripMenuItem1
             // 
             this.cancelToolStripMenuItem1.Name = "cancelToolStripMenuItem1";
-            this.cancelToolStripMenuItem1.Size = new System.Drawing.Size(127, 22);
+            this.cancelToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.cancelToolStripMenuItem1.Text = "Cancel";
             // 
             // FWS

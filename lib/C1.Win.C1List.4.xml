@@ -2520,6 +2520,20 @@
       <param name="e">
       </param>
     </member>
+    <member name="M:C1.Win.C1List.ListBase.Frame.OnSelectionChanging(System.ComponentModel.CancelEventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.C1List.ListBase.Frame.SelectionChanging" /> event.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
+    <member name="M:C1.Win.C1List.ListBase.Frame.OnSelectionChanged(System.EventArgs)">
+      <summary>
+            Raised when a selection has changed.
+            </summary>
+      <param name="e">
+      </param>
+    </member>
     <member name="M:C1.Win.C1List.ListBase.Frame.OnSelChange(System.ComponentModel.CancelEventArgs)">
       <summary>
             Raised when a selection has changed.
@@ -2776,6 +2790,16 @@
     <member name="E:C1.Win.C1List.ListBase.Frame.VisualStyleChanged">
       <summary>
             Occurs when the VisualStyle property changes.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1List.ListBase.Frame.SelectionChanging">
+      <summary>
+            Occurs when the selection is about to change.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1List.ListBase.Frame.SelectionChanged">
+      <summary>
+            Fires when the user selects a different range of rows or columns.
             </summary>
     </member>
     <member name="M:C1.Win.C1List.ListBase.C1ListBase.#ctor">

@@ -4,40 +4,6 @@
     <name>C1.C1Report.4</name>
   </assembly>
   <members>
-    <member name="T:C1.C1Excel.XLUnderlineStyle">
-      <summary>
-            The Excel font underline style.
-            </summary>
-    </member>
-    <member name="F:C1.C1Excel.XLUnderlineStyle.None">
-      <summary>No underline.</summary>
-    </member>
-    <member name="F:C1.C1Excel.XLUnderlineStyle.Single">
-      <summary>Single underline.</summary>
-    </member>
-    <member name="F:C1.C1Excel.XLUnderlineStyle.Double">
-      <summary>Double underline.</summary>
-    </member>
-    <member name="F:C1.C1Excel.XLUnderlineStyle.SingleAccounting">
-      <summary>Single accounting underline.</summary>
-    </member>
-    <member name="F:C1.C1Excel.XLUnderlineStyle.DoubleAccounting">
-      <summary>Double accounting underline.</summary>
-    </member>
-    <member name="T:C1.C1Excel.XLFontScript">
-      <summary>
-            The Excel font superscript/subscript style.
-            </summary>
-    </member>
-    <member name="F:C1.C1Excel.XLFontScript.None">
-      <summary>Normal.</summary>
-    </member>
-    <member name="F:C1.C1Excel.XLFontScript.Superscript">
-      <summary>Superscript.</summary>
-    </member>
-    <member name="F:C1.C1Excel.XLFontScript.Subscript">
-      <summary>Subscript.</summary>
-    </member>
     <member name="T:C1.C1Excel.Strings">
       <summary>
             Static class containing UI strings used by the designer.
@@ -5489,7 +5455,7 @@
     </member>
     <member name="E:C1.C1Preview.C1PrintDocument.DocumentStarting">
       <summary>
-            Occurs when the document generation is started.
+            Occurs when the document generation is starting.
             </summary>
     </member>
     <member name="E:C1.C1Preview.C1PrintDocument.DocumentEnded">
@@ -5499,57 +5465,53 @@
     </member>
     <member name="E:C1.C1Preview.C1PrintDocument.PageConfigure">
       <summary>
-            Occurs when a new empty page is created and added to the document,
-            the page is added to the Pages collection but *not resolved*, 
-            use this method only for changing layout of page.
+            Occurs when a new empty page has been created and added to the document's Pages collection, but has not been resolved yet.
+            Use this method only to change the layout of the page.
             </summary>
     </member>
     <member name="E:C1.C1Preview.C1PrintDocument.PageAdded">
       <summary>
-            Occurs only during generating of the document, 
-            when generating of page of document is finished, page is added to the Pages collection
-            and switch to other page is occured.
+            Occurs during document generation when a page has been generated and added to the Pages collection,
+            and the next page is about to be generated.
             </summary>
     </member>
     <member name="E:C1.C1Preview.C1PrintDocument.PageUpdated">
       <summary>
-            Occurs when page of document is changed. 
-            This event occurs very often while document is generating,
-            it is called each time when a fragment of object is 
-            added to page or removed from page.
+            Occurs when a page of the document has been updated.
+            Fires very often during document generation when fragments of objects are added to, or removed from the page.
             </summary>
     </member>
     <member name="E:C1.C1Preview.C1PrintDocument.PageChanged">
       <summary>
-            Occurs only during generating of the document, when page
-            of document which was added to document is changed, for example when
-            page numbering is changed or PageCount property is updated for page.
+            Occurs when an already generated page of the document has been changed,
+            for example when the PageCount variable on the page needs to be updated.
             </summary>
     </member>
     <member name="E:C1.C1Preview.C1PrintDocument.PageDeleted">
       <summary>
-            Occurs when the page is removed from the document (from the Pages collection).
-            This event cannot occur during document generation.
+            Occurs when the page has been removed from the document's Pages collection.
+            This event cannot fire during document generation.
             </summary>
     </member>
     <member name="E:C1.C1Preview.C1PrintDocument.PagesClear">
       <summary>
-            Occurs when the Pages collection is cleared.
+            Occurs when the Pages collection has been cleared.
             </summary>
     </member>
     <member name="E:C1.C1Preview.C1PrintDocument.BeforePagesClear">
       <summary>
-            Occurs before the Pages collection is cleared.
+            Occurs when the Pages collection is about to be cleared.
             </summary>
     </member>
     <member name="E:C1.C1Preview.C1PrintDocument.GenerateDocument">
       <summary>
-            Allows user to build document content in event handler.
+            Occurs when the document needs to be generated.
+            Allows user to build the document content in an event handler.
             </summary>
     </member>
     <member name="E:C1.C1Preview.C1PrintDocument.InputValueChanged">
       <summary>
-            Occurs when the value of RenderInputBase object within document is changed.
+            Occurs when the value of a RenderInputBase object within the document has been changed.
             </summary>
     </member>
     <member name="E:C1.C1Preview.C1PrintDocument.FormsStyleChanged">
@@ -6808,7 +6770,7 @@
             Called after an item has been inserted.
             </summary>
       <param name="index">The item index.</param>
-      <param name="value">The item.</param>
+      <param name="item">The item.</param>
     </member>
     <member name="M:C1.C1Preview.OwnedFastListBase.OnClear">
       <summary>
@@ -6824,7 +6786,7 @@
       <summary>
             Removes the specified element from the current list.
             </summary>
-      <param name="obj">The element to remove.</param>
+      <param name="index">Index of the element to remove.</param>
     </member>
     <member name="M:C1.C1Preview.OwnedFastListBase.Insert(System.Int32,System.Object)">
       <summary>
@@ -7175,7 +7137,7 @@
       <param name="imageFormat">The image format (e.g. as returned by <see cref="P:System.Drawing.Image.RawFormat" />).</param>
       <returns>The corresponding <see cref="T:System.Drawing.Imaging.ImageCodecInfo" /> or <c>null</c> if none was found.</returns>
     </member>
-    <member name="M:C1.C1Preview.GraphicsUtils.GetScreenDpi(System.Single@,System.Single@,System.Single@,System.Single@)">
+    <member name="M:C1.C1Preview.GraphicsUtils.GetScreenDpi(System.Single@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@)">
       <summary>
             Returns the logical and physical screen resolution.
             </summary>
@@ -7183,6 +7145,8 @@
       <param name="logicalDpiY">OUT: the logical vertical resolution.</param>
       <param name="physicalDpiX">OUT: the physical horizontal resolution.</param>
       <param name="physicalDpiY">OUT: the physical vertical resolution.</param>
+      <param name="realLogicalDpiX">OUT: The real horz DPI 96, 120, 144 etc depending on font size.</param>
+      <param name="readDpiY">OUT: The real vert DPI 96, 120, 144 etc depending on font size.</param>
     </member>
     <member name="M:C1.C1Preview.GraphicsUtils.GetDcDpiX(System.IntPtr)">
       <summary>
@@ -7385,6 +7349,18 @@
     <member name="P:C1.C1Preview.GraphicsUtils.ScreenDpiY">
       <summary>
             Gets the logical vertical resolution of the screen.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.GraphicsUtils.RealScreenDpiX">
+      <summary>
+            Gets the real logical horizontal resolution of the screen,
+            depending on font size (96, 120, 144 etc).
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.GraphicsUtils.RealScreenDpiY">
+      <summary>
+            Gets the logical vertical resolution of the screen,
+            depending on font size (96, 120, 144 etc).
             </summary>
     </member>
     <member name="T:C1.C1Preview.GraphicsUtils.GdiDc">
@@ -17173,9 +17149,55 @@
             Defines image alignment properties.
             </summary>
     </member>
+    <member name="M:C1.C1Preview.IImageAlign.ResetAlignHorz">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IImageAlign.AlignHorz" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IImageAlign.ResetAlignVert">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IImageAlign.AlignVert" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IImageAlign.ResetStretchHorz">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IImageAlign.StretchHorz" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IImageAlign.ResetStretchVert">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IImageAlign.StretchVert" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IImageAlign.ResetKeepAspectRatio">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IImageAlign.KeepAspectRatio" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IImageAlign.ResetTileHorz">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IImageAlign.TileHorz" /> property to an undefuned state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IImageAlign.ResetTileVert">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IImageAlign.TileVert" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IImageAlign.ResetAll">
+      <summary>
+            Resets all properties to an undefined state.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.IImageAlign.AlignHorz">
       <summary>
             Gets or sets the horizontal alignment of an image within a container.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.IImageAlign.HasAlignHorz">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IImageAlign.AlignHorz" /> property is defined
+            on the current object.
             </summary>
     </member>
     <member name="P:C1.C1Preview.IImageAlign.AlignVert">
@@ -17183,9 +17205,21 @@
             Gets or sets the vertical alignment of an image within a container.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.IImageAlign.HasAlignVert">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IImageAlign.AlignVert" /> property is defined
+            on the current object.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.IImageAlign.StretchHorz">
       <summary>
             Gets or sets a value indicating whether an image is stretched horizontally to fill its container.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.IImageAlign.HasStretchHorz">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IImageAlign.StretchHorz" /> property is defined
+            on the current object.
             </summary>
     </member>
     <member name="P:C1.C1Preview.IImageAlign.StretchVert">
@@ -17193,9 +17227,21 @@
             Gets or sets a value indicating whether an image is stretched vertically to fill its container.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.IImageAlign.HasStretchVert">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IImageAlign.StretchVert" /> property is defined
+            on the current object.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.IImageAlign.KeepAspectRatio">
       <summary>
             Gets or sets a value indicating whether the original aspect ratio is preserved when rendering an image.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.IImageAlign.HasKeepAspectRatio">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IImageAlign.KeepAspectRatio" /> property is defined
+            on the current object.
             </summary>
     </member>
     <member name="P:C1.C1Preview.IImageAlign.TileHorz">
@@ -17203,9 +17249,21 @@
             Gets or sets a value indicating whether an image is tiled horizontally within its container.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.IImageAlign.HasTileHorz">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IImageAlign.TileHorz" /> property is defined
+            on the current style.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.IImageAlign.TileVert">
       <summary>
             Gets or sets a value indicating whether an image is tiled vertically within its container.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.IImageAlign.HasTileVert">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IImageAlign.TileVert" /> property is defined
+            on the current style.
             </summary>
     </member>
     <member name="P:C1.C1Preview.IImageAlign.BestFit">
@@ -17382,9 +17440,40 @@
             corresponding to the four sides of a rectangluar area.
             </summary>
     </member>
+    <member name="M:C1.C1Preview.IOffsets.ResetLeft">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IOffsets.Left" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IOffsets.ResetTop">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IOffsets.Top" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IOffsets.ResetRight">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IOffsets.Right" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IOffsets.ResetBottom">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IOffsets.Bottom" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IOffsets.ResetAll">
+      <summary>
+            Resets all properties to an undefined state.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.IOffsets.Left">
       <summary>
             Gets or sets the left offset value.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.IOffsets.HasLeft">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IOffsets.Left" /> property is defined
+            on the current object.
             </summary>
     </member>
     <member name="P:C1.C1Preview.IOffsets.Top">
@@ -17392,14 +17481,32 @@
             Gets or sets the top offset value.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.IOffsets.HasTop">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IOffsets.Top" /> property is defined
+            on the current object.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.IOffsets.Right">
       <summary>
             Gets or sets the right offset value.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.IOffsets.HasRight">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IOffsets.Right" /> property is defined
+            on the current object.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.IOffsets.Bottom">
       <summary>
             Gets or sets the bottom offset value.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.IOffsets.HasBottom">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IOffsets.Bottom" /> property is defined
+            on the current object.
             </summary>
     </member>
     <member name="P:C1.C1Preview.IOffsets.All">
@@ -17721,9 +17828,50 @@
             Each border is represented by a <see cref="T:C1.C1Preview.LineDef" /> object.
             </summary>
     </member>
+    <member name="M:C1.C1Preview.IBorders.ResetLeft">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IBorders.Left" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IBorders.ResetTop">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IBorders.Top" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IBorders.ResetRight">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IBorders.Right" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IBorders.ResetBottom">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IBorders.Bottom" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IBorders.ResetRadiusX">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IBorders.RadiusX" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IBorders.ResetRadiusY">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IBorders.RadiusY" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IBorders.ResetAll">
+      <summary>
+            Resets all properties to an undefined state.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.IBorders.Left">
       <summary>
             Gets or sets the left border.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.IBorders.HasLeft">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IBorders.Left" /> property is defined
+            on the current object.
             </summary>
     </member>
     <member name="P:C1.C1Preview.IBorders.Top">
@@ -17731,9 +17879,21 @@
             Gets or sets the top border.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.IBorders.HasTop">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IBorders.Top" /> property is defined
+            on the current object.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.IBorders.Right">
       <summary>
             Gets or sets the right border.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.IBorders.HasRight">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IBorders.Right" /> property is defined
+            on the current object.
             </summary>
     </member>
     <member name="P:C1.C1Preview.IBorders.Bottom">
@@ -17741,9 +17901,10 @@
             Gets or sets the bottom border.
             </summary>
     </member>
-    <member name="P:C1.C1Preview.IBorders.All">
+    <member name="P:C1.C1Preview.IBorders.HasBottom">
       <summary>
-            Sets all four borders.
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IBorders.Bottom" /> property is defined
+            on the current object.
             </summary>
     </member>
     <member name="P:C1.C1Preview.IBorders.RadiusX">
@@ -17751,9 +17912,26 @@
             Gets or sets the width of the ellipse used to draw the rounded corners of the border.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.IBorders.HasRadiusX">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IBorders.RadiusX" /> property is defined
+            on the current object.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.IBorders.RadiusY">
       <summary>
             Gets or sets the height of the ellipse used to draw the rounded corners of the border.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.IBorders.HasRadiusY">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IBorders.RadiusY" /> property is defined
+            on the current object.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.IBorders.All">
+      <summary>
+            Sets all four borders.
             </summary>
     </member>
     <member name="P:C1.C1Preview.IBorders.IsRound">
@@ -17889,9 +18067,50 @@
             Each line is represented by a <see cref="T:C1.C1Preview.LineDef" /> object.
             </summary>
     </member>
+    <member name="M:C1.C1Preview.IGridLines.ResetLeft">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IGridLines.Left" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IGridLines.ResetTop">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IGridLines.Top" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IGridLines.ResetRight">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IGridLines.Right" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IGridLines.ResetBottom">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IGridLines.Bottom" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IGridLines.ResetVert">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IGridLines.Vert" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IGridLines.ResetHorz">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IGridLines.Horz" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IGridLines.ResetAll">
+      <summary>
+            Resets all properties to an undefined state.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.IGridLines.Left">
       <summary>
             Gets or sets the left outer border of a table.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.IGridLines.HasLeft">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IGridLines.Left" /> property is defined
+            on the current object.
             </summary>
     </member>
     <member name="P:C1.C1Preview.IGridLines.Top">
@@ -17899,9 +18118,21 @@
             Gets or sets the top outer border of a table.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.IGridLines.HasTop">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IGridLines.Top" /> property is defined
+            on the current object.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.IGridLines.Right">
       <summary>
             Gets or sets the right outer border of a table.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.IGridLines.HasRight">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IGridLines.Right" /> property is defined
+            on the current object.
             </summary>
     </member>
     <member name="P:C1.C1Preview.IGridLines.Bottom">
@@ -17909,14 +18140,32 @@
             Gets or sets the bottom outer border of a table.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.IGridLines.HasBottom">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IGridLines.Bottom" /> property is defined
+            on the current object.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.IGridLines.Vert">
       <summary>
             Gets or sets the vertical inner lines in a table.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.IGridLines.HasVert">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IGridLines.Vert" /> property is defined
+            on the current object.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.IGridLines.Horz">
       <summary>
             Gets or sets the horizontal inner lines in a table.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.IGridLines.HasHorz">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IGridLines.Horz" /> property is defined
+            on the current object.
             </summary>
     </member>
     <member name="P:C1.C1Preview.IGridLines.All">
@@ -18143,11 +18392,47 @@
             This interface is implemented by <see cref="T:C1.C1Preview.Shadow" /> structure.
             </summary>
     </member>
+    <member name="M:C1.C1Preview.IShadow.ResetTransparency">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IShadow.Transparency" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IShadow.ResetSize">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IShadow.Size" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IShadow.ResetDistance">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IShadow.Distance" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IShadow.ResetAngle">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.IShadow.Angle" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IShadow.ResetColor">
+      <summary>
+            Resets value of the <see cref="P:C1.C1Preview.IShadow.Color" /> property.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.IShadow.ResetAll">
+      <summary>
+            Resets all properties to an undefined state.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.IShadow.Transparency">
       <summary>
             Gets or sets the transparency of the shadow, in percent.
             A value of <b>0</b> defines a solid (non-transparent) shadow,
             a value of <b>100</b> (which is the default) defines a fully transparent (invisible) shadow.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.IShadow.HasTransparency">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IShadow.Transparency" /> property is defined
+            on the current object.
             </summary>
     </member>
     <member name="P:C1.C1Preview.IShadow.Size">
@@ -18157,6 +18442,12 @@
             as the object.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.IShadow.HasSize">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IShadow.Size" /> property is defined
+            on the current object.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.IShadow.Distance">
       <summary>
             Gets or sets the distance that the shadow's center is offset from the the object's center.
@@ -18164,15 +18455,33 @@
             be assigned to this property.
             <para>The default is <b>2mm</b>.</para></summary>
     </member>
+    <member name="P:C1.C1Preview.IShadow.HasDistance">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IShadow.Distance" /> property is defined
+            on the current object.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.IShadow.Angle">
       <summary>
             Gets or sets the angle, in degrees, of the shadow. The angle is measured relative
             to the three o'clock position clockwise. The default is <b>45</b>.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.IShadow.HasAngle">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IShadow.Angle" /> property is defined
+            on the current object.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.IShadow.Color">
       <summary>
-            Gets or sets the color of the shadow. The default is <b>Black</b>.
+            Resets the <see cref="P:C1.C1Preview.IShadow.Color" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.IShadow.HasColor">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.IShadow.Color" /> property is defined
+            on the current object.
             </summary>
     </member>
     <member name="P:C1.C1Preview.IShadow.TransparencyExpr">
@@ -18291,6 +18600,186 @@
             Effectively, this method makes the current <see cref="T:C1.C1Preview.Style" />
             a complete copy of the <paramref name="source" /> style.
             </remarks>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetBackgroundImage">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.BackgroundImage" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetBrush">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.Brush" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetTextColor">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.TextColor" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetTextAngle">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.TextAngle" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetTextAlignHorz">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.TextAlignHorz" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetTextAlignVert">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.TextAlignVert" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetLineSpacing">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.LineSpacing" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetWordWrap">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.WordWrap" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetTextPosition">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.TextPosition" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetHyperlinkAttrs">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.HyperlinkAttrs" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetVisitedHyperlinkAttrs">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.VisitedHyperlinkAttrs" /> property to undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetHoverHyperlinkAttrs">
+      <summary>
+            Resets value of the <see cref="P:C1.C1Preview.Style.HoverHyperlinkAttrs" /> property.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetActiveHyperlinkAttrs">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.ActiveHyperlinkAttrs" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetMeasureTrailingSpaces">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.MeasureTrailingSpaces" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetBackColor">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.BackColor" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetMinOrphanLines">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.MinOrphanLines" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetClientAreaOnly">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.ClientAreaOnly" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetShapeFillBrush">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.ShapeFillBrush" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetShapeFillColor">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.ShapeFillColor" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetShapeLine">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.ShapeLine" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetFlowAlign">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.FlowAlign" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetFlowAlignChildren">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.FlowAlignChildren" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetTextIndent">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.TextIndent" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetCharSpacing">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.CharSpacing" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetCharWidth">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.CharWidth" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetJustifyLastLine">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.JustifyLastLine" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetJustifyEndOfLines">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.JustifyEndOfLines" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetWordWrapMode">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.WordWrapMode" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetRightToLeft">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.RightToLeft" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetFont">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.Font" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetFontName">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.FontName" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetFontSize">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.FontSize" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetFontBold">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.FontBold" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetFontItalic">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.FontItalic" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetFontUnderline">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.FontUnderline" /> property to an undefined state.
+            </summary>
+    </member>
+    <member name="M:C1.C1Preview.Style.ResetFontStrikeout">
+      <summary>
+            Resets the <see cref="P:C1.C1Preview.Style.FontStrikeout" /> property to an undefined state.
+            </summary>
     </member>
     <member name="P:C1.C1Preview.Style.HasExprs">
       <summary>
@@ -18416,6 +18905,12 @@
             This property is <b>non-ambient</b> (inherited from the <see cref="P:C1.C1Preview.Style.Parent" /> of the current style if not explicitly set).
             <para>The default is emtpy string.</para></remarks>
     </member>
+    <member name="P:C1.C1Preview.Style.HasBackgroundImage">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.BackgroundImage" /> property is defined
+            on the current style.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.Style.Brush">
       <summary>
             Gets or sets the brush used to fill the background.
@@ -18426,6 +18921,12 @@
             This property is <b>non-ambient</b> (inherited from the <see cref="P:C1.C1Preview.Style.Parent" /> of the current style if not explicitly set).
             <para>The default is no brush.</para></remarks>
     </member>
+    <member name="P:C1.C1Preview.Style.HasBrush">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.Brush" /> property is defined
+            on the current style.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.Style.TextColor">
       <summary>
             Gets or sets the text (foreground) color.
@@ -18433,6 +18934,14 @@
       <remarks>
             This property is <b>ambient</b> (inherited from the style of the object containing the current style's owner if not explicitly set).
             <para>The default is black color.</para></remarks>
+    </member>
+    <member name="P:C1.C1Preview.Style.HasTextColor">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.TextColor" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
     </member>
     <member name="P:C1.C1Preview.Style.TextAngle">
       <summary>
@@ -18443,6 +18952,14 @@
             This property is <b>non-ambient</b> (inherited from the <see cref="P:C1.C1Preview.Style.Parent" /> of the current style if not explicitly set).
             <para>The default is 0.</para></remarks>
     </member>
+    <member name="P:C1.C1Preview.Style.HasTextAngle">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.TextAngle" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.Style.TextAlignHorz">
       <summary>
             Gets or sets the horizontal text alignment.
@@ -18450,6 +18967,14 @@
       <remarks>
             This property is <b>ambient</b> (inherited from the style of the object containing the current style's owner if not explicitly set).
             <para>The default is left alignment.</para></remarks>
+    </member>
+    <member name="P:C1.C1Preview.Style.HasTextAlignHorz">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.TextAlignHorz" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
     </member>
     <member name="P:C1.C1Preview.Style.TextAlignVert">
       <summary>
@@ -18459,6 +18984,14 @@
             This property is <b>ambient</b> (inherited from the style of the object containing the current style's owner if not explicitly set).
             <para>The default is top alignment.</para></remarks>
     </member>
+    <member name="P:C1.C1Preview.Style.HasTextAlignVert">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.TextAlignVert" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.Style.LineSpacing">
       <summary>
             Gets or sets the line spacing of a text in percent.
@@ -18466,6 +18999,14 @@
       <remarks>
             This property is <b>ambient</b> (inherited from the style of the object containing the current style's owner if not explicitly set).
             <para>The default is 100% (normal line spacing).</para></remarks>
+    </member>
+    <member name="P:C1.C1Preview.Style.HasLineSpacing">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.LineSpacing" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
     </member>
     <member name="P:C1.C1Preview.Style.WordWrap">
       <summary>
@@ -18476,6 +19017,14 @@
             This property is <b>ambient</b> (inherited from the style of the object containing the current style's owner if not explicitly set).
             <para>The default is <b>true</b>.</para></remarks>
     </member>
+    <member name="P:C1.C1Preview.Style.HasWordWrap">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.WordWrap" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.Style.TextPosition">
       <summary>
             Gets or sets a value indicating whether text is rendered
@@ -18485,6 +19034,14 @@
             This property is <b>non-ambient</b> (inherited from the <see cref="P:C1.C1Preview.Style.Parent" /> of the current style if not explicitly set).
             <para>The default is normal text.</para></remarks>
     </member>
+    <member name="P:C1.C1Preview.Style.HasTextPosition">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.TextPosition" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.Style.HyperlinkAttrs">
       <summary>
             Gets or sets a <see cref="T:C1.C1Preview.C1HyperlinkAttrs" /> for "normal" (neither visited nor highlighted) hyperlinks.
@@ -18492,6 +19049,14 @@
       <remarks>
             This property is <b>ambient</b> (inherited from the style of the object containing the current style's owner if not explicitly set).
             <para>The default is to highlight hyperlinks with blue text color.</para></remarks>
+    </member>
+    <member name="P:C1.C1Preview.Style.HasHyperlinkAttrs">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.HyperlinkAttrs" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
     </member>
     <member name="P:C1.C1Preview.Style.VisitedHyperlinkAttrs">
       <summary>
@@ -18501,6 +19066,14 @@
             This property is <b>ambient</b> (inherited from the style of the object containing the current style's owner if not explicitly set).
             <para>The default is to highlight visited hyperlinks with magenta text color.</para></remarks>
     </member>
+    <member name="P:C1.C1Preview.Style.HasVisitedHyperlinkAttrs">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.VisitedHyperlinkAttrs" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.Style.HoverHyperlinkAttrs">
       <summary>
             Gets or sets a <see cref="T:C1.C1Preview.C1HyperlinkAttrs" /> for highlighted hyperlinks.
@@ -18508,6 +19081,14 @@
       <remarks>
             This property is <b>ambient</b> (inherited from the style of the object containing the current style's owner if not explicitly set).
             <para>The default is to underline text on a hyperlinks under mouse.</para></remarks>
+    </member>
+    <member name="P:C1.C1Preview.Style.HasHoverHyperlinkAttrs">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.HoverHyperlinkAttrs" /> property is specified
+            for current <see cref="T:C1.C1Preview.Style" /> object.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
     </member>
     <member name="P:C1.C1Preview.Style.ActiveHyperlinkAttrs">
       <summary>
@@ -18517,6 +19098,14 @@
             This property is <b>ambient</b> (inherited from the style of the object containing the current style's owner if not explicitly set).
             <para>The default is to not highlight active hyperlinks.</para></remarks>
     </member>
+    <member name="P:C1.C1Preview.Style.HasActiveHyperlinkAttrs">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.ActiveHyperlinkAttrs" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.Style.MeasureTrailingSpaces">
       <summary>
             Gets or sets a value indicating whether spaces at ends of text lines
@@ -18525,6 +19114,14 @@
       <remarks>
             This property is <b>ambient</b> (inherited from the style of the object containing the current style's owner if not explicitly set).
             <para>The default is <b>false</b>.</para></remarks>
+    </member>
+    <member name="P:C1.C1Preview.Style.HasMeasureTrailingSpaces">
+      <summary>
+            Gets a value indicating whether the <see cref="!:MeasureTralingSpaces" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
     </member>
     <member name="P:C1.C1Preview.Style.Padding">
       <summary>
@@ -18600,6 +19197,12 @@
             This property is <b>non-ambient</b> (inherited from the <see cref="P:C1.C1Preview.Style.Parent" /> of the current style if not explicitly set).
             <para>The default is transparent background color.</para></remarks>
     </member>
+    <member name="P:C1.C1Preview.Style.HasBackColor">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.BackColor" /> property is defined
+            on the current style.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.Style.MinOrphanLines">
       <summary>
             Gets or sets the minimum number of orphan text lines allowed on a page
@@ -18608,6 +19211,12 @@
       <remarks>
             This property is <b>non-ambient</b> (inherited from the <see cref="P:C1.C1Preview.Style.Parent" /> of the current style if not explicitly set).
             <para>The default is 0.</para></remarks>
+    </member>
+    <member name="P:C1.C1Preview.Style.HasMinOrphanLines">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.MinOrphanLines" /> property is defined
+            on the current style.
+            </summary>
     </member>
     <member name="P:C1.C1Preview.Style.ClientAreaOnly">
       <summary>
@@ -18626,6 +19235,14 @@
         <para>The default is <b>false</b>.</para>
       </remarks>
     </member>
+    <member name="P:C1.C1Preview.Style.HasClientAreaOnly">
+      <summary>
+            Gets a value indicating whether the <see cref="!:ClietAreaOnly" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.Style.ShapeFillBrush">
       <summary>
             Gets or sets the brush used to fill internal areas of shapes
@@ -18636,6 +19253,12 @@
       <remarks>
             This property is <b>non-ambient</b> (inherited from the <see cref="P:C1.C1Preview.Style.Parent" /> of the current style if not explicitly set).
             <para>The default is no brush.</para></remarks>
+    </member>
+    <member name="P:C1.C1Preview.Style.HasShapeFillBrush">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.ShapeFillBrush" /> property is defined
+            on the current style.
+            </summary>
     </member>
     <member name="P:C1.C1Preview.Style.ShapeFillColor">
       <summary>
@@ -18648,6 +19271,12 @@
             This property is <b>non-ambient</b> (inherited from the <see cref="P:C1.C1Preview.Style.Parent" /> of the current style if not explicitly set).
             <para>The default is transparent fill color.</para></remarks>
     </member>
+    <member name="P:C1.C1Preview.Style.HasShapeFillColor">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.ShapeFillColor" /> property is defined
+            on the current style.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.Style.ShapeLine">
       <summary>
             Gets or sets the style of lines used to draw shape objects (RenderLine, RenderRectangle etc).
@@ -18655,6 +19284,12 @@
       <remarks>
             This property is <b>non-ambient</b> (inherited from the <see cref="P:C1.C1Preview.Style.Parent" /> of the current style if not explicitly set).
             <para>The default is a black line, 1pt thick.</para></remarks>
+    </member>
+    <member name="P:C1.C1Preview.Style.HasShapeLine">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.ShapeLine" /> property is defined
+            on the current style.
+            </summary>
     </member>
     <member name="P:C1.C1Preview.Style.FlowAlign">
       <summary>
@@ -18666,6 +19301,12 @@
       <seealso cref="P:C1.C1Preview.Style.FlowAlignChildren" />
       <seealso cref="P:C1.C1Preview.RenderObject.Stacking" />
     </member>
+    <member name="P:C1.C1Preview.Style.HasFlowAlign">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.FlowAlign" /> property is defined
+            on the current style.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.Style.FlowAlignChildren">
       <summary>
             Gets or sets the alignment of children of the current style's owner object in a block flow.
@@ -18676,6 +19317,12 @@
       <seealso cref="P:C1.C1Preview.Style.FlowAlign" />
       <seealso cref="P:C1.C1Preview.RenderObject.Stacking" />
     </member>
+    <member name="P:C1.C1Preview.Style.HasFlowAlignChildren">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.FlowAlignChildren" /> property is defined
+            on the current style.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.Style.TextIndent">
       <summary>
             Gets or sets the indentation of the first line in a block of text.
@@ -18684,6 +19331,12 @@
             This property is <b>non-ambient</b> (inherited from the <see cref="P:C1.C1Preview.Style.Parent" /> of the current style if not explicitly set).
             <para>The default is 0.</para></remarks>
     </member>
+    <member name="P:C1.C1Preview.Style.HasTextIndent">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.TextIndent" /> property is defined
+            on the current style.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.Style.CharSpacing">
       <summary>
             Gets or sets the spacing between characters in a text.
@@ -18691,6 +19344,14 @@
       <remarks>
             This property is <b>ambient</b> (inherited from the style of the object containing the current style's owner if not explicitly set).
             <para>The default is 0 (normal spacing).</para></remarks>
+    </member>
+    <member name="P:C1.C1Preview.Style.HasCharSpacing">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.CharSpacing" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
     </member>
     <member name="P:C1.C1Preview.Style.CharWidth">
       <summary>
@@ -18701,6 +19362,14 @@
             This property is <b>ambient</b> (inherited from the style of the object containing the current style's owner if not explicitly set).
             <para>The default is 100 (normal width).</para></remarks>
     </member>
+    <member name="P:C1.C1Preview.Style.HasCharWidth">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.CharWidth" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.Style.JustifyLastLine">
       <summary>
             Gets or sets a value indicating whether the last line of text should be justified
@@ -18710,6 +19379,14 @@
       <remarks>
             This property is <b>ambient</b> (inherited from the style of the object containing the current style's owner if not explicitly set).
             <para>The default is <b>false</b>.</para></remarks>
+    </member>
+    <member name="P:C1.C1Preview.Style.HasJustifyLastLine">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.JustifyLastLine" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
     </member>
     <member name="P:C1.C1Preview.Style.JustifyEndOfLines">
       <summary>
@@ -18722,6 +19399,14 @@
             This property is <b>ambient</b> (inherited from the style of the object containing the current style's owner if not explicitly set).
             <para>The default is <b>true</b>.</para></remarks>
     </member>
+    <member name="P:C1.C1Preview.Style.HasJustifyEndOfLines">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.JustifyEndOfLines" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.Style.WordWrapMode">
       <summary>
             Gets or sets a value indicating how words can be split when text lines wrap.
@@ -18729,6 +19414,30 @@
             This property is ignored if <see cref="P:C1.C1Preview.Style.WordWrap" /> is <b>false</b>.
             </para><para>
             The default value is <see cref="F:C1.C1Preview.WordWrapMode.Normal" /></para></summary>
+    </member>
+    <member name="P:C1.C1Preview.Style.HasWordWrapMode">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.WordWrapMode" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Style.RightToLeft">
+      <summary>
+            Gets or sets a value indicating whether right-to-left text rendering rules should be used.
+            </summary>
+      <remarks>
+            This property is <b>ambient</b> (inherited from the style of the object containing the current style's owner if not explicitly set).
+            <para>The default is <b>true</b>.</para></remarks>
+    </member>
+    <member name="P:C1.C1Preview.Style.HasRightToLeft">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.RightToLeft" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
     </member>
     <member name="P:C1.C1Preview.Style.Font">
       <summary>
@@ -18746,6 +19455,14 @@
             This property is <b>ambient</b> (inherited from the style of the object containing the current style's owner if not explicitly set).
             </para><para>The default is Arial, 10pt.</para></remarks>
     </member>
+    <member name="P:C1.C1Preview.Style.HasFont">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.Font" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.Style.FontName">
       <summary>
             Gets or sets the face name of the font.
@@ -18753,6 +19470,14 @@
       <remarks>
             This property is <b>ambient</b> (inherited from the style of the object containing the current style's owner if not explicitly set).
             <para>The default is Arial.</para></remarks>
+    </member>
+    <member name="P:C1.C1Preview.Style.HasFontName">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.FontName" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
     </member>
     <member name="P:C1.C1Preview.Style.FontSize">
       <summary>
@@ -18762,6 +19487,14 @@
             This property is <b>ambient</b> (inherited from the style of the object containing the current style's owner if not explicitly set).
             <para>The default is 10.</para></remarks>
     </member>
+    <member name="P:C1.C1Preview.Style.HasFontSize">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.FontSize" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.Style.FontBold">
       <summary>
             Gets or sets a value indicating whether the font is bold.
@@ -18769,6 +19502,14 @@
       <remarks>
             This property is <b>ambient</b> (inherited from the style of the object containing the current style's owner if not explicitly set).
             <para>The default is <b>false</b>.</para></remarks>
+    </member>
+    <member name="P:C1.C1Preview.Style.HasFontBold">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.FontBold" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
     </member>
     <member name="P:C1.C1Preview.Style.FontItalic">
       <summary>
@@ -18778,6 +19519,14 @@
             This property is <b>ambient</b> (inherited from the style of the object containing the current style's owner if not explicitly set).
             <para>The default is <b>false</b>.</para></remarks>
     </member>
+    <member name="P:C1.C1Preview.Style.HasFontItalic">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.FontItalic" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.Style.FontUnderline">
       <summary>
             Gets or sets a value indicating whether the font is underlined.
@@ -18786,6 +19535,14 @@
             This property is <b>ambient</b> (inherited from the style of the object containing the current style's owner if not explicitly set).
             <para>The default is <b>false</b>.</para></remarks>
     </member>
+    <member name="P:C1.C1Preview.Style.HasFontUnderline">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.FontUnderline" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.Style.FontStrikeout">
       <summary>
             Gets or sets a value indicating whether the font is strikeout.
@@ -18793,6 +19550,14 @@
       <remarks>
             This property is <b>ambient</b> (inherited from the style of the object containing the current style's owner if not explicitly set).
             <para>The default is <b>false</b>.</para></remarks>
+    </member>
+    <member name="P:C1.C1Preview.Style.HasFontStrikeout">
+      <summary>
+            Gets a value indicating whether the <see cref="P:C1.C1Preview.Style.FontStrikeout" /> property is defined
+            on the current style.
+            If false, the actual value of the property is fetched from the parent
+            (container) object's style.
+            </summary>
     </member>
     <member name="P:C1.C1Preview.Style.BackColorExpr">
       <summary>
@@ -23498,6 +24263,11 @@
             Called when the component finishes rendering a report.
             </summary>
     </member>
+    <member name="P:C1.C1Report.PdfFilter.PdfACompatible">
+      <summary>
+            Gets or sets a value indicating whether to generate PDF/A compatible document.
+            </summary>
+    </member>
     <member name="P:C1.C1Report.PdfFilter.EmbedFonts">
       <summary>
             Specifies whether the filter should embed font information into the PDF output.
@@ -24658,6 +25428,19 @@
     <member name="P:C1.C1Report.Field.Location">
       <summary>
             Gets or sets the field's location within the section, in twips.
+            </summary>
+    </member>
+    <member name="P:C1.C1Report.Field.RightToLeft">
+      <summary>
+            Gets or sets a value indicating whether right-to-left text rendering rules should be used.
+            If null (which is the default), the property <see cref="P:C1.C1Report.C1Report.RightToLeft" /> defined on the report is used.
+            </summary>
+    </member>
+    <member name="P:C1.C1Report.Field.ActualRightToLeft">
+      <summary>
+            Gets the actual right-to-left value that is being used. 
+            If the field's own <see cref="P:C1.C1Report.Field.RightToLeft" /> is not null, that value is returned.
+            Otherwise the <see cref="P:C1.C1Report.Field.ActualRightToLeft" /> defined on the report is returned.
             </summary>
     </member>
     <member name="P:C1.C1Report.Field.Font">
@@ -25897,6 +26680,11 @@
             Unlike plain <see cref="F:C1.C1Report.FileFormatEnum.HTML" /> format, uses tables rather than absolute positioning to arrange objects.
             </summary>
     </member>
+    <member name="F:C1.C1Report.FileFormatEnum.PDFA">
+      <summary>
+            Adobe PDF format, PDF/A (level 2B) compatible.
+            </summary>
+    </member>
     <member name="T:C1.C1Report.GrowShrinkModeEnum">
       <summary>
             Specifies the logic for handling CanGrow/CanShrink fields.
@@ -26776,6 +27564,11 @@
         <para>This event allows you to change or suppress the text that appears on the outline.</para>
       </remarks>
     </member>
+    <member name="P:C1.C1Report.C1Report.DefaultRightToLeft">
+      <summary>
+            Gets or sets the value used as the default for the <see cref="P:C1.C1Report.C1Report.RightToLeft" /> property.
+            </summary>
+    </member>
     <member name="P:C1.C1Report.C1Report.UsePrinterResolution">
       <summary>
             Specifies whether the component should use the .NET printing support to obtain high-resolution graphics.
@@ -26878,6 +27671,16 @@
       <seealso cref="P:C1.C1Report.C1Report.CreationDpi" />
       <seealso cref="P:C1.C1Report.C1Report.CreationGraphics" />
       <seealso cref="P:C1.C1Report.C1Report.ActualCreationDevice" />
+    </member>
+    <member name="P:C1.C1Report.C1Report.RightToLeft">
+      <summary>
+            Gets or sets a value indicating whether the fields of the report should use right-to-left rules for rendering text.
+            <para>If null (which is the default), the value of the static property <see cref="P:C1.C1Report.C1Report.DefaultRightToLeft" /> is used.</para><para>This value may be overridden by individual fields.</para></summary>
+    </member>
+    <member name="P:C1.C1Report.C1Report.ActualRightToLeft">
+      <summary>
+            Gets the actual right-to-left value that is being used. The value is obtained using the following rules:
+            <list type="number"><item>If <see cref="P:C1.C1Report.C1Report.RightToLeft" /> is not null, then that value is used.</item><item>If the current report is a sub-report, then <see cref="P:C1.C1Report.C1Report.ActualRightToLeft" /> of the owner subreport field is used.</item><item>Else the value of <see cref="!:C1FlexReport.DefaultRightToLeft" /> static property is used.</item></list></summary>
     </member>
     <member name="P:C1.C1Report.C1Report.PageRenderingMode">
       <summary>
@@ -31652,18 +32455,18 @@
     </member>
     <member name="E:C1.C1Preview.C1MultiDocument.DocumentStarting">
       <summary>
-            Occurs when the document generation is started.
+            Occurs when the document generation is starting.
             </summary>
     </member>
     <member name="E:C1.C1Preview.C1MultiDocument.DocumentEnded">
       <summary>
-            Occurs when the document generation is ended.
+            Occurs when the document generation has ended.
             </summary>
     </member>
     <member name="E:C1.C1Preview.C1MultiDocument.LongOperation">
       <summary>
             Occurs periodically during document generation.
-            Allows to provide progress indication and the ability to cancel generation to the user.
+            Allows to provide progress indication and the ability to cancel generation by the user.
             </summary>
     </member>
     <member name="E:C1.C1Preview.C1MultiDocument.BusyStateChanged">
@@ -50357,6 +51160,11 @@
             Gets or sets a value indicating whether to use compression.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.Export.PdfOptionsForm.PdfACompatible">
+      <summary>
+            Gets or sets a value indicating whether to generate PDF/A compatible document.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.Export.PdfOptionsForm.EmbedTrueTypeFonts">
       <summary>
             Gets or sets a value indicating whether to embed embeddable fonts used in the document.
@@ -51951,6 +52759,11 @@
             The default is <b>true</b>.
             </summary>
     </member>
+    <member name="P:C1.C1Preview.Export.PdfExporter.PdfACompatible">
+      <summary>
+            Gets or sets a value indicating whether to generate PDF/A compatible document.
+            </summary>
+    </member>
     <member name="P:C1.C1Preview.Export.PdfExporter.EmbedTrueTypeFonts">
       <summary>
             Gets or sets a value indicating whether to embed TrueType fonts used in the source document, in the produced PDF document.
@@ -52167,6 +52980,12 @@
       <summary>
             Gets or sets a value indicating whether to export each page
             of the document into a separate sheet.
+            </summary>
+    </member>
+    <member name="P:C1.C1Preview.Export.XlsExporter.DetectFormats">
+      <summary>
+            Gets or sets a value indicating whether to detect of Excel
+            format for each text value.
             </summary>
     </member>
     <member name="P:C1.C1Preview.Export.XlsExporter.BookContent">

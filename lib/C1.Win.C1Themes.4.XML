@@ -770,6 +770,12 @@
     <member name="F:C1.Win.C1Themes.Gantt_BarShape.BottomLine">
       <summary>For internal use.</summary>
     </member>
+    <member name="F:C1.Win.C1Themes.Gantt_BarShape.Frame">
+      <summary>For internal use.</summary>
+    </member>
+    <member name="F:C1.Win.C1Themes.Gantt_BarShape.HalfFrame">
+      <summary>For internal use.</summary>
+    </member>
     <member name="T:C1.Win.C1Themes.Gantt_HatchPattern">
       <summary>
             C1.Win.C1GanttView.HatchPattern

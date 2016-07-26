@@ -491,6 +491,15 @@
             <returns>The matching real paper size, or null.
             This value should be used together with <paramref name="landscape"/>.</returns>
         </member>
+        <member name="M:C1.Win.C1Document.C1PageSettings.IsLayoutEqual(C1.Win.C1Document.C1PageSettings)">
+            <summary>
+            Gets a value indicating whether this <see cref="T:C1.Win.C1Document.C1PageSettings"/> object has
+            same layout as another <see cref="T:C1.Win.C1Document.C1PageSettings"/> object, i.e. it has
+            same paper size and margins.
+            </summary>
+            <param name="pageSettings">C1PageSettings object to compare with.</param>
+            <returns><b>true</b> if layouts are same, <B>false</B> otherwise.</returns>
+        </member>
         <member name="M:C1.Win.C1Document.C1PageSettings.IsLayoutEqual(System.Drawing.Printing.PageSettings)">
             <summary>
             Gets a value indicating whether this <see cref="T:C1.Win.C1Document.C1PageSettings"/> object has
@@ -2074,13 +2083,6 @@
             </summary>
             <returns>The asynchronous list of <see cref="T:C1.Win.C1Document.ParameterValidationError"/> objects identifying any errors (may be empty).</returns>
         </member>
-        <member name="M:C1.Win.C1Document.C1DocumentSource.NewExporter(C1.Win.C1Document.Export.ExportProvider)">
-            <summary>
-            Creates and initializes an exporter for the specified format.
-            </summary>
-            <param name="exportProvider">The export provider identifying the target format.</param>
-            <returns>The created exporter object.</returns>
-        </member>
         <member name="M:C1.Win.C1Document.C1DocumentSource.InternalExport(C1.Win.C1Document.Export.Exporter,C1.Win.C1Document.IExecutionContext)">
             <summary>
             Should be overriden. Exports current with using specified exporter.
@@ -2131,6 +2133,7 @@
         </member>
         <member name="M:C1.Win.C1Document.C1DocumentSource.GetPage(System.Int32)">
             <summary>
+            For internal use.
             Fetches a page with the specified index.
             </summary>
             <param name="pageIndex">0-based page index.</param>
@@ -2138,6 +2141,7 @@
         </member>
         <member name="M:C1.Win.C1Document.C1DocumentSource.GetPageAsync(System.Int32)">
             <summary>
+            For internal use.
             Non-blocking (asynchronous) version of the <see cref="M:C1.Win.C1Document.C1DocumentSource.GetPage(System.Int32)"/> method.
             </summary>
             <param name="pageIndex">0-based page index.</param>
@@ -2145,6 +2149,7 @@
         </member>
         <member name="M:C1.Win.C1Document.C1DocumentSource.GetPageAsyncEx(System.Int32)">
             <summary>
+            For internal use.
             Non-blocking (asynchronous) version of the <see cref="M:C1.Win.C1Document.C1DocumentSource.GetPage(System.Int32)"/> method.
             </summary>
             <param name="pageIndex">0-based page index.</param>
@@ -2152,14 +2157,16 @@
         </member>
         <member name="M:C1.Win.C1Document.C1DocumentSource.GetLoadedPage(System.Int32)">
             <summary>
+            For internal use.
             Fetches a generated page with the specified index,
-            or null if the requested page has not been generated yet.
+            returns null if the requested page has not been generated yet.
             </summary>
             <param name="pageIndex">0-based page index.</param>
             <returns>The <see cref="T:C1.Win.C1Document.C1Page"/> object representing the requested page, or null.</returns>
         </member>
         <member name="M:C1.Win.C1Document.C1DocumentSource.IsPageLoading(System.Int32)">
             <summary>
+            For internal use.
             Checkes whether a page with the specified index has already been requested,
             i.e. the <see cref="M:C1.Win.C1Document.C1DocumentSource.GetPageAsync(System.Int32)"/> method has been called to fetch it.
             </summary>
@@ -2253,6 +2260,13 @@
             </summary>
             <param name="callback"></param>
             <returns></returns>
+        </member>
+        <member name="M:C1.Win.C1Document.C1DocumentSource.DrawPage(C1.Win.C1Document.Util.C1Graphics,System.Int32)">
+            <summary>
+            For internal use.
+            </summary>
+            <param name="graphics"></param>
+            <param name="pageIndex"></param>
         </member>
         <member name="P:C1.Win.C1Document.C1DocumentSource.SyncObject">
             <summary>
@@ -2538,6 +2552,29 @@
             </summary>
             <typeparam name="TResult"></typeparam>
         </member>
+        <member name="T:C1.Win.C1Document.C1PdfDocumentSource">
+            <summary>
+            Represents a document source which can be used to generate an PDF report.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1Document.C1PdfDocumentSource.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Win.C1Document.C1PdfDocumentSource"/> class.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1Document.C1PdfDocumentSource.GetLoadedPage(System.Int32)">
+            <returns>The <see cref="T:C1.Win.C1Document.C1Page"/> object representing the requested page, or null.</returns>
+        </member>
+        <member name="P:C1.Win.C1Document.C1PdfDocumentSource.DocumentLocation">
+            <summary>
+            Gets or sets the location of the PDF document.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.C1PdfDocumentSource.SupportedExportProviders">
+            <summary>
+            Overridden. Gets an array of exporters supported by the current document source object.
+            </summary>
+        </member>
         <member name="T:C1.Win.C1Document.C1RplImportException">
             <summary>
             Represents an exception that occurred during RPL import.
@@ -2803,6 +2840,16 @@
             Gets the static registered instance of the Word export provider.
             </summary>
         </member>
+        <member name="F:C1.Win.C1Document.C1SSRSDocumentSource.XlsxExportProvider">
+            <summary>
+            Gets the static registered instance of the Xlsx export provider.
+            </summary>
+        </member>
+        <member name="F:C1.Win.C1Document.C1SSRSDocumentSource.DocxExportProvider">
+            <summary>
+            Gets the static registered instance of the Docx export provider.
+            </summary>
+        </member>
         <member name="F:C1.Win.C1Document.C1SSRSDocumentSource.MhtmlExportProvider">
             <summary>
             Gets the static registered instance of the Excel export provider.
@@ -2962,13 +3009,6 @@
             </summary>
             <param name="pageIndex">0-based page index.</param>
             <returns>The <see cref="T:C1.Win.C1Document.C1Page"/> object representing the requested page, or null.</returns>
-        </member>
-        <member name="M:C1.Win.C1Document.C1SSRSDocumentSource.NewExporter(C1.Win.C1Document.Export.ExportProvider)">
-            <summary>
-            Overridden. Creates and initializes an exporter for the specified format.
-            </summary>
-            <param name="exportProvider">The <see cref="!:Export.ExportProvider"/> identifying the target format.</param>
-            <returns>The created <see cref="!:Export.Exporter"/> object.</returns>
         </member>
         <member name="M:C1.Win.C1Document.C1SSRSDocumentSource.Generate">
             <summary>
@@ -3384,11 +3424,6 @@
             A word can be split at any position if needed.
             </summary>
         </member>
-        <member name="T:C1.Win.C1Document.Direction">
-            <summary>
-            Defines
-            </summary>
-        </member>
         <member name="T:C1.Win.C1Document.WritingMode">
             <summary>
             Specifies whether a contiguous set of characters is written horizontally or vertically.
@@ -3647,33 +3682,29 @@
             </summary>
             <param name="f">The <see cref="T:C1.Win.C1Document.Export.ExportOptionsFormBase"/> object to copy the options from.</param>
         </member>
-        <member name="M:C1.Win.C1Document.Export.Exporter.CanPreviewOutputFile">
+        <member name="M:C1.Win.C1Document.Export.Exporter.CanPreviewFile(System.String)">
             <summary>
-            Tests whether <see cref="!:OutputFileName"/> can be previewed.
-            This (base) implementation uses <c>FindExecutable</c> API to find an appropriate executable,
-            and returns a value indicating whether it has been found or not.
+            Tests whether <see paramref="fileName"/> can be previewed.
             <para>
-            If you override this, you must also override <see cref="M:C1.Win.C1Document.Export.Exporter.PreviewOutputFile"/>.
+            If you override this, you must also override <see cref="!:PreviewFile()"/>.
             </para>
             </summary>
             <returns><b>true</b> if the output file can be previewed, <b>false</b> otherwise.</returns>
-            <seealso cref="M:C1.Win.C1Document.Export.Exporter.PreviewOutputFile"/>
+            <seealso cref="!:PreviewFile()"/>
         </member>
-        <member name="M:C1.Win.C1Document.Export.Exporter.PreviewOutputFile">
+        <member name="M:C1.Win.C1Document.Export.Exporter.PreviewFile(System.String)">
             <summary>
-            Previews <see cref="!:OutputFileName"/>.
-            This (base) implementation uses <c>System.Diagnostics.Process.Start()</c>
-            to open the output file.
+            Previews the specified file.
             <para>
-            Override this if you override <see cref="M:C1.Win.C1Document.Export.Exporter.CanPreviewOutputFile"/>.
+            Override this if you override <see cref="!:CanPreviewFile()"/>.
             </para>
             </summary>
-            <seealso cref="M:C1.Win.C1Document.Export.Exporter.CanPreviewOutputFile"/>
+            <seealso cref="!:CanPreviewFile()"/>
         </member>
         <member name="M:C1.Win.C1Document.Export.Exporter.GetMainStream">
             <summary>
             Returns stream which should be used to store content if exporter produces SINGLE file during
-            export. Do NOT dispose this stream, it will be automatically disposed after export.
+            export. Do NOT dispose this stream, it will be automatically disposed after export if needed.
             </summary>
             <returns></returns>
         </member>
@@ -3705,11 +3736,13 @@
             </summary>
             <returns><b>true</b> if the dialog was displayed successfully and the user pressed <b>OK</b>, <b>false</b> otherwise.</returns>
         </member>
-        <member name="P:C1.Win.C1Document.Export.Exporter.CanPreview">
+        <member name="P:C1.Win.C1Document.Export.Exporter.CanShowPreview">
             <summary>
             Gets a value indicating whether the exported file can be previewed.
             This property is cached for each exporter, and is not refreshed after
             it has been determined.
+            ATTENTION! This property is used to edit export's parameters in user's ui
+            so it should NOT use data generated AFTER export, OutputFiles property for example.
             </summary>
         </member>
         <member name="P:C1.Win.C1Document.Export.Exporter.Preview">
@@ -3746,7 +3779,7 @@
         <member name="P:C1.Win.C1Document.Export.Exporter.MultiFile">
             <summary>
             Gets a value indicating whether multiple files were generated during export.
-            If multiple files were generated, and the <see cref="!:UseZip"/> property is true,
+            If multiple files were generated, and the <see cref="P:C1.Win.C1Document.Export.Exporter.UseZipForMultipleFiles"/> property is true,
             the output (stream or file) will be a zipped archive containing the generated files.
             The list of actual files can be retrived via <see cref="P:C1.Win.C1Document.Export.Exporter.OutputFiles"/> property.
             </summary>
@@ -3911,15 +3944,15 @@
             are supported by the current export format.
             </summary>
         </member>
+        <member name="P:C1.Win.C1Document.Export.ExportProvider.OptionsFormClass">
+            <summary>
+            Gets the type of form which is used to edit the export options by default.
+            </summary>
+        </member>
         <member name="P:C1.Win.C1Document.Export.ExportProvider.CanShowOptions">
             <summary>
             Gets a value indicating whether the associated <see cref="T:C1.Win.C1Document.Export.Exporter"/>
             can show a dialog allowing the user to edit the export options.
-            </summary>
-        </member>
-        <member name="P:C1.Win.C1Document.Export.ExportProvider.OptionsFormClass">
-            <summary>
-            Gets the type of form which is used to edit the export options by default.
             </summary>
         </member>
         <member name="M:C1.Win.C1Document.Export.Ssrs.CsvExportProvider.NewExporter">
@@ -4029,6 +4062,11 @@
             This implementation returns "pdf".
             </summary>
         </member>
+        <member name="P:C1.Win.C1Document.Export.Ssrs.PdfExportProvider.OptionsFormClass">
+            <summary>
+            Overriden. Gets the type of form which is used to edit the export options by default.
+            </summary>
+        </member>
         <member name="P:C1.Win.C1Document.Export.Ssrs.PdfExportProvider.FormatName">
             <summary>
             Gets a short description of the PDF export format.
@@ -4053,8 +4091,49 @@
         </member>
         <member name="P:C1.Win.C1Document.Export.Ssrs.PdfExporter.HumanReadablePDF">
             <summary>
-            Gets or sets the value indicating whether the PDF should be compressed,
-            which allows the source to be more readable. The default value is false.
+            Gets or sets a value indicating whether the PDF document should be created uncompressed,
+            which allows the PDF source to be human-readable.
+            This property is used only when <see cref="P:C1.Win.C1Document.Export.Ssrs.PdfExporter.ServerSide"/> is true.
+            The default value is false.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.Ssrs.PdfExporter.ServerSide">
+            <summary>
+            Gets or sets a value indicating whether the export is executed on the server side.
+            The default value is true.
+            </summary>
+            <remarks>
+            If this property is false, then the PDF file will be generated locally using <b>C1Pdf</b>.
+            This mode provides more features which are supported by C1Pdf, including PDF/A, security settings etc.
+            But, this mode is slower, and it does not support outlines.
+            </remarks>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.Ssrs.PdfExporter.EmbedFonts">
+            <summary>
+            Gets or sets a value indicating whether the fonts used in the report should be embedded in the generated PDF.
+            This property is used only when <see cref="P:C1.Win.C1Document.Export.Ssrs.PdfExporter.ServerSide"/> is false.
+            </summary>
+            <remarks>
+            Embedding the fonts can make the resulting PDF document substantially larger, 
+            but allows the document to be viewed correctly on systems that may not have all the necessary fonts installed.
+            </remarks>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.Ssrs.PdfExporter.PdfACompatible">
+            <summary>
+            Gets or sets a value indicating whether the generated PDF file should be PDF/A compatible.
+            This property is used only when <see cref="P:C1.Win.C1Document.Export.Ssrs.PdfExporter.ServerSide"/> is false.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.Ssrs.PdfExporter.UseCompression">
+            <summary>
+            Gets or sets a value indicating whether the generated PDF file should use compression.
+            This property is used only when <see cref="P:C1.Win.C1Document.Export.Ssrs.PdfExporter.ServerSide"/> is false.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.Ssrs.PdfExporter.PdfSecurityOptions">
+            <summary>
+            Gets a <b>PdfSecurityOptions</b> object which specifies who can use the PDF document and what actions are allowed.
+            This property is used only when <see cref="P:C1.Win.C1Document.Export.Ssrs.PdfExporter.ServerSide"/> is false.
             </summary>
         </member>
         <member name="T:C1.Win.C1Document.Export.Ssrs.TiffExportProvider">
@@ -4262,60 +4341,6 @@
             Gets <see cref="F:C1.Win.C1Document.C1SSRSDocumentSource.PngExportProvider"/>.
             </summary>
         </member>
-        <member name="T:C1.Win.C1Document.Export.Ssrs.ExcelExportProvider">
-            <summary>
-            Describes export to Microsoft Excel format.
-            </summary>
-            <seealso cref="T:C1.Win.C1Document.Export.Ssrs.ExcelExporter"/>
-        </member>
-        <member name="M:C1.Win.C1Document.Export.Ssrs.ExcelExportProvider.NewExporter">
-            <summary>
-            Creates a new instance of the <see cref="T:C1.Win.C1Document.Export.Ssrs.ExcelExporter"/> class.
-            </summary>
-            <returns>The newly created <see cref="T:C1.Win.C1Document.Export.Ssrs.ExcelExporter"/>.</returns>
-        </member>
-        <member name="P:C1.Win.C1Document.Export.Ssrs.ExcelExportProvider.DefaultExtension">
-            <summary>
-            Gets the default filename extension for the current export format.
-            This implementation returns "xls".
-            </summary>
-        </member>
-        <member name="P:C1.Win.C1Document.Export.Ssrs.ExcelExportProvider.FormatName">
-            <summary>
-            Gets a short description of the Excel export format.
-            </summary>
-        </member>
-        <member name="T:C1.Win.C1Document.Export.Ssrs.ExcelExporter">
-            <summary>
-            Represents an object that can be used to export a SSRS report to Excel.
-            </summary>
-        </member>
-        <member name="M:C1.Win.C1Document.Export.Ssrs.ExcelExporter.CanExportRange(C1.Win.C1Document.OutputRangeType)">
-            <summary>
-            Tests whether the specified type of range can be exported by the current exporter.
-            </summary>
-            <param name="rangeType">The <see cref="T:C1.Win.C1Document.OutputRangeType"/> to test.</param>
-            <returns>True if the specified range can be exported, false otherwise.</returns>
-        </member>
-        <member name="P:C1.Win.C1Document.Export.Ssrs.ExcelExporter.OmitDocumentMap">
-            <summary>
-            Gets or sets a value indicating whether to omit the document map for reports that support it.
-            The default value is false.
-            </summary>
-        </member>
-        <member name="P:C1.Win.C1Document.Export.Ssrs.ExcelExporter.OmitFormulas">
-            <summary>
-            Gets or sets a value indicating whether to omit formulas from the rendered report.
-            The default value is false.
-            </summary>
-        </member>
-        <member name="P:C1.Win.C1Document.Export.Ssrs.ExcelExporter.SimplePageHeaders">
-            <summary>
-            Gets or sets a value indicating whether the page header of the report is rendered to the Excel page header.
-            A value of false indicates that the page header is rendered to the first row of the worksheet.
-            The default value is false.
-            </summary>
-        </member>
         <member name="T:C1.Win.C1Document.Export.Ssrs.MhtmlExportProvider">
             <summary>
             Describes export to Web archive (MHTML) format.
@@ -4358,6 +4383,89 @@
             The default value is true.
             </summary>
         </member>
+        <member name="T:C1.Win.C1Document.Export.Ssrs.ExcelExportProvider">
+            <summary>
+            Describes export to Microsoft Excel format.
+            </summary>
+            <seealso cref="T:C1.Win.C1Document.Export.Ssrs.ExcelExporter"/>
+        </member>
+        <member name="M:C1.Win.C1Document.Export.Ssrs.ExcelExportProvider.NewExporter">
+            <summary>
+            Creates a new instance of the <see cref="T:C1.Win.C1Document.Export.Ssrs.ExcelExporter"/> class.
+            </summary>
+            <returns>The newly created <see cref="T:C1.Win.C1Document.Export.Ssrs.ExcelExporter"/>.</returns>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.Ssrs.ExcelExportProvider.DefaultExtension">
+            <summary>
+            Gets the default filename extension for the current export format.
+            This implementation returns "xls".
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.Ssrs.ExcelExportProvider.FormatName">
+            <summary>
+            Gets a short description of the Excel export format.
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1Document.Export.Ssrs.XlsxExportProvider">
+            <summary>
+            Describes export to XLSX (Open XML) format.
+            </summary>
+            <seealso cref="T:C1.Win.C1Document.Export.Ssrs.ExcelExporter"/>
+        </member>
+        <member name="M:C1.Win.C1Document.Export.Ssrs.XlsxExportProvider.NewExporter">
+            <summary>
+            Creates a new instance of the <see cref="T:C1.Win.C1Document.Export.Ssrs.ExcelExporter"/> class.
+            </summary>
+            <returns>The newly created <see cref="T:C1.Win.C1Document.Export.Ssrs.ExcelExporter"/>.</returns>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.Ssrs.XlsxExportProvider.DefaultExtension">
+            <summary>
+            Gets the default filename extension for the current export format.
+            This implementation returns "xlsx".
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.Ssrs.XlsxExportProvider.FormatName">
+            <summary>
+            Gets a short description of the Excel export format.
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1Document.Export.Ssrs.ExcelExporter">
+            <summary>
+            Represents an object that can be used to export a SSRS report to Excel.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1Document.Export.Ssrs.ExcelExporter.CanExportRange(C1.Win.C1Document.OutputRangeType)">
+            <summary>
+            Tests whether the specified type of range can be exported by the current exporter.
+            </summary>
+            <param name="rangeType">The <see cref="T:C1.Win.C1Document.OutputRangeType"/> to test.</param>
+            <returns>True if the specified range can be exported, false otherwise.</returns>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.Ssrs.ExcelExporter.OpenXmlDocument">
+            <summary>
+            Gets or sets a value indicating whether the document should be saved in Office12 Open XML format.
+            </summary>
+            <value><b>true</b> if document should be exported in Office12 format, <b>false</b> otherwise.</value>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.Ssrs.ExcelExporter.OmitDocumentMap">
+            <summary>
+            Gets or sets a value indicating whether to omit the document map for reports that support it.
+            The default value is false.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.Ssrs.ExcelExporter.OmitFormulas">
+            <summary>
+            Gets or sets a value indicating whether to omit formulas from the rendered report.
+            The default value is false.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.Ssrs.ExcelExporter.SimplePageHeaders">
+            <summary>
+            Gets or sets a value indicating whether the page header of the report is rendered to the Excel page header.
+            A value of false indicates that the page header is rendered to the first row of the worksheet.
+            The default value is false.
+            </summary>
+        </member>
         <member name="T:C1.Win.C1Document.Export.Ssrs.WordExportProvider">
             <summary>
             Describes export to Microsoft Word format.
@@ -4379,6 +4487,29 @@
         <member name="P:C1.Win.C1Document.Export.Ssrs.WordExportProvider.FormatName">
             <summary>
             Gets a short description of the Microsoft Word export format.
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1Document.Export.Ssrs.DocxExportProvider">
+            <summary>
+            Describes export to DOCX (Open XML) format.
+            </summary>
+            <seealso cref="T:C1.Win.C1Document.Export.Ssrs.WordExporter"/>
+        </member>
+        <member name="M:C1.Win.C1Document.Export.Ssrs.DocxExportProvider.NewExporter">
+            <summary>
+            Creates a new instance of the <see cref="T:C1.Win.C1Document.Export.Ssrs.WordExporter"/> class.
+            </summary>
+            <returns>The newly created <see cref="T:C1.Win.C1Document.Export.Ssrs.WordExporter"/>.</returns>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.Ssrs.DocxExportProvider.DefaultExtension">
+            <summary>
+            Gets the default filename extension for the current export format.
+            This implementation returns "docx".
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.Ssrs.DocxExportProvider.FormatName">
+            <summary>
+            Gets a short description of the DOCX export format.
             </summary>
         </member>
         <member name="T:C1.Win.C1Document.Export.Ssrs.WordTableAutoFitMode">
@@ -4417,6 +4548,12 @@
             </summary>
             <param name="rangeType">The <see cref="T:C1.Win.C1Document.OutputRangeType"/> to test.</param>
             <returns>True if the specified range can be exported, false otherwise.</returns>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.Ssrs.WordExporter.OpenXmlDocument">
+            <summary>
+            Gets or sets a value indicating whether the document should be saved in Office12 Open XML format.
+            </summary>
+            <value><b>true</b> if document should be exported in Office12 format, <b>false</b> otherwise.</value>
         </member>
         <member name="P:C1.Win.C1Document.Export.Ssrs.WordExporter.AutoFit">
             <summary>
@@ -4541,6 +4678,165 @@
         <member name="P:C1.Win.C1Document.Export.ExportOptionsFormBase.MaxPageNumber">
             <summary>
             Gets or sets the maximum number of pages in the exported document.
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1Document.Export.PdfOptionsFormBase">
+            <summary>
+            Represents a form for editing the export options used by an <see cref="!:PdfFilter"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1Document.Export.PdfOptionsFormBase.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="!:PdfOptionsForm"/> class.
+            </summary>
+        </member>
+        <member name="F:C1.Win.C1Document.Export.PdfOptionsFormBase.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1Document.Export.PdfOptionsFormBase.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:C1.Win.C1Document.Export.PdfOptionsFormBase.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.PdfOptionsFormBase.UseCompression">
+            <summary>
+            Gets or sets a value indicating whether to use compression.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.PdfOptionsFormBase.UseOutlines">
+            <summary>
+            Gets or sets a value indicating whether to use outlines.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.PdfOptionsFormBase.PdfACompatible">
+            <summary>
+            Gets or sets a value indicating whether to PDF/A compatible.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.PdfOptionsFormBase.EmbedFonts">
+            <summary>
+            Gets or sets a value indicating whether to embed embeddable fonts used in the document.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.PdfOptionsFormBase.SecurityOwnerPassword">
+            <summary>
+            Gets or sets the owner password.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.PdfOptionsFormBase.SecurityUserPassword">
+            <summary>
+            Gets or sets the user password.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.PdfOptionsFormBase.EncryptionType">
+            <summary>
+            Gets or sets the type of encryption to use for a password-protected PDF document.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.PdfOptionsFormBase.SecurityAllowPrint">
+            <summary>
+            Gets or sets a value indicating whether the resulting document can be printed.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.PdfOptionsFormBase.SecurityAllowCopyContent">
+            <summary>
+            Gets or sets a value indicating whether the content of the resulting document can be copied.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.PdfOptionsFormBase.SecurityAllowEditContent">
+            <summary>
+            Gets or sets a value indicating whether the content of the resulting document can be edited.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.PdfOptionsFormBase.SecurityAllowEditAnnotations">
+            <summary>
+            Gets or sets a value indicating whether the annotations in the resulting document can be edited.
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1Document.Export.PdfSecurityOptions">
+            <summary>
+            Contains options that determine who can use the Pdf document and what actions are allowed.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.PdfSecurityOptions.AllowCopyContent">
+            <summary>
+            Gets or sets whether the user can copy contents from the Pdf document.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.PdfSecurityOptions.AllowEditAnnotations">
+            <summary>
+            Gets or sets whether the user can edit annotations in the Pdf document.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.PdfSecurityOptions.AllowEditContent">
+            <summary>
+            Gets or sets whether the user can edit the contents of the Pdf document.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.PdfSecurityOptions.AllowPrint">
+            <summary>
+            Gets or sets whether the user can print the Pdf document.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.PdfSecurityOptions.OwnerPassword">
+            <summary>
+            Gets or sets the password required to change permissions for the Pdf document.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.PdfSecurityOptions.UserPassword">
+            <summary>
+            Gets or sets the password required to open the Pdf document.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.PdfSecurityOptions.EncryptionType">
+            <summary>
+            Gets or sets the PDF encription type, by default standart 40 bit.
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1Document.Export.Ssrs.Forms.PdfOptionsForm">
+            <summary>
+            Represents a form for editing the export options used by an <see cref="!:PdfFilter"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1Document.Export.Ssrs.Forms.PdfOptionsForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Win.C1Document.Export.Ssrs.Forms.PdfOptionsForm"/> class.
+            </summary>
+        </member>
+        <member name="F:C1.Win.C1Document.Export.Ssrs.Forms.PdfOptionsForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1Document.Export.Ssrs.Forms.PdfOptionsForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:C1.Win.C1Document.Export.Ssrs.Forms.PdfOptionsForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.Ssrs.Forms.PdfOptionsForm.ServerSide">
+            <summary>
+            Gets or sets a value indicating whether export is performed on server.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.Export.Ssrs.Forms.PdfOptionsForm.Exporter">
+            <summary>
+            Gets the associated exporter.
             </summary>
         </member>
         <member name="T:C1.Win.C1Document.Forms.DocumentInfoForm">
@@ -5448,7 +5744,7 @@
             <summary>
             Represents a line in <see cref="T:C1.Win.C1Document.C1Document"/> and <see cref="!:C1FlexReport"/>.
             This class is used to specifiy borders in the <see cref="T:C1.Win.C1Document.Border"/> class,
-            line style used by <see cref="!:ShapeField"/>, and so on.
+            line style used by shapes, and so on.
             </summary>
         </member>
         <member name="M:C1.Win.C1Document.Line.#ctor">
@@ -5642,7 +5938,13 @@
         <member name="P:C1.Win.C1Document.C1PrintOptions.PrinterSettings">
             <summary>
             Gets or sets the <see cref="P:C1.Win.C1Document.C1PrintOptions.PrinterSettings"/> object defining the print parameters,
-            can be null to used default printer settings.
+            can be null to use default printer settings.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.C1PrintOptions.PageSettings">
+            <summary>
+            Gets or sets the <see cref="T:C1.Win.C1Document.C1PageSettings"/> object defining the page settings, size, landscape etc,
+            can be null in this case PrinterSettings.DefaultPageSettings will be used.
             </summary>
         </member>
         <member name="P:C1.Win.C1Document.C1PrintOptions.PrintJobName">
@@ -6297,6 +6599,16 @@
             Gets a <see cref="T:C1.Win.C1Document.RenderParagraph"/> object containing this object.
             </summary>
         </member>
+        <member name="T:C1.Win.C1Document.RenderPdf">
+            <summary>
+            Represents a RTF in a <see cref="T:C1.Win.C1Document.C1Document"/>.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1Document.RenderPdf.PdfParser">
+            <summary>
+            Gets or sets the <b>PDFParser</b>- PDF content represented by the current object.
+            </summary>
+        </member>
         <member name="T:C1.Win.C1Document.RenderRtf">
             <summary>
             Represents a RTF in a <see cref="T:C1.Win.C1Document.C1Document"/>.
@@ -6709,16 +7021,10 @@
             Gets or sets a list of the type aliases used during serialization or deserialization.
             </summary>
         </member>
-        <member name="P:C1.Win.C1Document.Serialization.C1Serializer.FileName">
+        <member name="P:C1.Win.C1Document.Serialization.C1Serializer.BasePath">
             <summary>
-            Gets the name of file used during serialization / deserialization, can be
-            null if stream does not linked with the file.
-            </summary>
-        </member>
-        <member name="P:C1.Win.C1Document.Serialization.C1Serializer.Path">
-            <summary>
-            Gets the path where located file used during serialization / deserialization, can be
-            null if stream does not linked with the file.
+            Gets the name of the directory used during serialization / deserialization to search additional files
+            if they specified via relative file name.
             </summary>
         </member>
         <member name="P:C1.Win.C1Document.Serialization.C1Serializer.RootObject">
@@ -6728,25 +7034,23 @@
         </member>
         <member name="T:C1.Win.C1Document.Serialization.C1TypeNameEncodingMode">
             <summary>
-            TBD:
-            Defines various methods of type name encoding while serializing.
+            Defines how type names are encoded during serialization.
             </summary>
         </member>
         <member name="F:C1.Win.C1Document.Serialization.C1TypeNameEncodingMode.None">
             <summary>
-            Type name should not be serialized.
+            Type name is not serialized.
             </summary>
         </member>
         <member name="F:C1.Win.C1Document.Serialization.C1TypeNameEncodingMode.FullName">
             <summary>
-            Type name should be serialized with full name.
+            Type name is serialized as full name.
             </summary>
         </member>
         <member name="F:C1.Win.C1Document.Serialization.C1TypeNameEncodingMode.AssemblyName">
             <summary>
-            Type name should be serialized with assembly name, in format:
-            AssemblyName,FullTypeName, for example,
-            C1.FlexReport.CustomFields.4,C1.FlexReport.CustomFields.SuperLabel
+            Type name is serialized with assembly name as "AssemblyName,FullTypeName",
+            for example "C1.FlexReport.CustomFields.4,C1.FlexReport.CustomFields.SuperLabel".
             </summary>
         </member>
         <member name="T:C1.Win.C1Document.Serialization.C1WriterReaderBase">
@@ -6833,7 +7137,7 @@
         </member>
         <member name="P:C1.Win.C1Document.Util.IC1TextFormat.FontSize">
             <summary>
-            Gets the font size.
+            Gets the font size in points, 1/72 inch.
             </summary>
         </member>
         <member name="P:C1.Win.C1Document.Util.IC1TextFormat.Culture">
@@ -6841,9 +7145,9 @@
             Gets culture associated with this format.
             </summary>
         </member>
-        <member name="P:C1.Win.C1Document.Util.IC1TextFormat.Direction">
+        <member name="P:C1.Win.C1Document.Util.IC1TextFormat.RightToLeft">
             <summary>
-            Gets the text direction.
+            Gets a value indicating whether the text are aligned to support locales using right-to-left fonts.
             </summary>
         </member>
         <member name="P:C1.Win.C1Document.Util.IC1TextFormat.WritingMode">
@@ -8072,12 +8376,22 @@
             <param name="dpi"></param>
             <returns></returns>
         </member>
+        <member name="M:C1.Win.C1Document.BarcodeExRenderer.GetSize(System.String,C1.BarCode.CodeType,System.Double@,System.Double@)">
+            <summary>
+            Calculates size of barcode on the base of <see cref="P:C1.Win.C1Document.BarcodeOptions.SizeOptions"/> in pixels of <see cref="!:BarcodeExRenderer.Graphics"/>.
+            </summary>
+            <param name="text">The barcode text.</param>
+            <param name="codeType">The barcode type.</param>
+            <param name="width">OUT: The width of barcode.</param>
+            <param name="height">OUT: The height of barcode.</param>
+        </member>
         <member name="M:C1.Win.C1Document.BarcodeExRenderer.GetSize(System.String,C1.BarCode.CodeType)">
             <summary>
-            Calculates size of barcode on the base of <see cref="P:C1.Win.C1Document.BarcodeOptions.SizeOptions"/> in pixels of <see cref="!:BarCodeExRenderer.Graphics"/>.
+            Calculates size of barcode on the base of <see cref="P:C1.Win.C1Document.BarcodeOptions.SizeOptions"/> in pixels of <see cref="!:BarcodeExRenderer.Graphics"/>.
             </summary>
-            <param name="text"></param>
-            <returns></returns>
+            <param name="text">The barcode text.</param>
+            <param name="codeType">The barcode type.</param>
+            <returns>The size of barcode.</returns>
         </member>
         <member name="M:C1.Win.C1Document.BarcodeExRenderer.GetMetrics(System.String,C1.BarCode.CodeType)">
             <summary>
@@ -8108,9 +8422,14 @@
             Metrics of barcode, units are pixels of <see cref="!:BarCodeExRenderer.Graphics"/>.
             </summary>
         </member>
-        <member name="F:C1.Win.C1Document.BarcodeExRenderer.BarcodeMetrics.Size">
+        <member name="F:C1.Win.C1Document.BarcodeExRenderer.BarcodeMetrics.Width">
             <summary>
-            Whole size of the barcode.
+            Width of the barcode.
+            </summary>
+        </member>
+        <member name="F:C1.Win.C1Document.BarcodeExRenderer.BarcodeMetrics.Height">
+            <summary>
+            Height of the barcode.
             </summary>
         </member>
         <member name="F:C1.Win.C1Document.BarcodeExRenderer.BarcodeMetrics.MainBarcodeWidth">
@@ -8538,7 +8857,7 @@
             used for printing.
             </summary>
         </member>
-        <member name="M:C1.Win.C1Document.Util.IC1DXTextRenderer.DrawGlyphRun(C1.Win.C1Document.Util.C1DXTextLayout,System.Double,System.Double,C1.Win.Interop.Rect,C1.Util.DX.DirectWrite.GlyphOrientationAngle,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.GlyphRunDescription,C1.Util.DX.DirectWrite.Font,System.Drawing.Color,C1.Util.DX.Direct2D.MeasuringMode)">
+        <member name="M:C1.Win.C1Document.Util.IC1DXTextRenderer.DrawGlyphRun(C1.Win.C1Document.Util.C1DXTextLayout,System.Double,System.Double,C1.Win.Interop.Rect,C1.Util.DX.DirectWrite.GlyphOrientationAngle,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.GlyphRunDescription,C1.Util.DX.DirectWrite.Font,System.Drawing.Color,C1.Util.DX.DirectWrite.MeasuringMode)">
             <summary>
             Callback method called to draw one piece of formatted text.
             </summary>
@@ -8576,7 +8895,7 @@
             <param name="vertical">The vertical texts with hieroglyphs flag.</param>
             <param name="bidiLevel">The right to left (bi-di) text level (0 - normal, 1 - rtl, 2 - inside rtl).</param>
         </member>
-        <member name="M:C1.Win.C1Document.Util.C1DXExportGraphics.DrawGlyphs(C1.Win.Interop.Point,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.GlyphRunDescription,System.Drawing.Color,C1.Util.DX.Direct2D.MeasuringMode)">
+        <member name="M:C1.Win.C1Document.Util.C1DXExportGraphics.DrawGlyphs(C1.Win.Interop.Point,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.GlyphRunDescription,System.Drawing.Color,C1.Util.DX.DirectWrite.MeasuringMode)">
             <summary>
             Exactly draw glyphs run.
             </summary>
@@ -8878,6 +9197,13 @@
             <param name="maxHeight"></param>
             <param name="gdiCompatible"></param>
         </member>
+        <member name="M:C1.Win.C1Document.Util.C1DXMeasurementTextLayout.CheckHeight">
+            <summary>
+            This method called only from HitTestX() and Draw() methods
+            it checks does text fit to specified area vertially and if no then
+            updates layout's MaxHeight to ensure that text fits.
+            </summary>
+        </member>
         <member name="M:C1.Win.C1Document.Util.C1DXMeasurementTextLayout.Dispose">
             <summary>
             Releases the unmanaged resources used by the <see cref="T:C1.Win.C1Document.Util.C1DXMeasurementTextLayout"/>.
@@ -8945,58 +9271,6 @@
             <summary>
             For internal use.
             </summary>
-        </member>
-        <member name="T:C1.Win.C1Document.Util.Matrix">
-            <summary>
-            Represents transformation matrix.
-            </summary>
-        </member>
-        <member name="F:C1.Win.C1Document.Util.Matrix.Identity">
-            <summary>
-            Gets the identity matrix.
-            </summary>
-            <value>The identity matrix.</value>
-        </member>
-        <member name="F:C1.Win.C1Document.Util.Matrix.M11">
-            <summary>
-            Element (1,1)
-            </summary>
-        </member>
-        <member name="F:C1.Win.C1Document.Util.Matrix.M12">
-            <summary>
-            Element (1,2)
-            </summary>
-        </member>
-        <member name="F:C1.Win.C1Document.Util.Matrix.M21">
-            <summary>
-            Element (2,1)
-            </summary>
-        </member>
-        <member name="F:C1.Win.C1Document.Util.Matrix.M22">
-            <summary>
-            Element (2,2)
-            </summary>
-        </member>
-        <member name="F:C1.Win.C1Document.Util.Matrix.M31">
-            <summary>
-            Element (3,1)
-            </summary>
-        </member>
-        <member name="F:C1.Win.C1Document.Util.Matrix.M32">
-            <summary>
-            Element (3,2)
-            </summary>
-        </member>
-        <member name="M:C1.Win.C1Document.Util.Matrix.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
-            <summary>
-            Initializes a new instance of the <see cref="T:C1.Win.C1Document.Util.Matrix"/> struct.
-            </summary>
-            <param name="M11">The value to assign at row 1 column 1 of the matrix.</param>
-            <param name="M12">The value to assign at row 1 column 2 of the matrix.</param>
-            <param name="M21">The value to assign at row 2 column 1 of the matrix.</param>
-            <param name="M22">The value to assign at row 2 column 2 of the matrix.</param>
-            <param name="M31">The value to assign at row 3 column 1 of the matrix.</param>
-            <param name="M32">The value to assign at row 3 column 2 of the matrix.</param>
         </member>
         <member name="M:C1.Win.C1Document.Util.C1HtmlGraphics.WriteLinks">
             <summary>
@@ -9079,18 +9353,32 @@
         </member>
         <member name="T:C1.Win.C1Document.C1ImageFormat">
             <summary>
-            Represets image format.
+            For internal use.
+            Represets an image format.
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1Document.C1Image">
+            <summary>
+            For internal use.
+            Helper class rerpesents the crossplatform image holder in C1Document.
             </summary>
         </member>
         <member name="F:C1.Win.C1Document.C1Image._scaleFactorX">
             <summary>
-            Used only if C1Image represents metafile.
+            Used only if C1Image represents a metafile.
             </summary>
         </member>
         <member name="F:C1.Win.C1Document.C1Image._scaleFactorY">
             <summary>
-            Used only if C1Image represents metafile.
+            Used only if C1Image represents a metafile.
             </summary>
+        </member>
+        <member name="M:C1.Win.C1Document.C1Image.GetData">
+            <summary>
+            Use this method to get the <see cref="T:System.IO.MemoryStream"/> which can be used to create an image
+            in multithreading enviroment.
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:C1.Win.C1Document.C1Image.GetFormat(System.Drawing.Imaging.ImageFormat)">
             <summary>
@@ -9099,9 +9387,22 @@
             <param name="imageFormat"></param>
             <returns></returns>
         </member>
+        <member name="T:C1.Win.C1Document.C1PaperSize">
+            <summary>
+            <see cref="T:C1.Win.C1Document.C1PaperSize"/> contains all possible standard paper sizes from all platforms
+            WinForms, WPF, UWP etc.
+            Currerntly this enumeration is a copy of WinForms PaperKind enumeration because
+            it contains all possible paper sizes.
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1Document.C1PaperSizeConverter">
+            <summary>
+            Contains methods to convert platform paper size to <see cref="T:C1.Win.C1Document.C1PaperSize"/>.
+            </summary>
+        </member>
         <member name="P:C1.Win.C1Document.Util.C1PdfGraphics.Angle">
             <summary>
-            Gets current angle from transfort.
+            Gets current angle from transform.
             </summary>
         </member>
         <member name="T:C1.Win.C1Document.C1PositionBase">
@@ -9336,9 +9637,9 @@
             Gets culture associated with this format.
             </summary>
         </member>
-        <member name="P:C1.Win.C1Document.Util.C1TextFormat.Direction">
+        <member name="P:C1.Win.C1Document.Util.C1TextFormat.RightToLeft">
             <summary>
-            Gets the text direction.
+            Gets a value indicating whether the text are aligned to support locales using right-to-left fonts.
             </summary>
         </member>
         <member name="P:C1.Win.C1Document.Util.C1TextFormat.WritingMode">
@@ -10099,16 +10400,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:C1.Win.C1Document.Utils.GetMetafileData(System.Drawing.Imaging.Metafile)">
-            <summary>
-            Returns byte array containing the metafile's bits,
-            GetEnhMetaFileBits() API function is used.
-            Metafile can not be used after calling this function,
-            its handle becomes invalid.
-            </summary>
-            <param name="metafile"></param>
-            <returns></returns>
-        </member>
         <member name="M:C1.Win.C1Document.Utils.SamePaperSizes(C1.Win.Interop.Size,C1.Win.Interop.Size)">
             <summary>
             Tests two sizes for equality allowing a small margin for rounding errors.
@@ -10159,6 +10450,48 @@
             <param name="val">The value to format.</param>
             <param name="fmt">The format string.</param>
             <returns>The result of formatting.</returns>
+        </member>
+        <member name="M:C1.Win.C1Document.Utils.GetRelativePath(System.String,System.String)">
+            <summary>
+            Returns the relative path, for example:
+            GetRelativePath("c:\temp", "c:\temp\qq\zz.txt") returns "qq\zz.txt".
+            </summary>
+            <param name="basePath"></param>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.Win.C1Document.Utils.GetParameterlessCtor(System.Type)">
+            <summary>
+            Returns default instance parameter-less constructor for the specified type.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The default constructor for the specified type if it exists; Null otherwise.</returns>
+        </member>
+        <member name="M:C1.Win.C1Document.Utils.IsEnum(System.Type)">
+            <summary>
+            Gets a value indicating whether the current Type represents an enumeration.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.Win.C1Document.Utils.IsValueType(System.Type)">
+            <summary>
+            Gets a value indicating whether the Type is a value type.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.Win.C1Document.Utils.Compare(System.String,System.Int32,System.String,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Compares two strings, could be used in Xaml and WinForms.
+            </summary>
+            <param name="strA"></param>
+            <param name="indexA"></param>
+            <param name="strB"></param>
+            <param name="indexB"></param>
+            <param name="length"></param>
+            <param name="ignoreCase"></param>
+            <returns></returns>
         </member>
         <member name="M:C1.Win.C1Document.Utils.BarCodeEnumToCodeType(C1.Win.C1Document.BarCodeEnum)">
             <summary>
@@ -10247,6 +10580,16 @@
             </summary>
             <param name="s">The string containg file name to check.</param>
             <returns>Returns validated string.</returns>
+        </member>
+        <member name="M:C1.Win.C1Document.Utils.GetMetafileData(System.Drawing.Imaging.Metafile)">
+            <summary>
+            Returns byte array containing the metafile's bits,
+            GetEnhMetaFileBits() API function is used.
+            Metafile can not be used after calling this function,
+            its handle becomes invalid.
+            </summary>
+            <param name="metafile"></param>
+            <returns></returns>
         </member>
         <member name="M:C1.Win.C1Document.Utils.ReadMetafileFromMemory(System.Byte[])">
             <summary>
@@ -10501,6 +10844,87 @@
             <summary>
             Get width coefficient for this meta font.
             </summary>
+        </member>
+        <member name="M:C1.Util.Win.Win32.LOWORDU(System.IntPtr)">
+            <summary>
+            Retrieves the low-order word from the specified value. This function handles the message parameters of window. See in MSDN which function used to process the message.
+            </summary>
+            <param name="value">The value to be converted.</param>
+            <returns>The return value is the low-order word of the specified value.</returns>
+            <remarks>
+            Use:
+            WM_COMMAND, WM_SYSCOMMAND
+            WM_SETCURSOR
+            WM_ACTIVATE
+            WM_MENUCHAR
+            WM_HSCROLL WM_VSCROLL - SB_THUMBPOSITION or SB_THUMBTRACK
+            </remarks>
+        </member>
+        <member name="M:C1.Util.Win.Win32.HIWORDU(System.IntPtr)">
+            <summary>
+            Retrieves the high-order word from the specified value. This function handles the message parameters of window. See in MSDN which function used to process the message.
+            </summary>
+            <param name="value">The value to be converted.</param>
+            <returns>The return value is the high-order word of the specified value.</returns>
+            <remarks>
+            WM_HSCROLL WM_VSCROLL -  current position of the scroll box
+            </remarks>
+        </member>
+        <member name="M:C1.Util.Win.Win32.GET_X_LPARAM(System.IntPtr)">
+            <summary>
+            Retrieves the signed x-coordinate from the given value. 
+            This function handles the message parameters of window and is a replacement for LOWORD because LOWORD must return the unsigned value. 
+            See in MSDN which function used to process the message.
+            </summary>
+            <param name="lParam">The value to be converted.</param>
+            <returns>The return value is the low-order int of the specified value.</returns>
+            <remarks>
+            Use:
+            WM_CONTEXTMENU,
+            WM_MOUSEDOWN, WM_MOUSEUP, WM_MOUSEWHEEL, WM_MOUSEMOVE
+            </remarks>
+        </member>
+        <member name="M:C1.Util.Win.Win32.GET_Y_LPARAM(System.IntPtr)">
+            <summary>
+            Retrieves the signed y-coordinate from the given value. 
+            This function handles the message parameters of window and is a replacement for HIWORD because HIWORD must return the unsigned value. 
+            See in MSDN which function used to process the message.
+            </summary>
+            <param name="lParam">The value to be converted.</param>
+            <returns>The return value is the high-order int of the specified value.</returns>
+            <remarks>
+            Use:
+            WM_CONTEXTMENU,
+            WM_MOUSEDOWN, WM_MOUSEUP, WM_MOUSEWHEEL, WM_MOUSEMOVE
+            </remarks>
+        </member>
+        <member name="M:C1.Util.Win.Win32.GET_WHEEL_DELTA_WPARAM(System.IntPtr)">
+            <summary>
+            Retrieves the wheel-delta value from the specified WPARAM value.
+            </summary>
+            <param name="wParam">The value to be converted.</param>
+            <returns>
+            The return value is the high-order word representing the wheel-delta value. 
+            It indicates the distance that the wheel is rotated, expressed in multiples or divisions of WHEEL_DELTA, which is 120. A positive value indicates that the wheel was rotated forward, away from the user; 
+            a negative value indicates that the wheel was rotated backward, toward the user.
+            </returns>
+            <remarks>
+            Use:
+            WM_MOUSEWHEEL - zDelta 
+            </remarks>
+        </member>
+        <member name="M:C1.Util.Win.Win32.GET_KEYSTATE_WPARAM(System.IntPtr)">
+            <summary>
+            Retrieves the state of certain virtual keys from the specified WPARAM value.
+            </summary>
+            <param name="wParam">The value to be converted.</param>
+            <returns>
+            The return value is the low-order word representing the virtual key state.
+            </returns>
+            <remarks>
+            Use:
+            WM_MOUSEWHEEL - fwKeys  
+            </remarks>
         </member>
         <member name="M:C1.Util.Win.Win32.AssocQueryString(System.Int32,System.Int32,System.String,System.String,System.Text.StringBuilder,System.UInt32@)">
             <summary>

@@ -1876,7 +1876,7 @@
         <member name="F:C1.BarCode.CodeType.JapanesePostal">
             <summary>
             This is the barcode used by the Japanese Postal system. 
-            Encodes alpha and numeric characters consisting of 18 digits including a 7-digit postal code number, optionally followed by block and house number information. 
+            Encodes alpha and numeric characters consisting of 20 digits including a 7-digit postal code number, optionally followed by block and house number information. 
             The data to be encoded can include hyphens.
             </summary>
         </member>

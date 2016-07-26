@@ -325,6 +325,18 @@
       <param name="e">
       </param>
     </member>
+    <member name="M:C1.Win.C1Command.C1CommandLink.OpenSubmenu(System.Boolean)">
+      <summary>
+            Opens a submenu for linked <see cref="T:C1.Win.C1Command.C1CommandMenu" />.
+            </summary>
+      <param name="allTree">True - opens all the tree of menu. False - opens only the current submenu.</param>
+      <remarks>Opens a submenu, if the linked command is of <see cref="T:C1.Win.C1Command.C1CommandMenu" /> type. Otherwise, does nothing.</remarks>
+    </member>
+    <member name="M:C1.Win.C1Command.C1CommandLink.CloseSubmenu">
+      <summary>
+            Closes a submenu for linked <see cref="T:C1.Win.C1Command.C1CommandMenu" />.
+            </summary>
+    </member>
     <member name="E:C1.Win.C1Command.C1CommandLink.CommandChanged">
       <summary>
             Occurs when the value of the Command property of the command link changes.
@@ -1016,7 +1028,7 @@
     </member>
     <member name="T:C1.Win.C1Command.C1DockingTab">
       <summary>
-            This class implements the familiar tab control interface: several overlaying pages (each of which can 
+            This class implements the familiar tab control interface: several overlaying pages (each of which can
             contain arbitrary controls) accessible via tabs at the side of the control.
             </summary>
     </member>
@@ -1083,6 +1095,11 @@
     <member name="M:C1.Win.C1Command.C1DockingTab.ResetUIStrings">
       <summary>
             This method is for internal use only.
+            </summary>
+    </member>
+    <member name="M:C1.Win.C1Command.C1DockingTab.OnAutoHidingChanging(System.ComponentModel.CancelEventArgs)">
+      <summary>
+            Fires the AutoHidingChanging event.
             </summary>
     </member>
     <member name="M:C1.Win.C1Command.C1DockingTab.Dispose(System.Boolean)">
@@ -1301,6 +1318,12 @@
             </summary>
       <returns>The array of automatically created C1DockingTab controls.</returns>
     </member>
+    <member name="M:C1.Win.C1Command.C1DockingTab.OnTabClick(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.C1Command.C1DockingTab.TabClick" /> event.
+            </summary>
+      <param name="e">An EventArgs that contains the event data.</param>
+    </member>
     <member name="M:C1.Win.C1Command.C1DockingTab.OnSelectedIndexChanging(C1.Win.C1Command.SelectedIndexChangingEventArgs)">
       <summary>
             This method is for internal use only.
@@ -1314,7 +1337,7 @@
       <summary>
             Raises the <see cref="E:C1.Win.C1Command.C1DockingTab.SelectedIndexChanged" /> event.
             </summary>
-      <param name="e">An EventArgs that contains the event data. 
+      <param name="e">An EventArgs that contains the event data.
             </param>
     </member>
     <member name="M:C1.Win.C1Command.C1DockingTab.OnSelectedIndexChanged(System.EventArgs)">
@@ -1549,7 +1572,7 @@
             </summary>
       <param name="tabPage">The tab page to float out.</param>
       <remarks>
-            Floats out the page to a default position. 
+            Floats out the page to a default position.
             </remarks>
     </member>
     <member name="M:C1.Win.C1Command.C1DockingTab.Float(C1.Win.C1Command.C1DockingTabPage,System.Drawing.Point)">
@@ -1585,6 +1608,16 @@
     <member name="P:C1.Win.C1Command.C1DockingTab.LayoutExclude">
       <summary>
             List of controls whose children are excluded from SaveLayout / RestoreLayout.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Command.C1DockingTab.TabClick">
+      <summary>
+            Occurs when the page header of DockingTab is clicked.
+            </summary>
+    </member>
+    <member name="E:C1.Win.C1Command.C1DockingTab.AutoHidingChanging">
+      <summary>
+            Event fires when the AutoHiding property is about to change. Allows to cancel the change.
             </summary>
     </member>
     <member name="E:C1.Win.C1Command.C1DockingTab.AutoCreatedDockingTab">
@@ -1998,7 +2031,7 @@
             Gets or sets whether tabs area is displayed within the <see cref="T:C1.Win.C1Command.C1DockingTab" />.
             </summary>
       <remarks>
-            Use the ShowTabs property to control the display of the tabs. 
+            Use the ShowTabs property to control the display of the tabs.
             If this property is set to false, the tabs area is not displayed.
             </remarks>
     </member>
@@ -2306,6 +2339,12 @@
       <param name="value">
       </param>
     </member>
+    <member name="M:C1.Win.C1Command.C1DockingTabPage.OnTabClick(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:C1.Win.C1Command.C1DockingTabPage.TabClick" /> event.
+            </summary>
+      <param name="e">An EventArgs that contains the event data.</param>
+    </member>
     <member name="M:C1.Win.C1Command.C1DockingTabPage.OnClosing(System.ComponentModel.CancelEventArgs)">
       <summary>
             This method is for internal use only.
@@ -2342,6 +2381,11 @@
             </summary>
       <param name="e">
       </param>
+    </member>
+    <member name="E:C1.Win.C1Command.C1DockingTabPage.TabClick">
+      <summary>
+            Occurs when the page header is clicked.
+            </summary>
     </member>
     <member name="E:C1.Win.C1Command.C1DockingTabPage.CaptionTextChanged">
       <summary>
@@ -2676,6 +2720,13 @@
       <summary>
             Gets the current element in the collection.
             </summary>
+    </member>
+    <member name="M:C1.Win.C1Command.C1DockingTabPages.RemoveAt(System.Int32)">
+      <summary>
+            Removes the IList item at the specified index.
+            </summary>
+      <param name="index">
+      </param>
     </member>
     <member name="M:C1.Win.C1Command.C1DockingTabPages.check_page(System.Object)">
       <summary>
@@ -11049,6 +11100,15 @@
             </summary>
       <remarks>
             The VS2010 docking style feedback is similar to Visual Studio 2010, using docking zone 
+            selectors to specify where the dragged view will be docked if you release it.
+            </remarks>
+    </member>
+    <member name="F:C1.Win.C1Command.DockingStyle.VS2012">
+      <summary>
+            Visual studio 2012 - like docking style.
+            </summary>
+      <remarks>
+            The VS2012 docking style feedback is similar to Visual Studio 2012, using docking zone 
             selectors to specify where the dragged view will be docked if you release it.
             </remarks>
     </member>

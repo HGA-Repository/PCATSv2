@@ -319,6 +319,11 @@
             Gets or sets the name of the person, company, or application that created this <see cref="T:C1.C1Excel.C1XLBook" />.
             </summary>
     </member>
+    <member name="P:C1.C1Excel.C1XLBook.ListSeparator">
+      <summary>
+            Gets or sets a list separator that used for CSV-data, by default used the list separator in the Windows system.
+            </summary>
+    </member>
     <member name="P:C1.C1Excel.C1XLBook.UseTempStorage">
       <summary>
             Specifies whether the component should use temporary storage at saving to XLSX/XSLT files for minimization used memory.
@@ -1779,13 +1784,27 @@
             Gets a reference to the <see cref="T:C1.C1Excel.XLCommentShape" /> object with context.
             </summary>
     </member>
+    <member name="T:C1.C1Excel.XLFontScript">
+      <summary>
+            The Excel font superscript/subscript style (escapement type).
+            </summary>
+    </member>
+    <member name="F:C1.C1Excel.XLFontScript.None">
+      <summary>Without escapement (normal font).</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLFontScript.Superscript">
+      <summary>Superscript escapement type.</summary>
+    </member>
+    <member name="F:C1.C1Excel.XLFontScript.Subscript">
+      <summary>Subscript escapement type.</summary>
+    </member>
     <member name="T:C1.C1Excel.XLUnderlineStyle">
       <summary>
-            The Excel font underline style.
+            Conditional formatting underline type for the font.
             </summary>
     </member>
     <member name="F:C1.C1Excel.XLUnderlineStyle.None">
-      <summary>No underline.</summary>
+      <summary>Without underline.</summary>
     </member>
     <member name="F:C1.C1Excel.XLUnderlineStyle.Single">
       <summary>Single underline.</summary>
@@ -1798,20 +1817,6 @@
     </member>
     <member name="F:C1.C1Excel.XLUnderlineStyle.DoubleAccounting">
       <summary>Double accounting underline.</summary>
-    </member>
-    <member name="T:C1.C1Excel.XLFontScript">
-      <summary>
-            The Excel font superscript/subscript style.
-            </summary>
-    </member>
-    <member name="F:C1.C1Excel.XLFontScript.None">
-      <summary>Normal.</summary>
-    </member>
-    <member name="F:C1.C1Excel.XLFontScript.Superscript">
-      <summary>Superscript.</summary>
-    </member>
-    <member name="F:C1.C1Excel.XLFontScript.Subscript">
-      <summary>Subscript.</summary>
     </member>
     <member name="T:C1.C1Excel.XLConditionalFormattingType">
       <summary>
@@ -1888,40 +1893,6 @@
     </member>
     <member name="F:C1.C1Excel.XLConditionalFormattingOperator.LessThanOrEqual">
       <summary>Conditional formatting if value less than or equal (LE).</summary>
-    </member>
-    <member name="T:C1.C1Excel.XLEscapementType">
-      <summary>
-            Conditional formatting escapement type for the font.
-            </summary>
-    </member>
-    <member name="F:C1.C1Excel.XLEscapementType.None">
-      <summary>Without escapement (normal font).</summary>
-    </member>
-    <member name="F:C1.C1Excel.XLEscapementType.Superscript">
-      <summary>Superscript escapement type.</summary>
-    </member>
-    <member name="F:C1.C1Excel.XLEscapementType.Subscript">
-      <summary>Subscript escapement type.</summary>
-    </member>
-    <member name="T:C1.C1Excel.XLUnderlineType">
-      <summary>
-            Conditional formatting underline type for the font.
-            </summary>
-    </member>
-    <member name="F:C1.C1Excel.XLUnderlineType.None">
-      <summary>Without underline.</summary>
-    </member>
-    <member name="F:C1.C1Excel.XLUnderlineType.Single">
-      <summary>Single underline.</summary>
-    </member>
-    <member name="F:C1.C1Excel.XLUnderlineType.Double">
-      <summary>Double underline.</summary>
-    </member>
-    <member name="F:C1.C1Excel.XLUnderlineType.SingleAccounting">
-      <summary>Single accounting underline.</summary>
-    </member>
-    <member name="F:C1.C1Excel.XLUnderlineType.DoubleAccounting">
-      <summary>Double accounting underline.</summary>
     </member>
     <member name="T:C1.C1Excel.XLRange">
       <summary>

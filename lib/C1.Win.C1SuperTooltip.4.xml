@@ -929,7 +929,7 @@
             Gets or sets whether ampersands in the text should be hidden.
             </summary>
       <remarks>
-            Ampersands should be encoded in HTML as <b>'&amp;amp' or '&amp;'</b>.
+            Ampersands should be encoded in HTML as '&amp;amp;' or '&amp;#38;'.
             Ampersands that are not properly encoded will not be hidden.
             </remarks>
     </member>

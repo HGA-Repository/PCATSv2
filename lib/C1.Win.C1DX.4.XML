@@ -1621,12 +1621,12 @@
         </member>
         <member name="P:C1.Util.DX.Matrix3x2.Column2">
             <summary>
-            Gets or sets the second column in the matrix; that is M12, M22, M32, and M42.
+            Gets or sets the second column in the matrix; that is M12, M22, and M32.
             </summary>
         </member>
         <member name="P:C1.Util.DX.Matrix3x2.TranslationVector">
             <summary>
-            Gets or sets the translation of the matrix; that is M41, M42.
+            Gets or sets the translation of the matrix; that is M31, M32.
             </summary>
         </member>
         <member name="P:C1.Util.DX.Matrix3x2.ScaleVector">
@@ -2970,6 +2970,16 @@
             Converts <see cref="T:C1.Util.DX.Point2F"/> to <see cref="T:C1.Win.Interop.Point"/>.
             </summary>
         </member>
+        <member name="M:C1.Util.DX.Point2F.#ctor(C1.Util.DX.Point2D)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Util.DX.Point2F"/> struct.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2F.ToPoint2D">
+            <summary>
+            Converts <see cref="T:C1.Util.DX.Point2F"/> to <see cref="T:C1.Util.DX.Point2D"/>.
+            </summary>
+        </member>
         <member name="M:C1.Util.DX.Point2F.Truncate">
             <summary>
             Returns a <see cref="T:C1.Util.DX.Point2L"/> with truncated X and Y coordinates.
@@ -3110,6 +3120,166 @@
             Determines if all components of <see cref="T:C1.Util.DX.Point2F"/> are equal to zero.
             </summary>
         </member>
+        <member name="T:C1.Util.DX.Point2D">
+            <summary>
+            Structure specifing a point with double X and Y coordinates.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Point2D.X">
+            <summary>
+            The X coordinate of the point.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Point2D.Y">
+            <summary>
+            The Y coordinate of the point.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Point2D.Empty">
+            <summary>
+            An empty point.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.#ctor(System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Util.DX.Point2D"/> struct.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.#ctor(System.Drawing.PointF)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Util.DX.Point2D"/> struct.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.ToPointF">
+            <summary>
+            Converts <see cref="T:C1.Util.DX.Point2D"/> to <see cref="T:System.Drawing.PointF"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.#ctor(C1.Win.Interop.Point)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Util.DX.Point2D"/> struct.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.ToPoint">
+            <summary>
+            Converts <see cref="T:C1.Util.DX.Point2D"/> to <see cref="T:C1.Win.Interop.Point"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.#ctor(C1.Util.DX.Point2F)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Util.DX.Point2D"/> struct.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.ToPoint2F">
+            <summary>
+            Converts <see cref="T:C1.Util.DX.Point2D"/> to <see cref="T:C1.Util.DX.Point2F"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.Truncate">
+            <summary>
+            Returns a <see cref="T:C1.Util.DX.Point2L"/> with truncated X and Y coordinates.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.Round">
+            <summary>
+            Returns a <see cref="T:C1.Util.DX.Point2L"/> with rounded X and Y coordinates.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.Offset(System.Double,System.Double)">
+            <summary>
+            Offsets the point by the specified amount.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.Offset(C1.Util.DX.Size2D)">
+            <summary>
+            Offsets the point by the specified amount.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.Offset(C1.Util.DX.Point2D,C1.Util.DX.Size2D)">
+            <summary>
+            Offsets the point by the specified amount.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.Equals(System.Object)">
+            <summary>
+            Indicates whether this instance and a specified object are equal.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.Equals(C1.Util.DX.Point2D)">
+            <summary>
+            Indicates whether this instance and a specified object are equal.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.op_Equality(C1.Util.DX.Point2D,C1.Util.DX.Point2D)">
+            <summary>
+            Determines if the specified values are equal.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.op_Inequality(C1.Util.DX.Point2D,C1.Util.DX.Point2D)">
+            <summary>
+            Determines if the specified values are not equal.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.op_Explicit(C1.Util.DX.Point2D)~C1.Win.Interop.Point">
+            <summary>
+            Performs an explicit conversion from <see cref="T:C1.Util.DX.Point2D"/> to <see cref="T:C1.Win.Interop.Point"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.op_Explicit(C1.Win.Interop.Point)~C1.Util.DX.Point2D">
+            <summary>
+            Performs an explicit conversion from <see cref="T:C1.Win.Interop.Point"/> to <see cref="T:C1.Util.DX.Point2D"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.Scale(C1.Util.DX.Point2D,System.Double)">
+            <summary>
+            Scales X and Y coordinates of a point by the specified scaleFactor.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.Scale(System.Double)">
+            <summary>
+            Scales X and Y coordinates of a point by the specified scaleFactor.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.ToDips(C1.Util.DX.Point2D,System.Single,System.Single)">
+            <summary>
+            Converts a point from pixels to DIPs.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.ToDips(System.Single,System.Single)">
+            <summary>
+            Converts a point from pixels to DIPs.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.FromDips(C1.Util.DX.Point2D,System.Single,System.Single)">
+            <summary>
+            Converts a point from DIPs to pixels.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.FromDips(System.Single,System.Single)">
+            <summary>
+            Converts a point from DIPs to pixels.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2D.DistanceSqr(C1.Util.DX.Point2D)">
+            <summary>
+            Gets the square of the distance to the given point.
+            </summary>
+        </member>
+        <member name="P:C1.Util.DX.Point2D.IsEmpty">
+            <summary>
+            Determines if all components of <see cref="T:C1.Util.DX.Point2D"/> are equal to zero.
+            </summary>
+        </member>
         <member name="T:C1.Util.DX.Point2L">
             <summary>
             Structure specifing a point with integer X and Y coordinates.
@@ -3148,6 +3318,11 @@
         <member name="M:C1.Util.DX.Point2L.ToPoint2F">
             <summary>
             Converts <see cref="T:C1.Util.DX.Point2L"/> to <see cref="T:C1.Util.DX.Point2F"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Point2L.ToPoint2D">
+            <summary>
+            Converts <see cref="T:C1.Util.DX.Point2L"/> to <see cref="T:C1.Util.DX.Point2D"/>.
             </summary>
         </member>
         <member name="M:C1.Util.DX.Point2L.Offset(System.Int32,System.Int32)">
@@ -3212,9 +3387,8 @@
         </member>
         <member name="T:C1.Util.DX.RectF">
             <summary>
-            Define a RectF. This structure is slightly different from System.Drawing.RectangleF as  
+            Defines a RectF. This structure is slightly different from System.Drawing.RectangleF as  
             it is internally storing Left, Top, Right, Bottom instead of Left, Top, Width, Height.
-            Although automatic casting from and to System.Drawing.RectangleF is provided by this class.
             </summary>
         </member>
         <member name="F:C1.Util.DX.RectF.Left">
@@ -3280,6 +3454,16 @@
         <member name="M:C1.Util.DX.RectF.ToRect">
             <summary>
             Converts <see cref="T:C1.Util.DX.RectF"/> to <see cref="T:C1.Win.Interop.Rect"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectF.#ctor(C1.Util.DX.RectD)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Util.DX.RectF"/> struct.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectF.ToRectD">
+            <summary>
+            Converts <see cref="T:C1.Util.DX.RectF"/> to <see cref="T:C1.Util.DX.RectD"/>.
             </summary>
         </member>
         <member name="M:C1.Util.DX.RectF.Truncate">
@@ -3500,11 +3684,288 @@
             Determines if all components of <see cref="T:C1.Util.DX.RectF"/> are equal to zero.
             </summary>
         </member>
+        <member name="T:C1.Util.DX.RectD">
+            <summary>
+            Structure specifing a rectangle with double Left, Top, Right, Bottom coordinates.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.RectD.Left">
+            <summary>
+            The x-coordinate of the left edge.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.RectD.Top">
+            <summary>
+            The y-coordinate of the top edge.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.RectD.Right">
+            <summary>
+            The x-coordinate of the right edge.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.RectD.Bottom">
+            <summary>
+            The y-coordinate of the bottom edge.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.RectD.Empty">
+            <summary>
+            An empty rectangle.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.RectD.Infinite">
+            <summary>
+            A rectangle that has its upper-left corner set to (negative infinity, negative infinity) and its lower-right corner set to (infinity, infinity).
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.#ctor(System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Util.DX.RectD"/> struct.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Util.DX.RectD"/> struct.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.FromLTRB(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Creates a <see cref="T:C1.Util.DX.RectD"/> struct from (left, top, right, bottom) coordinates.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.#ctor(System.Drawing.RectangleF)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Util.DX.RectD"/> struct.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.ToRectangleF">
+            <summary>
+            Converts <see cref="T:C1.Util.DX.RectD"/> to <see cref="T:System.Drawing.RectangleF"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.#ctor(C1.Win.Interop.Rect)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Util.DX.RectD"/> struct.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.ToRect">
+            <summary>
+            Converts <see cref="T:C1.Util.DX.RectD"/> to <see cref="T:C1.Win.Interop.Rect"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.#ctor(C1.Util.DX.RectF)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Util.DX.RectD"/> struct.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.ToRectF">
+            <summary>
+            Converts <see cref="T:C1.Util.DX.RectD"/> to <see cref="T:C1.Util.DX.RectF"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.Truncate">
+            <summary>
+            Returns a <see cref="T:C1.Util.DX.RectL"/> with truncated coordinates.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.Circumscribe">
+            <summary>
+            Returns a <see cref="T:C1.Util.DX.RectL"/> with circumscribed coordinates.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.Round">
+            <summary>
+            Returns a <see cref="T:C1.Util.DX.RectL"/> with rounded coordinates.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.Offset(System.Double,System.Double)">
+            <summary>
+            Offsets the rectangle by the specified amount.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.Offset(C1.Util.DX.RectD,System.Double,System.Double)">
+            <summary>
+            Offsets the rectangle by the specified amount.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.Offset(C1.Util.DX.RectD,C1.Util.DX.Size2D)">
+            <summary>
+            Offsets the rectangle by the specified amount.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.Inflate(System.Double,System.Double)">
+            <summary>
+            Inflates the rectangle by the specified amount.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.Inflate(C1.Util.DX.RectD,System.Double,System.Double)">
+            <summary>
+            Inflates the rectangle by the specified amount.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.Contains(System.Double,System.Double)">
+            <summary>
+            Determines if the specified point is contained within this rectangle.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.Contains(C1.Util.DX.RectD)">
+            <summary>
+            Determines if the specified rectangle is fully contained within this rectangle.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.IntersectsWith(C1.Util.DX.RectD)">
+            <summary>
+            Determines if this rectangle intersects with rect.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.IntersectFast(C1.Util.DX.RectD@)">
+            <summary>
+            Quickly updates a rectangle to represent the intersection with another rectangle.
+            </summary>
+            <remarks>
+            The resulting rectangle may be invalid. Use the <see cref="P:C1.Util.DX.RectD.HasSpace"/> property to check.
+            </remarks>
+        </member>
+        <member name="M:C1.Util.DX.RectD.Intersect(C1.Util.DX.RectD,C1.Util.DX.RectD)">
+            <summary>
+            Returns a rectangle that represents the intersection of two rectangles.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.Union(C1.Util.DX.RectD,C1.Util.DX.RectD)">
+            <summary>
+            Creates the smallest possible third rectangle that can contain both of two rectangles that form a union.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.Equals(System.Object)">
+            <summary>
+            Indicates whether this instance and a specified object are equal.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.Equals(C1.Util.DX.RectD)">
+            <summary>
+            Indicates whether this instance and a specified object are equal.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.op_Equality(C1.Util.DX.RectD,C1.Util.DX.RectD)">
+            <summary>
+            Determines if the specified values are equal.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.op_Inequality(C1.Util.DX.RectD,C1.Util.DX.RectD)">
+            <summary>
+            Determines if the specified values are not equal.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.op_Explicit(C1.Util.DX.RectD)~C1.Win.Interop.Rect">
+            <summary>
+            Performs an explicit conversion from <see cref="T:C1.Util.DX.RectD"/> to <see cref="T:C1.Win.Interop.Rect"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.op_Explicit(C1.Win.Interop.Rect)~C1.Util.DX.RectD">
+            <summary>
+            Performs an explicit conversion from <see cref="T:C1.Win.Interop.Rect"/> to <see cref="T:C1.Util.DX.RectD"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.MakeXYWH">
+            <summary>
+            Converts the rectangle from (Left, Top, Right, Bottom) to (X, Y, Width, Height) coordinates.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.MakeLTRB">
+            <summary>
+            Converts the rectangle from (X, Y, Width, Height) to (Left, Top, Right, Bottom) coordinates.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.Scale(C1.Util.DX.RectD,System.Double)">
+            <summary>
+            Scales all coordinates of a rectangle by the specified scaleFactor.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.Scale(System.Double)">
+            <summary>
+            Scales all coordinates of a rectangle by the specified scaleFactor.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.ToDips(C1.Util.DX.RectD,System.Single,System.Single)">
+            <summary>
+            Converts a rectangle from pixels to DIPs.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.ToDips(System.Single,System.Single)">
+            <summary>
+            Converts a rectangle from pixels to DIPs.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.FromDips(C1.Util.DX.RectD,System.Single,System.Single)">
+            <summary>
+            Converts a rectangle from DIPs to pixels.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectD.FromDips(System.Single,System.Single)">
+            <summary>
+            Converts a rectangle from DIPs to pixels.
+            </summary>
+        </member>
+        <member name="P:C1.Util.DX.RectD.X">
+            <summary>
+            Gets or sets the X coordinate of the rectangle.
+            </summary>
+        </member>
+        <member name="P:C1.Util.DX.RectD.Y">
+            <summary>
+            Gets or sets the Y coordinate of the rectangle.
+            </summary>
+        </member>
+        <member name="P:C1.Util.DX.RectD.Location">
+            <summary>
+            Gets the point with coordinates of the left top corner of the rectangle.
+            </summary>
+        </member>
+        <member name="P:C1.Util.DX.RectD.Center">
+            <summary>
+            Gets the point with coordinates of the rectangle center.
+            </summary>
+        </member>
+        <member name="P:C1.Util.DX.RectD.Width">
+            <summary>
+            Gets or sets the width of the rectangle.
+            </summary>
+        </member>
+        <member name="P:C1.Util.DX.RectD.Height">
+            <summary>
+            Gets or sets the height of the rectangle.
+            </summary>
+        </member>
+        <member name="P:C1.Util.DX.RectD.Size">
+            <summary>
+            Gets the size of the rectangle.
+            </summary>
+        </member>
+        <member name="P:C1.Util.DX.RectD.HasSpace">
+            <summary>
+            Determines if there is some space within the rectangle.
+            </summary>
+        </member>
+        <member name="P:C1.Util.DX.RectD.IsEmpty">
+            <summary>
+            Determines if all components of <see cref="T:C1.Util.DX.RectD"/> are equal to zero.
+            </summary>
+        </member>
         <member name="T:C1.Util.DX.RectL">
             <summary>
-            Define a RectL. This structure is slightly different from System.Drawing.Rectangle as  
+            Defines a RectL. This structure is slightly different from System.Drawing.Rectangle as  
             it is internally storing Left, Top, Right, Bottom instead of Left, Top, Width, Height.
-            Although automatic casting from and to System.Drawing.Rectangle is provided by this class.
             </summary>
         </member>
         <member name="F:C1.Util.DX.RectL.Left">
@@ -3530,6 +3991,11 @@
         <member name="F:C1.Util.DX.RectL.Empty">
             <summary>
             An empty rectangle.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.RectL.Infinite">
+            <summary>
+            An infinite rectangle.
             </summary>
         </member>
         <member name="M:C1.Util.DX.RectL.#ctor(System.Int32,System.Int32)">
@@ -3560,6 +4026,11 @@
         <member name="M:C1.Util.DX.RectL.ToRectF">
             <summary>
             Converts <see cref="T:C1.Util.DX.RectL"/> to <see cref="T:C1.Util.DX.RectF"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.RectL.ToRectD">
+            <summary>
+            Converts <see cref="T:C1.Util.DX.RectL"/> to <see cref="T:C1.Util.DX.RectD"/>.
             </summary>
         </member>
         <member name="M:C1.Util.DX.RectL.Offset(System.Int32,System.Int32)">
@@ -3760,6 +4231,16 @@
             Converts <see cref="T:C1.Util.DX.Size2F"/> to <see cref="T:C1.Win.Interop.Size"/>.
             </summary>
         </member>
+        <member name="M:C1.Util.DX.Size2F.#ctor(C1.Util.DX.Size2D)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Util.DX.Size2F"/> struct.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2F.ToSize2D">
+            <summary>
+            Converts <see cref="T:C1.Util.DX.Size2F"/> to <see cref="T:C1.Util.DX.Size2D"/>.
+            </summary>
+        </member>
         <member name="M:C1.Util.DX.Size2F.Truncate">
             <summary>
             Returns a <see cref="T:C1.Util.DX.Size2L"/> with truncated width and height.
@@ -3845,6 +4326,141 @@
             Determines if all components of <see cref="T:C1.Util.DX.Size2F"/> are equal to zero.
             </summary>
         </member>
+        <member name="T:C1.Util.DX.Size2D">
+            <summary>
+            Structure specifing a size with double Width and Height.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Size2D.Width">
+            <summary>
+            The horizontal component of this <see cref="T:C1.Util.DX.Size2D"/> structure.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Size2D.Height">
+            <summary>
+            The vertical component of this <see cref="T:C1.Util.DX.Size2D"/> structure.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Size2D.Empty">
+            <summary>
+            An empty size.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Size2D.Infinite">
+            <summary>
+            A size with infinite Width and Height.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2D.#ctor(System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Util.DX.Size2D"/> struct.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2D.#ctor(System.Drawing.SizeF)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Util.DX.Size2D"/> struct.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2D.ToSizeF">
+            <summary>
+            Converts <see cref="T:C1.Util.DX.Size2D"/> to <see cref="T:System.Drawing.SizeF"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2D.#ctor(C1.Win.Interop.Size)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Util.DX.Size2D"/> struct.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2D.ToSize">
+            <summary>
+            Converts <see cref="T:C1.Util.DX.Size2D"/> to <see cref="T:C1.Win.Interop.Size"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2D.#ctor(C1.Util.DX.Size2F)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Util.DX.Size2D"/> struct.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2D.ToSize2F">
+            <summary>
+            Converts <see cref="T:C1.Util.DX.Size2D"/> to <see cref="T:C1.Util.DX.Size2F"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2D.Truncate">
+            <summary>
+            Returns a <see cref="T:C1.Util.DX.Size2L"/> with truncated width and height.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2D.Round">
+            <summary>
+            Returns a <see cref="T:C1.Util.DX.Size2L"/> with rounded width and height.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2D.Add(C1.Util.DX.Size2D,C1.Util.DX.Size2D)">
+            <summary>
+            Adds the width and height of one Size2D structure to the width and height of another Size2D structure.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2D.Subtract(C1.Util.DX.Size2D,C1.Util.DX.Size2D)">
+            <summary>
+            Subtracts the width and height of one Size2D structure from the width and height of another Size2D structure.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2D.Scale(C1.Util.DX.Size2D,System.Double)">
+            <summary>
+            Scales the width and height by the specified scaleFactor. 
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2D.Scale(System.Double)">
+            <summary>
+            Scales the width and height by the specified scaleFactor. 
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2D.Equals(C1.Util.DX.Size2D)">
+            <summary>
+            Indicates whether this instance and a specified object are equal.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2D.Equals(System.Object)">
+            <summary>
+            Indicates whether this instance and a specified object are equal.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2D.op_Equality(C1.Util.DX.Size2D,C1.Util.DX.Size2D)">
+            <summary>
+            Determines if the specified values are equal.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2D.op_Inequality(C1.Util.DX.Size2D,C1.Util.DX.Size2D)">
+            <summary>
+            Determines if the specified values are not equal.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2D.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2D.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2D.op_Explicit(C1.Util.DX.Size2D)~C1.Win.Interop.Size">
+            <summary>
+            Performs an explicit conversion from <see cref="T:C1.Util.DX.Size2D"/> to <see cref="T:C1.Win.Interop.Size"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2D.op_Explicit(C1.Win.Interop.Size)~C1.Util.DX.Size2D">
+            <summary>
+            Performs an explicit conversion from <see cref="T:C1.Win.Interop.Size"/> to <see cref="T:C1.Util.DX.Size2D"/>.
+            </summary>
+        </member>
+        <member name="P:C1.Util.DX.Size2D.IsEmpty">
+            <summary>
+            Determines if all components of <see cref="T:C1.Util.DX.Size2D"/> are equal to zero.
+            </summary>
+        </member>
         <member name="T:C1.Util.DX.Size2L">
             <summary>
             Structure specifing a size with integer Width and Height.
@@ -3865,6 +4481,11 @@
             An empty size.
             </summary>
         </member>
+        <member name="F:C1.Util.DX.Size2L.Infinite">
+            <summary>
+            An infinite size.
+            </summary>
+        </member>
         <member name="M:C1.Util.DX.Size2L.#ctor(System.Int32,System.Int32)">
             <summary>
             Initializes a new instance of the <see cref="T:C1.Util.DX.Size2L"/> struct.
@@ -3883,6 +4504,11 @@
         <member name="M:C1.Util.DX.Size2L.ToSize2F">
             <summary>
             Converts <see cref="T:C1.Util.DX.Size2L"/> to <see cref="T:C1.Util.DX.Size2F"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Size2L.ToSize2D">
+            <summary>
+            Converts <see cref="T:C1.Util.DX.Size2L"/> to <see cref="T:C1.Util.DX.Size2D"/>.
             </summary>
         </member>
         <member name="M:C1.Util.DX.Size2L.Add(C1.Util.DX.Size2L,C1.Util.DX.Size2L)">
@@ -5388,6 +6014,66 @@
             <param name="a">The floating value.</param>
             <returns><c>true</c> if the specified value is close to zero (0.0f); otherwise, <c>false</c>.</returns>
         </member>
+        <member name="M:C1.Util.DX.DXUtil.IsOne(System.Single)">
+            <summary>
+            Determines whether the specified value is close to one (1.0f).
+            </summary>
+            <param name="a">The floating value.</param>
+            <returns><c>true</c> if the specified value is close to one (1.0f); otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:C1.Util.DX.DXUtil.WithinEpsilon(System.Single,System.Single,System.Single)">
+            <summary>
+            Checks if a - b are almost equals within a float epsilon.
+            </summary>
+            <param name="a">The left value to compare.</param>
+            <param name="b">The right value to compare.</param>
+            <param name="epsilon">Epsilon value</param>
+            <returns><c>true</c> if a almost equal to b within a float epsilon, <c>false</c> otherwise</returns>
+        </member>
+        <member name="M:C1.Util.DX.DXUtil.Clamp(System.Single,System.Single,System.Single)">
+            <summary>
+            Clamps the specified value.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="min">The min.</param>
+            <param name="max">The max.</param>
+            <returns>The result of clamping a value between min and max</returns>
+        </member>
+        <member name="M:C1.Util.DX.DXUtil.Clamp(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Clamps the specified value.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="min">The min.</param>
+            <param name="max">The max.</param>
+            <returns>The result of clamping a value between min and max</returns>
+        </member>
+        <member name="M:C1.Util.DX.DXUtil.Lerp(System.Double,System.Double,System.Double)">
+            <summary>
+            Interpolates between two values using a linear function by a given amount.
+            </summary>
+            <remarks>
+            See http://www.encyclopediaofmath.org/index.php/Linear_interpolation and
+            http://fgiesen.wordpress.com/2012/08/15/linear-interpolation-past-present-and-future/
+            </remarks>
+            <param name="from">Value to interpolate from.</param>
+            <param name="to">Value to interpolate to.</param>
+            <param name="amount">Interpolation amount.</param>
+            <returns>The result of linear interpolation of values based on the amount.</returns>
+        </member>
+        <member name="M:C1.Util.DX.DXUtil.Lerp(System.Single,System.Single,System.Single)">
+            <summary>
+            Interpolates between two values using a linear function by a given amount.
+            </summary>
+            <remarks>
+            See http://www.encyclopediaofmath.org/index.php/Linear_interpolation and
+            http://fgiesen.wordpress.com/2012/08/15/linear-interpolation-past-present-and-future/
+            </remarks>
+            <param name="from">Value to interpolate from.</param>
+            <param name="to">Value to interpolate to.</param>
+            <param name="amount">Interpolation amount.</param>
+            <returns>The result of linear interpolation of values based on the amount.</returns>
+        </member>
         <member name="M:C1.Util.DX.DXUtil.FreeDisposedShadowPointers">
             <summary>
             Releases native pointers to already disposed shadow objects.
@@ -5754,70 +6440,6 @@
             <param name="source">The source.</param>
             <param name="comparer">The comparer.</param>
             <returns>A enumeration of selected values</returns>
-        </member>
-        <member name="T:C1.Util.DX.DXException">
-            <summary>
-            The base class for errors that occur in C1.Win.DX.
-            </summary>
-        </member>
-        <member name="M:C1.Util.DX.DXException.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref = "T:C1.Win.DX.DXException" /> class.
-            </summary>
-        </member>
-        <member name="M:C1.Util.DX.DXException.#ctor(C1.Util.DX.HResult)">
-            <summary>
-            Initializes a new instance of the <see cref = "T:C1.Win.DX.DXException" /> class.
-            </summary>
-            <param name = "result">The result code that caused this exception.</param>
-        </member>
-        <member name="M:C1.Util.DX.DXException.#ctor(C1.Util.DX.HResultDescriptor)">
-            <summary>
-            Initializes a new instance of the <see cref="T:C1.Win.DX.DXException"/> class.
-            </summary>
-            <param name="descriptor">The result descriptor.</param>
-        </member>
-        <member name="M:C1.Util.DX.DXException.#ctor(C1.Util.DX.HResult,System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:C1.Win.DX.DXException"/> class.
-            </summary>
-            <param name="result">The error result code.</param>
-            <param name="message">The message describing the exception.</param>
-        </member>
-        <member name="M:C1.Util.DX.DXException.#ctor(C1.Util.DX.HResult,System.String,System.Object[])">
-            <summary>
-            Initializes a new instance of the <see cref="T:C1.Win.DX.DXException"/> class.
-            </summary>
-            <param name="result">The error result code.</param>
-            <param name="message">The message describing the exception.</param>
-            <param name="args">formatting arguments</param>
-        </member>
-        <member name="M:C1.Util.DX.DXException.#ctor(System.String,System.Object[])">
-            <summary>
-            Initializes a new instance of the <see cref = "T:C1.Win.DX.DXException" /> class.
-            </summary>
-            <param name = "message">The message describing the exception.</param>
-            <param name="args">formatting arguments</param>
-        </member>
-        <member name="M:C1.Util.DX.DXException.#ctor(System.String,System.Exception,System.Object[])">
-            <summary>
-            Initializes a new instance of the <see cref = "T:C1.Win.DX.DXException" /> class.
-            </summary>
-            <param name = "message">The message describing the exception.</param>
-            <param name = "innerException">The exception that caused this exception.</param>
-            <param name="args">formatting arguments</param>
-        </member>
-        <member name="P:C1.Util.DX.DXException.ResultCode">
-            <summary>
-            Gets the <see cref = "T:C1.Win.DX.HResult">Result code</see> for the exception. This value indicates
-            the specific type of failure that occured within C1.Win.DX.
-            </summary>
-        </member>
-        <member name="P:C1.Util.DX.DXException.Descriptor">
-            <summary>
-            Gets the <see cref = "T:C1.Win.DX.HResult">Result code</see> for the exception. This value indicates
-            the specific type of failure that occured within C1.Win.DX.
-            </summary>
         </member>
         <member name="T:C1.Util.DX.Configuration">
             <summary>
@@ -7174,7 +7796,7 @@
         </member>
         <member name="M:C1.Util.DX.ComObject.QueryInterfaceOrNull(System.Guid)">
             <summary>
-              Query instance for a particular COM GUID/interface support.
+            Query instance for a particular COM GUID/interface support.
             </summary>
             <param name = "guid">GUID query interface</param>
         </member>
@@ -7499,75 +8121,81 @@
         </member>
         <member name="F:C1.Util.DX.HResult.Ok">
             <summary>
-            Result code Ok
+            Result code Ok.
             </summary>
             <unmanaged>S_OK</unmanaged>
         </member>
         <member name="F:C1.Util.DX.HResult.False">
             <summary>
-            Result code False
+            Result code False.
             </summary>
             <unmanaged>S_FALSE</unmanaged>
         </member>
         <member name="F:C1.Util.DX.HResult.Fail">
             <summary>
-            Result code Fail
+            Result code Fail.
             </summary>
             <unmanaged>E_FAIL</unmanaged>
         </member>
         <member name="F:C1.Util.DX.HResult.Abort">
             <summary>
-            Result code Abort
+            Result code Abort.
             </summary>
             <unmanaged>E_ABORT</unmanaged>
         </member>
         <member name="F:C1.Util.DX.HResult.AccessDenied">
             <summary>
-            Result code AccessDenied
+            Result code AccessDenied.
             </summary>
             <unmanaged>E_ACCESSDENIED</unmanaged>
         </member>
         <member name="F:C1.Util.DX.HResult.Handle">
             <summary>
-            Result code Handle
+            Result code Handle.
             </summary>
             <unmanaged>E_HANDLE</unmanaged>
         </member>
         <member name="F:C1.Util.DX.HResult.InvalidArg">
             <summary>
-            Result code invalid argument
+            Result code invalid argument.
             </summary>
             <unmanaged>E_INVALIDARG</unmanaged>
         </member>
         <member name="F:C1.Util.DX.HResult.NoInterface">
             <summary>
-            Result code no interface
+            Result code no interface.
             </summary>
             <unmanaged>E_NOINTERFACE</unmanaged>
         </member>
         <member name="F:C1.Util.DX.HResult.NotImplemented">
             <summary>
-            Result code not implemented
+            Result code not implemented.
             </summary>
             <unmanaged>E_NOTIMPL</unmanaged>
         </member>
         <member name="F:C1.Util.DX.HResult.OutOfMemory">
             <summary>
-            Result code out of memory
+            Result code out of memory.
             </summary>
             <unmanaged>E_OUTOFMEMORY</unmanaged>
         </member>
         <member name="F:C1.Util.DX.HResult.InvalidPointer">
             <summary>
-            Result code Invalid pointer
+            Result code Invalid pointer.
             </summary>
             <unmanaged>E_POINTER</unmanaged>
         </member>
         <member name="F:C1.Util.DX.HResult.UnexpectedFailure">
             <summary>
-            Unexpected failure
+            Unexpected failure.
             </summary>
             <unmanaged>E_UNEXPECTED</unmanaged>
+        </member>
+        <member name="F:C1.Util.DX.HResult.InsufficientBuffer">
+            <summary>
+            The data area passed to a system call is too small.
+            </summary>
+            <unmanaged>ERROR_INSUFFICIENT_BUFFER</unmanaged>
         </member>
         <member name="F:C1.Util.DX.HResult.WaitAbandoned">
             <summary>
@@ -10380,7 +11008,7 @@
             <param name="defaultForegroundBrush">The brush used to paint the text. </param>
             <param name="options">A value that indicates whether the text should be snapped to pixel boundaries and whether the text should be clipped to the layout rectangle. The default value is <see cref="F:C1.Win.DX.Direct2D.DrawTextOptions.None" />, which indicates that text should be snapped to pixel boundaries and it should not be clipped to the layout rectangle. </param>
         </member>
-        <member name="M:C1.Util.DX.Direct2D.RenderTarget.DrawText(System.String,C1.Util.DX.DirectWrite.TextFormat,C1.Util.DX.RectF,C1.Util.DX.Direct2D.Brush,C1.Util.DX.Direct2D.DrawTextOptions,C1.Util.DX.Direct2D.MeasuringMode)">
+        <member name="M:C1.Util.DX.Direct2D.RenderTarget.DrawText(System.String,C1.Util.DX.DirectWrite.TextFormat,C1.Util.DX.RectF,C1.Util.DX.Direct2D.Brush,C1.Util.DX.Direct2D.DrawTextOptions,C1.Util.DX.DirectWrite.MeasuringMode)">
             <summary>	
             Draws the specified text using the format information provided by an <see cref="T:C1.Win.DX.DirectWrite.TextFormat" /> object. 	
             </summary>	
@@ -10555,7 +11183,7 @@
             void ID2D1RenderTarget::DrawBitmap([In] ID2D1Bitmap* bitmap,[In, Optional] const D2D_RECT_F* destinationRectangle,[In] float opacity,[In] D2D1_BITMAP_INTERPOLATION_MODE interpolationMode,[In, Optional] const D2D_RECT_F* sourceRectangle)	
             </summary>	
         </member>
-        <member name="M:C1.Util.DX.Direct2D.RenderTarget.DrawText(System.String,System.Int32,C1.Util.DX.DirectWrite.TextFormat,C1.Util.DX.RectF,C1.Util.DX.Direct2D.Brush,C1.Util.DX.Direct2D.DrawTextOptions,C1.Util.DX.Direct2D.MeasuringMode)">
+        <member name="M:C1.Util.DX.Direct2D.RenderTarget.DrawText(System.String,System.Int32,C1.Util.DX.DirectWrite.TextFormat,C1.Util.DX.RectF,C1.Util.DX.Direct2D.Brush,C1.Util.DX.Direct2D.DrawTextOptions,C1.Util.DX.DirectWrite.MeasuringMode)">
             <summary>	
             void ID2D1RenderTarget::DrawText([In, Buffer] const wchar_t* string,[In] unsigned int stringLength,[In] IDWriteTextFormat* textFormat,[In] const D2D_RECT_F* layoutRect,[In] ID2D1Brush* defaultForegroundBrush,[In] D2D1_DRAW_TEXT_OPTIONS options,[In] DWRITE_MEASURING_MODE measuringMode)	
             </summary>	
@@ -10565,7 +11193,12 @@
             void ID2D1RenderTarget::DrawTextLayout([In] D2D_POINT_2F origin,[In] IDWriteTextLayout* textLayout,[In] ID2D1Brush* defaultForegroundBrush,[In] D2D1_DRAW_TEXT_OPTIONS options)	
             </summary>	
         </member>
-        <member name="M:C1.Util.DX.Direct2D.RenderTarget.DrawGlyphRun(C1.Util.DX.Point2F,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.Direct2D.Brush,C1.Util.DX.Direct2D.MeasuringMode)">
+        <member name="M:C1.Util.DX.Direct2D.RenderTarget.DrawGlyphRun(C1.Util.DX.Point2F,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.Direct2D.Brush,C1.Util.DX.DirectWrite.MeasuringMode)">
+            <summary>	
+            void ID2D1RenderTarget::DrawGlyphRun([In] D2D_POINT_2F baselineOrigin,[In] const DWRITE_GLYPH_RUN* glyphRun,[In] ID2D1Brush* foregroundBrush,[In] DWRITE_MEASURING_MODE measuringMode)	
+            </summary>	
+        </member>
+        <member name="M:C1.Util.DX.Direct2D.RenderTarget.DrawGlyphRun(C1.Util.DX.Point2F,System.IntPtr,C1.Util.DX.Direct2D.Brush,C1.Util.DX.DirectWrite.MeasuringMode)">
             <summary>	
             void ID2D1RenderTarget::DrawGlyphRun([In] D2D_POINT_2F baselineOrigin,[In] const DWRITE_GLYPH_RUN* glyphRun,[In] ID2D1Brush* foregroundBrush,[In] DWRITE_MEASURING_MODE measuringMode)	
             </summary>	
@@ -11264,55 +11897,9 @@
             Gets the Author name.
             </summary>
         </member>
-        <member name="T:C1.Util.DX.Direct2D.CustomEffectBase">
-            <summary>
-            Base abstract class for <see cref="T:C1.Util.DX.Direct2D.CustomEffect"/> interface.
-            </summary>
-        </member>
-        <member name="T:C1.Util.DX.Direct2D.CustomEffect">
-            <summary>	
-            ID2D1EffectImpl	
-            </summary>	
-        </member>
-        <member name="M:C1.Util.DX.Direct2D.CustomEffect.Initialize(C1.Util.DX.Direct2D.EffectContext,C1.Util.DX.Direct2D.TransformGraph)">
-            <summary>	
-            Creates any resources used repeatedly during subsequent rendering calls.
-            </summary>	
-            <param name="effectContext"><para>An internal factory interface that creates and returns effect author centric types.</para></param>	
-            <param name="transformGraph">No documentation.</param>	
-        </member>
-        <member name="M:C1.Util.DX.Direct2D.CustomEffect.PrepareForRender(C1.Util.DX.Direct2D.ChangeType)">
-            <summary>	
-            Prepares an effect for the rendering process.	
-            </summary>	
-            <param name="changeType">Indicates the type of change the effect should expect.</param>	
-        </member>
-        <member name="M:C1.Util.DX.Direct2D.CustomEffect.SetGraph(C1.Util.DX.Direct2D.TransformGraph)">
-            <summary>	
-            The renderer calls this method to provide the effect implementation with a way to specify its transform graph and transform graph changes. 
-            The renderer calls this method when: 1) When the effect is first initialized. 2) If the number of inputs to the effect changes.
-            </summary>	
-            <param name="transformGraph">The graph to which the effect describes its transform topology through the SetDescription call..</param>	
-        </member>
-        <member name="M:C1.Util.DX.Direct2D.CustomEffectBase.Initialize(C1.Util.DX.Direct2D.EffectContext,C1.Util.DX.Direct2D.TransformGraph)">
-            <summary>	
-            Creates any resources used repeatedly during subsequent rendering calls.
-            </summary>	
-        </member>
-        <member name="M:C1.Util.DX.Direct2D.CustomEffectBase.PrepareForRender(C1.Util.DX.Direct2D.ChangeType)">
-            <summary>	
-            Prepares an effect for the rendering process.	
-            </summary>	
-        </member>
-        <member name="M:C1.Util.DX.Direct2D.CustomEffectBase.SetGraph(C1.Util.DX.Direct2D.TransformGraph)">
-            <summary>	
-            The renderer calls this method to provide the effect implementation with a way to specify its transform graph and transform graph changes. 
-            The renderer calls this method when: 1) When the effect is first initialized. 2) If the number of inputs to the effect changes.
-            </summary>	
-        </member>
         <member name="T:C1.Util.DX.Direct2D.CustomEffectFactory">
             <summary>
-            Internal class used to keep reference to factory.
+            A class used for creating custom effects.
             </summary>
         </member>
         <member name="M:C1.Util.DX.Direct2D.CustomEffectFactory.ToXml">
@@ -11329,6 +11916,11 @@
         <member name="M:C1.Util.DX.Direct2D.CustomEffectFactory.InitializeXml">
             <summary>
             Initializes the xml descriptor for this effect.
+            </summary>
+        </member>
+        <member name="P:C1.Util.DX.Direct2D.CustomEffectFactory.CustomEffect">
+            <summary>
+            Gets or sets the last created instance of <see cref="T:C1.Util.DX.Direct2D.CustomEffect"/>.
             </summary>
         </member>
         <member name="T:C1.Util.DX.Direct2D.CustomEffectFactory.CustomEffectFactoryDelegate">
@@ -11368,7 +11960,7 @@
         <member name="T:C1.Util.DX.Direct2D.CustomEffectShadow.CustomEffectVtbl.SetGraphDelegate">
             <summary>	
             The renderer calls this method to provide the effect implementation with a way to specify its transform graph and transform graph changes. 
-            The renderer calls this method when: 1) When the effect is first initialized. 2) If the number of inputs to the effect changes.
+            It is executed when: 1) When the effect is first initialized. 2) If the number of inputs to the effect changes.
             </summary>	
             <param name="thisPtr">thisPtr</param>	
             <param name="transformGraph">The graph to which the effect describes its transform topology through the SetDescription call.</param>	
@@ -11753,7 +12345,7 @@
             HRESULT ID2D1DeviceContext::GetImageWorldBounds([In] ID2D1Image* image,[Out] D2D_RECT_F* worldBounds)	
             </summary>	
         </member>
-        <member name="M:C1.Util.DX.Direct2D.DeviceContext.GetGlyphRunWorldBounds(C1.Util.DX.Point2F,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.Direct2D.MeasuringMode)">
+        <member name="M:C1.Util.DX.Direct2D.DeviceContext.GetGlyphRunWorldBounds(C1.Util.DX.Point2F,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.MeasuringMode)">
             <summary>	
             HRESULT ID2D1DeviceContext::GetGlyphRunWorldBounds([In] D2D_POINT_2F baselineOrigin,[In] const DWRITE_GLYPH_RUN* glyphRun,[In] DWRITE_MEASURING_MODE measuringMode,[Out] D2D_RECT_F* bounds)	
             </summary>	
@@ -11803,7 +12395,12 @@
             D2D1_UNIT_MODE ID2D1DeviceContext::GetUnitMode()	
             </summary>	
         </member>
-        <member name="M:C1.Util.DX.Direct2D.DeviceContext.DrawGlyphRun(C1.Util.DX.Point2F,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.GlyphRunDescription,C1.Util.DX.Direct2D.Brush,C1.Util.DX.Direct2D.MeasuringMode)">
+        <member name="M:C1.Util.DX.Direct2D.DeviceContext.DrawGlyphRun(C1.Util.DX.Point2F,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.GlyphRunDescription,C1.Util.DX.Direct2D.Brush,C1.Util.DX.DirectWrite.MeasuringMode)">
+            <summary>	
+            void ID2D1DeviceContext::DrawGlyphRun([In] D2D_POINT_2F baselineOrigin,[In] const DWRITE_GLYPH_RUN* glyphRun,[In, Optional] const DWRITE_GLYPH_RUN_DESCRIPTION* glyphRunDescription,[In] ID2D1Brush* foregroundBrush,[In] DWRITE_MEASURING_MODE measuringMode)	
+            </summary>	
+        </member>
+        <member name="M:C1.Util.DX.Direct2D.DeviceContext.DrawGlyphRun(C1.Util.DX.Point2F,System.IntPtr,System.IntPtr,C1.Util.DX.Direct2D.Brush,C1.Util.DX.DirectWrite.MeasuringMode)">
             <summary>	
             void ID2D1DeviceContext::DrawGlyphRun([In] D2D_POINT_2F baselineOrigin,[In] const DWRITE_GLYPH_RUN* glyphRun,[In, Optional] const DWRITE_GLYPH_RUN_DESCRIPTION* glyphRunDescription,[In] ID2D1Brush* foregroundBrush,[In] DWRITE_MEASURING_MODE measuringMode)	
             </summary>	
@@ -12209,14 +12806,14 @@
             <param name="index"><para>The index of the property from which the data is to be obtained.</para></param>	
             <returns>The value of the specified property by index.</returns>	
         </member>
-        <member name="M:C1.Util.DX.Direct2D.Properties.GetMatrixValue(System.Int32)">
+        <member name="M:C1.Util.DX.Direct2D.Properties.GetMatrix3x2Value(System.Int32)">
             <summary>	
             Gets the value of the specified property by index.
             </summary>	
             <param name="index"><para>The index of the property from which the data is to be obtained.</para></param>	
             <returns>The value of the specified property by index.</returns>	
         </member>
-        <member name="M:C1.Util.DX.Direct2D.Properties.GetMatrix3x2Value(System.Int32)">
+        <member name="M:C1.Util.DX.Direct2D.Properties.GetMatrix4x4Value(System.Int32)">
             <summary>	
             Gets the value of the specified property by index.
             </summary>	
@@ -12251,6 +12848,13 @@
             <param name="index"><para>The index of the property from which the data is to be obtained.</para></param>	
             <param name="type">Property type.</param>	
             <returns>The value of the specified property by index.</returns>	
+        </member>
+        <member name="M:C1.Util.DX.Direct2D.Properties.GetIntValueByName(System.String)">
+            <summary>	
+            Gets the value of the specified property by name.
+            </summary>	
+            <param name="name">The name of the property.</param>	
+            <returns>The value of the specified property by name.</returns>	
         </member>
         <member name="M:C1.Util.DX.Direct2D.Properties.GetUIntValueByName(System.String)">
             <summary>	
@@ -12287,6 +12891,13 @@
             <param name="name">The name of the property.</param>	
             <returns>The value of the specified property by name.</returns>	
         </member>
+        <member name="M:C1.Util.DX.Direct2D.Properties.GetVector3ValueByName(System.String)">
+            <summary>	
+            Gets the value of the specified property by name.
+            </summary>	
+            <param name="name">The name of the property.</param>	
+            <returns>The value of the specified property by name.</returns>	
+        </member>
         <member name="M:C1.Util.DX.Direct2D.Properties.GetVector4ValueByName(System.String)">
             <summary>	
             Gets the value of the specified property by name.
@@ -12315,13 +12926,6 @@
             <param name="name">The name of the property.</param>	
             <returns>The value of the specified property by name.</returns>	
         </member>
-        <member name="M:C1.Util.DX.Direct2D.Properties.GetMatrixValueByName(System.String)">
-            <summary>	
-            Gets the value of the specified property by name.
-            </summary>	
-            <param name="name">The name of the property.</param>	
-            <returns>The value of the specified property by name.</returns>	
-        </member>
         <member name="M:C1.Util.DX.Direct2D.Properties.GetMatrix3x2ValueByName(System.String)">
             <summary>	
             Gets the value of the specified property by name.
@@ -12329,8 +12933,15 @@
             <param name="name">The name of the property.</param>	
             <returns>The value of the specified property by name.</returns>	
         </member>
-        <member name="M:C1.Util.DX.Direct2D.Properties.GetMatrix5x4ValueByName(System.String)">
+        <member name="M:C1.Util.DX.Direct2D.Properties.GetMatrix4x4ValueByName(System.String)">
             <summary>	
+            Gets the value of the specified property by name.
+            </summary>	
+            <param name="name">The name of the property.</param>	
+            <returns>The value of the specified property by name.</returns>	
+        </member>
+        <member name="M:C1.Util.DX.Direct2D.Properties.GetMatrix5x4ValueByName(System.String)">
+            <summary>
             Gets the value of the specified property by name.
             </summary>	
             <param name="name">The name of the property.</param>	
@@ -12394,6 +13005,13 @@
             <param name="value">Value of the property</param>
         </member>
         <member name="M:C1.Util.DX.Direct2D.Properties.SetValueByName(System.String,C1.Util.DX.Vector2)">
+            <summary>
+            Sets the named property to the given value.
+            </summary>
+            <param name="name">Name of the property</param>
+            <param name="value">Value of the property</param>
+        </member>
+        <member name="M:C1.Util.DX.Direct2D.Properties.SetValueByName(System.String,C1.Util.DX.Vector3)">
             <summary>
             Sets the named property to the given value.
             </summary>
@@ -12692,11 +13310,23 @@
             </summary>
             <param name="deviceContext">The device context.</param>
         </member>
+        <member name="M:C1.Util.DX.Direct2D.Effect.RegisterAndCreateCustom``1(C1.Util.DX.Direct2D.Factory1,C1.Util.DX.Direct2D.DeviceContext)">
+            <summary>
+            Registers, if necessary, and initializes a new instance of a custom <see cref="T:C1.Util.DX.Direct2D.Effect"/> class.
+            </summary>
+            <param name="factory">The factory to register the effect.</param>
+            <param name="deviceContext">The device context.</param>
+        </member>
         <member name="M:C1.Util.DX.Direct2D.Effect.CreateCustom``1(C1.Util.DX.Direct2D.EffectContext)">
             <summary>
             Initializes a new instance of a custom <see cref="T:C1.Util.DX.Direct2D.Effect"/> class.
             </summary>
             <param name="effectContext">The effect context.</param>
+        </member>
+        <member name="M:C1.Util.DX.Direct2D.Effect.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
         </member>
         <member name="M:C1.Util.DX.Direct2D.Effect.SetInputEffect(System.Int32,C1.Util.DX.Direct2D.Effect,System.Boolean)">
             <summary>
@@ -12868,6 +13498,11 @@
             void ID2D1Effect::GetOutput([Out] ID2D1Image** outputImage)	
             </summary>	
         </member>
+        <member name="P:C1.Util.DX.Direct2D.Effect.CustomEffect">
+            <summary>
+            Gets or sets the associated instance of <see cref="T:C1.Util.DX.Direct2D.CustomEffect"/>.
+            </summary>
+        </member>
         <member name="T:C1.Util.DX.Direct2D.EffectContext">
             <summary>	
             ID2D1EffectContext	
@@ -12879,27 +13514,6 @@
             </summary>
             <param name="featureLevels">An array of feature levels</param>
             <returns>The maximum feature level selected from the array</returns>
-        </member>
-        <member name="M:C1.Util.DX.Direct2D.EffectContext.LoadPixelShader(System.Guid,System.Byte[])">
-            <summary>	
-            Loads a pixel shader.
-            </summary>	
-            <param name="shaderId">An unique identifier associated with the shader bytecode.</param>	
-            <param name="shaderBytecode">The bytecode of the shader.</param>	
-        </member>
-        <member name="M:C1.Util.DX.Direct2D.EffectContext.LoadVertexShader(System.Guid,System.Byte[])">
-            <summary>	
-            Loads a vertex shader.
-            </summary>	
-            <param name="shaderId">An unique identifier associated with the shader bytecode.</param>	
-            <param name="shaderBytecode">The bytecode of the shader.</param>	
-        </member>
-        <member name="M:C1.Util.DX.Direct2D.EffectContext.LoadComputeShader(System.Guid,System.Byte[])">
-            <summary>	
-            Loads a compute shader.
-            </summary>	
-            <param name="shaderId">An unique identifier associated with the shader bytecode.</param>	
-            <param name="shaderBytecode">The bytecode of the shader.</param>	
         </member>
         <member name="M:C1.Util.DX.Direct2D.EffectContext.CheckFeatureSupport(C1.Util.DX.Direct2D.Feature)">
             <summary>
@@ -12966,17 +13580,17 @@
             HRESULT ID2D1EffectContext::CreateBoundsAdjustmentTransform([In] const RECT* outputRectangle,[Out, Fast] ID2D1BoundsAdjustmentTransform** transform)	
             </summary>	
         </member>
-        <member name="M:C1.Util.DX.Direct2D.EffectContext.LoadPixelShader(System.Guid,System.Byte[],System.Int32)">
+        <member name="M:C1.Util.DX.Direct2D.EffectContext.LoadPixelShader(System.Guid,System.Byte[])">
             <summary>	
             HRESULT ID2D1EffectContext::LoadPixelShader([In] const GUID&amp; shaderId,[In, Buffer] const unsigned char* shaderBuffer,[In] unsigned int shaderBufferCount)	
             </summary>	
         </member>
-        <member name="M:C1.Util.DX.Direct2D.EffectContext.LoadVertexShader(System.Guid,System.Byte[],System.Int32)">
+        <member name="M:C1.Util.DX.Direct2D.EffectContext.LoadVertexShader(System.Guid,System.Byte[])">
             <summary>	
             HRESULT ID2D1EffectContext::LoadVertexShader([In] const GUID&amp; resourceId,[In, Buffer] const unsigned char* shaderBuffer,[In] unsigned int shaderBufferCount)	
             </summary>	
         </member>
-        <member name="M:C1.Util.DX.Direct2D.EffectContext.LoadComputeShader(System.Guid,System.Byte[],System.Int32)">
+        <member name="M:C1.Util.DX.Direct2D.EffectContext.LoadComputeShader(System.Guid,System.Byte[])">
             <summary>	
             HRESULT ID2D1EffectContext::LoadComputeShader([In] const GUID&amp; resourceId,[In, Buffer] const unsigned char* shaderBuffer,[In] unsigned int shaderBufferCount)	
             </summary>	
@@ -14436,6 +15050,76 @@
             HRESULT ID2D1PrintControl::Close()	
             </summary>	
         </member>
+        <member name="T:C1.Util.DX.Direct2D.BindingType">
+            <summary>	
+            Types supported in the PropertyBindingAttribute for mapping to D2D1_PROPERTY_TYPE.
+            </summary>	
+        </member>
+        <member name="F:C1.Util.DX.Direct2D.BindingType.Int32">
+            <summary>
+            Mapped to D2D1_PROPERTY_TYPE_INT32.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Direct2D.BindingType.UInt32">
+            <summary>
+            Mapped to D2D1_PROPERTY_TYPE_UINT32.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Direct2D.BindingType.Boolean">
+            <summary>
+            Mapped to D2D1_PROPERTY_TYPE_BOOL.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Direct2D.BindingType.Guid">
+            <summary>
+            Mapped to D2D1_PROPERTY_TYPE_CLSID.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Direct2D.BindingType.Float">
+            <summary>
+            Mapped to D2D1_PROPERTY_TYPE_FLOAT.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Direct2D.BindingType.Vector2">
+            <summary>
+            Mapped to D2D1_PROPERTY_TYPE_VECTOR2.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Direct2D.BindingType.Vector3">
+            <summary>
+            Mapped to D2D1_PROPERTY_TYPE_VECTOR3.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Direct2D.BindingType.Vector4">
+            <summary>
+            Mapped to D2D1_PROPERTY_TYPE_VECTOR4.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Direct2D.BindingType.Matrix3x2">
+            <summary>
+            Mapped to D2D1_PROPERTY_TYPE_MATRIX_3X2.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Direct2D.BindingType.Matrix4x4">
+            <summary>
+            Mapped to D2D1_PROPERTY_TYPE_MATRIX_4X4.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Direct2D.BindingType.Matrix5x4">
+            <summary>
+            Mapped to D2D1_PROPERTY_TYPE_MATRIX_5X4.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Direct2D.BindingType.Enum">
+            <summary>
+            Mapped to D2D1_PROPERTY_TYPE_ENUM.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Direct2D.BindingType.IUnknown">
+            <summary>
+            Mapped to D2D1_PROPERTY_TYPE_IUNKNOWN.
+            </summary>
+        </member>
         <member name="T:C1.Util.DX.Direct2D.PropertyBinding">
             <summary>	
             D2D1_PROPERTY_BINDING	
@@ -14471,16 +15155,7 @@
             Metadata description for <see cref="T:C1.Util.DX.Direct2D.CustomEffect"/> property binding.
             </summary>
         </member>
-        <member name="M:C1.Util.DX.Direct2D.PropertyBindingAttribute.#ctor(System.Int32,System.String,System.String,System.String)">
-            <summary>
-            Initializes a new instance of <see cref="T:C1.Util.DX.Direct2D.PropertyBindingAttribute"/> attribute.
-            </summary>
-            <param name="order">Order of the property</param>
-            <param name="min">Minimum value of this property</param>
-            <param name="max">Maximum value of this property</param>
-            <param name="defaultValue">Default value of this property</param>
-        </member>
-        <member name="M:C1.Util.DX.Direct2D.PropertyBindingAttribute.#ctor(C1.Util.DX.Direct2D.PropertyType,System.Int32,System.String,System.String,System.String)">
+        <member name="M:C1.Util.DX.Direct2D.PropertyBindingAttribute.#ctor(C1.Util.DX.Direct2D.BindingType,System.Int32,System.String,System.String,System.String)">
             <summary>
             Initializes a new instance of <see cref="T:C1.Util.DX.Direct2D.PropertyBindingAttribute"/> attribute.
             </summary>
@@ -19119,26 +19794,6 @@
             D2D1_MAP_OPTIONS_DISCARD	
             </summary>	
         </member>
-        <member name="T:C1.Util.DX.Direct2D.MeasuringMode">
-            <summary>	
-            DWRITE_MEASURING_MODE	
-            </summary>	
-        </member>
-        <member name="F:C1.Util.DX.Direct2D.MeasuringMode.Natural">
-            <summary>	
-            DWRITE_MEASURING_MODE_NATURAL	
-            </summary>	
-        </member>
-        <member name="F:C1.Util.DX.Direct2D.MeasuringMode.GdiClassic">
-            <summary>	
-            DWRITE_MEASURING_MODE_GDI_CLASSIC	
-            </summary>	
-        </member>
-        <member name="F:C1.Util.DX.Direct2D.MeasuringMode.GdiNatural">
-            <summary>	
-            DWRITE_MEASURING_MODE_GDI_NATURAL	
-            </summary>	
-        </member>
         <member name="T:C1.Util.DX.Direct2D.MorphologyMode">
             <summary>	
             D2D1_MORPHOLOGY_MODE	
@@ -20825,7 +21480,7 @@
             HRESULT ID2D1CommandSink::Clear([In, Optional] const D2D_COLOR_F* color)	
             </summary>	
         </member>
-        <member name="M:C1.Util.DX.Direct2D.CommandSink.DrawGlyphRun(C1.Util.DX.Point2F,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.GlyphRunDescription,C1.Util.DX.Direct2D.Brush,C1.Util.DX.Direct2D.MeasuringMode)">
+        <member name="M:C1.Util.DX.Direct2D.CommandSink.DrawGlyphRun(C1.Util.DX.Point2F,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.GlyphRunDescription,C1.Util.DX.Direct2D.Brush,C1.Util.DX.DirectWrite.MeasuringMode)">
             <summary>	
             HRESULT ID2D1CommandSink::DrawGlyphRun([In] D2D_POINT_2F baselineOrigin,[In] const DWRITE_GLYPH_RUN* glyphRun,[In, Optional] const DWRITE_GLYPH_RUN_DESCRIPTION* glyphRunDescription,[In] ID2D1Brush* foregroundBrush,[In] DWRITE_MEASURING_MODE measuringMode)	
             </summary>	
@@ -20981,7 +21636,7 @@
             HRESULT ID2D1CommandSink::Clear([In, Optional] const D2D_COLOR_F* color)	
             </summary>	
         </member>
-        <member name="M:C1.Util.DX.Direct2D.CommandSinkNative.DrawGlyphRun(C1.Util.DX.Point2F,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.GlyphRunDescription,C1.Util.DX.Direct2D.Brush,C1.Util.DX.Direct2D.MeasuringMode)">
+        <member name="M:C1.Util.DX.Direct2D.CommandSinkNative.DrawGlyphRun(C1.Util.DX.Point2F,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.GlyphRunDescription,C1.Util.DX.Direct2D.Brush,C1.Util.DX.DirectWrite.MeasuringMode)">
             <summary>	
             HRESULT ID2D1CommandSink::DrawGlyphRun([In] D2D_POINT_2F baselineOrigin,[In] const DWRITE_GLYPH_RUN* glyphRun,[In, Optional] const DWRITE_GLYPH_RUN_DESCRIPTION* glyphRunDescription,[In] ID2D1Brush* foregroundBrush,[In] DWRITE_MEASURING_MODE measuringMode)	
             </summary>	
@@ -21165,6 +21820,31 @@
             <summary>	
             HRESULT ID2D1ComputeTransform::CalculateThreadgroups([In] const RECT* outputRect,[Out] unsigned int* dimensionX,[Out] unsigned int* dimensionY,[Out] unsigned int* dimensionZ)	
             </summary>	
+        </member>
+        <member name="T:C1.Util.DX.Direct2D.CustomEffect">
+            <summary>	
+            ID2D1EffectImpl	
+            </summary>	
+        </member>
+        <member name="M:C1.Util.DX.Direct2D.CustomEffect.Initialize(C1.Util.DX.Direct2D.EffectContext,C1.Util.DX.Direct2D.TransformGraph)">
+            <summary>	
+            Creates any resources used repeatedly during subsequent rendering calls.
+            </summary>	
+            <param name="effectContext"><para>An internal factory interface that creates and returns effect author centric types.</para></param>	
+            <param name="transformGraph">No documentation.</param>	
+        </member>
+        <member name="M:C1.Util.DX.Direct2D.CustomEffect.PrepareForRender(C1.Util.DX.Direct2D.ChangeType)">
+            <summary>	
+            Prepares an effect for the rendering process.	
+            </summary>	
+            <param name="changeType">Indicates the type of change the effect should expect.</param>	
+        </member>
+        <member name="M:C1.Util.DX.Direct2D.CustomEffect.SetGraph(C1.Util.DX.Direct2D.TransformGraph)">
+            <summary>	
+            The renderer calls this method to provide the effect implementation with a way to specify its transform graph and transform graph changes. 
+            The renderer calls this method when: 1) When the effect is first initialized. 2) If the number of inputs to the effect changes.
+            </summary>	
+            <param name="transformGraph">The graph to which the effect describes its transform topology through the SetDescription call..</param>	
         </member>
         <member name="T:C1.Util.DX.Direct2D.CustomEffectNative">
             <summary>	
@@ -30879,7 +31559,7 @@
             DXGI_FORMAT Format	
             </summary>	
         </member>
-        <member name="F:C1.Util.DX.Direct3D11.Texture2DDescription.SampleDescription">
+        <member name="F:C1.Util.DX.Direct3D11.Texture2DDescription.SampleDesc">
             <summary>	
             DXGI_SAMPLE_DESC SampleDesc	
             </summary>	
@@ -31217,7 +31897,7 @@
             IDWriteBitmapRenderTarget	
             </summary>	
         </member>
-        <member name="M:C1.Util.DX.DirectWrite.BitmapRenderTarget.DrawGlyphRun(System.Single,System.Single,C1.Util.DX.Direct2D.MeasuringMode,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.RenderingParams,System.Int32)">
+        <member name="M:C1.Util.DX.DirectWrite.BitmapRenderTarget.DrawGlyphRun(System.Single,System.Single,C1.Util.DX.DirectWrite.MeasuringMode,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.RenderingParams,System.Int32)">
             <summary>	
             Draws a run of glyphs to a bitmap target at the specified position.	
             </summary>	
@@ -31240,7 +31920,7 @@
             Performs an explicit conversion from <see cref="T:System.IntPtr"/> to <see cref="T:C1.Util.DX.DirectWrite.BitmapRenderTarget"/>.
             </summary>
         </member>
-        <member name="M:C1.Util.DX.DirectWrite.BitmapRenderTarget.DrawGlyphRun(System.Single,System.Single,C1.Util.DX.Direct2D.MeasuringMode,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.RenderingParams,System.Int32,C1.Util.DX.RectL@)">
+        <member name="M:C1.Util.DX.DirectWrite.BitmapRenderTarget.DrawGlyphRun(System.Single,System.Single,C1.Util.DX.DirectWrite.MeasuringMode,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.RenderingParams,System.Int32,C1.Util.DX.RectL@)">
             <summary>	
             HRESULT IDWriteBitmapRenderTarget::DrawGlyphRun([In] float baselineOriginX,[In] float baselineOriginY,[In] DWRITE_MEASURING_MODE measuringMode,[In] const DWRITE_GLYPH_RUN* glyphRun,[In] IDWriteRenderingParams* renderingParams,[In] COLORREF textColor,[Out, Optional] RECT* blackBoxRect)	
             </summary>	
@@ -31581,7 +32261,7 @@
             HRESULT IDWriteFactory::CreateNumberSubstitution([In] DWRITE_NUMBER_SUBSTITUTION_METHOD substitutionMethod,[In] const wchar_t* localeName,[In] BOOL ignoreUserOverride,[Out, Fast] IDWriteNumberSubstitution** numberSubstitution)	
             </summary>	
         </member>
-        <member name="M:C1.Util.DX.DirectWrite.Factory.CreateGlyphRunAnalysis(C1.Util.DX.DirectWrite.GlyphRun,System.Single,System.Nullable{C1.Util.DX.Matrix3x2},C1.Util.DX.DirectWrite.RenderingMode,C1.Util.DX.Direct2D.MeasuringMode,System.Single,System.Single)">
+        <member name="M:C1.Util.DX.DirectWrite.Factory.CreateGlyphRunAnalysis(C1.Util.DX.DirectWrite.GlyphRun,System.Single,System.Nullable{C1.Util.DX.Matrix3x2},C1.Util.DX.DirectWrite.RenderingMode,C1.Util.DX.DirectWrite.MeasuringMode,System.Single,System.Single)">
             <summary>	
             HRESULT IDWriteFactory::CreateGlyphRunAnalysis([In] const DWRITE_GLYPH_RUN* glyphRun,[In] float pixelsPerDip,[In, Optional] const DWRITE_MATRIX* transform,[In] DWRITE_RENDERING_MODE renderingMode,[In] DWRITE_MEASURING_MODE measuringMode,[In] float baselineOriginX,[In] float baselineOriginY,[Out, Fast] IDWriteGlyphRunAnalysis** glyphRunAnalysis)	
             </summary>	
@@ -31608,10 +32288,62 @@
             Performs an explicit conversion from <see cref="T:System.IntPtr"/> to <see cref="T:C1.Util.DX.DirectWrite.Factory1"/>.
             </summary>
         </member>
+        <member name="M:C1.Util.DX.DirectWrite.Factory1.GetEudcFontCollection(System.Boolean)">
+            <summary>	
+            HRESULT IDWriteFactory1::GetEudcFontCollection([out] IDWriteFontCollection **fontCollection, BOOL checkForUpdates = FALSE)	
+            </summary>	
+        </member>
         <member name="M:C1.Util.DX.DirectWrite.Factory1.CreateCustomRenderingParams1(System.Single,System.Single,System.Single,System.Single,C1.Util.DX.DirectWrite.PixelGeometry,C1.Util.DX.DirectWrite.RenderingMode)">
             <summary>	
             HRESULT IDWriteFactory1::CreateCustomRenderingParams([In] float gamma,[In] float enhancedContrast,[In] float enhancedContrastGrayscale,[In] float clearTypeLevel,[In] DWRITE_PIXEL_GEOMETRY pixelGeometry,[In] DWRITE_RENDERING_MODE renderingMode,[Out] IDWriteRenderingParams1** renderingParams)	
             </summary>	
+        </member>
+        <member name="T:C1.Util.DX.DirectWrite.Factory2">
+            <summary>	
+            IDWriteFactory2
+            </summary>	
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.Factory2.Create(C1.Util.DX.DirectWrite.FactoryType)">
+            <summary>
+            Creates a new instance of the <see cref="T:C1.Util.DX.DirectWrite.Factory2"/> class.
+            </summary>
+            <param name="factoryType">The factory type.</param>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.Factory2.#ctor(System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Util.DX.DirectWrite.Factory2"/> class.
+            </summary>
+            <param name="nativePtr">The native pointer.</param>	
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.Factory2.op_Explicit(System.IntPtr)~C1.Util.DX.DirectWrite.Factory2">
+            <summary>
+            Performs an explicit conversion from <see cref="T:System.IntPtr"/> to <see cref="T:C1.Util.DX.DirectWrite.Factory2"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.Factory2.GetSystemFontFallback">
+            <summary>
+            HRESULT IDWriteFactory2::GetSystemFontFallback([out] IDWriteFontFallback** fontFallback)
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.Factory2.CreateFontFallbackBuilder">
+            <summary>
+            HRESULT IDWriteFactory2::CreateFontFallbackBuilder([out] IDWriteFontFallbackBuilder** fontFallbackBuilder)
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.Factory2.TranslateColorGlyphRun(System.Single,System.Single,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.GlyphRunDescription,C1.Util.DX.DirectWrite.MeasuringMode,System.Nullable{C1.Util.DX.Matrix3x2},System.Int32)">
+            <summary>
+            HRESULT IDWriteFactory2::TranslateColorGlyphRun(FLOAT baselineOriginX, FLOAT baselineOriginY, [in] DWRITE_GLYPH_RUN* glyphRun, [in, optional] DWRITE_GLYPH_RUN_DESCRIPTION* glyphRunDescription, DWRITE_MEASURING_MODE measuringMode, [in, optional] DWRITE_MATRIX* worldToDeviceTransform, UINT32 colorPaletteIndex, [out] IDWriteColorGlyphRunEnumerator** colorLayers)
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.Factory2.CreateCustomRenderingParams2(System.Single,System.Single,System.Single,System.Single,C1.Util.DX.DirectWrite.PixelGeometry,C1.Util.DX.DirectWrite.RenderingMode,C1.Util.DX.DirectWrite.GridFitMode)">
+            <summary>
+            HRESULT IDWriteFactory2::CreateCustomRenderingParams(FLOAT gamma, FLOAT enhancedContrast, FLOAT grayscaleEnhancedContrast, FLOAT clearTypeLevel, DWRITE_PIXEL_GEOMETRY pixelGeometry, DWRITE_RENDERING_MODE renderingMode, DWRITE_GRID_FIT_MODE gridFitMode, [out] IDWriteRenderingParams2** renderingParams)
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.Factory2.CreateGlyphRunAnalysis(C1.Util.DX.DirectWrite.GlyphRun,System.Nullable{C1.Util.DX.Matrix3x2},C1.Util.DX.DirectWrite.RenderingMode,C1.Util.DX.DirectWrite.MeasuringMode,C1.Util.DX.DirectWrite.GridFitMode,C1.Util.DX.DirectWrite.TextAntialiasMode,System.Single,System.Single)">
+            <summary>
+            HRESULT IDWriteFactory2::CreateGlyphRunAnalysis([in] DWRITE_GLYPH_RUN* glyphRun, [in, optional] DWRITE_MATRIX* transform, DWRITE_RENDERING_MODE renderingMode, DWRITE_MEASURING_MODE measuringMode, DWRITE_GRID_FIT_MODE gridFitMode, DWRITE_TEXT_ANTIALIAS_MODE antialiasMode, FLOAT baselineOriginX, FLOAT baselineOriginY, [out] IDWriteGlyphRunAnalysis** glyphRunAnalysis)
+            </summary>
         </member>
         <member name="T:C1.Util.DX.DirectWrite.FontCollection">
             <summary>	
@@ -31821,7 +32553,7 @@
             HRESULT IDWriteFontFace::GetGlyphRunOutline([In] float emSize,[In, Buffer] const unsigned short* glyphIndices,[In, Buffer, Optional] const float* glyphAdvances,[In, Buffer, Optional] const DWRITE_GLYPH_OFFSET* glyphOffsets,[In] unsigned int glyphCount,[In] BOOL isSideways,[In] BOOL isRightToLeft,[In] ID2D1SimplifiedGeometrySink* geometrySink)	
             </summary>	
         </member>
-        <member name="M:C1.Util.DX.DirectWrite.FontFace.GetRecommendedRenderingMode(System.Single,System.Single,C1.Util.DX.Direct2D.MeasuringMode,C1.Util.DX.DirectWrite.RenderingParams)">
+        <member name="M:C1.Util.DX.DirectWrite.FontFace.GetRecommendedRenderingMode(System.Single,System.Single,C1.Util.DX.DirectWrite.MeasuringMode,C1.Util.DX.DirectWrite.RenderingParams)">
             <summary>	
             HRESULT IDWriteFontFace::GetRecommendedRenderingMode([In] float emSize,[In] float pixelsPerDip,[In] DWRITE_MEASURING_MODE measuringMode,[In] IDWriteRenderingParams* renderingParams,[Out] DWRITE_RENDERING_MODE* renderingMode)	
             </summary>	
@@ -31840,6 +32572,95 @@
             <summary>	
             GetMetrics	
             </summary>	
+        </member>
+        <member name="T:C1.Util.DX.DirectWrite.FontFallback">
+            <summary>	
+            IDWriteFontFallback	
+            </summary>	
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.FontFallback.MapCharacters(C1.Util.DX.DirectWrite.TextAnalysisSource,System.Int32,System.Int32,C1.Util.DX.DirectWrite.FontCollection,System.String,C1.Util.DX.DirectWrite.FontWeight,C1.Util.DX.DirectWrite.FontStyle,C1.Util.DX.DirectWrite.FontStretch,System.Int32@,System.Single@)">
+            <summary>
+            Determines an appropriate font to use to render the range of text.
+            </summary>
+            <param name="source">The text source implementation holds the text and locale.</param>
+            <param name="textPosition">Starting position to analyze.</param>
+            <param name="textLength">Length of the text to analyze.</param>
+            <param name="baseFontCollection">Default font collection to use.</param>
+            <param name="baseFamilyName">Family name of the base font. If you pass null, no matching will be done against the family.</param>
+            <param name="baseWeight">Desired weight.</param>
+            <param name="baseStyle">Desired style.</param>
+            <param name="baseStretch">Desired stretch.</param>
+            <param name="mappedLength">Length of text mapped to the mapped font. This will always be less or equal to the input text length and greater than zero (if the text length is non-zero) so that the caller advances at least one character each call.</param>
+            <param name="scale">Scale factor to multiply the em size of the returned font by.</param>
+            <returns>The font that should be used to render the first mappedLength characters of the text. If it returns NULL, then no known font can render the text, and mappedLength is the number of unsupported characters to skip.</returns>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.FontFallback.#ctor(System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Util.DX.DirectWrite.FontFallback"/> class.
+            </summary>
+            <param name="nativePtr">The native pointer.</param>	
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.FontFallback.op_Explicit(System.IntPtr)~C1.Util.DX.DirectWrite.FontFallback">
+            <summary>
+            Performs an explicit conversion from <see cref="T:System.IntPtr"/> to <see cref="T:C1.Util.DX.DirectWrite.FontFallback"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.FontFallback.MapCharacters(System.IntPtr,System.Int32,System.Int32,C1.Util.DX.DirectWrite.FontCollection,System.String,C1.Util.DX.DirectWrite.FontWeight,C1.Util.DX.DirectWrite.FontStyle,C1.Util.DX.DirectWrite.FontStretch,System.Int32@,System.Single@)">
+            <summary>
+            HRESULT IDWriteFontFallback::MapCharacters(IDWriteTextAnalysisSource* source, UINT32 textPosition, UINT32 textLength, [in, optional] IDWriteFontCollection* baseFontCollection, [in, optional] wchar_t* baseFamilyName, DWRITE_FONT_WEIGHT baseWeight, DWRITE_FONT_STYLE baseStyle, DWRITE_FONT_STRETCH baseStretch, [out] UINT32* mappedLength, [out] IDWriteFont** mappedFont, [out] FLOAT* scale)
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.FontFallback.MapCharacters(System.IntPtr,System.Int32,System.Int32,System.IntPtr,System.IntPtr,C1.Util.DX.DirectWrite.FontWeight,C1.Util.DX.DirectWrite.FontStyle,C1.Util.DX.DirectWrite.FontStretch,System.Int32@,System.Single@)">
+            <summary>
+            HRESULT IDWriteFontFallback::MapCharacters(IDWriteTextAnalysisSource* source, UINT32 textPosition, UINT32 textLength, [in, optional] IDWriteFontCollection* baseFontCollection, [in, optional] wchar_t* baseFamilyName, DWRITE_FONT_WEIGHT baseWeight, DWRITE_FONT_STYLE baseStyle, DWRITE_FONT_STRETCH baseStretch, [out] UINT32* mappedLength, [out] IDWriteFont** mappedFont, [out] FLOAT* scale)
+            </summary>
+        </member>
+        <member name="T:C1.Util.DX.DirectWrite.FontFallbackBuilder">
+            <summary>
+            IDWriteFontFallbackBuilder
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.FontFallbackBuilder.AddMapping(C1.Util.DX.DirectWrite.UnicodeRange[],System.String[],C1.Util.DX.DirectWrite.FontCollection,System.String,System.String,System.Single)">
+            <summary>
+            Appends a single mapping to the list. Call this once for each additional mapping.
+            </summary>
+            <param name="ranges">Unicode ranges that apply to this mapping.</param>
+            <param name="targetFamilyNames">List of target family name strings.</param>
+            <param name="fontCollection">Optional explicit font collection for this mapping.</param>
+            <param name="localeName">Locale of the context.</param>
+            <param name="baseFamilyName">Base family name to match against, if applicable.</param>
+            <param name="scale">Scale factor to multiply the result target font by.</param>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.FontFallbackBuilder.#ctor(System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Util.DX.DirectWrite.FontFallbackBuilder"/> class.
+            </summary>
+            <param name="nativePtr">The native pointer.</param>	
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.FontFallbackBuilder.op_Explicit(System.IntPtr)~C1.Util.DX.DirectWrite.FontFallbackBuilder">
+            <summary>
+            Performs an explicit conversion from <see cref="T:System.IntPtr"/> to <see cref="T:C1.Util.DX.DirectWrite.FontFallbackBuilder"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.FontFallbackBuilder.AddMapping(C1.Util.DX.DirectWrite.UnicodeRange[],System.IntPtr[],C1.Util.DX.DirectWrite.FontCollection,System.String,System.String,System.Single)">
+            <summary>
+            HRESULT AddMapping(DWRITE_UNICODE_RANGE* ranges, UINT32 rangesCount, [in] WCHAR** targetFamilyNames, UINT32 targetFamilyNamesCount, [in, optional] IDWriteFontCollection fontCollection, [in, optional] WCHAR* localeName, [in, optional] WCHAR* baseFamilyName, FLOAT scale)
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.FontFallbackBuilder.AddMapping(C1.Util.DX.DirectWrite.UnicodeRange[],System.IntPtr[],System.IntPtr,System.IntPtr,System.IntPtr,System.Single)">
+            <summary>
+            HRESULT AddMapping(DWRITE_UNICODE_RANGE* ranges, UINT32 rangesCount, [in] WCHAR** targetFamilyNames, UINT32 targetFamilyNamesCount, [in, optional] IDWriteFontCollection fontCollection, [in, optional] WCHAR* localeName, [in, optional] WCHAR* baseFamilyName, FLOAT scale)
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.FontFallbackBuilder.AddMappings(C1.Util.DX.DirectWrite.FontFallback)">
+            <summary>
+            HRESULT AddMappings(IDWriteFontFallback* fontFallback)
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.FontFallbackBuilder.CreateFontFallback">
+            <summary>
+            HRESULT CreateFontFallback([out] IDWriteFontFallback** fontFallback)
+            </summary>
         </member>
         <member name="T:C1.Util.DX.DirectWrite.FontFile">
             <summary>	
@@ -32255,7 +33076,7 @@
             IDWriteGlyphRunAnalysis	
             </summary>	
         </member>
-        <member name="M:C1.Util.DX.DirectWrite.GlyphRunAnalysis.Create(C1.Util.DX.DirectWrite.Factory,C1.Util.DX.DirectWrite.GlyphRun,System.Single,C1.Util.DX.DirectWrite.RenderingMode,C1.Util.DX.Direct2D.MeasuringMode,System.Single,System.Single)">
+        <member name="M:C1.Util.DX.DirectWrite.GlyphRunAnalysis.Create(C1.Util.DX.DirectWrite.Factory,C1.Util.DX.DirectWrite.GlyphRun,System.Single,C1.Util.DX.DirectWrite.RenderingMode,C1.Util.DX.DirectWrite.MeasuringMode,System.Single,System.Single)">
             <summary>
             Creates a glyph run analysis object, which encapsulates information used to render a glyph run.
             </summary>
@@ -32270,7 +33091,7 @@
             The glyph run analysis object contains the results of analyzing the glyph run, including the positions of all the glyphs and references to all of the rasterized glyphs in the font cache.
             </remarks>
         </member>
-        <member name="M:C1.Util.DX.DirectWrite.GlyphRunAnalysis.Create(C1.Util.DX.DirectWrite.Factory,C1.Util.DX.DirectWrite.GlyphRun,System.Single,System.Nullable{C1.Util.DX.Matrix3x2},C1.Util.DX.DirectWrite.RenderingMode,C1.Util.DX.Direct2D.MeasuringMode,System.Single,System.Single)">
+        <member name="M:C1.Util.DX.DirectWrite.GlyphRunAnalysis.Create(C1.Util.DX.DirectWrite.Factory,C1.Util.DX.DirectWrite.GlyphRun,System.Single,System.Nullable{C1.Util.DX.Matrix3x2},C1.Util.DX.DirectWrite.RenderingMode,C1.Util.DX.DirectWrite.MeasuringMode,System.Single,System.Single)">
             <summary>
             Creates a glyph run analysis object, which encapsulates information used to render a glyph run.
             </summary>
@@ -32310,36 +33131,6 @@
         <member name="M:C1.Util.DX.DirectWrite.GlyphRunAnalysis.GetAlphaBlendParams(C1.Util.DX.DirectWrite.RenderingParams,System.Single@,System.Single@,System.Single@)">
             <summary>	
             HRESULT IDWriteGlyphRunAnalysis::GetAlphaBlendParams([In] IDWriteRenderingParams* renderingParams,[Out] float* blendGamma,[Out] float* blendEnhancedContrast,[Out] float* blendClearTypeLevel)	
-            </summary>	
-        </member>
-        <member name="T:C1.Util.DX.DirectWrite.GlyphRunDescription">
-            <summary>	
-            DWRITE_GLYPH_RUN_DESCRIPTION	
-            </summary>	
-        </member>
-        <member name="F:C1.Util.DX.DirectWrite.GlyphRunDescription.LocaleName">
-            <summary>	
-            const wchar_t* localeName	
-            </summary>	
-        </member>
-        <member name="F:C1.Util.DX.DirectWrite.GlyphRunDescription.Text">
-            <summary>	
-            const wchar_t* string	
-            </summary>	
-        </member>
-        <member name="F:C1.Util.DX.DirectWrite.GlyphRunDescription.TextLength">
-            <summary>	
-            unsigned int stringLength	
-            </summary>	
-        </member>
-        <member name="F:C1.Util.DX.DirectWrite.GlyphRunDescription.ClusterMap">
-            <summary>	
-            const unsigned short* clusterMap	
-            </summary>	
-        </member>
-        <member name="F:C1.Util.DX.DirectWrite.GlyphRunDescription.TextPosition">
-            <summary>	
-            unsigned int textPosition	
             </summary>	
         </member>
         <member name="T:C1.Util.DX.DirectWrite.InlineObjectShadow">
@@ -32638,6 +33429,35 @@
             <param name="callback">The callback.</param>
             <returns>A pointer to a shadow c++ callback</returns>
         </member>
+        <member name="T:C1.Util.DX.DirectWrite.TextAnalysisQuickSource1Shadow">
+            <summary>
+            Internal TextAnalysisQuickSource1 Callback
+            </summary>
+        </member>
+        <member name="T:C1.Util.DX.DirectWrite.TextAnalysisQuickSourceShadow">
+            <summary>
+            Internal TextAnalysisQuickSource Callback
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.TextAnalysisQuickSourceShadow.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.TextAnalysisQuickSourceShadow.ToIntPtr(C1.Util.DX.DirectWrite.TextAnalysisQuickSource)">
+            <summary>
+            Return a pointer to the unmanaged version of this callback.
+            </summary>
+            <param name="callback">The callback.</param>
+            <returns>A pointer to a shadow c++ callback</returns>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.TextAnalysisQuickSource1Shadow.ToIntPtr(C1.Util.DX.DirectWrite.TextAnalysisQuickSource1)">
+            <summary>
+            Return a pointer to the unmanaged version of this callback.
+            </summary>
+            <param name="callback">The callback.</param>
+            <returns>A pointer to a shadow c++ callback</returns>
+        </member>
         <member name="T:C1.Util.DX.DirectWrite.TextAnalyzer">
             <summary>	
             IDWriteTextAnalyzer	
@@ -32658,7 +33478,28 @@
             <param name="textLength">The text length to analyze.</param>
             <param name="analysisSink">A reference to the sink callback object that receives the text analysis.</param>
         </member>
+        <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer.AnalyzeScript(C1.Util.DX.DirectWrite.TextAnalysisQuickSource,System.Int32,System.Int32,C1.Util.DX.DirectWrite.TextAnalysisSink)">
+            <summary>
+            Analyzes a text range for script boundaries, reading text attributes from the source and reporting the Unicode script ID to the sink  callback {{SetScript}}.
+            </summary>
+            <param name="analysisSource">A reference to the source object to analyze.</param>
+            <param name="textPosition">The starting text position within the source object.</param>
+            <param name="textLength">The text length to analyze.</param>
+            <param name="analysisSink">A reference to the sink callback object that receives the text analysis.</param>
+        </member>
         <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer.AnalyzeBidi(C1.Util.DX.DirectWrite.TextAnalysisSource,System.Int32,System.Int32,C1.Util.DX.DirectWrite.TextAnalysisSink)">
+            <summary>
+            Analyzes a text range for script directionality, reading attributes from the source and reporting levels to the sink callback {{SetBidiLevel}}.
+            </summary>
+            <param name="analysisSource">A reference to a source object to analyze.</param>
+            <param name="textPosition">The starting text position within the source object.</param>
+            <param name="textLength">The text length to analyze.</param>
+            <param name="analysisSink">A reference to the sink callback object that receives the text analysis.</param>
+            <remarks>
+            While the function can handle multiple paragraphs, the text range should not arbitrarily split the middle of paragraphs. Otherwise, the returned levels may be wrong, because the Bidi algorithm is meant to apply to the paragraph as a whole.
+            </remarks>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer.AnalyzeBidi(C1.Util.DX.DirectWrite.TextAnalysisQuickSource,System.Int32,System.Int32,C1.Util.DX.DirectWrite.TextAnalysisSink)">
             <summary>
             Analyzes a text range for script directionality, reading attributes from the source and reporting levels to the sink callback {{SetBidiLevel}}.
             </summary>
@@ -32682,7 +33523,31 @@
             Although the function can handle multiple ranges of differing number substitutions, the text ranges should not arbitrarily split the middle of numbers. Otherwise, it will treat the numbers separately and will not translate any intervening punctuation.
             </remarks>
         </member>
+        <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer.AnalyzeNumberSubstitution(C1.Util.DX.DirectWrite.TextAnalysisQuickSource,System.Int32,System.Int32,C1.Util.DX.DirectWrite.TextAnalysisSink)">
+            <summary>
+            Analyzes a text range for spans where number substitution is applicable, reading attributes from the source and reporting substitutable ranges to the sink callback {{SetNumberSubstitution}}.
+            </summary>
+            <param name="analysisSource">The source object to analyze.</param>
+            <param name="textPosition">The starting position within the source object.</param>
+            <param name="textLength">The length to analyze.</param>
+            <param name="analysisSink">A reference to the sink callback object that receives the text analysis.</param>
+            <remarks>
+            Although the function can handle multiple ranges of differing number substitutions, the text ranges should not arbitrarily split the middle of numbers. Otherwise, it will treat the numbers separately and will not translate any intervening punctuation.
+            </remarks>
+        </member>
         <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer.AnalyzeLineBreakpoints(C1.Util.DX.DirectWrite.TextAnalysisSource,System.Int32,System.Int32,C1.Util.DX.DirectWrite.TextAnalysisSink)">
+            <summary>
+            Analyzes a text range for potential breakpoint opportunities, reading attributes from the source and reporting breakpoint opportunities to the sink callback {{SetLineBreakpoints}}.
+            </summary>
+            <param name="analysisSource">A reference to the source object to analyze.</param>
+            <param name="textPosition">The starting text position within the source object.</param>
+            <param name="textLength">The text length to analyze.</param>
+            <param name="analysisSink">A reference to the  sink callback object that receives the text analysis.</param>
+            <remarks>
+            Although the function can handle multiple paragraphs, the text range should not arbitrarily split the middle of paragraphs, unless the specified text span is considered a whole unit. Otherwise, the returned properties for the first and last characters will inappropriately allow breaks.
+            </remarks>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer.AnalyzeLineBreakpoints(C1.Util.DX.DirectWrite.TextAnalysisQuickSource,System.Int32,System.Int32,C1.Util.DX.DirectWrite.TextAnalysisSink)">
             <summary>
             Analyzes a text range for potential breakpoint opportunities, reading attributes from the source and reporting breakpoint opportunities to the sink callback {{SetLineBreakpoints}}.
             </summary>
@@ -32779,22 +33644,22 @@
             Performs an explicit conversion from <see cref="T:System.IntPtr"/> to <see cref="T:C1.Util.DX.DirectWrite.TextAnalyzer"/>.
             </summary>
         </member>
-        <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer.AnalyzeScript__(System.IntPtr,System.Int32,System.Int32,System.IntPtr)">
+        <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer.AnalyzeScript(System.IntPtr,System.Int32,System.Int32,System.IntPtr)">
             <summary>	
             HRESULT IDWriteTextAnalyzer::AnalyzeScript([In] IDWriteTextAnalysisSource* analysisSource,[In] unsigned int textPosition,[In] unsigned int textLength,[In] IDWriteTextAnalysisSink* analysisSink)	
             </summary>	
         </member>
-        <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer.AnalyzeBidi__(System.IntPtr,System.Int32,System.Int32,System.IntPtr)">
+        <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer.AnalyzeBidi(System.IntPtr,System.Int32,System.Int32,System.IntPtr)">
             <summary>	
             HRESULT IDWriteTextAnalyzer::AnalyzeBidi([In] IDWriteTextAnalysisSource* analysisSource,[In] unsigned int textPosition,[In] unsigned int textLength,[In] IDWriteTextAnalysisSink* analysisSink)	
             </summary>	
         </member>
-        <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer.AnalyzeNumberSubstitution__(System.IntPtr,System.Int32,System.Int32,System.IntPtr)">
+        <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer.AnalyzeNumberSubstitution(System.IntPtr,System.Int32,System.Int32,System.IntPtr)">
             <summary>	
             HRESULT IDWriteTextAnalyzer::AnalyzeNumberSubstitution([In] IDWriteTextAnalysisSource* analysisSource,[In] unsigned int textPosition,[In] unsigned int textLength,[In] IDWriteTextAnalysisSink* analysisSink)	
             </summary>	
         </member>
-        <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer.AnalyzeLineBreakpoints__(System.IntPtr,System.Int32,System.Int32,System.IntPtr)">
+        <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer.AnalyzeLineBreakpoints(System.IntPtr,System.Int32,System.Int32,System.IntPtr)">
             <summary>	
             HRESULT IDWriteTextAnalyzer::AnalyzeLineBreakpoints([In] IDWriteTextAnalysisSource* analysisSource,[In] unsigned int textPosition,[In] unsigned int textLength,[In] IDWriteTextAnalysisSink* analysisSink)	
             </summary>	
@@ -32804,12 +33669,27 @@
             HRESULT IDWriteTextAnalyzer::GetGlyphs([In, Buffer] const wchar_t* textString,[In] unsigned int textLength,[In] IDWriteFontFace* fontFace,[In] BOOL isSideways,[In] BOOL isRightToLeft,[In] const DWRITE_SCRIPT_ANALYSIS* scriptAnalysis,[In, Optional] const wchar_t* localeName,[In, Optional] IDWriteNumberSubstitution* numberSubstitution,[In, Optional] const void** features,[In, Buffer, Optional] const unsigned int* featureRangeLengths,[In] unsigned int featureRanges,[In] unsigned int maxGlyphCount,[Out, Buffer] unsigned short* clusterMap,[Out, Buffer] DWRITE_SHAPING_TEXT_PROPERTIES* textProps,[Out, Buffer] unsigned short* glyphIndices,[Out, Buffer] DWRITE_SHAPING_GLYPH_PROPERTIES* glyphProps,[Out] unsigned int* actualGlyphCount)	
             </summary>	
         </member>
-        <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer.GetGlyphPlacements(System.String,System.Int16[],C1.Util.DX.DirectWrite.ShapingTextProperties[],System.Int32,System.Int16[],C1.Util.DX.DirectWrite.ShapingGlyphProperties[],System.Int32,C1.Util.DX.DirectWrite.FontFace,System.Single,C1.Util.DX.Bool,C1.Util.DX.Bool,C1.Util.DX.DirectWrite.ScriptAnalysis,System.String,System.IntPtr,System.Int32[],System.Int32,System.Single[],C1.Util.DX.DirectWrite.GlyphOffset[])">
+        <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer.GetGlyphs(System.IntPtr,System.Int32,System.IntPtr,System.Boolean,System.Boolean,C1.Util.DX.DirectWrite.ScriptAnalysis,System.IntPtr,System.IntPtr,System.IntPtr,System.IntPtr,System.Int32,System.IntPtr,System.IntPtr,System.IntPtr,System.IntPtr,System.Int32@)">
             <summary>	
-            HRESULT IDWriteTextAnalyzer::GetGlyphPlacements([In, Buffer] const wchar_t* textString,[In, Buffer] const unsigned short* clusterMap,[In, Buffer] DWRITE_SHAPING_TEXT_PROPERTIES* textProps,[In] unsigned int textLength,[In, Buffer] const unsigned short* glyphIndices,[In, Buffer] const DWRITE_SHAPING_GLYPH_PROPERTIES* glyphProps,[In] unsigned int glyphCount,[In] IDWriteFontFace* fontFace,[In] float fontEmSize,[In] BOOL isSideways,[In] BOOL isRightToLeft,[In] const DWRITE_SCRIPT_ANALYSIS* scriptAnalysis,[In, Optional] const wchar_t* localeName,[In, Optional] const void** features,[In, Buffer, Optional] const unsigned int* featureRangeLengths,[In] unsigned int featureRanges,[Out, Buffer] float* glyphAdvances,[Out, Buffer] DWRITE_GLYPH_OFFSET* glyphOffsets)	
+            HRESULT IDWriteTextAnalyzer::GetGlyphs([In, Buffer] const wchar_t* textString,[In] unsigned int textLength,[In] IDWriteFontFace* fontFace,[In] BOOL isSideways,[In] BOOL isRightToLeft,[In] const DWRITE_SCRIPT_ANALYSIS* scriptAnalysis,[In, Optional] const wchar_t* localeName,[In, Optional] IDWriteNumberSubstitution* numberSubstitution,[In, Optional] const void** features,[In, Buffer, Optional] const unsigned int* featureRangeLengths,[In] unsigned int featureRanges,[In] unsigned int maxGlyphCount,[Out, Buffer] unsigned short* clusterMap,[Out, Buffer] DWRITE_SHAPING_TEXT_PROPERTIES* textProps,[Out, Buffer] unsigned short* glyphIndices,[Out, Buffer] DWRITE_SHAPING_GLYPH_PROPERTIES* glyphProps,[Out] unsigned int* actualGlyphCount)	
             </summary>	
         </member>
+        <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer.GetGlyphPlacements(System.String,System.Int16[],C1.Util.DX.DirectWrite.ShapingTextProperties[],System.Int32,System.Int16[],C1.Util.DX.DirectWrite.ShapingGlyphProperties[],System.Int32,C1.Util.DX.DirectWrite.FontFace,System.Single,C1.Util.DX.Bool,C1.Util.DX.Bool,C1.Util.DX.DirectWrite.ScriptAnalysis,System.String,System.IntPtr,System.Int32[],System.Int32,System.Single[],C1.Util.DX.DirectWrite.GlyphOffset[])">
+            <summary>
+            HRESULT IDWriteTextAnalyzer::GetGlyphPlacements([In, Buffer] const wchar_t* textString,[In, Buffer] const unsigned short* clusterMap,[In, Buffer] DWRITE_SHAPING_TEXT_PROPERTIES* textProps,[In] unsigned int textLength,[In, Buffer] const unsigned short* glyphIndices,[In, Buffer] const DWRITE_SHAPING_GLYPH_PROPERTIES* glyphProps,[In] unsigned int glyphCount,[In] IDWriteFontFace* fontFace,[In] float fontEmSize,[In] BOOL isSideways,[In] BOOL isRightToLeft,[In] const DWRITE_SCRIPT_ANALYSIS* scriptAnalysis,[In, Optional] const wchar_t* localeName,[In, Optional] const void** features,[In, Buffer, Optional] const unsigned int* featureRangeLengths,[In] unsigned int featureRanges,[Out, Buffer] float* glyphAdvances,[Out, Buffer] DWRITE_GLYPH_OFFSET* glyphOffsets)	
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer.GetGlyphPlacements(System.IntPtr,System.IntPtr,System.IntPtr,System.Int32,System.IntPtr,System.IntPtr,System.Int32,System.IntPtr,System.Single,C1.Util.DX.Bool,C1.Util.DX.Bool,C1.Util.DX.DirectWrite.ScriptAnalysis,System.IntPtr,System.IntPtr,System.IntPtr,System.Int32,System.IntPtr,System.IntPtr)">
+            <summary>
+            HRESULT IDWriteTextAnalyzer::GetGlyphPlacements([In, Buffer] const wchar_t* textString,[In, Buffer] const unsigned short* clusterMap,[In, Buffer] DWRITE_SHAPING_TEXT_PROPERTIES* textProps,[In] unsigned int textLength,[In, Buffer] const unsigned short* glyphIndices,[In, Buffer] const DWRITE_SHAPING_GLYPH_PROPERTIES* glyphProps,[In] unsigned int glyphCount,[In] IDWriteFontFace* fontFace,[In] float fontEmSize,[In] BOOL isSideways,[In] BOOL isRightToLeft,[In] const DWRITE_SCRIPT_ANALYSIS* scriptAnalysis,[In, Optional] const wchar_t* localeName,[In, Optional] const void** features,[In, Buffer, Optional] const unsigned int* featureRangeLengths,[In] unsigned int featureRanges,[Out, Buffer] float* glyphAdvances,[Out, Buffer] DWRITE_GLYPH_OFFSET* glyphOffsets)	
+            </summary>
+        </member>
         <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer.GetGdiCompatibleGlyphPlacements(System.String,System.Int16[],C1.Util.DX.DirectWrite.ShapingTextProperties[],System.Int32,System.Int16[],C1.Util.DX.DirectWrite.ShapingGlyphProperties[],System.Int32,C1.Util.DX.DirectWrite.FontFace,System.Single,System.Single,System.Nullable{C1.Util.DX.Matrix3x2},C1.Util.DX.Bool,C1.Util.DX.Bool,C1.Util.DX.Bool,C1.Util.DX.DirectWrite.ScriptAnalysis,System.String,System.IntPtr,System.Int32[],System.Int32,System.Single[],C1.Util.DX.DirectWrite.GlyphOffset[])">
+            <summary>	
+            HRESULT IDWriteTextAnalyzer::GetGdiCompatibleGlyphPlacements([In, Buffer] const wchar_t* textString,[In, Buffer] const unsigned short* clusterMap,[In, Buffer] DWRITE_SHAPING_TEXT_PROPERTIES* textProps,[In] unsigned int textLength,[In, Buffer] const unsigned short* glyphIndices,[In, Buffer] const DWRITE_SHAPING_GLYPH_PROPERTIES* glyphProps,[In] unsigned int glyphCount,[In] IDWriteFontFace* fontFace,[In] float fontEmSize,[In] float pixelsPerDip,[In, Optional] const DWRITE_MATRIX* transform,[In] BOOL useGdiNatural,[In] BOOL isSideways,[In] BOOL isRightToLeft,[In] const DWRITE_SCRIPT_ANALYSIS* scriptAnalysis,[In, Optional] const wchar_t* localeName,[In, Optional] const void** features,[In, Buffer, Optional] const unsigned int* featureRangeLengths,[In] unsigned int featureRanges,[Out, Buffer] float* glyphAdvances,[Out, Buffer] DWRITE_GLYPH_OFFSET* glyphOffsets)	
+            </summary>	
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer.GetGdiCompatibleGlyphPlacements(System.IntPtr,System.IntPtr,System.IntPtr,System.Int32,System.IntPtr,System.IntPtr,System.Int32,System.IntPtr,System.Single,System.Single,System.Nullable{C1.Util.DX.Matrix3x2},C1.Util.DX.Bool,C1.Util.DX.Bool,C1.Util.DX.Bool,C1.Util.DX.DirectWrite.ScriptAnalysis,System.IntPtr,System.IntPtr,System.IntPtr,System.Int32,System.IntPtr,System.IntPtr)">
             <summary>	
             HRESULT IDWriteTextAnalyzer::GetGdiCompatibleGlyphPlacements([In, Buffer] const wchar_t* textString,[In, Buffer] const unsigned short* clusterMap,[In, Buffer] DWRITE_SHAPING_TEXT_PROPERTIES* textProps,[In] unsigned int textLength,[In, Buffer] const unsigned short* glyphIndices,[In, Buffer] const DWRITE_SHAPING_GLYPH_PROPERTIES* glyphProps,[In] unsigned int glyphCount,[In] IDWriteFontFace* fontFace,[In] float fontEmSize,[In] float pixelsPerDip,[In, Optional] const DWRITE_MATRIX* transform,[In] BOOL useGdiNatural,[In] BOOL isSideways,[In] BOOL isRightToLeft,[In] const DWRITE_SCRIPT_ANALYSIS* scriptAnalysis,[In, Optional] const wchar_t* localeName,[In, Optional] const void** features,[In, Buffer, Optional] const unsigned int* featureRangeLengths,[In] unsigned int featureRanges,[Out, Buffer] float* glyphAdvances,[Out, Buffer] DWRITE_GLYPH_OFFSET* glyphOffsets)	
             </summary>	
@@ -32821,13 +33701,12 @@
         </member>
         <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer1.AnalyzeVerticalGlyphOrientation(C1.Util.DX.DirectWrite.TextAnalysisSource1,System.Int32,System.Int32,C1.Util.DX.DirectWrite.TextAnalysisSink1)">
             <summary>	
-            <p>Analyzes a text range for script orientation, reading text and attributes from the source and reporting results to the sink.</p>	
+            Analyzes a text range for script orientation, reading text and attributes from the source and reporting results to the sink.
             </summary>	
-            <param name="analysisSource"><dd>  <p>Source object to analyze.</p> </dd></param>	
-            <param name="textPosition"><dd>  <p>Starting position within the source object.</p> </dd></param>	
-            <param name="textLength"><dd>  <p>Length to analyze.</p> </dd></param>	
-            <param name="analysisSink"><dd>  <p>Length to analyze.</p> </dd></param>	
-            <returns><p>If this method succeeds, it returns <strong><see cref="F:C1.Util.DX.HResult.Ok"/></strong>. Otherwise, it returns an <strong><see cref="T:C1.Util.DX.HResult"/></strong> error code.</p></returns>	
+            <param name="analysisSource">Source object to analyze.</param>	
+            <param name="textPosition">Starting position within the source object.</param>	
+            <param name="textLength">Length to analyze.</param>	
+            <param name="analysisSink">Length to analyze.</param>	
         </member>
         <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer1.#ctor(System.IntPtr)">
             <summary>
@@ -32850,7 +33729,7 @@
             HRESULT IDWriteTextAnalyzer1::GetBaseline([In] IDWriteFontFace* fontFace,[In] DWRITE_BASELINE baseline,[In] BOOL isVertical,[In] BOOL isSimulationAllowed,[In] DWRITE_SCRIPT_ANALYSIS scriptAnalysis,[In, Optional] const wchar_t* localeName,[Out] int* baselineCoordinate,[Out] BOOL* exists)	
             </summary>	
         </member>
-        <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer1.AnalyzeVerticalGlyphOrientation__(System.IntPtr,System.Int32,System.Int32,System.IntPtr)">
+        <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer1.AnalyzeVerticalGlyphOrientation(System.IntPtr,System.Int32,System.Int32,System.IntPtr)">
             <summary>	
             HRESULT IDWriteTextAnalyzer1::AnalyzeVerticalGlyphOrientation([In] IDWriteTextAnalysisSource1* analysisSource,[In] unsigned int textPosition,[In] unsigned int textLength,[In] IDWriteTextAnalysisSink1* analysisSink)	
             </summary>	
@@ -32875,7 +33754,17 @@
             HRESULT IDWriteTextAnalyzer1::GetJustificationOpportunities([In, Optional] IDWriteFontFace* fontFace,[In] float fontEmSize,[In] DWRITE_SCRIPT_ANALYSIS scriptAnalysis,[In] unsigned int textLength,[In] unsigned int glyphCount,[In, Buffer] const wchar_t* textString,[In, Buffer] const unsigned short* clusterMap,[In, Buffer] const DWRITE_SHAPING_GLYPH_PROPERTIES* glyphProperties,[Out, Buffer] DWRITE_JUSTIFICATION_OPPORTUNITY* justificationOpportunities)	
             </summary>	
         </member>
+        <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer1.GetJustificationOpportunities(System.IntPtr,System.Single,C1.Util.DX.DirectWrite.ScriptAnalysis,System.Int32,System.Int32,System.IntPtr,System.IntPtr,System.IntPtr,System.IntPtr)">
+            <summary>	
+            HRESULT IDWriteTextAnalyzer1::GetJustificationOpportunities([In, Optional] IDWriteFontFace* fontFace,[In] float fontEmSize,[In] DWRITE_SCRIPT_ANALYSIS scriptAnalysis,[In] unsigned int textLength,[In] unsigned int glyphCount,[In, Buffer] const wchar_t* textString,[In, Buffer] const unsigned short* clusterMap,[In, Buffer] const DWRITE_SHAPING_GLYPH_PROPERTIES* glyphProperties,[Out, Buffer] DWRITE_JUSTIFICATION_OPPORTUNITY* justificationOpportunities)	
+            </summary>	
+        </member>
         <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer1.JustifyGlyphAdvances(System.Single,System.Int32,C1.Util.DX.DirectWrite.JustificationOpportunity[],System.Single[],C1.Util.DX.DirectWrite.GlyphOffset[],System.Single[],C1.Util.DX.DirectWrite.GlyphOffset[])">
+            <summary>	
+            HRESULT IDWriteTextAnalyzer1::JustifyGlyphAdvances([In] float lineWidth,[In] unsigned int glyphCount,[In, Buffer] const DWRITE_JUSTIFICATION_OPPORTUNITY* justificationOpportunities,[In, Buffer] const float* glyphAdvances,[In, Buffer] const DWRITE_GLYPH_OFFSET* glyphOffsets,[Out, Buffer] float* justifiedGlyphAdvances,[Out, Buffer, Optional] DWRITE_GLYPH_OFFSET* justifiedGlyphOffsets)	
+            </summary>	
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.TextAnalyzer1.JustifyGlyphAdvances(System.Single,System.Int32,System.IntPtr,System.IntPtr,System.IntPtr,System.IntPtr,System.IntPtr)">
             <summary>	
             HRESULT IDWriteTextAnalyzer1::JustifyGlyphAdvances([In] float lineWidth,[In] unsigned int glyphCount,[In, Buffer] const DWRITE_JUSTIFICATION_OPPORTUNITY* justificationOpportunities,[In, Buffer] const float* glyphAdvances,[In, Buffer] const DWRITE_GLYPH_OFFSET* glyphOffsets,[Out, Buffer] float* justifiedGlyphAdvances,[Out, Buffer, Optional] DWRITE_GLYPH_OFFSET* justifiedGlyphOffsets)	
             </summary>	
@@ -33677,7 +34566,7 @@
             <param name="clientDrawingContext">The drawing context passed to <see cref="M:C1.Util.DX.DirectWrite.TextLayout.Draw_(System.IntPtr,System.IntPtr,System.Single,System.Single)"/>.</param>
             <returns>the number of physical pixels per DIP</returns>
         </member>
-        <member name="M:C1.Util.DX.DirectWrite.TextRenderer.DrawGlyphRun(System.Object,System.Single,System.Single,C1.Util.DX.Direct2D.MeasuringMode,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.GlyphRunDescription,System.IntPtr)">
+        <member name="M:C1.Util.DX.DirectWrite.TextRenderer.DrawGlyphRun(System.Object,System.Single,System.Single,C1.Util.DX.DirectWrite.MeasuringMode,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.GlyphRunDescription,System.IntPtr)">
             <summary>	
              IDWriteTextLayout::Draw calls this function to instruct the client to render a run of glyphs. 	
             </summary>	
@@ -33756,7 +34645,7 @@
             <param name="clientDrawingContext">The drawing context passed to <see cref="M:C1.Util.DX.DirectWrite.TextLayout.Draw_(System.IntPtr,System.IntPtr,System.Single,System.Single)"/>.</param>
             <returns>the number of physical pixels per DIP</returns>
         </member>
-        <member name="M:C1.Util.DX.DirectWrite.TextRendererBase.DrawGlyphRun(System.Object,System.Single,System.Single,C1.Util.DX.Direct2D.MeasuringMode,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.GlyphRunDescription,System.IntPtr)">
+        <member name="M:C1.Util.DX.DirectWrite.TextRendererBase.DrawGlyphRun(System.Object,System.Single,System.Single,C1.Util.DX.DirectWrite.MeasuringMode,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.GlyphRunDescription,System.IntPtr)">
             <summary>	
              IDWriteTextLayout::Draw calls this function to instruct the client to render a run of glyphs. 	
             </summary>	
@@ -33832,7 +34721,7 @@
             IDWriteTextRenderer1	
             </summary>	
         </member>
-        <member name="M:C1.Util.DX.DirectWrite.TextRenderer1.DrawGlyphRun(System.Object,System.Single,System.Single,C1.Util.DX.DirectWrite.GlyphOrientationAngle,C1.Util.DX.Direct2D.MeasuringMode,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.GlyphRunDescription,System.IntPtr)">
+        <member name="M:C1.Util.DX.DirectWrite.TextRenderer1.DrawGlyphRun(System.Object,System.Single,System.Single,C1.Util.DX.DirectWrite.GlyphOrientationAngle,C1.Util.DX.DirectWrite.MeasuringMode,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.GlyphRunDescription,System.IntPtr)">
             <summary>	
              IDWriteTextLayout::Draw calls this function to instruct the client to render a run of glyphs. 	
             </summary>	
@@ -33890,7 +34779,7 @@
             <param name="clientDrawingEffectPtr">Application-defined drawing effects for the glyphs to render. Usually this argument represents effects such as the foreground brush filling the interior of a line.</param>
             <returns>If the method succeeds, it returns S_OK. Otherwise, it returns an HRESULT error code.</returns>
         </member>
-        <member name="M:C1.Util.DX.DirectWrite.TextRenderer1Base.DrawGlyphRun(System.Object,System.Single,System.Single,C1.Util.DX.Direct2D.MeasuringMode,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.GlyphRunDescription,System.IntPtr)">
+        <member name="M:C1.Util.DX.DirectWrite.TextRenderer1Base.DrawGlyphRun(System.Object,System.Single,System.Single,C1.Util.DX.DirectWrite.MeasuringMode,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.GlyphRunDescription,System.IntPtr)">
             <summary>	
              IDWriteTextLayout::Draw calls this function to instruct the client to render a run of glyphs. 	
             </summary>	
@@ -33910,7 +34799,7 @@
              IDWriteTextLayout::Draw calls this application callback when it needs to draw an inline object. 	
             </summary>	
         </member>
-        <member name="M:C1.Util.DX.DirectWrite.TextRenderer1Base.DrawGlyphRun(System.Object,System.Single,System.Single,C1.Util.DX.DirectWrite.GlyphOrientationAngle,C1.Util.DX.Direct2D.MeasuringMode,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.GlyphRunDescription,System.IntPtr)">
+        <member name="M:C1.Util.DX.DirectWrite.TextRenderer1Base.DrawGlyphRun(System.Object,System.Single,System.Single,C1.Util.DX.DirectWrite.GlyphOrientationAngle,C1.Util.DX.DirectWrite.MeasuringMode,C1.Util.DX.DirectWrite.GlyphRun,C1.Util.DX.DirectWrite.GlyphRunDescription,System.IntPtr)">
             <summary>	
              IDWriteTextLayout::Draw calls this function to instruct the client to render a run of glyphs. 	
             </summary>	
@@ -34847,6 +35736,26 @@
             DWRITE_GLYPH_ORIENTATION_ANGLE_270_DEGREES	
             </summary>	
         </member>
+        <member name="T:C1.Util.DX.DirectWrite.GridFitMode">
+            <summary>
+            DWRITE_GRID_FIT_MODE
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.GridFitMode.Default">
+            <summary>
+            DWRITE_GRID_FIT_MODE_DEFAULT
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.GridFitMode.Disabled">
+            <summary>
+            DWRITE_GRID_FIT_MODE_DISABLED
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.GridFitMode.Enabled">
+            <summary>
+            DWRITE_GRID_FIT_MODE_ENABLED
+            </summary>
+        </member>
         <member name="T:C1.Util.DX.DirectWrite.InformationalStringId">
             <summary>	
             DWRITE_INFORMATIONAL_STRING_ID	
@@ -34960,6 +35869,26 @@
         <member name="F:C1.Util.DX.DirectWrite.LineSpacingMethod.Uniform">
             <summary>	
             DWRITE_LINE_SPACING_METHOD_UNIFORM	
+            </summary>	
+        </member>
+        <member name="T:C1.Util.DX.DirectWrite.MeasuringMode">
+            <summary>	
+            DWRITE_MEASURING_MODE	
+            </summary>	
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.MeasuringMode.Natural">
+            <summary>	
+            DWRITE_MEASURING_MODE_NATURAL	
+            </summary>	
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.MeasuringMode.GdiClassic">
+            <summary>	
+            DWRITE_MEASURING_MODE_GDI_CLASSIC	
+            </summary>	
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.MeasuringMode.GdiNatural">
+            <summary>	
+            DWRITE_MEASURING_MODE_GDI_NATURAL	
             </summary>	
         </member>
         <member name="T:C1.Util.DX.DirectWrite.NumberSubstitutionMethod">
@@ -36978,6 +37907,32 @@
             HRESULT IDWriteBitmapRenderTarget1::SetTextAntialiasMode([In] DWRITE_TEXT_ANTIALIAS_MODE antialiasMode)	
             </summary>	
         </member>
+        <member name="T:C1.Util.DX.DirectWrite.ColorGlyphRunEnumerator">
+            <summary>
+            IDWriteColorGlyphRunEnumerator
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.ColorGlyphRunEnumerator.#ctor(System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Util.DX.DirectWrite.ColorGlyphRunEnumerator"/> class.
+            </summary>
+            <param name="nativePtr">The native pointer.</param>	
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.ColorGlyphRunEnumerator.op_Explicit(System.IntPtr)~C1.Util.DX.DirectWrite.ColorGlyphRunEnumerator">
+            <summary>
+            Performs an explicit conversion from <see cref="T:System.IntPtr"/> to <see cref="T:C1.Util.DX.DirectWrite.ColorGlyphRunEnumerator"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.ColorGlyphRunEnumerator.MoveNext">
+            <summary>
+            HRESULT MoveNext([out] BOOL* haveRun)
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.ColorGlyphRunEnumerator.GetCurrentRun">
+            <summary>
+            HRESULT GetCurrentRun([out] DWRITE_COLOR_GLYPH_RUN** colorGlyphRun)
+            </summary>
+        </member>
         <member name="T:C1.Util.DX.DirectWrite.Font">
             <summary>	
             IDWriteFont	
@@ -37174,7 +38129,7 @@
             BOOL IDWriteFontFace1::HasKerningPairs()	
             </summary>	
         </member>
-        <member name="M:C1.Util.DX.DirectWrite.FontFace1.GetRecommendedRenderingMode(System.Single,System.Single,System.Single,System.Nullable{C1.Util.DX.Matrix3x2},C1.Util.DX.Bool,C1.Util.DX.DirectWrite.OutlineThreshold,C1.Util.DX.Direct2D.MeasuringMode)">
+        <member name="M:C1.Util.DX.DirectWrite.FontFace1.GetRecommendedRenderingMode(System.Single,System.Single,System.Single,System.Nullable{C1.Util.DX.Matrix3x2},C1.Util.DX.Bool,C1.Util.DX.DirectWrite.OutlineThreshold,C1.Util.DX.DirectWrite.MeasuringMode)">
             <summary>	
             HRESULT IDWriteFontFace1::GetRecommendedRenderingMode([In] float fontEmSize,[In] float dpiX,[In] float dpiY,[In, Optional] const DWRITE_MATRIX* transform,[In] BOOL isSideways,[In] DWRITE_OUTLINE_THRESHOLD outlineThreshold,[In] DWRITE_MEASURING_MODE measuringMode,[Out] DWRITE_RENDERING_MODE* renderingMode)	
             </summary>	
@@ -37289,6 +38244,27 @@
             float IDWriteRenderingParams1::GetGrayscaleEnhancedContrast()	
             </summary>	
         </member>
+        <member name="T:C1.Util.DX.DirectWrite.RenderingParams2">
+            <summary>
+            IDWriteRenderingParams2
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.RenderingParams2.#ctor(System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Util.DX.DirectWrite.RenderingParams2"/> class.
+            </summary>
+            <param name="nativePtr">The native pointer.</param>	
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.RenderingParams2.op_Explicit(System.IntPtr)~C1.Util.DX.DirectWrite.RenderingParams2">
+            <summary>
+            Performs an explicit conversion from <see cref="T:System.IntPtr"/> to <see cref="T:C1.Util.DX.DirectWrite.RenderingParams2"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.RenderingParams2.GetGridFitMode">
+            <summary>
+            DWRITE_GRID_FIT_MODE GetGridFitMode()
+            </summary>
+        </member>
         <member name="T:C1.Util.DX.DirectWrite.TextAnalysisSink">
             <summary>	
             IDWriteTextAnalysisSink	
@@ -37334,15 +38310,15 @@
         </member>
         <member name="M:C1.Util.DX.DirectWrite.TextAnalysisSink1.SetGlyphOrientation(System.Int32,System.Int32,C1.Util.DX.DirectWrite.GlyphOrientationAngle,System.Byte,C1.Util.DX.Bool,C1.Util.DX.Bool)">
             <summary>	
-            <p>The text analyzer calls back to this to report the actual orientation of each character for shaping and drawing.</p>	
+            The text analyzer calls back to this to report the actual orientation of each character for shaping and drawing.
             </summary>	
-            <param name="textPosition"><dd>  <p>The starting position to report from.</p> </dd></param>	
-            <param name="textLength"><dd>  <p>Number of UTF-16 units of the reported range.</p> </dd></param>	
-            <param name="glyphOrientationAngle"><dd>  <p>A <strong><see cref="T:C1.Util.DX.DirectWrite.GlyphOrientationAngle"/></strong>-typed value that specifies the angle of the glyphs within the text range (pass to <strong><see cref="M:C1.Util.DX.DirectWrite.TextAnalyzer1.GetGlyphOrientationTransform(C1.Util.DX.DirectWrite.GlyphOrientationAngle,C1.Util.DX.Bool,C1.Util.DX.Matrix3x2@)"/></strong> to get the world relative transform).</p> </dd></param>	
-            <param name="adjustedBidiLevel"><dd>  <p>The adjusted bidi level to be used by the client layout for reordering runs. This will differ from the resolved bidi level retrieved from the source for cases such as Arabic stacked top-to-bottom, where the glyphs are still shaped as RTL, but the runs are TTB along with any CJK or Latin.</p> </dd></param>	
-            <param name="isSideways"><dd>  <p>Whether the glyphs are rotated on their side, which is the default case for CJK and the case stacked Latin</p> </dd></param>	
-            <param name="isRightToLeft"><dd>  <p>Whether the script should be shaped as right-to-left. For Arabic stacked top-to-bottom, even when the adjusted bidi level is coerced to an even level, this will still be true.</p> </dd></param>	
-            <returns><p>Returns a successful code or an error code to abort analysis.</p></returns>	
+            <param name="textPosition">The starting position to report from.</param>	
+            <param name="textLength">Number of UTF-16 units of the reported range.</param>	
+            <param name="glyphOrientationAngle">A <strong><see cref="T:C1.Util.DX.DirectWrite.GlyphOrientationAngle"/></strong>-typed value that specifies the angle of the glyphs within the text range (pass to <strong><see cref="M:C1.Util.DX.DirectWrite.TextAnalyzer1.GetGlyphOrientationTransform(C1.Util.DX.DirectWrite.GlyphOrientationAngle,C1.Util.DX.Bool,C1.Util.DX.Matrix3x2@)"/></strong> to get the world relative transform).</param>	
+            <param name="adjustedBidiLevel">The adjusted bidi level to be used by the client layout for reordering runs. This will differ from the resolved bidi level retrieved from the source for cases such as Arabic stacked top-to-bottom, where the glyphs are still shaped as RTL, but the runs are TTB along with any CJK or Latin.</param>	
+            <param name="isSideways">Whether the glyphs are rotated on their side, which is the default case for CJK and the case stacked Latin</param>	
+            <param name="isRightToLeft">Whether the script should be shaped as right-to-left. For Arabic stacked top-to-bottom, even when the adjusted bidi level is coerced to an even level, this will still be true.</param>	
+            <returns>Returns a successful code or an error code to abort analysis.</returns>	
         </member>
         <member name="T:C1.Util.DX.DirectWrite.TextAnalysisSource">
             <summary>	
@@ -37390,7 +38366,7 @@
             Any implementation should return the number substitution with an incremented reference count, and the analysis will release when finished with it (either before the next call or before it returns). However, the sink callback may hold onto it after that. 	
             </remarks>	
             <param name="textPosition">The starting position from which to report. </param>
-            <param name="textLength">Contains  the length of the text, in characters, remaining in the text range up to the next differing number substitution. </param>
+            <param name="textLength">Contains the length of the text, in characters, remaining in the text range up to the next differing number substitution. </param>
             <returns>the number substitution from the text range affected by the text analysis.</returns>
         </member>
         <member name="P:C1.Util.DX.DirectWrite.TextAnalysisSource.ReadingDirection">
@@ -37405,6 +38381,54 @@
             </summary>	
         </member>
         <member name="M:C1.Util.DX.DirectWrite.TextAnalysisSource1.GetVerticalGlyphOrientation(System.Int32,System.Int32@,C1.Util.DX.DirectWrite.VerticalGlyphOrientation@,System.Byte@)">
+            <summary>	
+            Used by the text analyzer to obtain the desired glyph orientation and resolved bidi level.
+            </summary>	
+            <param name="textPosition">The text position.</param>	
+            <param name="textLength">A reference to the text length.</param>	
+            <param name="glyphOrientation">A <strong><see cref="T:C1.Util.DX.DirectWrite.VerticalGlyphOrientation"/></strong>-typed value that specifies the desired kind of glyph orientation for the text.</param>	
+            <param name="bidiLevel">A reference to the resolved bidi level.</param>	
+            <remarks>	
+            The text analyzer calls back to this to get the desired glyph orientation and resolved bidi level, which it uses along with the script properties of the text to determine the actual orientation of each character, which it reports back to the client via the sink SetGlyphOrientation method.
+            </remarks>	
+        </member>
+        <member name="T:C1.Util.DX.DirectWrite.TextAnalysisQuickSource">
+            <summary>	
+            IDWriteTextAnalysisSource	
+            </summary>	
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.TextAnalysisQuickSource.GetNumberSubstitution(System.Int32,System.Int32@)">
+            <summary>	
+            Gets the number substitution from the text range affected by the text analysis.	
+            </summary>	
+            <remarks>	
+            Any implementation should return the number substitution with an incremented reference count, and the analysis will release when finished with it (either before the next call or before it returns). However, the sink callback may hold onto it after that. 	
+            </remarks>	
+            <param name="textPosition">The starting position from which to report. </param>
+            <param name="textLength">Contains the length of the text, in characters, remaining in the text range up to the next differing number substitution. </param>
+            <returns>the number substitution from the text range affected by the text analysis.</returns>
+        </member>
+        <member name="P:C1.Util.DX.DirectWrite.TextAnalysisQuickSource.Text">
+            <summary>	
+            Gets the text.
+            </summary>	
+        </member>
+        <member name="P:C1.Util.DX.DirectWrite.TextAnalysisQuickSource.ReadingDirection">
+            <summary>	
+            Gets the paragraph reading direction.	
+            </summary>	
+        </member>
+        <member name="P:C1.Util.DX.DirectWrite.TextAnalysisQuickSource.LocaleName">
+            <summary>
+            Gets the locale name.
+            </summary>
+        </member>
+        <member name="T:C1.Util.DX.DirectWrite.TextAnalysisQuickSource1">
+            <summary>	
+            IDWriteTextAnalysisSource1	
+            </summary>	
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.TextAnalysisQuickSource1.GetVerticalGlyphOrientation(System.Int32,System.Int32@,C1.Util.DX.DirectWrite.VerticalGlyphOrientation@,System.Byte@)">
             <summary>	
             Used by the text analyzer to obtain the desired glyph orientation and resolved bidi level.
             </summary>	
@@ -37480,6 +38504,84 @@
             <summary>	
             unsigned short padding	
             </summary>	
+        </member>
+        <member name="T:C1.Util.DX.DirectWrite.ColorGlyphRun">
+            <summary>
+            DWRITE_COLOR_GLYPH_RUN
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.ColorGlyphRun.FontSize">
+            <summary>	
+            float fontEmSize	
+            </summary>	
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.ColorGlyphRun.GlyphCount">
+            <summary>	
+            unsigned int glyphCount	
+            </summary>	
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.ColorGlyphRun.IsSideways">
+            <summary>	
+            BOOL isSideways	
+            </summary>	
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.ColorGlyphRun.BidiLevel">
+            <summary>	
+            unsigned int bidiLevel	
+            </summary>	
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.ColorGlyphRun.FontFace">
+            <summary>
+            Gets or sets the <see cref="F:C1.Util.DX.DirectWrite.ColorGlyphRun.FontFace"/> associated with this GlypRun.
+            </summary>
+            <value>The font face.</value>
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.ColorGlyphRun.Indices">
+            <summary>
+            An array of glyph indices. This array contains <see cref="F:C1.Util.DX.DirectWrite.ColorGlyphRun.GlyphCount"/> elements.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.ColorGlyphRun.Advances">
+            <summary>
+            An optional array of glyph advances. This array could be null or contains <see cref="F:C1.Util.DX.DirectWrite.ColorGlyphRun.GlyphCount"/> elements.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.ColorGlyphRun.Offsets">
+            <summary>
+            An optional array of glyph offsets. This array could be null or contains <see cref="F:C1.Util.DX.DirectWrite.ColorGlyphRun.GlyphCount"/> elements.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.ColorGlyphRun.GlyphRunDescription">
+            <summary>
+            Optional glyph run description.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.ColorGlyphRun.BaselineOriginX">
+            <summary>
+            X-coordinate at which to draw this glyph run.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.ColorGlyphRun.BaselineOriginY">
+            <summary>
+            Y-coordinate at which to draw this glyph run.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.ColorGlyphRun.RunColor">
+            <summary>
+            Color to use for this layer, if any.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.ColorGlyphRun.PaletteIndex">
+            <summary>
+            Zero-based index of this layer's color entry in the current color
+            palette, or -1 if this layer is to be rendered using 
+            the current foreground brush.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.DirectWrite.ColorGlyphRun.Dispose">
+            <summary>
+            Clean up any resources being used.
+            </summary>
         </member>
         <member name="T:C1.Util.DX.DirectWrite.FontFeature">
             <summary>	
@@ -37708,31 +38810,61 @@
             unsigned int bidiLevel	
             </summary>	
         </member>
+        <member name="F:C1.Util.DX.DirectWrite.GlyphRun.FontFace">
+            <summary>
+            Gets or sets the <see cref="F:C1.Util.DX.DirectWrite.GlyphRun.FontFace"/> associated with this GlypRun.
+            </summary>
+            <value>The font face.</value>
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.GlyphRun.Indices">
+            <summary>
+            An array of glyph indices. This array contains <see cref="F:C1.Util.DX.DirectWrite.GlyphRun.GlyphCount"/> elements.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.GlyphRun.Advances">
+            <summary>
+            An optional array of glyph advances. This array could be null or contains <see cref="F:C1.Util.DX.DirectWrite.GlyphRun.GlyphCount"/> elements.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.GlyphRun.Offsets">
+            <summary>
+            An optional array of glyph offsets. This array could be null or contains <see cref="F:C1.Util.DX.DirectWrite.GlyphRun.GlyphCount"/> elements.
+            </summary>
+        </member>
         <member name="M:C1.Util.DX.DirectWrite.GlyphRun.Dispose">
             <summary>
             Clean up any resources being used.
             </summary>
         </member>
-        <member name="P:C1.Util.DX.DirectWrite.GlyphRun.FontFace">
-            <summary>
-            Gets or sets the <see cref="P:C1.Util.DX.DirectWrite.GlyphRun.FontFace"/> associated with this GlypRun.
-            </summary>
-            <value>The font face.</value>
+        <member name="T:C1.Util.DX.DirectWrite.GlyphRunDescription">
+            <summary>	
+            DWRITE_GLYPH_RUN_DESCRIPTION	
+            </summary>	
         </member>
-        <member name="P:C1.Util.DX.DirectWrite.GlyphRun.Indices">
-            <summary>
-            An array of glyph indices. This array contains <see cref="F:C1.Util.DX.DirectWrite.GlyphRun.GlyphCount"/> elements.
-            </summary>
+        <member name="F:C1.Util.DX.DirectWrite.GlyphRunDescription.LocaleName">
+            <summary>	
+            const wchar_t* localeName	
+            </summary>	
         </member>
-        <member name="P:C1.Util.DX.DirectWrite.GlyphRun.Advances">
-            <summary>
-            An optional array of glyph advances. This array could be null or contains <see cref="F:C1.Util.DX.DirectWrite.GlyphRun.GlyphCount"/> elements.
-            </summary>
+        <member name="F:C1.Util.DX.DirectWrite.GlyphRunDescription.Text">
+            <summary>	
+            const wchar_t* string	
+            </summary>	
         </member>
-        <member name="P:C1.Util.DX.DirectWrite.GlyphRun.Offsets">
-            <summary>
-            An optional array of glyph offsets. This array could be null or contains <see cref="F:C1.Util.DX.DirectWrite.GlyphRun.GlyphCount"/> elements.
-            </summary>
+        <member name="F:C1.Util.DX.DirectWrite.GlyphRunDescription.TextLength">
+            <summary>	
+            unsigned int stringLength	
+            </summary>	
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.GlyphRunDescription.ClusterMap">
+            <summary>	
+            const unsigned short* clusterMap	
+            </summary>	
+        </member>
+        <member name="F:C1.Util.DX.DirectWrite.GlyphRunDescription.TextPosition">
+            <summary>	
+            unsigned int textPosition	
+            </summary>	
         </member>
         <member name="T:C1.Util.DX.DirectWrite.HitTestMetrics">
             <summary>	
@@ -38528,7 +39660,7 @@
         </member>
         <member name="T:C1.Util.DX.DirectWrite.UnicodeRange">
             <summary>	
-            DWRITE_UNICODE_RANGE	
+            DWRITE_UNICODE_RANGE
             </summary>	
         </member>
         <member name="F:C1.Util.DX.DirectWrite.UnicodeRange.First">
@@ -42242,6 +43374,173 @@
             Gets the keys.
             </summary>
         </member>
+        <member name="T:C1.Util.DX.Storage.NativeFile">
+            <summary>
+            Windows File Helper.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Storage.NativeFile.Exists(System.String)">
+            <summary>
+            Checks if the specified file path exists.
+            </summary>
+            <param name="filePath">The file path.</param>
+            <returns><c>true</c> if the specified file path exists, <c>false</c> otherwise</returns>
+        </member>
+        <member name="M:C1.Util.DX.Storage.NativeFile.ReadAllBytes(System.String)">
+            <summary>
+            Opens a binary file, reads the contents of the file into a byte array, and then closes the file.
+            </summary>
+            <param name="path">The file to open for reading. </param>
+            <returns>A byte array containing the contents of the file.</returns>
+        </member>
+        <member name="M:C1.Util.DX.Storage.NativeFile.ReadAllText(System.String)">
+            <summary>
+            Opens a text file, reads all lines of the file, and then closes the file.
+            </summary>
+            <param name="path">The file to open for reading. </param>
+            <returns>A string containing all lines of the file.</returns>
+        </member>
+        <member name="M:C1.Util.DX.Storage.NativeFile.ReadAllText(System.String,System.Text.Encoding,C1.Util.DX.Storage.NativeFileShare)">
+            <summary>
+            Opens a text file, reads all lines of the file, and then closes the file.
+            </summary>
+            <param name="path">The file to open for reading.</param>
+            <param name="encoding">The encoding.</param>
+            <param name="sharing">The sharing.</param>
+            <returns>A string containing all lines of the file.</returns>
+        </member>
+        <member name="M:C1.Util.DX.Storage.NativeFile.GetLastWriteTime(System.String)">
+            <summary>
+            Gets the last write time access for the specified path.
+            </summary>
+            <param name="path">The path.</param>
+            <returns>The last write time access</returns>
+        </member>
+        <member name="M:C1.Util.DX.Storage.NativeFile.ReadFile(System.IntPtr,System.IntPtr,System.Int32,System.Int32@,System.IntPtr)">
+            <summary>
+            Reads to a file.
+            </summary>
+            <param name="fileHandle">The file handle.</param>
+            <param name="buffer">The buffer.</param>
+            <param name="numberOfBytesToRead">The number of bytes to read.</param>
+            <param name="numberOfBytesRead">The number of bytes read.</param>
+            <param name="overlapped">The overlapped.</param>
+        </member>
+        <member name="M:C1.Util.DX.Storage.NativeFile.WriteFile(System.IntPtr,System.IntPtr,System.Int32,System.Int32@,System.IntPtr)">
+            <summary>
+            Writes to a file.
+            </summary>
+            <param name="fileHandle">The file handle.</param>
+            <param name="buffer">The buffer.</param>
+            <param name="numberOfBytesToRead">The number of bytes to read.</param>
+            <param name="numberOfBytesRead">The number of bytes read.</param>
+            <param name="overlapped">The overlapped.</param>
+        </member>
+        <member name="M:C1.Util.DX.Storage.NativeFile.SetFilePointerEx(System.IntPtr,System.Int64,System.Int64@,System.IO.SeekOrigin)">
+            <summary>
+            Sets the file pointer.
+            </summary>
+            <param name="handle">The handle.</param>
+            <param name="distanceToMove">The distance to move.</param>
+            <param name="distanceToMoveHigh">The distance to move high.</param>
+            <param name="seekOrigin">The seek origin.</param>
+        </member>
+        <member name="M:C1.Util.DX.Storage.NativeFile.SetEndOfFile(System.IntPtr)">
+            <summary>
+            Sets the end of file.
+            </summary>
+            <param name="handle">The handle.</param>
+        </member>
+        <member name="M:C1.Util.DX.Storage.NativeFile.Create(System.String,C1.Util.DX.Storage.NativeFileAccess,C1.Util.DX.Storage.NativeFileShare,System.IntPtr,C1.Util.DX.Storage.NativeFileMode,C1.Util.DX.Storage.NativeFileOptions,System.IntPtr)">
+            <summary>
+            Creates the file.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <param name="desiredAccess">The desired access.</param>
+            <param name="shareMode">The share mode.</param>
+            <param name="securityAttributes">The security attributes.</param>
+            <param name="mode">The creation disposition.</param>
+            <param name="flagsAndOptions">The flags and attributes.</param>
+            <param name="templateFile">The template file.</param>
+            <returns>A handle to the created file. IntPtr.Zero if failed.</returns>
+        </member>
+        <member name="M:C1.Util.DX.Storage.NativeFile.GetFileSizeEx(System.IntPtr,System.Int64@)">
+            <summary>
+            Gets the size of the file.
+            </summary>
+            <param name="handle">The handle.</param>
+            <param name="fileSize">Size of the file.</param>
+        </member>
+        <member name="T:C1.Util.DX.Storage.NativeFileStream">
+            <summary>
+            Windows File Helper.
+            </summary>
+        </member>
+        <member name="M:C1.Util.DX.Storage.NativeFileStream.#ctor(System.String,C1.Util.DX.Storage.NativeFileMode,C1.Util.DX.Storage.NativeFileAccess,C1.Util.DX.Storage.NativeFileShare)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Util.DX.Storage.NativeFileStream"/> class.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <param name="fileMode">The file mode.</param>
+            <param name="access">The access mode.</param>
+            <param name="share">The share mode.</param>
+        </member>
+        <member name="M:C1.Util.DX.Storage.NativeFileStream.Flush">
+            <inheritdoc/>
+        </member>
+        <member name="M:C1.Util.DX.Storage.NativeFileStream.Seek(System.Int64,System.IO.SeekOrigin)">
+            <inheritdoc/>
+        </member>
+        <member name="M:C1.Util.DX.Storage.NativeFileStream.SetLength(System.Int64)">
+            <inheritdoc/>
+        </member>
+        <member name="M:C1.Util.DX.Storage.NativeFileStream.Read(System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:C1.Util.DX.Storage.NativeFileStream.Read(System.IntPtr,System.Int32,System.Int32)">
+            <summary>
+            Reads a block of bytes from the stream and writes the data in a given buffer.
+            </summary>
+            <param name="buffer">When this method returns, contains the specified buffer with the values between offset and (offset + count - 1) replaced by the bytes read from the current source. </param>
+            <param name="offset">The byte offset in array at which the read bytes will be placed. </param>
+            <param name="count">The maximum number of bytes to read. </param>
+            <exception cref="T:System.ArgumentNullException">array is null. </exception>
+            <returns>The total number of bytes read into the buffer. This might be less than the number of bytes requested if that number of bytes are not currently available, or zero if the end of the stream is reached.</returns>
+        </member>
+        <member name="M:C1.Util.DX.Storage.NativeFileStream.Write(System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:C1.Util.DX.Storage.NativeFileStream.Write(System.IntPtr,System.Int32,System.Int32)">
+            <summary>
+            Writes a block of bytes to this stream using data from a buffer.
+            </summary>
+            <param name="buffer">The buffer containing data to write to the stream.</param>
+            <param name="offset">The zero-based byte offset in buffer at which to begin copying bytes to the current stream. </param>
+            <param name="count">The number of bytes to be written to the current stream. </param>
+        </member>
+        <member name="M:C1.Util.DX.Storage.NativeFileStream.Dispose(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="P:C1.Util.DX.Storage.NativeFileStream.Handle">
+            <summary>
+            Gets the stream handle.
+            </summary>
+        </member>
+        <member name="P:C1.Util.DX.Storage.NativeFileStream.CanRead">
+            <inheritdoc/>
+        </member>
+        <member name="P:C1.Util.DX.Storage.NativeFileStream.CanSeek">
+            <inheritdoc/>
+        </member>
+        <member name="P:C1.Util.DX.Storage.NativeFileStream.CanWrite">
+            <inheritdoc/>
+        </member>
+        <member name="P:C1.Util.DX.Storage.NativeFileStream.Length">
+            <inheritdoc/>
+        </member>
+        <member name="P:C1.Util.DX.Storage.NativeFileStream.Position">
+            <inheritdoc/>
+        </member>
         <member name="T:C1.Util.DX.Storage.CommitFlags">
             <summary>	
             STGC	
@@ -42320,6 +43619,211 @@
         <member name="F:C1.Util.DX.Storage.NativeFileAccess.All">
             <summary>
             All access
+            </summary>
+        </member>
+        <member name="T:C1.Util.DX.Storage.NativeFileMode">
+            <summary>
+            Native file creation disposition.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileMode.CreateNew">
+            <summary>
+            Creates a new file. The function fails if a specified file exists.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileMode.Create">
+            <summary>
+            Creates a new file, always.
+            If a file exists, the function overwrites the file, clears the existing attributes, combines the specified file attributes,
+            and flags with FILE_ATTRIBUTE_ARCHIVE, but does not set the security descriptor that the SECURITY_ATTRIBUTES structure specifies.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileMode.Open">
+            <summary>
+            Opens a file. The function fails if the file does not exist.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileMode.OpenOrCreate">
+            <summary>
+            Opens a file, always.
+            If a file does not exist, the function creates a file as if dwCreationDisposition is CREATE_NEW.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileMode.Truncate">
+            <summary>
+            Opens a file and truncates it so that its size is 0 (zero) bytes. The function fails if the file does not exist.
+            The calling process must open the file with the GENERIC_WRITE access right.
+            </summary>
+        </member>
+        <member name="T:C1.Util.DX.Storage.NativeFileOptions">
+            <summary>
+            Native file attributes.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.None">
+            <summary>
+            None attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.Readonly">
+            <summary>
+            Read only attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.Hidden">
+            <summary>
+            Hidden attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.System">
+            <summary>
+            System attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.Directory">
+            <summary>
+            Directory attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.Archive">
+            <summary>
+            Archive attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.Device">
+            <summary>
+            Device attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.Normal">
+            <summary>
+            Normal attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.Temporary">
+            <summary>
+            Temporary attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.SparseFile">
+            <summary>
+            Sparse file attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.ReparsePoint">
+            <summary>
+            ReparsePoint attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.Compressed">
+            <summary>
+            Compressed attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.Offline">
+            <summary>
+            Offline attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.NotContentIndexed">
+            <summary>
+            Not content indexed attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.Encrypted">
+            <summary>
+            Encrypted attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.Write_Through">
+            <summary>
+            Write through attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.Overlapped">
+            <summary>
+            Overlapped attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.NoBuffering">
+            <summary>
+            No buffering attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.RandomAccess">
+            <summary>
+            Random access attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.SequentialScan">
+            <summary>
+            Sequential scan attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.DeleteOnClose">
+            <summary>
+            Delete on close attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.BackupSemantics">
+            <summary>
+            Backup semantics attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.PosixSemantics">
+            <summary>
+            Post semantics attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.OpenReparsePoint">
+            <summary>
+            Open reparse point attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.OpenNoRecall">
+            <summary>
+            Open no recall attribute.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileOptions.FirstPipeInstance">
+            <summary>
+            First pipe instance attribute.
+            </summary>
+        </member>
+        <member name="T:C1.Util.DX.Storage.NativeFileShare">
+            <summary>
+            Native file share.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileShare.None">
+            <summary>
+            None flag.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileShare.Read">
+            <summary>
+            Enables subsequent open operations on an object to request read access.
+            Otherwise, other processes cannot open the object if they request read access.
+            If this flag is not specified, but the object has been opened for read access, the function fails.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileShare.Write">
+            <summary>
+            Enables subsequent open operations on an object to request write access.
+            Otherwise, other processes cannot open the object if they request write access.
+            If this flag is not specified, but the object has been opened for write access, the function fails.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileShare.ReadWrite">
+            <summary>
+            Read and Write flags.
+            </summary>
+        </member>
+        <member name="F:C1.Util.DX.Storage.NativeFileShare.Delete">
+            <summary>
+            Enables subsequent open operations on an object to request delete access.
+            Otherwise, other processes cannot open the object if they request delete access.
+            If this flag is not specified, but the object has been opened for delete access, the function fails.
             </summary>
         </member>
         <member name="T:C1.Util.DX.Storage.StorageStatisticsFlags">
@@ -42701,6 +44205,11 @@
         <member name="P:C1.Util.DX.Storage.Variant.Type">
             <summary>
             Gets the type.
+            </summary>
+        </member>
+        <member name="P:C1.Util.DX.Storage.Variant.PrimitiveType">
+            <summary>
+            Gets the primitive Type.
             </summary>
         </member>
         <member name="P:C1.Util.DX.Storage.Variant.Value">
@@ -43462,14 +44971,12 @@
             Initializes the encoder with the provided stream.
             </summary>
             <param name="stream">The stream to use for initialization.</param>
-            <returns>If the method succeeds, it returns <see cref="F:C1.Util.DX.HResult.Ok"/>. Otherwise, it throws an exception.</returns>
         </member>
         <member name="M:C1.Util.DX.WIC.BitmapEncoder.Initialize(System.IO.Stream)">
             <summary>
             Initializes the encoder with the provided stream.
             </summary>
             <param name="stream">The stream to use for initialization.</param>
-            <returns>If the method succeeds, it returns <see cref="F:C1.Util.DX.HResult.Ok"/>. Otherwise, it throws an exception.</returns>
         </member>
         <member name="M:C1.Util.DX.WIC.BitmapEncoder.SetColorContexts(C1.Util.DX.WIC.ColorContext[])">
             <summary>

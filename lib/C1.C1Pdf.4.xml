@@ -352,7 +352,7 @@
             Gets or sets a value indicating whether to embed fonts separately for each page of the document.
             The default is false, which produces smaller file sizes but in some rare cases may result
             in incorrect font substitutions.
-            <para>Note that if <see cref="P:C1.C1Pdf.C1PdfDocumentBase.FontType" /> is not <see cref="!:PdfFontType.Embedded" />, this property is not used.</para></summary>
+            <para>Note that if <see cref="P:C1.C1Pdf.C1PdfDocumentBase.FontType" /> is not <b>Embedded</b>, this property is not used.</para></summary>
     </member>
     <member name="P:C1.C1Pdf.C1PdfDocumentBase.UseFileCaching">
       <summary>
@@ -450,8 +450,7 @@
       <summary>
             Sets the clipping area.
             </summary>
-      <param name="rc">
-        <see cref="!:Rect" /> that specifies the area to clip.</param>
+      <param name="rc">A rectangle that specifies the area to clip.</param>
     </member>
     <member name="M:C1.C1Pdf.C1PdfDocument.ResetClipRect">
       <summary>
@@ -1171,7 +1170,7 @@
             </summary>
       <param name="text">Text that appears on the outline tree.</param>
       <param name="level">Outline level (zero is the top level).</param>
-      <param name="target">Exist target name of this document (<see cref="M:C1.C1Pdf.C1PdfDocument.AddTarget(System.String,System.Drawing.RectangleF)" />).</param>
+      <param name="target">Exist target name of this document from AddTarget method.</param>
     </member>
     <member name="M:C1.C1Pdf.C1PdfDocument.AddLink(System.String,System.Drawing.RectangleF)">
       <summary>
