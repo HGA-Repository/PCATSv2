@@ -266,6 +266,7 @@ namespace RSMPS
             this.label14.Size = new System.Drawing.Size(53, 13);
             this.label14.TabIndex = 22;
             this.label14.Text = "Lead PM:";
+            this.label14.Visible = false;
             this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // cboManagerLead
@@ -280,6 +281,7 @@ namespace RSMPS
             this.cboManagerLead.Name = "cboManagerLead";
             this.cboManagerLead.Size = new System.Drawing.Size(206, 21);
             this.cboManagerLead.TabIndex = 12;
+            this.cboManagerLead.Visible = false;
             this.cboManagerLead.SelectedIndexChanged += new System.EventHandler(this.cboManagerLead_SelectedIndexChanged);
             // 
             // label12
@@ -573,6 +575,7 @@ namespace RSMPS
             this.tdbgBudget.AllowSort = false;
             this.tdbgBudget.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tdbgBudget.BorderColor = System.Drawing.SystemColors.WindowFrame;
             this.tdbgBudget.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tdbgBudget.GroupByCaption = "Drag a column header here to group by that column";
             this.tdbgBudget.Images.Add(((System.Drawing.Image)(resources.GetObject("tdbgBudget.Images"))));
@@ -585,6 +588,7 @@ namespace RSMPS
             this.tdbgBudget.Size = new System.Drawing.Size(190, 60);
             this.tdbgBudget.TabIndex = 0;
             this.tdbgBudget.Text = "c1TrueDBGrid1";
+            this.tdbgBudget.UseCompatibleTextRendering = true;
             this.tdbgBudget.AfterColUpdate += new C1.Win.C1TrueDBGrid.ColEventHandler(this.tdbgBudget_AfterColUpdate);
             this.tdbgBudget.PropBag = resources.GetString("tdbgBudget.PropBag");
             // 

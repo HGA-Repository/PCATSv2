@@ -521,11 +521,11 @@ namespace RSMPS
                 retVal = false;
                 msg = "Please select a Project Manager.";
             }
-            else if (cboManagerLead.Text.Length < 1)
-            {
-                retVal = false;
-                msg = "Please select a Lead Project Manager.";
-            }
+            //else if (cboManagerLead.Text.Length < 1)
+            //{
+            //    retVal = false;
+            //    msg = "Please select a Lead Project Manager.";
+            //}
             else if (cboRateSched.Text.Length < 1)
             {
                 retVal = false;
